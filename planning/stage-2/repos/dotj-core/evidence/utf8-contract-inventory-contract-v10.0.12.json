@@ -1,0 +1,3507 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "8142fb94f38b90a9f46c0e5b5758db9ab27782a331cc8dbd5cb40505ced744ea",
+  "types": [
+    {
+      "fullName": "System.Text.Encoding",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "constructors": [],
+      "interfaces": [
+        "System.ICloneable"
+      ],
+      "methods": [
+        {
+          "name": "get_Default",
+          "signature": "System.Text.Encoding get_Default()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": []
+        },
+        {
+          "name": "Convert",
+          "signature": "Byte[] Convert(System.Text.Encoding, System.Text.Encoding, Byte[])",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte[]",
+          "parameters": [
+            {
+              "name": "srcEncoding",
+              "type": "System.Text.Encoding",
+              "isOut": false
+            },
+            {
+              "name": "dstEncoding",
+              "type": "System.Text.Encoding",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Convert",
+          "signature": "Byte[] Convert(System.Text.Encoding, System.Text.Encoding, Byte[], Int32, Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte[]",
+          "parameters": [
+            {
+              "name": "srcEncoding",
+              "type": "System.Text.Encoding",
+              "isOut": false
+            },
+            {
+              "name": "dstEncoding",
+              "type": "System.Text.Encoding",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "RegisterProvider",
+          "signature": "Void RegisterProvider(System.Text.EncodingProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.Text.EncodingProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetEncoding",
+          "signature": "System.Text.Encoding GetEncoding(Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": [
+            {
+              "name": "codepage",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetEncoding",
+          "signature": "System.Text.Encoding GetEncoding(Int32, System.Text.EncoderFallback, System.Text.DecoderFallback)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": [
+            {
+              "name": "codepage",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "encoderFallback",
+              "type": "System.Text.EncoderFallback",
+              "isOut": false
+            },
+            {
+              "name": "decoderFallback",
+              "type": "System.Text.DecoderFallback",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetEncoding",
+          "signature": "System.Text.Encoding GetEncoding(System.String)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetEncoding",
+          "signature": "System.Text.Encoding GetEncoding(System.String, System.Text.EncoderFallback, System.Text.DecoderFallback)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "encoderFallback",
+              "type": "System.Text.EncoderFallback",
+              "isOut": false
+            },
+            {
+              "name": "decoderFallback",
+              "type": "System.Text.DecoderFallback",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetEncodings",
+          "signature": "System.Text.EncodingInfo[] GetEncodings()",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.EncodingInfo[]",
+          "parameters": []
+        },
+        {
+          "name": "GetPreamble",
+          "signature": "Byte[] GetPreamble()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte[]",
+          "parameters": []
+        },
+        {
+          "name": "get_Preamble",
+          "signature": "System.ReadOnlySpan`1[System.Byte] get_Preamble()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.ReadOnlySpan`1[System.Byte]",
+          "parameters": []
+        },
+        {
+          "name": "get_BodyName",
+          "signature": "System.String get_BodyName()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_EncodingName",
+          "signature": "System.String get_EncodingName()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_HeaderName",
+          "signature": "System.String get_HeaderName()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_WebName",
+          "signature": "System.String get_WebName()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_WindowsCodePage",
+          "signature": "Int32 get_WindowsCodePage()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "get_IsBrowserDisplay",
+          "signature": "Boolean get_IsBrowserDisplay()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsBrowserSave",
+          "signature": "Boolean get_IsBrowserSave()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsMailNewsDisplay",
+          "signature": "Boolean get_IsMailNewsDisplay()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsMailNewsSave",
+          "signature": "Boolean get_IsMailNewsSave()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsSingleByte",
+          "signature": "Boolean get_IsSingleByte()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_EncoderFallback",
+          "signature": "System.Text.EncoderFallback get_EncoderFallback()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.EncoderFallback",
+          "parameters": []
+        },
+        {
+          "name": "set_EncoderFallback",
+          "signature": "Void set_EncoderFallback(System.Text.EncoderFallback)",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Text.EncoderFallback",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "get_DecoderFallback",
+          "signature": "System.Text.DecoderFallback get_DecoderFallback()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.DecoderFallback",
+          "parameters": []
+        },
+        {
+          "name": "set_DecoderFallback",
+          "signature": "Void set_DecoderFallback(System.Text.DecoderFallback)",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Text.DecoderFallback",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Clone",
+          "signature": "System.Object Clone()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Object",
+          "parameters": []
+        },
+        {
+          "name": "get_IsReadOnly",
+          "signature": "Boolean get_IsReadOnly()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_ASCII",
+          "signature": "System.Text.Encoding get_ASCII()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": []
+        },
+        {
+          "name": "get_Latin1",
+          "signature": "System.Text.Encoding get_Latin1()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": []
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(Char[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(Char[], Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(System.String, Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(Char*, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(System.ReadOnlySpan`1[System.Char])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Byte[] GetBytes(Char[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte[]",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Byte[] GetBytes(Char[], Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte[]",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(Char[], Int32, Int32, Byte[], Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Byte[] GetBytes(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte[]",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Byte[] GetBytes(System.String, Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte[]",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(System.String, Int32, Int32, Byte[], Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(Char*, Int32, Byte*, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(System.ReadOnlySpan`1[System.Char], System.Span`1[System.Byte])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Span`1[System.Byte]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryGetBytes",
+          "signature": "Boolean TryGetBytes(System.ReadOnlySpan`1[System.Char], System.Span`1[System.Byte], Int32 ByRef)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Span`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "bytesWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(Byte[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(Byte[], Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(Byte*, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(System.ReadOnlySpan`1[System.Byte])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Char[] GetChars(Byte[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Char[]",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Char[] GetChars(Byte[], Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Char[]",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Int32 GetChars(Byte[], Int32, Int32, Char[], Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Int32 GetChars(Byte*, Int32, Char*, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Int32 GetChars(System.ReadOnlySpan`1[System.Byte], System.Span`1[System.Char])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Span`1[System.Char]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryGetChars",
+          "signature": "Boolean TryGetChars(System.ReadOnlySpan`1[System.Byte], System.Span`1[System.Char], Int32 ByRef)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Span`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "charsWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "GetString",
+          "signature": "System.String GetString(Byte*, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetString",
+          "signature": "System.String GetString(System.ReadOnlySpan`1[System.Byte])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "get_CodePage",
+          "signature": "Int32 get_CodePage()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "IsAlwaysNormalized",
+          "signature": "Boolean IsAlwaysNormalized()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "IsAlwaysNormalized",
+          "signature": "Boolean IsAlwaysNormalized(System.Text.NormalizationForm)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "form",
+              "type": "System.Text.NormalizationForm",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetDecoder",
+          "signature": "System.Text.Decoder GetDecoder()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.Decoder",
+          "parameters": []
+        },
+        {
+          "name": "GetEncoder",
+          "signature": "System.Text.Encoder GetEncoder()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoder",
+          "parameters": []
+        },
+        {
+          "name": "GetMaxByteCount",
+          "signature": "Int32 GetMaxByteCount(Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetMaxCharCount",
+          "signature": "Int32 GetMaxCharCount(Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetString",
+          "signature": "System.String GetString(Byte[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetString",
+          "signature": "System.String GetString(Byte[], Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "get_Unicode",
+          "signature": "System.Text.Encoding get_Unicode()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": []
+        },
+        {
+          "name": "get_BigEndianUnicode",
+          "signature": "System.Text.Encoding get_BigEndianUnicode()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": []
+        },
+        {
+          "name": "get_UTF7",
+          "signature": "System.Text.Encoding get_UTF7()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": []
+        },
+        {
+          "name": "get_UTF8",
+          "signature": "System.Text.Encoding get_UTF8()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": []
+        },
+        {
+          "name": "get_UTF32",
+          "signature": "System.Text.Encoding get_UTF32()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoding",
+          "parameters": []
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "CreateTranscodingStream",
+          "signature": "System.IO.Stream CreateTranscodingStream(System.IO.Stream, System.Text.Encoding, System.Text.Encoding, Boolean)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.IO.Stream",
+          "parameters": [
+            {
+              "name": "innerStream",
+              "type": "System.IO.Stream",
+              "isOut": false
+            },
+            {
+              "name": "innerStreamEncoding",
+              "type": "System.Text.Encoding",
+              "isOut": false
+            },
+            {
+              "name": "outerStreamEncoding",
+              "type": "System.Text.Encoding",
+              "isOut": false
+            },
+            {
+              "name": "leaveOpen",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Default",
+          "type": "System.Text.Encoding",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "Preamble",
+          "type": "System.ReadOnlySpan`1[System.Byte]",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "BodyName",
+          "type": "System.String",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "EncodingName",
+          "type": "System.String",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "HeaderName",
+          "type": "System.String",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "WebName",
+          "type": "System.String",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "WindowsCodePage",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "IsBrowserDisplay",
+          "type": "System.Boolean",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "IsBrowserSave",
+          "type": "System.Boolean",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "IsMailNewsDisplay",
+          "type": "System.Boolean",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "IsMailNewsSave",
+          "type": "System.Boolean",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "IsSingleByte",
+          "type": "System.Boolean",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "EncoderFallback",
+          "type": "System.Text.EncoderFallback",
+          "getter": true,
+          "setter": true
+        },
+        {
+          "name": "DecoderFallback",
+          "type": "System.Text.DecoderFallback",
+          "getter": true,
+          "setter": true
+        },
+        {
+          "name": "IsReadOnly",
+          "type": "System.Boolean",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "ASCII",
+          "type": "System.Text.Encoding",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "Latin1",
+          "type": "System.Text.Encoding",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "CodePage",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "Unicode",
+          "type": "System.Text.Encoding",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "BigEndianUnicode",
+          "type": "System.Text.Encoding",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "UTF7",
+          "type": "System.Text.Encoding",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "UTF8",
+          "type": "System.Text.Encoding",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "UTF32",
+          "type": "System.Text.Encoding",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.UTF8Encoding",
+      "baseType": "System.Text.Encoding",
+      "isAbstract": false,
+      "isSealed": false,
+      "constructors": [
+        "Void .ctor()",
+        "Void .ctor(Boolean)",
+        "Void .ctor(Boolean, Boolean)"
+      ],
+      "interfaces": [
+        "System.ICloneable"
+      ],
+      "methods": [
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(Char[], Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(Char*, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(System.ReadOnlySpan`1[System.Char])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(System.String, Int32, Int32, Byte[], Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(Char[], Int32, Int32, Byte[], Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(Char*, Int32, Byte*, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(System.ReadOnlySpan`1[System.Char], System.Span`1[System.Byte])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Span`1[System.Byte]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryGetBytes",
+          "signature": "Boolean TryGetBytes(System.ReadOnlySpan`1[System.Char], System.Span`1[System.Byte], Int32 ByRef)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Span`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "bytesWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(Byte[], Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(Byte*, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(System.ReadOnlySpan`1[System.Byte])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Int32 GetChars(Byte[], Int32, Int32, Char[], Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Int32 GetChars(Byte*, Int32, Char*, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Int32 GetChars(System.ReadOnlySpan`1[System.Byte], System.Span`1[System.Char])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Span`1[System.Char]",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryGetChars",
+          "signature": "Boolean TryGetChars(System.ReadOnlySpan`1[System.Byte], System.Span`1[System.Char], Int32 ByRef)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Span`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "charsWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "GetString",
+          "signature": "System.String GetString(Byte[], Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetDecoder",
+          "signature": "System.Text.Decoder GetDecoder()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.Decoder",
+          "parameters": []
+        },
+        {
+          "name": "GetEncoder",
+          "signature": "System.Text.Encoder GetEncoder()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.Encoder",
+          "parameters": []
+        },
+        {
+          "name": "GetMaxByteCount",
+          "signature": "Int32 GetMaxByteCount(Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetMaxCharCount",
+          "signature": "Int32 GetMaxCharCount(Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetPreamble",
+          "signature": "Byte[] GetPreamble()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte[]",
+          "parameters": []
+        },
+        {
+          "name": "get_Preamble",
+          "signature": "System.ReadOnlySpan`1[System.Byte] get_Preamble()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.ReadOnlySpan`1[System.Byte]",
+          "parameters": []
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "Preamble",
+          "type": "System.ReadOnlySpan`1[System.Byte]",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderFallback",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "constructors": [],
+      "interfaces": [],
+      "methods": [
+        {
+          "name": "get_ReplacementFallback",
+          "signature": "System.Text.EncoderFallback get_ReplacementFallback()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.EncoderFallback",
+          "parameters": []
+        },
+        {
+          "name": "get_ExceptionFallback",
+          "signature": "System.Text.EncoderFallback get_ExceptionFallback()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.EncoderFallback",
+          "parameters": []
+        },
+        {
+          "name": "CreateFallbackBuffer",
+          "signature": "System.Text.EncoderFallbackBuffer CreateFallbackBuffer()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.EncoderFallbackBuffer",
+          "parameters": []
+        },
+        {
+          "name": "get_MaxCharCount",
+          "signature": "Int32 get_MaxCharCount()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "ReplacementFallback",
+          "type": "System.Text.EncoderFallback",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "ExceptionFallback",
+          "type": "System.Text.EncoderFallback",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "MaxCharCount",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderFallback",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "constructors": [],
+      "interfaces": [],
+      "methods": [
+        {
+          "name": "get_ReplacementFallback",
+          "signature": "System.Text.DecoderFallback get_ReplacementFallback()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.DecoderFallback",
+          "parameters": []
+        },
+        {
+          "name": "get_ExceptionFallback",
+          "signature": "System.Text.DecoderFallback get_ExceptionFallback()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.DecoderFallback",
+          "parameters": []
+        },
+        {
+          "name": "CreateFallbackBuffer",
+          "signature": "System.Text.DecoderFallbackBuffer CreateFallbackBuffer()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.DecoderFallbackBuffer",
+          "parameters": []
+        },
+        {
+          "name": "get_MaxCharCount",
+          "signature": "Int32 get_MaxCharCount()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "ReplacementFallback",
+          "type": "System.Text.DecoderFallback",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "ExceptionFallback",
+          "type": "System.Text.DecoderFallback",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "MaxCharCount",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderReplacementFallback",
+      "baseType": "System.Text.EncoderFallback",
+      "isAbstract": false,
+      "isSealed": true,
+      "constructors": [
+        "Void .ctor()",
+        "Void .ctor(System.String)"
+      ],
+      "interfaces": [],
+      "methods": [
+        {
+          "name": "get_DefaultString",
+          "signature": "System.String get_DefaultString()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "CreateFallbackBuffer",
+          "signature": "System.Text.EncoderFallbackBuffer CreateFallbackBuffer()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.EncoderFallbackBuffer",
+          "parameters": []
+        },
+        {
+          "name": "get_MaxCharCount",
+          "signature": "Int32 get_MaxCharCount()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "DefaultString",
+          "type": "System.String",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "MaxCharCount",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderReplacementFallback",
+      "baseType": "System.Text.DecoderFallback",
+      "isAbstract": false,
+      "isSealed": true,
+      "constructors": [
+        "Void .ctor()",
+        "Void .ctor(System.String)"
+      ],
+      "interfaces": [],
+      "methods": [
+        {
+          "name": "get_DefaultString",
+          "signature": "System.String get_DefaultString()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "CreateFallbackBuffer",
+          "signature": "System.Text.DecoderFallbackBuffer CreateFallbackBuffer()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.DecoderFallbackBuffer",
+          "parameters": []
+        },
+        {
+          "name": "get_MaxCharCount",
+          "signature": "Int32 get_MaxCharCount()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "DefaultString",
+          "type": "System.String",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "MaxCharCount",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderExceptionFallback",
+      "baseType": "System.Text.EncoderFallback",
+      "isAbstract": false,
+      "isSealed": true,
+      "constructors": [
+        "Void .ctor()"
+      ],
+      "interfaces": [],
+      "methods": [
+        {
+          "name": "CreateFallbackBuffer",
+          "signature": "System.Text.EncoderFallbackBuffer CreateFallbackBuffer()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.EncoderFallbackBuffer",
+          "parameters": []
+        },
+        {
+          "name": "get_MaxCharCount",
+          "signature": "Int32 get_MaxCharCount()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxCharCount",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderExceptionFallback",
+      "baseType": "System.Text.DecoderFallback",
+      "isAbstract": false,
+      "isSealed": true,
+      "constructors": [
+        "Void .ctor()"
+      ],
+      "interfaces": [],
+      "methods": [
+        {
+          "name": "CreateFallbackBuffer",
+          "signature": "System.Text.DecoderFallbackBuffer CreateFallbackBuffer()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Text.DecoderFallbackBuffer",
+          "parameters": []
+        },
+        {
+          "name": "get_MaxCharCount",
+          "signature": "Int32 get_MaxCharCount()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxCharCount",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderFallbackException",
+      "baseType": "System.ArgumentException",
+      "isAbstract": false,
+      "isSealed": true,
+      "constructors": [
+        "Void .ctor()",
+        "Void .ctor(System.String)",
+        "Void .ctor(System.String, System.Exception)"
+      ],
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ],
+      "methods": [
+        {
+          "name": "get_CharUnknown",
+          "signature": "Char get_CharUnknown()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Char",
+          "parameters": []
+        },
+        {
+          "name": "get_CharUnknownHigh",
+          "signature": "Char get_CharUnknownHigh()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Char",
+          "parameters": []
+        },
+        {
+          "name": "get_CharUnknownLow",
+          "signature": "Char get_CharUnknownLow()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Char",
+          "parameters": []
+        },
+        {
+          "name": "get_Index",
+          "signature": "Int32 get_Index()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "IsUnknownSurrogate",
+          "signature": "Boolean IsUnknownSurrogate()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "CharUnknown",
+          "type": "System.Char",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "CharUnknownHigh",
+          "type": "System.Char",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "CharUnknownLow",
+          "type": "System.Char",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "Index",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderFallbackException",
+      "baseType": "System.ArgumentException",
+      "isAbstract": false,
+      "isSealed": true,
+      "constructors": [
+        "Void .ctor()",
+        "Void .ctor(System.String)",
+        "Void .ctor(System.String, System.Exception)",
+        "Void .ctor(System.String, Byte[], Int32)"
+      ],
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ],
+      "methods": [
+        {
+          "name": "get_BytesUnknown",
+          "signature": "Byte[] get_BytesUnknown()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Byte[]",
+          "parameters": []
+        },
+        {
+          "name": "get_Index",
+          "signature": "Int32 get_Index()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "BytesUnknown",
+          "type": "System.Byte[]",
+          "getter": true,
+          "setter": false
+        },
+        {
+          "name": "Index",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.Encoder",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "constructors": [],
+      "interfaces": [],
+      "methods": [
+        {
+          "name": "get_Fallback",
+          "signature": "System.Text.EncoderFallback get_Fallback()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.EncoderFallback",
+          "parameters": []
+        },
+        {
+          "name": "set_Fallback",
+          "signature": "Void set_Fallback(System.Text.EncoderFallback)",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Text.EncoderFallback",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "get_FallbackBuffer",
+          "signature": "System.Text.EncoderFallbackBuffer get_FallbackBuffer()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.EncoderFallbackBuffer",
+          "parameters": []
+        },
+        {
+          "name": "Reset",
+          "signature": "Void Reset()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": []
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(Char[], Int32, Int32, Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(Char*, Int32, Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetByteCount",
+          "signature": "Int32 GetByteCount(System.ReadOnlySpan`1[System.Char], Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(Char[], Int32, Int32, Byte[], Int32, Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(Char*, Int32, Byte*, Int32, Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetBytes",
+          "signature": "Int32 GetBytes(System.ReadOnlySpan`1[System.Char], System.Span`1[System.Byte], Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Span`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Convert",
+          "signature": "Void Convert(Char[], Int32, Int32, Byte[], Int32, Int32, Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            },
+            {
+              "name": "charsUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "bytesUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "completed",
+              "type": "System.Boolean&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "Convert",
+          "signature": "Void Convert(Char*, Int32, Byte*, Int32, Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            },
+            {
+              "name": "charsUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "bytesUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "completed",
+              "type": "System.Boolean&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "Convert",
+          "signature": "Void Convert(System.ReadOnlySpan`1[System.Char], System.Span`1[System.Byte], Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "chars",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "bytes",
+              "type": "System.Span`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            },
+            {
+              "name": "charsUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "bytesUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "completed",
+              "type": "System.Boolean&",
+              "isOut": true
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Fallback",
+          "type": "System.Text.EncoderFallback",
+          "getter": true,
+          "setter": true
+        },
+        {
+          "name": "FallbackBuffer",
+          "type": "System.Text.EncoderFallbackBuffer",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.Decoder",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "constructors": [],
+      "interfaces": [],
+      "methods": [
+        {
+          "name": "get_Fallback",
+          "signature": "System.Text.DecoderFallback get_Fallback()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.DecoderFallback",
+          "parameters": []
+        },
+        {
+          "name": "set_Fallback",
+          "signature": "Void set_Fallback(System.Text.DecoderFallback)",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Text.DecoderFallback",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "get_FallbackBuffer",
+          "signature": "System.Text.DecoderFallbackBuffer get_FallbackBuffer()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Text.DecoderFallbackBuffer",
+          "parameters": []
+        },
+        {
+          "name": "Reset",
+          "signature": "Void Reset()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": []
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(Byte[], Int32, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(Byte[], Int32, Int32, Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(Byte*, Int32, Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "count",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetCharCount",
+          "signature": "Int32 GetCharCount(System.ReadOnlySpan`1[System.Byte], Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Int32 GetChars(Byte[], Int32, Int32, Char[], Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Int32 GetChars(Byte[], Int32, Int32, Char[], Int32, Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Int32 GetChars(Byte*, Int32, Char*, Int32, Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetChars",
+          "signature": "Int32 GetChars(System.ReadOnlySpan`1[System.Byte], System.Span`1[System.Char], Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Span`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Convert",
+          "signature": "Void Convert(Byte[], Int32, Int32, Char[], Int32, Int32, Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "byteIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Char[]",
+              "isOut": false
+            },
+            {
+              "name": "charIndex",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            },
+            {
+              "name": "bytesUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "charsUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "completed",
+              "type": "System.Boolean&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "Convert",
+          "signature": "Void Convert(Byte*, Int32, Char*, Int32, Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.Byte*",
+              "isOut": false
+            },
+            {
+              "name": "byteCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Char*",
+              "isOut": false
+            },
+            {
+              "name": "charCount",
+              "type": "System.Int32",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            },
+            {
+              "name": "bytesUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "charsUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "completed",
+              "type": "System.Boolean&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "Convert",
+          "signature": "Void Convert(System.ReadOnlySpan`1[System.Byte], System.Span`1[System.Char], Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "bytes",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "chars",
+              "type": "System.Span`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "flush",
+              "type": "System.Boolean",
+              "isOut": false
+            },
+            {
+              "name": "bytesUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "charsUsed",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "completed",
+              "type": "System.Boolean&",
+              "isOut": true
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Fallback",
+          "type": "System.Text.DecoderFallback",
+          "getter": true,
+          "setter": true
+        },
+        {
+          "name": "FallbackBuffer",
+          "type": "System.Text.DecoderFallbackBuffer",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderFallbackBuffer",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "constructors": [],
+      "interfaces": [],
+      "methods": [
+        {
+          "name": "Fallback",
+          "signature": "Boolean Fallback(Char, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "charUnknown",
+              "type": "System.Char",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Fallback",
+          "signature": "Boolean Fallback(Char, Char, Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "charUnknownHigh",
+              "type": "System.Char",
+              "isOut": false
+            },
+            {
+              "name": "charUnknownLow",
+              "type": "System.Char",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetNextChar",
+          "signature": "Char GetNextChar()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Char",
+          "parameters": []
+        },
+        {
+          "name": "MovePrevious",
+          "signature": "Boolean MovePrevious()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_Remaining",
+          "signature": "Int32 get_Remaining()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "Reset",
+          "signature": "Void Reset()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "Remaining",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderFallbackBuffer",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "constructors": [],
+      "interfaces": [],
+      "methods": [
+        {
+          "name": "Fallback",
+          "signature": "Boolean Fallback(Byte[], Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "bytesUnknown",
+              "type": "System.Byte[]",
+              "isOut": false
+            },
+            {
+              "name": "index",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetNextChar",
+          "signature": "Char GetNextChar()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Char",
+          "parameters": []
+        },
+        {
+          "name": "MovePrevious",
+          "signature": "Boolean MovePrevious()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_Remaining",
+          "signature": "Int32 get_Remaining()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "Reset",
+          "signature": "Void Reset()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": []
+        }
+      ],
+      "properties": [
+        {
+          "name": "Remaining",
+          "type": "System.Int32",
+          "getter": true,
+          "setter": false
+        }
+      ]
+    }
+  ],
+  "constructorProfiles": [
+    {
+      "emitIdentifier": false,
+      "throwOnInvalidBytes": false,
+      "codePage": 65001,
+      "encodingName": "Unicode (UTF-8)",
+      "isReadOnly": true,
+      "preamble": [],
+      "encoderFallback": "System.Text.EncoderReplacementFallback",
+      "decoderFallback": "System.Text.DecoderReplacementFallback",
+      "encoderReplacement": "�",
+      "decoderReplacement": "�"
+    },
+    {
+      "emitIdentifier": false,
+      "throwOnInvalidBytes": true,
+      "codePage": 65001,
+      "encodingName": "Unicode (UTF-8)",
+      "isReadOnly": true,
+      "preamble": [],
+      "encoderFallback": "System.Text.EncoderExceptionFallback",
+      "decoderFallback": "System.Text.DecoderExceptionFallback",
+      "encoderReplacement": null,
+      "decoderReplacement": null
+    },
+    {
+      "emitIdentifier": true,
+      "throwOnInvalidBytes": false,
+      "codePage": 65001,
+      "encodingName": "Unicode (UTF-8)",
+      "isReadOnly": true,
+      "preamble": [
+        239,
+        187,
+        191
+      ],
+      "encoderFallback": "System.Text.EncoderReplacementFallback",
+      "decoderFallback": "System.Text.DecoderReplacementFallback",
+      "encoderReplacement": "�",
+      "decoderReplacement": "�"
+    },
+    {
+      "emitIdentifier": true,
+      "throwOnInvalidBytes": true,
+      "codePage": 65001,
+      "encodingName": "Unicode (UTF-8)",
+      "isReadOnly": true,
+      "preamble": [
+        239,
+        187,
+        191
+      ],
+      "encoderFallback": "System.Text.EncoderExceptionFallback",
+      "decoderFallback": "System.Text.DecoderExceptionFallback",
+      "encoderReplacement": null,
+      "decoderReplacement": null
+    }
+  ],
+  "defaultUtf8": {
+    "isReadOnly": true,
+    "preamble": [
+      239,
+      187,
+      191
+    ],
+    "codePage": 65001,
+    "encoderFallback": "System.Text.EncoderReplacementFallback",
+    "decoderFallback": "System.Text.DecoderReplacementFallback"
+  },
+  "qualification": "UTF8_CONTRACT_METADATA_ONLY; IMPLEMENTATION_FALLBACK_STATEFUL_POINTER_AND_ACCEPTANCE_OPEN"
+}
