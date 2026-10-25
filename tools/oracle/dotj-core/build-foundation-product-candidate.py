@@ -24,7 +24,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberFormatInfo.ja
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/TimeSpanStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/DateTimeStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Diagnostics/Stopwatch.java")
-SOURCES += [PRODUCT / "src/main/java/System/Text" / (name + ".java") for name in ("Encoding", "UTF8Encoding")]
+SOURCES += [PRODUCT / "src/main/java/System/Text" / (name + ".java") for name in ("Encoding", "UTF8Encoding", "EncoderFallbackException", "DecoderFallbackException")]
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/text/Utf8Codec.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/NullableAttribute.java")
@@ -315,6 +315,8 @@ def consumer_json(value):
 
 
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ['System/Text/Encoding$DefaultUtf8.class', 'System/Text/Encoding.class', 'System/Text/UTF8Encoding.class', 'org/dotj/internal/text/Utf8Codec.class'])
+
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ['System/Text/EncoderFallbackException.class', 'System/Text/DecoderFallbackException.class', 'org/dotj/internal/text/Utf8Codec$Failure.class'])
 
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))

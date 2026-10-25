@@ -2176,7 +2176,8 @@
     "Batch-2159",
     "Batch-2160",
     "Batch-2161",
-    "Batch-2162"
+    "Batch-2162",
+    "Batch-2163"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2369,7 +2370,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2162",
+      "lastUpdatedBatch": "Batch-2163",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -11980,19 +11981,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2163",
+    "id": "Batch-2164",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-WP-05-T2"
     ],
-    "outcome": "Implement strict UTF-8 fallback exceptions with native invalid-character, byte-prefix and index payloads.",
+    "outcome": "Verify UTF-8 exception constructors and null-input boundaries against the pinned runtime.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2162,
+    "completedBatches": 2163,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12001,8 +12002,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 161,
-    "remainingBatches": 338,
+    "completedBatches": 162,
+    "remainingBatches": 337,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },
