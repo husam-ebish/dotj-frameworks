@@ -12,6 +12,14 @@ import System.IO.FileLoadException;
 import System.IO.IOException;
 import System.Diagnostics.Stopwatch;
 import System.Text.Encoding;
+import System.Text.EncoderFallback;
+import System.Text.DecoderFallback;
+import System.Text.EncoderReplacementFallback;
+import System.Text.DecoderReplacementFallback;
+import System.Text.EncoderExceptionFallback;
+import System.Text.DecoderExceptionFallback;
+import System.Text.EncoderFallbackBuffer;
+import System.Text.DecoderFallbackBuffer;
 import System.Text.UTF8Encoding;
 import System.Text.EncoderFallbackException;
 import System.Text.DecoderFallbackException;
@@ -512,6 +520,14 @@ public abstract class Type extends MemberInfo {
             case "System.TimeSpan" -> fromJavaClass(TimeSpan.class);
             case "System.Diagnostics.Stopwatch" -> fromJavaClass(Stopwatch.class);
             case "System.Text.Encoding" -> fromJavaClass(Encoding.class);
+            case "System.Text.EncoderFallback" -> fromJavaClass(EncoderFallback.class);
+            case "System.Text.DecoderFallback" -> fromJavaClass(DecoderFallback.class);
+            case "System.Text.EncoderReplacementFallback" -> fromJavaClass(EncoderReplacementFallback.class);
+            case "System.Text.DecoderReplacementFallback" -> fromJavaClass(DecoderReplacementFallback.class);
+            case "System.Text.EncoderExceptionFallback" -> fromJavaClass(EncoderExceptionFallback.class);
+            case "System.Text.DecoderExceptionFallback" -> fromJavaClass(DecoderExceptionFallback.class);
+            case "System.Text.EncoderFallbackBuffer" -> fromJavaClass(EncoderFallbackBuffer.class);
+            case "System.Text.DecoderFallbackBuffer" -> fromJavaClass(DecoderFallbackBuffer.class);
             case "System.Text.UTF8Encoding" -> fromJavaClass(UTF8Encoding.class);
             case "System.Text.EncoderFallbackException" -> fromJavaClass(EncoderFallbackException.class);
             case "System.Text.DecoderFallbackException" -> fromJavaClass(DecoderFallbackException.class);
@@ -689,6 +705,14 @@ public abstract class Type extends MemberInfo {
             case "system.timespan" -> ignoreCase ? fromJavaClass(TimeSpan.class) : null;
             case "system.diagnostics.stopwatch" -> ignoreCase ? fromJavaClass(Stopwatch.class) : null;
             case "system.text.encoding" -> ignoreCase ? fromJavaClass(Encoding.class) : null;
+            case "system.text.encoderfallback" -> ignoreCase ? fromJavaClass(EncoderFallback.class) : null;
+            case "system.text.decoderfallback" -> ignoreCase ? fromJavaClass(DecoderFallback.class) : null;
+            case "system.text.encoderreplacementfallback" -> ignoreCase ? fromJavaClass(EncoderReplacementFallback.class) : null;
+            case "system.text.decoderreplacementfallback" -> ignoreCase ? fromJavaClass(DecoderReplacementFallback.class) : null;
+            case "system.text.encoderexceptionfallback" -> ignoreCase ? fromJavaClass(EncoderExceptionFallback.class) : null;
+            case "system.text.decoderexceptionfallback" -> ignoreCase ? fromJavaClass(DecoderExceptionFallback.class) : null;
+            case "system.text.encoderfallbackbuffer" -> ignoreCase ? fromJavaClass(EncoderFallbackBuffer.class) : null;
+            case "system.text.decoderfallbackbuffer" -> ignoreCase ? fromJavaClass(DecoderFallbackBuffer.class) : null;
             case "system.text.utf8encoding" -> ignoreCase ? fromJavaClass(UTF8Encoding.class) : null;
             case "system.text.encoderfallbackexception" -> ignoreCase ? fromJavaClass(EncoderFallbackException.class) : null;
             case "system.text.decoderfallbackexception" -> ignoreCase ? fromJavaClass(DecoderFallbackException.class) : null;
@@ -1105,7 +1129,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsAbstract() {
-        return this.definition == Encoding.class || this.definition == Type.class || this.definition == Number.class
+        return this.definition == EncoderFallback.class || this.definition == DecoderFallback.class || this.definition == EncoderFallbackBuffer.class || this.definition == DecoderFallbackBuffer.class
+                || this.definition == Encoding.class || this.definition == Type.class || this.definition == Number.class
                 || this.definition == Enum.class || this.definition == java.lang.reflect.Array.class
                 || this.definition == MemberInfo.class || this.definition == MethodBase.class
                 || this.definition == MethodInfo.class
@@ -1118,6 +1143,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == DBNull.class || this.definition == NumberFormatInfo.class
                 || this.definition == SerializationInfo.class
                 || this.definition == SerializationInfoEnumerator.class
+                || this.definition == EncoderReplacementFallback.class || this.definition == DecoderReplacementFallback.class || this.definition == EncoderExceptionFallback.class || this.definition == DecoderExceptionFallback.class
                 || this.definition == EncoderFallbackException.class || this.definition == DecoderFallbackException.class
                 || this.definition == NullableAttribute.class || this.definition == IndexOutOfRangeException.class;
     }
@@ -1910,7 +1936,19 @@ public abstract class Type extends MemberInfo {
         return new Type[0];
     }
 
+    private boolean selectedFallbackType() {
+        return this.definition == EncoderFallback.class
+                || this.definition == DecoderFallback.class
+                || this.definition == EncoderReplacementFallback.class
+                || this.definition == DecoderReplacementFallback.class
+                || this.definition == EncoderExceptionFallback.class
+                || this.definition == DecoderExceptionFallback.class
+                || this.definition == EncoderFallbackBuffer.class
+                || this.definition == DecoderFallbackBuffer.class;
+    }
+
     public Type[] GetInterfaces() {
+        if (!get_HasElementType() && selectedFallbackType()) return new Type[0];
         if (this.definition == ICloneable.class) return new Type[0];
         if (!this.get_IsArray() && Encoding.class.isAssignableFrom(this.definition)) {
             return new Type[] {fromJavaClass(ICloneable.class)};
@@ -2090,7 +2128,7 @@ public abstract class Type extends MemberInfo {
 
     public Type GetInterface(String fullname, boolean ignoreCase) {
         if (fullname == null) throw new ArgumentNullException("fullname");
-        if (this.definition == ICloneable.class || Encoding.class.isAssignableFrom(this.definition)
+        if (selectedFallbackType() || this.definition == ICloneable.class || Encoding.class.isAssignableFrom(this.definition)
                 || this.get_IsArray() || this.definition == java.lang.reflect.Array.class
                 || this.definition == String.class || this.definition == Int32.class
                 || this.definition == Byte.class || this.definition == SByte.class
