@@ -90,4 +90,31 @@ public abstract class Decoder {
         try { return GetChars(input, 0, input.length, output, 0, flush); }
         finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
     }
+    public void Convert(ReadOnlySpan<Byte> bytes, Span<Character> chars, boolean flush,
+            int[] bytesUsed, int[] charsUsed, boolean[] completed) {
+        if (bytesUsed == null || charsUsed == null || completed == null) throw new java.lang.NullPointerException("Output carrier");
+        if (bytesUsed.length == 0 || charsUsed.length == 0 || completed.length == 0) throw new java.lang.ArrayIndexOutOfBoundsException("Output carrier");
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        if (chars == null) throw new ArgumentNullException("chars");
+        byte[] snapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+        Byte[] source = new Byte[snapshot.length];
+        for (int i = 0; i < source.length; i++) source[i] = new Byte(snapshot[i] & 255);
+        bytesUsed[0] = source.length;
+        while (bytesUsed[0] > 0) {
+            Byte[] countInput = java.util.Arrays.copyOf(source, bytesUsed[0]);
+            if (GetCharCount(countInput, 0, countInput.length) <= chars.get_Length()) {
+                Byte[] writeInput = java.util.Arrays.copyOf(source, bytesUsed[0]);
+                char[] target = new char[chars.get_Length()];
+                int n = Math.min(GetChars(writeInput, 0, writeInput.length, target, 0, flush), chars.get_Length());
+                if (n > 0) ReadOnlySpan.OfChars(target).Slice(0, n).CopyTo(chars.Slice(0, n));
+                charsUsed[0] = n;
+                completed[0] = bytesUsed[0] == source.length && (this.buffer == null || this.buffer.get_Remaining() == 0);
+                return;
+            }
+            flush = false;
+            bytesUsed[0] /= 2;
+        }
+        throw new ArgumentException("The output buffer is too small for the conversion.");
+    }
 }

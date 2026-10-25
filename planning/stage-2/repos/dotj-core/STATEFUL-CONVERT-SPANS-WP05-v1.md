@@ -1,0 +1,11 @@
+# Selected Encoder and Decoder Convert heap spans
+
+Batch 2208 adds the selected Convert(ReadOnlySpan, Span, flush, out carriers) projections to Encoder and Decoder. The generic base path models the native pointer-backed adapter independently of array Convert dispatch: it copies count/write inputs, uses zero-initialized temporary callback destinations, clamps successful write counts, and publishes destination data only after the writer returns. An overridden array Convert method is bypassed. Decoder's generic pointer-count adapter calls the non-flush array overload; UTF-8 NLS preserves its separate stateful flush path.
+
+Private UTF-8 span overrides preserve the existing NLS array worker's progress, pending input, fallback and partial-write behavior. Selected source/destination views are materialized through the existing heap span carriers. Full destination snapshots are copied back through exceptional NLS completion, while generic callback failures do not publish their temporary writes. CLR ref-struct/stack lifetime, native addresses, pinning and direct pointer overrides are not represented by this heap adaptation.
+
+The pinned direct-IL capture contains 5,760 NLS sequences with 20,160 Convert calls and 11,520 generic cases. The generic class overrides array Convert to throw if accidentally invoked and records callback input/output array lengths, indices, counts and flush. The consumer passes 138,240 groups plus four wrong-carrier compile controls. It checks outputs, completion, complete guarded destinations, failure identities and exact generic traces. Existing generic arrays, UTF-8 array conversion, custom providers and span count/write suites remain regressions.
+
+The declaration inventory becomes 22/28 selected projections, with six direct pointer forms still missing. Declaration coverage does not qualify arbitrary providers, direct pointer overrides, complete source ABI, reflection or WP-05 acceptance. Hash-bound differential records remain LF-pinned; E01 applicability remains open. No accepted task, qualified framework or rights clearance is credited.
+
+Next is qualification and correction of the existing generic count/write span adapters, including Decoder flush selection, temporary destination initialization, write-count clamping and exceptional copy-back behavior, while retaining NLS overrides.
