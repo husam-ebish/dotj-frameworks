@@ -63,6 +63,7 @@ public abstract class Encoder {
         }
         throw new ArgumentException("The output buffer is too small for the conversion.");
     }
+    int spanWriteResult(int result, int capacity) { return Math.min(result, capacity); }
     public abstract int GetByteCount(char[] chars, int index, int count, boolean flush);
     public abstract int GetBytes(char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex, boolean flush);
     public int GetByteCount(ReadOnlySpan<Character> chars, boolean flush) {
@@ -78,7 +79,7 @@ public abstract class Encoder {
         chars.CopyTo(Span.OfChars(input));
         Byte[] output = new Byte[bytes.get_Length()];
         java.util.Arrays.fill(output, new Byte(0));
-        int count = Math.min(GetBytes(input, 0, input.length, output, 0, flush), output.length);
+        int count = spanWriteResult(GetBytes(input, 0, input.length, output, 0, flush), output.length);
         if (count > 0) {
             byte[] snapshot = new byte[count];
             for (int i = 0; i < count; i++) snapshot[i] = (byte)output[i].get_Value();
@@ -101,7 +102,7 @@ public abstract class Encoder {
                 char[] writeInput = java.util.Arrays.copyOf(source, charsUsed[0]);
                 Byte[] target = new Byte[bytes.get_Length()];
                 java.util.Arrays.fill(target, new Byte(0));
-                int n = Math.min(GetBytes(writeInput, 0, writeInput.length, target, 0, flush), bytes.get_Length());
+                int n = spanWriteResult(GetBytes(writeInput, 0, writeInput.length, target, 0, flush), bytes.get_Length());
                 if (n > 0) {
                     byte[] output = new byte[n];
                     for (int i = 0; i < n; i++) output[i] = (byte)target[i].get_Value();
