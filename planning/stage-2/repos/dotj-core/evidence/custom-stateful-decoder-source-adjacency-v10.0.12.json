@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "scope": "Selected shared stateful UTF-8 Encoder/Decoder fallback paths; not rights clearance",
+  "sourceArchiveEvidence": "source-archive-v10.0.12.json",
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "upstreamFiles": [
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/Encoder.cs",
+      "sha256": "803a635510c36435b6cfa82a92720bc590673abae7a502506ac8c68eaa7b39f0",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderNLS.cs",
+      "sha256": "79a6e4501f5da67690194d5c31da8c92b44271941422d5a5bf49113c43601b15",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallback.cs",
+      "sha256": "fecaa8e71992f9d568254202327662e6de473b3d73ad5b6fa83a79417cc98715",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/Encoding.Internal.cs",
+      "sha256": "a427a1e8fa18546aac0743018e0b40a9e798564951492dcf303caf169a9715b4",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/UTF8Encoding.cs",
+      "sha256": "47f5e4c98751367a86329ab1e0a76d86b39fd076a5b019284694f39d40fd9011",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/Decoder.cs",
+      "sha256": "63ad892a7893986da14266c398366941002203eed2859e70c8cd7f41aa1cbeb1",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderNLS.cs",
+      "sha256": "ffeed3616bb6c97a321f84e6bb24a87c2eacc11d406149fa1812f750eea30450",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderFallback.cs",
+      "sha256": "118661aa450cb05c5780194c2a2dc2bbc0cbccbaf1e6d3647967f547edf8aa43",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    }
+  ],
+  "productPaths": [
+    "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java",
+    "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackBuffer.java",
+    "dotj-core/dotj-core-public/src/main/java/System/Text/Decoder.java"
+  ],
+  "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+  "releaseQualification": "E01_REVIEW_OPEN",
+  "relatedAdjacencyEvidence": "custom-stateful-encoder-source-adjacency-v10.0.12.json"
+}

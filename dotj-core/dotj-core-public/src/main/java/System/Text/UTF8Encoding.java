@@ -495,6 +495,11 @@ public class UTF8Encoding extends Encoding {
             int written = 0;
             String rune;
             while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
+                if (!counting && rune.length() > chars.length - offset - written) {
+                    buffer.Reset();
+                    resetFallbackBuffer();
+                    throw new ArgumentException("Insufficient destination capacity.", "chars");
+                }
                 written += emit(rune, chars, offset + written, counting);
             }
             return written;
@@ -509,15 +514,19 @@ public class UTF8Encoding extends Encoding {
                 int required = first >= 0xc2 && first <= 0xdf ? 2 : first >= 0xe0 && first <= 0xef ? 3
                         : first >= 0xf0 && first <= 0xf4 ? 4 : 1;
                 int consumed = Utf8Codec.prefixLength(combined, position, combined.length);
+                String rune = null;
+                Utf8Codec.Failure invalid = null;
+                try { rune = Utf8Codec.decode(java.util.Arrays.copyOfRange(combined, position, position + consumed), true); }
+                catch (Utf8Codec.Failure failure) { invalid = failure; }
+                if (invalid != null && !(get_Fallback() instanceof DecoderReplacementFallback)
+                        && !(get_Fallback() instanceof DecoderExceptionFallback)) fallbackBuffer();
                 if (!flush && consumed < required && position + consumed == combined.length) {
                     if (!counting) this.pending = java.util.Arrays.copyOfRange(combined, position, combined.length);
                     return written;
                 }
-                String rune = null;
-                try { rune = Utf8Codec.decode(java.util.Arrays.copyOfRange(combined, position, position + consumed), true); }
-                catch (Utf8Codec.Failure failure) {
+                if (invalid != null) {
                     DecoderFallbackBuffer buffer = fallbackBuffer();
-                    if (buffer.Fallback(wrap(failure.bytesUnknown), position - previousCount)) {
+                    if (buffer.Fallback(wrap(invalid.bytesUnknown), position - previousCount)) {
                         written += drain(buffer, chars, offset + written, counting);
                     }
                 }

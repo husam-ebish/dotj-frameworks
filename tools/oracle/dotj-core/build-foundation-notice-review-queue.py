@@ -71,8 +71,10 @@ def main():
             if path.endswith("/org/dotj/internal/throwing/ThrowSite.java") else
             "fallback-hash-source-adjacency-v10.0.12.json"
             if path.endswith("/org/dotj/internal/text/MarvinStringHash.java") else
+            "custom-stateful-decoder-source-adjacency-v10.0.12.json"
+            if path.endswith(("/System/Text/UTF8Encoding.java", "/System/Text/Decoder.java")) else
             "custom-stateful-encoder-source-adjacency-v10.0.12.json"
-            if path.endswith(("/System/Text/UTF8Encoding.java", "/System/Text/EncoderFallbackBuffer.java")) else None,
+            if path.endswith("/System/Text/EncoderFallbackBuffer.java") else None,
         })
 
     found = sum(row["directNameMatchedUpstreamFile"] == "FOUND" for row in rows)
