@@ -373,6 +373,21 @@ public class UTF8Encoding extends Encoding {
                 ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes);
             }
         }
+        @Override public int GetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes, boolean flush) {
+            if (chars == null) throw new ArgumentNullException("chars");
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            char[] input = new char[chars.get_Length()];
+            chars.CopyTo(Span.OfChars(input));
+            byte[] snapshot = new byte[bytes.get_Length()];
+            bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+            Byte[] output = new Byte[snapshot.length];
+            for (int i = 0; i < output.length; i++) output[i] = new Byte(snapshot[i] & 255);
+            try { return GetBytes(input, 0, input.length, output, 0, flush); }
+            finally {
+                for (int i = 0; i < output.length; i++) snapshot[i] = (byte)output[i].get_Value();
+                ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes);
+            }
+        }
         @Override public void Reset() { this.pending = 0; resetFallbackBuffer(); }
         @Override public int GetByteCount(char[] chars, int index, int count, boolean flush) {
             if (chars == null) throw new ArgumentNullException("chars");
@@ -718,6 +733,26 @@ public class UTF8Encoding extends Encoding {
             chars.CopyTo(Span.OfChars(target));
             try { Convert(source, 0, source.length, target, 0, target.length, flush, bytesUsed, charsUsed, completed); }
             finally { ReadOnlySpan.OfChars(target).CopyTo(chars); }
+        }
+        @Override public int GetCharCount(ReadOnlySpan<Byte> bytes, boolean flush) {
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            byte[] snapshot = new byte[bytes.get_Length()];
+            bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+            Byte[] input = new Byte[snapshot.length];
+            for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
+            return GetCharCount(input, 0, input.length, flush);
+        }
+        @Override public int GetChars(ReadOnlySpan<Byte> bytes, Span<Character> chars, boolean flush) {
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            if (chars == null) throw new ArgumentNullException("chars");
+            byte[] snapshot = new byte[bytes.get_Length()];
+            bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+            Byte[] input = new Byte[snapshot.length];
+            for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
+            char[] output = new char[chars.get_Length()];
+            chars.CopyTo(Span.OfChars(output));
+            try { return GetChars(input, 0, input.length, output, 0, flush); }
+            finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
         }
         @Override public void Reset() { this.pending = new byte[0]; resetFallbackBuffer(); }
         @Override public int GetCharCount(Byte[] bytes, int index, int count) {

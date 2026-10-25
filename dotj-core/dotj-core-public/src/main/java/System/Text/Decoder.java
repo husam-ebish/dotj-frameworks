@@ -76,7 +76,7 @@ public abstract class Decoder {
         bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
         Byte[] input = new Byte[snapshot.length];
         for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
-        return GetCharCount(input, 0, input.length, flush);
+        return GetCharCount(input, 0, input.length);
     }
     public int GetChars(ReadOnlySpan<Byte> bytes, Span<Character> chars, boolean flush) {
         if (bytes == null) throw new ArgumentNullException("bytes");
@@ -86,9 +86,9 @@ public abstract class Decoder {
         Byte[] input = new Byte[snapshot.length];
         for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
         char[] output = new char[chars.get_Length()];
-        chars.CopyTo(Span.OfChars(output));
-        try { return GetChars(input, 0, input.length, output, 0, flush); }
-        finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
+        int count = Math.min(GetChars(input, 0, input.length, output, 0, flush), output.length);
+        if (count > 0) ReadOnlySpan.OfChars(output).Slice(0, count).CopyTo(chars.Slice(0, count));
+        return count;
     }
     public void Convert(ReadOnlySpan<Byte> bytes, Span<Character> chars, boolean flush,
             int[] bytesUsed, int[] charsUsed, boolean[] completed) {

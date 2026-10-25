@@ -76,15 +76,15 @@ public abstract class Encoder {
         if (bytes == null) throw new ArgumentNullException("bytes");
         char[] input = new char[chars.get_Length()];
         chars.CopyTo(Span.OfChars(input));
-        byte[] snapshot = new byte[bytes.get_Length()];
-        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
-        Byte[] output = new Byte[snapshot.length];
-        for (int i = 0; i < output.length; i++) output[i] = new Byte(snapshot[i] & 255);
-        try { return GetBytes(input, 0, input.length, output, 0, flush); }
-        finally {
-            for (int i = 0; i < output.length; i++) snapshot[i] = (byte)output[i].get_Value();
-            ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes);
+        Byte[] output = new Byte[bytes.get_Length()];
+        java.util.Arrays.fill(output, new Byte(0));
+        int count = Math.min(GetBytes(input, 0, input.length, output, 0, flush), output.length);
+        if (count > 0) {
+            byte[] snapshot = new byte[count];
+            for (int i = 0; i < count; i++) snapshot[i] = (byte)output[i].get_Value();
+            ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes.Slice(0, count));
         }
+        return count;
     }
     public void Convert(ReadOnlySpan<Character> chars, Span<Byte> bytes, boolean flush,
             int[] charsUsed, int[] bytesUsed, boolean[] completed) {
