@@ -188,6 +188,30 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public abstract String GetString(Byte[] bytes);
     public abstract int GetCharCount(Byte[] bytes);
     public abstract char[] GetChars(Byte[] bytes);
+    public boolean TryGetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes, int[] bytesWritten) {
+        if (bytesWritten == null) throw new ArgumentNullException("bytesWritten");
+        if (bytesWritten.length == 0) throw new ArgumentException("An output slot is required.", "bytesWritten");
+        int required = GetByteCount(chars);
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        if (required <= bytes.get_Length()) {
+            bytesWritten[0] = GetBytes(chars, bytes);
+            return true;
+        }
+        bytesWritten[0] = 0;
+        return false;
+    }
+    public boolean TryGetChars(ReadOnlySpan<Byte> bytes, Span<Character> chars, int[] charsWritten) {
+        if (charsWritten == null) throw new ArgumentNullException("charsWritten");
+        if (charsWritten.length == 0) throw new ArgumentException("An output slot is required.", "charsWritten");
+        int required = GetCharCount(bytes);
+        if (chars == null) throw new ArgumentNullException("chars");
+        if (required <= chars.get_Length()) {
+            charsWritten[0] = GetChars(bytes, chars);
+            return true;
+        }
+        charsWritten[0] = 0;
+        return false;
+    }
     public int GetByteCount(ReadOnlySpan<Character> chars) {
         if (chars == null) throw new ArgumentNullException("chars");
         char[] input = new char[chars.get_Length()];

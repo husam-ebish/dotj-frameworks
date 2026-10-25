@@ -26,6 +26,30 @@ public class UTF8Encoding extends Encoding {
         this.encoderFallback = throwOnInvalidBytes ? EncoderFallback.get_ExceptionFallback() : new EncoderReplacementFallback("\ufffd");
         this.decoderFallback = throwOnInvalidBytes ? DecoderFallback.get_ExceptionFallback() : new DecoderReplacementFallback("\ufffd");
     }
+    @Override public boolean TryGetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes, int[] bytesWritten) {
+        if (bytesWritten == null) throw new ArgumentNullException("bytesWritten");
+        if (bytesWritten.length == 0) throw new ArgumentException("An output slot is required.", "bytesWritten");
+        try {
+            bytesWritten[0] = GetBytes(chars, bytes);
+            return true;
+        } catch (ArgumentException failure) {
+            if (failure.getClass() != ArgumentException.class || !"bytes".equals(failure.get_ParamName())) throw failure;
+            bytesWritten[0] = 0;
+            return false;
+        }
+    }
+    @Override public boolean TryGetChars(ReadOnlySpan<Byte> bytes, Span<Character> chars, int[] charsWritten) {
+        if (charsWritten == null) throw new ArgumentNullException("charsWritten");
+        if (charsWritten.length == 0) throw new ArgumentException("An output slot is required.", "charsWritten");
+        try {
+            charsWritten[0] = GetChars(bytes, chars);
+            return true;
+        } catch (ArgumentException failure) {
+            if (failure.getClass() != ArgumentException.class || !"chars".equals(failure.get_ParamName())) throw failure;
+            charsWritten[0] = 0;
+            return false;
+        }
+    }
     @Override public int GetBytes(String s, int charIndex, int charCount, Byte[] bytes, int byteIndex) {
         if (s == null) throw new ArgumentNullException("s");
         if (bytes == null) throw new ArgumentNullException("bytes");
