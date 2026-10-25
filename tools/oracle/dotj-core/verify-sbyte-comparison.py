@@ -6,7 +6,7 @@ def main():
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text())['jarPath']
  path=EVIDENCE/'sbyte-comparison-contract-v10.0.12.json';j=json.loads(path.read_text());assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-sbyte-comparison-contract.ps1').read_bytes()).hexdigest()
  assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678' and j['typeName']=='System.SByte' and len(j['hashes'])==256 and len(j['cases'])==989
- interfaces=[v for v in j['interfaces'] if v in ['System.IComparable','System.IConvertible','System.ISpanFormattable','System.IFormattable']];expected='new Type[]{'+','.join('Type.GetType('+json.dumps(v)+')' for v in interfaces)+'}'
+ interfaces=[v for v in j['interfaces'] if v in ['System.IComparable','System.IConvertible','System.ISpanFormattable','System.IFormattable','System.IUtf8SpanFormattable']];expected='new Type[]{'+','.join('Type.GetType('+json.dumps(v)+')' for v in interfaces)+'}'
  cases=['{Type type=Type.GetType("System.SByte");Type contract=Type.GetType("System.IComparable");check(java.util.Arrays.equals(type.GetInterfaces(),'+expected+') && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(new SByte(0)) && type.GetInterface("IComparable")==contract,0);}']
  for row in j['hashes']:
   for method in ['GetHashCode','hashCode']:

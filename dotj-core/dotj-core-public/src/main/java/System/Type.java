@@ -1545,7 +1545,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == ISpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == SByte.class)) {
             return true;
         }
-        if (this.definition == IUtf8SpanFormattable.class && candidate.definition == Int32.class) {
+        if (this.definition == IUtf8SpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == SByte.class)) {
             return true;
         }
         if (this.definition == IFormattable.class && candidate.definition == ISpanFormattable.class) {
@@ -1639,7 +1639,7 @@ public abstract class Type extends MemberInfo {
             return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates || value instanceof GenericParameterAttributes || value instanceof SByte;
         }
         if (this.definition == IUtf8SpanFormattable.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof SByte;
         }
         if (this.definition == Int32.class && value instanceof Integer) {
             return true;
@@ -1963,7 +1963,7 @@ public abstract class Type extends MemberInfo {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
         if (this.definition == SByte.class) {
-            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class)};
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
         }
         if (this.definition == Byte.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class), fromJavaClass(IFormattable.class)};
