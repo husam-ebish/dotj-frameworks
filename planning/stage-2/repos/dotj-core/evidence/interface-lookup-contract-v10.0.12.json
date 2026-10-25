@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "2f003f53e84d0b3e9b9f6f44385dc7501fcb3a750eea87378223d3df83adf016",
+  "oracleSha256": "59c1e9b45f0bbb4b41882b0849e8a064103193293f2e4e71944fbc0caba50cb3",
   "types": [
     {
       "name": "System.String",
@@ -182,14 +182,14 @@
       "selectedInterfaces": [
         "System.IComparable",
         "System.IConvertible",
-        "System.IFormattable"
+        "System.IFormattable",
+        "System.ISpanFormattable"
       ],
       "omittedInterfaces": [
         "System.IBinaryIntegerParseAndFormatInfo`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IComparable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IEquatable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IParsable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "System.ISpanFormattable",
         "System.ISpanParsable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IUtf8SpanFormattable",
         "System.IUtf8SpanParsable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -3151,6 +3151,102 @@
     {
       "source": "System.UInt32",
       "query": "system.IComparable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.ISpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.ISpanFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "ISpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "ISpanFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.ispanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.ispanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "ispanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "ispanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.ispanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.ispanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.ISpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.ISpanFormattable",
       "ignoreCase": true,
       "result": {
         "name": null
