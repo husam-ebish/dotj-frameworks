@@ -340,6 +340,88 @@ public class UnicodeEncoding extends Encoding {
             try { return GetChars(input, 0, input.length, output, 0, flush); }
             finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
         }
+        private int convertFallback(Byte[] unknown, int index, char[] output, int written) {
+            try { return fallback(unknown, index, output, 0, written); }
+            catch (ArgumentException failure) {
+                if (failure.getClass() != ArgumentException.class || !"chars".equals(failure.get_ParamName())) throw failure;
+                resetFallbackBuffer();
+                if (written == 0) throw failure;
+                return -1;
+            }
+        }
+        private void convertOverflow(int written) {
+            if (written == 0) { resetFallbackBuffer(); this.encoding.overflow(false); }
+        }
+        private int convertCore(Byte[] bytes, int index, int count, char[] output, boolean flush, int[] used) {
+            int lastByte = this.pendingByte, consumed = 0, written = 0;
+            char high = this.pendingHigh;
+            boolean stopped = false;
+            while (consumed < count) {
+                if (lastByte < 0) { lastByte = bytes[index + consumed++].get_Value(); continue; }
+                int next = bytes[index + consumed++].get_Value();
+                char current = (char)(this.encoding.bigEndian ? lastByte << 8 | next : next << 8 | lastByte);
+                lastByte = -1;
+                if (Character.isHighSurrogate(current)) {
+                    if (high != 0) {
+                        int result = convertFallback(wordBytes(high), consumed - 2, output, written);
+                        if (result < 0) { consumed -= 2; stopped = true; break; }
+                        written = result;
+                    }
+                    high = current; continue;
+                }
+                if (Character.isLowSurrogate(current)) {
+                    if (high == 0) {
+                        int result = convertFallback(wordBytes(current), consumed - 2, output, written);
+                        if (result < 0) { consumed -= 2; stopped = true; break; }
+                        written = result; continue;
+                    }
+                    if (output.length - written < 2) {
+                        convertOverflow(written); consumed -= 2; stopped = true; break;
+                    }
+                    output[written++] = high; high = 0;
+                } else if (high != 0) {
+                    int result = convertFallback(wordBytes(high), consumed - 2, output, written);
+                    if (result < 0) { consumed -= 2; stopped = true; break; }
+                    written = result; high = 0;
+                }
+                if (written == output.length) { convertOverflow(written); consumed -= 2; stopped = true; break; }
+                output[written++] = current;
+            }
+            if (flush && !stopped) {
+                if (high != 0) {
+                    int result = convertFallback(wordBytes(high), consumed - 2, output, written);
+                    if (result < 0) stopped = true;
+                    else { written = result; high = 0; }
+                }
+                if (!stopped && lastByte >= 0) {
+                    int result = convertFallback(new Byte[] { new Byte(lastByte) }, consumed - 1, output, written);
+                    if (result >= 0) { written = result; lastByte = -1; }
+                }
+            }
+            this.pendingByte = lastByte; this.pendingHigh = high; used[0] = consumed;
+            return written;
+        }
+        @Override public void Convert(Byte[] bytes, int byteIndex, int byteCount, char[] chars,
+                int charIndex, int charCount, boolean flush, int[] bytesUsed, int[] charsUsed,
+                boolean[] completed) {
+            if (bytesUsed == null || charsUsed == null || completed == null) throw new java.lang.NullPointerException("Output carrier");
+            if (bytesUsed.length == 0 || charsUsed.length == 0 || completed.length == 0) throw new java.lang.ArrayIndexOutOfBoundsException("Output carrier");
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            if (chars == null) throw new ArgumentNullException("chars");
+            nonnegative(byteIndex, "byteIndex"); nonnegative(byteCount, "byteCount");
+            nonnegative(charIndex, "charIndex"); nonnegative(charCount, "charCount");
+            if (byteIndex > bytes.length - byteCount) throw new ArgumentOutOfRangeException("bytes", "Index and count must refer to a location within the buffer.");
+            if (charIndex > chars.length - charCount) throw new ArgumentOutOfRangeException("chars", "Index and count must refer to a location within the buffer.");
+            char[] output = java.util.Arrays.copyOfRange(chars, charIndex, charIndex + charCount);
+            int[] consumed = new int[1];
+            int written;
+            try { written = convertCore(bytes, byteIndex, byteCount, output, flush, consumed); }
+            finally { java.lang.System.arraycopy(output, 0, chars, charIndex, output.length); }
+            bytesUsed[0] = consumed[0]; charsUsed[0] = written;
+            DecoderFallbackBuffer buffer = existingFallbackBuffer();
+            completed[0] = consumed[0] == byteCount && (!flush || this.pendingByte < 0 && this.pendingHigh == 0)
+                    && (buffer == null || buffer.get_Remaining() == 0);
+        }
         @Override public void Reset() { this.pendingByte = -1; this.pendingHigh = 0; resetFallbackBuffer(); }
     }
     @Override public Encoder GetEncoder() { return new UnicodeEncoder(this); }
