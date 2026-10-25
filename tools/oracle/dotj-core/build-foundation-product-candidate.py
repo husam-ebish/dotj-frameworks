@@ -355,6 +355,8 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/UnicodeEncoding.class
 
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/UnicodeEncoding$UnicodeEncoder.class"])
 
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/UnicodeEncoding$UnicodeDecoder.class"])
+
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))

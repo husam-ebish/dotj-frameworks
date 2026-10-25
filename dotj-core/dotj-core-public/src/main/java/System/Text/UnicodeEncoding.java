@@ -232,6 +232,104 @@ public class UnicodeEncoding extends Encoding {
         try { return decode(input, 0, input.length, output, 0); }
         finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
     }
+    @Override public Decoder GetDecoder() { return new UnicodeDecoder(this); }
+    private static final class UnicodeDecoder extends Decoder {
+        private final UnicodeEncoding encoding;
+        private int pendingByte = -1;
+        private char pendingHigh;
+        UnicodeDecoder(UnicodeEncoding encoding) {
+            this.encoding = encoding;
+            set_Fallback(encoding.decoderFallback);
+        }
+        private Byte[] wordBytes(char value) {
+            return this.encoding.bigEndian
+                    ? new Byte[] { new Byte(value >> 8), new Byte(value & 255) }
+                    : new Byte[] { new Byte(value & 255), new Byte(value >> 8) };
+        }
+        private int fallback(Byte[] unknown, int index, char[] output, int offset, int written) {
+            DecoderFallback selected = get_Fallback();
+            DecoderFallbackBuffer buffer = get_FallbackBuffer();
+            if (selected instanceof DecoderExceptionFallback) {
+                StringBuilder description = new StringBuilder();
+                for (Byte value : unknown) description.append(String.format(java.util.Locale.ROOT, "[%02X]", value.get_Value()));
+                throw new DecoderFallbackException("Unable to translate bytes " + description + " at index " + index
+                        + " from specified code page to Unicode.", unknown, index);
+            }
+            if (output == null && selected instanceof DecoderReplacementFallback replacement) {
+                return written + replacement.get_DefaultString().length();
+            }
+            if (buffer.Fallback(unknown, index)) {
+                char next;
+                while ((next = buffer.GetNextChar()) != 0) {
+                    if (output != null) {
+                        if (written == output.length - offset) this.encoding.overflow(false);
+                        output[offset + written] = next;
+                    }
+                    written++;
+                }
+            }
+            return written;
+        }
+        private int process(Byte[] bytes, int index, int count, char[] output, int offset, boolean flush, boolean update) {
+            int lastByte = this.pendingByte, consumed = 0, written = 0;
+            char high = this.pendingHigh;
+            try {
+                while (consumed < count) {
+                    if (lastByte < 0) { lastByte = bytes[index + consumed++].get_Value(); continue; }
+                    int next = bytes[index + consumed++].get_Value();
+                    char current = (char)(this.encoding.bigEndian ? lastByte << 8 | next : next << 8 | lastByte);
+                    lastByte = -1;
+                    if (Character.isHighSurrogate(current)) {
+                        if (high != 0) written = fallback(wordBytes(high), consumed - 2, output, offset, written);
+                        high = current; continue;
+                    }
+                    if (Character.isLowSurrogate(current)) {
+                        if (high == 0) { written = fallback(wordBytes(current), consumed - 2, output, offset, written); continue; }
+                        if (output != null && output.length - offset - written < 2) this.encoding.overflow(false);
+                        if (output != null) output[offset + written] = high;
+                        written++; high = 0;
+                    } else if (high != 0) {
+                        written = fallback(wordBytes(high), consumed - 2, output, offset, written);
+                        high = 0;
+                    }
+                    if (output != null) {
+                        if (written == output.length - offset) this.encoding.overflow(false);
+                        output[offset + written] = current;
+                    }
+                    written++;
+                }
+                if (flush) {
+                    if (high != 0) { written = fallback(wordBytes(high), consumed - 2, output, offset, written); high = 0; }
+                    if (lastByte >= 0) {
+                        written = fallback(new Byte[] { new Byte(lastByte) }, consumed - 1, output, offset, written);
+                        lastByte = -1;
+                    }
+                }
+            } catch (ArgumentException failure) {
+                if (update && failure.getClass() == ArgumentException.class && "chars".equals(failure.get_ParamName())) resetFallbackBuffer();
+                throw failure;
+            }
+            if (update) { this.pendingByte = lastByte; this.pendingHigh = high; }
+            return written;
+        }
+        @Override public int GetCharCount(Byte[] bytes, int index, int count) { return GetCharCount(bytes, index, count, false); }
+        @Override public int GetCharCount(Byte[] bytes, int index, int count, boolean flush) {
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            range(bytes.length, index, count, "index", "count", "bytes", false);
+            return process(bytes, index, count, null, 0, flush, false);
+        }
+        @Override public int GetChars(Byte[] bytes, int byteIndex, int byteCount, char[] chars, int charIndex) {
+            return GetChars(bytes, byteIndex, byteCount, chars, charIndex, false);
+        }
+        @Override public int GetChars(Byte[] bytes, int byteIndex, int byteCount, char[] chars, int charIndex, boolean flush) {
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            if (chars == null) throw new ArgumentNullException("chars");
+            range(bytes.length, byteIndex, byteCount, "byteIndex", "byteCount", "bytes", false);
+            destination(chars.length, charIndex, "charIndex");
+            return process(bytes, byteIndex, byteCount, chars, charIndex, flush, true);
+        }
+        @Override public void Reset() { this.pendingByte = -1; this.pendingHigh = 0; resetFallbackBuffer(); }
+    }
     @Override public Encoder GetEncoder() { return new UnicodeEncoder(this); }
     private static final class UnicodeEncoder extends Encoder {
         private final UnicodeEncoding encoding;
