@@ -1510,7 +1510,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IComparable.class && candidate.definition == Int32.class) {
             return true;
         }
-        if (this.definition == IFormattable.class && candidate.definition == Int32.class) {
+        if (this.definition == IFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class)) {
             return true;
         }
         if (this.definition == IConvertible.class && candidate.definition == Int32.class) {
@@ -1622,7 +1622,7 @@ public abstract class Type extends MemberInfo {
                     || value instanceof DateTime || value instanceof TimeSpan;
         }
         if (this.definition == IFormattable.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles;
         }
         if (this.definition == IConvertible.class) {
             return value instanceof String || value instanceof Integer || value instanceof Int32 || value instanceof DBNull
@@ -1634,10 +1634,10 @@ public abstract class Type extends MemberInfo {
             return value instanceof DBNull || value instanceof Exception;
         }
         if (this.definition == ISpanFormattable.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles;
         }
         if (this.definition == IUtf8SpanFormattable.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles;
         }
         if (this.definition == Int32.class && value instanceof Integer) {
             return true;
@@ -1903,6 +1903,9 @@ public abstract class Type extends MemberInfo {
                     fromJavaClass(IFormattable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
         }
 
+        if (this.definition == DateTimeStyles.class) {
+            return new Type[] {fromJavaClass(IFormattable.class)};
+        }
         if (this.definition == DateTime.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IFormattable.class),
                     fromJavaClass(IConvertible.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
@@ -2032,7 +2035,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
                 || this.definition == Decimal.class || this.definition == DBNull.class
-                || this.definition == DateTime.class || this.definition == TimeSpan.class
+                || this.definition == DateTime.class || this.definition == TimeSpan.class || this.definition == DateTimeStyles.class
                 || this.definition == Object.class || this.definition == Stopwatch.class
                 || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == IFormattable.class
                 || this.definition == IFormatProvider.class || this.definition == ISerializable.class
