@@ -23,7 +23,9 @@ def main():
         index=len(cases);result=row['result'];expression=f'Type.GetType("{row["source"]}").GetInterface({json.dumps(row["query"])},{str(row["ignoreCase"]).lower()})'
         if 'exception' in result:cases.append(f'try{{{expression};throw new AssertionError("missing lookup error {index}");}}catch(ArgumentNullException expected){{check(expected.getClass().getName().equals("{result["exception"]}") && expected.get_HResult()=={result["hResult"]} && java.util.Objects.equals(expected.get_ParamName(),{json.dumps(result["paramName"])}),{index});}}')
         else:cases.append(f'check({expression}=='+('null' if result['name'] is None else 'Type.GetType("'+result['name']+'")')+f',{index});')
-    assert len(cases)==468
+    assert len(oracle['types'])==20
+    expected=20+sum(8+12*len(row['selectedInterfaces']) for row in oracle['types'])
+    assert len(cases)==expected
     work=Path('D:/AI/Implementation/dotj Frameworks/verification/interface-lookup');work.mkdir(parents=True,exist_ok=True)
     source=work/'InterfaceLookupProbe.java';methods=['static void group'+str(offset//15)+'(){\n'+'\n'.join(cases[offset:offset+15])+'\n}' for offset in range(0,len(cases),15)]
     source.write_text('import System.Exception;import System.SystemException;import System.ArgumentException;import System.ArgumentNullException;import System.ArgumentOutOfRangeException;import System.ArithmeticException;import System.DivideByZeroException;import System.OverflowException;import System.InvalidCastException;import System.InvalidOperationException;import System.NullReferenceException;import System.IndexOutOfRangeException;import System.FormatException;import System.TypeLoadException;import System.IO.IOException;import System.IO.FileNotFoundException;import System.IO.FileLoadException;import System.Globalization.CultureNotFoundException;import System.Runtime.Serialization.SerializationException;import System.ArgumentNullException;import System.Type;import System.TypeLoadException;class InterfaceLookupProbe{static void check(boolean ok,int id){check(ok,id,"factory");}static void check(boolean ok,int id,String property){if(!ok)throw new AssertionError("case "+id+" "+property);}\n'+'\n'.join(methods)+'\npublic static void main(String[] args){'+'\n'.join(f'group{index}();' for index in range(len(methods)))+'}}\n',encoding='utf-8')
@@ -31,6 +33,6 @@ def main():
     subprocess.run(['java','-cp',str(args.jar)+';'+str(work),'InterfaceLookupProbe'],check=True)
     record=dict(schemaVersion=1,casesPassed=len(cases),omittedInterfaces={row['name']:row['omittedInterfaces'] for row in oracle['types']},oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_SELECTED_INTERFACE_LOOKUP_PASS; OMITTED_INTERFACES_FULL_DISPATCH_LANGUAGE_AND_RELEASE_OPEN')
     (EVIDENCE/'interface-lookup-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
-    print('PASS selected interface lookup: 468 pinned groups')
+    print(f'PASS selected interface lookup: {len(cases)} pinned groups')
 
 if __name__=='__main__':main()

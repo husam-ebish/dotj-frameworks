@@ -3,7 +3,7 @@
 package System;
 
 /** Selected signed byte value carrier for public serialization paths. */
-public final class SByte implements IConvertible {
+public final class SByte implements IConvertible, IFormattable {
     private final byte value;
 
     public SByte(int value) {
@@ -18,7 +18,7 @@ public final class SByte implements IConvertible {
     }
 
     public String ToString() {
-        return java.lang.Byte.toString(this.value);
+        return ToString((IFormatProvider)null);
     }
 
     @Override
@@ -98,12 +98,24 @@ public final class SByte implements IConvertible {
 
     @Override
     public String ToString(IFormatProvider provider) {
-        return this.ToString();
+        return new Int32(this.value).ToString(provider);
     }
 
     @Override
     public Object ToType(Type conversionType, IFormatProvider provider) {
         return Int32.selectedDefaultToType(this, conversionType, provider);
+    }
+
+    public String ToString(String format) { return ToString(format, null); }
+
+    @Override public String ToString(String format, IFormatProvider provider) {
+        if (format != null && format.matches("[xXbB][0-9]*")) {
+            return new Int32(this.value & 0xff).ToString(format, provider);
+        }
+        if ("d".equals(format)) format = "D";
+        if (format != null && format.matches("[A-Za-z]") && !format.matches("[cCdDeEfFgGnNpPrRxXbB]")) throw new FormatException("Format specifier was invalid");
+        if ("R".equals(format) || "r".equals(format)) format = "G";
+        return new Int32(this.value).ToString(format, provider);
     }
 
     @Override
