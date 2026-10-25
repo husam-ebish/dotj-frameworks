@@ -8,60 +8,19 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
-SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
-EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
-                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "ArgumentOutOfRangeException", "ArithmeticException", "DivideByZeroException", "ValueTuple", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "FormatException")]
-EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
-                      ("IOException", "FileNotFoundException", "FileLoadException")]
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBase.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBody.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodInfo.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/ParameterInfo.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/ParameterAttributes.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/GenericParameterAttributes.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/BindingFlags.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/CallingConventions.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodImplAttributes.java")
-EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("DBNull.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("Attribute.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("NullReferenceException.java"))
-EXCEPTION_SOURCES.append(SOURCE.parent / "Runtime/CompilerServices/NullableAttribute.java")
-EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java") for name in
-                      ("FormatterConverter", "IFormatterConverter", "ISerializable", "SerializationEntry", "SerializationException", "SerializationInfo", "SerializationInfoEnumerator", "StreamingContext", "StreamingContextStates")]
-EXCEPTION_SOURCES.append(SOURCE.parent / "Collections/IEnumerator.java")
-EXCEPTION_SOURCES += [SOURCE.parent / "Collections" / (name + ".java") for name in
-                      ("IEnumerable", "ICollection", "IDictionary", "IDictionaryEnumerator", "DictionaryEntry")]
-EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/collections/ExceptionDataDictionary.java")
-EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("MidpointRounding.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("DateTimeKind.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("DayOfWeek.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("TimeSpan.java"))
-EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/TimeSpanStyles.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/DateTimeStyles.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Diagnostics/Stopwatch.java")
-EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("ReadOnlySpan.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("Span.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("UInt16.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("UInt32.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("Byte.java"))
-EXCEPTION_SOURCES.append(SOURCE.with_name("SByte.java"))
-EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/NumberStyles.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/NumberFormatInfo.java")
-EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/CultureNotFoundException.java")
-EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/throwing/ThrowSite.java")
-IDISPOSABLE_SOURCE = SOURCE.with_name("IDisposable.java")
-ICOMPARABLE_SOURCE = SOURCE.with_name("IComparable.java")
-IFORMATTABLE_SOURCE = SOURCE.with_name("IFormattable.java")
-IFORMATPROVIDER_SOURCE = SOURCE.with_name("IFormatProvider.java")
-ISPANFORMATTABLE_SOURCE = SOURCE.with_name("ISpanFormattable.java")
-IUTF8SPANFORMATTABLE_SOURCE = SOURCE.with_name("IUtf8SpanFormattable.java")
-ICONVERTIBLE_SOURCE = SOURCE.with_name("IConvertible.java")
+import runpy
+
+# Keep the compile-only lowering probe on the reviewed Type build source profile.
+_type_source_profile = runpy.run_path(str(Path(__file__).with_name("build-system-type-candidate.py")))
+SOURCE = _type_source_profile['SOURCE']
+EXCEPTION_SOURCES = _type_source_profile['EXCEPTION_SOURCES']
+IDISPOSABLE_SOURCE = _type_source_profile['IDISPOSABLE_SOURCE']
+ICOMPARABLE_SOURCE = _type_source_profile['ICOMPARABLE_SOURCE']
+IFORMATTABLE_SOURCE = _type_source_profile['IFORMATTABLE_SOURCE']
+IFORMATPROVIDER_SOURCE = _type_source_profile['IFORMATPROVIDER_SOURCE']
+ISPANFORMATTABLE_SOURCE = _type_source_profile['ISPANFORMATTABLE_SOURCE']
+IUTF8SPANFORMATTABLE_SOURCE = _type_source_profile['IUTF8SPANFORMATTABLE_SOURCE']
+ICONVERTIBLE_SOURCE = _type_source_profile['ICONVERTIBLE_SOURCE']
 BUILD = ROOT / "dotj-core/dotj-core-public/build/typeof-selected-v1"
 EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence/typeof-selected-lowering-v1.json"
 NAME = re.compile(r"System(?:\.[A-Za-z][A-Za-z0-9]*)+")
