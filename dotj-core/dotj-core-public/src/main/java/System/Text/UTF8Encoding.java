@@ -26,6 +26,30 @@ public class UTF8Encoding extends Encoding {
         this.encoderFallback = throwOnInvalidBytes ? EncoderFallback.get_ExceptionFallback() : new EncoderReplacementFallback("\ufffd");
         this.decoderFallback = throwOnInvalidBytes ? DecoderFallback.get_ExceptionFallback() : new DecoderReplacementFallback("\ufffd");
     }
+    @Override public Byte[] GetBytes(String s, int index, int count) {
+        if (s == null) throw new ArgumentNullException("s");
+        validateArraySlice(s.length(), index, count, "index");
+        int length = GetByteCount(s, index, count);
+        Byte[] result = new Byte[length];
+        java.util.Arrays.fill(result, new Byte(0));
+        if (length != 0) GetBytes(s, index, count, result, 0);
+        return result;
+    }
+    @Override public int GetByteCount(String s, int index, int count) {
+        if (s == null) throw new ArgumentNullException("s");
+        validateArraySlice(s.length(), index, count, "index");
+        return GetByteCount(s.substring(index, index + count));
+    }
+    @Override public Byte[] GetBytes(char[] chars, int index, int count) {
+        if (chars == null) throw new ArgumentNullException("chars");
+        validateArraySlice(chars.length, index, count, "chars");
+        return GetBytes(new String(chars, index, count));
+    }
+    @Override public int GetByteCount(char[] chars, int index, int count) {
+        if (chars == null) throw new ArgumentNullException("chars");
+        validateArraySlice(chars.length, index, count, "chars");
+        return GetByteCount(new String(chars, index, count));
+    }
     @Override public String GetString(Byte[] bytes, int index, int count) {
         if (bytes == null) throw new ArgumentNullException("bytes");
         validateArraySlice(bytes.length, index, count, "bytes");
