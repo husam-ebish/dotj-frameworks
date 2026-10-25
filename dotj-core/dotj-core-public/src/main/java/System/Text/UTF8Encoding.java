@@ -596,6 +596,99 @@ public class UTF8Encoding extends Encoding {
     private static final class Utf8Decoder extends Decoder {
         private byte[] pending = new byte[0];
         private Utf8Decoder(DecoderFallback fallback) { set_Fallback(fallback); }
+        @Override public void Convert(Byte[] bytes, int byteIndex, int byteCount, char[] chars,
+                int charIndex, int charCount, boolean flush, int[] bytesUsed, int[] charsUsed,
+                boolean[] completed) {
+            if (bytesUsed == null || charsUsed == null || completed == null) {
+                throw new java.lang.NullPointerException("Output carrier");
+            }
+            if (bytesUsed.length == 0 || charsUsed.length == 0 || completed.length == 0) {
+                throw new java.lang.ArrayIndexOutOfBoundsException("Output carrier");
+            }
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            if (chars == null) throw new ArgumentNullException("chars");
+            if (byteIndex < 0) throw new ArgumentOutOfRangeException("byteIndex");
+            if (byteCount < 0) throw new ArgumentOutOfRangeException("byteCount");
+            if (charIndex < 0) throw new ArgumentOutOfRangeException("charIndex");
+            if (charCount < 0) throw new ArgumentOutOfRangeException("charCount");
+            if (byteIndex > bytes.length - byteCount) throw new ArgumentOutOfRangeException("bytes");
+            if (charIndex > chars.length - charCount) throw new ArgumentOutOfRangeException("chars");
+            if (!(get_Fallback() instanceof DecoderReplacementFallback)
+                    && !(get_Fallback() instanceof DecoderExceptionFallback)) {
+                throw new UnsupportedOperationException("Custom-provider Decoder Convert remains open.");
+            }
+            byte[] input = unwrap(java.util.Arrays.copyOfRange(bytes, byteIndex, byteIndex + byteCount));
+            char[] target = java.util.Arrays.copyOfRange(chars, charIndex, charIndex + charCount);
+            int[] progress;
+            try { progress = convertPredefined(input, target, flush); }
+            finally { java.lang.System.arraycopy(target, 0, chars, charIndex, charCount); }
+            charsUsed[0] = progress[1];
+            bytesUsed[0] = progress[0];
+            DecoderFallbackBuffer existing = existingFallbackBuffer();
+            completed[0] = progress[0] == byteCount && (!flush || this.pending.length == 0)
+                    && (existing == null || existing.get_Remaining() == 0);
+        }
+        private int drainForConvert(DecoderFallbackBuffer buffer, char[] target, int offset) {
+            int written = 0;
+            String rune;
+            while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
+                if (rune.length() > target.length - offset - written) {
+                    buffer.Reset();
+                    return -written - 1;
+                }
+                rune.getChars(0, rune.length(), target, offset + written);
+                written += rune.length();
+            }
+            return written;
+        }
+        private int[] convertPredefined(byte[] input, char[] target, boolean flush) {
+            int previousCount = this.pending.length;
+            byte[] combined = java.util.Arrays.copyOf(this.pending, previousCount + input.length);
+            java.lang.System.arraycopy(input, 0, combined, previousCount, input.length);
+            int cursor = 0, written = 0;
+            while (cursor < combined.length) {
+                boolean initialPending = cursor == 0 && previousCount != 0;
+                int first = combined[cursor] & 255;
+                int required = first >= 0xc2 && first <= 0xdf ? 2 : first >= 0xe0 && first <= 0xef ? 3
+                        : first >= 0xf0 && first <= 0xf4 ? 4 : 1;
+                int consumed = Utf8Codec.prefixLength(combined, cursor, combined.length);
+                String rune = null;
+                Utf8Codec.Failure invalid = null;
+                try { rune = Utf8Codec.decode(java.util.Arrays.copyOfRange(combined, cursor, cursor + consumed), true); }
+                catch (Utf8Codec.Failure failure) { invalid = failure; }
+                if (!flush && consumed < required && cursor + consumed == combined.length) {
+                    this.pending = java.util.Arrays.copyOfRange(combined, cursor, combined.length);
+                    return new int[] {input.length, written};
+                }
+                if (invalid == null) {
+                    if (rune.length() > target.length - written) {
+                        return decoderConvertOverflow(Math.max(0, cursor - previousCount), written, initialPending);
+                    }
+                    rune.getChars(0, rune.length(), target, written);
+                    written += rune.length();
+                } else {
+                    DecoderFallbackBuffer buffer = fallbackBuffer();
+                    if (buffer.Fallback(wrap(invalid.bytesUnknown), cursor - previousCount)) {
+                        int drained = drainForConvert(buffer, target, written);
+                        if (drained < 0) {
+                            return decoderConvertOverflow(Math.max(0, cursor - previousCount), written, initialPending);
+                        }
+                        written += drained;
+                    }
+                }
+                if (initialPending) this.pending = new byte[0];
+                cursor += consumed;
+            }
+            return new int[] {input.length, written};
+        }
+        private int[] decoderConvertOverflow(int consumed, int written, boolean initialPending) {
+            fallbackBuffer();
+            if (initialPending || written == 0) {
+                resetFallbackBuffer();
+                throw new ArgumentException("Insufficient destination capacity.", "chars");
+            }
+            return new int[] {consumed, written};
+        }
         @Override public void Reset() { this.pending = new byte[0]; resetFallbackBuffer(); }
         @Override public int GetCharCount(Byte[] bytes, int index, int count) {
             return GetCharCount(bytes, index, count, false);
