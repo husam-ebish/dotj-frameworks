@@ -1,0 +1,7 @@
+﻿# Differential oracle provenance integrity
+
+Batch 2123 corrects eleven verifier records whose oracle filename/hash were overwritten by a later negative-compilation probe path. The functional comparisons loaded the correct pinned native JSON and validated its reference-script hash, but the final differential record incorrectly named the generated Bad*.java probe. These fields did not prove the intended fixture binding.
+
+The affected span copy, slicing, mutation and enum character-span verifiers now retain a separate oracle_path before creating compile-negative probes. The full foundation gate regenerates every affected differential record from its packaged consumer. A final serial integrity audit resolves each selected differential's local JSON oracle and verifies its SHA-256; it runs after all consumers and is itself included in the gate evidence manifest. Its controls accept an authentic fixture and reject a probe filename, missing fixture, incorrect hash and path traversal.
+
+The audit initially found eleven invalid bindings among 113 records carrying oracleEvidence. This repair adds no implementation acceptance credit and does not broaden behavioral/API qualification, resolve E01 rights decisions or qualify a framework. Upcoming records also expose their native fixture filename for the integrity audit. Product dependencies remain JDK-only; development/reference tools, controls and temporary artifacts remain on D:.

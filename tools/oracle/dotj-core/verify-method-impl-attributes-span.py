@@ -12,6 +12,7 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--jar',type=Path);args=parser.parse_args()
     if args.jar is None:args.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))['jarPath']
     path=EVIDENCE/'method-impl-attributes-span-contract-v10.0.12.json';oracle=json.loads(path.read_text(encoding='utf-8'))
+    oracle_path=path
     assert oracle['runtimeVersion']=='10.0.12' and oracle['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-method-impl-attributes-span-contract.ps1').read_bytes()).hexdigest()
     cases=[]
@@ -48,7 +49,7 @@ def main():
         path=work/('Bad'+name+'.java');path.write_text('import System.Span;import System.ReadOnlySpan;import System.Reflection.MethodImplAttributes;class Bad'+name+'{void test(){MethodImplAttributes.IL.TryFormat('+call+');}}',encoding='utf-8');result=subprocess.run(['javac','-Xmaxerrs','1','--release','21','-cp',str(args.jar),'-d',str(work),str(path)],capture_output=True,text=True)
         assert result.returncode!=0 and ('incompatible types' in result.stderr or 'no suitable method' in result.stderr),result.stderr
         rejected.append(name)
-    record=dict(schemaVersion=1,casesPassed=len(cases),compileRejections=rejected,omittedNativeInterfaces=[],oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_METHOD_IMPL_ATTRIBUTES_CHAR_SPAN_PASS; OTHER_ENUM_METHODS_BYREF_LIFETIME_LANGUAGE_AND_RELEASE_OPEN')
+    record=dict(schemaVersion=1,casesPassed=len(cases),compileRejections=rejected,omittedNativeInterfaces=[],oracleEvidence=oracle_path.name,oracleSha256=hashlib.sha256(oracle_path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_METHOD_IMPL_ATTRIBUTES_CHAR_SPAN_PASS; OTHER_ENUM_METHODS_BYREF_LIFETIME_LANGUAGE_AND_RELEASE_OPEN')
     (EVIDENCE/'method-impl-attributes-span-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
     print('PASS MethodImplAttributes Char spans: 6537 pinned groups and two compile rejections')
 

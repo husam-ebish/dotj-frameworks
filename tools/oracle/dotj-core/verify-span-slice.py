@@ -12,6 +12,7 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--jar',type=Path);args=parser.parse_args()
     if args.jar is None:args.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))['jarPath']
     path=EVIDENCE/'span-slice-contract-v10.0.12.json';oracle=json.loads(path.read_text(encoding='utf-8'))
+    oracle_path=path
     assert oracle['runtimeVersion']=='10.0.12' and oracle['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-span-slice-contract.ps1').read_bytes()).hexdigest()
     cases=[]
@@ -46,7 +47,7 @@ def main():
     for name in ['Span','ReadOnlySpan']:
         output=subprocess.run(['javap','-public','-classpath',str(args.jar),'System.'+name],check=True,capture_output=True,text=True).stdout
         for signature in [f'public System.{name}<T> Slice(int);',f'public System.{name}<T> Slice(int, int);']:assert signature in output
-    record=dict(schemaVersion=1,casesPassed=len(cases),compileRejections=rejected,oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_CHAR_BYTE_SPAN_SLICE_PASS; BYREF_LIFETIME_INDEXER_MEMORY_CONCURRENCY_LANGUAGE_AND_RELEASE_OPEN')
+    record=dict(schemaVersion=1,casesPassed=len(cases),compileRejections=rejected,oracleEvidence=oracle_path.name,oracleSha256=hashlib.sha256(oracle_path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_CHAR_BYTE_SPAN_SLICE_PASS; BYREF_LIFETIME_INDEXER_MEMORY_CONCURRENCY_LANGUAGE_AND_RELEASE_OPEN')
     (EVIDENCE/'span-slice-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
     print('PASS typed Span slicing: 9240 pinned groups and four mismatched-element compilation rejections')
 

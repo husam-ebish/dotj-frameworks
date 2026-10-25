@@ -153,6 +153,7 @@ CHECKS = (
     "build-foundation-notice-review-queue.py",
     "audit-throw-site-upstream-adjacency.py",
     "build-foundation-e01-review-packet.py",
+    "verify-differential-oracle-provenance.py",
 )
 
 
@@ -423,6 +424,7 @@ def main():
         "foundation-notice-review-queue-v1.json",
         "throw-site-upstream-adjacency-v1.json",
         "foundation-e01-review-packet-v1.json",
+        "differential-oracle-provenance-v1.json",
     )
     record = {
         "schemaVersion": 1,
