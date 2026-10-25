@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "casesPassed": 7056,
+  "compileRejections": [
+    "BadSpanCopyTo",
+    "BadSpanTryCopyTo",
+    "BadReadOnlySpanCopyTo",
+    "BadReadOnlySpanTryCopyTo"
+  ],
+  "oracleEvidence": "BadReadOnlySpanTryCopyTo.java",
+  "oracleSha256": "95fbf230626abcd77dbb8232f75cdbdad5d65c3d30105c351f57cb6f4a6d96c2",
+  "candidateJarSha256": "9c43502992fc15fddab6f4f5c5ca71099cdb72ac94a59a3e71ea4cac5bbea52b",
+  "qualification": "BOUNDED_CHAR_BYTE_SPAN_COPY_PASS; BYREF_LIFETIME_ALLOCATION_MEMORY_CONCURRENCY_LANGUAGE_AND_RELEASE_OPEN"
+}

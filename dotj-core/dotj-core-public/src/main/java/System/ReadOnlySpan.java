@@ -51,6 +51,25 @@ public final class ReadOnlySpan<T> {
         }
     }
 
+    public int get_Length() { return this.length; }
+
+    public boolean get_IsEmpty() { return this.length == 0; }
+
+    public void CopyTo(Span<T> destination) {
+        if (!TryCopyTo(destination)) throw new ArgumentException("Destination is too short.", "destination");
+    }
+
+    public boolean TryCopyTo(Span<T> destination) {
+        if (destination == null) throw new ArgumentNullException("destination");
+        return destination.tryCopySelectedBuffer(selectedBufferCopy());
+    }
+
+    Object selectedBufferCopy() {
+        return this.chars != null
+                ? java.util.Arrays.copyOfRange(this.chars, this.offset, this.offset + this.length)
+                : java.util.Arrays.copyOfRange(this.bytes, this.offset, this.offset + this.length);
+    }
+
     String selectedInt32Text() {
         return selectedText();
     }
