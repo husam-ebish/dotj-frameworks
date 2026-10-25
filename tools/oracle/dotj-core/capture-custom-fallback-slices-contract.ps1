@@ -1,0 +1,33 @@
+param([Parameter(Mandatory)][string]$OutputPath,[string]$InputPath=(Join-Path $PSScriptRoot '../../../planning/stage-2/repos/dotj-core/evidence/utf8-array-ranges-contract-v10.0.12.json'))
+$ErrorActionPreference='Stop';Set-StrictMode -Version Latest
+$coreHash=(Get-FileHash -LiteralPath ([object].Assembly.Location) -Algorithm SHA256).Hash.ToLowerInvariant();if([Environment]::Version.ToString() -ne '10.0.12' -or $coreHash -ne '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'){throw 'Pinned CoreLib required'}
+$input=Get-Content -LiteralPath $InputPath -Raw -Encoding UTF8|ConvertFrom-Json;$assembly=[Reflection.Emit.AssemblyBuilder]::DefineDynamicAssembly([Reflection.AssemblyName]::new('CustomFallbackOracle'),[Reflection.Emit.AssemblyBuilderAccess]::Run);$module=$assembly.DefineDynamicModule('CustomFallbackOracle')
+function CustomType([string]$Direction){
+ $base=[type]("System.Text.${Direction}Fallback");$replacement=[type]("System.Text.${Direction}ReplacementFallback");$buffer=[type]("System.Text.${Direction}FallbackBuffer");$builder=$module.DefineType('Custom'+$Direction+'Fallback',[Reflection.TypeAttributes]::Public,$base);[void]$builder.DefineDefaultConstructor([Reflection.MethodAttributes]::Public);$text=$builder.DefineField('Replacement',[string],[Reflection.FieldAttributes]::Public);$maximum=$builder.DefineField('Maximum',[int],[Reflection.FieldAttributes]::Public);$calls=$builder.DefineField('FactoryCalls',[int],[Reflection.FieldAttributes]::Public)
+ $attributes=[Reflection.MethodAttributes]'Public,Virtual,HideBySig';$getter=$builder.DefineMethod('get_MaxCharCount',$attributes-bor[Reflection.MethodAttributes]::SpecialName,[int],[type[]]@());$il=$getter.GetILGenerator();$il.Emit([Reflection.Emit.OpCodes]::Ldarg_0);$il.Emit([Reflection.Emit.OpCodes]::Ldfld,$maximum);$il.Emit([Reflection.Emit.OpCodes]::Ret);$builder.DefineMethodOverride($getter,$base.GetProperty('MaxCharCount').GetMethod)
+ $factory=$builder.DefineMethod('CreateFallbackBuffer',$attributes,$buffer,[type[]]@());$il=$factory.GetILGenerator();$il.Emit([Reflection.Emit.OpCodes]::Ldarg_0);$il.Emit([Reflection.Emit.OpCodes]::Dup);$il.Emit([Reflection.Emit.OpCodes]::Ldfld,$calls);$il.Emit([Reflection.Emit.OpCodes]::Ldc_I4_1);$il.Emit([Reflection.Emit.OpCodes]::Add);$il.Emit([Reflection.Emit.OpCodes]::Stfld,$calls);$il.Emit([Reflection.Emit.OpCodes]::Ldarg_0);$il.Emit([Reflection.Emit.OpCodes]::Ldfld,$text);$il.Emit([Reflection.Emit.OpCodes]::Newobj,$replacement.GetConstructor([type[]]@([string])));$il.Emit([Reflection.Emit.OpCodes]::Callvirt,$base.GetMethod('CreateFallbackBuffer'));$il.Emit([Reflection.Emit.OpCodes]::Ret);$builder.DefineMethodOverride($factory,$base.GetMethod('CreateFallbackBuffer'));return $builder.CreateType()
+}
+$encoderType=CustomType 'Encoder';$decoderType=CustomType 'Decoder';$templates=@(@(),@(63),@(65,66),@(0xd800,0xdc00));$profiles=@()
+foreach($template in 0..3){foreach($wideMaximum in @($false,$true)){
+ $encoder=[Activator]::CreateInstance($encoderType);$decoder=[Activator]::CreateInstance($decoderType);$text=[string]::new([char[]][int[]]$templates[$template]);$maximum=if($wideMaximum){10}else{$text.Length}
+ foreach($pair in @(@($encoderType,$encoder),@($decoderType,$decoder))){$pair[0].GetField('Replacement').SetValue($pair[1],$text);$pair[0].GetField('Maximum').SetValue($pair[1],[int]$maximum)}
+ $encoding=[Text.Encoding]([Text.UTF8Encoding]::new()).Clone();$encoding.EncoderFallback=$encoder;$encoding.DecoderFallback=$decoder;$rows=@()
+ foreach($operation in @('E','EC','EA','ECA','D','DS','DC')){
+  $isEncoder=$operation -in @('E','EC','EA','ECA');$sources=if($isEncoder){$input.textInputs}else{$input.byteInputs};[type[]]$signature=if($operation -in @('E','EC')){@([string],[int],[int])}elseif($operation -in @('EA','ECA')){@([char[]],[int],[int])}else{@([byte[]],[int],[int])};$methodName=switch($operation){'E'{'GetBytes'}'EC'{'GetByteCount'}'EA'{'GetBytes'}'ECA'{'GetByteCount'}'D'{'GetChars'}'DS'{'GetString'}'DC'{'GetCharCount'}};$method=[Text.Encoding].GetMethod($methodName,$signature)
+  foreach($sourceId in -1..($sources.Count-1)){
+   $units=$null;if($sourceId -ge 0){$units=[int[]]$sources[$sourceId]};$length=if($null -eq $units){0}else{$units.Length};$ranges=[Collections.Generic.HashSet[string]]::new()
+   foreach($index in @(-1,0,1,$length,($length+1),2147483647)){foreach($count in @(-1,0,1,2,$length,2147483647)){
+    if(-not $ranges.Add("$index,$count")){continue};$encoderType.GetField('FactoryCalls').SetValue($encoder,0);$decoderType.GetField('FactoryCalls').SetValue($decoder,0);$arguments=[object[]]::new(3);$arguments[1]=[int]$index;$arguments[2]=[int]$count
+    if($null -ne $units){if($operation -in @('E','EC')){$arguments[0]=[string]::new([char[]]$units)}elseif($operation -in @('EA','ECA')){$arguments[0]=[char[]]$units}else{$arguments[0]=[byte[]]$units}}
+    try{$value=$method.Invoke($encoding,$arguments);if($value -is [int]){$result=[ordered]@{ok=$true;count=$value}}elseif($value -is [string]){$result=[ordered]@{ok=$true;units=[int[]][char[]]$value}}else{$result=[ordered]@{ok=$true;units=[int[]]$value}}}
+    catch{$e=$_.Exception;while(($e -is [Management.Automation.RuntimeException] -or $e -is [Reflection.TargetInvocationException]) -and $null -ne $e.InnerException){$e=$e.InnerException};$result=[ordered]@{ok=$false;exception=$e.GetType().FullName;hResult=$e.HResult;paramName=$(if($e -is [ArgumentException]){$e.ParamName}else{$null})}}
+    $rows+=[ordered]@{operation=$operation;sourceId=$sourceId;index=$index;count=$count;result=$result;encoderFactoryCalls=$encoderType.GetField('FactoryCalls').GetValue($encoder);decoderFactoryCalls=$decoderType.GetField('FactoryCalls').GetValue($decoder)}
+   }}
+  }
+ }
+
+ $capacities=@();
+ $profiles+=[ordered]@{replacementUnits=[int[]]$templates[$template];advertisedMaximum=$maximum;retainsEncoder=[object]::ReferenceEquals($encoder,$encoding.EncoderFallback);retainsDecoder=[object]::ReferenceEquals($decoder,$encoding.DecoderFallback);rows=$rows;capacities=$capacities}
+}}
+$record=[ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash;oracleSha256=(Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant();inputSha256=(Get-FileHash -LiteralPath $InputPath -Algorithm SHA256).Hash.ToLowerInvariant();profiles=$profiles;qualification='SELECTED_CUSTOM_FALLBACK_SLICE_DISPATCH_ONLY; ADVERSARIAL_BUFFERS_STATEFUL_ENCODERS_FULL_METADATA_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN'}
+[IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 13)+"`n",[Text.UTF8Encoding]::new($false));Write-Output 'PASS pinned custom fallback dispatch: eight emitted custom slice profiles'
