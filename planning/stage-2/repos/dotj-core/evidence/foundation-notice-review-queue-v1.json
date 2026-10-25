@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "62c9f21bfbc2ca5c3ab91b5e4adb409f545ecd3188eb26bee07d0a6fa7476b0c",
+  "jarSha256": "044291b348b640a957765414b7dc1ecc14d05537ff6eb44d73d156e06f81a456",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
   "sourceCount": 94,
@@ -9,6 +9,8 @@
   "directNameMissingCount": 11,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
+    "dotj-core/dotj-core-public/src/main/java/System/Text/Decoder.java",
+    "dotj-core/dotj-core-public/src/main/java/System/Text/Encoder.java",
     "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java"
   ],
   "rows": [
@@ -1209,7 +1211,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/Decoder.java",
-      "productSha256": "77760d49a56f77df7c10a688300da459be1cea9522395ab84e949b158b9087bc",
+      "productSha256": "0a80df03b7a124fca36e69d9f7beebb91a0c32dbead4bee9e040797317273a7b",
       "classEntries": [
         "System/Text/Decoder.class"
       ],
@@ -1218,9 +1220,19 @@
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/Decoder.cs",
       "upstreamSha256": "63ad892a7893986da14266c398366941002203eed2859e70c8cd7f41aa1cbeb1",
-      "sharedIdentifierShinglesOfLength12": 0,
-      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
-      "sharedIdentifierShingleSamples": [],
+      "sharedIdentifierShinglesOfLength12": 9,
+      "lexicalReviewStatus": "OVERLAP_REVIEW_REQUIRED",
+      "sharedIdentifierShingleSamples": [
+        "GetCharCount bytes byteIndex bytesUsed flush charCount charsUsed GetChars bytes byteIndex bytesUsed chars",
+        "byteIndex bytesUsed flush charCount charsUsed GetChars bytes byteIndex bytesUsed chars charIndex flush",
+        "bytes byteIndex bytesUsed flush charCount charsUsed GetChars bytes byteIndex bytesUsed chars charIndex",
+        "bytesUsed flush charCount charsUsed GetChars bytes byteIndex bytesUsed chars charIndex flush completed",
+        "bytesUsed if GetCharCount bytes byteIndex bytesUsed flush charCount charsUsed GetChars bytes byteIndex",
+        "charCount charsUsed GetChars bytes byteIndex bytesUsed chars charIndex flush completed bytesUsed byteCount",
+        "flush charCount charsUsed GetChars bytes byteIndex bytesUsed chars charIndex flush completed bytesUsed",
+        "if GetCharCount bytes byteIndex bytesUsed flush charCount charsUsed GetChars bytes byteIndex bytesUsed",
+        "while bytesUsed if GetCharCount bytes byteIndex bytesUsed flush charCount charsUsed GetChars bytes"
+      ],
       "noticeApplicabilityDecision": "REVIEW_REQUIRED",
       "supplementalAdjacencyEvidence": "custom-stateful-decoder-source-adjacency-v10.0.12.json"
     },
@@ -1314,7 +1326,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoder.java",
-      "productSha256": "59a32a81c9b0fabbb803c298065479da2221d64a530ba63dfe482989bc004ddb",
+      "productSha256": "a250e2312b6bea7a34ed7e751397aacd1a20ea686a618e6c5bfab48ee0832e81",
       "classEntries": [
         "System/Text/Encoder.class"
       ],
@@ -1323,9 +1335,19 @@
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/Encoder.cs",
       "upstreamSha256": "803a635510c36435b6cfa82a92720bc590673abae7a502506ac8c68eaa7b39f0",
-      "sharedIdentifierShinglesOfLength12": 0,
-      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
-      "sharedIdentifierShingleSamples": [],
+      "sharedIdentifierShinglesOfLength12": 9,
+      "lexicalReviewStatus": "OVERLAP_REVIEW_REQUIRED",
+      "sharedIdentifierShingleSamples": [
+        "GetByteCount chars charIndex charsUsed flush byteCount bytesUsed GetBytes chars charIndex charsUsed bytes",
+        "byteCount bytesUsed GetBytes chars charIndex charsUsed bytes byteIndex flush completed charsUsed charCount",
+        "charIndex charsUsed flush byteCount bytesUsed GetBytes chars charIndex charsUsed bytes byteIndex flush",
+        "chars charIndex charsUsed flush byteCount bytesUsed GetBytes chars charIndex charsUsed bytes byteIndex",
+        "charsUsed flush byteCount bytesUsed GetBytes chars charIndex charsUsed bytes byteIndex flush completed",
+        "charsUsed if GetByteCount chars charIndex charsUsed flush byteCount bytesUsed GetBytes chars charIndex",
+        "flush byteCount bytesUsed GetBytes chars charIndex charsUsed bytes byteIndex flush completed charsUsed",
+        "if GetByteCount chars charIndex charsUsed flush byteCount bytesUsed GetBytes chars charIndex charsUsed",
+        "while charsUsed if GetByteCount chars charIndex charsUsed flush byteCount bytesUsed GetBytes chars"
+      ],
       "noticeApplicabilityDecision": "REVIEW_REQUIRED",
       "supplementalAdjacencyEvidence": null
     },

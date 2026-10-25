@@ -1,0 +1,11 @@
+# Generic Encoder and Decoder base Convert array protocols
+
+Batch 2206 replaces the two generic base array Convert unsupported boundaries with the pinned count-halving protocol. The base method sets its consumed-input output before the first callback, asks the virtual count method whether the request fits, halves the count and disables flush until it fits, then calls the virtual writer. It preserves native mutation of output carriers through callback exceptions and computes completion after the write result, including aliased integer outputs and pending fallback data.
+
+This is deliberately distinct from the UTF-8 NLS overrides. An empty generic input request throws conversion overflow after setting its consumed-input output to zero. A callback failure can leave that output changed. The base protocol forwards the actual destination and trusts its virtual callbacks; it does not introduce the bounded destination snapshots used by the selected NLS implementations.
+
+The direct-IL native capture contains 11,520 cases across both base classes, count multipliers, count/capacity boundaries, flush and offsets, aliases, prefilled fallback buffers and callback modes. The consumer passes 57,600 groups, comparing both raw output slots, completion, the full destination and exact count/write traces. Overestimating, negative and throwing callback returns are bounded native observations, not endorsed provider contracts. Both Decoder bool and non-bool callback overloads are distinguished by the trace.
+
+Native parameter checks are retained and Java output-carrier checks remain explicit adapters. The complete invalid-parameter matrix still needs separate qualification. Pointer/span Convert, arbitrary reentrancy, full reflection/source ABI and WP-05 acceptance remain open. Declaration coverage stays 20/28 because the two signatures already existed with explicit unsupported base behavior. The existing source-adjacency record pins Encoder.cs and Decoder.cs; E01 applicability remains open. No accepted task, qualified framework or rights clearance is credited.
+
+Next is generic base Convert boundary qualification: null/range priority, untouched versus changed outputs before callbacks, aliasing, callback suppression and Java output-carrier errors.
