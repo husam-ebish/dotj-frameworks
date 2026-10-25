@@ -306,6 +306,89 @@ public class UTF8Encoding extends Encoding {
             return written;
         }
     }
+    @Override public Decoder GetDecoder() { return new Utf8Decoder(get_DecoderFallback()); }
+    private static final class Utf8Decoder extends Decoder {
+        private byte[] pending = new byte[0];
+        private Utf8Decoder(DecoderFallback fallback) { set_Fallback(fallback); }
+        @Override public void Reset() { this.pending = new byte[0]; resetFallbackBuffer(); }
+        @Override public int GetCharCount(Byte[] bytes, int index, int count) {
+            return GetCharCount(bytes, index, count, false);
+        }
+        @Override public int GetCharCount(Byte[] bytes, int index, int count, boolean flush) {
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            validateSource(bytes.length, index, count, "index", "count");
+            return transcode(unwrap(java.util.Arrays.copyOfRange(bytes, index, index + count)), null, 0, flush, true);
+        }
+        @Override public int GetChars(Byte[] bytes, int byteIndex, int byteCount, char[] chars, int charIndex) {
+            return GetChars(bytes, byteIndex, byteCount, chars, charIndex, false);
+        }
+        @Override public int GetChars(Byte[] bytes, int byteIndex, int byteCount, char[] chars,
+                int charIndex, boolean flush) {
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            if (chars == null) throw new ArgumentNullException("chars");
+            validateSource(bytes.length, byteIndex, byteCount, "byteIndex", "byteCount");
+            if (charIndex < 0 || charIndex > chars.length) throw new ArgumentOutOfRangeException("charIndex");
+            return transcode(unwrap(java.util.Arrays.copyOfRange(bytes, byteIndex, byteIndex + byteCount)), chars,
+                    charIndex, flush, false);
+        }
+        private static void validateSource(int length, int index, int count, String indexName, String countName) {
+            if (index < 0) throw new ArgumentOutOfRangeException(indexName);
+            if (count < 0) throw new ArgumentOutOfRangeException(countName);
+            if (index > length - count) throw new ArgumentOutOfRangeException("bytes");
+        }
+        private DecoderFallbackBuffer fallbackBuffer() {
+            DecoderFallbackBuffer result = get_FallbackBuffer();
+            if (result == null) throw new NullReferenceException();
+            return result;
+        }
+        private int emit(String rune, char[] chars, int offset, boolean counting) {
+            if (!counting) {
+                if (rune.length() > chars.length - offset) {
+                    fallbackBuffer();
+                    resetFallbackBuffer();
+                    throw new ArgumentException("Insufficient destination capacity.", "chars");
+                }
+                rune.getChars(0, rune.length(), chars, offset);
+            }
+            return rune.length();
+        }
+        private int drain(DecoderFallbackBuffer buffer, char[] chars, int offset, boolean counting) {
+            int written = 0;
+            String rune;
+            while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
+                written += emit(rune, chars, offset + written, counting);
+            }
+            return written;
+        }
+        private int transcode(byte[] input, char[] chars, int offset, boolean flush, boolean counting) {
+            int previousCount = this.pending.length;
+            byte[] combined = java.util.Arrays.copyOf(this.pending, previousCount + input.length);
+            java.lang.System.arraycopy(input, 0, combined, previousCount, input.length);
+            int written = 0;
+            for (int position = 0; position < combined.length;) {
+                int first = combined[position] & 255;
+                int required = first >= 0xc2 && first <= 0xdf ? 2 : first >= 0xe0 && first <= 0xef ? 3
+                        : first >= 0xf0 && first <= 0xf4 ? 4 : 1;
+                int consumed = Utf8Codec.prefixLength(combined, position, combined.length);
+                if (!flush && consumed < required && position + consumed == combined.length) {
+                    if (!counting) this.pending = java.util.Arrays.copyOfRange(combined, position, combined.length);
+                    return written;
+                }
+                String rune = null;
+                try { rune = Utf8Codec.decode(java.util.Arrays.copyOfRange(combined, position, position + consumed), true); }
+                catch (Utf8Codec.Failure failure) {
+                    DecoderFallbackBuffer buffer = fallbackBuffer();
+                    if (buffer.Fallback(wrap(failure.bytesUnknown), position - previousCount)) {
+                        written += drain(buffer, chars, offset + written, counting);
+                    }
+                }
+                if (rune != null) written += emit(rune, chars, offset + written, counting);
+                if (!counting && position == 0 && previousCount != 0) this.pending = new byte[0];
+                position += consumed;
+            }
+            return written;
+        }
+    }
     private boolean customEncoderFallback() {
         return !(this.encoderFallback instanceof EncoderReplacementFallback)
                 && !(this.encoderFallback instanceof EncoderExceptionFallback);

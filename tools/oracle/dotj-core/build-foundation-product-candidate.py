@@ -336,6 +336,9 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["org/dotj/internal/text/MarvinStri
 SOURCES.append(PRODUCT / "src/main/java/System/Text/Encoder.java")
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/Encoder.class", "System/Text/UTF8Encoding$Utf8Encoder.class"])
 
+SOURCES.append(PRODUCT / "src/main/java/System/Text/Decoder.java")
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/Decoder.class", "System/Text/UTF8Encoding$Utf8Decoder.class"])
+
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))

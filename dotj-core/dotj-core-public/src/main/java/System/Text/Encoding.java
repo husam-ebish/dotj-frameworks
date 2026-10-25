@@ -113,6 +113,9 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public Encoder GetEncoder() {
         throw new UnsupportedOperationException("Stateful encoding for this encoding is not supported by the candidate.");
     }
+    public Decoder GetDecoder() {
+        throw new UnsupportedOperationException("Stateful decoding for this encoding is not supported by the candidate.");
+    }
     public abstract Byte[] GetPreamble();
     public abstract Byte[] GetBytes(String s);
     public abstract int GetByteCount(String s);
