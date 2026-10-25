@@ -538,6 +538,7 @@ public abstract class Type extends MemberInfo {
             case "System.DateTimeKind" -> fromJavaClass(DateTimeKind.class);
             case "System.DayOfWeek" -> fromJavaClass(DayOfWeek.class);
             case "System.OverflowException" -> fromJavaClass(OverflowException.class);
+            case "System.OutOfMemoryException" -> fromJavaClass(OutOfMemoryException.class);
             case "System.InvalidCastException" -> fromJavaClass(InvalidCastException.class);
             case "System.InvalidOperationException" -> fromJavaClass(InvalidOperationException.class);
             case "System.IO.FileLoadException" -> fromJavaClass(FileLoadException.class);
@@ -725,6 +726,7 @@ public abstract class Type extends MemberInfo {
             case "system.datetimekind" -> ignoreCase ? fromJavaClass(DateTimeKind.class) : null;
             case "system.dayofweek" -> ignoreCase ? fromJavaClass(DayOfWeek.class) : null;
             case "system.overflowexception" -> ignoreCase ? fromJavaClass(OverflowException.class) : null;
+            case "system.outofmemoryexception" -> ignoreCase ? fromJavaClass(OutOfMemoryException.class) : null;
             case "system.invalidcastexception" -> ignoreCase ? fromJavaClass(InvalidCastException.class) : null;
             case "system.invalidoperationexception" -> ignoreCase
                     ? fromJavaClass(InvalidOperationException.class) : null;
