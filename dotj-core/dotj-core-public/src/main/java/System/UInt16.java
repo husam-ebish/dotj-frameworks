@@ -142,6 +142,13 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
         catch (FormatException | OverflowException expected) { result[0] = new UInt16(0); return false; }
     }
 
+    public static ValueTuple<UInt16, UInt16> DivRem(UInt16 left, UInt16 right) {
+        if (left == null) throw new ArgumentNullException("left");
+        if (right == null) throw new ArgumentNullException("right");
+        if (right.value == 0) throw new DivideByZeroException();
+        return new ValueTuple<>(new UInt16(left.value / right.value), new UInt16(left.value % right.value));
+    }
+
     public UInt16(int value) {
         if (value < 0 || value > 65535) {
             throw new OverflowException("Value was outside the range of UInt16");

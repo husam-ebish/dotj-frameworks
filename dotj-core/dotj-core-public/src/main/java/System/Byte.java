@@ -142,6 +142,13 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         catch (FormatException | OverflowException expected) { result[0] = new Byte(0); return false; }
     }
 
+    public static ValueTuple<Byte, Byte> DivRem(Byte left, Byte right) {
+        if (left == null) throw new ArgumentNullException("left");
+        if (right == null) throw new ArgumentNullException("right");
+        if (right.value == 0) throw new DivideByZeroException();
+        return new ValueTuple<>(new Byte(left.value / right.value), new Byte(left.value % right.value));
+    }
+
     public Byte(int value) {
         if (value < 0 || value > 255) {
             throw new OverflowException("Value was outside the range of Byte");
