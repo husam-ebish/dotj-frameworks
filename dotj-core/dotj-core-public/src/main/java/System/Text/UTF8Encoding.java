@@ -197,6 +197,12 @@ public class UTF8Encoding extends Encoding {
         }
         return GetString(bytes).toCharArray();
     }
+    @Override public boolean Equals(Object value) {
+        return value instanceof UTF8Encoding other && this.emitIdentifier == other.emitIdentifier
+                && get_EncoderFallback().Equals(other.get_EncoderFallback())
+                && get_DecoderFallback().Equals(other.get_DecoderFallback());
+    }
+    @Override public int GetHashCode() { return super.GetHashCode() + (this.emitIdentifier ? 1 : 0); }
     private boolean customEncoderFallback() {
         return !(this.encoderFallback instanceof EncoderReplacementFallback)
                 && !(this.encoderFallback instanceof EncoderExceptionFallback);
