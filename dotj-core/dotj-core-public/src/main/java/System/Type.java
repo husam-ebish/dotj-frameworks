@@ -1569,7 +1569,7 @@ public abstract class Type extends MemberInfo {
                 && candidate.definition == SerializationInfoEnumerator.class) {
             return true;
         }
-        if (candidate.definition == NormalizationForm.class && this.definition == IFormattable.class) return true;
+        if (candidate.definition == NormalizationForm.class && (this.definition == IFormattable.class || this.definition == IConvertible.class || this.definition == IComparable.class)) return true;
         if (this.definition == IComparable.class && candidate.definition == String.class) {
             return true;
         }

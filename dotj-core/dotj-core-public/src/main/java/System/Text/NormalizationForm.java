@@ -3,12 +3,26 @@
 package System.Text;
 
 import System.Int32;
+import System.IConvertible;
+import System.IComparable;
+import System.TypeCode;
+import System.Type;
+import System.Decimal;
+import System.DateTime;
+import System.OverflowException;
+import System.InvalidCastException;
+import System.ArgumentException;
+import System.ArgumentNullException;
+import System.SByte;
+import System.Byte;
+import System.UInt16;
+import System.UInt32;
 import System.IFormattable;
 import System.IFormatProvider;
 import System.FormatException;
 
 /** Selected Int32 normalization-form carrier; complete enum ABI remains open. */
-public final class NormalizationForm implements IFormattable {
+public final class NormalizationForm implements IFormattable, IConvertible, IComparable {
     public static final NormalizationForm FormC = new NormalizationForm(1);
     public static final NormalizationForm FormD = new NormalizationForm(2);
     public static final NormalizationForm FormKC = new NormalizationForm(5);
@@ -21,6 +35,52 @@ public final class NormalizationForm implements IFormattable {
     public int get_Value() { return this.value; }
     public String get_Name() { return switch (this.value) { case 1 -> "FormC"; case 2 -> "FormD"; case 5 -> "FormKC"; case 6 -> "FormKD"; default -> Integer.toString(this.value); }; }
     public static NormalizationForm[] values() { return new NormalizationForm[] {FormC, FormD, FormKC, FormKD}; }
+    @Override public TypeCode GetTypeCode() { return TypeCode.Int32; }
+    @Override public boolean ToBoolean(IFormatProvider provider) { return this.value != 0; }
+    private int checkedValue(int minimum, int maximum, String kind) {
+        if (this.value < minimum || this.value > maximum) throw new OverflowException("Value was either too large or too small for " + kind + ".");
+        return this.value;
+    }
+    @Override public char ToChar(IFormatProvider provider) { return (char)checkedValue(0, 65535, "a character"); }
+    @Override public byte ToSByte(IFormatProvider provider) { return (byte)checkedValue(-128, 127, "a signed byte"); }
+    @Override public short ToByte(IFormatProvider provider) { return (short)checkedValue(0, 255, "an unsigned byte"); }
+    @Override public short ToInt16(IFormatProvider provider) { return (short)checkedValue(-32768, 32767, "an Int16"); }
+    @Override public int ToUInt16(IFormatProvider provider) { return checkedValue(0, 65535, "a UInt16"); }
+    @Override public int ToInt32(IFormatProvider provider) { return this.value; }
+    @Override public long ToUInt32(IFormatProvider provider) { return checkedValue(0, Integer.MAX_VALUE, "a UInt32"); }
+    @Override public long ToInt64(IFormatProvider provider) { return this.value; }
+    @Override public java.math.BigInteger ToUInt64(IFormatProvider provider) { return java.math.BigInteger.valueOf(checkedValue(0, Integer.MAX_VALUE, "a UInt64")); }
+    @Override public float ToSingle(IFormatProvider provider) { return this.value; }
+    @Override public double ToDouble(IFormatProvider provider) { return this.value; }
+    @Override public Decimal ToDecimal(IFormatProvider provider) { return new Decimal(this.value); }
+    @Override public DateTime ToDateTime(IFormatProvider provider) { throw new InvalidCastException("Invalid cast from 'Enum' to 'DateTime'."); }
+    @Override public Object ToType(Type targetType, IFormatProvider provider) {
+        if (targetType == null) throw new ArgumentNullException("targetType");
+        if (targetType == Type.GetType("System.Text.NormalizationForm") || targetType == Type.GetType("System.Object") || targetType == Type.GetType("System.Enum")) return this;
+        if (targetType == Type.GetType("System.Boolean")) return ToBoolean(provider);
+        if (targetType == Type.GetType("System.Char")) return ToChar(provider);
+        if (targetType == Type.GetType("System.SByte")) return new SByte(ToSByte(provider));
+        if (targetType == Type.GetType("System.Byte")) return new Byte(ToByte(provider));
+        if (targetType == Type.GetType("System.Int16")) return ToInt16(provider);
+        if (targetType == Type.GetType("System.UInt16")) return new UInt16(ToUInt16(provider));
+        if (targetType == Type.GetType("System.Int32")) return new Int32(ToInt32(provider));
+        if (targetType == Type.GetType("System.UInt32")) return new UInt32(ToUInt32(provider));
+        if (targetType == Type.GetType("System.Int64")) return ToInt64(provider);
+        if (targetType == Type.GetType("System.UInt64")) return ToUInt64(provider);
+        if (targetType == Type.GetType("System.Single")) return ToSingle(provider);
+        if (targetType == Type.GetType("System.Double")) return ToDouble(provider);
+        if (targetType == Type.GetType("System.Decimal")) return ToDecimal(provider);
+        if (targetType == Type.GetType("System.DateTime")) return ToDateTime(provider);
+        if (targetType == Type.GetType("System.String")) return ToString(provider);
+        if (targetType == Type.GetType("System.DBNull")) throw new InvalidCastException("Object cannot be cast to DBNull.");
+        throw new InvalidCastException("Invalid cast from 'System.Text.NormalizationForm' to '" + targetType.get_FullName() + "'.");
+    }
+    @Override public int CompareTo(Object other) {
+        if (other == null) return 1;
+        if (other instanceof NormalizationForm form) return Integer.compare(this.value, form.value);
+        String type = other instanceof String ? "System.String" : other instanceof Integer ? "System.Int32" : other.getClass().getName();
+        throw new ArgumentException("Object must be the same type as the enum. The type passed in was '" + type + "'; the enum type was 'System.Text.NormalizationForm'.");
+    }
     public boolean Equals(Object other) { return other instanceof NormalizationForm form && this.value == form.value; }
     public Int32 GetHashCode() { return new Int32(this.value); }
     @Override public boolean equals(Object other) { return Equals(other); }
