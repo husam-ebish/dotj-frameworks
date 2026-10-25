@@ -1,0 +1,11 @@
+# Generic Encoding and default factory count/write heap spans
+
+Batch 2216 corrects Encoding's generic heap span writing adapters. The native pointer-backed writer receives a fresh zero-initialized temporary array, clamps the successful return to capacity, rejects a negative result, and copies only the successful prefix. A throwing callback leaves the caller's destination unchanged. The preceding candidate returned an unclamped count and copied temporary contents on failure. UTF8Encoding now explicitly overrides the two writers to preserve its previously qualified NLS partial-write behavior.
+
+The pinned runtime corpus contains 3,888 cases over direct generic Encoding and default encoder/decoder objects, count/write operations, multipliers, callback modes, lengths, destination capacities, view offsets and flush values. The packaged consumer passes 11,664 groups for outcome/exception, guarded destination and exact delegated array trace. Default factory negative writer results use the pointer-result validation added in the preceding batch. Synthetic callback overruns use an explicit native logical exception adapter, not an automatic mapping for arbitrary Java exceptions.
+
+The generic/default factory consumer, 92,160 default Convert groups, 61,992 predefined Try span groups, custom fallback/stateful suites, owned map, distribution and rights-input checks pass. The compiled selected CoreLib API audit passes. The public signature set and private class inventory remain unchanged; two UTF8 overrides now explicitly declare existing inherited signatures. Native, producer, consumer and candidate JAR hashes are bound, with LF-pinned differential evidence.
+
+This is bounded count/write heap span dispatch. Generic Encoding.GetString span behavior remains a separate missing path, including native negative-count allocation exceptions. Arbitrary pointer overrides, CLR lifetime/pinning, reentrancy, full metadata/source ABI, E01 applicability and WP-05 task acceptance remain open. No accepted task, qualified framework or rights clearance is credited.
+
+Next is generic Encoding.GetString heap span implementation and qualification, including count/write dispatch, zero-length allocation, callback failures and a selected OutOfMemoryException projection for the native negative-count result.

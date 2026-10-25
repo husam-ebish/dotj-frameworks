@@ -26,6 +26,33 @@ public class UTF8Encoding extends Encoding {
         this.encoderFallback = throwOnInvalidBytes ? EncoderFallback.get_ExceptionFallback() : new EncoderReplacementFallback("\ufffd");
         this.decoderFallback = throwOnInvalidBytes ? DecoderFallback.get_ExceptionFallback() : new DecoderReplacementFallback("\ufffd");
     }
+    @Override public int GetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes) {
+        if (chars == null) throw new ArgumentNullException("chars");
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        char[] input = new char[chars.get_Length()];
+        chars.CopyTo(Span.OfChars(input));
+        byte[] snapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+        Byte[] output = new Byte[snapshot.length];
+        for (int i = 0; i < output.length; i++) output[i] = new Byte(snapshot[i] & 255);
+        try { return GetBytes(input, 0, input.length, output, 0); }
+        finally {
+            for (int i = 0; i < output.length; i++) snapshot[i] = (byte)output[i].get_Value();
+            ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes);
+        }
+    }
+    @Override public int GetChars(ReadOnlySpan<Byte> bytes, Span<Character> chars) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        if (chars == null) throw new ArgumentNullException("chars");
+        byte[] snapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+        Byte[] input = new Byte[snapshot.length];
+        for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
+        char[] output = new char[chars.get_Length()];
+        chars.CopyTo(Span.OfChars(output));
+        try { return GetChars(input, 0, input.length, output, 0); }
+        finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
+    }
     @Override public boolean TryGetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes, int[] bytesWritten) {
         if (bytesWritten == null) throw new ArgumentNullException("bytesWritten");
         if (bytesWritten.length == 0) throw new ArgumentException("An output slot is required.", "bytesWritten");

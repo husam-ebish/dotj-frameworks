@@ -256,15 +256,14 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         if (bytes == null) throw new ArgumentNullException("bytes");
         char[] input = new char[chars.get_Length()];
         chars.CopyTo(Span.OfChars(input));
-        byte[] snapshot = new byte[bytes.get_Length()];
-        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
-        Byte[] output = new Byte[snapshot.length];
-        for (int i = 0; i < output.length; i++) output[i] = new Byte(snapshot[i] & 255);
-        try { return GetBytes(input, 0, input.length, output, 0); }
-        finally {
-            for (int i = 0; i < output.length; i++) snapshot[i] = (byte)output[i].get_Value();
-            ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes);
-        }
+        Byte[] output = new Byte[bytes.get_Length()];
+        java.util.Arrays.fill(output, new Byte(0));
+        int count = Math.min(GetBytes(input, 0, input.length, output, 0), output.length);
+        if (count < 0) throw new ArgumentOutOfRangeException();
+        byte[] snapshot = new byte[count];
+        for (int i = 0; i < count; i++) snapshot[i] = (byte)output[i].get_Value();
+        ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes.Slice(0, count));
+        return count;
     }
     public int GetCharCount(ReadOnlySpan<Byte> bytes) {
         if (bytes == null) throw new ArgumentNullException("bytes");
@@ -282,9 +281,10 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         Byte[] input = new Byte[snapshot.length];
         for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
         char[] output = new char[chars.get_Length()];
-        chars.CopyTo(Span.OfChars(output));
-        try { return GetChars(input, 0, input.length, output, 0); }
-        finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
+        int count = Math.min(GetChars(input, 0, input.length, output, 0), output.length);
+        if (count < 0) throw new ArgumentOutOfRangeException();
+        ReadOnlySpan.OfChars(output, 0, count).CopyTo(chars.Slice(0, count));
+        return count;
     }
     public String GetString(ReadOnlySpan<Byte> bytes) {
         if (bytes == null) throw new ArgumentNullException("bytes");
