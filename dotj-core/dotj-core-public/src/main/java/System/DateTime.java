@@ -953,6 +953,11 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
 
     private String selectedCustomFormat(String format) {
         StringBuilder result = new StringBuilder();
+        selectedCustomFormatCore(format, null, result, new int[] {0, 0});
+        return result.toString();
+    }
+
+    private void selectedCustomFormatCore(String format, Object destination, StringBuilder result, int[] position) {
         boolean timeOnly = true;
         for (int index = 0; index < format.length();) {
             char token = format.charAt(index);
@@ -966,19 +971,19 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
                         if (++index == format.length()) throw new FormatException("Unterminated quoted format");
                         literal = format.charAt(index);
                     }
-                    result.append(literal);
+                    selectedAppendCustom(destination, result, position, String.valueOf(literal));
                 }
                 if (!closed) throw new FormatException("Unterminated quoted format");
                 continue;
             }
             if (token == '\\') {
                 if (++index == format.length()) throw new FormatException("Missing escaped format character");
-                result.append(format.charAt(index++));
+                selectedAppendCustom(destination, result, position, String.valueOf(format.charAt(index++)));
                 continue;
             }
             if (token == '%') {
                 if (++index == format.length() || format.charAt(index) == '%') throw new FormatException("Invalid percent format");
-                result.append(selectedCustomFormat(format.substring(index, ++index)));
+                selectedCustomFormatCore(format.substring(index, ++index), destination, result, position);
                 continue;
             }
             int count = 1;
@@ -1006,17 +1011,55 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
                         int end = text.length();
                         while (end > 0 && text.charAt(end - 1) == '0') end--;
                         text = text.substring(0, end);
-                        if (text.isEmpty() && !result.isEmpty() && result.charAt(result.length() - 1) == '.') result.setLength(result.length() - 1);
+                        if (text.isEmpty() && !result.isEmpty() && result.charAt(result.length() - 1) == '.') { result.setLength(result.length() - 1); position[0]--; }
                     }
                 }
-                case 'z' -> text = selectedCustomOffset(count, timeOnly);
+                case 'z' -> {
+                    text = selectedCustomOffset(count, timeOnly);
+                    selectedAppendCustom(destination, result, position, text.substring(0, 1));
+                    if (count == 1) {
+                        for (int digit = 1; digit < text.length(); digit++) selectedAppendCustom(destination, result, position, text.substring(digit, digit + 1));
+                    } else selectedAppendCustom(destination, result, position, text.substring(1));
+                    index += count;
+                    continue;
+                }
                 case 'K' -> text = this.kind == DateTimeKind.Utc ? "Z" : this.kind == DateTimeKind.Local ? selectedCustomOffset(3, false) : "";
                 default -> text = String.valueOf(token);
             }
-            result.append(text);
+            if (token == 'K' && this.kind == DateTimeKind.Local) {
+                selectedAppendCustom(destination, result, position, text.substring(0, 1));
+                selectedAppendCustom(destination, result, position, text.substring(1));
+            } else selectedAppendCustom(destination, result, position, text);
             index += count;
         }
-        return result.toString();
+    }
+
+    private static void selectedAppendCustom(Object destination, StringBuilder result, int[] position, String text) {
+        byte[] bytes = destination instanceof byte[] ? text.getBytes(java.nio.charset.StandardCharsets.UTF_8) : null;
+        int length = bytes == null ? text.length() : bytes.length;
+        if (destination != null && position[1] == 0) {
+            int capacity = destination instanceof char[] chars ? chars.length : ((byte[]) destination).length;
+            if (length > capacity - position[0]) position[1] = 1;
+            else if (destination instanceof char[] chars) text.getChars(0, text.length(), chars, position[0]);
+            else java.lang.System.arraycopy(bytes, 0, destination, position[0], length);
+        }
+        result.append(text);
+        position[0] += length;
+    }
+
+    private boolean selectedTryFormatCustom(Object destination, int[] written, String format) {
+        StringBuilder result = new StringBuilder();
+        int[] position = {0, 0};
+        selectedCustomFormatCore(format, destination, result, position);
+        int capacity = destination instanceof char[] chars ? chars.length : ((byte[]) destination).length;
+        String text = result.toString();
+        byte[] bytes = destination instanceof byte[] ? text.getBytes(java.nio.charset.StandardCharsets.UTF_8) : null;
+        int length = bytes == null ? text.length() : bytes.length;
+        if (length > capacity) { written[0] = 0; return false; }
+        if (destination instanceof char[] chars) text.getChars(0, text.length(), chars, 0);
+        else java.lang.System.arraycopy(bytes, 0, destination, 0, length);
+        written[0] = length;
+        return true;
     }
 
     private static String selectedPad(long value, int width) {
@@ -1114,6 +1157,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     @Override
     public boolean TryFormat(char[] destination, int[] charsWritten, String format,
                              IFormatProvider provider) {
+        if (format != null && format.length() > 1) return selectedTryFormatCustom(destination, charsWritten, format);
         String text = format == null ? this.ToString(provider)
                 : this.ToString(format, provider);
         int copyLength = selectedFormatCopyLength(format, text, destination.length);
@@ -1129,6 +1173,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     @Override
     public boolean TryFormat(byte[] destination, int[] bytesWritten, String format,
             IFormatProvider provider) {
+        if (format != null && format.length() > 1) return selectedTryFormatCustom(destination, bytesWritten, format);
         String formatted = ToString(format, provider);
         byte[] text = formatted.getBytes(java.nio.charset.StandardCharsets.UTF_8);
         int copyLength = selectedFormatCopyLength(format, formatted, destination.length);
@@ -1147,11 +1192,13 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (destination == null) { throw new ArgumentNullException("destination"); }
         if (format == null) { throw new ArgumentNullException("format"); }
         Object buffer = destination.selectedBufferCopy();
-        boolean success = buffer instanceof char[] chars
-                ? TryFormat(chars, written, format.selectedText(), provider)
-                : TryFormat((byte[]) buffer, written, format.selectedText(), provider);
-        destination.writeSelectedBuffer(buffer);
-        return success;
+        try {
+            return buffer instanceof char[] chars
+                    ? TryFormat(chars, written, format.selectedText(), provider)
+                    : TryFormat((byte[]) buffer, written, format.selectedText(), provider);
+        } finally {
+            destination.writeSelectedBuffer(buffer);
+        }
     }
 
     private int selectedFormatCopyLength(String format, String text, int capacity) {
