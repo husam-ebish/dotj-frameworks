@@ -1542,7 +1542,7 @@ public abstract class Type extends MemberInfo {
                 && (candidate.definition == DBNull.class || Exception.class.isAssignableFrom(candidate.definition))) {
             return true;
         }
-        if (this.definition == ISpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class)) {
+        if (this.definition == ISpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class)) {
             return true;
         }
         if (this.definition == IUtf8SpanFormattable.class && candidate.definition == Int32.class) {
@@ -1636,7 +1636,7 @@ public abstract class Type extends MemberInfo {
             return value instanceof DBNull || value instanceof Exception;
         }
         if (this.definition == ISpanFormattable.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates || value instanceof GenericParameterAttributes;
         }
         if (this.definition == IUtf8SpanFormattable.class) {
             return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan;
@@ -1960,7 +1960,7 @@ public abstract class Type extends MemberInfo {
                     fromJavaClass(IConvertible.class)};
         }
         if (this.definition == GenericParameterAttributes.class) {
-            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
         if (this.definition == SByte.class) {
             return new Type[] {fromJavaClass(IConvertible.class), fromJavaClass(IFormattable.class)};
