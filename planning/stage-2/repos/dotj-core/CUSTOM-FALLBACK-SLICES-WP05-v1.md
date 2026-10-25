@@ -1,0 +1,7 @@
+# Selected custom fallback slice dispatch
+
+Batch 2184 corrects allocating slice dispatch on Encoding. Sliced String GetBytes performs a count pass and skips its writing pass when the counted output is empty. The character-array allocation path retains its native separate behavior. GetChars and GetCharCount byte slices validate and dispatch through the corresponding whole-array operation, preserving their distinct factory call counts instead of routing through GetString.
+
+Eight emitted custom providers vary four replacement strings and advertised maximum lengths. The pinned capture exercises seven String/character-array/byte-array slice methods over twelve UTF-16 and twenty byte inputs plus real null inputs, negative/zero/edge/oversized indices and counts. It records 28,856 native operations. The packaged consumer passes 57,728 groups, including validation type/HResult/parameter, output, retained fallback identity and exact factory calls. Null/empty/surrogate-boundary slices are included.
+
+This is selected stateless custom-provider evidence. Stateful Encoder/Decoder APIs, arbitrary reentrancy and buffer mutation, span/pointer overloads, full metadata/source ABI, broader encoding families and WP-05-T2 acceptance remain open. Default UTF-8 range/destination/capacity and custom-provider suites remain regressions. No accepted task or qualified framework is credited. Next is native UTF-8 encoding metadata properties and selected base/derived getter dispatch.

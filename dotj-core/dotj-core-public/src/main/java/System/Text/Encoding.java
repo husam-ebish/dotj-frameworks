@@ -18,7 +18,11 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public Byte[] GetBytes(String s, int index, int count) {
         if (s == null) throw new ArgumentNullException("s");
         validateRange(s.length(), index, count, "index");
-        return GetBytes(s.substring(index, index + count));
+        int length = GetByteCount(s, index, count);
+        Byte[] result = new Byte[length];
+        java.util.Arrays.fill(result, new Byte(0));
+        if (length != 0) GetBytes(s, index, count, result, 0);
+        return result;
     }
     public int GetByteCount(String s, int index, int count) {
         if (s == null) throw new ArgumentNullException("s");
@@ -41,10 +45,14 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         return GetString(java.util.Arrays.copyOfRange(bytes, index, index + count));
     }
     public char[] GetChars(Byte[] bytes, int index, int count) {
-        return GetString(bytes, index, count).toCharArray();
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        validateRange(bytes.length, index, count, "bytes");
+        return GetChars(java.util.Arrays.copyOfRange(bytes, index, index + count));
     }
     public int GetCharCount(Byte[] bytes, int index, int count) {
-        return GetString(bytes, index, count).length();
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        validateRange(bytes.length, index, count, "bytes");
+        return GetCharCount(java.util.Arrays.copyOfRange(bytes, index, index + count));
     }
     private static void validateRange(int length, int index, int count, String rangeParameter) {
         if (index < 0) throw new ArgumentOutOfRangeException("index");
