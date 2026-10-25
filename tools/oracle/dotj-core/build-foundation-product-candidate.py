@@ -347,6 +347,9 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/OutOfMemoryException.class
 SOURCES.append(PRODUCT / "src/main/java/System/NotSupportedException.java")
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/NotSupportedException.class", "System/Text/Encoding$Metadata.class"])
 
+SOURCES.append(PRODUCT / "src/main/java/System/Text/NormalizationForm.java")
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/NormalizationForm.class"])
+
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))
