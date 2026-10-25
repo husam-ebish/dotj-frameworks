@@ -3,6 +3,9 @@
 package System.Text;
 
 import System.Int32;
+import System.ISpanFormattable;
+import System.Span;
+import System.ReadOnlySpan;
 import System.IConvertible;
 import System.IComparable;
 import System.TypeCode;
@@ -22,7 +25,7 @@ import System.IFormatProvider;
 import System.FormatException;
 
 /** Selected Int32 normalization-form carrier; complete enum ABI remains open. */
-public final class NormalizationForm implements IFormattable, IConvertible, IComparable {
+public final class NormalizationForm implements IFormattable, IConvertible, IComparable, ISpanFormattable {
     public static final NormalizationForm FormC = new NormalizationForm(1);
     public static final NormalizationForm FormD = new NormalizationForm(2);
     public static final NormalizationForm FormKC = new NormalizationForm(5);
@@ -74,6 +77,21 @@ public final class NormalizationForm implements IFormattable, IConvertible, ICom
         if (targetType == Type.GetType("System.String")) return ToString(provider);
         if (targetType == Type.GetType("System.DBNull")) throw new InvalidCastException("Object cannot be cast to DBNull.");
         throw new InvalidCastException("Invalid cast from 'System.Text.NormalizationForm' to '" + targetType.get_FullName() + "'.");
+    }
+    @Override public boolean TryFormat(char[] destination, int[] charsWritten, String format, IFormatProvider provider) {
+        String text = ToString(format, provider);
+        if (text.length() > destination.length) { charsWritten[0] = 0; return false; }
+        text.getChars(0, text.length(), destination, 0);
+        charsWritten[0] = text.length();
+        return true;
+    }
+    public boolean TryFormat(Span<Character> destination, int[] charsWritten, ReadOnlySpan<Character> format, IFormatProvider provider) {
+        if (destination == null) throw new ArgumentNullException("destination");
+        if (format == null) throw new ArgumentNullException("format");
+        String text = ToString(format.ToString(), provider);
+        if (!ReadOnlySpan.OfChars(text.toCharArray()).TryCopyTo(destination)) { charsWritten[0] = 0; return false; }
+        charsWritten[0] = text.length();
+        return true;
     }
     @Override public int CompareTo(Object other) {
         if (other == null) return 1;
