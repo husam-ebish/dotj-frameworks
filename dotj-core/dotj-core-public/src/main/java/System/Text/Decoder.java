@@ -37,6 +37,10 @@ public abstract class Decoder {
         GetChars(bytes, 0, 0, chars, 0, true);
         resetFallbackBuffer();
     }
+    public void Convert(Byte[] bytes, int byteIndex, int byteCount, char[] chars, int charIndex,
+            int charCount, boolean flush, int[] bytesUsed, int[] charsUsed, boolean[] completed) {
+        throw new UnsupportedOperationException("Convert for this decoder is outside the selected candidate surface.");
+    }
     public abstract int GetCharCount(Byte[] bytes, int index, int count);
     public int GetCharCount(Byte[] bytes, int index, int count, boolean flush) {
         return GetCharCount(bytes, index, count);
