@@ -6,9 +6,12 @@ import System.ArgumentNullException;
 import System.FormatException;
 import System.IFormattable;
 import System.IFormatProvider;
+import System.IComparable;
+import System.Int32;
+import System.ArgumentException;
 
 /** Numeric flag carrier retaining named .NET values and arbitrary combinations. */
-public final class NumberStyles implements IFormattable {
+public final class NumberStyles implements IFormattable, IComparable {
     public static final NumberStyles None = new NumberStyles(0, "None");
     public static final NumberStyles AllowLeadingWhite = new NumberStyles(1, "AllowLeadingWhite");
     public static final NumberStyles AllowTrailingWhite = new NumberStyles(2, "AllowTrailingWhite");
@@ -89,6 +92,13 @@ public final class NumberStyles implements IFormattable {
         }
         return remaining == 0 && !parts.isEmpty() ? String.join(", ", parts) : java.lang.Integer.toString(this.value);
     }
+    @Override public int CompareTo(Object other) {
+        if (other == null) return 1;
+        if (other instanceof NumberStyles styles) return java.lang.Integer.compare(this.value, styles.value);
+        throw new ArgumentException("Object must be the same enum type");
+    }
+    public boolean Equals(Object other) { return equals(other); }
+    public Int32 GetHashCode() { return new Int32(this.value); }
     @Override public String toString() { return ToString(); }
 
     @Override

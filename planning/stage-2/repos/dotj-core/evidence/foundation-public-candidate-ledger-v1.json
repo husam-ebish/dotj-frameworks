@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "5c88feb54d48cc4a550f0c07f8fa326a221d4a9e242d1e30ddd15f678e859fef",
+  "candidateJarSha256": "f2e13607e5a0df9a8845fdb2be13eb1006a179a4b4d984152749ff567dcb599b",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -1002,7 +1002,7 @@
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 0,
       "javaPublicConstructors": 0,
-      "javaPublicHeader": "public final class System.Globalization.NumberStyles implements System.IFormattable {",
+      "javaPublicHeader": "public final class System.Globalization.NumberStyles implements System.IFormattable,System.IComparable {",
       "javaPublicDeclarations": [
         "public static final System.Globalization.NumberStyles None;",
         "public static final System.Globalization.NumberStyles AllowLeadingWhite;",
@@ -1032,11 +1032,14 @@
         "public java.lang.String ToString(System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String);",
+        "public int CompareTo(java.lang.Object);",
+        "public boolean Equals(java.lang.Object);",
+        "public System.Int32 GetHashCode();",
         "public java.lang.String toString();",
         "public boolean equals(java.lang.Object);",
         "public int hashCode();"
       ],
-      "disposition": "SELECTED_FLAG_VALUES_AND_INHERITED_ENUM_FORMATTING; immutable carrier, IFormattable and Type projection; CLR ABI open",
+      "disposition": "SELECTED_FLAG_VALUES_AND_INHERITED_ENUM_CONTRACTS; immutable carrier, IFormattable and Type projection; CLR ABI open",
       "qualified": false
     }
   ],

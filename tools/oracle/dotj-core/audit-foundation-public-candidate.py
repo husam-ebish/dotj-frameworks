@@ -384,10 +384,13 @@ def main():
             assert "public java.lang.String get_InvalidCultureName();" in declarations
             disposition = "SELECTED_EXCEPTION_CONSTRUCTORS; culture semantics and exact messages open"
         elif name == "System.Globalization.NumberStyles":
-            assert header == "public final class System.Globalization.NumberStyles implements System.IFormattable {"
+            assert header == "public final class System.Globalization.NumberStyles implements System.IFormattable,System.IComparable {"
             assert "public int get_Value();" in declarations
             assert "public System.Globalization.NumberStyles Or(System.Globalization.NumberStyles);" in declarations
             assert "public static System.Globalization.NumberStyles FromInt32(int);" in declarations
+            assert "public int CompareTo(java.lang.Object);" in declarations
+            assert "public boolean Equals(java.lang.Object);" in declarations
+            assert "public System.Int32 GetHashCode();" in declarations
             assert "public java.lang.String ToString();" in declarations
             assert "public java.lang.String ToString(System.IFormatProvider);" in declarations
             assert "public java.lang.String ToString(java.lang.String);" in declarations
@@ -396,7 +399,7 @@ def main():
             assert sum(line.startswith("public static final System.Globalization.NumberStyles ")
                        for line in declarations) == 19
             assert upstream["declaredPublicMethodCount"] == 0
-            disposition = "SELECTED_FLAG_VALUES_AND_INHERITED_ENUM_FORMATTING; immutable carrier, IFormattable and Type projection; CLR ABI open"
+            disposition = "SELECTED_FLAG_VALUES_AND_INHERITED_ENUM_CONTRACTS; immutable carrier, IFormattable and Type projection; CLR ABI open"
         else:
             prefix = "public final class " if name == "System.IndexOutOfRangeException" else "public class "
             assert header.startswith(prefix + name)
