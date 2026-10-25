@@ -58,6 +58,18 @@ public final class ReadOnlySpan<T> {
 
     @Override public String toString() { return ToString(); }
 
+    public ReadOnlySpan<T> Slice(int start) {
+        if (start < 0 || start > this.length) throw new ArgumentOutOfRangeException();
+        return Slice(start, this.length - start);
+    }
+
+    public ReadOnlySpan<T> Slice(int start, int length) {
+        if (start < 0 || length < 0 || start > this.length || length > this.length - start) throw new ArgumentOutOfRangeException();
+        return this.chars != null
+                ? new ReadOnlySpan<>(this.chars, this.offset + start, length)
+                : new ReadOnlySpan<>(this.bytes, this.offset + start, length);
+    }
+
     public int get_Length() { return this.length; }
 
     public boolean get_IsEmpty() { return this.length == 0; }
