@@ -4,8 +4,8 @@
     {
       "fullName": "System.SByte",
       "nativeDeclaredMethodCount": 52,
-      "selectedProjectedMethodCount": 15,
-      "outsideSelectedMethodCount": 37,
+      "selectedProjectedMethodCount": 23,
+      "outsideSelectedMethodCount": 29,
       "methods": [
         {
           "nativeSignature": "SByte Abs(SByte)",
@@ -142,8 +142,18 @@
         },
         {
           "nativeSignature": "Boolean IsEvenInteger(SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsEvenInteger(System.SByte);",
+          "projectedJava": {
+            "name": "IsEvenInteger",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean IsNegative(SByte)",
@@ -152,8 +162,18 @@
         },
         {
           "nativeSignature": "Boolean IsOddInteger(SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsOddInteger(System.SByte);",
+          "projectedJava": {
+            "name": "IsOddInteger",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean IsPositive(SByte)",
@@ -162,13 +182,33 @@
         },
         {
           "nativeSignature": "Boolean IsPow2(SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsPow2(System.SByte);",
+          "projectedJava": {
+            "name": "IsPow2",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte LeadingZeroCount(SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte LeadingZeroCount(System.SByte);",
+          "projectedJava": {
+            "name": "LeadingZeroCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte Log2(SByte)",
@@ -259,18 +299,50 @@
         },
         {
           "nativeSignature": "SByte PopCount(SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte PopCount(System.SByte);",
+          "projectedJava": {
+            "name": "PopCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte RotateLeft(SByte, Int32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte RotateLeft(System.SByte, int);",
+          "projectedJava": {
+            "name": "RotateLeft",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte",
+              "int"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte RotateRight(SByte, Int32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte RotateRight(System.SByte, int);",
+          "projectedJava": {
+            "name": "RotateRight",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte",
+              "int"
+            ]
+          }
         },
         {
           "nativeSignature": "Int32 Sign(SByte)",
@@ -338,8 +410,18 @@
         },
         {
           "nativeSignature": "SByte TrailingZeroCount(SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte TrailingZeroCount(System.SByte);",
+          "projectedJava": {
+            "name": "TrailingZeroCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
@@ -475,6 +557,14 @@
         "public static System.SByte Min(System.SByte, System.SByte);",
         "public static System.SByte Max(System.SByte, System.SByte);",
         "public static System.SByte Clamp(System.SByte, System.SByte, System.SByte);",
+        "public static System.SByte LeadingZeroCount(System.SByte);",
+        "public static System.SByte TrailingZeroCount(System.SByte);",
+        "public static System.SByte PopCount(System.SByte);",
+        "public static System.SByte RotateLeft(System.SByte, int);",
+        "public static System.SByte RotateRight(System.SByte, int);",
+        "public static boolean IsEvenInteger(System.SByte);",
+        "public static boolean IsOddInteger(System.SByte);",
+        "public static boolean IsPow2(System.SByte);",
         "public System.SByte(int);",
         "public byte get_Value();",
         "public java.lang.String ToString();",
@@ -513,8 +603,8 @@
     {
       "fullName": "System.Byte",
       "nativeDeclaredMethodCount": 46,
-      "selectedProjectedMethodCount": 15,
-      "outsideSelectedMethodCount": 31,
+      "selectedProjectedMethodCount": 23,
+      "outsideSelectedMethodCount": 23,
       "methods": [
         {
           "nativeSignature": "Byte Clamp(Byte, Byte, Byte)",
@@ -641,23 +731,63 @@
         },
         {
           "nativeSignature": "Boolean IsEvenInteger(Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsEvenInteger(System.Byte);",
+          "projectedJava": {
+            "name": "IsEvenInteger",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean IsOddInteger(Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsOddInteger(System.Byte);",
+          "projectedJava": {
+            "name": "IsOddInteger",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean IsPow2(Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsPow2(System.Byte);",
+          "projectedJava": {
+            "name": "IsPow2",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "Byte LeadingZeroCount(Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.Byte LeadingZeroCount(System.Byte);",
+          "projectedJava": {
+            "name": "LeadingZeroCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "Byte Log2(Byte)",
@@ -738,18 +868,50 @@
         },
         {
           "nativeSignature": "Byte PopCount(Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.Byte PopCount(System.Byte);",
+          "projectedJava": {
+            "name": "PopCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "Byte RotateLeft(Byte, Int32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.Byte RotateLeft(System.Byte, int);",
+          "projectedJava": {
+            "name": "RotateLeft",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.Byte",
+              "int"
+            ]
+          }
         },
         {
           "nativeSignature": "Byte RotateRight(Byte, Int32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.Byte RotateRight(System.Byte, int);",
+          "projectedJava": {
+            "name": "RotateRight",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.Byte",
+              "int"
+            ]
+          }
         },
         {
           "nativeSignature": "Int32 Sign(Byte)",
@@ -817,8 +979,18 @@
         },
         {
           "nativeSignature": "Byte TrailingZeroCount(Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.Byte TrailingZeroCount(System.Byte);",
+          "projectedJava": {
+            "name": "TrailingZeroCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
@@ -954,6 +1126,14 @@
         "public static System.Byte Min(System.Byte, System.Byte);",
         "public static System.Byte Max(System.Byte, System.Byte);",
         "public static System.Byte Clamp(System.Byte, System.Byte, System.Byte);",
+        "public static System.Byte LeadingZeroCount(System.Byte);",
+        "public static System.Byte TrailingZeroCount(System.Byte);",
+        "public static System.Byte PopCount(System.Byte);",
+        "public static System.Byte RotateLeft(System.Byte, int);",
+        "public static System.Byte RotateRight(System.Byte, int);",
+        "public static boolean IsEvenInteger(System.Byte);",
+        "public static boolean IsOddInteger(System.Byte);",
+        "public static boolean IsPow2(System.Byte);",
         "public System.Byte(int);",
         "public short get_Value();",
         "public java.lang.String ToString();",
@@ -992,8 +1172,8 @@
     {
       "fullName": "System.UInt16",
       "nativeDeclaredMethodCount": 46,
-      "selectedProjectedMethodCount": 15,
-      "outsideSelectedMethodCount": 31,
+      "selectedProjectedMethodCount": 23,
+      "outsideSelectedMethodCount": 23,
       "methods": [
         {
           "nativeSignature": "UInt16 Clamp(UInt16, UInt16, UInt16)",
@@ -1120,23 +1300,63 @@
         },
         {
           "nativeSignature": "Boolean IsEvenInteger(UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsEvenInteger(System.UInt16);",
+          "projectedJava": {
+            "name": "IsEvenInteger",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean IsOddInteger(UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsOddInteger(System.UInt16);",
+          "projectedJava": {
+            "name": "IsOddInteger",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean IsPow2(UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsPow2(System.UInt16);",
+          "projectedJava": {
+            "name": "IsPow2",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt16 LeadingZeroCount(UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt16 LeadingZeroCount(System.UInt16);",
+          "projectedJava": {
+            "name": "LeadingZeroCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt16 Log2(UInt16)",
@@ -1217,18 +1437,50 @@
         },
         {
           "nativeSignature": "UInt16 PopCount(UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt16 PopCount(System.UInt16);",
+          "projectedJava": {
+            "name": "PopCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt16 RotateLeft(UInt16, Int32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt16 RotateLeft(System.UInt16, int);",
+          "projectedJava": {
+            "name": "RotateLeft",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.UInt16",
+              "int"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt16 RotateRight(UInt16, Int32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt16 RotateRight(System.UInt16, int);",
+          "projectedJava": {
+            "name": "RotateRight",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.UInt16",
+              "int"
+            ]
+          }
         },
         {
           "nativeSignature": "Int32 Sign(UInt16)",
@@ -1296,8 +1548,18 @@
         },
         {
           "nativeSignature": "UInt16 TrailingZeroCount(UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt16 TrailingZeroCount(System.UInt16);",
+          "projectedJava": {
+            "name": "TrailingZeroCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
@@ -1433,6 +1695,14 @@
         "public static System.UInt16 Min(System.UInt16, System.UInt16);",
         "public static System.UInt16 Max(System.UInt16, System.UInt16);",
         "public static System.UInt16 Clamp(System.UInt16, System.UInt16, System.UInt16);",
+        "public static System.UInt16 LeadingZeroCount(System.UInt16);",
+        "public static System.UInt16 TrailingZeroCount(System.UInt16);",
+        "public static System.UInt16 PopCount(System.UInt16);",
+        "public static System.UInt16 RotateLeft(System.UInt16, int);",
+        "public static System.UInt16 RotateRight(System.UInt16, int);",
+        "public static boolean IsEvenInteger(System.UInt16);",
+        "public static boolean IsOddInteger(System.UInt16);",
+        "public static boolean IsPow2(System.UInt16);",
         "public System.UInt16(int);",
         "public int get_Value();",
         "public java.lang.String ToString();",
@@ -1471,8 +1741,8 @@
     {
       "fullName": "System.UInt32",
       "nativeDeclaredMethodCount": 47,
-      "selectedProjectedMethodCount": 15,
-      "outsideSelectedMethodCount": 32,
+      "selectedProjectedMethodCount": 23,
+      "outsideSelectedMethodCount": 24,
       "methods": [
         {
           "nativeSignature": "UInt64 BigMul(UInt32, UInt32)",
@@ -1604,23 +1874,63 @@
         },
         {
           "nativeSignature": "Boolean IsEvenInteger(UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsEvenInteger(System.UInt32);",
+          "projectedJava": {
+            "name": "IsEvenInteger",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean IsOddInteger(UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsOddInteger(System.UInt32);",
+          "projectedJava": {
+            "name": "IsOddInteger",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean IsPow2(UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static boolean IsPow2(System.UInt32);",
+          "projectedJava": {
+            "name": "IsPow2",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt32 LeadingZeroCount(UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt32 LeadingZeroCount(System.UInt32);",
+          "projectedJava": {
+            "name": "LeadingZeroCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt32 Log2(UInt32)",
@@ -1701,18 +2011,50 @@
         },
         {
           "nativeSignature": "UInt32 PopCount(UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt32 PopCount(System.UInt32);",
+          "projectedJava": {
+            "name": "PopCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt32 RotateLeft(UInt32, Int32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt32 RotateLeft(System.UInt32, int);",
+          "projectedJava": {
+            "name": "RotateLeft",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.UInt32",
+              "int"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt32 RotateRight(UInt32, Int32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt32 RotateRight(System.UInt32, int);",
+          "projectedJava": {
+            "name": "RotateRight",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.UInt32",
+              "int"
+            ]
+          }
         },
         {
           "nativeSignature": "Int32 Sign(UInt32)",
@@ -1780,8 +2122,18 @@
         },
         {
           "nativeSignature": "UInt32 TrailingZeroCount(UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt32 TrailingZeroCount(System.UInt32);",
+          "projectedJava": {
+            "name": "TrailingZeroCount",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
@@ -1917,6 +2269,14 @@
         "public static System.UInt32 Min(System.UInt32, System.UInt32);",
         "public static System.UInt32 Max(System.UInt32, System.UInt32);",
         "public static System.UInt32 Clamp(System.UInt32, System.UInt32, System.UInt32);",
+        "public static System.UInt32 LeadingZeroCount(System.UInt32);",
+        "public static System.UInt32 TrailingZeroCount(System.UInt32);",
+        "public static System.UInt32 PopCount(System.UInt32);",
+        "public static System.UInt32 RotateLeft(System.UInt32, int);",
+        "public static System.UInt32 RotateRight(System.UInt32, int);",
+        "public static boolean IsEvenInteger(System.UInt32);",
+        "public static boolean IsOddInteger(System.UInt32);",
+        "public static boolean IsPow2(System.UInt32);",
         "public System.UInt32(long);",
         "public long get_Value();",
         "public java.lang.String ToString();",
@@ -1953,9 +2313,9 @@
       ]
     }
   ],
-  "selectedProjectedMethodCount": 60,
+  "selectedProjectedMethodCount": 92,
   "oracleEvidence": "small-integer-signatures-contract-v10.0.12.json",
   "oracleSha256": "93f598654fa6b0417c7a8ed66262c31be19db0facb672bf3e54eaf63a37be607",
-  "candidateJarSha256": "e9419b8c98fb7806499002619a3b9c9f3576b5ac666e9562febe8d45b3984945",
+  "candidateJarSha256": "08f08895649e21a1fcd93099d220d928f39812c00d98d8947e9d4a9061a67cd0",
   "qualification": "SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN"
 }

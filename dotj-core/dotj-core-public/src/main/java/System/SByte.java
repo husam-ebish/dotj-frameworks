@@ -27,6 +27,48 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         return value.value < min.value ? min : value.value > max.value ? max : value;
     }
 
+    public static SByte LeadingZeroCount(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 255L;
+        return new SByte(Long.numberOfLeadingZeros(raw) - 56);
+    }
+    public static SByte TrailingZeroCount(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 255L;
+        return new SByte(Math.min(8, Long.numberOfTrailingZeros(raw)));
+    }
+    public static SByte PopCount(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 255L;
+        return new SByte(Long.bitCount(raw));
+    }
+    public static SByte RotateLeft(SByte value, int rotateAmount) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 255L;
+        int shift = (rotateAmount) & 7;
+        long result = ((raw << shift) | (raw >>> ((8 - shift) & 7))) & 255L;
+        return new SByte((byte) result);
+    }
+    public static SByte RotateRight(SByte value, int rotateAmount) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 255L;
+        int shift = (-rotateAmount) & 7;
+        long result = ((raw << shift) | (raw >>> ((8 - shift) & 7))) & 255L;
+        return new SByte((byte) result);
+    }
+    public static boolean IsEvenInteger(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return (value.value & 1) == 0;
+    }
+    public static boolean IsOddInteger(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return (value.value & 1) != 0;
+    }
+    public static boolean IsPow2(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return value.value > 0 && (value.value & (value.value - 1)) == 0;
+    }
+
     public SByte(int value) {
         if (value < -128 || value > 127) {
             throw new OverflowException("Value was outside the range of SByte");
