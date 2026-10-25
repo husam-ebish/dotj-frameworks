@@ -76,6 +76,20 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public abstract void set_EncoderFallback(EncoderFallback value);
     public abstract DecoderFallback get_DecoderFallback();
     public abstract void set_DecoderFallback(DecoderFallback value);
+    private void requireUtf8Metadata() {
+        if (!(this instanceof UTF8Encoding)) {
+            throw new UnsupportedOperationException("Metadata for this encoding is not supported by the candidate.");
+        }
+    }
+    public String get_WebName() { requireUtf8Metadata(); return "utf-8"; }
+    public String get_BodyName() { requireUtf8Metadata(); return "utf-8"; }
+    public String get_HeaderName() { requireUtf8Metadata(); return "utf-8"; }
+    public int get_WindowsCodePage() { requireUtf8Metadata(); return 1200; }
+    public boolean get_IsBrowserDisplay() { requireUtf8Metadata(); return true; }
+    public boolean get_IsBrowserSave() { requireUtf8Metadata(); return true; }
+    public boolean get_IsMailNewsDisplay() { requireUtf8Metadata(); return true; }
+    public boolean get_IsMailNewsSave() { requireUtf8Metadata(); return true; }
+    public boolean get_IsSingleByte() { return false; }
     public abstract int get_CodePage();
     public abstract String get_EncodingName();
     public boolean Equals(Object value) {
