@@ -89,6 +89,8 @@ public final class ReadOnlySpan<T> {
                 : java.util.Arrays.copyOfRange(this.bytes, this.offset, this.offset + this.length);
     }
 
+    boolean selectedUtf8() { return this.bytes != null; }
+
     String selectedInt32Text() {
         return selectedText();
     }
