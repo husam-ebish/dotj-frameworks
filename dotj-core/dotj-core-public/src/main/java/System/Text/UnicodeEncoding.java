@@ -102,18 +102,33 @@ public class UnicodeEncoding extends Encoding {
         return encode(chars, index, count, output, offset, this.encoderFallback, 0);
     }
     private int encode(char[] chars, int index, int count, Byte[] output, int offset, EncoderFallback selectedFallback, int indexShift) {
-        int written=0,end=index+count;EncoderFallbackBuffer buffer=null;
+        return encode(chars, index, count, output, offset, selectedFallback, indexShift, null);
+    }
+    private int encode(char[] chars, int index, int count, Byte[] output, int offset, EncoderFallback selectedFallback, int indexShift, Encoder activeEncoder) {
+        int written=0,end=index+count;
+        EncoderFallbackBuffer buffer=activeEncoder == null ? null : activeEncoder.existingFallbackBuffer();
+        if (buffer != null) { buffer.encodingContext=this; buffer.GetNextChar(); }
         for(int i=index;i<end;) {
             char c=chars[i];boolean pair=Character.isHighSurrogate(c) && i+1<end && Character.isLowSurrogate(chars[i+1]);
             if(pair || !Character.isSurrogate(c)) {
                 int width=pair?2:1;
                 if(output!=null && width*2>output.length-offset-written) overflow(true);
                 for(int k=0;k<width;k++) written=putWord(chars[i+k],output,offset,written);
+                if (buffer != null) buffer.GetNextChar();
                 i+=width;continue;
             }
+            if (activeEncoder != null && selectedFallback instanceof EncoderExceptionFallback) activeEncoder.get_FallbackBuffer();
             if(selectedFallback instanceof EncoderExceptionFallback) throw new EncoderFallbackException(String.format(java.util.Locale.ROOT, ENCODER_MESSAGE,(int)c,i-index+indexShift),c,i-index+indexShift);
             String replacement;
-            if(selectedFallback instanceof EncoderReplacementFallback r) replacement=r.get_DefaultString();
+            if (activeEncoder != null) {
+                if (buffer == null) buffer = activeEncoder.get_FallbackBuffer();
+                buffer.encodingContext=this;
+                StringBuilder value = new StringBuilder();
+                if (buffer.Fallback(c, i-index+indexShift)) { char next; while ((next=buffer.GetNextChar())!=0) value.append(next); }
+                else buffer.GetNextChar();
+                replacement = value.toString();
+            }
+            else if(selectedFallback instanceof EncoderReplacementFallback r) replacement=r.get_DefaultString();
             else {
                 if(buffer==null){buffer=selectedFallback.CreateFallbackBuffer();buffer.encodingContext=this;}
                 StringBuilder value=new StringBuilder();
@@ -239,11 +254,12 @@ public class UnicodeEncoding extends Encoding {
             int length = input.length;
             if (!flush && length > 0 && Character.isHighSurrogate(input[length - 1])) nextPending = input[--length];
             int result;
-            try { result = this.encoding.encode(input, 0, length, bytes, byteIndex, get_Fallback(), -prefix); }
+            try { result = this.encoding.encode(input, 0, length, bytes, byteIndex, get_Fallback(), -prefix, this); }
             catch (ArgumentException failure) {
                 if (update && failure.getClass() == ArgumentException.class && "bytes".equals(failure.get_ParamName())) resetFallbackBuffer();
                 throw failure;
             }
+            if (nextPending != 0 && existingFallbackBuffer() != null) existingFallbackBuffer().GetNextChar();
             if (update) this.pending = nextPending;
             return result;
         }
@@ -298,8 +314,9 @@ public class UnicodeEncoding extends Encoding {
             char carry = this.pending;
             while (true) {
                 EncoderFallbackBuffer fallback = existingFallbackBuffer();
-                if (fallback != null && fallback.get_Remaining() > 0) {
-                    char first = fallback.GetNextChar();
+                char fallbackChar = fallback == null ? 0 : fallback.GetNextChar();
+                if (fallbackChar != 0) {
+                    char first = fallbackChar;
                     boolean pair = Character.isHighSurrogate(first);
                     char second = pair ? fallback.GetNextChar() : 0;
                     if (Character.isSurrogate(first) && (!pair || !Character.isLowSurrogate(second))) {
