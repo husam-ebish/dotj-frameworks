@@ -2,8 +2,12 @@
 
 package System.Runtime.Serialization;
 
+import System.FormatException;
+import System.IFormattable;
+import System.IFormatProvider;
+
 /** Pinned streaming-context state flags and unnamed zero value. */
-public final class StreamingContextStates {
+public final class StreamingContextStates implements IFormattable {
     public static final StreamingContextStates CrossProcess = new StreamingContextStates("CrossProcess", 1);
     public static final StreamingContextStates CrossMachine = new StreamingContextStates("CrossMachine", 2);
     public static final StreamingContextStates File = new StreamingContextStates("File", 4);
@@ -36,6 +40,12 @@ public final class StreamingContextStates {
         return this.name;
     }
 
+    public static StreamingContextStates FromInt32(int value) {
+        if (value == 0) return unnamedZero;
+        for (StreamingContextStates candidate : named) if (candidate.value == value) return candidate;
+        return new StreamingContextStates(null, value);
+    }
+
     public int get_Value() {
         return this.value;
     }
@@ -43,6 +53,29 @@ public final class StreamingContextStates {
     public static StreamingContextStates[] values() {
         return named.clone();
     }
+
+    public String ToString() { return ToString((String) null); }
+    public String ToString(IFormatProvider provider) { return ToString(); }
+    @Override public String ToString(String format, IFormatProvider provider) { return ToString(format); }
+    public String ToString(String format) {
+        char specifier = format == null || format.isEmpty() ? 'G'
+                : format.length() == 1 ? Character.toUpperCase(format.charAt(0)) : '\0';
+        if (specifier == 'D') return java.lang.Integer.toString(this.value);
+        if (specifier == 'X') return String.format(java.util.Locale.ROOT, "%08X", this.value);
+        if (specifier != 'G' && specifier != 'F') throw new FormatException("Format string can be only G, F, D or X");
+        if (this.name != null) return this.name;
+        long remaining = java.lang.Integer.toUnsignedLong(this.value);
+        java.util.ArrayList<String> parts = new java.util.ArrayList<>();
+        for (int index = named.length - 1; index >= 0; index--) {
+            long bits = java.lang.Integer.toUnsignedLong(named[index].value);
+            if (bits != 0 && (remaining & bits) == bits) {
+                remaining &= ~bits;
+                parts.add(0, named[index].name);
+            }
+        }
+        return remaining == 0 && !parts.isEmpty() ? String.join(", ", parts) : java.lang.Integer.toString(this.value);
+    }
+    @Override public String toString() { return ToString(); }
 
     @Override
     public boolean equals(Object other) {
