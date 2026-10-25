@@ -3,7 +3,7 @@
 package System;
 
 /** Selected unsigned 16-bit value carrier for public serialization paths. */
-public final class UInt16 implements IConvertible, IFormattable {
+public final class UInt16 implements IConvertible, IFormattable, IComparable {
     private final int value;
 
     public UInt16(int value) {
@@ -117,6 +117,21 @@ public final class UInt16 implements IConvertible, IFormattable {
         if ("R".equals(format) || "r".equals(format)) format = "G";
         return new Int32(this.value).ToString(format, provider);
     }
+
+    @Override public int CompareTo(Object value) {
+        if (value == null) return 1;
+        if (value instanceof UInt16 other) return this.value - other.value;
+        throw new ArgumentException("Object must be of type UInt16.");
+    }
+    public int CompareTo(UInt16 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return this.value - value.value;
+    }
+    public boolean Equals(UInt16 value) { return value != null && this.value == value.value; }
+    public boolean Equals(Object value) { return value instanceof UInt16 other && this.value == other.value; }
+    public int GetHashCode() { return this.value; }
+    @Override public boolean equals(Object value) { return Equals(value); }
+    @Override public int hashCode() { return GetHashCode(); }
 
     @Override
     public String toString() {
