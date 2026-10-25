@@ -5,9 +5,12 @@ package System.Reflection;
 import System.FormatException;
 import System.IFormattable;
 import System.IFormatProvider;
+import System.IComparable;
+import System.Int32;
+import System.ArgumentException;
 
 /** Pinned binding values with a value-preserving combination operation. */
-public final class BindingFlags implements IFormattable {
+public final class BindingFlags implements IFormattable, IComparable {
     public static final BindingFlags Default = new BindingFlags("Default", 0);
     public static final BindingFlags IgnoreCase = new BindingFlags("IgnoreCase", 1);
     public static final BindingFlags DeclaredOnly = new BindingFlags("DeclaredOnly", 2);
@@ -104,6 +107,13 @@ public final class BindingFlags implements IFormattable {
         }
         return remaining == 0 && !parts.isEmpty() ? String.join(", ", parts) : java.lang.Integer.toString(this.value);
     }
+    @Override public int CompareTo(Object other) {
+        if (other == null) return 1;
+        if (other instanceof BindingFlags flags) return java.lang.Integer.compare(this.value, flags.value);
+        throw new ArgumentException("Object must be the same enum type");
+    }
+    public boolean Equals(Object other) { return equals(other); }
+    public Int32 GetHashCode() { return new Int32(this.value); }
     @Override public String toString() { return ToString(); }
 
     @Override
