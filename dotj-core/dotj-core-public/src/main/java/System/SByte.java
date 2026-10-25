@@ -176,6 +176,13 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         return value.value < 0;
     }
 
+    public static ValueTuple<SByte, SByte> DivRem(SByte left, SByte right) {
+        if (left == null) throw new ArgumentNullException("left");
+        if (right == null) throw new ArgumentNullException("right");
+        if (right.value == 0) throw new DivideByZeroException();
+        return new ValueTuple<>(new SByte((byte) (left.value / right.value)), new SByte(left.value % right.value));
+    }
+
     public SByte(int value) {
         if (value < -128 || value > 127) {
             throw new OverflowException("Value was outside the range of SByte");

@@ -142,6 +142,13 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
         catch (FormatException | OverflowException expected) { result[0] = new UInt32(0); return false; }
     }
 
+    public static ValueTuple<UInt32, UInt32> DivRem(UInt32 left, UInt32 right) {
+        if (left == null) throw new ArgumentNullException("left");
+        if (right == null) throw new ArgumentNullException("right");
+        if (right.value == 0) throw new DivideByZeroException();
+        return new ValueTuple<>(new UInt32(left.value / right.value), new UInt32(left.value % right.value));
+    }
+
     public UInt32(long value) {
         if (value < 0 || value > 4294967295L) {
             throw new OverflowException("Value was outside the range of UInt32");
