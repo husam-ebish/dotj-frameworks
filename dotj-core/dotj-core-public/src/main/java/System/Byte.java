@@ -74,6 +74,11 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         return new Byte(value.value == 0 ? 0 : 63 - Long.numberOfLeadingZeros(value.value));
     }
 
+    public static int Sign(Byte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return value.value == 0 ? 0 : 1;
+    }
+
     public Byte(int value) {
         if (value < 0 || value > 255) {
             throw new OverflowException("Value was outside the range of Byte");

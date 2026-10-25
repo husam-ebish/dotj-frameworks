@@ -74,6 +74,11 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
         return new UInt32(value.value == 0 ? 0 : 63 - Long.numberOfLeadingZeros(value.value));
     }
 
+    public static int Sign(UInt32 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return value.value == 0 ? 0 : 1;
+    }
+
     public UInt32(long value) {
         if (value < 0 || value > 4294967295L) {
             throw new OverflowException("Value was outside the range of UInt32");

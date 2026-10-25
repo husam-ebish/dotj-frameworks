@@ -4,8 +4,8 @@
     {
       "fullName": "System.SByte",
       "nativeDeclaredMethodCount": 52,
-      "selectedProjectedMethodCount": 28,
-      "outsideSelectedMethodCount": 24,
+      "selectedProjectedMethodCount": 29,
+      "outsideSelectedMethodCount": 23,
       "methods": [
         {
           "nativeSignature": "SByte Abs(SByte)",
@@ -233,8 +233,18 @@
         },
         {
           "nativeSignature": "SByte Log2(SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte Log2(System.SByte);",
+          "projectedJava": {
+            "name": "Log2",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte Max(SByte, SByte)",
@@ -623,6 +633,7 @@
         "public static System.SByte CopySign(System.SByte, System.SByte);",
         "public static System.SByte MaxMagnitude(System.SByte, System.SByte);",
         "public static System.SByte MinMagnitude(System.SByte, System.SByte);",
+        "public static System.SByte Log2(System.SByte);",
         "public System.SByte(int);",
         "public byte get_Value();",
         "public java.lang.String ToString();",
@@ -661,8 +672,8 @@
     {
       "fullName": "System.Byte",
       "nativeDeclaredMethodCount": 46,
-      "selectedProjectedMethodCount": 24,
-      "outsideSelectedMethodCount": 22,
+      "selectedProjectedMethodCount": 25,
+      "outsideSelectedMethodCount": 21,
       "methods": [
         {
           "nativeSignature": "Byte Clamp(Byte, Byte, Byte)",
@@ -983,8 +994,18 @@
         },
         {
           "nativeSignature": "Int32 Sign(Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static int Sign(System.Byte);",
+          "projectedJava": {
+            "name": "Sign",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "System.String ToString(System.String, System.IFormatProvider)",
@@ -1203,6 +1224,7 @@
         "public static boolean IsOddInteger(System.Byte);",
         "public static boolean IsPow2(System.Byte);",
         "public static System.Byte Log2(System.Byte);",
+        "public static int Sign(System.Byte);",
         "public System.Byte(int);",
         "public short get_Value();",
         "public java.lang.String ToString();",
@@ -1241,8 +1263,8 @@
     {
       "fullName": "System.UInt16",
       "nativeDeclaredMethodCount": 46,
-      "selectedProjectedMethodCount": 24,
-      "outsideSelectedMethodCount": 22,
+      "selectedProjectedMethodCount": 25,
+      "outsideSelectedMethodCount": 21,
       "methods": [
         {
           "nativeSignature": "UInt16 Clamp(UInt16, UInt16, UInt16)",
@@ -1563,8 +1585,18 @@
         },
         {
           "nativeSignature": "Int32 Sign(UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static int Sign(System.UInt16);",
+          "projectedJava": {
+            "name": "Sign",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "System.String ToString(System.String)",
@@ -1783,6 +1815,7 @@
         "public static boolean IsOddInteger(System.UInt16);",
         "public static boolean IsPow2(System.UInt16);",
         "public static System.UInt16 Log2(System.UInt16);",
+        "public static int Sign(System.UInt16);",
         "public System.UInt16(int);",
         "public int get_Value();",
         "public java.lang.String ToString();",
@@ -1821,8 +1854,8 @@
     {
       "fullName": "System.UInt32",
       "nativeDeclaredMethodCount": 47,
-      "selectedProjectedMethodCount": 24,
-      "outsideSelectedMethodCount": 23,
+      "selectedProjectedMethodCount": 25,
+      "outsideSelectedMethodCount": 22,
       "methods": [
         {
           "nativeSignature": "UInt64 BigMul(UInt32, UInt32)",
@@ -2148,8 +2181,18 @@
         },
         {
           "nativeSignature": "Int32 Sign(UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static int Sign(System.UInt32);",
+          "projectedJava": {
+            "name": "Sign",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "System.String ToString(System.String)",
@@ -2368,6 +2411,7 @@
         "public static boolean IsOddInteger(System.UInt32);",
         "public static boolean IsPow2(System.UInt32);",
         "public static System.UInt32 Log2(System.UInt32);",
+        "public static int Sign(System.UInt32);",
         "public System.UInt32(long);",
         "public long get_Value();",
         "public java.lang.String ToString();",
@@ -2404,9 +2448,9 @@
       ]
     }
   ],
-  "selectedProjectedMethodCount": 100,
+  "selectedProjectedMethodCount": 104,
   "oracleEvidence": "small-integer-signatures-contract-v10.0.12.json",
   "oracleSha256": "93f598654fa6b0417c7a8ed66262c31be19db0facb672bf3e54eaf63a37be607",
-  "candidateJarSha256": "c392286a60e4f032da146d74639f76d962f948574895561530681a2cf1bac18e",
+  "candidateJarSha256": "e0fe96192e72ed4d162720fc45a1fdad63d95004dc3d2777666bfe3f09d3967c",
   "qualification": "SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN"
 }

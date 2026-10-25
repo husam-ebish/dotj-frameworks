@@ -98,6 +98,12 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         return left < right || (left == right && x.value <= y.value) ? x : y;
     }
 
+    public static SByte Log2(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (value.value < 0) throw new ArgumentOutOfRangeException("value", "Non-negative number required.");
+        return new SByte(value.value == 0 ? 0 : 31 - Integer.numberOfLeadingZeros(value.value));
+    }
+
     public SByte(int value) {
         if (value < -128 || value > 127) {
             throw new OverflowException("Value was outside the range of SByte");

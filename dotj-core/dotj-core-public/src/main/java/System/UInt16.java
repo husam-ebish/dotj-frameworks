@@ -74,6 +74,11 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
         return new UInt16(value.value == 0 ? 0 : 63 - Long.numberOfLeadingZeros(value.value));
     }
 
+    public static int Sign(UInt16 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return value.value == 0 ? 0 : 1;
+    }
+
     public UInt16(int value) {
         if (value < 0 || value > 65535) {
             throw new OverflowException("Value was outside the range of UInt16");
