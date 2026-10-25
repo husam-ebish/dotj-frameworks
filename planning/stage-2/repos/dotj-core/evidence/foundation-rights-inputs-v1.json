@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR only; technical inputs for a licensing decision, not clearance",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "2c63ca73e2afd50a99667b9bcc29a4d2c8bd95a6f814dc72c2c9c4f9521760a9",
+  "jarSha256": "293a95810e652542a9870b57618db6e036b304bace22bb935604adde98f21305",
   "selectedProductLicense": "MIT",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
-  "productSourceCount": 77,
+  "productSourceCount": 80,
   "productSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentException.java",
@@ -553,6 +553,22 @@
       "headerNamesDotNetFoundation": false
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
+      "sha256": "92ca909d572b0d95dc3160137f93157a5119d9af57dc7414d990db49935ee875",
+      "classCount": 2,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java",
+      "sha256": "2b07c41f63f76197fbb0278f3a37f9e6a93d2ded0906fe8af45fbea447fdb396",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java",
       "sha256": "6a47bf60566edd39e14c9051b15c0527e89608ad0bf483013d7e22e81f33b78d",
       "classCount": 1,
@@ -612,6 +628,14 @@
       "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/collections/ExceptionDataDictionary.java",
       "sha256": "aaecbfe690309f2b4c4beff5df4ee0384762d2adca52aa8c30d18d4a7daf9afe",
       "classCount": 4,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/Utf8Codec.java",
+      "sha256": "8a9c948501b8e780dc9a8a55f33b6745230394f6fde4b8e0841cf7dd7cedffc4",
+      "classCount": 1,
       "headerHasSpdxIdentifier": true,
       "headerHasCopyrightNotice": false,
       "headerNamesDotNetFoundation": false

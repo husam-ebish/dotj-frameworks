@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 77 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 80 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "2c63ca73e2afd50a99667b9bcc29a4d2c8bd95a6f814dc72c2c9c4f9521760a9",
+  "jarSha256": "293a95810e652542a9870b57618db6e036b304bace22bb935604adde98f21305",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -792,6 +792,30 @@
       "sharedIdentifierShingleSamples": []
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
+      "productSha256": "92ca909d572b0d95dc3160137f93157a5119d9af57dc7414d990db49935ee875",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/Encoding.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/Encoding.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "44b11ddb443bd71b1c7a4406a8749d234c0e0b135d9a36dc53c4f0887b197db4",
+      "productIdentifierCount": 93,
+      "upstreamIdentifierCount": 6571,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java",
+      "productSha256": "2b07c41f63f76197fbb0278f3a37f9e6a93d2ded0906fe8af45fbea447fdb396",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/UTF8Encoding.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/UTF8Encoding.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "47f5e4c98751367a86329ab1e0a76d86b39fd076a5b019284694f39d40fd9011",
+      "productIdentifierCount": 224,
+      "upstreamIdentifierCount": 3715,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java",
       "productSha256": "6a47bf60566edd39e14c9051b15c0527e89608ad0bf483013d7e22e81f33b78d",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/TimeSpan.cs",
@@ -899,6 +923,13 @@
       "productSha256": "aaecbfe690309f2b4c4beff5df4ee0384762d2adca52aa8c30d18d4a7daf9afe",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/org/dotj/internal/collections/ExceptionDataDictionary.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/org/dotj/internal/collections/ExceptionDataDictionary.cs",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/Utf8Codec.java",
+      "productSha256": "8a9c948501b8e780dc9a8a55f33b6745230394f6fde4b8e0841cf7dd7cedffc4",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/org/dotj/internal/text/Utf8Codec.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/org/dotj/internal/text/Utf8Codec.cs",
       "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"
     },
     {
