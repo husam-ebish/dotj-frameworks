@@ -1,0 +1,11 @@
+# Encoding public span override dispatch
+
+Batch 2221 corrects generic Encoding.GetString(ReadOnlySpan<Byte>) to use the native pointer-backed count/write protocol. The preceding implementation invoked public span overrides. Native string conversion bypasses those overrides and calls the array callbacks through pointer adapters, including for zero-length counting. The corrected path uses independent count/write input snapshots, re-reads the original view before writing, rejects negative allocation/writer lengths as already qualified, and copies only the clamped successful temporary prefix into the returned string.
+
+The pinned runtime corpus contains 1,368 cases across eleven routes, multipliers, count/write callback modes, four lengths and selected destination capacities. A synthetic encoding overrides all four public span count/write methods with a traced rejection. The packaged consumer passes 5,472 groups for outcome, guarded destination, written slot and ordered callback trace. String range count/allocation and default encoder/decoder count paths bypass those public overrides; direct span and Try calls invoke them. The earlier string path reproduces a failure even for empty input. Producer arguments retain their native array types, and the verifier requires traces that reject binding-only failures.
+
+The 95-source owned map, distribution and rights-input audits, compiled selected API audit and all retained generic/default/UTF8/custom/stateful regressions pass. No public signature or class inventory changes. Producer, native fixture, consumer and JAR hashes are bound and LF-pinned, and the change reproduces from the preceding prepared tree.
+
+These are selected generic Encoding override-routing observations. Direct pointer override implementations, CLR lifetime/pinning, arbitrary reentrancy, full reflection/source ABI, E01 applicability and WP-05 task acceptance remain open. No accepted implementation task, qualified framework or rights clearance is credited.
+
+Next is the generic Encoding base constructor/property contract: protected code-page and fallback constructors, default fallback providers, read-only setter ordering, cloning/isolation, code-page values and shared empty preambles, including UTF8 empty-preamble identity.
