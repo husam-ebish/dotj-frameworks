@@ -150,10 +150,14 @@ def main():
             assert upstream["declaredPublicMethodCount"] == 0
             disposition = "SELECTED_MEMBER_FLAGS_AND_INHERITED_ENUM_CONTRACTS; supported Java carrier projection; CLR ABI open"
         elif name == "System.Reflection.GenericParameterAttributes":
-            assert "extends java.lang.Enum<System.Reflection.GenericParameterAttributes>" in header
+            assert header == "public final class System.Reflection.GenericParameterAttributes implements System.IFormattable {"
             assert "public int get_Value();" in declarations
             assert upstream["baseType"] == "System.Enum"
-            disposition = "SELECTED_ENUM_VALUES; Java enum differs from CLR flags enum"
+            assert "public static System.Reflection.GenericParameterAttributes FromInt32(int);" in declarations
+            assert "public java.lang.String ToString(java.lang.String, System.IFormatProvider);" in declarations
+            assert sum(line.startswith("public static final System.Reflection.GenericParameterAttributes ") for line in declarations) == 9
+            assert upstream["declaredPublicMethodCount"] == 0
+            disposition = "SELECTED_GENERIC_PARAMETER_FLAGS_AND_ENUM_FORMATTING; named/unnamed Java carrier, physical CLR/JVM enum inheritance open"
         elif name == "System.TypeCode":
             assert "extends java.lang.Enum<System.TypeCode>" in header
             assert "public int get_Value();" in declarations

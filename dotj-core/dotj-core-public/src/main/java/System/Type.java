@@ -1375,6 +1375,7 @@ public abstract class Type extends MemberInfo {
     }
 
     private Object[] enumConstants() {
+        if (this.definition == GenericParameterAttributes.class) return GenericParameterAttributes.values();
         if (this.definition == DateTimeStyles.class) return DateTimeStyles.values();
         if (this.definition == TimeSpanStyles.class) {
             return TimeSpanStyles.values();
@@ -1401,6 +1402,7 @@ public abstract class Type extends MemberInfo {
     }
 
     private static String enumConstantName(Object constant) {
+        if (constant instanceof GenericParameterAttributes attributes) return attributes.get_Name();
         if (constant instanceof DateTimeStyles styles) return styles.get_Name();
         if (constant instanceof TimeSpanStyles styles) {
             return styles.get_Name();
@@ -1510,7 +1512,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IComparable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class)) {
             return true;
         }
-        if (this.definition == IFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == SByte.class)) {
+        if (this.definition == IFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == SByte.class || candidate.definition == GenericParameterAttributes.class)) {
             return true;
         }
         if (this.definition == IConvertible.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class)) {
@@ -1622,7 +1624,7 @@ public abstract class Type extends MemberInfo {
                     || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates;
         }
         if (this.definition == IFormattable.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates || value instanceof SByte;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates || value instanceof SByte || value instanceof GenericParameterAttributes;
         }
         if (this.definition == IConvertible.class) {
             return value instanceof String || value instanceof Integer || value instanceof Int32 || value instanceof DBNull
@@ -1957,6 +1959,9 @@ public abstract class Type extends MemberInfo {
             return new Type[] {fromJavaClass(ISerializable.class),
                     fromJavaClass(IConvertible.class)};
         }
+        if (this.definition == GenericParameterAttributes.class) {
+            return new Type[] {fromJavaClass(IFormattable.class)};
+        }
         if (this.definition == SByte.class) {
             return new Type[] {fromJavaClass(IConvertible.class), fromJavaClass(IFormattable.class)};
         }
@@ -2059,7 +2064,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
                 || this.definition == Decimal.class || this.definition == DBNull.class
-                || this.definition == DateTime.class || this.definition == TimeSpan.class || this.definition == DateTimeStyles.class || this.definition == TimeSpanStyles.class || this.definition == NumberStyles.class || this.definition == BindingFlags.class || this.definition == MemberTypes.class || this.definition == CallingConventions.class || this.definition == MethodImplAttributes.class || this.definition == StreamingContextStates.class
+                || this.definition == DateTime.class || this.definition == TimeSpan.class || this.definition == DateTimeStyles.class || this.definition == TimeSpanStyles.class || this.definition == NumberStyles.class || this.definition == BindingFlags.class || this.definition == MemberTypes.class || this.definition == CallingConventions.class || this.definition == MethodImplAttributes.class || this.definition == StreamingContextStates.class || this.definition == GenericParameterAttributes.class
                 || this.definition == Object.class || this.definition == Stopwatch.class
                 || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == IFormattable.class
                 || this.definition == IFormatProvider.class || this.definition == ISerializable.class
