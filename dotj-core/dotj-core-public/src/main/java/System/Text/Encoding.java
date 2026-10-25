@@ -210,12 +210,12 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public int get_CodePage() { return this.codePage; }
     public String get_EncodingName() { return metadata().encodingName(); }
     public boolean Equals(Object value) {
-        return value instanceof Encoding other && get_CodePage() == other.get_CodePage()
+        return value instanceof Encoding other && this.codePage == other.codePage
                 && get_EncoderFallback().Equals(other.get_EncoderFallback())
                 && get_DecoderFallback().Equals(other.get_DecoderFallback());
     }
     public int GetHashCode() {
-        return get_CodePage() + get_EncoderFallback().GetHashCode() + get_DecoderFallback().GetHashCode();
+        return this.codePage + get_EncoderFallback().GetHashCode() + get_DecoderFallback().GetHashCode();
     }
     public boolean get_IsReadOnly() { return this.readOnly; }
     @Override public Object Clone() {
