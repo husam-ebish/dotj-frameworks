@@ -5,9 +5,12 @@ package System.Globalization;
 import System.FormatException;
 import System.IFormattable;
 import System.IFormatProvider;
+import System.IComparable;
+import System.Int32;
+import System.ArgumentException;
 
 /** Selected Int32 enum-value carrier; arbitrary values are retained for native validation. */
-public final class TimeSpanStyles implements IFormattable {
+public final class TimeSpanStyles implements IFormattable, IComparable {
     public static final TimeSpanStyles None = new TimeSpanStyles(0);
     public static final TimeSpanStyles AssumeNegative = new TimeSpanStyles(1);
     private final int value;
@@ -48,6 +51,16 @@ public final class TimeSpanStyles implements IFormattable {
             default -> throw new FormatException("Format string can be only G, F, D or X");
         };
     }
+
+    @Override public int CompareTo(Object other) {
+        if (other == null) return 1;
+        if (other instanceof TimeSpanStyles styles) return Integer.compare(this.value, styles.value);
+        throw new ArgumentException("Object must be the same enum type");
+    }
+
+    public boolean Equals(Object other) { return equals(other); }
+
+    public Int32 GetHashCode() { return new Int32(this.value); }
 
     @Override
     public String toString() {
