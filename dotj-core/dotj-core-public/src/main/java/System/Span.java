@@ -51,6 +51,33 @@ public final class Span<T> {
         }
     }
 
+    public int get_Length() { return this.length; }
+
+    public boolean get_IsEmpty() { return this.length == 0; }
+
+    public void CopyTo(Span<T> destination) {
+        if (!TryCopyTo(destination)) throw new ArgumentException("Destination is too short.", "destination");
+    }
+
+    public boolean TryCopyTo(Span<T> destination) {
+        if (destination == null) throw new ArgumentNullException("destination");
+        return destination.tryCopySelectedBuffer(selectedBufferCopy());
+    }
+
+    boolean tryCopySelectedBuffer(Object source) {
+        if (this.chars != null && source instanceof char[] values) {
+            if (values.length > this.length) return false;
+            java.lang.System.arraycopy(values, 0, this.chars, this.offset, values.length);
+            return true;
+        }
+        if (this.bytes != null && source instanceof byte[] values) {
+            if (values.length > this.length) return false;
+            java.lang.System.arraycopy(values, 0, this.bytes, this.offset, values.length);
+            return true;
+        }
+        throw new ArgumentException("Span element carriers must match.", "destination");
+    }
+
     int writeSelectedInt32Text(String text) {
         if (this.chars != null) {
             if (text.length() > this.length) return -1;
