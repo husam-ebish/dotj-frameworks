@@ -3,6 +3,8 @@
 package System.Text;
 
 import System.Byte;
+import System.ReadOnlySpan;
+import System.Span;
 import System.ArgumentException;
 import System.ArgumentNullException;
 import System.ArgumentOutOfRangeException;
@@ -142,6 +144,55 @@ public class UnicodeEncoding extends Encoding {
             i+=width;
         }
         return written;
+    }
+    private static Byte[] snapshotBytes(ReadOnlySpan<Byte> bytes) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        byte[] raw = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(raw));
+        Byte[] result = new Byte[raw.length];
+        for (int i = 0; i < raw.length; i++) result[i] = new Byte(raw[i] & 255);
+        return result;
+    }
+    private static char[] snapshotChars(ReadOnlySpan<Character> chars) {
+        if (chars == null) throw new ArgumentNullException("chars");
+        char[] result = new char[chars.get_Length()];
+        chars.CopyTo(Span.OfChars(result));
+        return result;
+    }
+    @Override public int GetByteCount(ReadOnlySpan<Character> chars) {
+        char[] input = snapshotChars(chars);
+        return encode(input, 0, input.length, null, 0);
+    }
+    @Override public int GetCharCount(ReadOnlySpan<Byte> bytes) {
+        Byte[] input = snapshotBytes(bytes);
+        return decode(input, 0, input.length, null, 0);
+    }
+    @Override public String GetString(ReadOnlySpan<Byte> bytes) {
+        Byte[] input = snapshotBytes(bytes);
+        char[] output = new char[decode(input, 0, input.length, null, 0)];
+        decode(input, 0, input.length, output, 0);
+        return new String(output);
+    }
+    @Override public int GetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes) {
+        char[] input = snapshotChars(chars);
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        byte[] raw = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(raw));
+        Byte[] output = new Byte[raw.length];
+        for (int i = 0; i < raw.length; i++) output[i] = new Byte(raw[i] & 255);
+        try { return encode(input, 0, input.length, output, 0); }
+        finally {
+            for (int i = 0; i < raw.length; i++) raw[i] = (byte)output[i].get_Value();
+            ReadOnlySpan.OfUtf8Bytes(raw).CopyTo(bytes);
+        }
+    }
+    @Override public int GetChars(ReadOnlySpan<Byte> bytes, Span<Character> chars) {
+        Byte[] input = snapshotBytes(bytes);
+        if (chars == null) throw new ArgumentNullException("chars");
+        char[] output = new char[chars.get_Length()];
+        chars.CopyTo(Span.OfChars(output));
+        try { return decode(input, 0, input.length, output, 0); }
+        finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
     }
     @Override public Byte[] GetPreamble(){return !this.byteOrderMark?EMPTY_PREAMBLE:this.bigEndian?new Byte[]{new Byte(254),new Byte(255)}:new Byte[]{new Byte(255),new Byte(254)};}
     @Override public int GetMaxByteCount(int charCount){
