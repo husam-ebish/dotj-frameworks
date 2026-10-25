@@ -131,10 +131,16 @@ def main():
             assert upstream["declaringGetterIsAbstract"] and upstream["reflectedGetterIsAbstract"]
             disposition = "PARTIAL_MEMBERINFO_SURFACE; four selected abstract properties, collectibility and metadata identity"
         elif name == "System.Reflection.MemberTypes":
-            assert header == "public final class System.Reflection.MemberTypes {"
+            assert header == "public final class System.Reflection.MemberTypes implements System.IFormattable {"
             assert "public int get_Value();" in declarations
             assert "public System.Reflection.MemberTypes or(System.Reflection.MemberTypes);" in declarations
-            disposition = "PARTIAL_ENUM_SURFACE; selected combinable values, CLR Enum inheritance open"
+            assert "public static System.Reflection.MemberTypes FromInt32(int);" in declarations
+            for signature in ["public java.lang.String ToString();", "public java.lang.String ToString(System.IFormatProvider);",
+                              "public java.lang.String ToString(java.lang.String);", "public java.lang.String ToString(java.lang.String, System.IFormatProvider);"]:
+                assert signature in declarations
+            assert sum(line.startswith("public static final System.Reflection.MemberTypes ") for line in declarations) == 9
+            assert upstream["declaredPublicMethodCount"] == 0
+            disposition = "SELECTED_MEMBER_FLAGS_AND_INHERITED_ENUM_CONTRACTS; supported Java carrier projection; CLR ABI open"
         elif name == "System.Reflection.GenericParameterAttributes":
             assert "extends java.lang.Enum<System.Reflection.GenericParameterAttributes>" in header
             assert "public int get_Value();" in declarations
