@@ -3,7 +3,7 @@
 package System;
 
 /** Selected unsigned 16-bit value carrier for public serialization paths. */
-public final class UInt16 implements IConvertible, IFormattable, IComparable {
+public final class UInt16 implements IConvertible, IFormattable, IComparable, ISpanFormattable {
     private final int value;
 
     public UInt16(int value) {
@@ -133,6 +133,21 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable {
     @Override public boolean equals(Object value) { return Equals(value); }
     @Override public int hashCode() { return GetHashCode(); }
 
+    @Override public boolean TryFormat(char[] destination, int[] written, String format, IFormatProvider provider) {
+        String text = ToString(format, provider);
+        if (text.length() > destination.length) { written[0] = 0; return false; }
+        text.getChars(0, text.length(), destination, 0);
+        written[0] = text.length();
+        return true;
+    }
+    public boolean TryFormat(Span<Character> destination, int[] written, ReadOnlySpan<Character> format, IFormatProvider provider) {
+        if (destination == null) throw new ArgumentNullException("destination");
+        if (format == null) throw new ArgumentNullException("format");
+        String text = ToString(format.ToString(), provider);
+        if (!ReadOnlySpan.OfChars(text.toCharArray()).TryCopyTo(destination)) { written[0] = 0; return false; }
+        written[0] = text.length();
+        return true;
+    }
     @Override
     public String toString() {
         return this.ToString();
