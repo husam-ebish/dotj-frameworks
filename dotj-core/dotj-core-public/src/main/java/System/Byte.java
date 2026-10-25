@@ -3,7 +3,7 @@
 package System;
 
 /** Selected unsigned byte value carrier for public serialization paths. */
-public final class Byte implements IConvertible, IFormattable, IComparable, ISpanFormattable {
+public final class Byte implements IConvertible, IFormattable, IComparable, ISpanFormattable, IUtf8SpanFormattable {
     private final short value;
 
     public Byte(int value) {
@@ -140,14 +140,22 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         written[0] = text.length();
         return true;
     }
-    public boolean TryFormat(Span<Character> destination, int[] written, ReadOnlySpan<Character> format, IFormatProvider provider) {
+    /** One Java carrier for the CLR Char and UTF-8 Byte span overloads. */
+    public <T> boolean TryFormat(Span<T> destination, int[] written, ReadOnlySpan<Character> format, IFormatProvider provider) {
         if (destination == null) throw new ArgumentNullException("destination");
         if (format == null) throw new ArgumentNullException("format");
-        String text = ToString(format.ToString(), provider);
-        if (!ReadOnlySpan.OfChars(text.toCharArray()).TryCopyTo(destination)) { written[0] = 0; return false; }
-        written[0] = text.length();
+        int count = destination.writeSelectedInt32Text(ToString(format.ToString(), provider));
+        written[0] = count < 0 ? 0 : count;
+        return count >= 0;
+    }
+    @Override public boolean TryFormat(byte[] destination, int[] written, String format, IFormatProvider provider) {
+        byte[] text = ToString(format, provider).getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        if (text.length > destination.length) { written[0] = 0; return false; }
+        java.lang.System.arraycopy(text, 0, destination, 0, text.length);
+        written[0] = text.length;
         return true;
     }
+
     @Override
     public String toString() {
         return this.ToString();
