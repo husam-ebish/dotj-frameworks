@@ -272,6 +272,78 @@ public class UnicodeEncoding extends Encoding {
                 ReadOnlySpan.OfUtf8Bytes(raw).CopyTo(bytes);
             }
         }
+        private void beginConvertFallback(char value, int index) {
+            if (get_Fallback() instanceof EncoderExceptionFallback) {
+                throw new EncoderFallbackException(String.format(java.util.Locale.ROOT, ENCODER_MESSAGE,
+                        (int)value, index), value, index);
+            }
+            get_FallbackBuffer().Fallback(value, index);
+        }
+        private void convertNoProgress() {
+            resetFallbackBuffer();
+            this.encoding.overflow(true);
+        }
+        @Override public void Convert(char[] chars, int charIndex, int charCount, Byte[] bytes,
+                int byteIndex, int byteCount, boolean flush, int[] charsUsed, int[] bytesUsed,
+                boolean[] completed) {
+            if (charsUsed == null || bytesUsed == null || completed == null) throw new java.lang.NullPointerException("Output carrier");
+            if (charsUsed.length == 0 || bytesUsed.length == 0 || completed.length == 0) throw new java.lang.ArrayIndexOutOfBoundsException("Output carrier");
+            if (chars == null) throw new ArgumentNullException("chars");
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            nonnegative(charIndex, "charIndex"); nonnegative(charCount, "charCount");
+            nonnegative(byteIndex, "byteIndex"); nonnegative(byteCount, "byteCount");
+            if (charIndex > chars.length - charCount) throw new ArgumentOutOfRangeException("chars", "Index and count must refer to a location within the buffer.");
+            if (byteIndex > bytes.length - byteCount) throw new ArgumentOutOfRangeException("bytes", "Index and count must refer to a location within the buffer.");
+            int consumed = 0, written = 0, carryIndex = -1;
+            char carry = this.pending;
+            while (true) {
+                EncoderFallbackBuffer fallback = existingFallbackBuffer();
+                if (fallback != null && fallback.get_Remaining() > 0) {
+                    char first = fallback.GetNextChar();
+                    boolean pair = Character.isHighSurrogate(first);
+                    char second = pair ? fallback.GetNextChar() : 0;
+                    if (Character.isSurrogate(first) && (!pair || !Character.isLowSurrogate(second))) {
+                        throw new ArgumentException("Recursive fallback is not allowed.", "chars");
+                    }
+                    int width = pair ? 4 : 2;
+                    if (byteCount - written < width) {
+                        fallback.MovePrevious(); if (pair) fallback.MovePrevious();
+                        if (written == 0) convertNoProgress();
+                        break;
+                    }
+                    written = this.encoding.putWord(first, bytes, byteIndex, written);
+                    if (pair) written = this.encoding.putWord(second, bytes, byteIndex, written);
+                    continue;
+                }
+                if (carry != 0) {
+                    if (consumed < charCount && Character.isLowSurrogate(chars[charIndex + consumed])) {
+                        if (byteCount - written < 4) {
+                            if (written == 0) convertNoProgress();
+                            consumed = carryIndex; carry = 0; break;
+                        }
+                        written = this.encoding.putWord(carry, bytes, byteIndex, written);
+                        written = this.encoding.putWord(chars[charIndex + consumed++], bytes, byteIndex, written);
+                        carry = 0; continue;
+                    }
+                    if (consumed == charCount && !flush) break;
+                    beginConvertFallback(carry, carryIndex); carry = 0; continue;
+                }
+                if (consumed == charCount) break;
+                char current = chars[charIndex + consumed];
+                if (Character.isHighSurrogate(current)) { carry = current; carryIndex = consumed++; continue; }
+                if (Character.isLowSurrogate(current)) { beginConvertFallback(current, consumed++); continue; }
+                if (byteCount - written < 2) {
+                    if (written == 0) convertNoProgress();
+                    break;
+                }
+                consumed++; written = this.encoding.putWord(current, bytes, byteIndex, written);
+            }
+            this.pending = carry;
+            charsUsed[0] = consumed; bytesUsed[0] = written;
+            EncoderFallbackBuffer fallback = existingFallbackBuffer();
+            completed[0] = consumed == charCount && (!flush || carry == 0)
+                    && (fallback == null || fallback.get_Remaining() == 0);
+        }
         @Override public void Reset() { this.pending = 0; resetFallbackBuffer(); }
     }
     @Override public Byte[] GetPreamble(){return !this.byteOrderMark?EMPTY_PREAMBLE:this.bigEndian?new Byte[]{new Byte(254),new Byte(255)}:new Byte[]{new Byte(255),new Byte(254)};}
