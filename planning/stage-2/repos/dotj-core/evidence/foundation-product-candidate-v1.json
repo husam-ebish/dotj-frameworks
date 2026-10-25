@@ -227,7 +227,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackException.java",
-      "sha256": "01c6993bfd542928092a76fa1d5f107e9a5196ea07c13069b2a9007057766263"
+      "sha256": "68b5a91df6f9a5967537518ee816d188ba0505b0bc3b4713089fe69e12ba37d8"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderFallbackException.java",
@@ -335,7 +335,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallback.java",
-      "sha256": "f9268cbb2959a946043362e40baa18d7d88a6e528bfc4f0dc4d02a167b297bee"
+      "sha256": "eb77637543cf35330636b5dd99807b6b5182dd994108e6a3cc13b30c313b04be"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderFallback.java",
@@ -343,7 +343,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderReplacementFallback.java",
-      "sha256": "57866ce19f7d65fb16c3dfb85a246dbf3a2c2097274f8ce2d44f6c85533f569d"
+      "sha256": "b05dc9964e299b378551b20782e0ead98c26968bed649d16a936b4829e41a80d"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderReplacementFallback.java",
@@ -351,15 +351,19 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderExceptionFallback.java",
-      "sha256": "6ed04889073a790a972f0b181ea1cf9c3f856eaea916092bc81a1b0a63ec8cab"
+      "sha256": "25ef2d558f4abb5747c8c0a4aea677d02264094c1d7eeb9f79064d7401107aba"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderExceptionFallback.java",
       "sha256": "d5edbafe02f45256c2757aaa46d1435a0e6bb2cf16bc0b6c01b0f64fbec9a899"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackBuffer.java",
+      "sha256": "5e7731fd531918c28e7e1ea461e7e29cd05780b5b230e9c56cc45b15eb69b8a5"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "116dcec9f4db1cacdb4f4185cec94a4d7e8268384a64b6721ed2d1d4e805093a",
+  "jarSha256": "6c80c4839ac6c1f9e0f25a88e3e71f99f560dc8e4904b3a5da3263279c8ee21e",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -441,10 +445,13 @@
     "System/Text/DecoderFallback.class",
     "System/Text/DecoderFallbackException.class",
     "System/Text/DecoderReplacementFallback.class",
+    "System/Text/EncoderExceptionFallback$Buffer.class",
     "System/Text/EncoderExceptionFallback.class",
     "System/Text/EncoderFallback$Defaults.class",
     "System/Text/EncoderFallback.class",
+    "System/Text/EncoderFallbackBuffer.class",
     "System/Text/EncoderFallbackException.class",
+    "System/Text/EncoderReplacementFallback$Buffer.class",
     "System/Text/EncoderReplacementFallback.class",
     "System/Text/Encoding$DefaultUtf8.class",
     "System/Text/Encoding.class",
@@ -550,11 +557,14 @@
     "System/Text/DecoderFallback.class": "59f4f0adad13b050ba122621860b6cbd27fa000d13ab08ed518e90441cca9a9a",
     "System/Text/DecoderFallbackException.class": "ade58ef417718ac1814d5ea29751645c942b3efbf526b5754935c2b7db39f725",
     "System/Text/DecoderReplacementFallback.class": "1c661632b88db668f690dc64271aba6b12c829b91df96dba9830fd92bcfb2058",
-    "System/Text/EncoderExceptionFallback.class": "5e14684072a3e63e36d18e0204b70dba5e3e660aa699bc34d101c7e4f7a07a10",
-    "System/Text/EncoderFallback$Defaults.class": "36597cae3946f4fa2731cec7d1dbea5a369aaaee9d1235460a6c80e709807533",
-    "System/Text/EncoderFallback.class": "319e2aa47ed469e362c95cadfb5c8626de8418453fbbb1e98342ecfb5a2b2788",
-    "System/Text/EncoderFallbackException.class": "05232f97e5fc32b8f96f10a1cecfa2989bdc14168939e4a0b3757ee8f3c33e57",
-    "System/Text/EncoderReplacementFallback.class": "24414e78d0bace38be4a0a56a85dcd2709c58b4bd149c618b5c8795537ef1f6f",
+    "System/Text/EncoderExceptionFallback$Buffer.class": "29330d5bebcb244c8efa69b51d8cac4ea18f00732b914abf0d3fac581645ff47",
+    "System/Text/EncoderExceptionFallback.class": "284f8d8dee159470961b1b6adb578d468800fd468f9adfb2f85b945523c96686",
+    "System/Text/EncoderFallback$Defaults.class": "bdd7e9230b38964f24686dd118a954239647562721864814e3211c06703eb58c",
+    "System/Text/EncoderFallback.class": "305109b299da71412886a9ee93284632f31e4aa3f9d35bf244ad76a158619fc9",
+    "System/Text/EncoderFallbackBuffer.class": "d4cbb50088a49e29c5e7245aba69d328e217c336c2f6e106a71c02b9eb959c8b",
+    "System/Text/EncoderFallbackException.class": "7fa4f5e381a26568df3b0b8c295dbfbbc06e6f746a7d46448ed733179f8d3612",
+    "System/Text/EncoderReplacementFallback$Buffer.class": "e4884c69e981af4213e1cbc0daf02e1eab9e029307f3c0abbb51a55ef0045c42",
+    "System/Text/EncoderReplacementFallback.class": "b4be03f1bfa313ae523809bb4a8969f7e0007a2ec5a60c62de729616e1dec33a",
     "System/Text/Encoding$DefaultUtf8.class": "93d3ed9ffdd559bc53117d97a50eb0e0890246a7f148b0e1a90546ecdcd00bbd",
     "System/Text/Encoding.class": "25415851c5e80b340060216f52370848bd344ff7d524bcc095ef9f55e06433ef",
     "System/Text/UTF8Encoding.class": "28e7d09a5fe6b554a20c1804d75fb016a896075e4738e35edc3cd3c2ebbd9367",

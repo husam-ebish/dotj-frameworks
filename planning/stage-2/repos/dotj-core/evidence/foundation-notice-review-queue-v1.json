@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "116dcec9f4db1cacdb4f4185cec94a4d7e8268384a64b6721ed2d1d4e805093a",
+  "jarSha256": "6c80c4839ac6c1f9e0f25a88e3e71f99f560dc8e4904b3a5da3263279c8ee21e",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 89,
+  "sourceCount": 90,
   "directNameMatchedCount": 81,
-  "directNameMissingCount": 8,
+  "directNameMissingCount": 9,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
     "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java"
@@ -1214,7 +1214,7 @@
         "System/Text/DecoderExceptionFallback.class"
       ],
       "mitSpdxHeaderObserved": true,
-      "localIntroductionCommit": "22d4a8d6e2684808ff3cf78e10cec33ab88f0e2c",
+      "localIntroductionCommit": "00a3e1088c140fc75145cb072602583cf25151bf",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/DecoderExceptionFallback.cs",
       "upstreamSha256": "efbc47c51ba51b6955f7ed0eaedc941fa1a3ada19293ece3ca7c30f54d1109ba",
@@ -1232,7 +1232,7 @@
         "System/Text/DecoderFallback$Defaults.class"
       ],
       "mitSpdxHeaderObserved": true,
-      "localIntroductionCommit": "22d4a8d6e2684808ff3cf78e10cec33ab88f0e2c",
+      "localIntroductionCommit": "00a3e1088c140fc75145cb072602583cf25151bf",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/DecoderFallback.cs",
       "upstreamSha256": "118661aa450cb05c5780194c2a2dc2bbc0cbccbaf1e6d3647967f547edf8aa43",
@@ -1266,7 +1266,7 @@
         "System/Text/DecoderReplacementFallback.class"
       ],
       "mitSpdxHeaderObserved": true,
-      "localIntroductionCommit": "22d4a8d6e2684808ff3cf78e10cec33ab88f0e2c",
+      "localIntroductionCommit": "00a3e1088c140fc75145cb072602583cf25151bf",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/DecoderReplacementFallback.cs",
       "upstreamSha256": "b0b653c5b53a2786ad47fdef7df1bbb919c2b285c88a3787b3772f9b075fd235",
@@ -1278,12 +1278,13 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderExceptionFallback.java",
-      "productSha256": "6ed04889073a790a972f0b181ea1cf9c3f856eaea916092bc81a1b0a63ec8cab",
+      "productSha256": "25ef2d558f4abb5747c8c0a4aea677d02264094c1d7eeb9f79064d7401107aba",
       "classEntries": [
-        "System/Text/EncoderExceptionFallback.class"
+        "System/Text/EncoderExceptionFallback.class",
+        "System/Text/EncoderExceptionFallback$Buffer.class"
       ],
       "mitSpdxHeaderObserved": true,
-      "localIntroductionCommit": "22d4a8d6e2684808ff3cf78e10cec33ab88f0e2c",
+      "localIntroductionCommit": "00a3e1088c140fc75145cb072602583cf25151bf",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderExceptionFallback.cs",
       "upstreamSha256": "a36e5c20e99367cf7310fcb63103ac92e90e2cadd733a37657189b72cfee3208",
@@ -1295,13 +1296,13 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallback.java",
-      "productSha256": "f9268cbb2959a946043362e40baa18d7d88a6e528bfc4f0dc4d02a167b297bee",
+      "productSha256": "eb77637543cf35330636b5dd99807b6b5182dd994108e6a3cc13b30c313b04be",
       "classEntries": [
         "System/Text/EncoderFallback.class",
         "System/Text/EncoderFallback$Defaults.class"
       ],
       "mitSpdxHeaderObserved": true,
-      "localIntroductionCommit": "22d4a8d6e2684808ff3cf78e10cec33ab88f0e2c",
+      "localIntroductionCommit": "00a3e1088c140fc75145cb072602583cf25151bf",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallback.cs",
       "upstreamSha256": "fecaa8e71992f9d568254202327662e6de473b3d73ad5b6fa83a79417cc98715",
@@ -1312,8 +1313,25 @@
       "supplementalAdjacencyEvidence": null
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackBuffer.java",
+      "productSha256": "5e7731fd531918c28e7e1ea461e7e29cd05780b5b230e9c56cc45b15eb69b8a5",
+      "classEntries": [
+        "System/Text/EncoderFallbackBuffer.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "890728f6f32c0089b75db100a38505c5df5df7f2",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallbackBuffer.cs",
+      "upstreamSha256": null,
+      "sharedIdentifierShinglesOfLength12": null,
+      "lexicalReviewStatus": "DIRECT_PATH_MISSING",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackException.java",
-      "productSha256": "01c6993bfd542928092a76fa1d5f107e9a5196ea07c13069b2a9007057766263",
+      "productSha256": "68b5a91df6f9a5967537518ee816d188ba0505b0bc3b4713089fe69e12ba37d8",
       "classEntries": [
         "System/Text/EncoderFallbackException.class"
       ],
@@ -1330,12 +1348,13 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderReplacementFallback.java",
-      "productSha256": "57866ce19f7d65fb16c3dfb85a246dbf3a2c2097274f8ce2d44f6c85533f569d",
+      "productSha256": "b05dc9964e299b378551b20782e0ead98c26968bed649d16a936b4829e41a80d",
       "classEntries": [
-        "System/Text/EncoderReplacementFallback.class"
+        "System/Text/EncoderReplacementFallback.class",
+        "System/Text/EncoderReplacementFallback$Buffer.class"
       ],
       "mitSpdxHeaderObserved": true,
-      "localIntroductionCommit": "22d4a8d6e2684808ff3cf78e10cec33ab88f0e2c",
+      "localIntroductionCommit": "00a3e1088c140fc75145cb072602583cf25151bf",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderReplacementFallback.cs",
       "upstreamSha256": "735c5015ddd6fb9d5be7e20fc85703de97a1dd40db2843aa79eeb5271ed1fba1",

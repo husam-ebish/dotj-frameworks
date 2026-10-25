@@ -10,6 +10,7 @@ public abstract class EncoderFallback {
     protected EncoderFallback() { }
     public static EncoderFallback get_ReplacementFallback() { return Defaults.REPLACEMENT; }
     public static EncoderFallback get_ExceptionFallback() { return Defaults.EXCEPTION; }
+    public abstract EncoderFallbackBuffer CreateFallbackBuffer();
     public abstract int get_MaxCharCount();
     public boolean Equals(Object value) { return this == value; }
     private static final class Defaults {

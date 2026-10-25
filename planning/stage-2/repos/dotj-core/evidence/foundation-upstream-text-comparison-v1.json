@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 89 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 90 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "116dcec9f4db1cacdb4f4185cec94a4d7e8268384a64b6721ed2d1d4e805093a",
+  "jarSha256": "6c80c4839ac6c1f9e0f25a88e3e71f99f560dc8e4904b3a5da3263279c8ee21e",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -848,43 +848,50 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderExceptionFallback.java",
-      "productSha256": "6ed04889073a790a972f0b181ea1cf9c3f856eaea916092bc81a1b0a63ec8cab",
+      "productSha256": "25ef2d558f4abb5747c8c0a4aea677d02264094c1d7eeb9f79064d7401107aba",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderExceptionFallback.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderExceptionFallback.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "a36e5c20e99367cf7310fcb63103ac92e90e2cadd733a37657189b72cfee3208",
-      "productIdentifierCount": 38,
+      "productIdentifierCount": 103,
       "upstreamIdentifierCount": 378,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallback.java",
-      "productSha256": "f9268cbb2959a946043362e40baa18d7d88a6e528bfc4f0dc4d02a167b297bee",
+      "productSha256": "eb77637543cf35330636b5dd99807b6b5182dd994108e6a3cc13b30c313b04be",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallback.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallback.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "fecaa8e71992f9d568254202327662e6de473b3d73ad5b6fa83a79417cc98715",
-      "productIdentifierCount": 135,
+      "productIdentifierCount": 139,
       "upstreamIdentifierCount": 1314,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackBuffer.java",
+      "productSha256": "5e7731fd531918c28e7e1ea461e7e29cd05780b5b230e9c56cc45b15eb69b8a5",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallbackBuffer.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallbackBuffer.cs",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackException.java",
-      "productSha256": "01c6993bfd542928092a76fa1d5f107e9a5196ea07c13069b2a9007057766263",
+      "productSha256": "68b5a91df6f9a5967537518ee816d188ba0505b0bc3b4713089fe69e12ba37d8",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallbackException.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallbackException.cs",
       "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderReplacementFallback.java",
-      "productSha256": "57866ce19f7d65fb16c3dfb85a246dbf3a2c2097274f8ce2d44f6c85533f569d",
+      "productSha256": "b05dc9964e299b378551b20782e0ead98c26968bed649d16a936b4829e41a80d",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderReplacementFallback.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderReplacementFallback.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "735c5015ddd6fb9d5be7e20fc85703de97a1dd40db2843aa79eeb5271ed1fba1",
-      "productIdentifierCount": 69,
+      "productIdentifierCount": 226,
       "upstreamIdentifierCount": 610,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
