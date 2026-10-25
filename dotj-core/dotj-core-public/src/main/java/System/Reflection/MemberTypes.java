@@ -2,8 +2,12 @@
 
 package System.Reflection;
 
+import System.FormatException;
+import System.IFormattable;
+import System.IFormatProvider;
+
 /** Selected reflection member-kind values with value-preserving combinations. */
-public final class MemberTypes {
+public final class MemberTypes implements IFormattable {
     public static final MemberTypes Constructor = new MemberTypes("Constructor", 1);
     public static final MemberTypes Event = new MemberTypes("Event", 2);
     public static final MemberTypes Field = new MemberTypes("Field", 4);
@@ -24,6 +28,11 @@ public final class MemberTypes {
     private MemberTypes(String name, int value) {
         this.name = name;
         this.value = value;
+    }
+
+    public static MemberTypes FromInt32(int value) {
+        for (MemberTypes candidate : named) if (candidate.value == value) return candidate;
+        return new MemberTypes(null, value);
     }
 
     public int get_Value() {
@@ -57,6 +66,29 @@ public final class MemberTypes {
     public static MemberTypes[] values() {
         return named.clone();
     }
+
+    public String ToString() { return ToString((String) null); }
+    public String ToString(IFormatProvider provider) { return ToString(); }
+    @Override public String ToString(String format, IFormatProvider provider) { return ToString(format); }
+    public String ToString(String format) {
+        char specifier = format == null || format.isEmpty() ? 'G'
+                : format.length() == 1 ? Character.toUpperCase(format.charAt(0)) : '\0';
+        if (specifier == 'D') return java.lang.Integer.toString(this.value);
+        if (specifier == 'X') return String.format(java.util.Locale.ROOT, "%08X", this.value);
+        if (specifier != 'G' && specifier != 'F') throw new FormatException("Format string can be only G, F, D or X");
+        if (this.name != null) return this.name;
+        long remaining = java.lang.Integer.toUnsignedLong(this.value);
+        java.util.ArrayList<String> parts = new java.util.ArrayList<>();
+        for (int index = named.length - 1; index >= 0; index--) {
+            long bits = java.lang.Integer.toUnsignedLong(named[index].value);
+            if (bits != 0 && (remaining & bits) == bits) {
+                remaining &= ~bits;
+                parts.add(0, named[index].name);
+            }
+        }
+        return remaining == 0 && !parts.isEmpty() ? String.join(", ", parts) : java.lang.Integer.toString(this.value);
+    }
+    @Override public String toString() { return ToString(); }
 
     @Override
     public boolean equals(Object other) {
