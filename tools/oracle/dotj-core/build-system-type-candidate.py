@@ -50,6 +50,7 @@ EXCEPTION_SOURCES.append(SOURCE.parent / "Diagnostics/Stopwatch.java")
 EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/MarvinStringHash.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Text/DecoderFallbackBuffer.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Text/EncoderFallbackBuffer.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Text/Decoder.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Text/Encoder.java")
 EXCEPTION_SOURCES += [SOURCE.parent / "Text" / (name + ".java") for name in ('EncoderFallback', 'DecoderFallback', 'EncoderReplacementFallback', 'DecoderReplacementFallback', 'EncoderExceptionFallback', 'DecoderExceptionFallback')]
 EXCEPTION_SOURCES.append(SOURCE.with_name("ICloneable.java"))

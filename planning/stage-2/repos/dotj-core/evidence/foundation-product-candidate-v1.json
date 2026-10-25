@@ -219,11 +219,11 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
-      "sha256": "72dd373c18ab00ff0d15f347bb99a185e21d7f247d9bf55b1b50757ac5a57d61"
+      "sha256": "b94e7954da6ce4f047effa2ccee098405863c28a8e620f3731ea483f08739d88"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java",
-      "sha256": "259b00797fd73d1ba93509939d4a1f10c70285bf36e0b0663e402795ccb9ad7d"
+      "sha256": "7197072a476dcf486f6bec1ad16ca70452d47c227a52acea9ec280f0939f01d7"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackException.java",
@@ -372,10 +372,14 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoder.java",
       "sha256": "07b8c1a7303f4eb6ff97d78b8c2397fcf7e11519510b599cd3909d5c0cdac07c"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/Decoder.java",
+      "sha256": "f3e4ad7f9ec02e5867179abea838fa753efb6f762b70c9f2ed2a5d7ad724ffde"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "c0c6d72a408f0992c1bec713941f08a88b6fa9a88d734a6ce52b8408cc5b0214",
+  "jarSha256": "15b711837d935b128de6780111100af5224f6876dc83b31ff27f946f09566c25",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -452,6 +456,7 @@
     "System/SByte.class",
     "System/Span.class",
     "System/SystemException.class",
+    "System/Text/Decoder.class",
     "System/Text/DecoderExceptionFallback$Buffer.class",
     "System/Text/DecoderExceptionFallback.class",
     "System/Text/DecoderFallback$Defaults.class",
@@ -471,6 +476,7 @@
     "System/Text/EncoderReplacementFallback.class",
     "System/Text/Encoding$DefaultUtf8.class",
     "System/Text/Encoding.class",
+    "System/Text/UTF8Encoding$Utf8Decoder.class",
     "System/Text/UTF8Encoding$Utf8Encoder.class",
     "System/Text/UTF8Encoding.class",
     "System/TimeSpan.class",
@@ -570,6 +576,7 @@
     "System/SByte.class": "68c249438332f1593cbe177398bf9e40d3e9717d6264927f8c5e484bcfc49101",
     "System/Span.class": "77fd9e5af75616cd80b8d7da697c3672de19d803162a56852429c0d497e067f6",
     "System/SystemException.class": "9e55b953ad40a63b6094ef2f36524729810ad0ded17932224c302773513bd7e8",
+    "System/Text/Decoder.class": "969bcadae7e4ab4bffc7e504dfdb18b5df8f319dc244af6722c9a0a7cae81e7e",
     "System/Text/DecoderExceptionFallback$Buffer.class": "9db9d98261112867ba390b40730b983668ab87f6e34edb7cdc1846d72c13ec7b",
     "System/Text/DecoderExceptionFallback.class": "f667c7ac3366e8a67180bbc3372ab62d3ed851fd7663a54ffb44c2e7e3a6743b",
     "System/Text/DecoderFallback$Defaults.class": "ea9faedbb8179df30ced9aae2b02de3d78b720ca37db5199d41c7e5b983bff2c",
@@ -588,9 +595,10 @@
     "System/Text/EncoderReplacementFallback$Buffer.class": "e4884c69e981af4213e1cbc0daf02e1eab9e029307f3c0abbb51a55ef0045c42",
     "System/Text/EncoderReplacementFallback.class": "ec9206a48254f79af0d5fd1a64663b82c90a0b18cc778eb81b33cfe86a6c8c85",
     "System/Text/Encoding$DefaultUtf8.class": "93d3ed9ffdd559bc53117d97a50eb0e0890246a7f148b0e1a90546ecdcd00bbd",
-    "System/Text/Encoding.class": "2d8cfb8f07e68fdc8b66a92182b415f8b3c168792acd9d35df0b423843854313",
+    "System/Text/Encoding.class": "2d947ebae7ead645d0d3283f93249f023f98c3131ef2d3fa67dd18988c26639d",
+    "System/Text/UTF8Encoding$Utf8Decoder.class": "c09123e07f01959620c2cd6614ef7f1c0ba5b88012b0f80261824750ebf2c9bd",
     "System/Text/UTF8Encoding$Utf8Encoder.class": "b19187d387d7868c940bc22e5528443ad3fcc2a1b56148aee0d5917ea2859aa7",
-    "System/Text/UTF8Encoding.class": "8be2e94aac345e7c9dbab4adff80ebaa4f0c86a78409d4582b389ea27ea43bd3",
+    "System/Text/UTF8Encoding.class": "bbb5ceef19d32bd9b90d1519e230ad4c63fc7dd06f7e21ac182d0037569ffd05",
     "System/TimeSpan.class": "7ba310346c6886e0f736c7256230fb27631c73e233e5bbb1adcc25419e598994",
     "System/Type$1.class": "bbd14ce1c0fbb9c4ee8430958d3aa30d49c8ec6f9c4f9937f0000710fe02a91e",
     "System/Type$2.class": "85691af167f77f891c92891163fe43f68c5e2992a308eae0e222035935b1d935",
