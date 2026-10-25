@@ -2,6 +2,8 @@
 
 package System;
 
+import System.Globalization.NumberStyles;
+
 /** Selected signed byte value carrier for public serialization paths. */
 public final class SByte implements IConvertible, IFormattable, IComparable, ISpanFormattable, IUtf8SpanFormattable {
     public static final int MinValue = -128;
@@ -108,12 +110,7 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         return Parse(text, (IFormatProvider) null);
     }
     public static SByte Parse(String text, IFormatProvider provider) {
-        java.math.BigInteger value = Int32.selectedParseIntegerCarrier(text, provider);
-        if (value.compareTo(java.math.BigInteger.valueOf(MinValue)) < 0
-                || value.compareTo(java.math.BigInteger.valueOf(MaxValue)) > 0) {
-            throw new OverflowException("Value was outside the range of SByte.");
-        }
-        return new SByte(value.intValue());
+        return Parse(text, NumberStyles.Integer, provider);
     }
     public static boolean TryParse(String text, SByte[] result) {
         return TryParse(text, null, result);
@@ -141,6 +138,33 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
     public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider, SByte[] result) {
         if (text == null) throw new ArgumentNullException("text");
         return TryParse(text.selectedInt32Text(), provider, result);
+    }
+
+    public static SByte Parse(String text, NumberStyles style) {
+        return Parse(text, style, null);
+    }
+    public static SByte Parse(String text, NumberStyles style, IFormatProvider provider) {
+        java.math.BigInteger value = Int32.selectedParseIntegerStyles(text, style, provider, 8, true);
+        return new SByte(value.intValue());
+    }
+    public static boolean TryParse(String text, NumberStyles style, IFormatProvider provider, SByte[] result) {
+        Int32.selectedValidateIntegerStyles(style);
+        if (text == null) { result[0] = new SByte(0); return false; }
+        IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
+        try { result[0] = Parse(text, style, resolved); return true; }
+        catch (FormatException | OverflowException expected) { result[0] = new SByte(0); return false; }
+    }
+    public static <T> SByte Parse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider) {
+        if (text == null) throw new ArgumentNullException("text");
+        java.math.BigInteger value = Int32.selectedParseIntegerStyles(text.selectedInt32Text(), style, provider, 8, true, text.selectedUtf8());
+        return new SByte(value.intValue());
+    }
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider, SByte[] result) {
+        if (text == null) throw new ArgumentNullException("text");
+        Int32.selectedValidateIntegerStyles(style);
+        IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
+        try { result[0] = Parse(text, style, resolved); return true; }
+        catch (FormatException | OverflowException expected) { result[0] = new SByte(0); return false; }
     }
 
     public SByte(int value) {

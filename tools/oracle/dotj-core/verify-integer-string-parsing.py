@@ -10,7 +10,7 @@ def main():
  for profile in j['types']:
   owner=profile['fullName'].split('.')[-1];assert len(profile['cases'])==796
   for row in profile['cases']:
-   text='(String)null' if row['text'] is None else json.dumps(row['text']);provider='CUSTOM' if row['provider']=='Custom' else 'null'
+   text='(String)null' if row['text'] is None else json.dumps(row['text']);provider='CUSTOM' if row['provider']=='Custom' else '(IFormatProvider)null'
    routes=[('parse',owner+'.Parse('+text+','+provider+')',False),('tryParse',owner+'.TryParse('+text+','+provider+',result)',True)]
    if 'parseDefault' in row:routes+=[('parseDefault',owner+'.Parse('+text+')',False),('tryDefault',owner+'.TryParse('+text+',result)',True)]
    for key,expression,is_try in routes:

@@ -2,6 +2,8 @@
 
 package System;
 
+import System.Globalization.NumberStyles;
+
 /** Selected unsigned 32-bit value carrier for public serialization paths. */
 public final class UInt32 implements IConvertible, IFormattable, IComparable, ISpanFormattable, IUtf8SpanFormattable {
     public static final long MinValue = 0L;
@@ -83,12 +85,7 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
         return Parse(text, (IFormatProvider) null);
     }
     public static UInt32 Parse(String text, IFormatProvider provider) {
-        java.math.BigInteger value = Int32.selectedParseIntegerCarrier(text, provider);
-        if (value.compareTo(java.math.BigInteger.valueOf(MinValue)) < 0
-                || value.compareTo(java.math.BigInteger.valueOf(MaxValue)) > 0) {
-            throw new OverflowException("Value was outside the range of UInt32.");
-        }
-        return new UInt32(value.longValue());
+        return Parse(text, NumberStyles.Integer, provider);
     }
     public static boolean TryParse(String text, UInt32[] result) {
         return TryParse(text, null, result);
@@ -116,6 +113,33 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
     public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider, UInt32[] result) {
         if (text == null) throw new ArgumentNullException("text");
         return TryParse(text.selectedInt32Text(), provider, result);
+    }
+
+    public static UInt32 Parse(String text, NumberStyles style) {
+        return Parse(text, style, null);
+    }
+    public static UInt32 Parse(String text, NumberStyles style, IFormatProvider provider) {
+        java.math.BigInteger value = Int32.selectedParseIntegerStyles(text, style, provider, 32, false);
+        return new UInt32(value.longValue());
+    }
+    public static boolean TryParse(String text, NumberStyles style, IFormatProvider provider, UInt32[] result) {
+        Int32.selectedValidateIntegerStyles(style);
+        if (text == null) { result[0] = new UInt32(0); return false; }
+        IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
+        try { result[0] = Parse(text, style, resolved); return true; }
+        catch (FormatException | OverflowException expected) { result[0] = new UInt32(0); return false; }
+    }
+    public static <T> UInt32 Parse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider) {
+        if (text == null) throw new ArgumentNullException("text");
+        java.math.BigInteger value = Int32.selectedParseIntegerStyles(text.selectedInt32Text(), style, provider, 32, false, text.selectedUtf8());
+        return new UInt32(value.longValue());
+    }
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider, UInt32[] result) {
+        if (text == null) throw new ArgumentNullException("text");
+        Int32.selectedValidateIntegerStyles(style);
+        IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
+        try { result[0] = Parse(text, style, resolved); return true; }
+        catch (FormatException | OverflowException expected) { result[0] = new UInt32(0); return false; }
     }
 
     public UInt32(long value) {

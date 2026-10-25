@@ -147,36 +147,6 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return new Int32(parsed.intValue());
     }
 
-    /** Selected Integer-style String grammar shared by the bounded small-integer carriers. */
-    static BigInteger selectedParseIntegerCarrier(String text, IFormatProvider provider) {
-        if (text == null) throw new ArgumentNullException("s");
-        NumberFormatInfo info = selectedNumberFormatInfo(provider);
-        String positive = info == null ? "+" : info.get_PositiveSign();
-        String negative = info == null ? "-" : info.get_NegativeSign();
-        int start = 0;
-        int end = text.length();
-        while (end > 0 && text.charAt(end - 1) == 0) end--;
-        while (start < end && selectedIntegerCarrierWhite(text.charAt(start))) start++;
-        while (end > start && selectedIntegerCarrierWhite(text.charAt(end - 1))) end--;
-        boolean isNegative = false;
-        if (!positive.isEmpty() && text.startsWith(positive, start) && start + positive.length() <= end) {
-            start += positive.length();
-        } else if (!negative.isEmpty() && text.startsWith(negative, start) && start + negative.length() <= end) {
-            start += negative.length();
-            isNegative = true;
-        } else if (start < end && text.charAt(start) == '-' && selectedIntegerCarrierHyphenSign(negative)) {
-            start++;
-            isNegative = true;
-        }
-        if (start == end) throw new FormatException("Input string was not in a correct format.");
-        for (int offset = start; offset < end; offset++) {
-            char digit = text.charAt(offset);
-            if (digit < '0' || digit > '9') throw new FormatException("Input string was not in a correct format.");
-        }
-        BigInteger value = new BigInteger(text.substring(start, end));
-        return isNegative ? value.negate() : value;
-    }
-
     private static boolean selectedIntegerCarrierWhite(char value) {
         return value == ' ' || (value >= '\t' && value <= '\r');
     }
@@ -189,6 +159,170 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     private static boolean selectedIntegerCarrierHyphenSign(String sign) {
         return sign.length() == 1
                 && "\u2012\u207b\u208b\u2212\u2796\ufe63\uff0d".indexOf(sign.charAt(0)) >= 0;
+    }
+
+    static void selectedValidateIntegerStyles(NumberStyles style) {
+        if (style == null) throw new ArgumentNullException("style");
+        int flags = style.get_Value();
+        if ((flags & ~2047) != 0) throw new ArgumentException("Invalid NumberStyles value.", "style");
+        if ((flags & 1536) != 0) {
+            int allowed = ((flags & 512) != 0 ? 512 : 1024) | 3;
+            if ((flags & ~allowed) != 0) throw new ArgumentException("Invalid NumberStyles value.", "style");
+        }
+    }
+
+    static BigInteger selectedParseIntegerStyles(String text, NumberStyles style,
+                                                IFormatProvider provider, int width, boolean signed) {
+        return selectedParseIntegerStyles(text, style, provider, width, signed, false);
+    }
+
+    static BigInteger selectedParseIntegerStyles(String text, NumberStyles style,
+                                                IFormatProvider provider, int width, boolean signed, boolean utf8) {
+        if (text == null) throw new ArgumentNullException("s");
+        selectedValidateIntegerStyles(style);
+        NumberFormatInfo info = selectedNumberFormatInfo(provider);
+        if (info == null) info = new NumberFormatInfo();
+        int flags = style.get_Value();
+        BigInteger value;
+        if ((flags & 1536) != 0) {
+            int radix = (flags & 512) != 0 ? 16 : 2;
+            int cursor = 0;
+            if ((flags & 1) != 0) while (cursor < text.length() && selectedIntegerCarrierWhite(text.charAt(cursor))) cursor++;
+            int first = cursor;
+            while (cursor < text.length()) {
+                char ch = text.charAt(cursor);
+                int digit = ch >= '0' && ch <= '9' ? ch - '0' : ch >= 'a' && ch <= 'f' ? ch - 'a' + 10 : ch >= 'A' && ch <= 'F' ? ch - 'A' + 10 : -1;
+                if (digit < 0 || digit >= radix) break;
+                cursor++;
+            }
+            int last = cursor;
+            if ((flags & 2) != 0) while (cursor < text.length() && selectedIntegerCarrierWhite(text.charAt(cursor))) cursor++;
+            if (first == last || !selectedIntegerCarrierEnd(text, cursor)) throw new FormatException("Input string was not in a correct format.");
+            value = new BigInteger(text.substring(first, last), radix);
+            if (value.bitLength() > width) throw new OverflowException("Integer value exceeded its native range.");
+            if (signed && value.testBit(width - 1)) value = value.subtract(BigInteger.ONE.shiftLeft(width));
+        } else {
+            value = selectedParseIntegerDecimalStyles(text, flags, info, utf8);
+        }
+        BigInteger minimum = signed ? BigInteger.ONE.shiftLeft(width - 1).negate() : BigInteger.ZERO;
+        BigInteger maximum = BigInteger.ONE.shiftLeft(signed ? width - 1 : width).subtract(BigInteger.ONE);
+        if (value.compareTo(minimum) < 0 || value.compareTo(maximum) > 0) throw new OverflowException("Integer value exceeded its native range.");
+        return value;
+    }
+
+    private static boolean selectedIntegerCarrierEnd(String text, int cursor) {
+        while (cursor < text.length() && text.charAt(cursor) == 0) cursor++;
+        return cursor == text.length();
+    }
+
+    private static int selectedIntegerCarrierToken(String text, int cursor, String token, boolean utf8) {
+        if (token.isEmpty() || cursor + token.length() > text.length()) return 0;
+        for (int index = 0; index < token.length(); index++) {
+            char expected = token.charAt(index);
+            char actual = text.charAt(cursor + index);
+            if (actual != expected && !(!utf8 && actual == ' ' && (expected == '\u00a0' || expected == '\u202f'))) return 0;
+        }
+        return token.length();
+    }
+
+    private static int selectedIntegerCarrierNegative(String text, int cursor, NumberFormatInfo info, boolean utf8) {
+        int length = selectedIntegerCarrierToken(text, cursor, info.get_NegativeSign(), utf8);
+        if (length == 0 && cursor < text.length() && text.charAt(cursor) == '-' && selectedIntegerCarrierHyphenSign(info.get_NegativeSign())) return 1;
+        return length;
+    }
+
+    private static BigInteger selectedParseIntegerDecimalStyles(String text, int flags, NumberFormatInfo info, boolean utf8) {
+        int cursor = 0;
+        boolean negative = false;
+        boolean signSeen = false;
+        boolean parenthesis = false;
+        boolean currencySeen = false;
+        boolean general = (flags & ~7) != 0;
+        while (cursor < text.length()) {
+            char ch = text.charAt(cursor);
+            if ((flags & 1) != 0 && selectedIntegerCarrierWhite(ch)
+                    && (!signSeen || currencySeen || (general && info.get_NumberNegativePattern() == 2))) { cursor++; continue; }
+            int length;
+            if ((flags & 4) != 0 && !signSeen) {
+                length = selectedIntegerCarrierToken(text, cursor, info.get_PositiveSign(), utf8);
+                if (length > 0) { cursor += length; signSeen = true; continue; }
+                length = selectedIntegerCarrierNegative(text, cursor, info, utf8);
+                if (length > 0) { cursor += length; signSeen = true; negative = true; continue; }
+            }
+            if ((flags & 16) != 0 && !signSeen && ch == '(') { cursor++; signSeen = true; negative = true; parenthesis = true; continue; }
+            if ((flags & 256) != 0 && !currencySeen) {
+                length = selectedIntegerCarrierToken(text, cursor, info.get_CurrencySymbol(), utf8);
+                if (length > 0) { cursor += length; currencySeen = true; continue; }
+            }
+            break;
+        }
+        StringBuilder digits = new StringBuilder();
+        boolean decimalSeen = false;
+        int fractionalDigits = 0;
+        while (cursor < text.length()) {
+            char ch = text.charAt(cursor);
+            if (ch >= '0' && ch <= '9') {
+                digits.append(ch); if (decimalSeen) fractionalDigits++; cursor++; continue;
+            }
+            int length = 0;
+            if ((flags & 32) != 0 && !decimalSeen) {
+                length = selectedIntegerCarrierToken(text, cursor, (flags & 256) != 0 ? info.get_CurrencyDecimalSeparator() : info.get_NumberDecimalSeparator(), utf8);
+                if (length == 0 && (flags & 256) != 0 && !currencySeen) length = selectedIntegerCarrierToken(text, cursor, info.get_NumberDecimalSeparator(), utf8);
+                if (length > 0) { cursor += length; decimalSeen = true; continue; }
+            }
+            if ((flags & 64) != 0 && !decimalSeen && digits.length() > 0) {
+                length = selectedIntegerCarrierToken(text, cursor, (flags & 256) != 0 ? info.get_CurrencyGroupSeparator() : info.get_NumberGroupSeparator(), utf8);
+                if (length == 0 && (flags & 256) != 0 && !currencySeen) length = selectedIntegerCarrierToken(text, cursor, info.get_NumberGroupSeparator(), utf8);
+                if (length > 0) { cursor += length; continue; }
+            }
+            break;
+        }
+        if (digits.length() == 0) throw new FormatException("Input string was not in a correct format.");
+        long exponent = 0;
+        if ((flags & 128) != 0 && cursor < text.length() && (text.charAt(cursor) == 'e' || text.charAt(cursor) == 'E')) {
+            cursor++;
+            int length = selectedIntegerCarrierToken(text, cursor, info.get_PositiveSign(), utf8);
+            boolean exponentNegative = false;
+            if (length > 0) cursor += length;
+            else { length = selectedIntegerCarrierNegative(text, cursor, info, utf8); if (length > 0) { cursor += length; exponentNegative = true; } }
+            int first = cursor;
+            while (cursor < text.length() && text.charAt(cursor) >= '0' && text.charAt(cursor) <= '9') {
+                exponent = Math.min(1000000000L, exponent * 10 + text.charAt(cursor) - '0'); cursor++;
+            }
+            if (cursor == first) throw new FormatException("Input string was not in a correct format.");
+            if (exponentNegative) exponent = -exponent;
+        }
+        while (cursor < text.length()) {
+            char ch = text.charAt(cursor);
+            if ((flags & 2) != 0 && selectedIntegerCarrierWhite(ch)) { cursor++; continue; }
+            int length;
+            if ((flags & 8) != 0 && !signSeen) {
+                length = selectedIntegerCarrierToken(text, cursor, info.get_PositiveSign(), utf8);
+                if (length > 0) { cursor += length; signSeen = true; continue; }
+                length = selectedIntegerCarrierNegative(text, cursor, info, utf8);
+                if (length > 0) { cursor += length; signSeen = true; negative = true; continue; }
+            }
+            if (parenthesis && ch == ')') { cursor++; parenthesis = false; continue; }
+            if ((flags & 256) != 0 && !currencySeen) {
+                length = selectedIntegerCarrierToken(text, cursor, info.get_CurrencySymbol(), utf8);
+                if (length > 0) { cursor += length; currencySeen = true; continue; }
+            }
+            break;
+        }
+        if (parenthesis || !selectedIntegerCarrierEnd(text, cursor)) throw new FormatException("Input string was not in a correct format.");
+        BigInteger coefficient = new BigInteger(digits.toString());
+        if (coefficient.signum() == 0) return BigInteger.ZERO;
+        long scale = fractionalDigits - exponent;
+        if (scale > 0) {
+            if (scale >= digits.length()) throw new OverflowException("Integer input contained a nonzero fractional value.");
+            BigInteger[] parts = coefficient.divideAndRemainder(BigInteger.TEN.pow((int) scale));
+            if (parts[1].signum() != 0) throw new OverflowException("Integer input contained a nonzero fractional value.");
+            coefficient = parts[0];
+        } else if (scale < 0) {
+            if (-scale > 10) throw new OverflowException("Integer value exceeded its native range.");
+            coefficient = coefficient.multiply(BigInteger.TEN.pow((int) -scale));
+        }
+        return negative ? coefficient.negate() : coefficient;
     }
 
     private static NumberFormatInfo selectedNumberFormatInfo(IFormatProvider provider) {
