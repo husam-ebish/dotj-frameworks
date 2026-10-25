@@ -5,9 +5,12 @@ package System.Reflection;
 import System.FormatException;
 import System.IFormattable;
 import System.IFormatProvider;
+import System.IComparable;
+import System.Int32;
+import System.ArgumentException;
 
 /** Selected calling-convention values with composable flags. */
-public final class CallingConventions implements IFormattable {
+public final class CallingConventions implements IFormattable, IComparable {
     public static final CallingConventions Standard = new CallingConventions("Standard", 1);
     public static final CallingConventions VarArgs = new CallingConventions("VarArgs", 2);
     public static final CallingConventions Any = new CallingConventions("Any", 3);
@@ -84,6 +87,13 @@ public final class CallingConventions implements IFormattable {
         }
         return remaining == 0 && !parts.isEmpty() ? String.join(", ", parts) : java.lang.Integer.toString(this.value);
     }
+    @Override public int CompareTo(Object other) {
+        if (other == null) return 1;
+        if (other instanceof CallingConventions flags) return java.lang.Integer.compare(this.value, flags.value);
+        throw new ArgumentException("Object must be the same enum type");
+    }
+    public boolean Equals(Object other) { return equals(other); }
+    public Int32 GetHashCode() { return new Int32(this.value); }
     @Override public String toString() { return ToString(); }
 
     @Override
