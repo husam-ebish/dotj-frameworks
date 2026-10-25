@@ -51,6 +51,13 @@ public final class Span<T> {
         }
     }
 
+    public String ToString() {
+        return this.chars != null ? new String(this.chars, this.offset, this.length)
+                : "System.Span<Byte>[" + this.length + "]";
+    }
+
+    @Override public String toString() { return ToString(); }
+
     public int get_Length() { return this.length; }
 
     public boolean get_IsEmpty() { return this.length == 0; }
