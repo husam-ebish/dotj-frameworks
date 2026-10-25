@@ -19,7 +19,7 @@ def main():
     assert set(oracle['interfaces'])=={'System.IComparable','System.ISpanFormattable','System.IFormattable','System.IConvertible'}
     assert oracle['underlyingType']=='System.Int32'
     assert oracle['valueCount']==281
-    cases.append('{Type type=Type.GetType("System.Globalization.NumberStyles");Type contract=Type.GetType("System.IFormattable");Type[] interfaces=type.GetInterfaces();check(interfaces.length==3 && interfaces[1]==contract && interfaces[0]==Type.GetType("System.IComparable") && type.GetInterface("IFormattable")==contract && type.GetInterface("System.iformattable",true)==contract && type.GetInterface("system.IFormattable",true)==null && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(NumberStyles.FromInt32(3)),0);interfaces[0]=null;check(type.GetInterfaces()[0]==Type.GetType("System.IComparable"),0);}')
+    cases.append('{Type type=Type.GetType("System.Globalization.NumberStyles");Type contract=Type.GetType("System.IFormattable");Type[] interfaces=type.GetInterfaces();check(interfaces.length==4 && interfaces[2]==contract && interfaces[0]==Type.GetType("System.IComparable") && type.GetInterface("IFormattable")==contract && type.GetInterface("System.iformattable",true)==contract && type.GetInterface("system.IFormattable",true)==null && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(NumberStyles.FromInt32(3)),0);interfaces[0]=null;check(type.GetInterfaces()[0]==Type.GetType("System.IComparable"),0);}')
     for row in oracle['defaults']:
         for expression,key in [(f'NumberStyles.FromInt32({row["value"]}).ToString()','text'),(f'NumberStyles.FromInt32({row["value"]}).ToString(PROVIDER)','providerText')]:
             index=len(cases);cases.append('{check('+expression+'.equals('+json.dumps(row[key])+'),'+str(index)+');}')
@@ -37,10 +37,10 @@ def main():
     subprocess.run(['javac','-Xmaxerrs','5','--release','21','-cp',str(args.jar),'-d',str(work),str(source)],check=True)
     subprocess.run(['java','-Duser.timezone=Europe/Zurich','-cp',str(args.jar)+';'+str(work),'NumberStyleFormatProbe'],check=True)
     output=subprocess.run(['javap','-public','-classpath',str(args.jar),'System.Globalization.NumberStyles'],check=True,capture_output=True,text=True).stdout
-    assert 'public final class System.Globalization.NumberStyles implements System.IFormattable,System.IComparable,System.IConvertible {' in output
+    assert 'public final class System.Globalization.NumberStyles implements System.IFormattable,System.IComparable,System.IConvertible,System.ISpanFormattable {' in output
     signatures={line.strip() for line in output.splitlines() if ' ToString(' in line}
     assert signatures=={'public java.lang.String ToString();','public java.lang.String ToString(System.IFormatProvider);','public java.lang.String ToString(java.lang.String, System.IFormatProvider);','public java.lang.String ToString(java.lang.String);'}
-    record=dict(schemaVersion=1,casesPassed=len(cases),omittedNativeInterfaces=sorted(set(oracle['interfaces'])-{'System.IFormattable','System.IComparable','System.IConvertible'}),oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_INT32_NUMBER_STYLE_FORMAT_PASS; OTHER_ENUM_INTERFACES_LANGUAGE_AND_RELEASE_OPEN')
+    record=dict(schemaVersion=1,casesPassed=len(cases),omittedNativeInterfaces=sorted(set(oracle['interfaces'])-{'System.IFormattable','System.IComparable','System.IConvertible','System.ISpanFormattable'}),oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_INT32_NUMBER_STYLE_FORMAT_PASS; OTHER_ENUM_INTERFACES_LANGUAGE_AND_RELEASE_OPEN')
     (EVIDENCE/'number-style-format-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
     print('PASS NumberStyles formatting: 13208 pinned groups')
 
