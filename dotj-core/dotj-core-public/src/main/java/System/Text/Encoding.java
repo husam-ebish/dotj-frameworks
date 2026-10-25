@@ -321,11 +321,22 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     }
     public String GetString(ReadOnlySpan<Byte> bytes) {
         if (bytes == null) throw new ArgumentNullException("bytes");
-        int count = GetCharCount(bytes);
+        byte[] countSnapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(countSnapshot));
+        Byte[] countInput = new Byte[countSnapshot.length];
+        for (int i = 0; i < countInput.length; i++) countInput[i] = new Byte(countSnapshot[i] & 255);
+        int count = GetCharCount(countInput, 0, countInput.length);
         if (count < 0) throw new OutOfMemoryException();
         if (count == 0) return "";
-        char[] output = new char[count];
-        GetChars(bytes, Span.OfChars(output));
-        return new String(output);
+        byte[] writeSnapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(writeSnapshot));
+        Byte[] writeInput = new Byte[writeSnapshot.length];
+        for (int i = 0; i < writeInput.length; i++) writeInput[i] = new Byte(writeSnapshot[i] & 255);
+        char[] temporary = new char[count];
+        int written = Math.min(GetChars(writeInput, 0, writeInput.length, temporary, 0), count);
+        if (written < 0) throw new ArgumentOutOfRangeException();
+        char[] result = new char[count];
+        java.lang.System.arraycopy(temporary, 0, result, 0, written);
+        return new String(result);
     }
 }
