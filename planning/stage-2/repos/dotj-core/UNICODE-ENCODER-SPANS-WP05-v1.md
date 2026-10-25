@@ -1,0 +1,13 @@
+# UnicodeEncoding encoder heap spans and failure writes
+
+Batch 2236 overrides the specialized UnicodeEncoding encoder heap-span writer. It snapshots the source view and current destination, calls the selected stateful array core, and propagates the complete destination view in a finally block. Bytes emitted before a capacity or fallback failure therefore remain visible. Protected elements outside the view are preserved, and carry follows the existing array core's success/failure rules. The inherited span counter already reaches the specialized non-consuming array counter.
+
+The unmodified Batch 2235 packaged JAR fails event 1027: encoding an ordinary character followed by an unmatched high surrogate into a two-byte view throws the expected capacity exception but leaves the destination entirely unchanged. The pinned reference has already written the ordinary character. This establishes a concrete before/after defect independently of the new implementation.
+
+The pinned .NET 10.0.12 capture contains ten configurations and 20,640 native cases. Both endian orders cover strict/default fallback and empty, AB and valid-pair replacement strings. Cases combine pending high-surrogate seed state, full/clipped/empty source views, flush modes, six capacities, nonzero offsets and three protected suffix bytes. Each count and write is followed by an empty array flush to expose post-call carry. The packaged consumer checks 123,840 groups: outcomes, exact exception payloads, complete destination buffers and subsequent flush outcomes/buffers. The previous 167,960 encoder array/state groups and stateless suites remain required.
+
+The owned source/class inventory remains 98 Java sources; no new public type or private class is introduced. The builders, map, notices, source bindings, compiled API audit and canonical foundation gate must pass. Producer bytes and native fixture hashes bind the evidence, with raw/LF attributes preserving provenance.
+
+Qualification is bounded to the selected encoder heap-span views and fallback profiles. Encoder Convert, arbitrary custom fallback buffers/reentrancy, specialized decoder carry, pointer and byref lifetimes, complete source ABI and E01/E02/E03/N01/Q01 closure remain open. No accepted implementation task or qualified framework is credited. Next is the pinned specialized Encoder.Convert array contract, including partial fallback output and exact capacity/state transitions, before implementing that behavior.
+
+The product JAR remains JDK-only. Python and the pinned .NET toolchain are development/reference tools. The broader dependency graph and public .j installer/feed remain unresolved. The authorized milestone is Batch 2500; the total project batch count remains unknown.

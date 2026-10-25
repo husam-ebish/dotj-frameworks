@@ -259,6 +259,19 @@ public class UnicodeEncoding extends Encoding {
             destination(bytes.length, byteIndex, "byteIndex");
             return process(chars, charIndex, charCount, bytes, byteIndex, flush, true);
         }
+        @Override public int GetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes, boolean flush) {
+            char[] input = snapshotChars(chars);
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            byte[] raw = new byte[bytes.get_Length()];
+            bytes.CopyTo(Span.OfUtf8Bytes(raw));
+            Byte[] output = new Byte[raw.length];
+            for (int i = 0; i < raw.length; i++) output[i] = new Byte(raw[i] & 255);
+            try { return GetBytes(input, 0, input.length, output, 0, flush); }
+            finally {
+                for (int i = 0; i < raw.length; i++) raw[i] = (byte)output[i].get_Value();
+                ReadOnlySpan.OfUtf8Bytes(raw).CopyTo(bytes);
+            }
+        }
         @Override public void Reset() { this.pending = 0; resetFallbackBuffer(); }
     }
     @Override public Byte[] GetPreamble(){return !this.byteOrderMark?EMPTY_PREAMBLE:this.bigEndian?new Byte[]{new Byte(254),new Byte(255)}:new Byte[]{new Byte(255),new Byte(254)};}
