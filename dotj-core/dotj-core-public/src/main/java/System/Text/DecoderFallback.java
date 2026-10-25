@@ -10,6 +10,7 @@ public abstract class DecoderFallback {
     public abstract DecoderFallbackBuffer CreateFallbackBuffer();
     public abstract int get_MaxCharCount();
     public boolean Equals(Object value) { return this == value; }
+    public int GetHashCode() { return java.lang.System.identityHashCode(this); }
     private static final class Defaults {
         private static final DecoderFallback REPLACEMENT = new DecoderReplacementFallback();
         private static final DecoderFallback EXCEPTION = new DecoderExceptionFallback();

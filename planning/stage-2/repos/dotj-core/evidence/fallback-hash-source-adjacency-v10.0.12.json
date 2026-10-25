@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "scope": "Selected fallback hash and internal Marvin Java candidate adjacency; not rights clearance",
+  "sourceArchiveEvidence": "source-archive-v10.0.12.json",
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "upstreamFiles": [
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Marvin.cs",
+      "sha256": "a713890909dc99fe5f57880b6d997a8b26e78b1b75399f0dfad075bd29da4c14",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderReplacementFallback.cs",
+      "sha256": "735c5015ddd6fb9d5be7e20fc85703de97a1dd40db2843aa79eeb5271ed1fba1",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderReplacementFallback.cs",
+      "sha256": "b0b653c5b53a2786ad47fdef7df1bbb919c2b285c88a3787b3772f9b075fd235",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderExceptionFallback.cs",
+      "sha256": "a36e5c20e99367cf7310fcb63103ac92e90e2cadd733a37657189b72cfee3208",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    },
+    {
+      "archiveMember": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderExceptionFallback.cs",
+      "sha256": "efbc47c51ba51b6955f7ed0eaedc941fa1a3ada19293ece3ca7c30f54d1109ba",
+      "role": "PINNED_SEMANTIC_AND_ALGORITHM_REFERENCE; NOTICE_APPLICABILITY_REVIEW_REQUIRED"
+    }
+  ],
+  "productPaths": [
+    "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/MarvinStringHash.java",
+    "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderReplacementFallback.java",
+    "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderReplacementFallback.java",
+    "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderExceptionFallback.java",
+    "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderExceptionFallback.java"
+  ],
+  "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+  "releaseQualification": "E01_REVIEW_OPEN",
+  "hashScope": "Controlled little-endian algorithm vectors; opaque process-local random seed; raw cross-process values not equivalent"
+}

@@ -20,4 +20,5 @@ public final class DecoderExceptionFallback extends DecoderFallback {
         @Override public boolean MovePrevious() { return false; }
         @Override public int get_Remaining() { return 0; }
     }
+    @Override public int GetHashCode() { return 879; }
 }

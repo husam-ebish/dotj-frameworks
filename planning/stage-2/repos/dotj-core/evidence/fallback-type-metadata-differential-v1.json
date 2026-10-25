@@ -3,29 +3,8 @@
   "casesPassed": 306,
   "selectedShapes": 16,
   "nativeDeclaredMethods": 37,
-  "directDeclaredProjections": 33,
-  "missingNativeMethods": [
-    {
-      "owner": "System.Text.DecoderExceptionFallback",
-      "signature": "Int32 GetHashCode()",
-      "status": "UNIMPLEMENTED; HASH_ALGORITHM/CONTRACT_QUALIFICATION_OPEN"
-    },
-    {
-      "owner": "System.Text.DecoderReplacementFallback",
-      "signature": "Int32 GetHashCode()",
-      "status": "UNIMPLEMENTED; HASH_ALGORITHM/CONTRACT_QUALIFICATION_OPEN"
-    },
-    {
-      "owner": "System.Text.EncoderExceptionFallback",
-      "signature": "Int32 GetHashCode()",
-      "status": "UNIMPLEMENTED; HASH_ALGORITHM/CONTRACT_QUALIFICATION_OPEN"
-    },
-    {
-      "owner": "System.Text.EncoderReplacementFallback",
-      "signature": "Int32 GetHashCode()",
-      "status": "UNIMPLEMENTED; HASH_ALGORITHM/CONTRACT_QUALIFICATION_OPEN"
-    }
-  ],
+  "directDeclaredProjections": 37,
+  "missingNativeMethods": [],
   "javaInheritedObjectFacadeBridges": [
     {
       "owner": "System.Text.DecoderFallback",
@@ -33,14 +12,24 @@
       "qualification": "ADAPTER_ONLY; FULL_OBJECT_CONTRACT_OPEN"
     },
     {
+      "owner": "System.Text.DecoderFallback",
+      "method": "GetHashCode",
+      "qualification": "ADAPTER_ONLY; FULL_OBJECT_CONTRACT_OPEN"
+    },
+    {
       "owner": "System.Text.EncoderFallback",
       "method": "Equals",
+      "qualification": "ADAPTER_ONLY; FULL_OBJECT_CONTRACT_OPEN"
+    },
+    {
+      "owner": "System.Text.EncoderFallback",
+      "method": "GetHashCode",
       "qualification": "ADAPTER_ONLY; FULL_OBJECT_CONTRACT_OPEN"
     }
   ],
   "arrayInterfaceQualification": false,
   "oracleEvidence": "fallback-type-metadata-contract-v10.0.12.json",
   "oracleSha256": "478f7414e229802ea94ba8afc215338589dc65e8069e836908a9a88d92c04e80",
-  "candidateJarSha256": "0cf780ce8b387252a8fe71ae6d1033fecf518f5b183356e5c4c229724b89b03d",
-  "qualification": "SELECTED_METADATA_AND_DECLARATION_INVENTORY_ONLY; MISSING_HASH_MEMBERS_FULL_REFLECTION_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN"
+  "candidateJarSha256": "55c288b1f99eab69fe22b98223f7fd7a59a8c6b2a83cb14c9315564bc34c00ac",
+  "qualification": "SELECTED_METADATA_AND_DECLARATION_INVENTORY_ONLY; HASH_MEMBERS_MAPPED_FULL_REFLECTION_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN"
 }
