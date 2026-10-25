@@ -613,14 +613,10 @@ public class UTF8Encoding extends Encoding {
             if (charCount < 0) throw new ArgumentOutOfRangeException("charCount");
             if (byteIndex > bytes.length - byteCount) throw new ArgumentOutOfRangeException("bytes");
             if (charIndex > chars.length - charCount) throw new ArgumentOutOfRangeException("chars");
-            if (!(get_Fallback() instanceof DecoderReplacementFallback)
-                    && !(get_Fallback() instanceof DecoderExceptionFallback)) {
-                throw new UnsupportedOperationException("Custom-provider Decoder Convert remains open.");
-            }
             byte[] input = unwrap(java.util.Arrays.copyOfRange(bytes, byteIndex, byteIndex + byteCount));
             char[] target = java.util.Arrays.copyOfRange(chars, charIndex, charIndex + charCount);
             int[] progress;
-            try { progress = convertPredefined(input, target, flush); }
+            try { progress = convertSelected(input, target, flush); }
             finally { java.lang.System.arraycopy(target, 0, chars, charIndex, charCount); }
             charsUsed[0] = progress[1];
             bytesUsed[0] = progress[0];
@@ -641,7 +637,7 @@ public class UTF8Encoding extends Encoding {
             }
             return written;
         }
-        private int[] convertPredefined(byte[] input, char[] target, boolean flush) {
+        private int[] convertSelected(byte[] input, char[] target, boolean flush) {
             int previousCount = this.pending.length;
             byte[] combined = java.util.Arrays.copyOf(this.pending, previousCount + input.length);
             java.lang.System.arraycopy(input, 0, combined, previousCount, input.length);
@@ -656,6 +652,9 @@ public class UTF8Encoding extends Encoding {
                 Utf8Codec.Failure invalid = null;
                 try { rune = Utf8Codec.decode(java.util.Arrays.copyOfRange(combined, cursor, cursor + consumed), true); }
                 catch (Utf8Codec.Failure failure) { invalid = failure; }
+                if (invalid != null && !initialPending
+                        && !(get_Fallback() instanceof DecoderReplacementFallback)
+                        && !(get_Fallback() instanceof DecoderExceptionFallback)) fallbackBuffer();
                 if (!flush && consumed < required && cursor + consumed == combined.length) {
                     this.pending = java.util.Arrays.copyOfRange(combined, cursor, combined.length);
                     return new int[] {input.length, written};

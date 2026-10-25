@@ -29,11 +29,12 @@ class StatefulDecoderConvertProbe {
             catch (java.lang.NullPointerException | java.lang.ArrayIndexOutOfBoundsException expected) { check(expected.getClass() == (i % 2 == 0 ? java.lang.NullPointerException.class : java.lang.ArrayIndexOutOfBoundsException.class)); }
             d.Convert(new Byte[] {new Byte(65)}, 0, 1, target, 0, 4, true, a, b, c); check(a[0] == 1 && b[0] == 1 && c[0] && target[0] == 65);
         }
-        context = "Explicit custom decoder boundary";
+        context = "Custom decoder ordinary dispatch";
         Decoder custom = new UTF8Encoding().GetDecoder(); custom.set_Fallback(new DecoderFallback() { public int get_MaxCharCount() { return 1; } public DecoderFallbackBuffer CreateFallbackBuffer() { return new DecoderReplacementFallback("!").CreateFallbackBuffer(); } });
         int[] a = {-7}, b = {-8}; boolean[] c = {true}; char[] target = {99, 99, 99, 99};
-        try { custom.Convert(new Byte[] {new Byte(65)}, 0, 1, target, 0, 4, true, a, b, c); throw new AssertionError("Custom boundary accepted"); } catch (UnsupportedOperationException expected) { check(true); }
-        check(a[0] == -7 && b[0] == -8 && c[0] && Arrays.equals(target, new char[] {99,99,99,99}));
+        custom.Convert(new Byte[] {new Byte(65)}, 0, 1, target, 0, 4, true, a, b, c);
+        check(a[0] == 1 && b[0] == 1 && c[0] && target[0] == 65);
+        check(Arrays.equals(target, new char[] {65,99,99,99}));
         java.lang.System.out.println("PASS selected Decoder Convert groups=" + groups);
     }
 }
