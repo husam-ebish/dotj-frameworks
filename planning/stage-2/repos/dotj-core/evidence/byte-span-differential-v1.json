@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "casesPassed": 4865,
   "compileRejections": [
-    "ByteDestination",
     "ByteFormat"
   ],
   "omittedNativeInterfaces": [
@@ -28,7 +27,6 @@
     "System.Numerics.ISubtractionOperators`3[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
     "System.Numerics.IUnaryPlusOperators`2[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
     "System.Numerics.IUnaryNegationOperators`2[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-    "System.IUtf8SpanFormattable",
     "System.IUtf8SpanParsable`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
     "System.Numerics.IShiftOperators`3[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
     "System.Numerics.IMinMaxValue`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -38,6 +36,6 @@
   ],
   "oracleEvidence": "byte-span-contract-v10.0.12.json",
   "oracleSha256": "1b59364a1b1e6e0f75d20fe78bc05423ab585b5923ac8ddd53d64f3c15dc2e57",
-  "candidateJarSha256": "25929143400fcafdc4903a8d8f43a240b3cd93ce709911202a7cc078be086bc7",
+  "candidateJarSha256": "7aeef006e1ac08a03cc18e1d28df939ec9e08232983f3e17f40d824059b2bd99",
   "qualification": "BOUNDED_BYTE_CHAR_SPAN_PASS; OTHER_ENUM_METHODS_BYREF_LIFETIME_LANGUAGE_AND_RELEASE_OPEN"
 }

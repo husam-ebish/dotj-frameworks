@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "17a97ed24944ad889d1db038d0f355f3c77dbc78daad97931d3166efb02f8336",
+  "oracleSha256": "81213355e20e6d9195ae3293af6333204b19d05e70a9ef3c22f718c4d46678ea",
   "types": [
     {
       "name": "System.String",
@@ -65,7 +65,8 @@
         "System.IComparable",
         "System.IConvertible",
         "System.IFormattable",
-        "System.ISpanFormattable"
+        "System.ISpanFormattable",
+        "System.IUtf8SpanFormattable"
       ],
       "omittedInterfaces": [
         "System.IBinaryIntegerParseAndFormatInfo`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -73,7 +74,6 @@
         "System.IEquatable`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IParsable`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.ISpanParsable`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "System.IUtf8SpanFormattable",
         "System.IUtf8SpanParsable`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IUtfChar`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.Numerics.IAdditionOperators`3[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -1603,6 +1603,102 @@
     {
       "source": "System.Byte",
       "query": "system.ISpanFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "System.IUtf8SpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "System.IUtf8SpanFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "IUtf8SpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "IUtf8SpanFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "system.iutf8spanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "system.iutf8spanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "iutf8spanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "iutf8spanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "System.iutf8spanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "System.iutf8spanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "system.IUtf8SpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Byte",
+      "query": "system.IUtf8SpanFormattable",
       "ignoreCase": true,
       "result": {
         "name": null
