@@ -1,0 +1,3887 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "094c180de53bbb95926c9e56aa2e89b41957f08ffef43f1be4a243ab4739fd4d",
+  "types": [
+    {
+      "fullName": "System.SByte",
+      "methods": [
+        {
+          "name": "Abs",
+          "signature": "SByte Abs(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Clamp",
+          "signature": "SByte Clamp(SByte, SByte, SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            },
+            {
+              "name": "min",
+              "type": "System.SByte",
+              "isOut": false
+            },
+            {
+              "name": "max",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CompareTo",
+          "signature": "Int32 CompareTo(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CompareTo",
+          "signature": "Int32 CompareTo(SByte)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CopySign",
+          "signature": "SByte CopySign(SByte, SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            },
+            {
+              "name": "sign",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateChecked",
+          "signature": "SByte CreateChecked[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateSaturating",
+          "signature": "SByte CreateSaturating[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateTruncating",
+          "signature": "SByte CreateTruncating[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "DivRem",
+          "signature": "System.ValueTuple`2[System.SByte,System.SByte] DivRem(SByte, SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.ValueTuple`2[System.SByte,System.SByte]",
+          "parameters": [
+            {
+              "name": "left",
+              "type": "System.SByte",
+              "isOut": false
+            },
+            {
+              "name": "right",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(SByte)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "GetTypeCode",
+          "signature": "System.TypeCode GetTypeCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.TypeCode",
+          "parameters": []
+        },
+        {
+          "name": "IsEvenInteger",
+          "signature": "Boolean IsEvenInteger(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "IsNegative",
+          "signature": "Boolean IsNegative(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "IsOddInteger",
+          "signature": "Boolean IsOddInteger(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "IsPositive",
+          "signature": "Boolean IsPositive(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "IsPow2",
+          "signature": "Boolean IsPow2(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "LeadingZeroCount",
+          "signature": "SByte LeadingZeroCount(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Log2",
+          "signature": "SByte Log2(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Max",
+          "signature": "SByte Max(SByte, SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "x",
+              "type": "System.SByte",
+              "isOut": false
+            },
+            {
+              "name": "y",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "MaxMagnitude",
+          "signature": "SByte MaxMagnitude(SByte, SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "x",
+              "type": "System.SByte",
+              "isOut": false
+            },
+            {
+              "name": "y",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Min",
+          "signature": "SByte Min(SByte, SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "x",
+              "type": "System.SByte",
+              "isOut": false
+            },
+            {
+              "name": "y",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "MinMagnitude",
+          "signature": "SByte MinMagnitude(SByte, SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "x",
+              "type": "System.SByte",
+              "isOut": false
+            },
+            {
+              "name": "y",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "SByte Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "SByte Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "SByte Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "SByte Parse(System.String, System.Globalization.NumberStyles)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "SByte Parse(System.String, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "SByte Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "SByte Parse(System.String)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "SByte Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "PopCount",
+          "signature": "SByte PopCount(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "RotateLeft",
+          "signature": "SByte RotateLeft(SByte, Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            },
+            {
+              "name": "rotateAmount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "RotateRight",
+          "signature": "SByte RotateRight(SByte, Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            },
+            {
+              "name": "rotateAmount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Sign",
+          "signature": "Int32 Sign(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.String, System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TrailingZeroCount",
+          "signature": "SByte TrailingZeroCount(SByte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.SByte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "signature": "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "destination",
+              "type": "System.Span`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "charsWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "signature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Destination",
+              "type": "System.Span`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "bytesWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, SByte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.SByte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], SByte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.SByte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], SByte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.SByte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, System.IFormatProvider, SByte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.SByte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, System.Globalization.NumberStyles, System.IFormatProvider, SByte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.SByte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, SByte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.SByte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, SByte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.SByte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, SByte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.SByte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, SByte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.SByte&",
+              "isOut": true
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "name": "MaxValue",
+          "type": "System.SByte",
+          "isStatic": true,
+          "isLiteral": true,
+          "value": "127"
+        },
+        {
+          "name": "MinValue",
+          "type": "System.SByte",
+          "isStatic": true,
+          "isLiteral": true,
+          "value": "-128"
+        }
+      ],
+      "interfaces": [
+        "System.IComparable",
+        "System.IConvertible",
+        "System.ISpanFormattable",
+        "System.IFormattable",
+        "System.IComparable`1[System.SByte]",
+        "System.IEquatable`1[System.SByte]",
+        "System.Numerics.IBinaryInteger`1[System.SByte]",
+        "System.Numerics.IBinaryNumber`1[System.SByte]",
+        "System.Numerics.IBitwiseOperators`3[System.SByte,System.SByte,System.SByte]",
+        "System.Numerics.INumber`1[System.SByte]",
+        "System.Numerics.IComparisonOperators`3[System.SByte,System.SByte,System.Boolean]",
+        "System.Numerics.IEqualityOperators`3[System.SByte,System.SByte,System.Boolean]",
+        "System.Numerics.IModulusOperators`3[System.SByte,System.SByte,System.SByte]",
+        "System.Numerics.INumberBase`1[System.SByte]",
+        "System.Numerics.IAdditionOperators`3[System.SByte,System.SByte,System.SByte]",
+        "System.Numerics.IAdditiveIdentity`2[System.SByte,System.SByte]",
+        "System.Numerics.IDecrementOperators`1[System.SByte]",
+        "System.Numerics.IDivisionOperators`3[System.SByte,System.SByte,System.SByte]",
+        "System.Numerics.IIncrementOperators`1[System.SByte]",
+        "System.Numerics.IMultiplicativeIdentity`2[System.SByte,System.SByte]",
+        "System.Numerics.IMultiplyOperators`3[System.SByte,System.SByte,System.SByte]",
+        "System.ISpanParsable`1[System.SByte]",
+        "System.IParsable`1[System.SByte]",
+        "System.Numerics.ISubtractionOperators`3[System.SByte,System.SByte,System.SByte]",
+        "System.Numerics.IUnaryPlusOperators`2[System.SByte,System.SByte]",
+        "System.Numerics.IUnaryNegationOperators`2[System.SByte,System.SByte]",
+        "System.IUtf8SpanFormattable",
+        "System.IUtf8SpanParsable`1[System.SByte]",
+        "System.Numerics.IShiftOperators`3[System.SByte,System.Int32,System.SByte]",
+        "System.Numerics.IMinMaxValue`1[System.SByte]",
+        "System.Numerics.ISignedNumber`1[System.SByte]",
+        "System.IBinaryIntegerParseAndFormatInfo`1[System.SByte]"
+      ],
+      "constructors": []
+    },
+    {
+      "fullName": "System.Byte",
+      "methods": [
+        {
+          "name": "Clamp",
+          "signature": "Byte Clamp(Byte, Byte, Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            },
+            {
+              "name": "min",
+              "type": "System.Byte",
+              "isOut": false
+            },
+            {
+              "name": "max",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CompareTo",
+          "signature": "Int32 CompareTo(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CompareTo",
+          "signature": "Int32 CompareTo(Byte)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateChecked",
+          "signature": "Byte CreateChecked[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateSaturating",
+          "signature": "Byte CreateSaturating[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateTruncating",
+          "signature": "Byte CreateTruncating[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "DivRem",
+          "signature": "System.ValueTuple`2[System.Byte,System.Byte] DivRem(Byte, Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.ValueTuple`2[System.Byte,System.Byte]",
+          "parameters": [
+            {
+              "name": "left",
+              "type": "System.Byte",
+              "isOut": false
+            },
+            {
+              "name": "right",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(Byte)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "GetTypeCode",
+          "signature": "System.TypeCode GetTypeCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.TypeCode",
+          "parameters": []
+        },
+        {
+          "name": "IsEvenInteger",
+          "signature": "Boolean IsEvenInteger(Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "IsOddInteger",
+          "signature": "Boolean IsOddInteger(Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "IsPow2",
+          "signature": "Boolean IsPow2(Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "LeadingZeroCount",
+          "signature": "Byte LeadingZeroCount(Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Log2",
+          "signature": "Byte Log2(Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Max",
+          "signature": "Byte Max(Byte, Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "x",
+              "type": "System.Byte",
+              "isOut": false
+            },
+            {
+              "name": "y",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Min",
+          "signature": "Byte Min(Byte, Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "x",
+              "type": "System.Byte",
+              "isOut": false
+            },
+            {
+              "name": "y",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "Byte Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "Byte Parse(System.String)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "Byte Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "Byte Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "Byte Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "Byte Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "Byte Parse(System.String, System.Globalization.NumberStyles)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "Byte Parse(System.String, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "PopCount",
+          "signature": "Byte PopCount(Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "RotateLeft",
+          "signature": "Byte RotateLeft(Byte, Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            },
+            {
+              "name": "rotateAmount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "RotateRight",
+          "signature": "Byte RotateRight(Byte, Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            },
+            {
+              "name": "rotateAmount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Sign",
+          "signature": "Int32 Sign(Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.String, System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "TrailingZeroCount",
+          "signature": "Byte TrailingZeroCount(Byte)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Byte",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "signature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Destination",
+              "type": "System.Span`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "bytesWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "signature": "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "destination",
+              "type": "System.Span`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "charsWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, Byte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.Byte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, Byte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.Byte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, Byte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.Byte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, System.Globalization.NumberStyles, System.IFormatProvider, Byte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.Byte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, System.IFormatProvider, Byte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.Byte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], Byte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.Byte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, Byte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.Byte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], Byte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.Byte&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, Byte ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.Byte&",
+              "isOut": true
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "name": "MaxValue",
+          "type": "System.Byte",
+          "isStatic": true,
+          "isLiteral": true,
+          "value": "255"
+        },
+        {
+          "name": "MinValue",
+          "type": "System.Byte",
+          "isStatic": true,
+          "isLiteral": true,
+          "value": "0"
+        }
+      ],
+      "interfaces": [
+        "System.IComparable",
+        "System.IConvertible",
+        "System.ISpanFormattable",
+        "System.IFormattable",
+        "System.IComparable`1[System.Byte]",
+        "System.IEquatable`1[System.Byte]",
+        "System.Numerics.IBinaryInteger`1[System.Byte]",
+        "System.Numerics.IBinaryNumber`1[System.Byte]",
+        "System.Numerics.IBitwiseOperators`3[System.Byte,System.Byte,System.Byte]",
+        "System.Numerics.INumber`1[System.Byte]",
+        "System.Numerics.IComparisonOperators`3[System.Byte,System.Byte,System.Boolean]",
+        "System.Numerics.IEqualityOperators`3[System.Byte,System.Byte,System.Boolean]",
+        "System.Numerics.IModulusOperators`3[System.Byte,System.Byte,System.Byte]",
+        "System.Numerics.INumberBase`1[System.Byte]",
+        "System.Numerics.IAdditionOperators`3[System.Byte,System.Byte,System.Byte]",
+        "System.Numerics.IAdditiveIdentity`2[System.Byte,System.Byte]",
+        "System.Numerics.IDecrementOperators`1[System.Byte]",
+        "System.Numerics.IDivisionOperators`3[System.Byte,System.Byte,System.Byte]",
+        "System.Numerics.IIncrementOperators`1[System.Byte]",
+        "System.Numerics.IMultiplicativeIdentity`2[System.Byte,System.Byte]",
+        "System.Numerics.IMultiplyOperators`3[System.Byte,System.Byte,System.Byte]",
+        "System.ISpanParsable`1[System.Byte]",
+        "System.IParsable`1[System.Byte]",
+        "System.Numerics.ISubtractionOperators`3[System.Byte,System.Byte,System.Byte]",
+        "System.Numerics.IUnaryPlusOperators`2[System.Byte,System.Byte]",
+        "System.Numerics.IUnaryNegationOperators`2[System.Byte,System.Byte]",
+        "System.IUtf8SpanFormattable",
+        "System.IUtf8SpanParsable`1[System.Byte]",
+        "System.Numerics.IShiftOperators`3[System.Byte,System.Int32,System.Byte]",
+        "System.Numerics.IMinMaxValue`1[System.Byte]",
+        "System.Numerics.IUnsignedNumber`1[System.Byte]",
+        "System.IUtfChar`1[System.Byte]",
+        "System.IBinaryIntegerParseAndFormatInfo`1[System.Byte]"
+      ],
+      "constructors": []
+    },
+    {
+      "fullName": "System.UInt16",
+      "methods": [
+        {
+          "name": "Clamp",
+          "signature": "UInt16 Clamp(UInt16, UInt16, UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            },
+            {
+              "name": "min",
+              "type": "System.UInt16",
+              "isOut": false
+            },
+            {
+              "name": "max",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CompareTo",
+          "signature": "Int32 CompareTo(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CompareTo",
+          "signature": "Int32 CompareTo(UInt16)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateChecked",
+          "signature": "UInt16 CreateChecked[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateSaturating",
+          "signature": "UInt16 CreateSaturating[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateTruncating",
+          "signature": "UInt16 CreateTruncating[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "DivRem",
+          "signature": "System.ValueTuple`2[System.UInt16,System.UInt16] DivRem(UInt16, UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.ValueTuple`2[System.UInt16,System.UInt16]",
+          "parameters": [
+            {
+              "name": "left",
+              "type": "System.UInt16",
+              "isOut": false
+            },
+            {
+              "name": "right",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(UInt16)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "GetTypeCode",
+          "signature": "System.TypeCode GetTypeCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.TypeCode",
+          "parameters": []
+        },
+        {
+          "name": "IsEvenInteger",
+          "signature": "Boolean IsEvenInteger(UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "IsOddInteger",
+          "signature": "Boolean IsOddInteger(UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "IsPow2",
+          "signature": "Boolean IsPow2(UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "LeadingZeroCount",
+          "signature": "UInt16 LeadingZeroCount(UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Log2",
+          "signature": "UInt16 Log2(UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Max",
+          "signature": "UInt16 Max(UInt16, UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "x",
+              "type": "System.UInt16",
+              "isOut": false
+            },
+            {
+              "name": "y",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Min",
+          "signature": "UInt16 Min(UInt16, UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "x",
+              "type": "System.UInt16",
+              "isOut": false
+            },
+            {
+              "name": "y",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt16 Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt16 Parse(System.String, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt16 Parse(System.String, System.Globalization.NumberStyles)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt16 Parse(System.String)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt16 Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt16 Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt16 Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt16 Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "PopCount",
+          "signature": "UInt16 PopCount(UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "RotateLeft",
+          "signature": "UInt16 RotateLeft(UInt16, Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            },
+            {
+              "name": "rotateAmount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "RotateRight",
+          "signature": "UInt16 RotateRight(UInt16, Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            },
+            {
+              "name": "rotateAmount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Sign",
+          "signature": "Int32 Sign(UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.String, System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "TrailingZeroCount",
+          "signature": "UInt16 TrailingZeroCount(UInt16)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt16",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "signature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Destination",
+              "type": "System.Span`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "bytesWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "signature": "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "destination",
+              "type": "System.Span`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "charsWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, UInt16 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt16&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, System.Globalization.NumberStyles, System.IFormatProvider, UInt16 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt16&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], UInt16 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt16&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], UInt16 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt16&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, UInt16 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt16&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, System.IFormatProvider, UInt16 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt16&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, UInt16 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt16&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, UInt16 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt16&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, UInt16 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt16&",
+              "isOut": true
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "name": "MaxValue",
+          "type": "System.UInt16",
+          "isStatic": true,
+          "isLiteral": true,
+          "value": "65535"
+        },
+        {
+          "name": "MinValue",
+          "type": "System.UInt16",
+          "isStatic": true,
+          "isLiteral": true,
+          "value": "0"
+        }
+      ],
+      "interfaces": [
+        "System.IComparable",
+        "System.IConvertible",
+        "System.ISpanFormattable",
+        "System.IFormattable",
+        "System.IComparable`1[System.UInt16]",
+        "System.IEquatable`1[System.UInt16]",
+        "System.Numerics.IBinaryInteger`1[System.UInt16]",
+        "System.Numerics.IBinaryNumber`1[System.UInt16]",
+        "System.Numerics.IBitwiseOperators`3[System.UInt16,System.UInt16,System.UInt16]",
+        "System.Numerics.INumber`1[System.UInt16]",
+        "System.Numerics.IComparisonOperators`3[System.UInt16,System.UInt16,System.Boolean]",
+        "System.Numerics.IEqualityOperators`3[System.UInt16,System.UInt16,System.Boolean]",
+        "System.Numerics.IModulusOperators`3[System.UInt16,System.UInt16,System.UInt16]",
+        "System.Numerics.INumberBase`1[System.UInt16]",
+        "System.Numerics.IAdditionOperators`3[System.UInt16,System.UInt16,System.UInt16]",
+        "System.Numerics.IAdditiveIdentity`2[System.UInt16,System.UInt16]",
+        "System.Numerics.IDecrementOperators`1[System.UInt16]",
+        "System.Numerics.IDivisionOperators`3[System.UInt16,System.UInt16,System.UInt16]",
+        "System.Numerics.IIncrementOperators`1[System.UInt16]",
+        "System.Numerics.IMultiplicativeIdentity`2[System.UInt16,System.UInt16]",
+        "System.Numerics.IMultiplyOperators`3[System.UInt16,System.UInt16,System.UInt16]",
+        "System.ISpanParsable`1[System.UInt16]",
+        "System.IParsable`1[System.UInt16]",
+        "System.Numerics.ISubtractionOperators`3[System.UInt16,System.UInt16,System.UInt16]",
+        "System.Numerics.IUnaryPlusOperators`2[System.UInt16,System.UInt16]",
+        "System.Numerics.IUnaryNegationOperators`2[System.UInt16,System.UInt16]",
+        "System.IUtf8SpanFormattable",
+        "System.IUtf8SpanParsable`1[System.UInt16]",
+        "System.Numerics.IShiftOperators`3[System.UInt16,System.Int32,System.UInt16]",
+        "System.Numerics.IMinMaxValue`1[System.UInt16]",
+        "System.Numerics.IUnsignedNumber`1[System.UInt16]",
+        "System.IBinaryIntegerParseAndFormatInfo`1[System.UInt16]"
+      ],
+      "constructors": []
+    },
+    {
+      "fullName": "System.UInt32",
+      "methods": [
+        {
+          "name": "BigMul",
+          "signature": "UInt64 BigMul(UInt32, UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt64",
+          "parameters": [
+            {
+              "name": "left",
+              "type": "System.UInt32",
+              "isOut": false
+            },
+            {
+              "name": "right",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Clamp",
+          "signature": "UInt32 Clamp(UInt32, UInt32, UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            },
+            {
+              "name": "min",
+              "type": "System.UInt32",
+              "isOut": false
+            },
+            {
+              "name": "max",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CompareTo",
+          "signature": "Int32 CompareTo(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CompareTo",
+          "signature": "Int32 CompareTo(UInt32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateChecked",
+          "signature": "UInt32 CreateChecked[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateSaturating",
+          "signature": "UInt32 CreateSaturating[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "CreateTruncating",
+          "signature": "UInt32 CreateTruncating[TOther](TOther)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 1,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "TOther",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "DivRem",
+          "signature": "System.ValueTuple`2[System.UInt32,System.UInt32] DivRem(UInt32, UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.ValueTuple`2[System.UInt32,System.UInt32]",
+          "parameters": [
+            {
+              "name": "left",
+              "type": "System.UInt32",
+              "isOut": false
+            },
+            {
+              "name": "right",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(UInt32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.Object",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "GetTypeCode",
+          "signature": "System.TypeCode GetTypeCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.TypeCode",
+          "parameters": []
+        },
+        {
+          "name": "IsEvenInteger",
+          "signature": "Boolean IsEvenInteger(UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "IsOddInteger",
+          "signature": "Boolean IsOddInteger(UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "IsPow2",
+          "signature": "Boolean IsPow2(UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "LeadingZeroCount",
+          "signature": "UInt32 LeadingZeroCount(UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Log2",
+          "signature": "UInt32 Log2(UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Max",
+          "signature": "UInt32 Max(UInt32, UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "x",
+              "type": "System.UInt32",
+              "isOut": false
+            },
+            {
+              "name": "y",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Min",
+          "signature": "UInt32 Min(UInt32, UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "x",
+              "type": "System.UInt32",
+              "isOut": false
+            },
+            {
+              "name": "y",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt32 Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt32 Parse(System.String, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt32 Parse(System.String, System.Globalization.NumberStyles)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt32 Parse(System.String)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt32 Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt32 Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt32 Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Parse",
+          "signature": "UInt32 Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "PopCount",
+          "signature": "UInt32 PopCount(UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "RotateLeft",
+          "signature": "UInt32 RotateLeft(UInt32, Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            },
+            {
+              "name": "rotateAmount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "RotateRight",
+          "signature": "UInt32 RotateRight(UInt32, Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            },
+            {
+              "name": "rotateAmount",
+              "type": "System.Int32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "Sign",
+          "signature": "Int32 Sign(UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString(System.String, System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "TrailingZeroCount",
+          "signature": "UInt32 TrailingZeroCount(UInt32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.UInt32",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "signature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Destination",
+              "type": "System.Span`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "bytesWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "signature": "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "destination",
+              "type": "System.Span`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "charsWritten",
+              "type": "System.Int32&",
+              "isOut": true
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, UInt32 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, System.Globalization.NumberStyles, System.IFormatProvider, UInt32 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], UInt32 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], UInt32 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, UInt32 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.String, System.IFormatProvider, UInt32 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.String",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, UInt32 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "s",
+              "type": "System.ReadOnlySpan`1[System.Char]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, UInt32 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "style",
+              "type": "System.Globalization.NumberStyles",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt32&",
+              "isOut": true
+            }
+          ]
+        },
+        {
+          "name": "TryParse",
+          "signature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, UInt32 ByRef)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Text",
+              "type": "System.ReadOnlySpan`1[System.Byte]",
+              "isOut": false
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider",
+              "isOut": false
+            },
+            {
+              "name": "result",
+              "type": "System.UInt32&",
+              "isOut": true
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "name": "MaxValue",
+          "type": "System.UInt32",
+          "isStatic": true,
+          "isLiteral": true,
+          "value": "4294967295"
+        },
+        {
+          "name": "MinValue",
+          "type": "System.UInt32",
+          "isStatic": true,
+          "isLiteral": true,
+          "value": "0"
+        }
+      ],
+      "interfaces": [
+        "System.IComparable",
+        "System.IConvertible",
+        "System.ISpanFormattable",
+        "System.IFormattable",
+        "System.IComparable`1[System.UInt32]",
+        "System.IEquatable`1[System.UInt32]",
+        "System.Numerics.IBinaryInteger`1[System.UInt32]",
+        "System.Numerics.IBinaryNumber`1[System.UInt32]",
+        "System.Numerics.IBitwiseOperators`3[System.UInt32,System.UInt32,System.UInt32]",
+        "System.Numerics.INumber`1[System.UInt32]",
+        "System.Numerics.IComparisonOperators`3[System.UInt32,System.UInt32,System.Boolean]",
+        "System.Numerics.IEqualityOperators`3[System.UInt32,System.UInt32,System.Boolean]",
+        "System.Numerics.IModulusOperators`3[System.UInt32,System.UInt32,System.UInt32]",
+        "System.Numerics.INumberBase`1[System.UInt32]",
+        "System.Numerics.IAdditionOperators`3[System.UInt32,System.UInt32,System.UInt32]",
+        "System.Numerics.IAdditiveIdentity`2[System.UInt32,System.UInt32]",
+        "System.Numerics.IDecrementOperators`1[System.UInt32]",
+        "System.Numerics.IDivisionOperators`3[System.UInt32,System.UInt32,System.UInt32]",
+        "System.Numerics.IIncrementOperators`1[System.UInt32]",
+        "System.Numerics.IMultiplicativeIdentity`2[System.UInt32,System.UInt32]",
+        "System.Numerics.IMultiplyOperators`3[System.UInt32,System.UInt32,System.UInt32]",
+        "System.ISpanParsable`1[System.UInt32]",
+        "System.IParsable`1[System.UInt32]",
+        "System.Numerics.ISubtractionOperators`3[System.UInt32,System.UInt32,System.UInt32]",
+        "System.Numerics.IUnaryPlusOperators`2[System.UInt32,System.UInt32]",
+        "System.Numerics.IUnaryNegationOperators`2[System.UInt32,System.UInt32]",
+        "System.IUtf8SpanFormattable",
+        "System.IUtf8SpanParsable`1[System.UInt32]",
+        "System.Numerics.IShiftOperators`3[System.UInt32,System.Int32,System.UInt32]",
+        "System.Numerics.IMinMaxValue`1[System.UInt32]",
+        "System.Numerics.IUnsignedNumber`1[System.UInt32]",
+        "System.IBinaryIntegerParseAndFormatInfo`1[System.UInt32]"
+      ],
+      "constructors": []
+    }
+  ],
+  "qualification": "DECLARED_SMALL_INTEGER_METADATA_ONLY; PROJECTION_BEHAVIOR_ACCEPTANCE_AND_RELEASE_OPEN"
+}

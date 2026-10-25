@@ -165,6 +165,7 @@ CHECKS = (
     "audit-foundation-public-candidate.py",
     "build-foundation-semantic-surface.py",
     "audit-int32-declared-signatures.py",
+    "audit-small-integer-declared-signatures.py",
     "verify-int32-erasure-contract.py",
     "lower-selected-typeof.py",
     "lower-selected-throw.py",
@@ -233,6 +234,8 @@ def main():
     evidence_files = (
         "foundation-selected-metadata-v10.0.12.json",
         "int32-declared-signature-audit-v1.json",
+        "small-integer-signatures-contract-v10.0.12.json",
+        "small-integer-signatures-differential-v1.json",
         "int32-erasure-contract-v1.json",
         "span-factory-types-v1.json",
         "timespan-contract-v10.0.12.json",
