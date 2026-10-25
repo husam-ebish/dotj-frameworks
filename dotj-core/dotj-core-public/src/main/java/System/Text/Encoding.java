@@ -70,6 +70,14 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public abstract void set_DecoderFallback(DecoderFallback value);
     public abstract int get_CodePage();
     public abstract String get_EncodingName();
+    public boolean Equals(Object value) {
+        return value instanceof Encoding other && get_CodePage() == other.get_CodePage()
+                && get_EncoderFallback().Equals(other.get_EncoderFallback())
+                && get_DecoderFallback().Equals(other.get_DecoderFallback());
+    }
+    public int GetHashCode() {
+        return get_CodePage() + get_EncoderFallback().GetHashCode() + get_DecoderFallback().GetHashCode();
+    }
     public boolean get_IsReadOnly() { return this.readOnly; }
     @Override public Object Clone() {
         try {
