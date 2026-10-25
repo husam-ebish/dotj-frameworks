@@ -1,0 +1,9 @@
+# UnicodeEncoding specialized encoder Convert heap spans
+
+Batch 2239 adapts the selected specialized encoder Convert array core to heap ReadOnlySpan<Character> and Span<Byte> views. The input view is snapshotted; the destination view starts with its existing bytes and is copied back in a finally block. Partial writes survive exceptions, and protected elements outside the view remain untouched. Consumed/written/completed carriers and carry/fallback state come from the specialized streaming core.
+
+The pinned native capture includes ten configurations and 10,880 three-call cases: 32,640 native Convert span calls. Both endian orders cover strict/default fallback and empty, AB and valid-pair replacement strings, seeded pending state, 17 inputs, both flush modes, eight capacities, nonzero offsets and protected suffixes. Native results match the corresponding array rows, including exceptions, output carriers, remaining fallback data and complete buffers. The dedicated packaged consumer covers 141,440 groups, including pending-state seeds. It must reproduce a baseline mismatch before matching the span adapter.
+
+This is selected heap-view Convert qualification. Arbitrary fallback-buffer protocols/reentrancy, pointer/byref lifetimes, source ABI, specialized decoder state and E01/E02/E03/N01/Q01 remain open. Cross-method encoder interleavings after partial conversions are the next concrete task. No accepted implementation task or qualified framework is credited. The complete candidate gate, compiled API audit, 98-source inventory, owned map/notice/distribution checks and retained array/span/state suites remain mandatory.
+
+The product stays JDK-only. Python and pinned .NET serve development/reference validation; the broader dependency graph and public .j installer/feed remain unresolved. The authorized numbered milestone remains 2500 and total project batches remain unknown.
