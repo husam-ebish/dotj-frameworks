@@ -1,0 +1,34 @@
+"""Verify selected custom fallback equality/hash dispatch and exact observable call counts."""
+import argparse,hashlib,json,subprocess
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
+ if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))['jarPath']
+ path=EVIDENCE/'fallback-equality-dispatch-contract-v10.0.12.json';j=json.loads(path.read_text(encoding='utf-8'));assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-fallback-equality-dispatch-contract.ps1').read_bytes()).hexdigest();assert len(j['profiles'])==66 and len(j['rows'])==4554
+ work=Path('D:/AI/Implementation/dotj Frameworks/verification/fallback-equality-dispatch');work.mkdir(exist_ok=True);definitions=[];hashes=[];b=lambda v:str(v).lower()
+ def result(r):return [str(int(r['ok'])),str(int(r.get('equals',False))),r.get('exception',''),str(r.get('hResult',0)),r.get('paramName') or '~']
+ for index,profile in enumerate(j['profiles']):
+  selection=profile['selection'];expr='new '+('CodePageThrows' if selection=='CodePageThrows' else 'CodePageOverride' if selection=='CodePageOverride' else 'UTF8Encoding')+'('+b(profile['emit'])+','+b(profile.get('strict',False))+')';definitions.append(f'values[{index}]=(Encoding)({expr}).Clone();')
+  if selection in ['Encoder','Decoder','Both']:
+   for direction,code in [('Encoder',17),('Decoder',29)]:
+    if selection in [direction,'Both']:definitions.append(f'values[{index}].set_{direction}Fallback(new Custom{direction}({profile["key"]},{profile["mode"]},{1000*profile["key"]+code}));')
+  r=profile['hashResult'];assert not r['ok'] or r['hashFormulaMatches'];hashes.append('\t'.join([str(index),*result(r),','.join(map(str,profile['hashCalls']))]))
+ vectors=work/'pairs.tsv';vectors.write_text('\n'.join('\t'.join([str(row['left']),str(row['right']),*result(row['result']),','.join(map(str,row['calls']))]) for row in j['rows'])+'\n',encoding='ascii');hash_path=work/'hashes.tsv';hash_path.write_text('\n'.join(hashes)+'\n',encoding='ascii')
+ source=work/'FallbackEqualityDispatchProbe.java';source.write_text('''import System.Text.*;import System.Exception;import System.ArgumentException;import System.InvalidOperationException;import java.nio.file.*;import java.util.*;
+class CodePageOverride extends UTF8Encoding{CodePageOverride(boolean e,boolean s){super(e,s);}@Override public int get_CodePage(){return 90000;}}
+class CodePageThrows extends UTF8Encoding{CodePageThrows(boolean e,boolean s){super(e,s);}@Override public int get_CodePage(){throw new InvalidOperationException("CodePage must not be called");}}
+class FallbackEqualityDispatchProbe{
+ static int[] calls=new int[4];
+ static class CustomEncoder extends EncoderFallback{int key,mode,hash;CustomEncoder(int k,int m,int h){key=k;mode=m;hash=h;}public int get_MaxCharCount(){return 1;}public EncoderFallbackBuffer CreateFallbackBuffer(){return new EncoderReplacementFallback().CreateFallbackBuffer();}public boolean Equals(Object other){calls[0]++;if(mode==3)throw new InvalidOperationException("fallback method failure");if(mode==1)return false;if(mode==2)return true;return other instanceof CustomEncoder c&&key==c.key;}public int GetHashCode(){calls[1]++;if(mode==4)throw new InvalidOperationException("fallback method failure");return hash;}}
+ static class CustomDecoder extends DecoderFallback{int key,mode,hash;CustomDecoder(int k,int m,int h){key=k;mode=m;hash=h;}public int get_MaxCharCount(){return 1;}public DecoderFallbackBuffer CreateFallbackBuffer(){return new DecoderReplacementFallback().CreateFallbackBuffer();}public boolean Equals(Object other){calls[2]++;if(mode==3)throw new InvalidOperationException("fallback method failure");if(mode==1)return false;if(mode==2)return true;return other instanceof CustomDecoder c&&key==c.key;}public int GetHashCode(){calls[3]++;if(mode==4)throw new InvalidOperationException("fallback method failure");return hash;}}
+ static int[] ints(String s){return Arrays.stream(s.split(",")).mapToInt(Integer::parseInt).toArray();}static void check(boolean ok,int id){if(!ok)throw new AssertionError("case "+id);}static boolean failure(Exception ex,String[] p,int start){return p[start].equals("0")&&ex.getClass().getName().equals(p[start+2])&&ex.get_HResult()==Integer.parseInt(p[start+3])&&Objects.equals(ex instanceof ArgumentException a?a.get_ParamName():null,p[start+4].equals("~")?null:p[start+4]);}
+ public static void main(String[] args)throws java.lang.Exception{int id=0;Encoding[] values=new Encoding[66];
+'''+ '\n'.join(definitions)+'''
+ for(String line:Files.readAllLines(Path.of(args[0]))){String[] p=line.split("\\t",-1);int left=Integer.parseInt(p[0]),right=Integer.parseInt(p[1]);Object target=right==-3?null:right==-2?"UTF-8":right==-1?new Object():values[right];Arrays.fill(calls,0);try{boolean eq=values[left].Equals(target);check(p[2].equals("1")&&eq==p[3].equals("1"),id++);}catch(Exception ex){check(failure(ex,p,2),id++);}check(Arrays.equals(calls,ints(p[7])),id++);}
+ for(String line:Files.readAllLines(Path.of(args[1]))){String[] p=line.split("\\t",-1);Encoding e=values[Integer.parseInt(p[0])];Arrays.fill(calls,0);int hash=0;boolean success=false;try{hash=e.GetHashCode();check(p[1].equals("1"),id++);success=true;}catch(Exception ex){check(failure(ex,p,1),id++);}check(Arrays.equals(calls,ints(p[6])),id++);if(success){int expected=e.get_EncoderFallback().GetHashCode()+e.get_DecoderFallback().GetHashCode()+65001+(e.GetPreamble().length==0?0:1);if(hash!=expected)throw new AssertionError("hash formula");}}
+ java.lang.System.out.println("PASS custom fallback equality/hash groups="+id);}}
+''',encoding='utf-8')
+ subprocess.run(['javac','-Xmaxerrs','3','--release','21','-cp',str(a.jar),'-d',str(work),str(source)],check=True);subprocess.run(['java','-cp',str(a.jar)+';'+str(work),'FallbackEqualityDispatchProbe',str(vectors),str(hash_path)],check=True)
+ record=dict(schemaVersion=1,casesPassed=9240,nativeProfiles=66,nativeComparisons=4554,observableCustomEqualsHashCalls=True,virtualCodePageNotUsedByUtf8Hash=True,oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(a.jar.read_bytes()).hexdigest(),qualification='SELECTED_CUSTOM_EQUALITY_HASH_DISPATCH_ONLY; HOST_OBJECT_INTEROP_ARBITRARY_REENTRANCY_FULL_METADATA_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN');(EVIDENCE/'fallback-equality-dispatch-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8');print('PASS selected fallback equality/hash dispatch: 9240 groups; exact custom calls and CodePage override controls')
+if __name__=='__main__':main()
