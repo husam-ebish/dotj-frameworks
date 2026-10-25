@@ -3,11 +3,13 @@
 package System.Text;
 
 import System.Byte;
+import System.ICloneable;
 import System.ArgumentNullException;
 import System.ArgumentOutOfRangeException;
 
 /** Selected stateless encoding surface; stateful and pointer overloads remain open. */
-public abstract class Encoding {
+public abstract class Encoding implements ICloneable, java.lang.Cloneable {
+    private boolean readOnly = true;
     protected Encoding() { }
     public static Encoding get_UTF8() { return DefaultUtf8.VALUE; }
     private static final class DefaultUtf8 {
@@ -64,7 +66,16 @@ public abstract class Encoding {
     public abstract int GetMaxCharCount(int byteCount);
     public abstract int get_CodePage();
     public abstract String get_EncodingName();
-    public boolean get_IsReadOnly() { return true; }
+    public boolean get_IsReadOnly() { return this.readOnly; }
+    @Override public Object Clone() {
+        try {
+            Encoding cloned = (Encoding)super.clone();
+            cloned.readOnly = false;
+            return cloned;
+        } catch (CloneNotSupportedException failure) {
+            throw new AssertionError(failure);
+        }
+    }
     public abstract Byte[] GetPreamble();
     public abstract Byte[] GetBytes(String s);
     public abstract int GetByteCount(String s);

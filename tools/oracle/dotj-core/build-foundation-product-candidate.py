@@ -318,6 +318,9 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ['System/Text/Encoding$DefaultUtf8.
 
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ['System/Text/EncoderFallbackException.class', 'System/Text/DecoderFallbackException.class', 'org/dotj/internal/text/Utf8Codec$Failure.class'])
 
+SOURCES.append(PRODUCT / "src/main/java/System/ICloneable.java")
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/ICloneable.class"])
+
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))
