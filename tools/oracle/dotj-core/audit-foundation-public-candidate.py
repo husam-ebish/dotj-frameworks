@@ -131,10 +131,13 @@ def main():
             assert upstream["declaringGetterIsAbstract"] and upstream["reflectedGetterIsAbstract"]
             disposition = "PARTIAL_MEMBERINFO_SURFACE; four selected abstract properties, collectibility and metadata identity"
         elif name == "System.Reflection.MemberTypes":
-            assert header == "public final class System.Reflection.MemberTypes implements System.IFormattable {"
+            assert header == "public final class System.Reflection.MemberTypes implements System.IFormattable,System.IComparable {"
             assert "public int get_Value();" in declarations
             assert "public System.Reflection.MemberTypes or(System.Reflection.MemberTypes);" in declarations
             assert "public static System.Reflection.MemberTypes FromInt32(int);" in declarations
+            assert 'public int CompareTo(java.lang.Object);' in declarations
+            assert 'public boolean Equals(java.lang.Object);' in declarations
+            assert 'public System.Int32 GetHashCode();' in declarations
             for signature in ["public java.lang.String ToString();", "public java.lang.String ToString(System.IFormatProvider);",
                               "public java.lang.String ToString(java.lang.String);", "public java.lang.String ToString(java.lang.String, System.IFormatProvider);"]:
                 assert signature in declarations

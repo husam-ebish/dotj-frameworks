@@ -5,7 +5,7 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "c7b1b43ff5c12a3dbecf8190d7a4af6865d55dbda722d1ad4932d02a10265587",
+  "javaCandidateEvidenceSha256": "ab4e27e35aac47188408f90f6ff96514361c46be50eb7e9e60ca7de8018600dc",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 39,
   "nameLevelMissingPublicGetterCount": 21,
@@ -11576,7 +11576,7 @@
         "events": [],
         "nestedPublicTypes": []
       },
-      "javaCandidatePublicHeader": "public final class System.Reflection.MemberTypes implements System.IFormattable {",
+      "javaCandidatePublicHeader": "public final class System.Reflection.MemberTypes implements System.IFormattable,System.IComparable {",
       "javaCandidateDeclaredPublicDeclarations": [
         "public static final System.Reflection.MemberTypes Constructor;",
         "public static final System.Reflection.MemberTypes Event;",
@@ -11597,6 +11597,9 @@
         "public java.lang.String ToString(System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String);",
+        "public int CompareTo(java.lang.Object);",
+        "public boolean Equals(java.lang.Object);",
+        "public System.Int32 GetHashCode();",
         "public java.lang.String toString();",
         "public boolean equals(java.lang.Object);",
         "public int hashCode();"
@@ -11604,7 +11607,10 @@
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {},
         "javaCandidateDeclaredMethodOverloads": {
+          "CompareTo": 1,
+          "Equals": 1,
           "FromInt32": 1,
+          "GetHashCode": 1,
           "ToString": 4,
           "equals": 1,
           "get_Name": 1,
