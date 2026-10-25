@@ -948,7 +948,91 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (format.length() == 1 && "dDfFgGmMoOrRstTuUyY".indexOf(format.charAt(0)) < 0) {
             throw new FormatException("Input string was not in a correct format");
         }
-        throw new UnsupportedOperationException("DateTime format is not mapped for this candidate");
+        return selectedCustomFormat(format);
+    }
+
+    private String selectedCustomFormat(String format) {
+        StringBuilder result = new StringBuilder();
+        boolean timeOnly = true;
+        for (int index = 0; index < format.length();) {
+            char token = format.charAt(index);
+            if (token == '\'' || token == '"') {
+                char quote = token;
+                boolean closed = false;
+                for (index++; index < format.length(); index++) {
+                    char literal = format.charAt(index);
+                    if (literal == quote) { index++; closed = true; break; }
+                    if (literal == '\\') {
+                        if (++index == format.length()) throw new FormatException("Unterminated quoted format");
+                        literal = format.charAt(index);
+                    }
+                    result.append(literal);
+                }
+                if (!closed) throw new FormatException("Unterminated quoted format");
+                continue;
+            }
+            if (token == '\\') {
+                if (++index == format.length()) throw new FormatException("Missing escaped format character");
+                result.append(format.charAt(index++));
+                continue;
+            }
+            if (token == '%') {
+                if (++index == format.length() || format.charAt(index) == '%') throw new FormatException("Invalid percent format");
+                result.append(selectedCustomFormat(format.substring(index, ++index)));
+                continue;
+            }
+            int count = 1;
+            if ("yMdHhmsftgFz".indexOf(token) >= 0) {
+                while (index + count < format.length() && format.charAt(index + count) == token) count++;
+            }
+            if (token == 'y' || token == 'M' || token == 'd') timeOnly = false;
+            String text;
+            switch (token) {
+                case 'y' -> text = selectedPad(count <= 2 ? get_Year() % 100 : get_Year(), count);
+                case 'M' -> text = count <= 2 ? selectedPad(get_Month(), count)
+                        : this.date.getMonth().getDisplayName(count == 3 ? java.time.format.TextStyle.SHORT : java.time.format.TextStyle.FULL, java.util.Locale.US);
+                case 'd' -> text = count <= 2 ? selectedPad(get_Day(), count)
+                        : this.date.getDayOfWeek().getDisplayName(count == 3 ? java.time.format.TextStyle.SHORT : java.time.format.TextStyle.FULL, java.util.Locale.US);
+                case 'H' -> text = selectedPad(get_Hour(), Math.min(count, 2));
+                case 'h' -> text = selectedPad(get_Hour() % 12 == 0 ? 12 : get_Hour() % 12, Math.min(count, 2));
+                case 'm' -> text = selectedPad(get_Minute(), Math.min(count, 2));
+                case 's' -> text = selectedPad(get_Second(), Math.min(count, 2));
+                case 't' -> text = get_Hour() < 12 ? (count == 1 ? "A" : "AM") : (count == 1 ? "P" : "PM");
+                case 'g' -> text = "A.D.";
+                case 'f', 'F' -> {
+                    if (count > 7) throw new FormatException("Fractional format exceeds tick precision");
+                    text = selectedPad(get_Ticks() % 10000000L, 7).substring(0, count);
+                    if (token == 'F') {
+                        int end = text.length();
+                        while (end > 0 && text.charAt(end - 1) == '0') end--;
+                        text = text.substring(0, end);
+                        if (text.isEmpty() && !result.isEmpty() && result.charAt(result.length() - 1) == '.') result.setLength(result.length() - 1);
+                    }
+                }
+                case 'z' -> text = selectedCustomOffset(count, timeOnly);
+                case 'K' -> text = this.kind == DateTimeKind.Utc ? "Z" : this.kind == DateTimeKind.Local ? selectedCustomOffset(3, false) : "";
+                default -> text = String.valueOf(token);
+            }
+            result.append(text);
+            index += count;
+        }
+        return result.toString();
+    }
+
+    private static String selectedPad(long value, int width) {
+        String text = Long.toString(value);
+        return "0".repeat(Math.max(0, width - text.length())) + text;
+    }
+
+    private String selectedCustomOffset(int width, boolean timeOnly) {
+        ZoneId zone = ZoneId.systemDefault();
+        int seconds = timeOnly && get_Ticks() < 864000000000L
+                ? zone.getRules().getOffset(java.time.Instant.now()).getTotalSeconds()
+                : this.kind == DateTimeKind.Utc ? 0 : selectedLocalOffset(zone).getTotalSeconds();
+        int minutes = Math.abs(seconds) / 60;
+        String sign = seconds < 0 ? "-" : "+";
+        return sign + selectedPad(minutes / 60, width == 1 ? 1 : 2)
+                + (width >= 3 ? ":" + selectedPad(minutes % 60, 2) : "");
     }
 
     private String selectedRoundTripText(IFormatProvider provider) {
