@@ -1,0 +1,11 @@
+# Default Encoding factory Convert arrays and heap spans
+
+Batch 2215 qualifies default Encoding encoder/decoder conversion with array and heap span carriers. It fixes a pointer-adapter distinction: a negative array writer return is an observable array result, but Encoding's pointer-backed copying adapter rejects a negative length before copying or assigning the produced count. The generic Encoder/Decoder adapters allow their previously qualified negative results. A package-private span-result hook preserves that distinction for the default wrappers without adding a public declaration.
+
+The pinned runtime corpus contains 18,432 cases across direction, multiplier, count/write callback modes, four input lengths, four capacities, two view offsets, flush, aliased output counters, carrier and pending fallback state. The old implementation reproduces a default encoder span Convert negative writer mismatch. The corrected packaged consumer passes 92,160 comparison groups for exception/success, used slots, completion, full guarded destination and exact delegated array trace. Cases preserve capacity halving, ignored flush behavior, partial callback writes and temporary-copy isolation. The synthetic callback explicitly maps its own out-of-bounds operation to the native logical exception; this is not a blanket Java exception mapping claim.
+
+The public surface and private class inventory remain unchanged. The 94-source owned map, JAR distribution, rights-input audit, compiled selected API audit, generic Convert and retained UTF8/custom/stateful span regressions pass. The native fixture and differential bind pinned runtime, CoreLib, producer, consumer and JAR hashes, with explicit LF attributes.
+
+This is selected default factory Convert behavior. Direct count/write heap span dispatch still needs its own qualification, as do arbitrary pointer overrides, CLR lifetime/pinning, reentrancy, full metadata/source ABI and WP-05 task acceptance. E01 applicability remains open. No accepted task, qualified framework or rights clearance is credited.
+
+Next is generic Encoding and default factory count/write heap span dispatch, including temporary output initialization, callback failures, clamping and negative-return validation, while retaining UTF8 overrides.

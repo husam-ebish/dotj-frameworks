@@ -177,6 +177,10 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     private static final class DefaultEncoder extends Encoder {
         private final Encoding encoding;
         private DefaultEncoder(Encoding encoding) { this.encoding = encoding; }
+        @Override int spanWriteResult(int result, int capacity) {
+            if (result < 0) throw new ArgumentOutOfRangeException();
+            return Math.min(result, capacity);
+        }
         @Override public int GetByteCount(char[] chars, int index, int count, boolean flush) {
             return this.encoding.GetByteCount(chars, index, count);
         }
@@ -188,6 +192,10 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     private static final class DefaultDecoder extends Decoder {
         private final Encoding encoding;
         private DefaultDecoder(Encoding encoding) { this.encoding = encoding; }
+        @Override int spanWriteResult(int result, int capacity) {
+            if (result < 0) throw new ArgumentOutOfRangeException();
+            return Math.min(result, capacity);
+        }
         @Override public int GetCharCount(Byte[] bytes, int index, int count) {
             return this.encoding.GetCharCount(bytes, index, count);
         }

@@ -62,6 +62,7 @@ public abstract class Decoder {
         }
         throw new ArgumentException("The output buffer is too small for the conversion.");
     }
+    int spanWriteResult(int result, int capacity) { return Math.min(result, capacity); }
     public abstract int GetCharCount(Byte[] bytes, int index, int count);
     public int GetCharCount(Byte[] bytes, int index, int count, boolean flush) {
         return GetCharCount(bytes, index, count);
@@ -86,7 +87,7 @@ public abstract class Decoder {
         Byte[] input = new Byte[snapshot.length];
         for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
         char[] output = new char[chars.get_Length()];
-        int count = Math.min(GetChars(input, 0, input.length, output, 0, flush), output.length);
+        int count = spanWriteResult(GetChars(input, 0, input.length, output, 0, flush), output.length);
         if (count > 0) ReadOnlySpan.OfChars(output).Slice(0, count).CopyTo(chars.Slice(0, count));
         return count;
     }
@@ -106,7 +107,7 @@ public abstract class Decoder {
             if (GetCharCount(countInput, 0, countInput.length) <= chars.get_Length()) {
                 Byte[] writeInput = java.util.Arrays.copyOf(source, bytesUsed[0]);
                 char[] target = new char[chars.get_Length()];
-                int n = Math.min(GetChars(writeInput, 0, writeInput.length, target, 0, flush), chars.get_Length());
+                int n = spanWriteResult(GetChars(writeInput, 0, writeInput.length, target, 0, flush), chars.get_Length());
                 if (n > 0) ReadOnlySpan.OfChars(target).Slice(0, n).CopyTo(chars.Slice(0, n));
                 charsUsed[0] = n;
                 completed[0] = bytesUsed[0] == source.length && (this.buffer == null || this.buffer.get_Remaining() == 0);
