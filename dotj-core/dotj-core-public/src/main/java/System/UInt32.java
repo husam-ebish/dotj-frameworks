@@ -3,7 +3,7 @@
 package System;
 
 /** Selected unsigned 32-bit value carrier for public serialization paths. */
-public final class UInt32 implements IConvertible {
+public final class UInt32 implements IConvertible, IFormattable {
     private final long value;
 
     public UInt32(long value) {
@@ -146,6 +146,25 @@ public final class UInt32 implements IConvertible {
             throw new OverflowException("Value cannot be represented as Int32");
         }
         return (int) this.value;
+    }
+
+    public String ToString(String format) { return ToString(format, null); }
+    @Override public String ToString(String format, IFormatProvider provider) {
+        if (format == null || format.isEmpty()) return Long.toString(this.value);
+        if (format.matches("[dDxXbB][0-9]*")) {
+            int precision;
+            try { precision = format.length() == 1 ? 0 : java.lang.Integer.parseInt(format.substring(1)); }
+            catch (NumberFormatException expected) { throw new FormatException("Format precision is invalid"); }
+            if (precision > 4096) throw new UnsupportedOperationException("UInt32 format precision is not mapped");
+            char specifier = format.charAt(0);
+            int radix = specifier == 'x' || specifier == 'X' ? 16 : specifier == 'b' || specifier == 'B' ? 2 : 10;
+            String digits = Long.toString(this.value, radix);
+            if (specifier == 'X') digits = digits.toUpperCase(java.util.Locale.ROOT);
+            return "0".repeat(Math.max(0, precision - digits.length())) + digits;
+        }
+        if (format.matches("[Rr][0-9]*")) format = (format.charAt(0) == 'R' ? "G" : "g") + format.substring(1);
+        if (format.matches("[A-Za-z]") && !format.matches("[cCeEfFgGnNpP]")) throw new FormatException("Format specifier was invalid");
+        return new Decimal(this.value).ToString(format, provider);
     }
 
     @Override
