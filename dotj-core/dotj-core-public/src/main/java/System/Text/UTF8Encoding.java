@@ -82,6 +82,18 @@ public class UTF8Encoding extends Encoding {
         if (index > length - count) throw new ArgumentOutOfRangeException(sourceParameter);
         if (offset < 0 || offset > capacity) throw new ArgumentOutOfRangeException(destinationParameter);
     }
+    @Override public int GetMaxByteCount(int charCount) {
+        if (charCount < 0) throw new ArgumentOutOfRangeException("charCount");
+        long result = ((long)charCount + 1) * 3;
+        if (result > Integer.MAX_VALUE) throw new ArgumentOutOfRangeException("charCount");
+        return (int)result;
+    }
+    @Override public int GetMaxCharCount(int byteCount) {
+        if (byteCount < 0 || byteCount == Integer.MAX_VALUE) {
+            throw new ArgumentOutOfRangeException("byteCount");
+        }
+        return byteCount + 1;
+    }
     @Override public int get_CodePage() { return 65001; }
     @Override public String get_EncodingName() { return "Unicode (UTF-8)"; }
     @Override public Byte[] GetPreamble() {
