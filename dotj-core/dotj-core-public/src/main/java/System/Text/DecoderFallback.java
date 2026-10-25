@@ -7,6 +7,7 @@ public abstract class DecoderFallback {
     protected DecoderFallback() { }
     public static DecoderFallback get_ReplacementFallback() { return Defaults.REPLACEMENT; }
     public static DecoderFallback get_ExceptionFallback() { return Defaults.EXCEPTION; }
+    public abstract DecoderFallbackBuffer CreateFallbackBuffer();
     public abstract int get_MaxCharCount();
     public boolean Equals(Object value) { return this == value; }
     private static final class Defaults {
