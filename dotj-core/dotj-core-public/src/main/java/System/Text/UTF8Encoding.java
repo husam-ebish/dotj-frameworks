@@ -38,6 +38,7 @@ public class UTF8Encoding extends Encoding {
         return encodeInto(new String(chars), charIndex, charCount, bytes, byteIndex);
     }
     private int encodeInto(String text, int index, int count, Byte[] destination, int offset) {
+        if (customEncoderFallback()) return encodeCustomInto(text, index, count, destination, offset, null);
         int end = index + count, written = 0;
         for (int i = index; i < end;) {
             int units = Character.isHighSurrogate(text.charAt(i)) && i + 1 < end
@@ -75,6 +76,7 @@ public class UTF8Encoding extends Encoding {
         validateDestinationRange(bytes.length, byteIndex, byteCount, chars.length, charIndex,
                 "byteIndex", "byteCount", "bytes", "charIndex");
         byte[] input = unwrap(java.util.Arrays.copyOfRange(bytes, byteIndex, byteIndex + byteCount));
+        if (customDecoderFallback()) return decodeCustom(input, chars, charIndex).length();
         int written = 0;
         for (int i = 0; i < input.length;) {
             int consumed = Utf8Codec.prefixLength(input, i, input.length);
@@ -122,17 +124,11 @@ public class UTF8Encoding extends Encoding {
     @Override public void set_EncoderFallback(EncoderFallback value) {
         if (get_IsReadOnly()) throw new InvalidOperationException("Instance is read-only.");
         if (value == null) throw new ArgumentNullException("value");
-        if (!(value instanceof EncoderReplacementFallback) && !(value instanceof EncoderExceptionFallback)) {
-            throw new UnsupportedOperationException("Custom encoder fallback subclasses are not supported by this candidate.");
-        }
         this.encoderFallback = value;
     }
     @Override public void set_DecoderFallback(DecoderFallback value) {
         if (get_IsReadOnly()) throw new InvalidOperationException("Instance is read-only.");
         if (value == null) throw new ArgumentNullException("value");
-        if (!(value instanceof DecoderReplacementFallback) && !(value instanceof DecoderExceptionFallback)) {
-            throw new UnsupportedOperationException("Custom decoder fallback subclasses are not supported by this candidate.");
-        }
         this.decoderFallback = value;
     }
     @Override public EncoderFallback get_EncoderFallback() { return this.encoderFallback; }
@@ -144,6 +140,12 @@ public class UTF8Encoding extends Encoding {
     }
     @Override public Byte[] GetBytes(String s) {
         if (s == null) throw new ArgumentNullException("s");
+        if (customEncoderFallback()) {
+            Byte[] result = new Byte[encodeCustom(s).length];
+            java.util.Arrays.fill(result, new Byte(0));
+            encodeCustomInto(s, 0, s.length(), result, 0, null);
+            return result;
+        }
         return wrap(encode(s));
     }
     @Override public int GetByteCount(String s) {
@@ -153,6 +155,13 @@ public class UTF8Encoding extends Encoding {
     @Override public String GetString(Byte[] bytes) {
         try {
             byte[] input = unwrap(bytes);
+            if (customDecoderFallback()) {
+                int count = decodeCustom(input, null, 0).length();
+                if (count == 0) return "";
+                char[] result = new char[count];
+                decodeCustom(input, result, 0);
+                return new String(result);
+            }
             if (this.decoderFallback instanceof DecoderExceptionFallback) return Utf8Codec.decode(input, true);
             if (this.decoderFallback instanceof DecoderReplacementFallback replacement) {
                 return Utf8Codec.decode(input, false, replacement.get_DefaultString());
@@ -164,6 +173,7 @@ public class UTF8Encoding extends Encoding {
         }
     }
     private byte[] encode(String text) {
+        if (customEncoderFallback()) return encodeCustom(text);
         try {
             if (this.encoderFallback instanceof EncoderExceptionFallback) return Utf8Codec.encode(text, true);
             if (this.encoderFallback instanceof EncoderReplacementFallback replacement) {
@@ -173,8 +183,106 @@ public class UTF8Encoding extends Encoding {
         }
         catch (Utf8Codec.Failure failure) { throw new EncoderFallbackException(failure.charUnknown, failure.index); }
     }
-    @Override public int GetCharCount(Byte[] bytes) { return GetString(bytes).length(); }
-    @Override public char[] GetChars(Byte[] bytes) { return GetString(bytes).toCharArray(); }
+    @Override public int GetCharCount(Byte[] bytes) {
+        if (customDecoderFallback()) return decodeCustom(unwrap(bytes), null, 0).length();
+        return GetString(bytes).length();
+    }
+    @Override public char[] GetChars(Byte[] bytes) {
+        if (customDecoderFallback()) {
+            byte[] input = unwrap(bytes);
+            char[] result = new char[decodeCustom(input, null, 0).length()];
+            decodeCustom(input, result, 0);
+            return result;
+        }
+        return GetString(bytes).toCharArray();
+    }
+    private boolean customEncoderFallback() {
+        return !(this.encoderFallback instanceof EncoderReplacementFallback)
+                && !(this.encoderFallback instanceof EncoderExceptionFallback);
+    }
+    private boolean customDecoderFallback() {
+        return !(this.decoderFallback instanceof DecoderReplacementFallback)
+                && !(this.decoderFallback instanceof DecoderExceptionFallback);
+    }
+    private static String drainEncoderBuffer(EncoderFallbackBuffer buffer) {
+        StringBuilder result = new StringBuilder();
+        while (buffer.get_Remaining() > 0) result.append(buffer.GetNextChar());
+        buffer.GetNextChar();
+        return result.toString();
+    }
+    private static String drainDecoderBuffer(DecoderFallbackBuffer buffer) {
+        StringBuilder result = new StringBuilder();
+        while (buffer.get_Remaining() > 0) result.append(buffer.GetNextChar());
+        buffer.GetNextChar();
+        return result.toString();
+    }
+    private byte[] encodeCustom(String text) {
+        java.io.ByteArrayOutputStream collector = new java.io.ByteArrayOutputStream();
+        encodeCustomInto(text, 0, text.length(), null, 0, collector);
+        return collector.toByteArray();
+    }
+    private int encodeCustomInto(String text, int index, int count, Byte[] destination, int offset,
+            java.io.ByteArrayOutputStream collector) {
+        EncoderFallbackBuffer buffer = null;
+        int end = index + count, written = 0;
+        for (int i = index; i < end;) {
+            int units = Character.isHighSurrogate(text.charAt(i)) && i + 1 < end
+                    && Character.isLowSurrogate(text.charAt(i + 1)) ? 2 : 1;
+            String packet;
+            if (units == 1 && Character.isSurrogate(text.charAt(i))) {
+                if (buffer == null) buffer = this.encoderFallback.CreateFallbackBuffer();
+                packet = buffer.Fallback(text.charAt(i), i - index) ? drainEncoderBuffer(buffer) : "";
+            } else packet = text.substring(i, i + units);
+            for (int p = 0; p < packet.length();) {
+                int width = Character.isHighSurrogate(packet.charAt(p)) && p + 1 < packet.length()
+                        && Character.isLowSurrogate(packet.charAt(p + 1)) ? 2 : 1;
+                byte[] bytes;
+                try { bytes = Utf8Codec.encode(packet.substring(p, p + width), true); }
+                catch (Utf8Codec.Failure failure) {
+                    throw new ArgumentException("Recursive fallback produced invalid Unicode.", "chars");
+                }
+                if (destination == null) collector.writeBytes(bytes);
+                else {
+                    if (bytes.length > destination.length - offset - written) {
+                        throw new ArgumentException("Insufficient destination capacity.", "bytes");
+                    }
+                    for (int n = 0; n < bytes.length; n++) destination[offset + written + n] = new Byte(bytes[n] & 255);
+                }
+                written += bytes.length; p += width;
+            }
+            i += units;
+        }
+        return written;
+    }
+    private String decodeCustom(byte[] input, char[] destination, int offset) {
+        DecoderFallbackBuffer buffer = null;
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < input.length;) {
+            int consumed = Utf8Codec.prefixLength(input, i, input.length);
+            String packet;
+            try { packet = Utf8Codec.decode(java.util.Arrays.copyOfRange(input, i, i + consumed), true); }
+            catch (Utf8Codec.Failure failure) {
+                if (buffer == null) buffer = this.decoderFallback.CreateFallbackBuffer();
+                packet = buffer.Fallback(wrap(failure.bytesUnknown), i) ? drainDecoderBuffer(buffer) : "";
+            }
+            for (int p = 0; p < packet.length();) {
+                int width = Character.isHighSurrogate(packet.charAt(p)) && p + 1 < packet.length()
+                        && Character.isLowSurrogate(packet.charAt(p + 1)) ? 2 : 1;
+                if (Character.isSurrogate(packet.charAt(p)) && width == 1) {
+                    throw new ArgumentException("Fallback produced invalid Unicode.", "bytesUnknown");
+                }
+                if (destination != null) {
+                    if (width > destination.length - offset - result.length()) {
+                        throw new ArgumentException("Insufficient destination capacity.", "chars");
+                    }
+                    packet.getChars(p, p + width, destination, offset + result.length());
+                }
+                result.append(packet, p, p + width); p += width;
+            }
+            i += consumed;
+        }
+        return result.toString();
+    }
     private static Byte[] wrap(byte[] source) {
         Byte[] result = new Byte[source.length];
         for (int i = 0; i < source.length; i++) result[i] = new Byte(source[i] & 255);

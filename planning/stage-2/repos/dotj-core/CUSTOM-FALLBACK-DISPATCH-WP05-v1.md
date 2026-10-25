@@ -1,0 +1,7 @@
+# Selected custom fallback subclass dispatch
+
+Batch 2177 permits custom EncoderFallback/DecoderFallback instances on writable UTF-8 clones and dispatches through CreateFallbackBuffer. Buffers are created lazily on invalid input and reused within a pass. Allocating GetBytes/GetChars preserve separate native count/write passes. GetString omits its write pass when the counted output is empty. Count APIs perform one pass; destination APIs preserve their one-pass dispatch and scalar-boundary writes. Advertised MaxCharCount controls capacity bounds.
+
+Eight native emitted subclass profiles delegate their buffers to the standard replacement implementations while varying replacement strings and advertised maxima. They record 928 operations, 80 bounds and observable factory calls. The packaged consumer passes 2,208 groups, including setter reference identity, output/destination state and factory counts.
+
+These selected providers do not qualify arbitrary custom buffer behavior. Malformed outputs, inconsistent Remaining/GetNextChar, buffer/factory exceptions, changing replacements between passes, stateful Encoder/Decoder behavior, complete reflection/source ABI and WP-05-T2 acceptance remain open. Default replacement/exception suites remain mandatory regressions. No accepted task or framework is credited. Next is adversarial custom buffer/factory behavior and capacity/exception propagation against the pinned runtime.
