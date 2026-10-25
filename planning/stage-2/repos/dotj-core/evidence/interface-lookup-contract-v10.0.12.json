@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "59c1e9b45f0bbb4b41882b0849e8a064103193293f2e4e71944fbc0caba50cb3",
+  "oracleSha256": "ff8401241488ff6a1beafd2720cfc44450d4e91b14b28cba19f204058b0577c2",
   "types": [
     {
       "name": "System.String",
@@ -183,7 +183,8 @@
         "System.IComparable",
         "System.IConvertible",
         "System.IFormattable",
-        "System.ISpanFormattable"
+        "System.ISpanFormattable",
+        "System.IUtf8SpanFormattable"
       ],
       "omittedInterfaces": [
         "System.IBinaryIntegerParseAndFormatInfo`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -191,7 +192,6 @@
         "System.IEquatable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IParsable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.ISpanParsable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "System.IUtf8SpanFormattable",
         "System.IUtf8SpanParsable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.Numerics.IAdditionOperators`3[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.Numerics.IAdditiveIdentity`2[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -3247,6 +3247,102 @@
     {
       "source": "System.UInt32",
       "query": "system.ISpanFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.IUtf8SpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.IUtf8SpanFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "IUtf8SpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "IUtf8SpanFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.iutf8spanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.iutf8spanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "iutf8spanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "iutf8spanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.iutf8spanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.iutf8spanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IUtf8SpanFormattable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.IUtf8SpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.IUtf8SpanFormattable",
       "ignoreCase": true,
       "result": {
         "name": null
