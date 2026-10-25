@@ -27,6 +27,48 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         return value.value < min.value ? min : value.value > max.value ? max : value;
     }
 
+    public static Byte LeadingZeroCount(Byte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 255L;
+        return new Byte(Long.numberOfLeadingZeros(raw) - 56);
+    }
+    public static Byte TrailingZeroCount(Byte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 255L;
+        return new Byte(Math.min(8, Long.numberOfTrailingZeros(raw)));
+    }
+    public static Byte PopCount(Byte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 255L;
+        return new Byte(Long.bitCount(raw));
+    }
+    public static Byte RotateLeft(Byte value, int rotateAmount) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 255L;
+        int shift = (rotateAmount) & 7;
+        long result = ((raw << shift) | (raw >>> ((8 - shift) & 7))) & 255L;
+        return new Byte((int) result);
+    }
+    public static Byte RotateRight(Byte value, int rotateAmount) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 255L;
+        int shift = (-rotateAmount) & 7;
+        long result = ((raw << shift) | (raw >>> ((8 - shift) & 7))) & 255L;
+        return new Byte((int) result);
+    }
+    public static boolean IsEvenInteger(Byte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return (value.value & 1) == 0;
+    }
+    public static boolean IsOddInteger(Byte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return (value.value & 1) != 0;
+    }
+    public static boolean IsPow2(Byte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return value.value > 0 && (value.value & (value.value - 1)) == 0;
+    }
+
     public Byte(int value) {
         if (value < 0 || value > 255) {
             throw new OverflowException("Value was outside the range of Byte");

@@ -27,6 +27,48 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
         return value.value < min.value ? min : value.value > max.value ? max : value;
     }
 
+    public static UInt32 LeadingZeroCount(UInt32 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 4294967295L;
+        return new UInt32(Long.numberOfLeadingZeros(raw) - 32);
+    }
+    public static UInt32 TrailingZeroCount(UInt32 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 4294967295L;
+        return new UInt32(Math.min(32, Long.numberOfTrailingZeros(raw)));
+    }
+    public static UInt32 PopCount(UInt32 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 4294967295L;
+        return new UInt32(Long.bitCount(raw));
+    }
+    public static UInt32 RotateLeft(UInt32 value, int rotateAmount) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 4294967295L;
+        int shift = (rotateAmount) & 31;
+        long result = ((raw << shift) | (raw >>> ((32 - shift) & 31))) & 4294967295L;
+        return new UInt32(result);
+    }
+    public static UInt32 RotateRight(UInt32 value, int rotateAmount) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 4294967295L;
+        int shift = (-rotateAmount) & 31;
+        long result = ((raw << shift) | (raw >>> ((32 - shift) & 31))) & 4294967295L;
+        return new UInt32(result);
+    }
+    public static boolean IsEvenInteger(UInt32 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return (value.value & 1) == 0;
+    }
+    public static boolean IsOddInteger(UInt32 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return (value.value & 1) != 0;
+    }
+    public static boolean IsPow2(UInt32 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return value.value > 0 && (value.value & (value.value - 1)) == 0;
+    }
+
     public UInt32(long value) {
         if (value < 0 || value > 4294967295L) {
             throw new OverflowException("Value was outside the range of UInt32");

@@ -27,6 +27,48 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
         return value.value < min.value ? min : value.value > max.value ? max : value;
     }
 
+    public static UInt16 LeadingZeroCount(UInt16 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 65535L;
+        return new UInt16(Long.numberOfLeadingZeros(raw) - 48);
+    }
+    public static UInt16 TrailingZeroCount(UInt16 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 65535L;
+        return new UInt16(Math.min(16, Long.numberOfTrailingZeros(raw)));
+    }
+    public static UInt16 PopCount(UInt16 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 65535L;
+        return new UInt16(Long.bitCount(raw));
+    }
+    public static UInt16 RotateLeft(UInt16 value, int rotateAmount) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 65535L;
+        int shift = (rotateAmount) & 15;
+        long result = ((raw << shift) | (raw >>> ((16 - shift) & 15))) & 65535L;
+        return new UInt16((int) result);
+    }
+    public static UInt16 RotateRight(UInt16 value, int rotateAmount) {
+        if (value == null) throw new ArgumentNullException("value");
+        long raw = ((long) value.value) & 65535L;
+        int shift = (-rotateAmount) & 15;
+        long result = ((raw << shift) | (raw >>> ((16 - shift) & 15))) & 65535L;
+        return new UInt16((int) result);
+    }
+    public static boolean IsEvenInteger(UInt16 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return (value.value & 1) == 0;
+    }
+    public static boolean IsOddInteger(UInt16 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return (value.value & 1) != 0;
+    }
+    public static boolean IsPow2(UInt16 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return value.value > 0 && (value.value & (value.value - 1)) == 0;
+    }
+
     public UInt16(int value) {
         if (value < 0 || value > 65535) {
             throw new OverflowException("Value was outside the range of UInt16");
