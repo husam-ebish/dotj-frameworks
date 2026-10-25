@@ -1,0 +1,16 @@
+"""Compare generic Encoding span string allocation/dispatch and selected allocation exception constructors."""
+import argparse,hashlib,json,subprocess
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
+def csv(v):return ','.join(map(str,v))
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
+ if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))['jarPath']
+ path=EVIDENCE/'generic-encoding-span-string-contract-v10.0.12.json';j=json.loads(path.read_text(encoding='utf-8'));assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-generic-encoding-span-string-contract.ps1').read_bytes()).hexdigest();assert len(j['rows'])==144 and len(j['oomConstructors'])==7
+ lines=[]
+ for row in j['rows']:
+  r=row['result'];lines.append('\t'.join([*[str(row[k]) for k in ['multiplier','countMode','writeMode','length','offset']],str(int(r['ok'])),csv(r.get('units',[])),r.get('exception',''),str(r.get('hResult',0)),r.get('paramName') or '~',';'.join(csv(t) for t in row['trace'])]))
+ constructors=['\t'.join([str(r['kind']),str(int(r['message'] is None)),r['message'] or '',r['actualMessage'],str(r['hResult']),str(int(r['innerSame'])),r['fullName'],r['baseType']]) for r in j['oomConstructors']]
+ work=Path('D:/AI/Implementation/dotj Frameworks/verification/generic-encoding-span-string');work.mkdir(parents=True,exist_ok=True);vectors=work/'vectors.tsv';vectors.write_text('\n'.join(lines)+'\n',encoding='ascii');ctor=work/'constructors.tsv';ctor.write_text('\n'.join(constructors)+'\n',encoding='ascii');component=Path(__file__).with_name('generic-encoding-span-string-probe.java');source=work/'GenericEncodingSpanStringProbe.java';source.write_bytes(component.read_bytes());subprocess.run(['javac','--release','21','-cp',str(a.jar),'-d',str(work),str(source)],check=True);result=subprocess.run(['java','-cp',str(a.jar)+';'+str(work),'GenericEncodingSpanStringProbe',str(vectors),str(ctor)],capture_output=True,text=True);print(result.stdout,end='');print(result.stderr,end='');result.check_returncode();assert 'groups=323' in result.stdout
+ record=dict(schemaVersion=1,casesPassed=323,nativeStringCases=144,nativeConstructorCases=7,negativeCountAllocationException=True,hostJvmExhaustionNotMapped=True,oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),consumerSourceSha256=hashlib.sha256(component.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(a.jar.read_bytes()).hexdigest(),qualification='SELECTED_GENERIC_ENCODING_GETSTRING_HEAP_SPAN_AND_OOM_CONSTRUCTORS_ONLY; HOST_EXHAUSTION_ARBITRARY_POINTERS_CLR_LIFETIME_REENTRANCY_FULL_METADATA_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN');(EVIDENCE/'generic-encoding-span-string-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8',newline='\n');print('PASS generic Encoding span string: 144 native string cases, seven constructors, 323 groups')
+if __name__=='__main__':main()

@@ -26,6 +26,14 @@ public class UTF8Encoding extends Encoding {
         this.encoderFallback = throwOnInvalidBytes ? EncoderFallback.get_ExceptionFallback() : new EncoderReplacementFallback("\ufffd");
         this.decoderFallback = throwOnInvalidBytes ? DecoderFallback.get_ExceptionFallback() : new DecoderReplacementFallback("\ufffd");
     }
+    @Override public String GetString(ReadOnlySpan<Byte> bytes) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        byte[] snapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+        Byte[] input = new Byte[snapshot.length];
+        for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
+        return GetString(input);
+    }
     @Override public int GetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes) {
         if (chars == null) throw new ArgumentNullException("chars");
         if (bytes == null) throw new ArgumentNullException("bytes");

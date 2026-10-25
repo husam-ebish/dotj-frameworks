@@ -9,6 +9,7 @@ import System.ICloneable;
 import System.ArgumentNullException;
 import System.ArgumentException;
 import System.ArgumentOutOfRangeException;
+import System.OutOfMemoryException;
 
 /** Selected stateless encoding surface; stateful and pointer overloads remain open. */
 public abstract class Encoding implements ICloneable, java.lang.Cloneable {
@@ -288,10 +289,11 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     }
     public String GetString(ReadOnlySpan<Byte> bytes) {
         if (bytes == null) throw new ArgumentNullException("bytes");
-        byte[] snapshot = new byte[bytes.get_Length()];
-        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
-        Byte[] input = new Byte[snapshot.length];
-        for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
-        return GetString(input);
+        int count = GetCharCount(bytes);
+        if (count < 0) throw new OutOfMemoryException();
+        if (count == 0) return "";
+        char[] output = new char[count];
+        GetChars(bytes, Span.OfChars(output));
+        return new String(output);
     }
 }
