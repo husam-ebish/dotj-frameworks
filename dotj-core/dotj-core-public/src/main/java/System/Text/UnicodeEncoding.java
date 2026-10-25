@@ -99,6 +99,9 @@ public class UnicodeEncoding extends Encoding {
         return written;
     }
     private int encode(char[] chars, int index, int count, Byte[] output, int offset) {
+        return encode(chars, index, count, output, offset, this.encoderFallback, 0);
+    }
+    private int encode(char[] chars, int index, int count, Byte[] output, int offset, EncoderFallback selectedFallback, int indexShift) {
         int written=0,end=index+count;EncoderFallbackBuffer buffer=null;
         for(int i=index;i<end;) {
             char c=chars[i];boolean pair=Character.isHighSurrogate(c) && i+1<end && Character.isLowSurrogate(chars[i+1]);
@@ -108,13 +111,13 @@ public class UnicodeEncoding extends Encoding {
                 for(int k=0;k<width;k++) written=putWord(chars[i+k],output,offset,written);
                 i+=width;continue;
             }
-            if(this.encoderFallback instanceof EncoderExceptionFallback) throw new EncoderFallbackException(String.format(java.util.Locale.ROOT, ENCODER_MESSAGE,(int)c,i-index),c,i-index);
+            if(selectedFallback instanceof EncoderExceptionFallback) throw new EncoderFallbackException(String.format(java.util.Locale.ROOT, ENCODER_MESSAGE,(int)c,i-index+indexShift),c,i-index+indexShift);
             String replacement;
-            if(this.encoderFallback instanceof EncoderReplacementFallback r) replacement=r.get_DefaultString();
+            if(selectedFallback instanceof EncoderReplacementFallback r) replacement=r.get_DefaultString();
             else {
-                if(buffer==null){buffer=this.encoderFallback.CreateFallbackBuffer();buffer.encodingContext=this;}
+                if(buffer==null){buffer=selectedFallback.CreateFallbackBuffer();buffer.encodingContext=this;}
                 StringBuilder value=new StringBuilder();
-                if(buffer.Fallback(c,i-index)){char next;while((next=buffer.GetNextChar())!=0)value.append(next);}
+                if(buffer.Fallback(c,i-index+indexShift)){char next;while((next=buffer.GetNextChar())!=0)value.append(next);}
                 replacement=value.toString();
             }
             written=emit(replacement,output,offset,written);i++;
@@ -213,6 +216,50 @@ public class UnicodeEncoding extends Encoding {
         chars.CopyTo(Span.OfChars(output));
         try { return decode(input, 0, input.length, output, 0); }
         finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
+    }
+    @Override public Encoder GetEncoder() { return new UnicodeEncoder(this); }
+    private static final class UnicodeEncoder extends Encoder {
+        private final UnicodeEncoding encoding;
+        private char pending;
+        private UnicodeEncoder(UnicodeEncoding encoding) {
+            this.encoding = encoding;
+            set_Fallback(encoding.encoderFallback);
+        }
+        private void checkBuffer() {
+            EncoderFallbackBuffer buffer = existingFallbackBuffer();
+            if (buffer != null && buffer.get_Remaining() > 0) throw new ArgumentException("Must complete Convert() operation or call Encoder.Reset() before calling GetBytes() or GetByteCount(). Encoder '" + this.encoding.get_EncodingName() + "' fallback '" + get_Fallback().getClass().getName() + "'.");
+        }
+        private int process(char[] chars, int index, int count, Byte[] bytes, int byteIndex, boolean flush, boolean update) {
+            checkBuffer();
+            int prefix = this.pending == 0 ? 0 : 1;
+            char[] input = new char[count + prefix];
+            if (prefix != 0) input[0] = this.pending;
+            java.lang.System.arraycopy(chars, index, input, prefix, count);
+            char nextPending = 0;
+            int length = input.length;
+            if (!flush && length > 0 && Character.isHighSurrogate(input[length - 1])) nextPending = input[--length];
+            int result;
+            try { result = this.encoding.encode(input, 0, length, bytes, byteIndex, get_Fallback(), -prefix); }
+            catch (ArgumentException failure) {
+                if (update && failure.getClass() == ArgumentException.class && "bytes".equals(failure.get_ParamName())) resetFallbackBuffer();
+                throw failure;
+            }
+            if (update) this.pending = nextPending;
+            return result;
+        }
+        @Override public int GetByteCount(char[] chars, int index, int count, boolean flush) {
+            if (chars == null) throw new ArgumentNullException("chars");
+            range(chars.length, index, count, "index", "count", "chars", false);
+            return process(chars, index, count, null, 0, flush, false);
+        }
+        @Override public int GetBytes(char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex, boolean flush) {
+            if (chars == null) throw new ArgumentNullException("chars");
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            range(chars.length, charIndex, charCount, "charIndex", "charCount", "chars", false);
+            destination(bytes.length, byteIndex, "byteIndex");
+            return process(chars, charIndex, charCount, bytes, byteIndex, flush, true);
+        }
+        @Override public void Reset() { this.pending = 0; resetFallbackBuffer(); }
     }
     @Override public Byte[] GetPreamble(){return !this.byteOrderMark?EMPTY_PREAMBLE:this.bigEndian?new Byte[]{new Byte(254),new Byte(255)}:new Byte[]{new Byte(255),new Byte(254)};}
     @Override public int GetMaxByteCount(int charCount){
