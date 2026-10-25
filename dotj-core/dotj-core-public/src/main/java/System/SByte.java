@@ -104,6 +104,32 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         return new SByte(value.value == 0 ? 0 : 31 - Integer.numberOfLeadingZeros(value.value));
     }
 
+    public static SByte Parse(String text) {
+        return Parse(text, (IFormatProvider) null);
+    }
+    public static SByte Parse(String text, IFormatProvider provider) {
+        java.math.BigInteger value = Int32.selectedParseIntegerCarrier(text, provider);
+        if (value.compareTo(java.math.BigInteger.valueOf(MinValue)) < 0
+                || value.compareTo(java.math.BigInteger.valueOf(MaxValue)) > 0) {
+            throw new OverflowException("Value was outside the range of SByte.");
+        }
+        return new SByte(value.intValue());
+    }
+    public static boolean TryParse(String text, SByte[] result) {
+        return TryParse(text, null, result);
+    }
+    public static boolean TryParse(String text, IFormatProvider provider, SByte[] result) {
+        if (text == null) { result[0] = new SByte(0); return false; }
+        IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
+        try {
+            result[0] = Parse(text, resolved);
+            return true;
+        } catch (FormatException | OverflowException expected) {
+            result[0] = new SByte(0);
+            return false;
+        }
+    }
+
     public SByte(int value) {
         if (value < -128 || value > 127) {
             throw new OverflowException("Value was outside the range of SByte");
