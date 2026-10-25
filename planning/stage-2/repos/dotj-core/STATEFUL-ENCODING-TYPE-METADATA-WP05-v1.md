@@ -1,0 +1,7 @@
+# Selected Encoder and Decoder logical type metadata
+
+Batch 2191 maps public System.Text.Encoder and Decoder into the selected Type facade, including their vector arrays, exact/case-insensitive names, assembly-qualified and legacy assembly lookups, abstract/class/sealed/public/serialization flags, base types, interface absence and inheritance/assignability relations. The packaged consumer passes 54 groups from four shapes, thirty-two lookups and nine ordered relations.
+
+The compiled declaration audit compares all twenty-eight pinned native public declarations with the owned Java classes. Fourteen declarations are directly projected: the fallback properties, Reset and selected array count/write overloads. Fourteen remain explicit gaps covering Convert, pointers and spans. This declaration count is not an implementation percentage. No extra public declaration is silently substituted for the missing signatures.
+
+Array interfaces remain separately unqualified. Native private EncoderNLS/DecoderNLS runtime identities, complete reflection, source/CLR ABI, arbitrary custom stateful providers, Convert/span/pointer behavior and WP-05-T2 acceptance remain open. Existing stateful and stateless suites remain regressions. No accepted task or qualified framework is credited. Next is observable custom stateful encoder fallback dispatch, buffer calls, failure propagation and capacity recovery against the pinned runtime.
