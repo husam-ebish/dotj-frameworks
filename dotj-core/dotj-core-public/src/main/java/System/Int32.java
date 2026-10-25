@@ -325,6 +325,41 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return negative ? coefficient.negate() : coefficient;
     }
 
+    /** Selected numeric source adapters; native generic-interface constraints remain a language boundary. */
+    static BigInteger selectedCreateIntegerCarrier(Object value, int width, boolean signed, int mode) {
+        if (value == null) throw new ArgumentNullException("value");
+        BigInteger minimum = signed ? BigInteger.ONE.shiftLeft(width - 1).negate() : BigInteger.ZERO;
+        BigInteger maximum = BigInteger.ONE.shiftLeft(signed ? width - 1 : width).subtract(BigInteger.ONE);
+        BigInteger integer;
+        boolean fractionalSource = false;
+        if (value instanceof Decimal source) {
+            fractionalSource = true;
+            integer = selectedDecimalInteger(source);
+        } else if (value instanceof Float || value instanceof Double) {
+            fractionalSource = true;
+            double source = ((Number) value).doubleValue();
+            if (!Double.isFinite(source)) {
+                if (mode == 0) throw new OverflowException();
+                return Double.isNaN(source) ? BigInteger.ZERO : source < 0 ? minimum : maximum;
+            }
+            integer = BigDecimal.valueOf(source).toBigInteger();
+        } else if (value instanceof BigInteger source) integer = source;
+        else if (value instanceof SByte source) integer = BigInteger.valueOf(source.get_Value());
+        else if (value instanceof Byte source) integer = BigInteger.valueOf(source.get_Value());
+        else if (value instanceof UInt16 source) integer = BigInteger.valueOf(source.get_Value());
+        else if (value instanceof UInt32 source) integer = BigInteger.valueOf(source.get_Value());
+        else if (value instanceof Int32 source) integer = BigInteger.valueOf(source.value);
+        else if (value instanceof Long || value instanceof Integer || value instanceof Short || value instanceof java.lang.Byte) integer = BigInteger.valueOf(((Number) value).longValue());
+        else throw new UnsupportedOperationException("Selected numeric creation source type is not mapped.");
+        if (mode == 0) {
+            if (integer.compareTo(minimum) < 0 || integer.compareTo(maximum) > 0) throw new OverflowException();
+            return integer;
+        }
+        if (mode == 1 || fractionalSource) return integer.max(minimum).min(maximum);
+        BigInteger wrapped = integer.mod(BigInteger.ONE.shiftLeft(width));
+        return signed && wrapped.testBit(width - 1) ? wrapped.subtract(BigInteger.ONE.shiftLeft(width)) : wrapped;
+    }
+
     private static NumberFormatInfo selectedNumberFormatInfo(IFormatProvider provider) {
         if (provider == null) return null;
         Object supplied = provider.GetFormat(

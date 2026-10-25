@@ -15,10 +15,10 @@ def main():
  for native in j['types']:
   owner=native['fullName'];output=subprocess.run(['javap','-public','-classpath',str(a.jar),owner],check=True,text=True,capture_output=True).stdout
   declarations=[s.strip() for s in output.splitlines() if s.strip().startswith('public ')];candidate=[v for s in declarations if (v:=parser.java_method(s)) is not None]
-  primitive={'System.Boolean':'boolean','System.Int32':'int','System.String':'java.lang.String','System.Object':'java.lang.Object','System.IFormatProvider':'System.IFormatProvider','System.TypeCode':'System.TypeCode','System.UInt64':'java.math.BigInteger','System.Globalization.NumberStyles':'System.Globalization.NumberStyles',owner:owner}
+  primitive={'System.Boolean':'boolean','System.Int32':'int','System.String':'java.lang.String','System.Object':'java.lang.Object','System.IFormatProvider':'System.IFormatProvider','System.TypeCode':'System.TypeCode','TOther':'TOther','System.UInt64':'java.math.BigInteger','System.Globalization.NumberStyles':'System.Globalization.NumberStyles',owner:owner}
   methods=[];matched=set();selected=0;collapsed=0;parsing_bridges=set()
   for method in native['methods']:
-   parameters=[v['type'] for v in method['parameters']];name=method['name'];is_selected=not method['isSpecialName'] and ((not method['isStatic'] and name in ['ToString','CompareTo','Equals','GetHashCode','GetTypeCode','TryFormat']) or (method['isStatic'] and name in ['Min','Max','Clamp','DivRem','BigMul','LeadingZeroCount','TrailingZeroCount','PopCount','RotateLeft','RotateRight','IsEvenInteger','IsOddInteger','IsPow2','Log2','Sign'] or (owner=='System.SByte' and method['isStatic'] and name in ['Abs','Sign','CopySign','MaxMagnitude','MinMagnitude','IsPositive','IsNegative']) or (owner!='System.SByte' and method['isStatic'] and name=='Log2'))) or (method['isStatic'] and ((name=='Parse' and parameters in [['System.String'],['System.String','System.IFormatProvider'],['System.String','System.Globalization.NumberStyles'],['System.String','System.Globalization.NumberStyles','System.IFormatProvider']]) or (name=='TryParse' and parameters in [['System.String',owner+'&'],['System.String','System.IFormatProvider',owner+'&'],['System.String','System.Globalization.NumberStyles','System.IFormatProvider',owner+'&']])))
+   parameters=[v['type'] for v in method['parameters']];name=method['name'];is_selected=not method['isSpecialName'] and ((not method['isStatic'] and name in ['ToString','CompareTo','Equals','GetHashCode','GetTypeCode','TryFormat']) or (method['isStatic'] and name in ['Min','Max','Clamp','DivRem','BigMul','CreateChecked','CreateSaturating','CreateTruncating','LeadingZeroCount','TrailingZeroCount','PopCount','RotateLeft','RotateRight','IsEvenInteger','IsOddInteger','IsPow2','Log2','Sign'] or (owner=='System.SByte' and method['isStatic'] and name in ['Abs','Sign','CopySign','MaxMagnitude','MinMagnitude','IsPositive','IsNegative']) or (owner!='System.SByte' and method['isStatic'] and name=='Log2'))) or (method['isStatic'] and ((name=='Parse' and parameters in [['System.String'],['System.String','System.IFormatProvider'],['System.String','System.Globalization.NumberStyles'],['System.String','System.Globalization.NumberStyles','System.IFormatProvider']]) or (name=='TryParse' and parameters in [['System.String',owner+'&'],['System.String','System.IFormatProvider',owner+'&'],['System.String','System.Globalization.NumberStyles','System.IFormatProvider',owner+'&']])))
    is_span=method['isStatic'] and bool(parameters) and parameters[0] in ['System.ReadOnlySpan`1[System.Char]','System.ReadOnlySpan`1[System.Byte]'] and ((name=='Parse' and parameters[1:] in [['System.IFormatProvider'],['System.Globalization.NumberStyles','System.IFormatProvider']]) or (name=='TryParse' and parameters[1:] in [[owner+'&'],['System.IFormatProvider',owner+'&'],['System.Globalization.NumberStyles','System.IFormatProvider',owner+'&']]))
    is_selected=is_selected or is_span
    item=dict(nativeSignature=method['signature'],selected=is_selected)
@@ -34,13 +34,13 @@ def main():
      if value=='System.ReadOnlySpan`1[System.Char]':return 'java.lang.String'
      assert value in primitive,(owner,name,value)
      return primitive[value]
-    expected=dict(name=name,isStatic=method['isStatic'],genericArity=(1 if is_span else 0),returnType=project(method['returnType']),parameters=[project(v) for v in parameters])
+    expected=dict(name=name,isStatic=method['isStatic'],genericArity=(1 if is_span else method['genericArity']),returnType=project(method['returnType']),parameters=[project(v) for v in parameters])
     found=[v for v in candidate if all(v[k]==v2 for k,v2 in expected.items())];assert len(found)==1,(owner,method,expected,found)
     item.update(status=('ERASURE_COLLAPSED_TYPED_SPAN' if is_span else 'PROJECTED_SELECTED_DECLARATION'),candidateDeclaration=found[0]['declaration'],projectedJava=expected);matched.add(found[0]['declaration'])
     if is_span:collapsed+=1;parsing_bridges.add(found[0]['declaration'])
    else:item['status']='OUTSIDE_SELECTED_PROJECTION_AUDIT'
    methods.append(item)
-  assert selected==(49 if owner=='System.SByte' else 44 if owner=='System.UInt32' else 43),(owner,selected)
+  assert selected==(52 if owner=='System.SByte' else 47 if owner=='System.UInt32' else 46),(owner,selected)
   assert collapsed==10 and len(parsing_bridges)==5,(owner,collapsed,parsing_bridges)
   bridge=[v for v in candidate if v['name']=='TryFormat' and v['genericArity']==1 and v['parameters']==['System.Span<T>','int[]','System.ReadOnlySpan<java.lang.Character>','System.IFormatProvider'] and v['returnType']=='boolean'];assert len(bridge)==1,(owner,bridge)
   matched.add(bridge[0]['declaration'])

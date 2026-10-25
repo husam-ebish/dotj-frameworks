@@ -1,0 +1,9 @@
+# Small-integer numeric creation factories
+
+Batch 2159 adds CreateChecked, CreateSaturating and CreateTruncating to SByte, Byte, UInt16 and UInt32. The shared helper preserves arbitrary-width integral values, applies target-width wraparound for truncating integral sources, and clamps floating/decimal sources for saturating or truncating conversion. Checked conversion truncates fractional values toward zero before range validation and rejects nonfinite floating values; nonchecked NaN maps to zero.
+
+Pinned CoreLib 10.0.12 supplies 11,076 results from 923 source values across fifteen native numeric types. Both byte source domains are exhaustive; wider integer, decimal and IEEE inputs include range boundaries, fractions, infinities and NaN. Half inputs use exact Single bit patterns; Int128/UInt128/UInt64/BigInteger inputs use the existing BigInteger adapter. Native source construction failures are counted separately and are not treated as target conversion results.
+
+The reference Numerics assembly is checked against the repository-recorded official runtime ZIP and its pinned SHA-512. Every verifier run hashes that archive, checks its Numerics member, and compares the live validation assembly and fixture hash. This is a validation dependency, not a Java product dependency.
+
+The declaration inventory maps all 191 methods in these four pinned declared-public method lists: 151 direct projections and forty parsing overloads represented by twenty typed bridges. This does not qualify native generic constraints: Java TOther parameters do not enforce INumberBase<T> and several native source identities share a carrier. Interface arity, CLR boxing/value ABI, additional source domains, implementation-task acceptance and release qualification remain open. Runtime dependencies remain JDK-only, and all temporary artifacts stay on D:.
