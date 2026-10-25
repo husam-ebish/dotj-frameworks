@@ -45,4 +45,5 @@ public final class EncoderReplacementFallback extends EncoderFallback {
         @Override public int get_Remaining() { return Math.max(this.remaining, 0); }
         @Override public void Reset() { this.output = ""; this.position = -1; this.remaining = -1; }
     }
+    @Override public int GetHashCode() { return org.dotj.internal.text.MarvinStringHash.hash(this.replacement); }
 }

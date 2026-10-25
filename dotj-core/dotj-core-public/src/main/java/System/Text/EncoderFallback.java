@@ -13,6 +13,7 @@ public abstract class EncoderFallback {
     public abstract EncoderFallbackBuffer CreateFallbackBuffer();
     public abstract int get_MaxCharCount();
     public boolean Equals(Object value) { return this == value; }
+    public int GetHashCode() { return java.lang.System.identityHashCode(this); }
     private static final class Defaults {
         private static final EncoderFallback REPLACEMENT = new EncoderReplacementFallback();
         private static final EncoderFallback EXCEPTION = new EncoderExceptionFallback();

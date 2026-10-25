@@ -47,6 +47,7 @@ EXCEPTION_SOURCES.append(SOURCE.with_name("TimeSpan.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/TimeSpanStyles.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/DateTimeStyles.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Diagnostics/Stopwatch.java")
+EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/MarvinStringHash.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Text/DecoderFallbackBuffer.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Text/EncoderFallbackBuffer.java")
 EXCEPTION_SOURCES += [SOURCE.parent / "Text" / (name + ".java") for name in ('EncoderFallback', 'DecoderFallback', 'EncoderReplacementFallback', 'DecoderReplacementFallback', 'EncoderExceptionFallback', 'DecoderExceptionFallback')]

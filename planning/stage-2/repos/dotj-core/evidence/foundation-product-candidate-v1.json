@@ -335,27 +335,27 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallback.java",
-      "sha256": "eb77637543cf35330636b5dd99807b6b5182dd994108e6a3cc13b30c313b04be"
+      "sha256": "e8d7ec54541e17fcbca30653a7a10b11d38d3d6fd61eb6a4f5b552d0872a8bea"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderFallback.java",
-      "sha256": "af22eb6d02a55d75ecce2987df4d6440855474e7af2e31595e4c4bec69efd57e"
+      "sha256": "6a150bbd457a1c2f54df7a95dabcdf6bf70c5c4c0e347fa810ec1ada0695aa1a"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderReplacementFallback.java",
-      "sha256": "b05dc9964e299b378551b20782e0ead98c26968bed649d16a936b4829e41a80d"
+      "sha256": "58bca00a47d0c80acabc8b1d1f87a77da5e339d2ec2a53194861a258dbce87f9"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderReplacementFallback.java",
-      "sha256": "d1fbb60bf3f546eab5dde24ec71fd9a6c3fe4ede21153afdf4b4b9d98cd63eac"
+      "sha256": "8c688b53280a1e47b7ea59c74d4c1159a97e8048083296c9ee36556377d0f704"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderExceptionFallback.java",
-      "sha256": "25ef2d558f4abb5747c8c0a4aea677d02264094c1d7eeb9f79064d7401107aba"
+      "sha256": "a11ad69a82d5c8cdf68cc7d4333ed551b888a1271da920dcd3265a57707f1adc"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderExceptionFallback.java",
-      "sha256": "aac63a891ba7260f2c90b01016d752c7364bf27a532eb42892281e0cd464d97e"
+      "sha256": "7d5ed4343ef9979dbe524285ca74358fe4a9c1634a5e4c478b9f7dce3ddf93dd"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackBuffer.java",
@@ -364,10 +364,14 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderFallbackBuffer.java",
       "sha256": "382121deb114efdfcc60bf49ed817454530419965d6aa0c5a750b1866a6fe8c2"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/MarvinStringHash.java",
+      "sha256": "acde314a2dcb3a768bd3851876c17e4b2cdbea8cfd1c39e6147d17f2248601cd"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "0cf780ce8b387252a8fe71ae6d1033fecf518f5b183356e5c4c229724b89b03d",
+  "jarSha256": "55c288b1f99eab69fe22b98223f7fd7a59a8c6b2a83cb14c9315564bc34c00ac",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -484,6 +488,7 @@
     "org/dotj/internal/collections/ExceptionDataDictionary$EntryEnumerator.class",
     "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class",
     "org/dotj/internal/collections/ExceptionDataDictionary.class",
+    "org/dotj/internal/text/MarvinStringHash.class",
     "org/dotj/internal/text/Utf8Codec$Failure.class",
     "org/dotj/internal/text/Utf8Codec.class",
     "org/dotj/internal/throwing/ThrowSite.class"
@@ -560,21 +565,21 @@
     "System/Span.class": "77fd9e5af75616cd80b8d7da697c3672de19d803162a56852429c0d497e067f6",
     "System/SystemException.class": "9e55b953ad40a63b6094ef2f36524729810ad0ded17932224c302773513bd7e8",
     "System/Text/DecoderExceptionFallback$Buffer.class": "9db9d98261112867ba390b40730b983668ab87f6e34edb7cdc1846d72c13ec7b",
-    "System/Text/DecoderExceptionFallback.class": "972bc9081e668221eec3793b0fc78419443b672a0c6a81b011cfcde44b6b081b",
-    "System/Text/DecoderFallback$Defaults.class": "18370101f147b318cd78b4b3708aecb77f2e91e79e5f937248fbbc40ba87b79d",
-    "System/Text/DecoderFallback.class": "6726955c7752c703c7ca6214c518ceab03df8014a0613ddac8e4a31a17a42d80",
+    "System/Text/DecoderExceptionFallback.class": "f667c7ac3366e8a67180bbc3372ab62d3ed851fd7663a54ffb44c2e7e3a6743b",
+    "System/Text/DecoderFallback$Defaults.class": "ea9faedbb8179df30ced9aae2b02de3d78b720ca37db5199d41c7e5b983bff2c",
+    "System/Text/DecoderFallback.class": "eab1927cda90c7ea4ec2a37fa42ba7c63d29fe712a599f1f5b61fe3d0d287ccb",
     "System/Text/DecoderFallbackBuffer.class": "84a7c04bfec8dfa43370451b5ffa3df76c9ec111fff0d31009c92676f8271bfc",
     "System/Text/DecoderFallbackException.class": "ade58ef417718ac1814d5ea29751645c942b3efbf526b5754935c2b7db39f725",
     "System/Text/DecoderReplacementFallback$Buffer.class": "46a82aecf9cab47f768979511c6beeb397384e08cce0bf3b3597c63abc3b1d15",
-    "System/Text/DecoderReplacementFallback.class": "45920e2ea71f211a256122391ad330a03095847dadcfd41b541f22a6eae106a4",
+    "System/Text/DecoderReplacementFallback.class": "ebf16d61cd19fbafa51ed06629b7905aa8c3ec79d75fb63b94ff52ba212abbab",
     "System/Text/EncoderExceptionFallback$Buffer.class": "29330d5bebcb244c8efa69b51d8cac4ea18f00732b914abf0d3fac581645ff47",
-    "System/Text/EncoderExceptionFallback.class": "284f8d8dee159470961b1b6adb578d468800fd468f9adfb2f85b945523c96686",
-    "System/Text/EncoderFallback$Defaults.class": "bdd7e9230b38964f24686dd118a954239647562721864814e3211c06703eb58c",
-    "System/Text/EncoderFallback.class": "305109b299da71412886a9ee93284632f31e4aa3f9d35bf244ad76a158619fc9",
+    "System/Text/EncoderExceptionFallback.class": "76f6621b93d3bc308e71b3e71cd274d240c3dce7da451c7cfcb7daf9e3ed5af0",
+    "System/Text/EncoderFallback$Defaults.class": "139346749e5f0b787eef406dece357bcbde0566999cf41a5b94ed5fa53bed11d",
+    "System/Text/EncoderFallback.class": "f3eadf208ede71b0505727f73ed1b7ed3003d29d7ad30fc89d1aaef872573c81",
     "System/Text/EncoderFallbackBuffer.class": "d4cbb50088a49e29c5e7245aba69d328e217c336c2f6e106a71c02b9eb959c8b",
     "System/Text/EncoderFallbackException.class": "7fa4f5e381a26568df3b0b8c295dbfbbc06e6f746a7d46448ed733179f8d3612",
     "System/Text/EncoderReplacementFallback$Buffer.class": "e4884c69e981af4213e1cbc0daf02e1eab9e029307f3c0abbb51a55ef0045c42",
-    "System/Text/EncoderReplacementFallback.class": "b4be03f1bfa313ae523809bb4a8969f7e0007a2ec5a60c62de729616e1dec33a",
+    "System/Text/EncoderReplacementFallback.class": "ec9206a48254f79af0d5fd1a64663b82c90a0b18cc778eb81b33cfe86a6c8c85",
     "System/Text/Encoding$DefaultUtf8.class": "93d3ed9ffdd559bc53117d97a50eb0e0890246a7f148b0e1a90546ecdcd00bbd",
     "System/Text/Encoding.class": "af676fc817946ecc73e58d1ce581eca892b6413417202fef639e8f313b262aca",
     "System/Text/UTF8Encoding.class": "d1f9d90c2c1b75cebac2750d52bce6ad58a348edf68441d67a5b1f53c11b2128",
@@ -599,6 +604,7 @@
     "org/dotj/internal/collections/ExceptionDataDictionary$EntryEnumerator.class": "4eaffd200f7d2147e295be6466c495c5523131bba7cec617ecf82ce5c54d811b",
     "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class": "710e4a6cf6b6059cba760946ac7fab3f0ce577e7ee00913278eb472f187d57a9",
     "org/dotj/internal/collections/ExceptionDataDictionary.class": "9951edd436a4417795b98aed34efee090f751ecdda3072a3640715f3f280f16d",
+    "org/dotj/internal/text/MarvinStringHash.class": "0d20605f0397766c60dd64f198fc6329d6a1f433261f002a488bb9490fb7e523",
     "org/dotj/internal/text/Utf8Codec$Failure.class": "900ae378c9ba8a7ea00ab14abfcd3f39a078aca68ac129eaac8be7deffb74ba4",
     "org/dotj/internal/text/Utf8Codec.class": "4762214fd23835db24fbb4fc60ffd6957c403097510afe13482fbb292983b1ea",
     "org/dotj/internal/throwing/ThrowSite.class": "a1ee91996e5d293c4a7ab0c77ac612bd796739bfa8acfa3646374c6e7058ab25"

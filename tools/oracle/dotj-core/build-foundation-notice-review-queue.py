@@ -68,7 +68,9 @@ def main():
             "sharedIdentifierShingleSamples": upstream[path].get("sharedIdentifierShingleSamples", []),
             "noticeApplicabilityDecision": "REVIEW_REQUIRED",
             "supplementalAdjacencyEvidence": "throw-site-upstream-adjacency-v1.json"
-            if path.endswith("/org/dotj/internal/throwing/ThrowSite.java") else None,
+            if path.endswith("/org/dotj/internal/throwing/ThrowSite.java") else
+            "fallback-hash-source-adjacency-v10.0.12.json"
+            if path.endswith("/org/dotj/internal/text/MarvinStringHash.java") else None,
         })
 
     found = sum(row["directNameMatchedUpstreamFile"] == "FOUND" for row in rows)

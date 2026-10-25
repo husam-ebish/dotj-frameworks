@@ -22,4 +22,5 @@ public final class EncoderExceptionFallback extends EncoderFallback {
         @Override public boolean MovePrevious() { return false; }
         @Override public int get_Remaining() { return 0; }
     }
+    @Override public int GetHashCode() { return 654; }
 }
