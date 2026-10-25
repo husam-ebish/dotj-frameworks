@@ -344,6 +344,20 @@ public class UnicodeEncoding extends Encoding {
             completed[0] = consumed == charCount && (!flush || carry == 0)
                     && (fallback == null || fallback.get_Remaining() == 0);
         }
+        @Override public void Convert(ReadOnlySpan<Character> chars, Span<Byte> bytes, boolean flush,
+                int[] charsUsed, int[] bytesUsed, boolean[] completed) {
+            char[] input = snapshotChars(chars);
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            byte[] raw = new byte[bytes.get_Length()];
+            bytes.CopyTo(Span.OfUtf8Bytes(raw));
+            Byte[] output = new Byte[raw.length];
+            for (int i = 0; i < raw.length; i++) output[i] = new Byte(raw[i] & 255);
+            try { Convert(input, 0, input.length, output, 0, output.length, flush, charsUsed, bytesUsed, completed); }
+            finally {
+                for (int i = 0; i < raw.length; i++) raw[i] = (byte)output[i].get_Value();
+                ReadOnlySpan.OfUtf8Bytes(raw).CopyTo(bytes);
+            }
+        }
         @Override public void Reset() { this.pending = 0; resetFallbackBuffer(); }
     }
     @Override public Byte[] GetPreamble(){return !this.byteOrderMark?EMPTY_PREAMBLE:this.bigEndian?new Byte[]{new Byte(254),new Byte(255)}:new Byte[]{new Byte(255),new Byte(254)};}
