@@ -38,6 +38,10 @@ public abstract class Encoder {
         GetBytes(chars, 0, 0, bytes, 0, true);
         resetFallbackBuffer();
     }
+    public void Convert(char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex,
+            int byteCount, boolean flush, int[] charsUsed, int[] bytesUsed, boolean[] completed) {
+        throw new UnsupportedOperationException("Convert for this encoder is outside the selected candidate surface.");
+    }
     public abstract int GetByteCount(char[] chars, int index, int count, boolean flush);
     public abstract int GetBytes(char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex, boolean flush);
     public int GetByteCount(ReadOnlySpan<Character> chars, boolean flush) {
