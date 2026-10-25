@@ -51,6 +51,7 @@ class GenericEncodingTrySpansProbe {
         public int GetByteCount(char[] chars,int index,int count) { throw intercepted(); }
         public String GetString(Byte[] b) { throw intercepted(); }
         public int GetCharCount(Byte[] b) { throw intercepted(); }
+        public int GetCharCount(Byte[] bytes,int index,int count) { throw intercepted(); }
         public char[] GetChars(Byte[] b) { throw intercepted(); }
     }
     static class AssertionErrorAdapter extends RuntimeException { }

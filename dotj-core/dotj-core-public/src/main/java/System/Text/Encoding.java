@@ -139,11 +139,7 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         GetChars(bytes, index, count, result, 0);
         return result;
     }
-    public int GetCharCount(Byte[] bytes, int index, int count) {
-        if (bytes == null) throw new ArgumentNullException("bytes");
-        validateRange(bytes.length, index, count, "bytes");
-        return GetCharCount(java.util.Arrays.copyOfRange(bytes, index, index + count));
-    }
+    public abstract int GetCharCount(Byte[] bytes, int index, int count);
     private static void validateRange(int length, int index, int count, String rangeParameter) {
         if (index < 0) throw new ArgumentOutOfRangeException("index");
         if (count < 0) throw new ArgumentOutOfRangeException("count");
@@ -293,7 +289,10 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         if (bytes == null) throw new ArgumentNullException("bytes");
         return GetString(bytes, 0, bytes.length);
     }
-    public abstract int GetCharCount(Byte[] bytes);
+    public int GetCharCount(Byte[] bytes) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        return GetCharCount(bytes, 0, bytes.length);
+    }
     public char[] GetChars(Byte[] bytes) {
         if (bytes == null) throw new ArgumentNullException("bytes");
         return GetChars(bytes, 0, bytes.length);
