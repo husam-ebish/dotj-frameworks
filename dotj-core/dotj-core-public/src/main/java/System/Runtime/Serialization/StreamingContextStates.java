@@ -124,6 +124,12 @@ public final class StreamingContextStates implements IFormattable, IComparable, 
         written[0] = text.length();
         return true;
     }
+    /** Java Object carries the selected CLR Enum argument domain. */
+    public boolean HasFlag(Object flag) {
+        if (flag == null) throw new ArgumentNullException("flag");
+        if (!(flag instanceof StreamingContextStates styles)) throw new ArgumentException("Flag must be the same enum type");
+        return (this.value & styles.value) == styles.value;
+    }
     @Override public int CompareTo(Object other) {
         if (other == null) return 1;
         if (other instanceof StreamingContextStates flags) return java.lang.Integer.compare(this.value, flags.value);
