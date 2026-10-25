@@ -1,0 +1,1805 @@
+{
+  "schemaVersion": 1,
+  "types": [
+    {
+      "fullName": "System.SByte",
+      "nativeDeclaredMethodCount": 52,
+      "selectedProjectedMethodCount": 12,
+      "outsideSelectedMethodCount": 40,
+      "methods": [
+        {
+          "nativeSignature": "SByte Abs(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Clamp(SByte, SByte, SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Int32 CompareTo(System.Object)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int CompareTo(java.lang.Object);",
+          "projectedJava": {
+            "name": "CompareTo",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "java.lang.Object"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Int32 CompareTo(SByte)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int CompareTo(System.SByte);",
+          "projectedJava": {
+            "name": "CompareTo",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "SByte CopySign(SByte, SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte CreateChecked[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte CreateSaturating[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte CreateTruncating[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "System.ValueTuple`2[System.SByte,System.SByte] DivRem(SByte, SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean Equals(System.Object)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean Equals(java.lang.Object);",
+          "projectedJava": {
+            "name": "Equals",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "java.lang.Object"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean Equals(SByte)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean Equals(System.SByte);",
+          "projectedJava": {
+            "name": "Equals",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Int32 GetHashCode()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int GetHashCode();",
+          "projectedJava": {
+            "name": "GetHashCode",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "System.TypeCode GetTypeCode()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public System.TypeCode GetTypeCode();",
+          "projectedJava": {
+            "name": "GetTypeCode",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "System.TypeCode",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "Boolean IsEvenInteger(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean IsNegative(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean IsOddInteger(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean IsPositive(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean IsPow2(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte LeadingZeroCount(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Log2(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Max(SByte, SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte MaxMagnitude(SByte, SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Min(SByte, SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte MinMagnitude(SByte, SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Parse(System.String, System.Globalization.NumberStyles)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Parse(System.String, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Parse(System.String)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte PopCount(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte RotateLeft(SByte, Int32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "SByte RotateRight(SByte, Int32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Int32 Sign(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "System.String ToString()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString();",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString(System.String)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(java.lang.String);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "java.lang.String"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString(System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(System.IFormatProvider);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString(System.String, System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "SByte TrailingZeroCount(SByte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "TryFormat",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "char[]",
+              "int[]",
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "TryFormat",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "byte[]",
+              "int[]",
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, SByte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], SByte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], SByte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, System.IFormatProvider, SByte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, System.Globalization.NumberStyles, System.IFormatProvider, SByte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, SByte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, SByte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, SByte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, SByte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        }
+      ],
+      "fields": [
+        {
+          "nativeField": {
+            "name": "MaxValue",
+            "type": "System.SByte",
+            "isStatic": true,
+            "isLiteral": true,
+            "value": "127"
+          },
+          "candidateNamePresent": false
+        },
+        {
+          "nativeField": {
+            "name": "MinValue",
+            "type": "System.SByte",
+            "isStatic": true,
+            "isLiteral": true,
+            "value": "-128"
+          },
+          "candidateNamePresent": false
+        }
+      ],
+      "typedSpanBridge": "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+      "typedSpanBridgeNativeOverloadCount": 2,
+      "extraJavaPublicMethods": [
+        "public byte get_Value();",
+        "public boolean ToBoolean(System.IFormatProvider);",
+        "public char ToChar(System.IFormatProvider);",
+        "public byte ToSByte(System.IFormatProvider);",
+        "public short ToByte(System.IFormatProvider);",
+        "public short ToInt16(System.IFormatProvider);",
+        "public int ToUInt16(System.IFormatProvider);",
+        "public int ToInt32(System.IFormatProvider);",
+        "public long ToUInt32(System.IFormatProvider);",
+        "public long ToInt64(System.IFormatProvider);",
+        "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+        "public float ToSingle(System.IFormatProvider);",
+        "public double ToDouble(System.IFormatProvider);",
+        "public System.Decimal ToDecimal(System.IFormatProvider);",
+        "public System.DateTime ToDateTime(System.IFormatProvider);",
+        "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();",
+        "public java.lang.String toString();"
+      ],
+      "javaPublicDeclarations": [
+        "public final class System.SByte implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {",
+        "public System.SByte(int);",
+        "public byte get_Value();",
+        "public java.lang.String ToString();",
+        "public System.TypeCode GetTypeCode();",
+        "public boolean ToBoolean(System.IFormatProvider);",
+        "public char ToChar(System.IFormatProvider);",
+        "public byte ToSByte(System.IFormatProvider);",
+        "public short ToByte(System.IFormatProvider);",
+        "public short ToInt16(System.IFormatProvider);",
+        "public int ToUInt16(System.IFormatProvider);",
+        "public int ToInt32(System.IFormatProvider);",
+        "public long ToUInt32(System.IFormatProvider);",
+        "public long ToInt64(System.IFormatProvider);",
+        "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+        "public float ToSingle(System.IFormatProvider);",
+        "public double ToDouble(System.IFormatProvider);",
+        "public System.Decimal ToDecimal(System.IFormatProvider);",
+        "public System.DateTime ToDateTime(System.IFormatProvider);",
+        "public java.lang.String ToString(System.IFormatProvider);",
+        "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+        "public java.lang.String ToString(java.lang.String);",
+        "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+        "public int CompareTo(java.lang.Object);",
+        "public int CompareTo(System.SByte);",
+        "public boolean Equals(System.SByte);",
+        "public boolean Equals(java.lang.Object);",
+        "public int GetHashCode();",
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();",
+        "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+        "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+        "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+        "public java.lang.String toString();"
+      ]
+    },
+    {
+      "fullName": "System.Byte",
+      "nativeDeclaredMethodCount": 46,
+      "selectedProjectedMethodCount": 12,
+      "outsideSelectedMethodCount": 34,
+      "methods": [
+        {
+          "nativeSignature": "Byte Clamp(Byte, Byte, Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Int32 CompareTo(System.Object)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int CompareTo(java.lang.Object);",
+          "projectedJava": {
+            "name": "CompareTo",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "java.lang.Object"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Int32 CompareTo(Byte)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int CompareTo(System.Byte);",
+          "projectedJava": {
+            "name": "CompareTo",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "System.Byte"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Byte CreateChecked[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte CreateSaturating[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte CreateTruncating[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "System.ValueTuple`2[System.Byte,System.Byte] DivRem(Byte, Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean Equals(System.Object)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean Equals(java.lang.Object);",
+          "projectedJava": {
+            "name": "Equals",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "java.lang.Object"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean Equals(Byte)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean Equals(System.Byte);",
+          "projectedJava": {
+            "name": "Equals",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.Byte"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Int32 GetHashCode()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int GetHashCode();",
+          "projectedJava": {
+            "name": "GetHashCode",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "System.TypeCode GetTypeCode()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public System.TypeCode GetTypeCode();",
+          "projectedJava": {
+            "name": "GetTypeCode",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "System.TypeCode",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "Boolean IsEvenInteger(Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean IsOddInteger(Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean IsPow2(Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte LeadingZeroCount(Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Log2(Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Max(Byte, Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Min(Byte, Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Parse(System.String)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Parse(System.String, System.Globalization.NumberStyles)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte Parse(System.String, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte PopCount(Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte RotateLeft(Byte, Int32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Byte RotateRight(Byte, Int32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Int32 Sign(Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "System.String ToString(System.String, System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString(System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(System.IFormatProvider);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString(System.String)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(java.lang.String);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "java.lang.String"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString();",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "Byte TrailingZeroCount(Byte)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "TryFormat",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "byte[]",
+              "int[]",
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "TryFormat",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "char[]",
+              "int[]",
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, Byte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, Byte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, Byte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, System.Globalization.NumberStyles, System.IFormatProvider, Byte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, System.IFormatProvider, Byte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], Byte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, Byte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], Byte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, Byte ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        }
+      ],
+      "fields": [
+        {
+          "nativeField": {
+            "name": "MaxValue",
+            "type": "System.Byte",
+            "isStatic": true,
+            "isLiteral": true,
+            "value": "255"
+          },
+          "candidateNamePresent": false
+        },
+        {
+          "nativeField": {
+            "name": "MinValue",
+            "type": "System.Byte",
+            "isStatic": true,
+            "isLiteral": true,
+            "value": "0"
+          },
+          "candidateNamePresent": false
+        }
+      ],
+      "typedSpanBridge": "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+      "typedSpanBridgeNativeOverloadCount": 2,
+      "extraJavaPublicMethods": [
+        "public short get_Value();",
+        "public boolean ToBoolean(System.IFormatProvider);",
+        "public char ToChar(System.IFormatProvider);",
+        "public byte ToSByte(System.IFormatProvider);",
+        "public short ToByte(System.IFormatProvider);",
+        "public short ToInt16(System.IFormatProvider);",
+        "public int ToUInt16(System.IFormatProvider);",
+        "public int ToInt32(System.IFormatProvider);",
+        "public long ToUInt32(System.IFormatProvider);",
+        "public long ToInt64(System.IFormatProvider);",
+        "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+        "public float ToSingle(System.IFormatProvider);",
+        "public double ToDouble(System.IFormatProvider);",
+        "public System.Decimal ToDecimal(System.IFormatProvider);",
+        "public System.DateTime ToDateTime(System.IFormatProvider);",
+        "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();",
+        "public java.lang.String toString();"
+      ],
+      "javaPublicDeclarations": [
+        "public final class System.Byte implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {",
+        "public System.Byte(int);",
+        "public short get_Value();",
+        "public java.lang.String ToString();",
+        "public System.TypeCode GetTypeCode();",
+        "public boolean ToBoolean(System.IFormatProvider);",
+        "public char ToChar(System.IFormatProvider);",
+        "public byte ToSByte(System.IFormatProvider);",
+        "public short ToByte(System.IFormatProvider);",
+        "public short ToInt16(System.IFormatProvider);",
+        "public int ToUInt16(System.IFormatProvider);",
+        "public int ToInt32(System.IFormatProvider);",
+        "public long ToUInt32(System.IFormatProvider);",
+        "public long ToInt64(System.IFormatProvider);",
+        "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+        "public float ToSingle(System.IFormatProvider);",
+        "public double ToDouble(System.IFormatProvider);",
+        "public System.Decimal ToDecimal(System.IFormatProvider);",
+        "public System.DateTime ToDateTime(System.IFormatProvider);",
+        "public java.lang.String ToString(System.IFormatProvider);",
+        "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+        "public java.lang.String ToString(java.lang.String);",
+        "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+        "public int CompareTo(java.lang.Object);",
+        "public int CompareTo(System.Byte);",
+        "public boolean Equals(System.Byte);",
+        "public boolean Equals(java.lang.Object);",
+        "public int GetHashCode();",
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();",
+        "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+        "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+        "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+        "public java.lang.String toString();"
+      ]
+    },
+    {
+      "fullName": "System.UInt16",
+      "nativeDeclaredMethodCount": 46,
+      "selectedProjectedMethodCount": 12,
+      "outsideSelectedMethodCount": 34,
+      "methods": [
+        {
+          "nativeSignature": "UInt16 Clamp(UInt16, UInt16, UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Int32 CompareTo(System.Object)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int CompareTo(java.lang.Object);",
+          "projectedJava": {
+            "name": "CompareTo",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "java.lang.Object"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Int32 CompareTo(UInt16)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int CompareTo(System.UInt16);",
+          "projectedJava": {
+            "name": "CompareTo",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "System.UInt16"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "UInt16 CreateChecked[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 CreateSaturating[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 CreateTruncating[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "System.ValueTuple`2[System.UInt16,System.UInt16] DivRem(UInt16, UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean Equals(UInt16)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean Equals(System.UInt16);",
+          "projectedJava": {
+            "name": "Equals",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.UInt16"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean Equals(System.Object)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean Equals(java.lang.Object);",
+          "projectedJava": {
+            "name": "Equals",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "java.lang.Object"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Int32 GetHashCode()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int GetHashCode();",
+          "projectedJava": {
+            "name": "GetHashCode",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "System.TypeCode GetTypeCode()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public System.TypeCode GetTypeCode();",
+          "projectedJava": {
+            "name": "GetTypeCode",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "System.TypeCode",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "Boolean IsEvenInteger(UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean IsOddInteger(UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean IsPow2(UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 LeadingZeroCount(UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Log2(UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Max(UInt16, UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Min(UInt16, UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Parse(System.String, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Parse(System.String, System.Globalization.NumberStyles)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Parse(System.String)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 PopCount(UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 RotateLeft(UInt16, Int32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt16 RotateRight(UInt16, Int32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Int32 Sign(UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "System.String ToString(System.String)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(java.lang.String);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "java.lang.String"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString(System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(System.IFormatProvider);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString(System.String, System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString();",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "UInt16 TrailingZeroCount(UInt16)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "TryFormat",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "byte[]",
+              "int[]",
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "TryFormat",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "char[]",
+              "int[]",
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, UInt16 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, System.Globalization.NumberStyles, System.IFormatProvider, UInt16 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], UInt16 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], UInt16 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, UInt16 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, System.IFormatProvider, UInt16 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, UInt16 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, UInt16 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, UInt16 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        }
+      ],
+      "fields": [
+        {
+          "nativeField": {
+            "name": "MaxValue",
+            "type": "System.UInt16",
+            "isStatic": true,
+            "isLiteral": true,
+            "value": "65535"
+          },
+          "candidateNamePresent": false
+        },
+        {
+          "nativeField": {
+            "name": "MinValue",
+            "type": "System.UInt16",
+            "isStatic": true,
+            "isLiteral": true,
+            "value": "0"
+          },
+          "candidateNamePresent": false
+        }
+      ],
+      "typedSpanBridge": "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+      "typedSpanBridgeNativeOverloadCount": 2,
+      "extraJavaPublicMethods": [
+        "public int get_Value();",
+        "public boolean ToBoolean(System.IFormatProvider);",
+        "public char ToChar(System.IFormatProvider);",
+        "public byte ToSByte(System.IFormatProvider);",
+        "public short ToByte(System.IFormatProvider);",
+        "public short ToInt16(System.IFormatProvider);",
+        "public int ToUInt16(System.IFormatProvider);",
+        "public int ToInt32(System.IFormatProvider);",
+        "public long ToUInt32(System.IFormatProvider);",
+        "public long ToInt64(System.IFormatProvider);",
+        "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+        "public float ToSingle(System.IFormatProvider);",
+        "public double ToDouble(System.IFormatProvider);",
+        "public System.Decimal ToDecimal(System.IFormatProvider);",
+        "public System.DateTime ToDateTime(System.IFormatProvider);",
+        "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();",
+        "public java.lang.String toString();"
+      ],
+      "javaPublicDeclarations": [
+        "public final class System.UInt16 implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {",
+        "public System.UInt16(int);",
+        "public int get_Value();",
+        "public java.lang.String ToString();",
+        "public System.TypeCode GetTypeCode();",
+        "public boolean ToBoolean(System.IFormatProvider);",
+        "public char ToChar(System.IFormatProvider);",
+        "public byte ToSByte(System.IFormatProvider);",
+        "public short ToByte(System.IFormatProvider);",
+        "public short ToInt16(System.IFormatProvider);",
+        "public int ToUInt16(System.IFormatProvider);",
+        "public int ToInt32(System.IFormatProvider);",
+        "public long ToUInt32(System.IFormatProvider);",
+        "public long ToInt64(System.IFormatProvider);",
+        "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+        "public float ToSingle(System.IFormatProvider);",
+        "public double ToDouble(System.IFormatProvider);",
+        "public System.Decimal ToDecimal(System.IFormatProvider);",
+        "public System.DateTime ToDateTime(System.IFormatProvider);",
+        "public java.lang.String ToString(System.IFormatProvider);",
+        "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+        "public java.lang.String ToString(java.lang.String);",
+        "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+        "public int CompareTo(java.lang.Object);",
+        "public int CompareTo(System.UInt16);",
+        "public boolean Equals(System.UInt16);",
+        "public boolean Equals(java.lang.Object);",
+        "public int GetHashCode();",
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();",
+        "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+        "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+        "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+        "public java.lang.String toString();"
+      ]
+    },
+    {
+      "fullName": "System.UInt32",
+      "nativeDeclaredMethodCount": 47,
+      "selectedProjectedMethodCount": 12,
+      "outsideSelectedMethodCount": 35,
+      "methods": [
+        {
+          "nativeSignature": "UInt64 BigMul(UInt32, UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Clamp(UInt32, UInt32, UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Int32 CompareTo(System.Object)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int CompareTo(java.lang.Object);",
+          "projectedJava": {
+            "name": "CompareTo",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "java.lang.Object"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Int32 CompareTo(UInt32)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int CompareTo(System.UInt32);",
+          "projectedJava": {
+            "name": "CompareTo",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "System.UInt32"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "UInt32 CreateChecked[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 CreateSaturating[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 CreateTruncating[TOther](TOther)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "System.ValueTuple`2[System.UInt32,System.UInt32] DivRem(UInt32, UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean Equals(UInt32)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean Equals(System.UInt32);",
+          "projectedJava": {
+            "name": "Equals",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "System.UInt32"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean Equals(System.Object)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean Equals(java.lang.Object);",
+          "projectedJava": {
+            "name": "Equals",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "java.lang.Object"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Int32 GetHashCode()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public int GetHashCode();",
+          "projectedJava": {
+            "name": "GetHashCode",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "System.TypeCode GetTypeCode()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public System.TypeCode GetTypeCode();",
+          "projectedJava": {
+            "name": "GetTypeCode",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "System.TypeCode",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "Boolean IsEvenInteger(UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean IsOddInteger(UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean IsPow2(UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 LeadingZeroCount(UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Log2(UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Max(UInt32, UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Min(UInt32, UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Parse(System.String, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Parse(System.String, System.Globalization.NumberStyles)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Parse(System.String)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 PopCount(UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 RotateLeft(UInt32, Int32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "UInt32 RotateRight(UInt32, Int32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Int32 Sign(UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "System.String ToString(System.String)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(java.lang.String);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "java.lang.String"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString(System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(System.IFormatProvider);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString(System.String, System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": [
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "System.String ToString()",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public java.lang.String ToString();",
+          "projectedJava": {
+            "name": "ToString",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "java.lang.String",
+            "parameters": []
+          }
+        },
+        {
+          "nativeSignature": "UInt32 TrailingZeroCount(UInt32)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "TryFormat",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "byte[]",
+              "int[]",
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "TryFormat",
+            "isStatic": false,
+            "genericArity": 0,
+            "returnType": "boolean",
+            "parameters": [
+              "char[]",
+              "int[]",
+              "java.lang.String",
+              "System.IFormatProvider"
+            ]
+          }
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, UInt32 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, System.Globalization.NumberStyles, System.IFormatProvider, UInt32 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], UInt32 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], UInt32 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, UInt32 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.String, System.IFormatProvider, UInt32 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, UInt32 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, UInt32 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        },
+        {
+          "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, UInt32 ByRef)",
+          "selected": false,
+          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+        }
+      ],
+      "fields": [
+        {
+          "nativeField": {
+            "name": "MaxValue",
+            "type": "System.UInt32",
+            "isStatic": true,
+            "isLiteral": true,
+            "value": "4294967295"
+          },
+          "candidateNamePresent": false
+        },
+        {
+          "nativeField": {
+            "name": "MinValue",
+            "type": "System.UInt32",
+            "isStatic": true,
+            "isLiteral": true,
+            "value": "0"
+          },
+          "candidateNamePresent": false
+        }
+      ],
+      "typedSpanBridge": "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+      "typedSpanBridgeNativeOverloadCount": 2,
+      "extraJavaPublicMethods": [
+        "public long get_Value();",
+        "public boolean ToBoolean(System.IFormatProvider);",
+        "public char ToChar(System.IFormatProvider);",
+        "public byte ToSByte(System.IFormatProvider);",
+        "public short ToByte(System.IFormatProvider);",
+        "public short ToInt16(System.IFormatProvider);",
+        "public int ToUInt16(System.IFormatProvider);",
+        "public int ToInt32(System.IFormatProvider);",
+        "public long ToUInt32(System.IFormatProvider);",
+        "public long ToInt64(System.IFormatProvider);",
+        "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+        "public float ToSingle(System.IFormatProvider);",
+        "public double ToDouble(System.IFormatProvider);",
+        "public System.Decimal ToDecimal(System.IFormatProvider);",
+        "public System.DateTime ToDateTime(System.IFormatProvider);",
+        "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();",
+        "public java.lang.String toString();"
+      ],
+      "javaPublicDeclarations": [
+        "public final class System.UInt32 implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {",
+        "public System.UInt32(long);",
+        "public long get_Value();",
+        "public java.lang.String ToString();",
+        "public System.TypeCode GetTypeCode();",
+        "public boolean ToBoolean(System.IFormatProvider);",
+        "public char ToChar(System.IFormatProvider);",
+        "public byte ToSByte(System.IFormatProvider);",
+        "public short ToByte(System.IFormatProvider);",
+        "public short ToInt16(System.IFormatProvider);",
+        "public int ToUInt16(System.IFormatProvider);",
+        "public int ToInt32(System.IFormatProvider);",
+        "public long ToUInt32(System.IFormatProvider);",
+        "public long ToInt64(System.IFormatProvider);",
+        "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+        "public float ToSingle(System.IFormatProvider);",
+        "public double ToDouble(System.IFormatProvider);",
+        "public System.Decimal ToDecimal(System.IFormatProvider);",
+        "public System.DateTime ToDateTime(System.IFormatProvider);",
+        "public java.lang.String ToString(System.IFormatProvider);",
+        "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+        "public java.lang.String ToString(java.lang.String);",
+        "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+        "public int CompareTo(java.lang.Object);",
+        "public int CompareTo(System.UInt32);",
+        "public boolean Equals(System.UInt32);",
+        "public boolean Equals(java.lang.Object);",
+        "public int GetHashCode();",
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();",
+        "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+        "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+        "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+        "public java.lang.String toString();"
+      ]
+    }
+  ],
+  "selectedProjectedMethodCount": 48,
+  "oracleEvidence": "small-integer-signatures-contract-v10.0.12.json",
+  "oracleSha256": "93f598654fa6b0417c7a8ed66262c31be19db0facb672bf3e54eaf63a37be607",
+  "candidateJarSha256": "6379b31576ed464b5194cfc68f23a4d63a2b3284aace1b05ae24f83fafa4b430",
+  "qualification": "SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN"
+}
