@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "casesPassed": 5041,
   "compileRejections": [
-    "ByteDestination",
     "ByteFormat"
   ],
   "omittedNativeInterfaces": [
@@ -28,7 +27,6 @@
     "System.Numerics.ISubtractionOperators`3[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
     "System.Numerics.IUnaryPlusOperators`2[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
     "System.Numerics.IUnaryNegationOperators`2[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-    "System.IUtf8SpanFormattable",
     "System.IUtf8SpanParsable`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
     "System.Numerics.IShiftOperators`3[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
     "System.Numerics.IMinMaxValue`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -37,6 +35,6 @@
   ],
   "oracleEvidence": "sbyte-span-contract-v10.0.12.json",
   "oracleSha256": "0a7970ce344665fc9a778c19de5d06f0c40ea6ef41b9290b51061135e2581e60",
-  "candidateJarSha256": "ba40d77535b656d2b50176e3cd4adf1d970f681a6fb07077ff1d1bbbdedb456a",
+  "candidateJarSha256": "85b1bf65b3bc4e2bb591920f9df69d6a73e58ebc535159afeae89fa87b5baddc",
   "qualification": "BOUNDED_SBYTE_CHAR_SPAN_PASS; OTHER_ENUM_METHODS_BYREF_LIFETIME_LANGUAGE_AND_RELEASE_OPEN"
 }

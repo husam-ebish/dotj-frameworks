@@ -8,10 +8,10 @@ b=Path('D:/AI/Implementation/dotj Frameworks');path=EVIDENCE/'sbyte-format-contr
 assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
 assert j['typeName']=='System.SByte' and j['valueCount']==256 and len(j['cases'])==3288 and len(j['defaults'])==512
 cases=[]
-interfaces=[v for v in j['interfaces'] if v in ['System.IComparable','System.IConvertible','System.ISpanFormattable','System.IFormattable']]
-assert len(interfaces)==4
+interfaces=[v for v in j['interfaces'] if v in ['System.IComparable','System.IConvertible','System.ISpanFormattable','System.IFormattable','System.IUtf8SpanFormattable']]
+assert len(interfaces)==5
 expected='new Type[]{'+','.join('Type.GetType('+json.dumps(v)+')' for v in interfaces)+'}'
-cases.append('{Type type=Type.GetType("System.SByte");Type contract=Type.GetType("System.IFormattable");SByte value=new SByte(-1);Type[] interfaces=type.GetInterfaces();check(java.util.Arrays.equals(interfaces,'+expected+') && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(value) && type.GetInterface("IFormattable")==contract && !Type.GetType("System.IUtf8SpanFormattable").IsAssignableFrom(type),0);interfaces[0]=null;check(type.GetInterfaces()[0]!=null,0);}')
+cases.append('{Type type=Type.GetType("System.SByte");Type contract=Type.GetType("System.IFormattable");SByte value=new SByte(-1);Type[] interfaces=type.GetInterfaces();check(java.util.Arrays.equals(interfaces,'+expected+') && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(value) && type.GetInterface("IFormattable")==contract && Type.GetType("System.IUtf8SpanFormattable").IsAssignableFrom(type),0);interfaces[0]=null;check(type.GetInterfaces()[0]!=null,0);}')
 for row in j['defaults']:
  provider='CUSTOM' if row['provider']=='Custom' else 'null'
  for expression,key in [('value.ToString()','plain'),('value.toString()','plain'),(f'value.ToString((IFormatProvider){provider})','providerText'),(f'((IConvertible)value).ToString({provider})','convertible')]:
@@ -29,7 +29,7 @@ subprocess.run(['javac','--release','21','-Xmaxerrs','3','-cp',str(a.jar),'-d',s
 subprocess.run(['java','-cp',str(a.jar)+';'+str(w),'SByteFormatProbe'],check=True)
 assert len(cases)==11913
 output=subprocess.run(['javap','-public','-classpath',str(a.jar),'System.SByte'],capture_output=True,text=True,check=True).stdout
-assert 'public final class System.SByte implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable {' in output
+assert 'public final class System.SByte implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {' in output
 for signature in ['public java.lang.String ToString();','public java.lang.String ToString(System.IFormatProvider);','public java.lang.String ToString(java.lang.String);','public java.lang.String ToString(java.lang.String, System.IFormatProvider);']:assert signature in output
 record=dict(oracleEvidence=path.name,schemaVersion=1,casesPassed=len(cases),nativeDefaults=len(j['defaults']),nativeFormats=len(j['cases']),omittedNativeInterfaces=[v for v in j['interfaces'] if v not in interfaces],oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(a.jar.read_bytes()).hexdigest(),qualification='BOUNDED_SBYTE_FORMAT_PASS; OTHER_FORMATS_NUMERIC_INTERFACES_CULTURES_AND_RELEASE_OPEN')
 (EVIDENCE/'sbyte-format-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n')

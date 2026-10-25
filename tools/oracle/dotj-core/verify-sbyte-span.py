@@ -17,8 +17,8 @@ def main():
     assert oracle['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-sbyte-span-contract.ps1').read_bytes()).hexdigest()
     cases=[]
     assert oracle['enumType']=='System.SByte' and not oracle['providerThrowsIfQueried'] and oracle['valueCount']==14 and oracle['utf8Assignable'] and oracle['utf8Instance']
-    expected_interfaces='new Type[]{'+','.join('Type.GetType('+json.dumps(name)+')' for name in oracle['interfaces'] if name in ['System.IComparable','System.IConvertible','System.ISpanFormattable','System.IFormattable'])+'}'
-    cases.append('{Type type=Type.GetType("System.SByte");Type contract=Type.GetType("System.ISpanFormattable");Type utf8=Type.GetType("System.IUtf8SpanFormattable");SByte value=new SByte(3);Type[] interfaces=type.GetInterfaces();check(java.util.Arrays.equals(interfaces,'+expected_interfaces+') && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(value) && !utf8.IsAssignableFrom(type) && !utf8.IsInstanceOfType(value) && type.GetInterface("IUtf8SpanFormattable")==null && type.GetInterface("ISpanFormattable")==contract,0);interfaces[0]=null;check(type.GetInterfaces()[0]!=null,0);}')
+    expected_interfaces='new Type[]{'+','.join('Type.GetType('+json.dumps(name)+')' for name in oracle['interfaces'] if name in ['System.IComparable','System.IConvertible','System.ISpanFormattable','System.IFormattable','System.IUtf8SpanFormattable'])+'}'
+    cases.append('{Type type=Type.GetType("System.SByte");Type contract=Type.GetType("System.ISpanFormattable");Type utf8=Type.GetType("System.IUtf8SpanFormattable");SByte value=new SByte(3);Type[] interfaces=type.GetInterfaces();check(java.util.Arrays.equals(interfaces,'+expected_interfaces+') && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(value) && utf8.IsAssignableFrom(type) && utf8.IsInstanceOfType(value) && type.GetInterface("IUtf8SpanFormattable")==utf8 && type.GetInterface("ISpanFormattable")==contract,0);interfaces[0]=null;check(type.GetInterfaces()[0]!=null,0);}')
     for row in oracle['texts']:
         element='char' if row['encoding']=='Char' else 'byte';factory='OfChars' if element=='char' else 'OfUtf8Bytes';carrier='Character' if element=='char' else 'Byte';source_kind='ReadOnlySpan' if row['readOnly'] else 'Span';units=oracle['seeds'][row['encoding']];array='new '+element+'[]{'+','.join(('(byte)' if element=='byte' else '')+str(unit) for unit in units)+'}'
         expected=json.dumps(''.join(chr(unit) for unit in row['textUnits']))
@@ -42,16 +42,16 @@ def main():
     subprocess.run(['javac','-Xmaxerrs','5','--release','21','-cp',str(args.jar),'-d',str(work),str(source)],check=True)
     subprocess.run(['java','-Duser.timezone=Europe/Zurich','-cp',str(args.jar)+';'+str(work),'SByteSpanProbe'],check=True)
     output=subprocess.run(['javap','-public','-classpath',str(args.jar),'System.SByte'],check=True,capture_output=True,text=True).stdout
-    assert 'implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable {' in output
-    for signature in ['public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);','public boolean TryFormat(System.Span<java.lang.Character>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);']:assert signature in output
+    assert 'implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {' in output
+    for signature in ['public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);','public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);']:assert signature in output
     rejected=[]
-    for name,call in [('ByteDestination','Span.OfUtf8Bytes(new byte[1]),new int[1],ReadOnlySpan.OfChars(new char[0]),null'),('ByteFormat','Span.OfChars(new char[1]),new int[1],ReadOnlySpan.OfUtf8Bytes(new byte[0]),null')]:
+    for name,call in [('ByteFormat','Span.OfChars(new char[1]),new int[1],ReadOnlySpan.OfUtf8Bytes(new byte[0]),null')]:
         path=work/('Bad'+name+'.java');path.write_text('import System.Span;import System.ReadOnlySpan;import System.SByte;class Bad'+name+'{void test(){new SByte(0).TryFormat('+call+');}}',encoding='utf-8');result=subprocess.run(['javac','-Xmaxerrs','1','--release','21','-cp',str(args.jar),'-d',str(work),str(path)],capture_output=True,text=True)
         assert result.returncode!=0 and ('incompatible types' in result.stderr or 'no suitable method' in result.stderr),result.stderr
         rejected.append(name)
-    record=dict(schemaVersion=1,casesPassed=len(cases),compileRejections=rejected,omittedNativeInterfaces=[v for v in oracle['interfaces'] if v not in ['System.IComparable','System.IConvertible','System.ISpanFormattable','System.IFormattable']],oracleEvidence=oracle_path.name,oracleSha256=hashlib.sha256(oracle_path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_SBYTE_CHAR_SPAN_PASS; OTHER_ENUM_METHODS_BYREF_LIFETIME_LANGUAGE_AND_RELEASE_OPEN')
+    record=dict(schemaVersion=1,casesPassed=len(cases),compileRejections=rejected,omittedNativeInterfaces=[v for v in oracle['interfaces'] if v not in ['System.IComparable','System.IConvertible','System.ISpanFormattable','System.IFormattable','System.IUtf8SpanFormattable']],oracleEvidence=oracle_path.name,oracleSha256=hashlib.sha256(oracle_path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_SBYTE_CHAR_SPAN_PASS; OTHER_ENUM_METHODS_BYREF_LIFETIME_LANGUAGE_AND_RELEASE_OPEN')
     (EVIDENCE/'sbyte-span-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
-    print('PASS SByte Char spans: 5041 pinned groups and two compile rejections')
+    print('PASS SByte Char spans: 5041 pinned groups and one compile rejection')
 
 
 if __name__=='__main__':main()
