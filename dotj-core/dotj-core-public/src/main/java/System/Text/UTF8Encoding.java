@@ -225,12 +225,11 @@ public class UTF8Encoding extends Encoding {
             if (byteCount < 0) throw new ArgumentOutOfRangeException("byteCount");
             if (charIndex > chars.length - charCount) throw new ArgumentOutOfRangeException("chars");
             if (byteIndex > bytes.length - byteCount) throw new ArgumentOutOfRangeException("bytes");
-            if (customProvider()) throw new UnsupportedOperationException(
-                    "Custom-provider Convert is outside the selected candidate surface.");
             Byte[] target = java.util.Arrays.copyOfRange(bytes, byteIndex, byteIndex + byteCount);
             int[] progress;
             try {
-                progress = convertPredefined(chars, charIndex, charCount, target, flush);
+                progress = customProvider() ? convertCustom(chars, charIndex, charCount, target, 0, flush)
+                        : convertPredefined(chars, charIndex, charCount, target, flush);
             } finally {
                 java.lang.System.arraycopy(target, 0, bytes, byteIndex, byteCount);
             }
@@ -239,6 +238,67 @@ public class UTF8Encoding extends Encoding {
             EncoderFallbackBuffer existing = existingFallbackBuffer();
             completed[0] = progress[0] == charCount && (!flush || this.pending == 0)
                     && (existing == null || existing.get_Remaining() == 0);
+        }
+        private int[] convertCustom(char[] chars, int index, int count, Byte[] bytes, int offset, boolean flush) {
+            int end = index + count;
+            int[] state = {index, 0};
+            EncoderFallbackBuffer existing = existingFallbackBuffer();
+            boolean hasLeftover = this.pending != 0 || existing != null && existing.get_Remaining() > 0;
+            if (!hasLeftover) {
+                fastCustom(chars, end, bytes, offset, state, false);
+                if (state[0] == end) return new int[] {state[0] - index, state[1]};
+            }
+            boolean checkExisting = true;
+            if (this.pending != 0) {
+                if (state[0] == end && !flush) checkExisting = false;
+                else {
+                    char previous = this.pending;
+                    this.pending = 0;
+                    if (state[0] < end && Character.isLowSurrogate(chars[state[0]])) {
+                        if (bytes.length - offset - state[1] < 4) customCapacityFailure();
+                        byte[] encoded = Utf8Codec.encode(new String(new char[] {previous, chars[state[0]++]}), true);
+                        for (int n = 0; n < encoded.length; n++) bytes[offset + state[1] + n] = new Byte(encoded[n] & 255);
+                        state[1] += encoded.length;
+                        checkExisting = false;
+                    } else fallbackBuffer().Fallback(previous, -1);
+                }
+            }
+            existing = existingFallbackBuffer();
+            if (checkExisting && existing != null && existing.get_Remaining() > 0) {
+                int drained = drainCustom(existing, bytes, offset + state[1], false);
+                if (drained < 0) {
+                    state[1] += -drained - 1;
+                    return customConvertOverflow(state, index);
+                }
+                state[1] += drained;
+            }
+            fastCustom(chars, end, bytes, offset, state, false);
+            if (state[0] == end) return new int[] {state[0] - index, state[1]};
+            EncoderFallbackBuffer buffer = fallbackBuffer();
+            while (state[0] < end) {
+                char first = chars[state[0]];
+                if (Character.isHighSurrogate(first) && state[0] + 1 == end && !flush) {
+                    this.pending = first;
+                    state[0] = end;
+                    break;
+                }
+                if (scalarWidth(chars, state[0], end) != 0) break;
+                boolean finished = true;
+                if (buffer.Fallback(first, state[0] - index)) {
+                    int drained = drainCustom(buffer, bytes, offset + state[1], false);
+                    finished = drained >= 0;
+                    state[1] += finished ? drained : -drained - 1;
+                }
+                state[0]++;
+                if (!finished) break;
+                fastCustom(chars, end, bytes, offset, state, false);
+            }
+            if (state[0] < end || buffer.get_Remaining() > 0) return customConvertOverflow(state, index);
+            return new int[] {state[0] - index, state[1]};
+        }
+        private int[] customConvertOverflow(int[] state, int index) {
+            if (state[1] == 0) customCapacityFailure();
+            return new int[] {state[0] - index, state[1]};
         }
         private int[] convertPredefined(char[] chars, int index, int count, Byte[] target, boolean flush) {
             int end = index + count, cursor = index, written = 0;

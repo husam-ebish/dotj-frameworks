@@ -34,11 +34,12 @@ class StatefulEncoderConvertProbe {
             catch (java.lang.NullPointerException | java.lang.ArrayIndexOutOfBoundsException expected) { check(expected.getClass() == (i % 2 == 0 ? java.lang.NullPointerException.class : java.lang.ArrayIndexOutOfBoundsException.class)); }
             e.Convert(new char[] {'A'}, 0, 1, bytes, 0, 4, true, a, b, c); check(a[0] == 1 && b[0] == 1 && c[0] && bytes[0].get_Value() == 65);
         }
-        context = "Explicit custom provider boundary";
+        context = "Custom provider ordinary dispatch";
         Encoder custom = new UTF8Encoding().GetEncoder(); custom.set_Fallback(new EncoderFallback() { public int get_MaxCharCount() { return 1; } public EncoderFallbackBuffer CreateFallbackBuffer() { return new EncoderReplacementFallback("!").CreateFallbackBuffer(); } });
         int[] a = {-7}, b = {-8}; boolean[] c = {true}; Byte[] bytes = target(4);
-        try { custom.Convert(new char[] {'A'}, 0, 1, bytes, 0, 4, true, a, b, c); throw new AssertionError("Custom provider boundary accepted"); } catch (UnsupportedOperationException expected) { check(true); }
-        check(a[0] == -7 && b[0] == -8 && c[0] && Arrays.stream(bytes).allMatch(v -> v.get_Value() == 99));
+        custom.Convert(new char[] {'A'}, 0, 1, bytes, 0, 4, true, a, b, c);
+        check(a[0] == 1 && b[0] == 1 && c[0] && bytes[0].get_Value() == 65);
+        check(Arrays.stream(bytes).skip(1).allMatch(v -> v.get_Value() == 99));
         java.lang.System.out.println("PASS selected stateful Encoder Convert groups=" + groups);
     }
 }

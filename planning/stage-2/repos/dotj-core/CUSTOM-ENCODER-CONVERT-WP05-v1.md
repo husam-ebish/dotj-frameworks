@@ -1,0 +1,11 @@
+# Selected custom fallback-provider Encoder Convert
+
+Batch 2202 removes the custom-provider boundary from the selected UTF-8 Encoder.Convert array path. The custom path shares the established scalar, fallback-rune and cursor handling, while returning partial progress after output has been written and retaining remaining fallback output for the next call. Zero-progress overflow still resets the buffer and throws; callback failures preserve the native timing of destination writes and output assignments.
+
+Forty-four emitted native profiles combine four replacement templates with eleven modes: ordinary behavior, Remaining reporting zero, throwing Remaining/GetNextChar/Fallback/MovePrevious/Reset, Fallback returning false, rewind acceptance, null factories and throwing factories. The seven sequences per profile exercise capacities, pending high surrogates, later count/write calls, fallback replacement, direct buffer filling and Reset. Direct IL calls capture native out values even when a callback throws. The packaged consumer passes 9,856 groups across 308 sequences and 1,760 calls, including exact factory counts and all five buffer callback counts, full destinations, both used outputs and completion.
+
+The earlier Encoder Convert consumer now checks ordinary custom-provider dispatch in place of its superseded unsupported boundary. Its 56,894 groups, the 32,502 boundary/alias/cross-API groups, existing 72,294 Encoder groups, 53,970 Encoder boundary groups, 5,236 custom stateful Encoder groups and span/static encoding regressions remain required checks. The compiled declaration inventory remains 19/28; this change adds behavior to the same selected signature.
+
+Generic Encoder-base Convert, Decoder Convert, arbitrary callback reentrancy, pointer/span Convert, full reflection/source ABI and WP-05 acceptance remain open. The existing combined source-adjacency record pins the semantic reference files; E01 notice applicability remains unresolved. No accepted task, qualified framework or rights clearance is credited.
+
+Next is selected predefined-fallback UTF-8 Decoder.Convert arrays against the already pinned native progress/recovery baseline, with explicit output-carrier and unimplemented-form boundaries.
