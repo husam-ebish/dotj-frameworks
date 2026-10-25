@@ -183,6 +183,16 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         return new ValueTuple<>(new SByte((byte) (left.value / right.value)), new SByte(left.value % right.value));
     }
 
+    public static <TOther> SByte CreateChecked(TOther value) {
+        return new SByte(Int32.selectedCreateIntegerCarrier(value, 8, true, 0).intValue());
+    }
+    public static <TOther> SByte CreateSaturating(TOther value) {
+        return new SByte(Int32.selectedCreateIntegerCarrier(value, 8, true, 1).intValue());
+    }
+    public static <TOther> SByte CreateTruncating(TOther value) {
+        return new SByte(Int32.selectedCreateIntegerCarrier(value, 8, true, 2).intValue());
+    }
+
     public SByte(int value) {
         if (value < -128 || value > 127) {
             throw new OverflowException("Value was outside the range of SByte");

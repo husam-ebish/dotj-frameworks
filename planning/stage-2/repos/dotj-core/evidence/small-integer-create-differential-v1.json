@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "casesPassed": 11076,
+  "referenceRuntimeArchiveSha512": "844fa99e16fd6f44e0a7c29def7a82d7846902334d6a955248a9519a4dddb3f5acceb9c9223bef69f8c83b8ae2417537e5b76dddf79fb7117dc85b5039bc1297",
+  "referenceNumericsSha256": "8ac94fb810c092a9297a903762e79a75ae07d7229d0721540c391f86d3d5d220",
+  "nativeSourceTypes": [
+    "System.SByte",
+    "System.Byte",
+    "System.Int16",
+    "System.UInt16",
+    "System.Int32",
+    "System.UInt32",
+    "System.Int64",
+    "System.UInt64",
+    "System.Int128",
+    "System.UInt128",
+    "System.Single",
+    "System.Double",
+    "System.Half",
+    "System.Decimal",
+    "System.Numerics.BigInteger"
+  ],
+  "sourceAdapters": "Half to Float; Int128/UInt128/UInt64/BigInteger to BigInteger; native generic constraints remain open",
+  "oracleEvidence": "small-integer-create-contract-v10.0.12.json",
+  "oracleSha256": "839285f7a8c08f1e26a3977671d60d847940131cfa4fa453ac10c577b4ceb766",
+  "candidateJarSha256": "2c63ca73e2afd50a99667b9bcc29a4d2c8bd95a6f814dc72c2c9c4f9521760a9",
+  "qualification": "BOUNDED_SMALL_INTEGER_FACTORIES_PASS; GENERIC_SOURCE_CONSTRAINTS_VALUE_ABI_AND_ACCEPTANCE_OPEN"
+}

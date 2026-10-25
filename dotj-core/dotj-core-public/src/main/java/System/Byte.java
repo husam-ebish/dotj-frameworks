@@ -149,6 +149,16 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         return new ValueTuple<>(new Byte(left.value / right.value), new Byte(left.value % right.value));
     }
 
+    public static <TOther> Byte CreateChecked(TOther value) {
+        return new Byte(Int32.selectedCreateIntegerCarrier(value, 8, false, 0).intValue());
+    }
+    public static <TOther> Byte CreateSaturating(TOther value) {
+        return new Byte(Int32.selectedCreateIntegerCarrier(value, 8, false, 1).intValue());
+    }
+    public static <TOther> Byte CreateTruncating(TOther value) {
+        return new Byte(Int32.selectedCreateIntegerCarrier(value, 8, false, 2).intValue());
+    }
+
     public Byte(int value) {
         if (value < 0 || value > 255) {
             throw new OverflowException("Value was outside the range of Byte");

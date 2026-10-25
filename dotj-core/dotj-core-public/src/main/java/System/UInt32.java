@@ -155,6 +155,16 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
         return java.math.BigInteger.valueOf(left.value).multiply(java.math.BigInteger.valueOf(right.value));
     }
 
+    public static <TOther> UInt32 CreateChecked(TOther value) {
+        return new UInt32(Int32.selectedCreateIntegerCarrier(value, 32, false, 0).longValue());
+    }
+    public static <TOther> UInt32 CreateSaturating(TOther value) {
+        return new UInt32(Int32.selectedCreateIntegerCarrier(value, 32, false, 1).longValue());
+    }
+    public static <TOther> UInt32 CreateTruncating(TOther value) {
+        return new UInt32(Int32.selectedCreateIntegerCarrier(value, 32, false, 2).longValue());
+    }
+
     public UInt32(long value) {
         if (value < 0 || value > 4294967295L) {
             throw new OverflowException("Value was outside the range of UInt32");

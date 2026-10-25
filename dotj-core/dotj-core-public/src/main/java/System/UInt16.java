@@ -149,6 +149,16 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
         return new ValueTuple<>(new UInt16(left.value / right.value), new UInt16(left.value % right.value));
     }
 
+    public static <TOther> UInt16 CreateChecked(TOther value) {
+        return new UInt16(Int32.selectedCreateIntegerCarrier(value, 16, false, 0).intValue());
+    }
+    public static <TOther> UInt16 CreateSaturating(TOther value) {
+        return new UInt16(Int32.selectedCreateIntegerCarrier(value, 16, false, 1).intValue());
+    }
+    public static <TOther> UInt16 CreateTruncating(TOther value) {
+        return new UInt16(Int32.selectedCreateIntegerCarrier(value, 16, false, 2).intValue());
+    }
+
     public UInt16(int value) {
         if (value < 0 || value > 65535) {
             throw new OverflowException("Value was outside the range of UInt16");
