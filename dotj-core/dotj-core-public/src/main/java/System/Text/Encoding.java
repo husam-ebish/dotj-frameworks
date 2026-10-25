@@ -15,6 +15,17 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     private boolean readOnly = true;
     protected Encoding() { }
     public static Encoding get_UTF8() { return DefaultUtf8.VALUE; }
+    public static Byte[] Convert(Encoding srcEncoding, Encoding dstEncoding, Byte[] bytes) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        return Convert(srcEncoding, dstEncoding, bytes, 0, bytes.length);
+    }
+    public static Byte[] Convert(Encoding srcEncoding, Encoding dstEncoding, Byte[] bytes,
+            int index, int count) {
+        if (srcEncoding == null) throw new ArgumentNullException("srcEncoding");
+        if (dstEncoding == null) throw new ArgumentNullException("dstEncoding");
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        return dstEncoding.GetBytes(srcEncoding.GetChars(bytes, index, count));
+    }
     public static Encoding GetEncoding(int codepage) {
         if (codepage == 65001) return get_UTF8();
         if (codepage == 0) return DefaultUtf8.DEFAULT_VALUE;
