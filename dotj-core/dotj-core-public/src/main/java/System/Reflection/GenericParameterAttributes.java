@@ -4,10 +4,13 @@ package System.Reflection;
 
 import System.IFormattable;
 import System.IFormatProvider;
+import System.IComparable;
+import System.Int32;
+import System.ArgumentException;
 import System.FormatException;
 
 /** Selected CLR generic-parameter flags, including unnamed Int32 bit patterns. */
-public final class GenericParameterAttributes implements IFormattable {
+public final class GenericParameterAttributes implements IFormattable, IComparable {
     public static final GenericParameterAttributes None = new GenericParameterAttributes("None", 0);
     public static final GenericParameterAttributes Covariant = new GenericParameterAttributes("Covariant", 1);
     public static final GenericParameterAttributes Contravariant = new GenericParameterAttributes("Contravariant", 2);
@@ -57,6 +60,13 @@ public final class GenericParameterAttributes implements IFormattable {
         }
         return remaining == 0 && !parts.isEmpty() ? String.join(", ", parts) : java.lang.Integer.toString(this.value);
     }
+    @Override public int CompareTo(Object other) {
+        if (other == null) return 1;
+        if (other instanceof GenericParameterAttributes flags) return java.lang.Integer.compare(this.value, flags.value);
+        throw new ArgumentException("Object must be the same enum type");
+    }
+    public boolean Equals(Object other) { return equals(other); }
+    public Int32 GetHashCode() { return new Int32(this.value); }
     @Override public String toString() { return ToString(); }
 
 }
