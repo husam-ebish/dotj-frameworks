@@ -422,6 +422,17 @@ public class UnicodeEncoding extends Encoding {
             completed[0] = consumed[0] == byteCount && (!flush || this.pendingByte < 0 && this.pendingHigh == 0)
                     && (buffer == null || buffer.get_Remaining() == 0);
         }
+        @Override public void Convert(ReadOnlySpan<Byte> bytes, Span<Character> chars, boolean flush,
+                int[] bytesUsed, int[] charsUsed, boolean[] completed) {
+            if (bytesUsed == null || charsUsed == null || completed == null) throw new java.lang.NullPointerException("Output carrier");
+            if (bytesUsed.length == 0 || charsUsed.length == 0 || completed.length == 0) throw new java.lang.ArrayIndexOutOfBoundsException("Output carrier");
+            Byte[] input = snapshotBytes(bytes);
+            if (chars == null) throw new ArgumentNullException("chars");
+            char[] output = new char[chars.get_Length()];
+            chars.CopyTo(Span.OfChars(output));
+            try { Convert(input, 0, input.length, output, 0, output.length, flush, bytesUsed, charsUsed, completed); }
+            finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
+        }
         @Override public void Reset() { this.pendingByte = -1; this.pendingHigh = 0; resetFallbackBuffer(); }
     }
     @Override public Encoder GetEncoder() { return new UnicodeEncoder(this); }
