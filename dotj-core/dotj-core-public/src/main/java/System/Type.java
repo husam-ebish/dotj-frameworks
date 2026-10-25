@@ -1513,7 +1513,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class)) {
             return true;
         }
-        if (this.definition == IConvertible.class && candidate.definition == Int32.class) {
+        if (this.definition == IConvertible.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class)) {
             return true;
         }
         if (this.definition == IConvertible.class && candidate.definition == String.class) {
@@ -1628,7 +1628,7 @@ public abstract class Type extends MemberInfo {
             return value instanceof String || value instanceof Integer || value instanceof Int32 || value instanceof DBNull
                     || value instanceof Byte || value instanceof SByte
                     || value instanceof UInt16 || value instanceof UInt32
-                    || value instanceof DateTime || value instanceof Decimal;
+                    || value instanceof DateTime || value instanceof Decimal || value instanceof DateTimeStyles;
         }
         if (this.definition == ISerializable.class) {
             return value instanceof DBNull || value instanceof Exception;
@@ -1904,7 +1904,7 @@ public abstract class Type extends MemberInfo {
         }
 
         if (this.definition == DateTimeStyles.class) {
-            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IFormattable.class)};
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
         if (this.definition == DateTime.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IFormattable.class),
