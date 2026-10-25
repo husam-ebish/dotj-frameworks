@@ -52,6 +52,16 @@ public abstract class Encoding {
     public abstract int GetBytes(String s, int charIndex, int charCount, Byte[] bytes, int byteIndex);
     public abstract int GetBytes(char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex);
     public abstract int GetChars(Byte[] bytes, int byteIndex, int byteCount, char[] chars, int charIndex);
+    public Byte[] GetBytes(char[] chars) {
+        if (chars == null) throw new ArgumentNullException("chars");
+        return GetBytes(chars, 0, chars.length);
+    }
+    public int GetByteCount(char[] chars) {
+        if (chars == null) throw new ArgumentNullException("chars");
+        return GetByteCount(chars, 0, chars.length);
+    }
+    public abstract int GetMaxByteCount(int charCount);
+    public abstract int GetMaxCharCount(int byteCount);
     public abstract int get_CodePage();
     public abstract String get_EncodingName();
     public boolean get_IsReadOnly() { return true; }

@@ -1,0 +1,14 @@
+param([Parameter(Mandatory)][string]$OutputPath,[string]$InputPath=(Join-Path $PSScriptRoot '../../../planning/stage-2/repos/dotj-core/evidence/utf8-replacement-contract-v10.0.12.json'))
+$ErrorActionPreference='Stop';Set-StrictMode -Version Latest
+$coreHash=(Get-FileHash -LiteralPath ([object].Assembly.Location) -Algorithm SHA256).Hash.ToLowerInvariant();if([Environment]::Version.ToString() -ne '10.0.12' -or $coreHash -ne '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'){throw 'Pinned CoreLib required'}
+$input=Get-Content -LiteralPath $InputPath -Raw -Encoding UTF8|ConvertFrom-Json;$rows=[Collections.Generic.List[object]]::new();$capacityRows=[Collections.Generic.List[object]]::new()
+function Failure($errorRecord){$e=$errorRecord.Exception;while(($e -is [Management.Automation.RuntimeException] -or $e -is [Reflection.TargetInvocationException]) -and $null -ne $e.InnerException){$e=$e.InnerException};$r=[ordered]@{ok=$false;exception=$e.GetType().FullName;hResult=$e.HResult;paramName=$e.ParamName};if($e -is [Text.EncoderFallbackException]){$r.index=$e.Index;$r.charUnknown=[int]$e.CharUnknown};return $r}
+foreach($emit in @($false,$true)){foreach($strict in @($false,$true)){$encoding=[Text.UTF8Encoding]::new($emit,$strict)
+foreach($name in @('GetBytes','GetByteCount')){$method=[Text.Encoding].GetMethod($name,[type[]]@([char[]]));foreach($sourceId in -1..($input.textRows.Count-1)){$arguments=[object[]]::new(1);if($sourceId -ge 0){$arguments[0]=[char[]][int[]]$input.textRows[$sourceId].units}
+ try{$value=$method.Invoke($encoding,$arguments);$result=[ordered]@{ok=$true};if($name -eq 'GetBytes'){$result.bytes=[int[]]$value}else{$result.count=[int]$value}}catch{$result=Failure $_}
+ $rows.Add([ordered]@{emit=$emit;strict=$strict;method=$name;sourceId=$sourceId;result=$result})
+}}
+foreach($count in @(-2147483648,-1,0,1,2,3,7,255,65535,715827880,715827881,715827882,2147483646,2147483647)){foreach($name in @('GetMaxByteCount','GetMaxCharCount')){try{$value=$encoding.$name($count);$result=[ordered]@{ok=$true;count=$value}}catch{$result=Failure $_};$capacityRows.Add([ordered]@{emit=$emit;strict=$strict;method=$name;input=$count;result=$result})}}
+}}
+$record=[ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash;oracleSha256=(Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant();inputSha256=(Get-FileHash -LiteralPath $InputPath -Algorithm SHA256).Hash.ToLowerInvariant();rows=$rows;capacityRows=$capacityRows;qualification='SELECTED_CHARACTER_ARRAY_AND_CAPACITY_ONLY; STATEFUL_SPAN_POINTER_FALLBACK_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN'}
+[IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 10)+"`n",[Text.UTF8Encoding]::new($false));Write-Output "PASS pinned UTF-8 arrays/capacity: $($rows.Count) array and $($capacityRows.Count) capacity controls"
