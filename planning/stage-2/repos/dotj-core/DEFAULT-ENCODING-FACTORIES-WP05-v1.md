@@ -1,0 +1,11 @@
+# Default Encoding encoder and decoder factories
+
+Batch 2214 replaces the generic Encoding.GetEncoder/GetDecoder unsupported paths with fresh private delegated wrappers. Array counts and writes call the underlying Encoding virtual array methods directly, leaving input validation with that implementation. Flush is ignored as in native default wrappers. Decoder's non-flush and flush array forms share the same underlying delegate. The wrappers inherit the selected generic conversion/span protocols and keep their own fallback properties and buffers.
+
+The pinned runtime corpus contains 912 cases varying direction, count multiplier, count/write failure or negative return, flush, count/write/reset operation, and six input forms including null source, negative index/count, zero count and an index beyond the array. The packaged consumer passes 4,560 groups for result or exact exception, destination contents, ordered delegate trace, fresh-object/local-buffer properties and remaining fallback output. Each wrapper is given a local AB replacement and a pending buffer; reset clears that buffer only after its delegated calls succeed. Independent factory calls return distinct objects and buffers, and the initial fallback is null.
+
+The JAR inventory and Encoding source-to-class map add the two private classes explicitly. The product still has 94 Java source files and JDK-only runtime requirements. Existing UTF8-specific factories remain overrides. Native fixture and differential outputs are hash-bound and LF-pinned. The owned map, distribution, rights-input, compiled selected API audit and retained encoding regressions pass.
+
+Evidence is bounded to selected default array delegation and local fallback state. Default wrapper Convert and span dispatch still need dedicated qualification. Direct pointer/lifetime behavior, complete metadata/source ABI, E01 applicability and WP-05 task acceptance remain open. No accepted implementation task, qualified framework or rights clearance is credited.
+
+Next is default Encoding factory Convert qualification over array and heap span carriers, with exact delegate traces, capacity halving, output aliases, partial writes and fallback completion state.
