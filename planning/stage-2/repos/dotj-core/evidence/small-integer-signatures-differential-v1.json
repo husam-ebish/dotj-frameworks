@@ -661,8 +661,8 @@
     {
       "fullName": "System.Byte",
       "nativeDeclaredMethodCount": 46,
-      "selectedProjectedMethodCount": 23,
-      "outsideSelectedMethodCount": 23,
+      "selectedProjectedMethodCount": 24,
+      "outsideSelectedMethodCount": 22,
       "methods": [
         {
           "nativeSignature": "Byte Clamp(Byte, Byte, Byte)",
@@ -849,8 +849,18 @@
         },
         {
           "nativeSignature": "Byte Log2(Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.Byte Log2(System.Byte);",
+          "projectedJava": {
+            "name": "Log2",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "Byte Max(Byte, Byte)",
@@ -1192,6 +1202,7 @@
         "public static boolean IsEvenInteger(System.Byte);",
         "public static boolean IsOddInteger(System.Byte);",
         "public static boolean IsPow2(System.Byte);",
+        "public static System.Byte Log2(System.Byte);",
         "public System.Byte(int);",
         "public short get_Value();",
         "public java.lang.String ToString();",
@@ -1230,8 +1241,8 @@
     {
       "fullName": "System.UInt16",
       "nativeDeclaredMethodCount": 46,
-      "selectedProjectedMethodCount": 23,
-      "outsideSelectedMethodCount": 23,
+      "selectedProjectedMethodCount": 24,
+      "outsideSelectedMethodCount": 22,
       "methods": [
         {
           "nativeSignature": "UInt16 Clamp(UInt16, UInt16, UInt16)",
@@ -1418,8 +1429,18 @@
         },
         {
           "nativeSignature": "UInt16 Log2(UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt16 Log2(System.UInt16);",
+          "projectedJava": {
+            "name": "Log2",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt16 Max(UInt16, UInt16)",
@@ -1761,6 +1782,7 @@
         "public static boolean IsEvenInteger(System.UInt16);",
         "public static boolean IsOddInteger(System.UInt16);",
         "public static boolean IsPow2(System.UInt16);",
+        "public static System.UInt16 Log2(System.UInt16);",
         "public System.UInt16(int);",
         "public int get_Value();",
         "public java.lang.String ToString();",
@@ -1799,8 +1821,8 @@
     {
       "fullName": "System.UInt32",
       "nativeDeclaredMethodCount": 47,
-      "selectedProjectedMethodCount": 23,
-      "outsideSelectedMethodCount": 24,
+      "selectedProjectedMethodCount": 24,
+      "outsideSelectedMethodCount": 23,
       "methods": [
         {
           "nativeSignature": "UInt64 BigMul(UInt32, UInt32)",
@@ -1992,8 +2014,18 @@
         },
         {
           "nativeSignature": "UInt32 Log2(UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt32 Log2(System.UInt32);",
+          "projectedJava": {
+            "name": "Log2",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt32 Max(UInt32, UInt32)",
@@ -2335,6 +2367,7 @@
         "public static boolean IsEvenInteger(System.UInt32);",
         "public static boolean IsOddInteger(System.UInt32);",
         "public static boolean IsPow2(System.UInt32);",
+        "public static System.UInt32 Log2(System.UInt32);",
         "public System.UInt32(long);",
         "public long get_Value();",
         "public java.lang.String ToString();",
@@ -2371,9 +2404,9 @@
       ]
     }
   ],
-  "selectedProjectedMethodCount": 97,
+  "selectedProjectedMethodCount": 100,
   "oracleEvidence": "small-integer-signatures-contract-v10.0.12.json",
   "oracleSha256": "93f598654fa6b0417c7a8ed66262c31be19db0facb672bf3e54eaf63a37be607",
-  "candidateJarSha256": "6b98b55e72e38e7baaf24c17f473593f702d44f8e2cc14ecd433e3e7f5d50259",
+  "candidateJarSha256": "c392286a60e4f032da146d74639f76d962f948574895561530681a2cf1bac18e",
   "qualification": "SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN"
 }
