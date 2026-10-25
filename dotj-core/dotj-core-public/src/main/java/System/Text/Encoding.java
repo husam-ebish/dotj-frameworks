@@ -12,6 +12,7 @@ import System.ArgumentOutOfRangeException;
 import System.OutOfMemoryException;
 import System.OverflowException;
 import System.InvalidOperationException;
+import System.NotSupportedException;
 
 /** Selected stateless encoding surface; stateful and pointer overloads remain open. */
 public abstract class Encoding implements ICloneable, java.lang.Cloneable {
@@ -176,22 +177,42 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         if (value == null) throw new ArgumentNullException("value");
         this.decoderFallback = value;
     }
-    private void requireUtf8Metadata() {
-        if (!(this instanceof UTF8Encoding)) {
-            throw new UnsupportedOperationException("Metadata for this encoding is not supported by the candidate.");
-        }
+    private record Metadata(String bodyName, String encodingName, String headerName, String webName,
+            int windowsCodePage, boolean browserDisplay, boolean browserSave,
+            boolean mailDisplay, boolean mailSave) { }
+    private static final Metadata CP_1200 = new Metadata("utf-16", "Unicode", "utf-16", "utf-16", 1200, false, true, false, false);
+    private static final Metadata CP_1201 = new Metadata("utf-16BE", "Unicode (Big-Endian)", "utf-16BE", "utf-16BE", 1200, false, false, false, false);
+    private static final Metadata CP_12000 = new Metadata("utf-32", "Unicode (UTF-32)", "utf-32", "utf-32", 1200, false, false, false, false);
+    private static final Metadata CP_12001 = new Metadata("utf-32BE", "Unicode (UTF-32 Big-Endian)", "utf-32BE", "utf-32BE", 1200, false, false, false, false);
+    private static final Metadata CP_20127 = new Metadata("us-ascii", "US-ASCII", "us-ascii", "us-ascii", 1252, false, false, true, true);
+    private static final Metadata CP_28591 = new Metadata("iso-8859-1", "Western European (ISO)", "iso-8859-1", "iso-8859-1", 1252, true, true, true, true);
+    private static final Metadata CP_65000 = new Metadata("utf-7", "Unicode (UTF-7)", "utf-7", "utf-7", 1200, false, false, true, true);
+    private static final Metadata CP_65001 = new Metadata("utf-8", "Unicode (UTF-8)", "utf-8", "utf-8", 1200, true, true, true, true);
+    private Metadata metadata() {
+        return switch (this.codePage) {
+            case 1200 -> CP_1200;
+            case 1201 -> CP_1201;
+            case 12000 -> CP_12000;
+            case 12001 -> CP_12001;
+            case 20127 -> CP_20127;
+            case 28591 -> CP_28591;
+            case 65000 -> CP_65000;
+            case 65001 -> CP_65001;
+            default -> throw new NotSupportedException("No data is available for encoding " + this.codePage
+                    + ". For information on defining a custom encoding, see the documentation for the Encoding.RegisterProvider method.");
+        };
     }
-    public String get_WebName() { requireUtf8Metadata(); return "utf-8"; }
-    public String get_BodyName() { requireUtf8Metadata(); return "utf-8"; }
-    public String get_HeaderName() { requireUtf8Metadata(); return "utf-8"; }
-    public int get_WindowsCodePage() { requireUtf8Metadata(); return 1200; }
-    public boolean get_IsBrowserDisplay() { requireUtf8Metadata(); return true; }
-    public boolean get_IsBrowserSave() { requireUtf8Metadata(); return true; }
-    public boolean get_IsMailNewsDisplay() { requireUtf8Metadata(); return true; }
-    public boolean get_IsMailNewsSave() { requireUtf8Metadata(); return true; }
+    public String get_BodyName() { return metadata().bodyName(); }
+    public String get_HeaderName() { return metadata().headerName(); }
+    public String get_WebName() { return metadata().webName(); }
+    public int get_WindowsCodePage() { return metadata().windowsCodePage(); }
+    public boolean get_IsBrowserDisplay() { return metadata().browserDisplay(); }
+    public boolean get_IsBrowserSave() { return metadata().browserSave(); }
+    public boolean get_IsMailNewsDisplay() { return metadata().mailDisplay(); }
+    public boolean get_IsMailNewsSave() { return metadata().mailSave(); }
     public boolean get_IsSingleByte() { return false; }
     public int get_CodePage() { return this.codePage; }
-    public abstract String get_EncodingName();
+    public String get_EncodingName() { return metadata().encodingName(); }
     public boolean Equals(Object value) {
         return value instanceof Encoding other && get_CodePage() == other.get_CodePage()
                 && get_EncoderFallback().Equals(other.get_EncoderFallback())

@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "20d3db78b4cf5213d67a4b78adec2501e93ca8bd5787913d3387aa9cdf7b2e57",
+  "jarSha256": "2de8efda4297f0ff9b167e1702904ad6dbe948472a89a6d6ece4f5168c2b1c16",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 95,
-  "directNameMatchedCount": 84,
+  "sourceCount": 96,
+  "directNameMatchedCount": 85,
   "directNameMissingCount": 11,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
@@ -750,6 +750,23 @@
       "supplementalAdjacencyEvidence": null
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/NotSupportedException.java",
+      "productSha256": "ef6fb3b5ad202856ae19143066d8b2e40e06de01e78e93bde332bcc2ec5f9958",
+      "classEntries": [
+        "System/NotSupportedException.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "cc9cd66dd3798cb59f4c7bdb4d991bd42777a05b",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/NotSupportedException.cs",
+      "upstreamSha256": "fe42363139bb46d3c8fb8aca8a4801eb8b1c2d6b9fd983f7cebf46066a1beac2",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/NullReferenceException.java",
       "productSha256": "93131beacb8c7241c06a5fd53494823f6f932ca61e3abb5db39e50bf85216c24",
       "classEntries": [
@@ -1458,12 +1475,13 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
-      "productSha256": "9b02ee92c63ae6884e0e4c68cc8fa7c39cc1373046a5c4372c3efada16bdbd28",
+      "productSha256": "0cf6d0721a7e3f28127d94f769c373a0a43c272e91ada4176fff00bd3cacd035",
       "classEntries": [
         "System/Text/Encoding.class",
         "System/Text/Encoding$DefaultUtf8.class",
         "System/Text/Encoding$DefaultEncoder.class",
-        "System/Text/Encoding$DefaultDecoder.class"
+        "System/Text/Encoding$DefaultDecoder.class",
+        "System/Text/Encoding$Metadata.class"
       ],
       "mitSpdxHeaderObserved": true,
       "localIntroductionCommit": "4385bf00b1a91a1f00ad8e5dc37557d7f19cc45e",
@@ -1535,7 +1553,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "29137ce8f29790890ed77459148343d6a42bb49d2a6cf1754dfe3bdc43b0f505",
+      "productSha256": "3d084912882683186ad8d946be600234490a96722e39bdbda533898753c0c832",
       "classEntries": [
         "System/Type.class",
         "System/Type$1.class",
