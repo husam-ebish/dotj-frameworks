@@ -1,0 +1,1796 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "f152bd163eb39886b150bfafd57bdfae959b3a6a4d9bdb19557da2de00b3a286",
+  "types": [
+    {
+      "fullName": "System.Text.EncoderFallback",
+      "name": "EncoderFallback",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.EncoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": false,
+      "interfaces": []
+    },
+    {
+      "fullName": "System.Text.EncoderFallback[]",
+      "name": "EncoderFallback[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.EncoderFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "interfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.EncoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.EncoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.EncoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.EncoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.EncoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderFallback",
+      "name": "DecoderFallback",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.DecoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": false,
+      "interfaces": []
+    },
+    {
+      "fullName": "System.Text.DecoderFallback[]",
+      "name": "DecoderFallback[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.DecoderFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "interfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.DecoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.DecoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.DecoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.DecoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.DecoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderReplacementFallback",
+      "name": "EncoderReplacementFallback",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.EncoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Text.EncoderFallback",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": false,
+      "interfaces": []
+    },
+    {
+      "fullName": "System.Text.EncoderReplacementFallback[]",
+      "name": "EncoderReplacementFallback[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.EncoderReplacementFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "interfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.EncoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.EncoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.EncoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.EncoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.EncoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderReplacementFallback",
+      "name": "DecoderReplacementFallback",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.DecoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Text.DecoderFallback",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": false,
+      "interfaces": []
+    },
+    {
+      "fullName": "System.Text.DecoderReplacementFallback[]",
+      "name": "DecoderReplacementFallback[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.DecoderReplacementFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "interfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.DecoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.DecoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.DecoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.DecoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.DecoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderExceptionFallback",
+      "name": "EncoderExceptionFallback",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.EncoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Text.EncoderFallback",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": false,
+      "interfaces": []
+    },
+    {
+      "fullName": "System.Text.EncoderExceptionFallback[]",
+      "name": "EncoderExceptionFallback[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.EncoderExceptionFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "interfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.EncoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.EncoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.EncoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.EncoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.EncoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderExceptionFallback",
+      "name": "DecoderExceptionFallback",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.DecoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Text.DecoderFallback",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": false,
+      "interfaces": []
+    },
+    {
+      "fullName": "System.Text.DecoderExceptionFallback[]",
+      "name": "DecoderExceptionFallback[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.DecoderExceptionFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "interfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.DecoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.DecoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.DecoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.DecoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.DecoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderFallbackBuffer",
+      "name": "EncoderFallbackBuffer",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.EncoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": false,
+      "interfaces": []
+    },
+    {
+      "fullName": "System.Text.EncoderFallbackBuffer[]",
+      "name": "EncoderFallbackBuffer[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.EncoderFallbackBuffer[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "interfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.EncoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.EncoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.EncoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.EncoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.EncoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderFallbackBuffer",
+      "name": "DecoderFallbackBuffer",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.DecoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": false,
+      "interfaces": []
+    },
+    {
+      "fullName": "System.Text.DecoderFallbackBuffer[]",
+      "name": "DecoderFallbackBuffer[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.DecoderFallbackBuffer[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "interfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.DecoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.DecoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.DecoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.DecoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.DecoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    }
+  ],
+  "lookups": [
+    {
+      "query": "System.Text.EncoderFallback",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallback"
+    },
+    {
+      "query": "System.Text.EncoderFallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallback"
+    },
+    {
+      "query": "system.text.encoderfallback",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.encoderfallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallback"
+    },
+    {
+      "query": "System.Text.EncoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallback"
+    },
+    {
+      "query": "System.Text.EncoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallback"
+    },
+    {
+      "query": "System.Text.EncoderFallback, mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallback"
+    },
+    {
+      "query": "System.Text.EncoderFallback, mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallback"
+    },
+    {
+      "query": "System.Text.EncoderFallback[]",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderFallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallback[]"
+    },
+    {
+      "query": "system.text.encoderfallback[]",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.encoderfallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderFallback[], mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderFallback[], mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderFallback",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallback"
+    },
+    {
+      "query": "System.Text.DecoderFallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallback"
+    },
+    {
+      "query": "system.text.decoderfallback",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.decoderfallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallback"
+    },
+    {
+      "query": "System.Text.DecoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallback"
+    },
+    {
+      "query": "System.Text.DecoderFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallback"
+    },
+    {
+      "query": "System.Text.DecoderFallback, mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallback"
+    },
+    {
+      "query": "System.Text.DecoderFallback, mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallback"
+    },
+    {
+      "query": "System.Text.DecoderFallback[]",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderFallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallback[]"
+    },
+    {
+      "query": "system.text.decoderfallback[]",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.decoderfallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderFallback[], mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderFallback[], mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderReplacementFallback"
+    },
+    {
+      "query": "system.text.encoderreplacementfallback",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.encoderreplacementfallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback, mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback, mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback[]",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderReplacementFallback[]"
+    },
+    {
+      "query": "system.text.encoderreplacementfallback[]",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.encoderreplacementfallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback[], mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderReplacementFallback[], mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderReplacementFallback"
+    },
+    {
+      "query": "system.text.decoderreplacementfallback",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.decoderreplacementfallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback, mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback, mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderReplacementFallback"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback[]",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderReplacementFallback[]"
+    },
+    {
+      "query": "system.text.decoderreplacementfallback[]",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.decoderreplacementfallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback[], mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderReplacementFallback[], mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderReplacementFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderExceptionFallback"
+    },
+    {
+      "query": "system.text.encoderexceptionfallback",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.encoderexceptionfallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback, mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback, mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback[]",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderExceptionFallback[]"
+    },
+    {
+      "query": "system.text.encoderexceptionfallback[]",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.encoderexceptionfallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback[], mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderExceptionFallback[], mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderExceptionFallback"
+    },
+    {
+      "query": "system.text.decoderexceptionfallback",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.decoderexceptionfallback",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback, mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback, mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderExceptionFallback"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback[]",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderExceptionFallback[]"
+    },
+    {
+      "query": "system.text.decoderexceptionfallback[]",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.decoderexceptionfallback[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback[], mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.DecoderExceptionFallback[], mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderExceptionFallback[]"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallbackBuffer"
+    },
+    {
+      "query": "system.text.encoderfallbackbuffer",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.encoderfallbackbuffer",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer, mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer, mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer[]",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallbackBuffer[]"
+    },
+    {
+      "query": "system.text.encoderfallbackbuffer[]",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.encoderfallbackbuffer[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer[], mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.EncoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.EncoderFallbackBuffer[], mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.EncoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallbackBuffer"
+    },
+    {
+      "query": "system.text.decoderfallbackbuffer",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.decoderfallbackbuffer",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer, mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer, mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallbackBuffer"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer[]",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallbackBuffer[]"
+    },
+    {
+      "query": "system.text.decoderfallbackbuffer[]",
+      "ignoreCase": false,
+      "resolved": null
+    },
+    {
+      "query": "system.text.decoderfallbackbuffer[]",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer[], mscorlib",
+      "ignoreCase": false,
+      "resolved": "System.Text.DecoderFallbackBuffer[]"
+    },
+    {
+      "query": "System.Text.DecoderFallbackBuffer[], mscorlib",
+      "ignoreCase": true,
+      "resolved": "System.Text.DecoderFallbackBuffer[]"
+    }
+  ],
+  "declarations": [
+    {
+      "fullName": "System.Text.EncoderFallback",
+      "constructors": [],
+      "methods": [
+        {
+          "name": "get_ReplacementFallback",
+          "returnType": "System.Text.EncoderFallback",
+          "isStatic": true,
+          "parameters": [],
+          "signature": "System.Text.EncoderFallback get_ReplacementFallback()"
+        },
+        {
+          "name": "get_ExceptionFallback",
+          "returnType": "System.Text.EncoderFallback",
+          "isStatic": true,
+          "parameters": [],
+          "signature": "System.Text.EncoderFallback get_ExceptionFallback()"
+        },
+        {
+          "name": "CreateFallbackBuffer",
+          "returnType": "System.Text.EncoderFallbackBuffer",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "System.Text.EncoderFallbackBuffer CreateFallbackBuffer()"
+        },
+        {
+          "name": "get_MaxCharCount",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 get_MaxCharCount()"
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderFallback",
+      "constructors": [],
+      "methods": [
+        {
+          "name": "get_ReplacementFallback",
+          "returnType": "System.Text.DecoderFallback",
+          "isStatic": true,
+          "parameters": [],
+          "signature": "System.Text.DecoderFallback get_ReplacementFallback()"
+        },
+        {
+          "name": "get_ExceptionFallback",
+          "returnType": "System.Text.DecoderFallback",
+          "isStatic": true,
+          "parameters": [],
+          "signature": "System.Text.DecoderFallback get_ExceptionFallback()"
+        },
+        {
+          "name": "CreateFallbackBuffer",
+          "returnType": "System.Text.DecoderFallbackBuffer",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "System.Text.DecoderFallbackBuffer CreateFallbackBuffer()"
+        },
+        {
+          "name": "get_MaxCharCount",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 get_MaxCharCount()"
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderReplacementFallback",
+      "constructors": [
+        "Void .ctor()",
+        "Void .ctor(System.String)"
+      ],
+      "methods": [
+        {
+          "name": "get_DefaultString",
+          "returnType": "System.String",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "System.String get_DefaultString()"
+        },
+        {
+          "name": "CreateFallbackBuffer",
+          "returnType": "System.Text.EncoderFallbackBuffer",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "System.Text.EncoderFallbackBuffer CreateFallbackBuffer()"
+        },
+        {
+          "name": "get_MaxCharCount",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 get_MaxCharCount()"
+        },
+        {
+          "name": "Equals",
+          "returnType": "System.Boolean",
+          "isStatic": false,
+          "parameters": [
+            "System.Object"
+          ],
+          "signature": "Boolean Equals(System.Object)"
+        },
+        {
+          "name": "GetHashCode",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 GetHashCode()"
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderReplacementFallback",
+      "constructors": [
+        "Void .ctor()",
+        "Void .ctor(System.String)"
+      ],
+      "methods": [
+        {
+          "name": "get_DefaultString",
+          "returnType": "System.String",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "System.String get_DefaultString()"
+        },
+        {
+          "name": "CreateFallbackBuffer",
+          "returnType": "System.Text.DecoderFallbackBuffer",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "System.Text.DecoderFallbackBuffer CreateFallbackBuffer()"
+        },
+        {
+          "name": "get_MaxCharCount",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 get_MaxCharCount()"
+        },
+        {
+          "name": "Equals",
+          "returnType": "System.Boolean",
+          "isStatic": false,
+          "parameters": [
+            "System.Object"
+          ],
+          "signature": "Boolean Equals(System.Object)"
+        },
+        {
+          "name": "GetHashCode",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 GetHashCode()"
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderExceptionFallback",
+      "constructors": [
+        "Void .ctor()"
+      ],
+      "methods": [
+        {
+          "name": "CreateFallbackBuffer",
+          "returnType": "System.Text.EncoderFallbackBuffer",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "System.Text.EncoderFallbackBuffer CreateFallbackBuffer()"
+        },
+        {
+          "name": "get_MaxCharCount",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 get_MaxCharCount()"
+        },
+        {
+          "name": "Equals",
+          "returnType": "System.Boolean",
+          "isStatic": false,
+          "parameters": [
+            "System.Object"
+          ],
+          "signature": "Boolean Equals(System.Object)"
+        },
+        {
+          "name": "GetHashCode",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 GetHashCode()"
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderExceptionFallback",
+      "constructors": [
+        "Void .ctor()"
+      ],
+      "methods": [
+        {
+          "name": "CreateFallbackBuffer",
+          "returnType": "System.Text.DecoderFallbackBuffer",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "System.Text.DecoderFallbackBuffer CreateFallbackBuffer()"
+        },
+        {
+          "name": "get_MaxCharCount",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 get_MaxCharCount()"
+        },
+        {
+          "name": "Equals",
+          "returnType": "System.Boolean",
+          "isStatic": false,
+          "parameters": [
+            "System.Object"
+          ],
+          "signature": "Boolean Equals(System.Object)"
+        },
+        {
+          "name": "GetHashCode",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 GetHashCode()"
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderFallbackBuffer",
+      "constructors": [],
+      "methods": [
+        {
+          "name": "Fallback",
+          "returnType": "System.Boolean",
+          "isStatic": false,
+          "parameters": [
+            "System.Char",
+            "System.Int32"
+          ],
+          "signature": "Boolean Fallback(Char, Int32)"
+        },
+        {
+          "name": "Fallback",
+          "returnType": "System.Boolean",
+          "isStatic": false,
+          "parameters": [
+            "System.Char",
+            "System.Char",
+            "System.Int32"
+          ],
+          "signature": "Boolean Fallback(Char, Char, Int32)"
+        },
+        {
+          "name": "GetNextChar",
+          "returnType": "System.Char",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Char GetNextChar()"
+        },
+        {
+          "name": "MovePrevious",
+          "returnType": "System.Boolean",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Boolean MovePrevious()"
+        },
+        {
+          "name": "get_Remaining",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 get_Remaining()"
+        },
+        {
+          "name": "Reset",
+          "returnType": "System.Void",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Void Reset()"
+        }
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderFallbackBuffer",
+      "constructors": [],
+      "methods": [
+        {
+          "name": "Fallback",
+          "returnType": "System.Boolean",
+          "isStatic": false,
+          "parameters": [
+            "System.Byte[]",
+            "System.Int32"
+          ],
+          "signature": "Boolean Fallback(Byte[], Int32)"
+        },
+        {
+          "name": "GetNextChar",
+          "returnType": "System.Char",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Char GetNextChar()"
+        },
+        {
+          "name": "MovePrevious",
+          "returnType": "System.Boolean",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Boolean MovePrevious()"
+        },
+        {
+          "name": "get_Remaining",
+          "returnType": "System.Int32",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Int32 get_Remaining()"
+        },
+        {
+          "name": "Reset",
+          "returnType": "System.Void",
+          "isStatic": false,
+          "parameters": [],
+          "signature": "Void Reset()"
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "target": "System.Object",
+      "source": "System.Object",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.EncoderFallback",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.DecoderFallback",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.EncoderReplacementFallback",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.DecoderReplacementFallback",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.EncoderExceptionFallback",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.DecoderExceptionFallback",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.EncoderFallbackBuffer",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.DecoderFallbackBuffer",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Text.EncoderFallback",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallback",
+      "source": "System.Text.EncoderFallback",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallback",
+      "source": "System.Text.DecoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallback",
+      "source": "System.Text.EncoderReplacementFallback",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Text.EncoderFallback",
+      "source": "System.Text.DecoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallback",
+      "source": "System.Text.EncoderExceptionFallback",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Text.EncoderFallback",
+      "source": "System.Text.DecoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallback",
+      "source": "System.Text.EncoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallback",
+      "source": "System.Text.DecoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallback",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallback",
+      "source": "System.Text.EncoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallback",
+      "source": "System.Text.DecoderFallback",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallback",
+      "source": "System.Text.EncoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallback",
+      "source": "System.Text.DecoderReplacementFallback",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Text.DecoderFallback",
+      "source": "System.Text.EncoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallback",
+      "source": "System.Text.DecoderExceptionFallback",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Text.DecoderFallback",
+      "source": "System.Text.EncoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallback",
+      "source": "System.Text.DecoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderReplacementFallback",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderReplacementFallback",
+      "source": "System.Text.EncoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderReplacementFallback",
+      "source": "System.Text.DecoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderReplacementFallback",
+      "source": "System.Text.EncoderReplacementFallback",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderReplacementFallback",
+      "source": "System.Text.DecoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderReplacementFallback",
+      "source": "System.Text.EncoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderReplacementFallback",
+      "source": "System.Text.DecoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderReplacementFallback",
+      "source": "System.Text.EncoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderReplacementFallback",
+      "source": "System.Text.DecoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderReplacementFallback",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderReplacementFallback",
+      "source": "System.Text.EncoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderReplacementFallback",
+      "source": "System.Text.DecoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderReplacementFallback",
+      "source": "System.Text.EncoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderReplacementFallback",
+      "source": "System.Text.DecoderReplacementFallback",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderReplacementFallback",
+      "source": "System.Text.EncoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderReplacementFallback",
+      "source": "System.Text.DecoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderReplacementFallback",
+      "source": "System.Text.EncoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderReplacementFallback",
+      "source": "System.Text.DecoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderExceptionFallback",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderExceptionFallback",
+      "source": "System.Text.EncoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderExceptionFallback",
+      "source": "System.Text.DecoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderExceptionFallback",
+      "source": "System.Text.EncoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderExceptionFallback",
+      "source": "System.Text.DecoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderExceptionFallback",
+      "source": "System.Text.EncoderExceptionFallback",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderExceptionFallback",
+      "source": "System.Text.DecoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderExceptionFallback",
+      "source": "System.Text.EncoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderExceptionFallback",
+      "source": "System.Text.DecoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderExceptionFallback",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderExceptionFallback",
+      "source": "System.Text.EncoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderExceptionFallback",
+      "source": "System.Text.DecoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderExceptionFallback",
+      "source": "System.Text.EncoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderExceptionFallback",
+      "source": "System.Text.DecoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderExceptionFallback",
+      "source": "System.Text.EncoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderExceptionFallback",
+      "source": "System.Text.DecoderExceptionFallback",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderExceptionFallback",
+      "source": "System.Text.EncoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderExceptionFallback",
+      "source": "System.Text.DecoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackBuffer",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackBuffer",
+      "source": "System.Text.EncoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackBuffer",
+      "source": "System.Text.DecoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackBuffer",
+      "source": "System.Text.EncoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackBuffer",
+      "source": "System.Text.DecoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackBuffer",
+      "source": "System.Text.EncoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackBuffer",
+      "source": "System.Text.DecoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackBuffer",
+      "source": "System.Text.EncoderFallbackBuffer",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackBuffer",
+      "source": "System.Text.DecoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackBuffer",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackBuffer",
+      "source": "System.Text.EncoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackBuffer",
+      "source": "System.Text.DecoderFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackBuffer",
+      "source": "System.Text.EncoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackBuffer",
+      "source": "System.Text.DecoderReplacementFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackBuffer",
+      "source": "System.Text.EncoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackBuffer",
+      "source": "System.Text.DecoderExceptionFallback",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackBuffer",
+      "source": "System.Text.EncoderFallbackBuffer",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackBuffer",
+      "source": "System.Text.DecoderFallbackBuffer",
+      "assignable": true,
+      "subclass": false
+    }
+  ],
+  "qualification": "SELECTED_FALLBACK_TYPE_METADATA_AND_DECLARATION_INVENTORY_ONLY; MISSING_MEMBERS_FULL_REFLECTION_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN"
+}
