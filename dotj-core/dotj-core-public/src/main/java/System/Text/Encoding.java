@@ -7,6 +7,7 @@ import System.ReadOnlySpan;
 import System.Span;
 import System.ICloneable;
 import System.ArgumentNullException;
+import System.ArgumentException;
 import System.ArgumentOutOfRangeException;
 
 /** Selected stateless encoding surface; stateful and pointer overloads remain open. */
@@ -14,8 +15,56 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     private boolean readOnly = true;
     protected Encoding() { }
     public static Encoding get_UTF8() { return DefaultUtf8.VALUE; }
+    public static Encoding GetEncoding(int codepage) {
+        if (codepage == 65001) return get_UTF8();
+        if (codepage == 0) return DefaultUtf8.DEFAULT_VALUE;
+        if (codepage < 0 || codepage > 65535) throw new ArgumentOutOfRangeException("codepage");
+        if (codepage == 1 || codepage == 2 || codepage == 3 || codepage == 42) {
+            throw new ArgumentException("The code page is not supported.", "codepage");
+        }
+        throw new UnsupportedOperationException("The candidate supports only UTF-8 encoding lookups.");
+    }
+    public static Encoding GetEncoding(int codepage, EncoderFallback encoderFallback,
+            DecoderFallback decoderFallback) {
+        Encoding result = (Encoding)GetEncoding(codepage).Clone();
+        result.set_EncoderFallback(encoderFallback);
+        result.set_DecoderFallback(decoderFallback);
+        return result;
+    }
+    public static Encoding GetEncoding(String name) {
+        if (name == null) throw new ArgumentNullException("name");
+        StringBuilder folded = new StringBuilder(name.length());
+        for (int i = 0; i < name.length(); i++) {
+            char unit = name.charAt(i);
+            folded.append(unit >= 'A' && unit <= 'Z' ? (char)(unit + ('a' - 'A')) : unit);
+        }
+        return switch (folded.toString()) {
+            case "utf-8", "unicode-1-1-utf-8", "unicode-2-0-utf-8",
+                    "x-unicode-1-1-utf-8", "x-unicode-2-0-utf-8" -> get_UTF8();
+            case "ansi_x3.4-1968", "ansi_x3.4-1986", "ascii", "cp367", "cp819",
+                    "csascii", "csisolatin1", "csunicode11utf7", "ibm367", "ibm819",
+                    "iso-10646-ucs-2", "iso-8859-1", "iso-ir-100", "iso-ir-6",
+                    "iso646-us", "iso8859-1", "iso_646.irv:1991", "iso_8859-1",
+                    "iso_8859-1:1987", "l1", "latin1", "ucs-2", "unicode",
+                    "unicode-1-1-utf-7", "unicode-2-0-utf-7", "unicodefffe", "us",
+                    "us-ascii", "utf-16", "utf-16be", "utf-16le", "utf-32",
+                    "utf-32be", "utf-32le", "utf-7", "x-unicode-1-1-utf-7",
+                    "x-unicode-2-0-utf-7" -> throw new UnsupportedOperationException(
+                            "This recognized encoding is outside the candidate UTF-8 surface.");
+            default -> throw new ArgumentException("The encoding name is not supported.", "name");
+        };
+    }
+    public static Encoding GetEncoding(String name, EncoderFallback encoderFallback,
+            DecoderFallback decoderFallback) {
+        Encoding result = (Encoding)GetEncoding(name).Clone();
+        result.set_EncoderFallback(encoderFallback);
+        result.set_DecoderFallback(decoderFallback);
+        return result;
+    }
+
     private static final class DefaultUtf8 {
         private static final Encoding VALUE = new UTF8Encoding(true);
+        private static final Encoding DEFAULT_VALUE = new UTF8Encoding(false);
     }
     public Byte[] GetBytes(String s, int index, int count) {
         if (s == null) throw new ArgumentNullException("s");
