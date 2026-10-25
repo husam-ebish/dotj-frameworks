@@ -350,6 +350,9 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/NotSupportedException.clas
 SOURCES.append(PRODUCT / "src/main/java/System/Text/NormalizationForm.java")
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/NormalizationForm.class"])
 
+SOURCES.append(PRODUCT / "src/main/java/System/Text/UnicodeEncoding.java")
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/UnicodeEncoding.class", "System/Text/Encoding$DefaultUtf16.class"])
+
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))
