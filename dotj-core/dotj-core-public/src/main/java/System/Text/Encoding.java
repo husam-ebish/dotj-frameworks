@@ -82,27 +82,36 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public Byte[] GetBytes(String s, int index, int count) {
         if (s == null) throw new ArgumentNullException("s");
         validateRange(s.length(), index, count, "index");
-        int length = GetByteCount(s, index, count);
+        String segment = s.substring(index, index + count);
+        char[] countInput = segment.toCharArray();
+        int length = GetByteCount(countInput, 0, countInput.length);
+        if (length == 0) return new Byte[0];
+        if (length < 0) throw new OverflowException();
+        char[] writeInput = segment.toCharArray();
+        Byte[] temporary = new Byte[length];
+        java.util.Arrays.fill(temporary, new Byte(0));
+        int written = Math.min(GetBytes(writeInput, 0, writeInput.length, temporary, 0), length);
+        if (written < 0) throw new ArgumentOutOfRangeException();
         Byte[] result = new Byte[length];
         java.util.Arrays.fill(result, new Byte(0));
-        if (length != 0) GetBytes(s, index, count, result, 0);
+        java.lang.System.arraycopy(temporary, 0, result, 0, written);
         return result;
     }
     public int GetByteCount(String s, int index, int count) {
         if (s == null) throw new ArgumentNullException("s");
         validateRange(s.length(), index, count, "index");
-        return GetByteCount(s.substring(index, index + count));
+        char[] input = s.substring(index, index + count).toCharArray();
+        return GetByteCount(input, 0, input.length);
     }
     public Byte[] GetBytes(char[] chars, int index, int count) {
-        if (chars == null) throw new ArgumentNullException("chars");
-        validateRange(chars.length, index, count, "chars");
-        return GetBytes(new String(chars, index, count));
+        int length = GetByteCount(chars, index, count);
+        if (length < 0) throw new OverflowException();
+        Byte[] result = new Byte[length];
+        java.util.Arrays.fill(result, new Byte(0));
+        GetBytes(chars, index, count, result, 0);
+        return result;
     }
-    public int GetByteCount(char[] chars, int index, int count) {
-        if (chars == null) throw new ArgumentNullException("chars");
-        validateRange(chars.length, index, count, "chars");
-        return GetByteCount(new String(chars, index, count));
-    }
+    public abstract int GetByteCount(char[] chars, int index, int count);
     public String GetString(Byte[] bytes, int index, int count) {
         char[] result = GetChars(bytes, index, count);
         return result == null ? "" : new String(result);
@@ -124,7 +133,10 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         if (count < 0) throw new ArgumentOutOfRangeException("count");
         if (index > length - count) throw new ArgumentOutOfRangeException(rangeParameter);
     }
-    public abstract int GetBytes(String s, int charIndex, int charCount, Byte[] bytes, int byteIndex);
+    public int GetBytes(String s, int charIndex, int charCount, Byte[] bytes, int byteIndex) {
+        if (s == null) throw new ArgumentNullException("s");
+        return GetBytes(s.toCharArray(), charIndex, charCount, bytes, byteIndex);
+    }
     public abstract int GetBytes(char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex);
     public abstract int GetChars(Byte[] bytes, int byteIndex, int byteCount, char[] chars, int charIndex);
     public Byte[] GetBytes(char[] chars) {
@@ -219,8 +231,20 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         return ReadOnlySpan.OfUtf8Bytes(value == null ? new Byte[0] : value);
     }
     public abstract Byte[] GetPreamble();
-    public abstract Byte[] GetBytes(String s);
-    public abstract int GetByteCount(String s);
+    public Byte[] GetBytes(String s) {
+        if (s == null) throw new ArgumentNullException("s");
+        int length = GetByteCount(s);
+        if (length < 0) throw new OverflowException();
+        Byte[] result = new Byte[length];
+        java.util.Arrays.fill(result, new Byte(0));
+        GetBytes(s, 0, s.length(), result, 0);
+        return result;
+    }
+    public int GetByteCount(String s) {
+        if (s == null) throw new ArgumentNullException("s");
+        char[] input = s.toCharArray();
+        return GetByteCount(input, 0, input.length);
+    }
     public String GetString(Byte[] bytes) {
         if (bytes == null) throw new ArgumentNullException("bytes");
         return GetString(bytes, 0, bytes.length);

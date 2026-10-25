@@ -48,6 +48,7 @@ class GenericEncodingTrySpansProbe {
         public Byte[] GetPreamble() { throw intercepted(); }
         public Byte[] GetBytes(String s) { throw intercepted(); }
         public int GetByteCount(String s) { throw intercepted(); }
+        public int GetByteCount(char[] chars,int index,int count) { throw intercepted(); }
         public String GetString(Byte[] b) { throw intercepted(); }
         public int GetCharCount(Byte[] b) { throw intercepted(); }
         public char[] GetChars(Byte[] b) { throw intercepted(); }
