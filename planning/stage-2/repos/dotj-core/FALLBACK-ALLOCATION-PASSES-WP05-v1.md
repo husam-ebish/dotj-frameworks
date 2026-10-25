@@ -1,0 +1,7 @@
+# Selected fallback allocation-pass evidence
+
+Batch 2181 adds differential evidence for custom providers which change behavior between a count pass and a writing pass. Thirty-two emitted provider profiles vary first/second replacement strings, reuse the first buffer, throw on later factory calls, or return null on later calls. The native capture records 3,712 operations and 320 maximum-capacity results; the packaged consumer passes 8,832 groups, including exact factory call counts, exception types/HResults/parameters, reference identity and partial destination contents.
+
+The candidate already matches these selected cases after the preceding custom-provider changes. This batch adds a pinned regression gate and records that result; it does not claim a newly implemented Java behavior. Allocating byte/character arrays preserve their count-sized allocation when a later pass writes less, while larger second-pass output follows the native capacity boundary. GetString skips its writing pass when its counted length is zero. Reused buffers and second-factory failures are observed independently from direct destination and count APIs.
+
+This selected evidence does not accept WP-05-T2 or qualify arbitrary custom providers, reentrant mutation, stateful Encoder/Decoder APIs, complete metadata/source ABI or broader encoding families. The prior UTF-8 suites remain regressions. No accepted task or qualified framework is credited. Next is native UTF8Encoding equality and hash behavior across predefined and custom fallback configurations.
