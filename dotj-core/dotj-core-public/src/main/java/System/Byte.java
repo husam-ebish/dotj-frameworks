@@ -79,6 +79,32 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         return value.value == 0 ? 0 : 1;
     }
 
+    public static Byte Parse(String text) {
+        return Parse(text, (IFormatProvider) null);
+    }
+    public static Byte Parse(String text, IFormatProvider provider) {
+        java.math.BigInteger value = Int32.selectedParseIntegerCarrier(text, provider);
+        if (value.compareTo(java.math.BigInteger.valueOf(MinValue)) < 0
+                || value.compareTo(java.math.BigInteger.valueOf(MaxValue)) > 0) {
+            throw new OverflowException("Value was outside the range of Byte.");
+        }
+        return new Byte(value.intValue());
+    }
+    public static boolean TryParse(String text, Byte[] result) {
+        return TryParse(text, null, result);
+    }
+    public static boolean TryParse(String text, IFormatProvider provider, Byte[] result) {
+        if (text == null) { result[0] = new Byte(0); return false; }
+        IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
+        try {
+            result[0] = Parse(text, resolved);
+            return true;
+        } catch (FormatException | OverflowException expected) {
+            result[0] = new Byte(0);
+            return false;
+        }
+    }
+
     public Byte(int value) {
         if (value < 0 || value > 255) {
             throw new OverflowException("Value was outside the range of Byte");

@@ -147,6 +147,41 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return new Int32(parsed.intValue());
     }
 
+    /** Selected Integer-style String grammar shared by the bounded small-integer carriers. */
+    static BigInteger selectedParseIntegerCarrier(String text, IFormatProvider provider) {
+        if (text == null) throw new ArgumentNullException("s");
+        NumberFormatInfo info = selectedNumberFormatInfo(provider);
+        String positive = info == null ? "+" : info.get_PositiveSign();
+        String negative = info == null ? "-" : info.get_NegativeSign();
+        int start = 0;
+        int end = text.length();
+        while (end > 0 && text.charAt(end - 1) == 0) end--;
+        while (start < end && selectedIntegerCarrierWhite(text.charAt(start))) start++;
+        while (end > start && selectedIntegerCarrierWhite(text.charAt(end - 1))) end--;
+        boolean isNegative = false;
+        if (!positive.isEmpty() && text.startsWith(positive, start) && start + positive.length() <= end) {
+            start += positive.length();
+        } else if (!negative.isEmpty() && text.startsWith(negative, start) && start + negative.length() <= end) {
+            start += negative.length();
+            isNegative = true;
+        }
+        if (start == end) throw new FormatException("Input string was not in a correct format.");
+        for (int offset = start; offset < end; offset++) {
+            char digit = text.charAt(offset);
+            if (digit < '0' || digit > '9') throw new FormatException("Input string was not in a correct format.");
+        }
+        BigInteger value = new BigInteger(text.substring(start, end));
+        return isNegative ? value.negate() : value;
+    }
+
+    private static boolean selectedIntegerCarrierWhite(char value) {
+        return value == ' ' || (value >= '\t' && value <= '\r');
+    }
+
+    static IFormatProvider selectedIntegerCarrierProvider(IFormatProvider provider) {
+        return selectedNumberFormatInfo(provider);
+    }
+
     private static NumberFormatInfo selectedNumberFormatInfo(IFormatProvider provider) {
         if (provider == null) return null;
         Object supplied = provider.GetFormat(
