@@ -24,7 +24,17 @@ public final class DecoderReplacementFallback extends DecoderFallback {
         private int remaining = -1;
         Buffer(String replacement) { this.replacement = replacement; }
         @Override public boolean Fallback(Byte[] bytesUnknown, int index) {
-            if (get_Remaining() > 0) throw new ArgumentException("Recursive fallback is not allowed.", "bytesUnknown");
+            if (get_Remaining() > 0) {
+                StringBuilder description = new StringBuilder();
+                if (bytesUnknown != null) {
+                    for (int i = 0; i < bytesUnknown.length && i < 20; i++) {
+                        if (i > 0) description.append(' ');
+                        description.append("\\x").append(String.format(java.util.Locale.ROOT, "%02X", bytesUnknown[i].get_Value()));
+                    }
+                    if (bytesUnknown.length >= 20) description.append(" ...");
+                }
+                throw new ArgumentException("Recursive fallback not allowed for bytes " + description + ".", "bytesUnknown");
+            }
             if (this.replacement.isEmpty()) return false;
             this.position = -1; this.remaining = this.replacement.length();
             return !this.replacement.isEmpty();

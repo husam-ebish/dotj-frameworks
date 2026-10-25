@@ -18,7 +18,7 @@ public abstract class Decoder {
     public void set_Fallback(DecoderFallback value) {
         if (value == null) throw new ArgumentNullException("value");
         if (this.buffer != null && this.buffer.get_Remaining() > 0) {
-            throw new ArgumentException("Fallback buffer is not empty.", "value");
+            throw new ArgumentException("Cannot change fallback when buffer is not empty. Previous Convert() call left data in the fallback buffer.", "value");
         }
         this.fallback = value;
         this.buffer = null;
