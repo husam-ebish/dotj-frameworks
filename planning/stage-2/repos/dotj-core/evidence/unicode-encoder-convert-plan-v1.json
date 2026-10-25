@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "task": "DJ-001-WP-05-T2",
+  "qualification": "NATIVE_ARRAY_CONVERT_REFERENCE_AND_IMPLEMENTATION_PLAN_ONLY",
+  "javaImplementationQualified": false,
+  "acceptedImplementationTasksCredited": 0,
+  "projectBatchTotal": null,
+  "projectBatchesRemaining": null,
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "sources": {
+    "UnicodeEncoding": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/UnicodeEncoding.cs",
+      "sha256": "b5a717988edb22bae8688fb5cf9d8efe9d503dfe2918cdb5a9c95578a5768828"
+    },
+    "EncoderNLS": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderNLS.cs",
+      "sha256": "79a6e4501f5da67690194d5c31da8c92b44271941422d5a5bf49113c43601b15"
+    },
+    "EncoderFallback": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallback.cs",
+      "sha256": "fecaa8e71992f9d568254202327662e6de473b3d73ad5b6fa83a79417cc98715"
+    }
+  },
+  "implementationRequirements": [
+    "Use owned specialized encoder state; do not reuse the generic halving Convert adapter.",
+    "Consume maximal encodable input prefix under selected capacity; keep valid surrogate pairs atomic.",
+    "Retain and drain partially emitted replacement fallback on later Convert calls.",
+    "Preserve native pending-high, completed and flush rules, including zero-length input.",
+    "Match exact guards, prefix writes, output carriers, failure state and fallback exceptions.",
+    "Qualify arrays with packaged comparisons before treating the implementation as matched.",
+    "Capture Convert heap spans separately; no pointer, custom buffer, byref or source ABI claim."
+  ],
+  "openWork": [
+    "Java specialized Convert implementation and packaged differential proof",
+    "Convert heap spans and subclass dispatch",
+    "arbitrary custom fallback buffers and reentrancy",
+    "specialized decoder state",
+    "E01/E02/E03/N01/Q01 and acceptance closure"
+  ]
+}
