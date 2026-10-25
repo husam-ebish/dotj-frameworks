@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "ad84af8e67966d74cabc4941fba51fa345a2f3218f19ae0d174345afb3b28fa5",
+  "oracleSha256": "3ae6124837da02188e54d14a4a8fd0ebddf480c245209f59c243a9dfe9864624",
   "types": [
     {
       "name": "System.String",
@@ -104,14 +104,14 @@
       "selectedInterfaces": [
         "System.IComparable",
         "System.IConvertible",
-        "System.IFormattable"
+        "System.IFormattable",
+        "System.ISpanFormattable"
       ],
       "omittedInterfaces": [
         "System.IBinaryIntegerParseAndFormatInfo`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IComparable`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IEquatable`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IParsable`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "System.ISpanFormattable",
         "System.ISpanParsable`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IUtf8SpanFormattable",
         "System.IUtf8SpanParsable`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -1863,6 +1863,102 @@
     {
       "source": "System.SByte",
       "query": "system.IComparable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "System.ISpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "System.ISpanFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "ISpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "ISpanFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "system.ispanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "system.ispanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "ispanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "ispanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "System.ispanformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "System.ispanformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.ISpanFormattable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "system.ISpanFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "system.ISpanFormattable",
       "ignoreCase": true,
       "result": {
         "name": null
