@@ -8,8 +8,8 @@ b=Path('D:/AI/Implementation/dotj Frameworks');path=EVIDENCE/'uint16-format-cont
 assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
 assert j['typeName']=='System.UInt16' and j['valueCount']==267 and len(j['cases'])==3658 and len(j['defaults'])==534
 cases=[]
-interfaces=[v for v in j['interfaces'] if v in ['System.IConvertible','System.IFormattable']]
-assert len(interfaces)==2
+interfaces=[v for v in j['interfaces'] if v in ['System.IComparable','System.IConvertible','System.IFormattable']]
+assert len(interfaces)==3
 expected='new Type[]{'+','.join('Type.GetType('+json.dumps(v)+')' for v in interfaces)+'}'
 cases.append('{Type type=Type.GetType("System.UInt16");Type contract=Type.GetType("System.IFormattable");UInt16 value=new UInt16(255);Type[] interfaces=type.GetInterfaces();check(java.util.Arrays.equals(interfaces,'+expected+') && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(value) && type.GetInterface("IFormattable")==contract && !Type.GetType("System.IUtf8SpanFormattable").IsAssignableFrom(type),0);interfaces[0]=null;check(type.GetInterfaces()[0]!=null,0);}')
 for row in j['defaults']:
@@ -29,7 +29,7 @@ subprocess.run(['javac','--release','21','-Xmaxerrs','3','-cp',str(a.jar),'-d',s
 subprocess.run(['java','-cp',str(a.jar)+';'+str(w),'UInt16FormatProbe'],check=True)
 assert len(cases)==13111
 output=subprocess.run(['javap','-public','-classpath',str(a.jar),'System.UInt16'],capture_output=True,text=True,check=True).stdout
-assert 'public final class System.UInt16 implements System.IConvertible,System.IFormattable {' in output
+assert 'public final class System.UInt16 implements System.IConvertible,System.IFormattable,System.IComparable {' in output
 for signature in ['public java.lang.String ToString();','public java.lang.String ToString(System.IFormatProvider);','public java.lang.String ToString(java.lang.String);','public java.lang.String ToString(java.lang.String, System.IFormatProvider);']:assert signature in output
 record=dict(oracleEvidence=path.name,schemaVersion=1,casesPassed=len(cases),nativeDefaults=len(j['defaults']),nativeFormats=len(j['cases']),omittedNativeInterfaces=[v for v in j['interfaces'] if v not in interfaces],oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(a.jar.read_bytes()).hexdigest(),qualification='BOUNDED_UINT16_FORMAT_PASS; OTHER_FORMATS_NUMERIC_INTERFACES_CULTURES_AND_RELEASE_OPEN')
 (EVIDENCE/'uint16-format-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n')
