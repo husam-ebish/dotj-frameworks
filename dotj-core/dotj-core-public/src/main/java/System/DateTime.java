@@ -3,6 +3,7 @@
 package System;
 
 import java.time.LocalDate;
+import System.Globalization.DateTimeStyles;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
@@ -128,6 +129,10 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public static DateTime Parse(String text) {
+        return Parse(text, null, DateTimeStyles.None);
+    }
+
+    private static DateTime selectedParseLocalIso(String text) {
         if (text == null) {
             throw new ArgumentNullException("s");
         }
@@ -159,8 +164,49 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public static DateTime Parse(String s, IFormatProvider provider) {
-        if (provider != null) { throw new UnsupportedOperationException("Only null-provider invariant parsing is mapped."); }
-        return Parse(s);
+        return Parse(s, provider, DateTimeStyles.None);
+    }
+
+    public static DateTime Parse(String s, IFormatProvider provider, DateTimeStyles styles) {
+        int flags = selectedValidateStyles(styles);
+        if (provider != null) throw new UnsupportedOperationException("Only null-provider invariant parsing is mapped.");
+        if (s == null) throw new ArgumentNullException("s");
+        int start = 0, end = s.length();
+        while (start < end && parseSpace(s.charAt(start))) start++;
+        while (end > start && parseSpace(s.charAt(end - 1))) end--;
+        String text = s.substring(start, end);
+        java.util.regex.Matcher zone = java.util.regex.Pattern.compile("([Zz]|[+-][0-9]{2}:[0-9]{2})$").matcher(text);
+        String suffix = zone.find() ? zone.group(1) : null;
+        DateTime parsed = selectedParseLocalIso(suffix == null ? text : text.substring(0, zone.start()));
+        if (suffix != null) {
+            boolean zulu = suffix.equalsIgnoreCase("Z");
+            int seconds;
+            try { seconds = zulu ? 0 : ZoneOffset.of(suffix).getTotalSeconds(); }
+            catch (java.time.DateTimeException invalid) { throw new FormatException("Invalid date/time offset"); }
+            if (Math.abs(seconds) > 14 * 3600) throw new FormatException("Invalid date/time offset");
+            long utcTicks = parsed.get_Ticks() - seconds * 10_000_000L;
+            if (utcTicks < 0 || utcTicks > MAX_TICKS) throw new FormatException("Date/time offset exceeds the selected range");
+            DateTime utc = new DateTime(utcTicks, DateTimeKind.Utc);
+            return (flags & 16) != 0 || zulu && (flags & 128) != 0 ? utc : utc.ToLocalTime();
+        }
+        if ((flags & 32) != 0) {
+            DateTime local = new DateTime(parsed.date, DateTimeKind.Local);
+            return (flags & 16) != 0 ? local.ToUniversalTime() : local;
+        }
+        if ((flags & 64) != 0) {
+            DateTime utc = new DateTime(parsed.date, DateTimeKind.Utc);
+            return (flags & 16) != 0 ? utc : utc.ToLocalTime();
+        }
+        return parsed;
+    }
+
+    private static int selectedValidateStyles(DateTimeStyles styles) {
+        if (styles == null) throw new ArgumentNullException("styles");
+        int flags = styles.get_Value();
+        if ((flags & ~255) != 0 || (flags & 96) == 96 || (flags & 128) != 0 && (flags & 112) != 0) {
+            throw new ArgumentException("DateTimeStyles combination is invalid", "styles");
+        }
+        return flags;
     }
 
     public static DateTime Parse(ReadOnlySpan<Character> s) {
@@ -168,8 +214,13 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public static DateTime Parse(ReadOnlySpan<Character> s, IFormatProvider provider) {
-        if (s == null) { throw new ArgumentNullException("s"); }
-        return Parse(s.selectedText(), provider);
+        return Parse(s, provider, DateTimeStyles.None);
+    }
+
+    public static DateTime Parse(ReadOnlySpan<Character> s, IFormatProvider provider, DateTimeStyles styles) {
+        selectedValidateStyles(styles);
+        if (s == null) throw new ArgumentNullException("s");
+        return Parse(s.selectedText(), provider, styles);
     }
 
     private static boolean parseSpace(char value) {
@@ -177,21 +228,20 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public static boolean TryParse(String text, DateTime[] result) {
-        result[0] = new DateTime(1, 1, 1);
-        if (text == null) {
-            return false;
-        }
-        try {
-            result[0] = Parse(text);
-            return true;
-        } catch (FormatException expected) {
-            return false;
-        }
+        return TryParse(text, null, DateTimeStyles.None, result);
     }
 
     public static boolean TryParse(String s, IFormatProvider provider, DateTime[] result) {
-        if (provider != null) { throw new UnsupportedOperationException("Only null-provider invariant parsing is mapped."); }
-        return TryParse(s, result);
+        return TryParse(s, provider, DateTimeStyles.None, result);
+    }
+
+    public static boolean TryParse(String s, IFormatProvider provider, DateTimeStyles styles, DateTime[] result) {
+        selectedValidateStyles(styles);
+        if (provider != null) throw new UnsupportedOperationException("Only null-provider invariant parsing is mapped.");
+        result[0] = new DateTime(0L);
+        if (s == null) return false;
+        try { result[0] = Parse(s, provider, styles); return true; }
+        catch (FormatException invalid) { return false; }
     }
 
     public static boolean TryParse(ReadOnlySpan<Character> s, DateTime[] result) {
@@ -199,8 +249,13 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public static boolean TryParse(ReadOnlySpan<Character> s, IFormatProvider provider, DateTime[] result) {
-        if (s == null) { throw new ArgumentNullException("s"); }
-        return TryParse(s.selectedText(), provider, result);
+        return TryParse(s, provider, DateTimeStyles.None, result);
+    }
+
+    public static boolean TryParse(ReadOnlySpan<Character> s, IFormatProvider provider, DateTimeStyles styles, DateTime[] result) {
+        selectedValidateStyles(styles);
+        if (s == null) throw new ArgumentNullException("s");
+        return TryParse(s.selectedText(), provider, styles, result);
     }
 
     public static DateTime ParseExact(String text, String format, IFormatProvider provider) {
