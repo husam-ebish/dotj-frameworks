@@ -2,8 +2,12 @@
 
 package System.Reflection;
 
+import System.FormatException;
+import System.IFormattable;
+import System.IFormatProvider;
+
 /** Pinned implementation-attribute values with composable flags. */
-public final class MethodImplAttributes {
+public final class MethodImplAttributes implements IFormattable {
     public static final MethodImplAttributes IL = new MethodImplAttributes("IL", 0);
     public static final MethodImplAttributes Managed = new MethodImplAttributes("Managed", 0);
     public static final MethodImplAttributes Native = new MethodImplAttributes("Native", 1);
@@ -41,6 +45,11 @@ public final class MethodImplAttributes {
         return this.name;
     }
 
+    public static MethodImplAttributes FromInt32(int value) {
+        for (MethodImplAttributes candidate : named) if (candidate.value == value) return candidate;
+        return new MethodImplAttributes(null, value);
+    }
+
     public int get_Value() {
         return this.value;
     }
@@ -68,6 +77,33 @@ public final class MethodImplAttributes {
     public static MethodImplAttributes[] values() {
         return named.clone();
     }
+
+    public String ToString() { return ToString((String) null); }
+    public String ToString(IFormatProvider provider) { return ToString(); }
+    @Override public String ToString(String format, IFormatProvider provider) { return ToString(format); }
+    public String ToString(String format) {
+        char specifier = format == null || format.isEmpty() ? 'G'
+                : format.length() == 1 ? Character.toUpperCase(format.charAt(0)) : '\0';
+        if (specifier == 'D') return java.lang.Integer.toString(this.value);
+        if (specifier == 'X') return String.format(java.util.Locale.ROOT, "%08X", this.value);
+        if (specifier != 'G' && specifier != 'F') throw new FormatException("Format string can be only G, F, D or X");
+        if (specifier == 'G') {
+            for (MethodImplAttributes candidate : named) if (candidate.value == this.value) return candidate.name;
+            return java.lang.Integer.toString(this.value);
+        }
+        if (this.value == 0) return "IL";
+        long remaining = java.lang.Integer.toUnsignedLong(this.value);
+        java.util.ArrayList<String> parts = new java.util.ArrayList<>();
+        for (int index = named.length - 1; index >= 0; index--) {
+            long bits = java.lang.Integer.toUnsignedLong(named[index].value);
+            if (bits != 0 && (remaining & bits) == bits) {
+                remaining &= ~bits;
+                parts.add(0, named[index].name);
+            }
+        }
+        return remaining == 0 && !parts.isEmpty() ? String.join(", ", parts) : java.lang.Integer.toString(this.value);
+    }
+    @Override public String toString() { return ToString(); }
 
     @Override
     public boolean equals(Object other) {
