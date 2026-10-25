@@ -8,6 +8,8 @@ import System.ArgumentException;
 import System.InvalidOperationException;
 import System.NullReferenceException;
 import System.Byte;
+import System.ReadOnlySpan;
+import System.Span;
 import org.dotj.internal.text.Utf8Codec;
 
 /** Selected UTF-8 replacement behavior with an explicit unsigned byte array adapter. */
@@ -355,6 +357,22 @@ public class UTF8Encoding extends Encoding {
             }
             return new int[] {consumed, written};
         }
+        @Override public void Convert(ReadOnlySpan<Character> chars, Span<Byte> bytes, boolean flush,
+                int[] charsUsed, int[] bytesUsed, boolean[] completed) {
+            if (chars == null) throw new ArgumentNullException("chars");
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            char[] source = new char[chars.get_Length()];
+            chars.CopyTo(Span.OfChars(source));
+            byte[] snapshot = new byte[bytes.get_Length()];
+            bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+            Byte[] target = new Byte[snapshot.length];
+            for (int i = 0; i < target.length; i++) target[i] = new Byte(snapshot[i] & 255);
+            try { Convert(source, 0, source.length, target, 0, target.length, flush, charsUsed, bytesUsed, completed); }
+            finally {
+                for (int i = 0; i < target.length; i++) snapshot[i] = (byte)target[i].get_Value();
+                ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes);
+            }
+        }
         @Override public void Reset() { this.pending = 0; resetFallbackBuffer(); }
         @Override public int GetByteCount(char[] chars, int index, int count, boolean flush) {
             if (chars == null) throw new ArgumentNullException("chars");
@@ -687,6 +705,19 @@ public class UTF8Encoding extends Encoding {
                 throw new ArgumentException("Insufficient destination capacity.", "chars");
             }
             return new int[] {consumed, written};
+        }
+        @Override public void Convert(ReadOnlySpan<Byte> bytes, Span<Character> chars, boolean flush,
+                int[] bytesUsed, int[] charsUsed, boolean[] completed) {
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            if (chars == null) throw new ArgumentNullException("chars");
+            byte[] snapshot = new byte[bytes.get_Length()];
+            bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+            Byte[] source = new Byte[snapshot.length];
+            for (int i = 0; i < source.length; i++) source[i] = new Byte(snapshot[i] & 255);
+            char[] target = new char[chars.get_Length()];
+            chars.CopyTo(Span.OfChars(target));
+            try { Convert(source, 0, source.length, target, 0, target.length, flush, bytesUsed, charsUsed, completed); }
+            finally { ReadOnlySpan.OfChars(target).CopyTo(chars); }
         }
         @Override public void Reset() { this.pending = new byte[0]; resetFallbackBuffer(); }
         @Override public int GetCharCount(Byte[] bytes, int index, int count) {

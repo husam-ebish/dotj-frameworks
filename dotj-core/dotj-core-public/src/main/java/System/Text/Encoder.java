@@ -86,4 +86,34 @@ public abstract class Encoder {
             ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes);
         }
     }
+    public void Convert(ReadOnlySpan<Character> chars, Span<Byte> bytes, boolean flush,
+            int[] charsUsed, int[] bytesUsed, boolean[] completed) {
+        if (charsUsed == null || bytesUsed == null || completed == null) throw new java.lang.NullPointerException("Output carrier");
+        if (charsUsed.length == 0 || bytesUsed.length == 0 || completed.length == 0) throw new java.lang.ArrayIndexOutOfBoundsException("Output carrier");
+        if (chars == null) throw new ArgumentNullException("chars");
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        char[] source = new char[chars.get_Length()];
+        chars.CopyTo(Span.OfChars(source));
+        charsUsed[0] = source.length;
+        while (charsUsed[0] > 0) {
+            char[] countInput = java.util.Arrays.copyOf(source, charsUsed[0]);
+            if (GetByteCount(countInput, 0, countInput.length, flush) <= bytes.get_Length()) {
+                char[] writeInput = java.util.Arrays.copyOf(source, charsUsed[0]);
+                Byte[] target = new Byte[bytes.get_Length()];
+                java.util.Arrays.fill(target, new Byte(0));
+                int n = Math.min(GetBytes(writeInput, 0, writeInput.length, target, 0, flush), bytes.get_Length());
+                if (n > 0) {
+                    byte[] output = new byte[n];
+                    for (int i = 0; i < n; i++) output[i] = (byte)target[i].get_Value();
+                    ReadOnlySpan.OfUtf8Bytes(output).CopyTo(bytes.Slice(0, n));
+                }
+                bytesUsed[0] = n;
+                completed[0] = charsUsed[0] == source.length && (this.buffer == null || this.buffer.get_Remaining() == 0);
+                return;
+            }
+            flush = false;
+            charsUsed[0] /= 2;
+        }
+        throw new ArgumentException("The output buffer is too small for the conversion.");
+    }
 }

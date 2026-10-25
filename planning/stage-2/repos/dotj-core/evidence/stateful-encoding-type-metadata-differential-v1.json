@@ -3,16 +3,11 @@
   "casesPassed": 54,
   "selectedShapes": 4,
   "nativeDeclaredMethods": 28,
-  "directDeclaredProjections": 20,
+  "directDeclaredProjections": 22,
   "missingNativeMethods": [
     {
       "owner": "System.Text.Decoder",
       "signature": "Void Convert(Byte*, Int32, Char*, Int32, Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
-      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
-    },
-    {
-      "owner": "System.Text.Decoder",
-      "signature": "Void Convert(System.ReadOnlySpan`1[System.Byte], System.Span`1[System.Char], Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
       "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
     },
     {
@@ -32,11 +27,6 @@
     },
     {
       "owner": "System.Text.Encoder",
-      "signature": "Void Convert(System.ReadOnlySpan`1[System.Char], System.Span`1[System.Byte], Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
-      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
-    },
-    {
-      "owner": "System.Text.Encoder",
       "signature": "Int32 GetByteCount(Char*, Int32, Boolean)",
       "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
     },
@@ -50,6 +40,6 @@
   "arrayInterfaceQualification": false,
   "oracleEvidence": "stateful-encoding-type-metadata-contract-v10.0.12.json",
   "oracleSha256": "906a0d2cf78f56873586f5698b6363285df0f636c1ce825a2e2878591d5ff793",
-  "candidateJarSha256": "044291b348b640a957765414b7dc1ecc14d05537ff6eb44d73d156e06f81a456",
+  "candidateJarSha256": "58b925623215f4e8da68dbb658f05dae24035a2ae99b0dc368deaa7befff28af",
   "qualification": "SELECTED_METADATA_AND_DECLARATION_INVENTORY_ONLY; CONVERT_POINTER_SPAN_FULL_REFLECTION_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN"
 }
