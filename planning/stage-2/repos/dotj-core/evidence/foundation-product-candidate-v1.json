@@ -218,6 +218,18 @@
       "sha256": "b438cb114152ddc0005daacbecf230b8ac5893095cb0c56df78ffdfad55d4328"
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
+      "sha256": "92ca909d572b0d95dc3160137f93157a5119d9af57dc7414d990db49935ee875"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java",
+      "sha256": "2b07c41f63f76197fbb0278f3a37f9e6a93d2ded0906fe8af45fbea447fdb396"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/Utf8Codec.java",
+      "sha256": "8a9c948501b8e780dc9a8a55f33b6745230394f6fde4b8e0841cf7dd7cedffc4"
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Globalization/CultureNotFoundException.java",
       "sha256": "0bda26e3126570fb7e920f8667b40dd5a9dc29a74b41544f88b57602df1f1059"
     },
@@ -311,7 +323,7 @@
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "2c63ca73e2afd50a99667b9bcc29a4d2c8bd95a6f814dc72c2c9c4f9521760a9",
+  "jarSha256": "293a95810e652542a9870b57618db6e036b304bace22bb935604adde98f21305",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -387,6 +399,9 @@
     "System/SByte.class",
     "System/Span.class",
     "System/SystemException.class",
+    "System/Text/Encoding$DefaultUtf8.class",
+    "System/Text/Encoding.class",
+    "System/Text/UTF8Encoding.class",
     "System/TimeSpan.class",
     "System/Type$1.class",
     "System/Type$2.class",
@@ -408,6 +423,7 @@
     "org/dotj/internal/collections/ExceptionDataDictionary$EntryEnumerator.class",
     "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class",
     "org/dotj/internal/collections/ExceptionDataDictionary.class",
+    "org/dotj/internal/text/Utf8Codec.class",
     "org/dotj/internal/throwing/ThrowSite.class"
   ],
   "classSha256": {
@@ -480,6 +496,9 @@
     "System/SByte.class": "68c249438332f1593cbe177398bf9e40d3e9717d6264927f8c5e484bcfc49101",
     "System/Span.class": "77fd9e5af75616cd80b8d7da697c3672de19d803162a56852429c0d497e067f6",
     "System/SystemException.class": "9e55b953ad40a63b6094ef2f36524729810ad0ded17932224c302773513bd7e8",
+    "System/Text/Encoding$DefaultUtf8.class": "9802b4c22487c3b84b4e9b27372ed01a45a1e8f37076c33dfd7669c757dbce5f",
+    "System/Text/Encoding.class": "3dd1a14a166578fa202e3d862005dd9492daa0dfe0298e28326e9e5a83151a28",
+    "System/Text/UTF8Encoding.class": "c55ace991c39e6c5230f14c502bb3dab17ca9a145c7061cffc7393e169680286",
     "System/TimeSpan.class": "7ba310346c6886e0f736c7256230fb27631c73e233e5bbb1adcc25419e598994",
     "System/Type$1.class": "c56bbfd80b0cd188411502105ee3f49474fc77b49f401c72c2d2605983458f24",
     "System/Type$2.class": "c1e263672c7a7e40e0aadff4fd5a8dc2efc9f21140dcab9704113bff28cf4346",
@@ -501,6 +520,7 @@
     "org/dotj/internal/collections/ExceptionDataDictionary$EntryEnumerator.class": "4eaffd200f7d2147e295be6466c495c5523131bba7cec617ecf82ce5c54d811b",
     "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class": "710e4a6cf6b6059cba760946ac7fab3f0ce577e7ee00913278eb472f187d57a9",
     "org/dotj/internal/collections/ExceptionDataDictionary.class": "9951edd436a4417795b98aed34efee090f751ecdda3072a3640715f3f280f16d",
+    "org/dotj/internal/text/Utf8Codec.class": "67edbb8426c753cd9b3e1f7895fa9a620b80777ba32a5a90aff94439140ec7d1",
     "org/dotj/internal/throwing/ThrowSite.class": "a1ee91996e5d293c4a7ab0c77ac612bd796739bfa8acfa3646374c6e7058ab25"
   },
   "disposalConsumer": "PASS: product IDisposable shape, explicit dispatch, borrowed ownership and failure propagation",

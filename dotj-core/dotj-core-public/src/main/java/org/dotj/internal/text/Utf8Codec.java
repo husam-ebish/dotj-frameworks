@@ -1,0 +1,55 @@
+// SPDX-License-Identifier: MIT
+
+package org.dotj.internal.text;
+
+/** Selected stateless UTF-8 codec; replacement consumes each maximal valid prefix. */
+public final class Utf8Codec {
+    private Utf8Codec() { }
+    public static byte[] encode(String text) {
+        java.io.ByteArrayOutputStream bytes = new java.io.ByteArrayOutputStream();
+        for (int i = 0; i < text.length(); i++) {
+            int value = text.charAt(i);
+            if (Character.isHighSurrogate((char)value) && i + 1 < text.length()
+                    && Character.isLowSurrogate(text.charAt(i + 1))) {
+                value = Character.toCodePoint((char)value, text.charAt(++i));
+            } else if (value >= 0xd800 && value <= 0xdfff) {
+                value = 0xfffd;
+            }
+            if (value < 0x80) bytes.write(value);
+            else if (value < 0x800) {
+                bytes.write(0xc0 | value >> 6); bytes.write(0x80 | value & 63);
+            } else if (value < 0x10000) {
+                bytes.write(0xe0 | value >> 12); bytes.write(0x80 | value >> 6 & 63);
+                bytes.write(0x80 | value & 63);
+            } else {
+                bytes.write(0xf0 | value >> 18); bytes.write(0x80 | value >> 12 & 63);
+                bytes.write(0x80 | value >> 6 & 63); bytes.write(0x80 | value & 63);
+            }
+        }
+        return bytes.toByteArray();
+    }
+    public static String decode(byte[] bytes) {
+        StringBuilder text = new StringBuilder();
+        for (int i = 0; i < bytes.length;) {
+            int first = bytes[i] & 255;
+            if (first < 128) { text.append((char)first); i++; continue; }
+            int length = first >= 0xc2 && first <= 0xdf ? 2
+                    : first >= 0xe0 && first <= 0xef ? 3
+                    : first >= 0xf0 && first <= 0xf4 ? 4 : 0;
+            if (length == 0) { text.append('\ufffd'); i++; continue; }
+            int consumed = 1, scalar = first & (127 >> length);
+            while (consumed < length && i + consumed < bytes.length) {
+                int next = bytes[i + consumed] & 255;
+                if (next < 0x80 || next > 0xbf) break;
+                if (consumed == 1 && (first == 0xe0 && next < 0xa0
+                        || first == 0xed && next > 0x9f || first == 0xf0 && next < 0x90
+                        || first == 0xf4 && next > 0x8f)) break;
+                scalar = (scalar << 6) | (next & 63); consumed++;
+            }
+            if (consumed == length) text.appendCodePoint(scalar);
+            else text.append('\ufffd');
+            i += consumed;
+        }
+        return text.toString();
+    }
+}

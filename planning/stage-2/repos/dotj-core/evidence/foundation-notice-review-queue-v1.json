@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "2c63ca73e2afd50a99667b9bcc29a4d2c8bd95a6f814dc72c2c9c4f9521760a9",
+  "jarSha256": "293a95810e652542a9870b57618db6e036b304bace22bb935604adde98f21305",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 77,
-  "directNameMatchedCount": 72,
-  "directNameMissingCount": 5,
+  "sourceCount": 80,
+  "directNameMatchedCount": 74,
+  "directNameMissingCount": 6,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
     "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java"
@@ -1191,6 +1191,41 @@
       "supplementalAdjacencyEvidence": null
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
+      "productSha256": "92ca909d572b0d95dc3160137f93157a5119d9af57dc7414d990db49935ee875",
+      "classEntries": [
+        "System/Text/Encoding.class",
+        "System/Text/Encoding$DefaultUtf8.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "d2eb9952910baf6716f3ea6ccc1c3d309e092e7c",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/Encoding.cs",
+      "upstreamSha256": "44b11ddb443bd71b1c7a4406a8749d234c0e0b135d9a36dc53c4f0887b197db4",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java",
+      "productSha256": "2b07c41f63f76197fbb0278f3a37f9e6a93d2ded0906fe8af45fbea447fdb396",
+      "classEntries": [
+        "System/Text/UTF8Encoding.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "d2eb9952910baf6716f3ea6ccc1c3d309e092e7c",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/UTF8Encoding.cs",
+      "upstreamSha256": "47f5e4c98751367a86329ab1e0a76d86b39fd076a5b019284694f39d40fd9011",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java",
       "productSha256": "6a47bf60566edd39e14c9051b15c0527e89608ad0bf483013d7e22e81f33b78d",
       "classEntries": [
@@ -1353,6 +1388,23 @@
       "localIntroductionCommit": "b474e96a165c9ba76a155eea8734f3f63a9d4c22",
       "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/org/dotj/internal/collections/ExceptionDataDictionary.cs",
+      "upstreamSha256": null,
+      "sharedIdentifierShinglesOfLength12": null,
+      "lexicalReviewStatus": "DIRECT_PATH_MISSING",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/Utf8Codec.java",
+      "productSha256": "8a9c948501b8e780dc9a8a55f33b6745230394f6fde4b8e0841cf7dd7cedffc4",
+      "classEntries": [
+        "org/dotj/internal/text/Utf8Codec.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "d2eb9952910baf6716f3ea6ccc1c3d309e092e7c",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/org/dotj/internal/text/Utf8Codec.cs",
       "upstreamSha256": null,
       "sharedIdentifierShinglesOfLength12": null,
       "lexicalReviewStatus": "DIRECT_PATH_MISSING",
