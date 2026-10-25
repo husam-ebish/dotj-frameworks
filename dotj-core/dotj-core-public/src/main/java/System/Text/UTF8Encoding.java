@@ -5,22 +5,21 @@ package System.Text;
 import System.ArgumentNullException;
 import System.ArgumentOutOfRangeException;
 import System.ArgumentException;
+import System.InvalidOperationException;
 import System.Byte;
 import org.dotj.internal.text.Utf8Codec;
 
 /** Selected UTF-8 replacement behavior with an explicit unsigned byte array adapter. */
 public class UTF8Encoding extends Encoding {
     private final boolean emitIdentifier;
-    private final boolean strict;
-    private final EncoderFallback encoderFallback;
-    private final DecoderFallback decoderFallback;
+    private EncoderFallback encoderFallback;
+    private DecoderFallback decoderFallback;
     public UTF8Encoding() { this(false); }
     public UTF8Encoding(boolean encoderShouldEmitUTF8Identifier) {
         this(encoderShouldEmitUTF8Identifier, false);
     }
     public UTF8Encoding(boolean encoderShouldEmitUTF8Identifier, boolean throwOnInvalidBytes) {
         this.emitIdentifier = encoderShouldEmitUTF8Identifier;
-        this.strict = throwOnInvalidBytes;
         this.encoderFallback = throwOnInvalidBytes ? EncoderFallback.get_ExceptionFallback() : new EncoderReplacementFallback("\ufffd");
         this.decoderFallback = throwOnInvalidBytes ? DecoderFallback.get_ExceptionFallback() : new DecoderReplacementFallback("\ufffd");
     }
@@ -43,6 +42,20 @@ public class UTF8Encoding extends Encoding {
         for (int i = index; i < end;) {
             int units = Character.isHighSurrogate(text.charAt(i)) && i + 1 < end
                     && Character.isLowSurrogate(text.charAt(i + 1)) ? 2 : 1;
+            if (units == 1 && Character.isSurrogate(text.charAt(i))
+                    && this.encoderFallback instanceof EncoderReplacementFallback replacement) {
+                String value = replacement.get_DefaultString();
+                for (int p = 0; p < value.length();) {
+                    int width = Character.isHighSurrogate(value.charAt(p)) ? 2 : 1;
+                    Byte[] part = wrap(Utf8Codec.encode(value.substring(p, p + width), true));
+                    if (part.length > destination.length - offset - written) {
+                        throw new ArgumentException("Insufficient destination capacity.", "bytes");
+                    }
+                    java.lang.System.arraycopy(part, 0, destination, offset + written, part.length);
+                    written += part.length; p += width;
+                }
+                i++; continue;
+            }
             Byte[] packet;
             try { packet = GetBytes(text.substring(i, i + units)); }
             catch (EncoderFallbackException failure) {
@@ -70,11 +83,15 @@ public class UTF8Encoding extends Encoding {
             catch (DecoderFallbackException failure) {
                 throw new DecoderFallbackException(failure.get_Message(), failure.get_BytesUnknown(), i);
             }
-            if (packet.length() > chars.length - charIndex - written) {
-                throw new ArgumentException("Insufficient destination capacity.", "chars");
+            for (int p = 0; p < packet.length();) {
+                int width = Character.isHighSurrogate(packet.charAt(p)) ? 2 : 1;
+                if (width > chars.length - charIndex - written) {
+                    throw new ArgumentException("Insufficient destination capacity.", "chars");
+                }
+                packet.getChars(p, p + width, chars, charIndex + written);
+                written += width; p += width;
             }
-            packet.getChars(0, packet.length(), chars, charIndex + written);
-            written += packet.length(); i += consumed;
+            i += consumed;
         }
         return written;
     }
@@ -88,15 +105,35 @@ public class UTF8Encoding extends Encoding {
     }
     @Override public int GetMaxByteCount(int charCount) {
         if (charCount < 0) throw new ArgumentOutOfRangeException("charCount");
-        long result = ((long)charCount + 1) * 3;
-        if (result > Integer.MAX_VALUE) throw new ArgumentOutOfRangeException("charCount");
-        return (int)result;
+        long factor = Math.max(1, this.encoderFallback.get_MaxCharCount());
+        long units = (long)charCount + 1;
+        if (units > Integer.MAX_VALUE / (3 * factor)) throw new ArgumentOutOfRangeException("charCount");
+        return (int)(units * 3 * factor);
     }
     @Override public int GetMaxCharCount(int byteCount) {
         if (byteCount < 0 || byteCount == Integer.MAX_VALUE) {
             throw new ArgumentOutOfRangeException("byteCount");
         }
-        return byteCount + 1;
+        long factor = Math.max(1, this.decoderFallback.get_MaxCharCount());
+        long units = (long)byteCount + 1;
+        if (units > Integer.MAX_VALUE / factor) throw new ArgumentOutOfRangeException("byteCount");
+        return (int)(units * factor);
+    }
+    @Override public void set_EncoderFallback(EncoderFallback value) {
+        if (get_IsReadOnly()) throw new InvalidOperationException("Instance is read-only.");
+        if (value == null) throw new ArgumentNullException("value");
+        if (!(value instanceof EncoderReplacementFallback) && !(value instanceof EncoderExceptionFallback)) {
+            throw new UnsupportedOperationException("Custom encoder fallback subclasses are not supported by this candidate.");
+        }
+        this.encoderFallback = value;
+    }
+    @Override public void set_DecoderFallback(DecoderFallback value) {
+        if (get_IsReadOnly()) throw new InvalidOperationException("Instance is read-only.");
+        if (value == null) throw new ArgumentNullException("value");
+        if (!(value instanceof DecoderReplacementFallback) && !(value instanceof DecoderExceptionFallback)) {
+            throw new UnsupportedOperationException("Custom decoder fallback subclasses are not supported by this candidate.");
+        }
+        this.decoderFallback = value;
     }
     @Override public EncoderFallback get_EncoderFallback() { return this.encoderFallback; }
     @Override public DecoderFallback get_DecoderFallback() { return this.decoderFallback; }
@@ -114,13 +151,26 @@ public class UTF8Encoding extends Encoding {
         return encode(s).length;
     }
     @Override public String GetString(Byte[] bytes) {
-        try { return Utf8Codec.decode(unwrap(bytes), this.strict); }
+        try {
+            byte[] input = unwrap(bytes);
+            if (this.decoderFallback instanceof DecoderExceptionFallback) return Utf8Codec.decode(input, true);
+            if (this.decoderFallback instanceof DecoderReplacementFallback replacement) {
+                return Utf8Codec.decode(input, false, replacement.get_DefaultString());
+            }
+            throw new UnsupportedOperationException("Custom decoder fallback is not supported by this candidate.");
+        }
         catch (Utf8Codec.Failure failure) {
             throw new DecoderFallbackException("Unable to translate bytes to Unicode.", wrap(failure.bytesUnknown), failure.index);
         }
     }
     private byte[] encode(String text) {
-        try { return Utf8Codec.encode(text, this.strict); }
+        try {
+            if (this.encoderFallback instanceof EncoderExceptionFallback) return Utf8Codec.encode(text, true);
+            if (this.encoderFallback instanceof EncoderReplacementFallback replacement) {
+                return Utf8Codec.encode(text, false, replacement.get_DefaultString());
+            }
+            throw new UnsupportedOperationException("Custom encoder fallback is not supported by this candidate.");
+        }
         catch (Utf8Codec.Failure failure) { throw new EncoderFallbackException(failure.charUnknown, failure.index); }
     }
     @Override public int GetCharCount(Byte[] bytes) { return GetString(bytes).length(); }
