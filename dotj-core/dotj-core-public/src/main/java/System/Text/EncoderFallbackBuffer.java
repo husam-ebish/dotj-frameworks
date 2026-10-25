@@ -4,7 +4,7 @@ package System.Text;
 
 import System.ArgumentOutOfRangeException;
 
-/** Selected encoder fallback-buffer protocol; custom encoder integration remains open. */
+/** Selected encoder fallback-buffer protocol; selected UTF-8 custom integration is supported. */
 public abstract class EncoderFallbackBuffer {
     protected EncoderFallbackBuffer() { }
     public abstract boolean Fallback(char charUnknown, int index);

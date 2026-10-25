@@ -4,7 +4,7 @@ package System.Text;
 
 import System.Byte;
 
-/** Selected decoder fallback-buffer protocol; decoder integration remains open. */
+/** Selected decoder fallback-buffer protocol; selected UTF-8 custom integration is supported. */
 public abstract class DecoderFallbackBuffer {
     protected DecoderFallbackBuffer() { }
     public abstract boolean Fallback(Byte[] bytesUnknown, int index);

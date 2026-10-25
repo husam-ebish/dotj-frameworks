@@ -205,22 +205,40 @@ public class UTF8Encoding extends Encoding {
         return !(this.decoderFallback instanceof DecoderReplacementFallback)
                 && !(this.decoderFallback instanceof DecoderExceptionFallback);
     }
-    private static String drainEncoderBuffer(EncoderFallbackBuffer buffer) {
-        StringBuilder result = new StringBuilder();
-        char next;
-        while ((next = buffer.GetNextChar()) != 0) result.append(next);
-        return result.toString();
+    private static String nextFallbackRune(EncoderFallbackBuffer buffer) {
+        char first = buffer.GetNextChar();
+        if (!Character.isSurrogate(first)) return first == 0 ? "" : String.valueOf(first);
+        char second = buffer.GetNextChar();
+        if (!Character.isHighSurrogate(first) || !Character.isLowSurrogate(second)) {
+            throw new ArgumentException("Fallback produced invalid Unicode.");
+        }
+        return new String(new char[] {first, second});
     }
-    private static String drainDecoderBuffer(DecoderFallbackBuffer buffer) {
-        StringBuilder result = new StringBuilder();
-        char next;
-        while ((next = buffer.GetNextChar()) != 0) result.append(next);
-        return result.toString();
+    private static String nextFallbackRune(DecoderFallbackBuffer buffer) {
+        char first = buffer.GetNextChar();
+        if (!Character.isSurrogate(first)) return first == 0 ? "" : String.valueOf(first);
+        char second = buffer.GetNextChar();
+        if (!Character.isHighSurrogate(first) || !Character.isLowSurrogate(second)) {
+            throw new ArgumentException("Fallback produced invalid Unicode.");
+        }
+        return new String(new char[] {first, second});
     }
     private byte[] encodeCustom(String text) {
         java.io.ByteArrayOutputStream collector = new java.io.ByteArrayOutputStream();
         encodeCustomInto(text, 0, text.length(), null, 0, collector);
         return collector.toByteArray();
+    }
+    private static int writeCustomBytes(String rune, Byte[] destination, int offset,
+            java.io.ByteArrayOutputStream collector) {
+        byte[] bytes = Utf8Codec.encode(rune, true);
+        if (destination == null) collector.writeBytes(bytes);
+        else {
+            if (bytes.length > destination.length - offset) {
+                throw new ArgumentException("Insufficient destination capacity.", "bytes");
+            }
+            for (int n = 0; n < bytes.length; n++) destination[offset + n] = new Byte(bytes[n] & 255);
+        }
+        return bytes.length;
     }
     private int encodeCustomInto(String text, int index, int count, Byte[] destination, int offset,
             java.io.ByteArrayOutputStream collector) {
@@ -229,28 +247,17 @@ public class UTF8Encoding extends Encoding {
         for (int i = index; i < end;) {
             int units = Character.isHighSurrogate(text.charAt(i)) && i + 1 < end
                     && Character.isLowSurrogate(text.charAt(i + 1)) ? 2 : 1;
-            String packet;
             if (units == 1 && Character.isSurrogate(text.charAt(i))) {
                 if (buffer == null) buffer = this.encoderFallback.CreateFallbackBuffer();
                 if (buffer == null) throw new NullReferenceException();
-                packet = buffer.Fallback(text.charAt(i), i - index) ? drainEncoderBuffer(buffer) : "";
-            } else packet = text.substring(i, i + units);
-            for (int p = 0; p < packet.length();) {
-                int width = Character.isHighSurrogate(packet.charAt(p)) && p + 1 < packet.length()
-                        && Character.isLowSurrogate(packet.charAt(p + 1)) ? 2 : 1;
-                byte[] bytes;
-                try { bytes = Utf8Codec.encode(packet.substring(p, p + width), true); }
-                catch (Utf8Codec.Failure failure) {
-                    throw new ArgumentException("Recursive fallback produced invalid Unicode.", "chars");
-                }
-                if (destination == null) collector.writeBytes(bytes);
-                else {
-                    if (bytes.length > destination.length - offset - written) {
-                        throw new ArgumentException("Insufficient destination capacity.", "bytes");
+                if (buffer.Fallback(text.charAt(i), i - index)) {
+                    String rune;
+                    while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
+                        written += writeCustomBytes(rune, destination, offset + written, collector);
                     }
-                    for (int n = 0; n < bytes.length; n++) destination[offset + written + n] = new Byte(bytes[n] & 255);
                 }
-                written += bytes.length; p += width;
+            } else {
+                written += writeCustomBytes(text.substring(i, i + units), destination, offset + written, collector);
             }
             i += units;
         }
@@ -259,32 +266,33 @@ public class UTF8Encoding extends Encoding {
         }
         return written;
     }
+    private static void appendCustomChars(String rune, char[] destination, int offset, StringBuilder result) {
+        if (destination != null) {
+            if (rune.length() > destination.length - offset - result.length()) {
+                throw new ArgumentException("Insufficient destination capacity.", "chars");
+            }
+            rune.getChars(0, rune.length(), destination, offset + result.length());
+        }
+        result.append(rune);
+    }
     private String decodeCustom(byte[] input, char[] destination, int offset) {
         DecoderFallbackBuffer buffer = null;
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < input.length;) {
             int consumed = Utf8Codec.prefixLength(input, i, input.length);
-            String packet;
+            String packet = null;
             try { packet = Utf8Codec.decode(java.util.Arrays.copyOfRange(input, i, i + consumed), true); }
             catch (Utf8Codec.Failure failure) {
                 if (buffer == null) buffer = this.decoderFallback.CreateFallbackBuffer();
                 if (buffer == null) throw new NullReferenceException();
-                packet = buffer.Fallback(wrap(failure.bytesUnknown), i) ? drainDecoderBuffer(buffer) : "";
-            }
-            for (int p = 0; p < packet.length();) {
-                int width = Character.isHighSurrogate(packet.charAt(p)) && p + 1 < packet.length()
-                        && Character.isLowSurrogate(packet.charAt(p + 1)) ? 2 : 1;
-                if (Character.isSurrogate(packet.charAt(p)) && width == 1) {
-                    throw new ArgumentException("Fallback produced invalid Unicode.", "bytesUnknown");
-                }
-                if (destination != null) {
-                    if (width > destination.length - offset - result.length()) {
-                        throw new ArgumentException("Insufficient destination capacity.", "chars");
+                if (buffer.Fallback(wrap(failure.bytesUnknown), i)) {
+                    String rune;
+                    while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
+                        appendCustomChars(rune, destination, offset, result);
                     }
-                    packet.getChars(p, p + width, destination, offset + result.length());
                 }
-                result.append(packet, p, p + width); p += width;
             }
+            if (packet != null) appendCustomChars(packet, destination, offset, result);
             i += consumed;
         }
         return result.toString();
