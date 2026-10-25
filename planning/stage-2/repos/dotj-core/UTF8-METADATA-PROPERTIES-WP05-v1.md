@@ -1,0 +1,7 @@
+# Selected UTF-8 encoding metadata properties
+
+Batch 2185 adds nine inherited logical Encoding getters for the selected UTF-8 candidate: WebName, BodyName, HeaderName, WindowsCodePage, IsBrowserDisplay, IsBrowserSave, IsMailNewsDisplay, IsMailNewsSave and IsSingleByte. The three names are utf-8, the Windows code page is 1200, the four browser/mail flags are true and IsSingleByte is false. Arbitrary encoding metadata remains an explicit unsupported boundary.
+
+The native capture fixes the UI culture to invariant and records twelve properties, preamble and clone read-only state under eleven profiles. Direct and derived constructors cover both flags; the default singleton and clone are included. A UTF-8 subclass overrides CodePage to 90000 while retaining UTF-8 metadata, verifying that those metadata values do not follow the virtual getter. EncodingName is qualified only for the captured invariant UI culture.
+
+The packaged consumer passes 154 groups. The product continues to use only JDK APIs; Python and the pinned .NET runtime remain validation tools. These property checks do not qualify other encodings, culture-dependent resource names, arbitrary custom Encoding subclasses, stateful encoders/decoders, complete reflection/source ABI or WP-05-T2 acceptance. No accepted task or qualified framework is credited. Next is a pinned stateful UTF-8 Encoder/Decoder contract and owned API gap baseline before implementation.
