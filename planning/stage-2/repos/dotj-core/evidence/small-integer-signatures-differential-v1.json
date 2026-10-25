@@ -4,8 +4,15 @@
     {
       "fullName": "System.SByte",
       "nativeDeclaredMethodCount": 52,
+      "selectedNativeMethodCount": 39,
       "selectedProjectedMethodCount": 33,
-      "outsideSelectedMethodCount": 19,
+      "erasureCollapsedNativeMethodCount": 6,
+      "typedParsingBridges": [
+        "public static <T> System.SByte Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.SByte[]);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.SByte[]);"
+      ],
+      "outsideSelectedMethodCount": 13,
       "methods": [
         {
           "nativeSignature": "SByte Abs(SByte)",
@@ -317,13 +324,35 @@
         },
         {
           "nativeSignature": "SByte Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> System.SByte Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "Parse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> System.SByte Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "Parse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte Parse(System.String, System.Globalization.NumberStyles)",
@@ -561,13 +590,35 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], SByte ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.SByte[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.SByte[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], SByte ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.SByte[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.SByte[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.String, System.IFormatProvider, SByte ByRef)",
@@ -593,8 +644,20 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, SByte ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.SByte[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider",
+              "System.SByte[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, SByte ByRef)",
@@ -608,8 +671,20 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, SByte ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.SByte[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider",
+              "System.SByte[]"
+            ]
+          }
         }
       ],
       "fields": [
@@ -682,6 +757,9 @@
         "public static System.SByte Parse(java.lang.String, System.IFormatProvider);",
         "public static boolean TryParse(java.lang.String, System.SByte[]);",
         "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.SByte[]);",
+        "public static <T> System.SByte Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.SByte[]);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.SByte[]);",
         "public System.SByte(int);",
         "public byte get_Value();",
         "public java.lang.String ToString();",
@@ -720,8 +798,15 @@
     {
       "fullName": "System.Byte",
       "nativeDeclaredMethodCount": 46,
+      "selectedNativeMethodCount": 35,
       "selectedProjectedMethodCount": 29,
-      "outsideSelectedMethodCount": 17,
+      "erasureCollapsedNativeMethodCount": 6,
+      "typedParsingBridges": [
+        "public static <T> System.Byte Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Byte[]);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.Byte[]);"
+      ],
+      "outsideSelectedMethodCount": 11,
       "methods": [
         {
           "nativeSignature": "Byte Clamp(Byte, Byte, Byte)",
@@ -955,8 +1040,19 @@
         },
         {
           "nativeSignature": "Byte Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> System.Byte Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "Parse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider"
+            ]
+          }
         },
         {
           "nativeSignature": "Byte Parse(System.String)",
@@ -985,8 +1081,19 @@
         },
         {
           "nativeSignature": "Byte Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> System.Byte Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "Parse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider"
+            ]
+          }
         },
         {
           "nativeSignature": "Byte Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
@@ -1209,8 +1316,20 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, Byte ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.Byte[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider",
+              "System.Byte[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.String, System.Globalization.NumberStyles, System.IFormatProvider, Byte ByRef)",
@@ -1236,8 +1355,19 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], Byte ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Byte[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.Byte[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, Byte ByRef)",
@@ -1246,13 +1376,36 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], Byte ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Byte[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.Byte[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, Byte ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.Byte[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider",
+              "System.Byte[]"
+            ]
+          }
         }
       ],
       "fields": [
@@ -1321,6 +1474,9 @@
         "public static System.Byte Parse(java.lang.String, System.IFormatProvider);",
         "public static boolean TryParse(java.lang.String, System.Byte[]);",
         "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.Byte[]);",
+        "public static <T> System.Byte Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Byte[]);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.Byte[]);",
         "public System.Byte(int);",
         "public short get_Value();",
         "public java.lang.String ToString();",
@@ -1359,8 +1515,15 @@
     {
       "fullName": "System.UInt16",
       "nativeDeclaredMethodCount": 46,
+      "selectedNativeMethodCount": 35,
       "selectedProjectedMethodCount": 29,
-      "outsideSelectedMethodCount": 17,
+      "erasureCollapsedNativeMethodCount": 6,
+      "typedParsingBridges": [
+        "public static <T> System.UInt16 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt16[]);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt16[]);"
+      ],
+      "outsideSelectedMethodCount": 11,
       "methods": [
         {
           "nativeSignature": "UInt16 Clamp(UInt16, UInt16, UInt16)",
@@ -1635,13 +1798,35 @@
         },
         {
           "nativeSignature": "UInt16 Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> System.UInt16 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "Parse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt16 Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> System.UInt16 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "Parse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt16 Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
@@ -1837,13 +2022,35 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], UInt16 ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt16[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.UInt16[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], UInt16 ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt16[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.UInt16[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.String, UInt16 ByRef)",
@@ -1880,8 +2087,20 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, UInt16 ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt16[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider",
+              "System.UInt16[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, UInt16 ByRef)",
@@ -1890,8 +2109,20 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, UInt16 ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt16[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider",
+              "System.UInt16[]"
+            ]
+          }
         }
       ],
       "fields": [
@@ -1960,6 +2191,9 @@
         "public static System.UInt16 Parse(java.lang.String, System.IFormatProvider);",
         "public static boolean TryParse(java.lang.String, System.UInt16[]);",
         "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.UInt16[]);",
+        "public static <T> System.UInt16 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt16[]);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt16[]);",
         "public System.UInt16(int);",
         "public int get_Value();",
         "public java.lang.String ToString();",
@@ -1998,8 +2232,15 @@
     {
       "fullName": "System.UInt32",
       "nativeDeclaredMethodCount": 47,
+      "selectedNativeMethodCount": 35,
       "selectedProjectedMethodCount": 29,
-      "outsideSelectedMethodCount": 18,
+      "erasureCollapsedNativeMethodCount": 6,
+      "typedParsingBridges": [
+        "public static <T> System.UInt32 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt32[]);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt32[]);"
+      ],
+      "outsideSelectedMethodCount": 12,
       "methods": [
         {
           "nativeSignature": "UInt64 BigMul(UInt32, UInt32)",
@@ -2279,13 +2520,35 @@
         },
         {
           "nativeSignature": "UInt32 Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> System.UInt32 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "Parse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt32 Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> System.UInt32 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+          "projectedJava": {
+            "name": "Parse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt32 Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
@@ -2481,13 +2744,35 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], UInt32 ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt32[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.UInt32[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], UInt32 ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt32[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.UInt32[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.String, UInt32 ByRef)",
@@ -2524,8 +2809,20 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, UInt32 ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt32[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider",
+              "System.UInt32[]"
+            ]
+          }
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, UInt32 ByRef)",
@@ -2534,8 +2831,20 @@
         },
         {
           "nativeSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, UInt32 ByRef)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "ERASURE_COLLAPSED_TYPED_SPAN",
+          "candidateDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt32[]);",
+          "projectedJava": {
+            "name": "TryParse",
+            "isStatic": true,
+            "genericArity": 1,
+            "returnType": "boolean",
+            "parameters": [
+              "System.ReadOnlySpan<T>",
+              "System.IFormatProvider",
+              "System.UInt32[]"
+            ]
+          }
         }
       ],
       "fields": [
@@ -2604,6 +2913,9 @@
         "public static System.UInt32 Parse(java.lang.String, System.IFormatProvider);",
         "public static boolean TryParse(java.lang.String, System.UInt32[]);",
         "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.UInt32[]);",
+        "public static <T> System.UInt32 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt32[]);",
+        "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt32[]);",
         "public System.UInt32(long);",
         "public long get_Value();",
         "public java.lang.String ToString();",
@@ -2640,9 +2952,11 @@
       ]
     }
   ],
+  "selectedNativeMethodCount": 144,
+  "erasureCollapsedNativeMethodCount": 24,
   "selectedProjectedMethodCount": 120,
   "oracleEvidence": "small-integer-signatures-contract-v10.0.12.json",
   "oracleSha256": "93f598654fa6b0417c7a8ed66262c31be19db0facb672bf3e54eaf63a37be607",
-  "candidateJarSha256": "3e0d5e9a981c3bdda364af467dd6410626b40788eae2ceacf535f6a708100530",
+  "candidateJarSha256": "336743210a211524e5ea8531984072f7c3eea1a97c3f9b3dad6c33990fe42a22",
   "qualification": "SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN"
 }

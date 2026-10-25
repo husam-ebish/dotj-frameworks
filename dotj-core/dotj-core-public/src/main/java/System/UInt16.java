@@ -105,6 +105,19 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
         }
     }
 
+    /** One Java generic carrier for the native Char and UTF-8 Byte parsing overloads. */
+    public static <T> UInt16 Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
+        if (text == null) throw new ArgumentNullException("text");
+        return Parse(text.selectedInt32Text(), provider);
+    }
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, UInt16[] result) {
+        return TryParse(text, null, result);
+    }
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider, UInt16[] result) {
+        if (text == null) throw new ArgumentNullException("text");
+        return TryParse(text.selectedInt32Text(), provider, result);
+    }
+
     public UInt16(int value) {
         if (value < 0 || value > 65535) {
             throw new OverflowException("Value was outside the range of UInt16");

@@ -164,6 +164,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         } else if (!negative.isEmpty() && text.startsWith(negative, start) && start + negative.length() <= end) {
             start += negative.length();
             isNegative = true;
+        } else if (start < end && text.charAt(start) == '-' && selectedIntegerCarrierHyphenSign(negative)) {
+            start++;
+            isNegative = true;
         }
         if (start == end) throw new FormatException("Input string was not in a correct format.");
         for (int offset = start; offset < end; offset++) {
@@ -180,6 +183,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     static IFormatProvider selectedIntegerCarrierProvider(IFormatProvider provider) {
         return selectedNumberFormatInfo(provider);
+    }
+
+    /** Selected pinned numeric sign leniency; the configured sign must be one UTF-16 unit. */
+    private static boolean selectedIntegerCarrierHyphenSign(String sign) {
+        return sign.length() == 1
+                && "\u2012\u207b\u208b\u2212\u2796\ufe63\uff0d".indexOf(sign.charAt(0)) >= 0;
     }
 
     private static NumberFormatInfo selectedNumberFormatInfo(IFormatProvider provider) {
