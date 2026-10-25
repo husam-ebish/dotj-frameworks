@@ -1,0 +1,11 @@
+# Custom UTF8 Try span fallback protocols
+
+Batch 2213 corrects a callback exception ambiguity in UTF8Encoding.TryGetBytes and TryGetChars. A custom fallback could throw an exact ArgumentException with parameter bytes or chars; the preceding catch-based capacity adapter returned false instead of propagating that callback exception. The new implementation uses an explicit capacity-as-failure path inside the private writers. Public throwing writers retain their previous behavior. Try span adapters copy partial destination contents back even when a callback throws, and assign the written slot only after normal return.
+
+The native corpus contains 14,112 cases over two directions, four replacement templates, fourteen provider modes, nine inputs per direction, seven capacities and two offsets. It includes three callback ArgumentException modes (bytes, chars and null parameter), ordinary callback/factory failures, null factories, unusual Remaining/rewind behavior and malformed replacement output. The old implementation reproduces the bytes-parameter callback failure. The corrected packaged consumer passes 70,560 groups for result/full exception payload, written slot, guarded destination, factory count and five buffer callback counters.
+
+Native evidence binds runtime 10.0.12, CoreLib and the producer. The differential binds the fixture, versioned consumer and candidate JAR. The 61,992 predefined Try span groups, 14,336 generic Try dispatch groups and retained stateless/stateful/custom Convert and span regressions pass alongside owned-source, distribution, rights-input and compiled API audits. The internal status path introduces no external runtime dependency or new public declaration.
+
+This is selected custom UTF8 heap span evidence. Arbitrary reentrancy, direct pointer and CLR lifetime semantics, full metadata/source ABI, E01 applicability and WP-05 task acceptance remain open. No accepted task, qualified framework or rights clearance is credited.
+
+Next is the generic Encoding.GetEncoder/GetDecoder default factory behavior: implement delegated array count/write projections and qualify independent wrapper state, fallback isolation, reset, validation dispatch and ignored flush behavior against pinned native controls.

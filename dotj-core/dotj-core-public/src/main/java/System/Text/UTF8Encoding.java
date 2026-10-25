@@ -29,26 +29,36 @@ public class UTF8Encoding extends Encoding {
     @Override public boolean TryGetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes, int[] bytesWritten) {
         if (bytesWritten == null) throw new ArgumentNullException("bytesWritten");
         if (bytesWritten.length == 0) throw new ArgumentException("An output slot is required.", "bytesWritten");
-        try {
-            bytesWritten[0] = GetBytes(chars, bytes);
-            return true;
-        } catch (ArgumentException failure) {
-            if (failure.getClass() != ArgumentException.class || !"bytes".equals(failure.get_ParamName())) throw failure;
-            bytesWritten[0] = 0;
-            return false;
+        if (chars == null) throw new ArgumentNullException("chars");
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        char[] input = new char[chars.get_Length()];
+        chars.CopyTo(Span.OfChars(input));
+        byte[] snapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+        Byte[] output = wrap(snapshot);
+        int result;
+        try { result = encodeInto(new String(input), 0, input.length, output, 0, true); }
+        finally {
+            for (int i = 0; i < output.length; i++) snapshot[i] = (byte)output[i].get_Value();
+            ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes);
         }
+        bytesWritten[0] = Math.max(0, result);
+        return result >= 0;
     }
     @Override public boolean TryGetChars(ReadOnlySpan<Byte> bytes, Span<Character> chars, int[] charsWritten) {
         if (charsWritten == null) throw new ArgumentNullException("charsWritten");
         if (charsWritten.length == 0) throw new ArgumentException("An output slot is required.", "charsWritten");
-        try {
-            charsWritten[0] = GetChars(bytes, chars);
-            return true;
-        } catch (ArgumentException failure) {
-            if (failure.getClass() != ArgumentException.class || !"chars".equals(failure.get_ParamName())) throw failure;
-            charsWritten[0] = 0;
-            return false;
-        }
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        if (chars == null) throw new ArgumentNullException("chars");
+        byte[] input = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(input));
+        char[] output = new char[chars.get_Length()];
+        chars.CopyTo(Span.OfChars(output));
+        int result;
+        try { result = decodeInto(input, output, 0, true); }
+        finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
+        charsWritten[0] = Math.max(0, result);
+        return result >= 0;
     }
     @Override public int GetBytes(String s, int charIndex, int charCount, Byte[] bytes, int byteIndex) {
         if (s == null) throw new ArgumentNullException("s");
@@ -65,7 +75,10 @@ public class UTF8Encoding extends Encoding {
         return encodeInto(new String(chars), charIndex, charCount, bytes, byteIndex);
     }
     private int encodeInto(String text, int index, int count, Byte[] destination, int offset) {
-        if (customEncoderFallback()) return encodeCustomInto(text, index, count, destination, offset, null);
+        return encodeInto(text, index, count, destination, offset, false);
+    }
+    private int encodeInto(String text, int index, int count, Byte[] destination, int offset, boolean capacityAsFailure) {
+        if (customEncoderFallback()) return encodeCustomInto(text, index, count, destination, offset, null, capacityAsFailure);
         int end = index + count, written = 0;
         for (int i = index; i < end;) {
             int units = Character.isHighSurrogate(text.charAt(i)) && i + 1 < end
@@ -77,6 +90,7 @@ public class UTF8Encoding extends Encoding {
                     int width = Character.isHighSurrogate(value.charAt(p)) ? 2 : 1;
                     Byte[] part = wrap(Utf8Codec.encode(value.substring(p, p + width), true));
                     if (part.length > destination.length - offset - written) {
+                        if (capacityAsFailure) return -1;
                         throw new ArgumentException("Insufficient destination capacity.", "bytes");
                     }
                     java.lang.System.arraycopy(part, 0, destination, offset + written, part.length);
@@ -90,7 +104,8 @@ public class UTF8Encoding extends Encoding {
                 throw new EncoderFallbackException(failure.get_CharUnknown(), i - index);
             }
             if (packet.length > destination.length - offset - written) {
-                throw new ArgumentException("Insufficient destination capacity.", "bytes");
+                if (capacityAsFailure) return -1;
+                        throw new ArgumentException("Insufficient destination capacity.", "bytes");
             }
             java.lang.System.arraycopy(packet, 0, destination, offset + written, packet.length);
             written += packet.length; i += units;
@@ -103,7 +118,13 @@ public class UTF8Encoding extends Encoding {
         validateDestinationRange(bytes.length, byteIndex, byteCount, chars.length, charIndex,
                 "byteIndex", "byteCount", "bytes", "charIndex");
         byte[] input = unwrap(java.util.Arrays.copyOfRange(bytes, byteIndex, byteIndex + byteCount));
-        if (customDecoderFallback()) return decodeCustom(input, chars, charIndex).length();
+        return decodeInto(input, chars, charIndex, false);
+    }
+    private int decodeInto(byte[] input, char[] chars, int charIndex, boolean capacityAsFailure) {
+        if (customDecoderFallback()) {
+            String result = decodeCustom(input, chars, charIndex, capacityAsFailure);
+            return result == null ? -1 : result.length();
+        }
         int written = 0;
         for (int i = 0; i < input.length;) {
             int consumed = Utf8Codec.prefixLength(input, i, input.length);
@@ -115,6 +136,7 @@ public class UTF8Encoding extends Encoding {
             for (int p = 0; p < packet.length();) {
                 int width = Character.isHighSurrogate(packet.charAt(p)) ? 2 : 1;
                 if (width > chars.length - charIndex - written) {
+                    if (capacityAsFailure) return -1;
                     throw new ArgumentException("Insufficient destination capacity.", "chars");
                 }
                 packet.getChars(p, p + width, chars, charIndex + written);
@@ -911,6 +933,10 @@ public class UTF8Encoding extends Encoding {
     }
     private int encodeCustomInto(String text, int index, int count, Byte[] destination, int offset,
             java.io.ByteArrayOutputStream collector) {
+        return encodeCustomInto(text, index, count, destination, offset, collector, false);
+    }
+    private int encodeCustomInto(String text, int index, int count, Byte[] destination, int offset,
+            java.io.ByteArrayOutputStream collector, boolean capacityAsFailure) {
         EncoderFallbackBuffer buffer = null;
         int end = index + count, written = 0;
         for (int i = index; i < end;) {
@@ -926,6 +952,7 @@ public class UTF8Encoding extends Encoding {
                         if (destination != null && Utf8Codec.encode(rune, true).length > destination.length - offset - written) {
                             for (int n = 0; n < rune.length(); n++) buffer.MovePrevious();
                             if (i + units < end || buffer.get_Remaining() > 0) {
+                                if (capacityAsFailure) return -1;
                                 throw new ArgumentException("Insufficient destination capacity.", "bytes");
                             }
                             return written;
@@ -938,12 +965,14 @@ public class UTF8Encoding extends Encoding {
                 if (destination != null && Utf8Codec.encode(rune, true).length > destination.length - offset - written) {
                     if (buffer == null) buffer = this.encoderFallback.CreateFallbackBuffer();
                     if (buffer == null) throw new NullReferenceException();
+                    if (capacityAsFailure) return -1;
                 }
                 written += writeCustomBytes(rune, destination, offset + written, collector);
             }
             i += units;
         }
         if (destination != null && buffer != null && buffer.get_Remaining() > 0) {
+            if (capacityAsFailure) return -1;
             throw new ArgumentException("Fallback has pending output.", "bytes");
         }
         return written;
@@ -958,6 +987,9 @@ public class UTF8Encoding extends Encoding {
         result.append(rune);
     }
     private String decodeCustom(byte[] input, char[] destination, int offset) {
+        return decodeCustom(input, destination, offset, false);
+    }
+    private String decodeCustom(byte[] input, char[] destination, int offset, boolean capacityAsFailure) {
         DecoderFallbackBuffer buffer = null;
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < input.length;) {
@@ -972,6 +1004,7 @@ public class UTF8Encoding extends Encoding {
                     while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
                         if (destination != null && rune.length() > destination.length - offset - result.length()) {
                             buffer.Reset();
+                            if (capacityAsFailure) return null;
                             throw new ArgumentException("Insufficient destination capacity.", "chars");
                         }
                         appendCustomChars(rune, destination, offset, result);
@@ -982,6 +1015,7 @@ public class UTF8Encoding extends Encoding {
                 if (destination != null && packet.length() > destination.length - offset - result.length()) {
                     if (buffer == null) buffer = this.decoderFallback.CreateFallbackBuffer();
                     if (buffer == null) throw new NullReferenceException();
+                    if (capacityAsFailure) return null;
                 }
                 appendCustomChars(packet, destination, offset, result);
             }
