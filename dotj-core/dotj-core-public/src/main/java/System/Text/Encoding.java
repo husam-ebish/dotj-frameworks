@@ -172,11 +172,36 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
             throw new AssertionError(failure);
         }
     }
-    public Encoder GetEncoder() {
-        throw new UnsupportedOperationException("Stateful encoding for this encoding is not supported by the candidate.");
+    public Encoder GetEncoder() { return new DefaultEncoder(this); }
+    public Decoder GetDecoder() { return new DefaultDecoder(this); }
+    private static final class DefaultEncoder extends Encoder {
+        private final Encoding encoding;
+        private DefaultEncoder(Encoding encoding) { this.encoding = encoding; }
+        @Override public int GetByteCount(char[] chars, int index, int count, boolean flush) {
+            return this.encoding.GetByteCount(chars, index, count);
+        }
+        @Override public int GetBytes(char[] chars, int charIndex, int charCount,
+                Byte[] bytes, int byteIndex, boolean flush) {
+            return this.encoding.GetBytes(chars, charIndex, charCount, bytes, byteIndex);
+        }
     }
-    public Decoder GetDecoder() {
-        throw new UnsupportedOperationException("Stateful decoding for this encoding is not supported by the candidate.");
+    private static final class DefaultDecoder extends Decoder {
+        private final Encoding encoding;
+        private DefaultDecoder(Encoding encoding) { this.encoding = encoding; }
+        @Override public int GetCharCount(Byte[] bytes, int index, int count) {
+            return this.encoding.GetCharCount(bytes, index, count);
+        }
+        @Override public int GetCharCount(Byte[] bytes, int index, int count, boolean flush) {
+            return this.encoding.GetCharCount(bytes, index, count);
+        }
+        @Override public int GetChars(Byte[] bytes, int byteIndex, int byteCount,
+                char[] chars, int charIndex) {
+            return this.encoding.GetChars(bytes, byteIndex, byteCount, chars, charIndex);
+        }
+        @Override public int GetChars(Byte[] bytes, int byteIndex, int byteCount,
+                char[] chars, int charIndex, boolean flush) {
+            return this.encoding.GetChars(bytes, byteIndex, byteCount, chars, charIndex);
+        }
     }
     public ReadOnlySpan<Byte> get_Preamble() {
         Byte[] value = GetPreamble();
