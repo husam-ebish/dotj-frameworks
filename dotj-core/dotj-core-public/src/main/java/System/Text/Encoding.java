@@ -11,11 +11,26 @@ import System.ArgumentException;
 import System.ArgumentOutOfRangeException;
 import System.OutOfMemoryException;
 import System.OverflowException;
+import System.InvalidOperationException;
 
 /** Selected stateless encoding surface; stateful and pointer overloads remain open. */
 public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     private boolean readOnly = true;
-    protected Encoding() { }
+    private final int codePage;
+    EncoderFallback encoderFallback;
+    DecoderFallback decoderFallback;
+    static final Byte[] EMPTY_PREAMBLE = new Byte[0];
+    protected Encoding() { this(0); }
+    protected Encoding(int codePage) { this(codePage, null, null); }
+    protected Encoding(int codePage, EncoderFallback encoderFallback, DecoderFallback decoderFallback) {
+        if (codePage < 0) {
+            throw new ArgumentOutOfRangeException("codePage", codePage,
+                    "codePage ('" + codePage + "') must be a non-negative value.");
+        }
+        this.codePage = codePage;
+        this.encoderFallback = encoderFallback == null ? EncoderFallback.get_ReplacementFallback() : encoderFallback;
+        this.decoderFallback = decoderFallback == null ? DecoderFallback.get_ReplacementFallback() : decoderFallback;
+    }
     public static Encoding get_UTF8() { return DefaultUtf8.VALUE; }
     public static Byte[] Convert(Encoding srcEncoding, Encoding dstEncoding, Byte[] bytes) {
         if (bytes == null) throw new ArgumentNullException("bytes");
@@ -149,10 +164,18 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     }
     public abstract int GetMaxByteCount(int charCount);
     public abstract int GetMaxCharCount(int byteCount);
-    public abstract EncoderFallback get_EncoderFallback();
-    public abstract void set_EncoderFallback(EncoderFallback value);
-    public abstract DecoderFallback get_DecoderFallback();
-    public abstract void set_DecoderFallback(DecoderFallback value);
+    public EncoderFallback get_EncoderFallback() { return this.encoderFallback; }
+    public void set_EncoderFallback(EncoderFallback value) {
+        if (get_IsReadOnly()) throw new InvalidOperationException("Instance is read-only.");
+        if (value == null) throw new ArgumentNullException("value");
+        this.encoderFallback = value;
+    }
+    public DecoderFallback get_DecoderFallback() { return this.decoderFallback; }
+    public void set_DecoderFallback(DecoderFallback value) {
+        if (get_IsReadOnly()) throw new InvalidOperationException("Instance is read-only.");
+        if (value == null) throw new ArgumentNullException("value");
+        this.decoderFallback = value;
+    }
     private void requireUtf8Metadata() {
         if (!(this instanceof UTF8Encoding)) {
             throw new UnsupportedOperationException("Metadata for this encoding is not supported by the candidate.");
@@ -167,7 +190,7 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public boolean get_IsMailNewsDisplay() { requireUtf8Metadata(); return true; }
     public boolean get_IsMailNewsSave() { requireUtf8Metadata(); return true; }
     public boolean get_IsSingleByte() { return false; }
-    public abstract int get_CodePage();
+    public int get_CodePage() { return this.codePage; }
     public abstract String get_EncodingName();
     public boolean Equals(Object value) {
         return value instanceof Encoding other && get_CodePage() == other.get_CodePage()
@@ -230,7 +253,7 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         Byte[] value = GetPreamble();
         return ReadOnlySpan.OfUtf8Bytes(value == null ? new Byte[0] : value);
     }
-    public abstract Byte[] GetPreamble();
+    public Byte[] GetPreamble() { return EMPTY_PREAMBLE; }
     public Byte[] GetBytes(String s) {
         if (s == null) throw new ArgumentNullException("s");
         int length = GetByteCount(s);
