@@ -1,0 +1,18 @@
+"""Compare UTF16 heap span counts, strings, writes and Try slots/buffers."""
+import argparse,base64,hashlib,json,subprocess
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
+def csv(v):return '~' if v is None else ','.join(map(str,v))
+def b64(s):return base64.b64encode(s.encode('utf-8')).decode('ascii')
+def error(f):
+ f=f or {};return [f.get('type',''),b64(f.get('message','')),str(f.get('hResult',0)),f.get('paramName') or '~',str(f.get('index','~')),str(f.get('charUnknown','~')),str(f.get('high','~')),str(f.get('low','~')),str(int(f['isPair'])) if 'isPair' in f else '~',csv(f.get('bytes'))]
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
+ if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))['jarPath']
+ path=EVIDENCE/'unicode-encoding-spans-contract-v10.0.12.json';j=json.loads(path.read_text(encoding='utf-8'));assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-unicode-encoding-spans-contract.ps1').read_bytes()).hexdigest();assert len(j['specs'])==18 and len(j['rows'])==42300;assert {r['failure']['type'] for r in j['rows'] if r['failure']}=={'System.ArgumentException','System.Text.EncoderFallbackException','System.Text.DecoderFallbackException'};assert not any(r['failure'] and any(x in r['failure']['message'] for x in ['Object of type','Parameter count mismatch']) for r in j['rows'])
+ work=Path('D:/AI/Implementation/dotj Frameworks/verification/unicode-encoding-spans');work.mkdir(parents=True,exist_ok=True);states=work/'specs.tsv';states.write_text('\n'.join('\t'.join(str(int(s[k])) for k in ['constructor','bigEndian','bom','strict','custom']) for s in j['specs'])+'\n',encoding='ascii');lines=[]
+ for r in j['rows']:
+  result=r['result'];kind='b' if isinstance(result,bool) else 'n' if isinstance(result,int) else 'a';lines.append('\t'.join([str(r['state']),r['operation'],csv(r['input']),str(r['start']),str(r['count']),str(r['offset']),str(r['capacity']),kind,str(int(result)) if kind=='b' else str(result) if kind=='n' else csv(result),str(r['written']),csv(r['buffer']),*error(r['failure'])]))
+ vectors=work/'vectors.tsv';vectors.write_text('\n'.join(lines)+'\n',encoding='ascii');component=Path(__file__).with_name('unicode-encoding-spans-probe.java');source=work/'UnicodeEncodingSpansProbe.java';source.write_bytes(component.read_bytes());subprocess.run(['javac','--release','21','-cp',str(a.jar),'-d',str(work),str(source)],check=True);result=subprocess.run(['java','-cp',str(a.jar)+';'+str(work),'UnicodeEncodingSpansProbe',str(states),str(vectors)],capture_output=True,text=True);print(result.stdout,end='');print(result.stderr,end='');result.check_returncode();assert 'groups=82044' in result.stdout
+ record=dict(schemaVersion=1,casesPassed=82044,nativeRows=42300,nativeStates=18,oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),consumerSourceSha256=hashlib.sha256(component.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(a.jar.read_bytes()).hexdigest(),qualification='SELECTED_UNICODEENCODING_HEAP_SPANS_ONLY; ARBITRARY_PROVIDERS_SUBCLASS_DISPATCH_SPECIALIZED_STATEFUL_BYREF_POINTER_SOURCE_ABI_E01_AND_TASK_ACCEPTANCE_OPEN');(EVIDENCE/'unicode-encoding-spans-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8',newline='\n');print('PASS UnicodeEncoding spans: 42300 native rows, 82044 groups')
+if __name__=='__main__':main()
