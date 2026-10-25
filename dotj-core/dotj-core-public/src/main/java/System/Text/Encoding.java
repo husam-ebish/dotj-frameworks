@@ -3,6 +3,8 @@
 package System.Text;
 
 import System.Byte;
+import System.ReadOnlySpan;
+import System.Span;
 import System.ICloneable;
 import System.ArgumentNullException;
 import System.ArgumentOutOfRangeException;
@@ -122,4 +124,53 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public abstract String GetString(Byte[] bytes);
     public abstract int GetCharCount(Byte[] bytes);
     public abstract char[] GetChars(Byte[] bytes);
+    public int GetByteCount(ReadOnlySpan<Character> chars) {
+        if (chars == null) throw new ArgumentNullException("chars");
+        char[] input = new char[chars.get_Length()];
+        chars.CopyTo(Span.OfChars(input));
+        return GetByteCount(input, 0, input.length);
+    }
+    public int GetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes) {
+        if (chars == null) throw new ArgumentNullException("chars");
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        char[] input = new char[chars.get_Length()];
+        chars.CopyTo(Span.OfChars(input));
+        byte[] snapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+        Byte[] output = new Byte[snapshot.length];
+        for (int i = 0; i < output.length; i++) output[i] = new Byte(snapshot[i] & 255);
+        try { return GetBytes(input, 0, input.length, output, 0); }
+        finally {
+            for (int i = 0; i < output.length; i++) snapshot[i] = (byte)output[i].get_Value();
+            ReadOnlySpan.OfUtf8Bytes(snapshot).CopyTo(bytes);
+        }
+    }
+    public int GetCharCount(ReadOnlySpan<Byte> bytes) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        byte[] snapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+        Byte[] input = new Byte[snapshot.length];
+        for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
+        return GetCharCount(input, 0, input.length);
+    }
+    public int GetChars(ReadOnlySpan<Byte> bytes, Span<Character> chars) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        if (chars == null) throw new ArgumentNullException("chars");
+        byte[] snapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+        Byte[] input = new Byte[snapshot.length];
+        for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
+        char[] output = new char[chars.get_Length()];
+        chars.CopyTo(Span.OfChars(output));
+        try { return GetChars(input, 0, input.length, output, 0); }
+        finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
+    }
+    public String GetString(ReadOnlySpan<Byte> bytes) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        byte[] snapshot = new byte[bytes.get_Length()];
+        bytes.CopyTo(Span.OfUtf8Bytes(snapshot));
+        Byte[] input = new Byte[snapshot.length];
+        for (int i = 0; i < input.length; i++) input[i] = new Byte(snapshot[i] & 255);
+        return GetString(input);
+    }
 }
