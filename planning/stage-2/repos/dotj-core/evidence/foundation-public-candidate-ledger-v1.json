@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "cd19a63d52dcf191fb95635bcf0e3c5abf3d2b4a64632ab75dd320abdd64555a",
+  "candidateJarSha256": "06946678832398d7e83f094c58a1faef00e5c98bd8055b1c287153fb9c8560a4",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -711,7 +711,7 @@
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 0,
       "javaPublicConstructors": 0,
-      "javaPublicHeader": "public final class System.Reflection.GenericParameterAttributes implements System.IFormattable {",
+      "javaPublicHeader": "public final class System.Reflection.GenericParameterAttributes implements System.IFormattable,System.IComparable {",
       "javaPublicDeclarations": [
         "public static final System.Reflection.GenericParameterAttributes None;",
         "public static final System.Reflection.GenericParameterAttributes Covariant;",
@@ -734,6 +734,9 @@
         "public java.lang.String ToString(System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String);",
+        "public int CompareTo(java.lang.Object);",
+        "public boolean Equals(java.lang.Object);",
+        "public System.Int32 GetHashCode();",
         "public java.lang.String toString();"
       ],
       "disposition": "SELECTED_GENERIC_PARAMETER_FLAGS_AND_ENUM_FORMATTING; named/unnamed Java carrier, physical CLR/JVM enum inheritance open",

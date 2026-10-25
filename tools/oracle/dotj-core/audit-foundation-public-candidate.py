@@ -150,10 +150,13 @@ def main():
             assert upstream["declaredPublicMethodCount"] == 0
             disposition = "SELECTED_MEMBER_FLAGS_AND_INHERITED_ENUM_CONTRACTS; supported Java carrier projection; CLR ABI open"
         elif name == "System.Reflection.GenericParameterAttributes":
-            assert header == "public final class System.Reflection.GenericParameterAttributes implements System.IFormattable {"
+            assert header == "public final class System.Reflection.GenericParameterAttributes implements System.IFormattable,System.IComparable {"
             assert "public int get_Value();" in declarations
             assert upstream["baseType"] == "System.Enum"
             assert "public static System.Reflection.GenericParameterAttributes FromInt32(int);" in declarations
+            assert 'public int CompareTo(java.lang.Object);' in declarations
+            assert 'public boolean Equals(java.lang.Object);' in declarations
+            assert 'public System.Int32 GetHashCode();' in declarations
             assert "public java.lang.String ToString(java.lang.String, System.IFormatProvider);" in declarations
             assert sum(line.startswith("public static final System.Reflection.GenericParameterAttributes ") for line in declarations) == 9
             assert upstream["declaredPublicMethodCount"] == 0
