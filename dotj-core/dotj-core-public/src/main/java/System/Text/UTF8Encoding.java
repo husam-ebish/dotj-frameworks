@@ -203,6 +203,106 @@ public class UTF8Encoding extends Encoding {
                 && get_DecoderFallback().Equals(other.get_DecoderFallback());
     }
     @Override public int GetHashCode() { return get_EncoderFallback().GetHashCode() + get_DecoderFallback().GetHashCode() + 65001 + (this.emitIdentifier ? 1 : 0); }
+    @Override public Encoder GetEncoder() { return new Utf8Encoder(get_EncoderFallback()); }
+    private static final class Utf8Encoder extends Encoder {
+        private char pending;
+        private Utf8Encoder(EncoderFallback fallback) { set_Fallback(fallback); }
+        @Override public void Reset() { this.pending = 0; resetFallbackBuffer(); }
+        @Override public int GetByteCount(char[] chars, int index, int count, boolean flush) {
+            if (chars == null) throw new ArgumentNullException("chars");
+            validateSource(chars.length, index, count, "index", "count");
+            return transcode(chars, index, count, null, 0, flush, true);
+        }
+        @Override public int GetBytes(char[] chars, int charIndex, int charCount, Byte[] bytes,
+                int byteIndex, boolean flush) {
+            if (chars == null) throw new ArgumentNullException("chars");
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            validateSource(chars.length, charIndex, charCount, "charIndex", "charCount");
+            if (byteIndex < 0 || byteIndex > bytes.length) throw new ArgumentOutOfRangeException("byteIndex");
+            return transcode(chars, charIndex, charCount, bytes, byteIndex, flush, false);
+        }
+        private static void validateSource(int length, int index, int count, String indexName, String countName) {
+            if (index < 0) throw new ArgumentOutOfRangeException(indexName);
+            if (count < 0) throw new ArgumentOutOfRangeException(countName);
+            if (index > length - count) throw new ArgumentOutOfRangeException("chars");
+        }
+        private EncoderFallbackBuffer fallbackBuffer() {
+            EncoderFallbackBuffer result = get_FallbackBuffer();
+            if (result == null) throw new NullReferenceException();
+            return result;
+        }
+        private int emit(String rune, Byte[] bytes, int offset, boolean counting) {
+            byte[] encoded = Utf8Codec.encode(rune, true);
+            if (!counting) {
+                if (encoded.length > bytes.length - offset) {
+                    fallbackBuffer();
+                    resetFallbackBuffer();
+                    throw new ArgumentException("Insufficient destination capacity.", "bytes");
+                }
+                for (int n = 0; n < encoded.length; n++) bytes[offset + n] = new Byte(encoded[n] & 255);
+            }
+            return encoded.length;
+        }
+        private int drain(EncoderFallbackBuffer buffer, Byte[] bytes, int offset, boolean counting) {
+            int written = 0;
+            String rune;
+            while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
+                written += emit(rune, bytes, offset + written, counting);
+            }
+            return written;
+        }
+        private int transcode(char[] chars, int index, int count, Byte[] bytes, int offset,
+                boolean flush, boolean counting) {
+            int end = index + count, cursor = index, written = 0;
+            EncoderFallbackBuffer existing = existingFallbackBuffer();
+            if (existing != null && existing.get_Remaining() > 0) {
+                if (counting) throw new ArgumentException("Fallback buffer is not empty.");
+                written += drain(existing, bytes, offset, false);
+            }
+            char previous = this.pending;
+            if (previous != 0) {
+                if (count == 0 && !flush) return written;
+                if (!counting) this.pending = 0;
+                if (cursor < end && Character.isLowSurrogate(chars[cursor])) {
+                    written += emit(new String(new char[] {previous, chars[cursor++]}), bytes, offset + written, counting);
+                } else {
+                    EncoderFallbackBuffer buffer = fallbackBuffer();
+                    buffer.Fallback(previous, -1);
+                    if (counting || buffer.get_Remaining() > 0) {
+                        written += drain(buffer, bytes, offset + written, counting);
+                    }
+                }
+            }
+            while (cursor < end) {
+                char first = chars[cursor];
+                if (Character.isHighSurrogate(first)) {
+                    if (cursor + 1 < end && Character.isLowSurrogate(chars[cursor + 1])) {
+                        written += emit(new String(chars, cursor, 2), bytes, offset + written, counting);
+                        cursor += 2; continue;
+                    }
+                    if (cursor + 1 == end && !flush) {
+                        if (!counting) this.pending = first;
+                        cursor++; continue;
+                    }
+                }
+                if (Character.isSurrogate(first)) {
+                    EncoderFallbackBuffer buffer = fallbackBuffer();
+                    if (buffer.Fallback(first, cursor - index)) {
+                        written += drain(buffer, bytes, offset + written, counting);
+                    }
+                } else {
+                    written += emit(String.valueOf(first), bytes, offset + written, counting);
+                }
+                cursor++;
+            }
+            existing = existingFallbackBuffer();
+            if (!counting && existing != null && existing.get_Remaining() > 0) {
+                resetFallbackBuffer();
+                throw new ArgumentException("Fallback has pending output.", "bytes");
+            }
+            return written;
+        }
+    }
     private boolean customEncoderFallback() {
         return !(this.encoderFallback instanceof EncoderReplacementFallback)
                 && !(this.encoderFallback instanceof EncoderExceptionFallback);
