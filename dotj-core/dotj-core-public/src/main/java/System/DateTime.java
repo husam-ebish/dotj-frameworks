@@ -966,19 +966,21 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
                 boolean closed = false;
                 for (index++; index < format.length(); index++) {
                     char literal = format.charAt(index);
+                    boolean escaped = false;
                     if (literal == quote) { index++; closed = true; break; }
                     if (literal == '\\') {
                         if (++index == format.length()) throw new FormatException("Unterminated quoted format");
                         literal = format.charAt(index);
+                        escaped = true;
                     }
-                    selectedAppendCustom(destination, result, position, String.valueOf(literal));
+                    selectedAppendCustomLiteral(destination, result, position, literal, escaped);
                 }
                 if (!closed) throw new FormatException("Unterminated quoted format");
                 continue;
             }
             if (token == '\\') {
                 if (++index == format.length()) throw new FormatException("Missing escaped format character");
-                selectedAppendCustom(destination, result, position, String.valueOf(format.charAt(index++)));
+                selectedAppendCustomLiteral(destination, result, position, format.charAt(index++), true);
                 continue;
             }
             if (token == '%') {
@@ -1034,17 +1036,35 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         }
     }
 
+    private static void selectedAppendCustomLiteral(Object destination, StringBuilder result, int[] position, char literal, boolean escaped) {
+        if (escaped && destination instanceof byte[] bytes) {
+            selectedAppendCustomBytes(bytes, result, position, new byte[] {(byte) literal});
+        } else selectedAppendCustom(destination, result, position, String.valueOf(literal));
+    }
+
     private static void selectedAppendCustom(Object destination, StringBuilder result, int[] position, String text) {
-        byte[] bytes = destination instanceof byte[] ? text.getBytes(java.nio.charset.StandardCharsets.UTF_8) : null;
-        int length = bytes == null ? text.length() : bytes.length;
-        if (destination != null && position[1] == 0) {
-            int capacity = destination instanceof char[] chars ? chars.length : ((byte[]) destination).length;
-            if (length > capacity - position[0]) position[1] = 1;
-            else if (destination instanceof char[] chars) text.getChars(0, text.length(), chars, position[0]);
-            else java.lang.System.arraycopy(bytes, 0, destination, position[0], length);
+        if (destination instanceof byte[] bytes) {
+            for (int index = 0; index < text.length(); index++) {
+                if (Character.isSurrogate(text.charAt(index))) throw new ArgumentOutOfRangeException("ch");
+            }
+            selectedAppendCustomBytes(bytes, result, position, text.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            return;
+        }
+        if (destination instanceof char[] chars && position[1] == 0) {
+            if (text.length() > chars.length - position[0]) position[1] = 1;
+            else text.getChars(0, text.length(), chars, position[0]);
         }
         result.append(text);
-        position[0] += length;
+        position[0] += text.length();
+    }
+
+    private static void selectedAppendCustomBytes(byte[] destination, StringBuilder result, int[] position, byte[] bytes) {
+        if (position[1] == 0) {
+            if (bytes.length > destination.length - position[0]) position[1] = 1;
+            else java.lang.System.arraycopy(bytes, 0, destination, position[0], bytes.length);
+        }
+        for (byte value : bytes) result.append((char) (value & 255));
+        position[0] += bytes.length;
     }
 
     private boolean selectedTryFormatCustom(Object destination, int[] written, String format) {
@@ -1053,8 +1073,9 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         selectedCustomFormatCore(format, destination, result, position);
         int capacity = destination instanceof char[] chars ? chars.length : ((byte[]) destination).length;
         String text = result.toString();
-        byte[] bytes = destination instanceof byte[] ? text.getBytes(java.nio.charset.StandardCharsets.UTF_8) : null;
-        int length = bytes == null ? text.length() : bytes.length;
+        byte[] bytes = destination instanceof byte[] ? new byte[text.length()] : null;
+        if (bytes != null) for (int index = 0; index < bytes.length; index++) bytes[index] = (byte) text.charAt(index);
+        int length = text.length();
         if (length > capacity) { written[0] = 0; return false; }
         if (destination instanceof char[] chars) text.getChars(0, text.length(), chars, 0);
         else java.lang.System.arraycopy(bytes, 0, destination, 0, length);
