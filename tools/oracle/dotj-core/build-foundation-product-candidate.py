@@ -22,6 +22,7 @@ SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/collections/ExceptionD
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberFormatInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/TimeSpanStyles.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Globalization/DateTimeStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Diagnostics/Stopwatch.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/NullableAttribute.java")
@@ -160,6 +161,7 @@ EXPECTED_CLASSES = [
     "System/Exception.class",
     "System/FormatException.class",
     "System/Globalization/CultureNotFoundException.class",
+    "System/Globalization/DateTimeStyles.class",
     "System/Globalization/NumberFormatInfo.class",
     "System/Globalization/NumberStyles.class",
     "System/Globalization/TimeSpanStyles.class",
