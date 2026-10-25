@@ -6,9 +6,12 @@ import System.ArgumentNullException;
 import System.FormatException;
 import System.IFormattable;
 import System.IFormatProvider;
+import System.IComparable;
+import System.Int32;
+import System.ArgumentException;
 
 /** Selected immutable Int32 flag carrier; Java adapters retain arbitrary values for validation. */
-public final class DateTimeStyles implements IFormattable {
+public final class DateTimeStyles implements IFormattable, IComparable {
     public static final DateTimeStyles None = new DateTimeStyles(0, "None");
     public static final DateTimeStyles AllowLeadingWhite = new DateTimeStyles(1, "AllowLeadingWhite");
     public static final DateTimeStyles AllowTrailingWhite = new DateTimeStyles(2, "AllowTrailingWhite");
@@ -55,6 +58,13 @@ public final class DateTimeStyles implements IFormattable {
         }
         return remaining == 0 && !parts.isEmpty() ? String.join(", ", parts) : Integer.toString(this.value);
     }
+    @Override public int CompareTo(Object other) {
+        if (other == null) return 1;
+        if (other instanceof DateTimeStyles styles) return Integer.compare(this.value, styles.value);
+        throw new ArgumentException("Object must be the same enum type");
+    }
+    public boolean Equals(Object other) { return equals(other); }
+    public Int32 GetHashCode() { return new Int32(this.value); }
     @Override public String toString() { return ToString(); }
     @Override public boolean equals(Object other) { return other instanceof DateTimeStyles styles && styles.value == this.value; }
     @Override public int hashCode() { return Integer.hashCode(this.value); }
