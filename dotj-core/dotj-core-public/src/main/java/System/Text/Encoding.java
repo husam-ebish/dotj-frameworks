@@ -10,6 +10,7 @@ import System.ArgumentNullException;
 import System.ArgumentException;
 import System.ArgumentOutOfRangeException;
 import System.OutOfMemoryException;
+import System.OverflowException;
 
 /** Selected stateless encoding surface; stateful and pointer overloads remain open. */
 public abstract class Encoding implements ICloneable, java.lang.Cloneable {
@@ -103,14 +104,15 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         return GetByteCount(new String(chars, index, count));
     }
     public String GetString(Byte[] bytes, int index, int count) {
-        if (bytes == null) throw new ArgumentNullException("bytes");
-        validateRange(bytes.length, index, count, "bytes");
-        return GetString(java.util.Arrays.copyOfRange(bytes, index, index + count));
+        char[] result = GetChars(bytes, index, count);
+        return result == null ? "" : new String(result);
     }
     public char[] GetChars(Byte[] bytes, int index, int count) {
-        if (bytes == null) throw new ArgumentNullException("bytes");
-        validateRange(bytes.length, index, count, "bytes");
-        return GetChars(java.util.Arrays.copyOfRange(bytes, index, index + count));
+        int length = GetCharCount(bytes, index, count);
+        if (length < 0) throw new OverflowException();
+        char[] result = new char[length];
+        GetChars(bytes, index, count, result, 0);
+        return result;
     }
     public int GetCharCount(Byte[] bytes, int index, int count) {
         if (bytes == null) throw new ArgumentNullException("bytes");
@@ -219,9 +221,15 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public abstract Byte[] GetPreamble();
     public abstract Byte[] GetBytes(String s);
     public abstract int GetByteCount(String s);
-    public abstract String GetString(Byte[] bytes);
+    public String GetString(Byte[] bytes) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        return GetString(bytes, 0, bytes.length);
+    }
     public abstract int GetCharCount(Byte[] bytes);
-    public abstract char[] GetChars(Byte[] bytes);
+    public char[] GetChars(Byte[] bytes) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        return GetChars(bytes, 0, bytes.length);
+    }
     public boolean TryGetBytes(ReadOnlySpan<Character> chars, Span<Byte> bytes, int[] bytesWritten) {
         if (bytesWritten == null) throw new ArgumentNullException("bytesWritten");
         if (bytesWritten.length == 0) throw new ArgumentException("An output slot is required.", "bytesWritten");
