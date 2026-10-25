@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "casesPassed": 2340,
+  "pairedFrames": 4,
+  "casesPerFrame": 117,
+  "routes": [
+    "Char",
+    "Utf8",
+    "interface",
+    "provider",
+    "single"
+  ],
+  "rejectedControls": [
+    "wrong-offset",
+    "missing-route",
+    "duplicate-row",
+    "expired-frame"
+  ],
+  "oracleEvidence": "datetime-timeonly-offset-contract-v10.0.12.json",
+  "oracleSha256": "471db549557ef8a8c8f99c66925444182dc3b8c4596cd575a770419189b00d83",
+  "candidateJarSha256": "315049a67a3bdad4dbef90ee174516c8b9976c4e3583081b94349f01c0334dbd",
+  "qualification": "PAIRED_CURRENT_HOST_TIMEONLY_OFFSET_PASS; HISTORICAL_OTHER_ZONES_CLOCK_CHANGE_LIFETIME_LANGUAGE_AND_RELEASE_OPEN"
+}
