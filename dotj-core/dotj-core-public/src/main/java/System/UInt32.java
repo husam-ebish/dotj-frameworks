@@ -149,6 +149,12 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
         return new ValueTuple<>(new UInt32(left.value / right.value), new UInt32(left.value % right.value));
     }
 
+    public static java.math.BigInteger BigMul(UInt32 left, UInt32 right) {
+        if (left == null) throw new ArgumentNullException("left");
+        if (right == null) throw new ArgumentNullException("right");
+        return java.math.BigInteger.valueOf(left.value).multiply(java.math.BigInteger.valueOf(right.value));
+    }
+
     public UInt32(long value) {
         if (value < 0 || value > 4294967295L) {
             throw new OverflowException("Value was outside the range of UInt32");

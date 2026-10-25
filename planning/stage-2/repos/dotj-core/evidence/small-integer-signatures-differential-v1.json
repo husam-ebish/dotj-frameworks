@@ -2569,8 +2569,8 @@
     {
       "fullName": "System.UInt32",
       "nativeDeclaredMethodCount": 47,
-      "selectedNativeMethodCount": 43,
-      "selectedProjectedMethodCount": 33,
+      "selectedNativeMethodCount": 44,
+      "selectedProjectedMethodCount": 34,
       "erasureCollapsedNativeMethodCount": 10,
       "typedParsingBridges": [
         "public static <T> System.UInt32 Parse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider);",
@@ -2579,12 +2579,23 @@
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt32[]);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt32[]);"
       ],
-      "outsideSelectedMethodCount": 4,
+      "outsideSelectedMethodCount": 3,
       "methods": [
         {
           "nativeSignature": "UInt64 BigMul(UInt32, UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static java.math.BigInteger BigMul(System.UInt32, System.UInt32);",
+          "projectedJava": {
+            "name": "BigMul",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "java.math.BigInteger",
+            "parameters": [
+              "System.UInt32",
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt32 Clamp(UInt32, UInt32, UInt32)",
@@ -3358,6 +3369,7 @@
         "public static <T> System.UInt32 Parse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider, System.UInt32[]);",
         "public static System.ValueTuple<System.UInt32, System.UInt32> DivRem(System.UInt32, System.UInt32);",
+        "public static java.math.BigInteger BigMul(System.UInt32, System.UInt32);",
         "public System.UInt32(long);",
         "public long get_Value();",
         "public java.lang.String ToString();",
@@ -3394,11 +3406,11 @@
       ]
     }
   ],
-  "selectedNativeMethodCount": 178,
+  "selectedNativeMethodCount": 179,
   "erasureCollapsedNativeMethodCount": 40,
-  "selectedProjectedMethodCount": 138,
+  "selectedProjectedMethodCount": 139,
   "oracleEvidence": "small-integer-signatures-contract-v10.0.12.json",
   "oracleSha256": "93f598654fa6b0417c7a8ed66262c31be19db0facb672bf3e54eaf63a37be607",
-  "candidateJarSha256": "9f70282ee60189a44e75db7dec5231481f0708e2b92b70d9eba33f1cf98708c2",
+  "candidateJarSha256": "724731b8e54dd8caa285392323692c863353b6ff601d3c85b5edfc6d6f9e3cba",
   "qualification": "SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN"
 }
