@@ -1510,7 +1510,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IComparable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class)) {
             return true;
         }
-        if (this.definition == IFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class)) {
+        if (this.definition == IFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class)) {
             return true;
         }
         if (this.definition == IConvertible.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class)) {
@@ -1622,7 +1622,7 @@ public abstract class Type extends MemberInfo {
                     || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes;
         }
         if (this.definition == IFormattable.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions;
         }
         if (this.definition == IConvertible.class) {
             return value instanceof String || value instanceof Integer || value instanceof Int32 || value instanceof DBNull
@@ -1909,6 +1909,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == MemberTypes.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
+        if (this.definition == CallingConventions.class) {
+            return new Type[] {fromJavaClass(IFormattable.class)};
+        }
         if (this.definition == NumberStyles.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
@@ -2047,7 +2050,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
                 || this.definition == Decimal.class || this.definition == DBNull.class
-                || this.definition == DateTime.class || this.definition == TimeSpan.class || this.definition == DateTimeStyles.class || this.definition == TimeSpanStyles.class || this.definition == NumberStyles.class || this.definition == BindingFlags.class || this.definition == MemberTypes.class
+                || this.definition == DateTime.class || this.definition == TimeSpan.class || this.definition == DateTimeStyles.class || this.definition == TimeSpanStyles.class || this.definition == NumberStyles.class || this.definition == BindingFlags.class || this.definition == MemberTypes.class || this.definition == CallingConventions.class
                 || this.definition == Object.class || this.definition == Stopwatch.class
                 || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == IFormattable.class
                 || this.definition == IFormatProvider.class || this.definition == ISerializable.class
