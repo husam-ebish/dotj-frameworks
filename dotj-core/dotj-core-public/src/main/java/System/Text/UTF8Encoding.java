@@ -6,6 +6,7 @@ import System.ArgumentNullException;
 import System.ArgumentOutOfRangeException;
 import System.ArgumentException;
 import System.InvalidOperationException;
+import System.NullReferenceException;
 import System.Byte;
 import org.dotj.internal.text.Utf8Codec;
 
@@ -206,14 +207,14 @@ public class UTF8Encoding extends Encoding {
     }
     private static String drainEncoderBuffer(EncoderFallbackBuffer buffer) {
         StringBuilder result = new StringBuilder();
-        while (buffer.get_Remaining() > 0) result.append(buffer.GetNextChar());
-        buffer.GetNextChar();
+        char next;
+        while ((next = buffer.GetNextChar()) != 0) result.append(next);
         return result.toString();
     }
     private static String drainDecoderBuffer(DecoderFallbackBuffer buffer) {
         StringBuilder result = new StringBuilder();
-        while (buffer.get_Remaining() > 0) result.append(buffer.GetNextChar());
-        buffer.GetNextChar();
+        char next;
+        while ((next = buffer.GetNextChar()) != 0) result.append(next);
         return result.toString();
     }
     private byte[] encodeCustom(String text) {
@@ -231,6 +232,7 @@ public class UTF8Encoding extends Encoding {
             String packet;
             if (units == 1 && Character.isSurrogate(text.charAt(i))) {
                 if (buffer == null) buffer = this.encoderFallback.CreateFallbackBuffer();
+                if (buffer == null) throw new NullReferenceException();
                 packet = buffer.Fallback(text.charAt(i), i - index) ? drainEncoderBuffer(buffer) : "";
             } else packet = text.substring(i, i + units);
             for (int p = 0; p < packet.length();) {
@@ -252,6 +254,9 @@ public class UTF8Encoding extends Encoding {
             }
             i += units;
         }
+        if (destination != null && buffer != null && buffer.get_Remaining() > 0) {
+            throw new ArgumentException("Fallback has pending output.", "bytes");
+        }
         return written;
     }
     private String decodeCustom(byte[] input, char[] destination, int offset) {
@@ -263,6 +268,7 @@ public class UTF8Encoding extends Encoding {
             try { packet = Utf8Codec.decode(java.util.Arrays.copyOfRange(input, i, i + consumed), true); }
             catch (Utf8Codec.Failure failure) {
                 if (buffer == null) buffer = this.decoderFallback.CreateFallbackBuffer();
+                if (buffer == null) throw new NullReferenceException();
                 packet = buffer.Fallback(wrap(failure.bytesUnknown), i) ? drainDecoderBuffer(buffer) : "";
             }
             for (int p = 0; p < packet.length();) {
