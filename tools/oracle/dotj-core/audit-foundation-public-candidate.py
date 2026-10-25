@@ -328,6 +328,8 @@ def main():
                                     "public java.lang.String ToLongTimeString();",
                                     "public java.lang.String ToShortTimeString();",
                                     "public java.lang.String[] GetDateTimeFormats(char, System.IFormatProvider);",
+                                    "public java.lang.String[] GetDateTimeFormats(char);",
+                                    "public java.lang.String[] GetDateTimeFormats(System.IFormatProvider);",
                                     "public java.lang.String[] GetDateTimeFormats();",
                                     "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
                                     "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",

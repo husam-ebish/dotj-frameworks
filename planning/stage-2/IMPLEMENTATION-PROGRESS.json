@@ -2085,7 +2085,8 @@
     "Batch-2068",
     "Batch-2069",
     "Batch-2070",
-    "Batch-2071"
+    "Batch-2071",
+    "Batch-2072"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2278,7 +2279,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2071",
+      "lastUpdatedBatch": "Batch-2072",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -11889,19 +11890,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2072",
+    "id": "Batch-2073",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-WP-05-T1"
     ],
-    "outcome": "Implement invariant GetDateTimeFormats lists and all four overloads with native order duplicates short-time alternatives and invalid-format errors.",
+    "outcome": "Add DateTimeStyles carrier and selected invariant ISO style-aware Parse TryParse String and Char-view signatures with validation and offset-kind behavior.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2071,
+    "completedBatches": 2072,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -11910,8 +11911,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 70,
-    "remainingBatches": 429,
+    "completedBatches": 71,
+    "remainingBatches": 428,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },

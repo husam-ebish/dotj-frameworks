@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "6099063f0313b4e71959cb9111632076dbf2e3c80c9e5c929afe0b4cebeccf11",
+  "candidateJarSha256": "42c27aca5067d7e7b591cdbaf4f93804f45d847b35d290545f9e2cc938cdfaea",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -387,6 +387,8 @@
         "public java.lang.String ToLongTimeString();",
         "public java.lang.String ToShortTimeString();",
         "public java.lang.String[] GetDateTimeFormats(char, System.IFormatProvider);",
+        "public java.lang.String[] GetDateTimeFormats(char);",
+        "public java.lang.String[] GetDateTimeFormats(System.IFormatProvider);",
         "public java.lang.String[] GetDateTimeFormats();",
         "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
         "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
