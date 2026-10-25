@@ -202,7 +202,7 @@ public class UTF8Encoding extends Encoding {
                 && get_EncoderFallback().Equals(other.get_EncoderFallback())
                 && get_DecoderFallback().Equals(other.get_DecoderFallback());
     }
-    @Override public int GetHashCode() { return super.GetHashCode() + (this.emitIdentifier ? 1 : 0); }
+    @Override public int GetHashCode() { return get_EncoderFallback().GetHashCode() + get_DecoderFallback().GetHashCode() + 65001 + (this.emitIdentifier ? 1 : 0); }
     private boolean customEncoderFallback() {
         return !(this.encoderFallback instanceof EncoderReplacementFallback)
                 && !(this.encoderFallback instanceof EncoderExceptionFallback);
