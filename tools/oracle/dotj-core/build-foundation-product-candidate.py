@@ -321,6 +321,9 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ['System/Text/EncoderFallbackExcept
 SOURCES.append(PRODUCT / "src/main/java/System/ICloneable.java")
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/ICloneable.class"])
 
+SOURCES += [PRODUCT / "src/main/java/System/Text" / (name + ".java") for name in ('EncoderFallback', 'DecoderFallback', 'EncoderReplacementFallback', 'DecoderReplacementFallback', 'EncoderExceptionFallback', 'DecoderExceptionFallback')]
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ['System/Text/EncoderFallback.class', 'System/Text/DecoderFallback.class', 'System/Text/EncoderReplacementFallback.class', 'System/Text/DecoderReplacementFallback.class', 'System/Text/EncoderExceptionFallback.class', 'System/Text/DecoderExceptionFallback.class', 'System/Text/EncoderFallback$Defaults.class', 'System/Text/DecoderFallback$Defaults.class'])
+
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))

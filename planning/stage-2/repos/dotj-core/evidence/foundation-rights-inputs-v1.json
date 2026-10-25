@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR only; technical inputs for a licensing decision, not clearance",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "5f5fad179f9076e2704012e3aa48ada3fce35841d3a0def964e3916f25a8c526",
+  "jarSha256": "116dcec9f4db1cacdb4f4185cec94a4d7e8268384a64b6721ed2d1d4e805093a",
   "selectedProductLicense": "MIT",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
-  "productSourceCount": 83,
+  "productSourceCount": 89,
   "productSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentException.java",
@@ -561,9 +561,49 @@
       "headerNamesDotNetFoundation": false
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderExceptionFallback.java",
+      "sha256": "d5edbafe02f45256c2757aaa46d1435a0e6bb2cf16bc0b6c01b0f64fbec9a899",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderFallback.java",
+      "sha256": "156f053c10ad824b31ea80322bc95ca40fbd349f8a55972110345ae37988d612",
+      "classCount": 2,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderFallbackException.java",
       "sha256": "e0afc2665879a4b39105ee8ce51d1d85c933cba3731c5a7538b283dbd68dde1e",
       "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderReplacementFallback.java",
+      "sha256": "a899fac645bfa49f19b0a15422b689f49bd44b640729c6c8b66ce345bab79014",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderExceptionFallback.java",
+      "sha256": "6ed04889073a790a972f0b181ea1cf9c3f856eaea916092bc81a1b0a63ec8cab",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallback.java",
+      "sha256": "f9268cbb2959a946043362e40baa18d7d88a6e528bfc4f0dc4d02a167b297bee",
+      "classCount": 2,
       "headerHasSpdxIdentifier": true,
       "headerHasCopyrightNotice": false,
       "headerNamesDotNetFoundation": false
@@ -577,8 +617,16 @@
       "headerNamesDotNetFoundation": false
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderReplacementFallback.java",
+      "sha256": "57866ce19f7d65fb16c3dfb85a246dbf3a2c2097274f8ce2d44f6c85533f569d",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
-      "sha256": "3b37b94e4976c4999f47c993e5444c5a002cbd0507e3cf0b3669e4b0729f1672",
+      "sha256": "5d2c97e2e9b075dec2ab543e8732adaba6a8304ee4c8d455e665b5916e21734d",
       "classCount": 2,
       "headerHasSpdxIdentifier": true,
       "headerHasCopyrightNotice": false,
@@ -586,7 +634,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java",
-      "sha256": "3b3ecf8b43292392086292ef3ff02da0fff91b68939300e89560bbd5857a61cc",
+      "sha256": "ba77a439a016a6ea8fb67663914c85459fe4524fc53b7329501a3b61d266754b",
       "classCount": 1,
       "headerHasSpdxIdentifier": true,
       "headerHasCopyrightNotice": false,

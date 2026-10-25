@@ -12,6 +12,8 @@ import org.dotj.internal.text.Utf8Codec;
 public class UTF8Encoding extends Encoding {
     private final boolean emitIdentifier;
     private final boolean strict;
+    private final EncoderFallback encoderFallback;
+    private final DecoderFallback decoderFallback;
     public UTF8Encoding() { this(false); }
     public UTF8Encoding(boolean encoderShouldEmitUTF8Identifier) {
         this(encoderShouldEmitUTF8Identifier, false);
@@ -19,6 +21,8 @@ public class UTF8Encoding extends Encoding {
     public UTF8Encoding(boolean encoderShouldEmitUTF8Identifier, boolean throwOnInvalidBytes) {
         this.emitIdentifier = encoderShouldEmitUTF8Identifier;
         this.strict = throwOnInvalidBytes;
+        this.encoderFallback = throwOnInvalidBytes ? EncoderFallback.get_ExceptionFallback() : new EncoderReplacementFallback("\ufffd");
+        this.decoderFallback = throwOnInvalidBytes ? DecoderFallback.get_ExceptionFallback() : new DecoderReplacementFallback("\ufffd");
     }
     @Override public int GetBytes(String s, int charIndex, int charCount, Byte[] bytes, int byteIndex) {
         if (s == null) throw new ArgumentNullException("s");
@@ -94,6 +98,8 @@ public class UTF8Encoding extends Encoding {
         }
         return byteCount + 1;
     }
+    @Override public EncoderFallback get_EncoderFallback() { return this.encoderFallback; }
+    @Override public DecoderFallback get_DecoderFallback() { return this.decoderFallback; }
     @Override public int get_CodePage() { return 65001; }
     @Override public String get_EncodingName() { return "Unicode (UTF-8)"; }
     @Override public Byte[] GetPreamble() {
