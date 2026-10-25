@@ -4,11 +4,12 @@ package System.Text;
 
 import System.ArgumentException;
 import System.ArgumentNullException;
+import System.ArgumentOutOfRangeException;
 import System.Byte;
 import System.ReadOnlySpan;
 import System.Span;
 
-/** Selected array/span encoder protocol; Convert, pointers and full metadata remain open. */
+/** Selected array conversion and count/write span protocol; Convert spans/pointers and full metadata remain open. */
 public abstract class Encoder {
     private EncoderFallback fallback;
     private EncoderFallbackBuffer buffer;
@@ -40,7 +41,27 @@ public abstract class Encoder {
     }
     public void Convert(char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex,
             int byteCount, boolean flush, int[] charsUsed, int[] bytesUsed, boolean[] completed) {
-        throw new UnsupportedOperationException("Convert for this encoder is outside the selected candidate surface.");
+        if (charsUsed == null || bytesUsed == null || completed == null) throw new java.lang.NullPointerException("Output carrier");
+        if (charsUsed.length == 0 || bytesUsed.length == 0 || completed.length == 0) throw new java.lang.ArrayIndexOutOfBoundsException("Output carrier");
+        if (chars == null) throw new ArgumentNullException("chars");
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        if (charIndex < 0) throw new ArgumentOutOfRangeException("charIndex");
+        if (charCount < 0) throw new ArgumentOutOfRangeException("charCount");
+        if (byteIndex < 0) throw new ArgumentOutOfRangeException("byteIndex");
+        if (byteCount < 0) throw new ArgumentOutOfRangeException("byteCount");
+        if (charIndex > chars.length - charCount) throw new ArgumentOutOfRangeException("chars");
+        if (byteIndex > bytes.length - byteCount) throw new ArgumentOutOfRangeException("bytes");
+        charsUsed[0] = charCount;
+        while (charsUsed[0] > 0) {
+            if (GetByteCount(chars, charIndex, charsUsed[0], flush) <= byteCount) {
+                bytesUsed[0] = GetBytes(chars, charIndex, charsUsed[0], bytes, byteIndex, flush);
+                completed[0] = charsUsed[0] == charCount && (this.buffer == null || this.buffer.get_Remaining() == 0);
+                return;
+            }
+            flush = false;
+            charsUsed[0] /= 2;
+        }
+        throw new ArgumentException("The output buffer is too small for the conversion.");
     }
     public abstract int GetByteCount(char[] chars, int index, int count, boolean flush);
     public abstract int GetBytes(char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex, boolean flush);
