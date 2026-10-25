@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "task": "DJ-001-WP-05-T2",
+  "qualification": "NATIVE_UNICODE_DECODER_ARRAY_STATE_REFERENCE_AND_IMPLEMENTATION_PLAN_ONLY",
+  "javaImplementationQualified": false,
+  "acceptedImplementationTasksCredited": 0,
+  "projectBatchTotal": null,
+  "projectBatchesRemaining": null,
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "sources": {
+    "UnicodeEncoding": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/UnicodeEncoding.cs",
+      "sha256": "b5a717988edb22bae8688fb5cf9d8efe9d503dfe2918cdb5a9c95578a5768828"
+    },
+    "DecoderNLS": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderNLS.cs",
+      "sha256": "ffeed3616bb6c97a321f84e6bb24a87c2eacc11d406149fa1812f750eea30450"
+    },
+    "DecoderFallback": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderFallback.cs",
+      "sha256": "118661aa450cb05c5780194c2a2dc2bbc0cbccbaf1e6d3647967f547edf8aa43"
+    }
+  },
+  "nativeCalls": 169800,
+  "implementationRequirements": [
+    "Own a specialized UnicodeEncoding decoder that carries an odd byte and pending high-surrogate word across calls.",
+    "Keep GetCharCount non-consuming with respect to pending input state.",
+    "Match selected GetChars destination prefixes, successful state commits and post-failure empty flushes.",
+    "Preserve exact DecoderFallbackException byte payloads and relative indexes, including previous-call bytes.",
+    "Match reset and fallback ownership/change behavior and modern array null/range guards.",
+    "Qualify a packaged Java consumer against all captured partition/capacity/reset/guard cases before claiming a decoder implementation.",
+    "Capture Convert and heap spans separately; do not infer their contracts from the array prerequisite."
+  ],
+  "openWork": [
+    "Java specialized Unicode decoder array implementation and packaged proof",
+    "Decoder heap spans and subclass dispatch",
+    "Decoder Convert state/capacity and replacement-buffer contract",
+    "Arbitrary custom fallback-buffer protocols and reentrancy",
+    "Pointer/byref lifetimes, source ABI and E01/E02/E03/N01/Q01 acceptance closure"
+  ]
+}
