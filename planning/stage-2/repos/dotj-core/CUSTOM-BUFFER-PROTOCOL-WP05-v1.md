@@ -1,0 +1,7 @@
+# Selected custom fallback buffer protocol
+
+Batch 2179 consumes custom fallback buffers one Unicode scalar at a time. A malformed surrogate sequence throws ArgumentException with no parameter name. Earlier valid output remains in caller-provided destinations when a later scalar fails. Buffer method exceptions propagate as the logical exception type. The NUL sentinel terminates consumption independently of the advertised Remaining value; encoder writing still checks pending output at completion.
+
+Sixty native emitted buffer/provider profiles combine ten output strings and six behaviors: ordinary consumption, Remaining reporting zero, Remaining throwing, GetNextChar throwing, Fallback returning false, and Fallback throwing. The capture records 6,960 operations and 600 maximum-capacity results. The packaged consumer passes 23,520 groups, including factory counts, exact GetNextChar/Fallback/Remaining/MovePrevious call counts, destination state, exception type/HResult/parameter and setter identity. No generated or vendor source is changed.
+
+These selected vectors use destinations large enough for the valid outputs. Small destination overflow, buffer rewind/reset behavior, changing providers across count/write passes, stateful Encoder/Decoder APIs, complete metadata/source ABI and WP-05-T2 acceptance remain open. The UTF-8/default/custom-provider suites remain mandatory regressions. No accepted implementation task or framework is credited. Next is native custom-buffer small-destination behavior and observable rewind/reset controls.
