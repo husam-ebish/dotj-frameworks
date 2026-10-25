@@ -253,11 +253,23 @@ public class UTF8Encoding extends Encoding {
                 if (buffer.Fallback(text.charAt(i), i - index)) {
                     String rune;
                     while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
+                        if (destination != null && Utf8Codec.encode(rune, true).length > destination.length - offset - written) {
+                            for (int n = 0; n < rune.length(); n++) buffer.MovePrevious();
+                            if (i + units < end || buffer.get_Remaining() > 0) {
+                                throw new ArgumentException("Insufficient destination capacity.", "bytes");
+                            }
+                            return written;
+                        }
                         written += writeCustomBytes(rune, destination, offset + written, collector);
                     }
                 }
             } else {
-                written += writeCustomBytes(text.substring(i, i + units), destination, offset + written, collector);
+                String rune = text.substring(i, i + units);
+                if (destination != null && Utf8Codec.encode(rune, true).length > destination.length - offset - written) {
+                    if (buffer == null) buffer = this.encoderFallback.CreateFallbackBuffer();
+                    if (buffer == null) throw new NullReferenceException();
+                }
+                written += writeCustomBytes(rune, destination, offset + written, collector);
             }
             i += units;
         }
@@ -288,11 +300,21 @@ public class UTF8Encoding extends Encoding {
                 if (buffer.Fallback(wrap(failure.bytesUnknown), i)) {
                     String rune;
                     while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
+                        if (destination != null && rune.length() > destination.length - offset - result.length()) {
+                            buffer.Reset();
+                            throw new ArgumentException("Insufficient destination capacity.", "chars");
+                        }
                         appendCustomChars(rune, destination, offset, result);
                     }
                 }
             }
-            if (packet != null) appendCustomChars(packet, destination, offset, result);
+            if (packet != null) {
+                if (destination != null && packet.length() > destination.length - offset - result.length()) {
+                    if (buffer == null) buffer = this.decoderFallback.CreateFallbackBuffer();
+                    if (buffer == null) throw new NullReferenceException();
+                }
+                appendCustomChars(packet, destination, offset, result);
+            }
             i += consumed;
         }
         return result.toString();
