@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "5bcfb644d4551da9415e5c25f9880a00b1796548722156fb650ca2851f9fc34e",
+  "oracleSha256": "ad84af8e67966d74cabc4941fba51fa345a2f3218f19ae0d174345afb3b28fa5",
   "types": [
     {
       "name": "System.String",
@@ -180,12 +180,12 @@
     {
       "name": "System.UInt32",
       "selectedInterfaces": [
+        "System.IComparable",
         "System.IConvertible",
         "System.IFormattable"
       ],
       "omittedInterfaces": [
         "System.IBinaryIntegerParseAndFormatInfo`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "System.IComparable",
         "System.IComparable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IEquatable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IParsable`1[[System.UInt32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -2479,6 +2479,102 @@
     {
       "source": "System.UInt32",
       "query": "system.IFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.IComparable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.IComparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "IComparable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "IComparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.icomparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.icomparable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "icomparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "icomparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.icomparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "System.icomparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.IComparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.UInt32",
+      "query": "system.IComparable",
       "ignoreCase": true,
       "result": {
         "name": null

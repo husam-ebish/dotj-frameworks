@@ -3,7 +3,7 @@
 package System;
 
 /** Selected unsigned 32-bit value carrier for public serialization paths. */
-public final class UInt32 implements IConvertible, IFormattable {
+public final class UInt32 implements IConvertible, IFormattable, IComparable {
     private final long value;
 
     public UInt32(long value) {
@@ -166,6 +166,21 @@ public final class UInt32 implements IConvertible, IFormattable {
         if (format.matches("[A-Za-z]") && !format.matches("[cCeEfFgGnNpP]")) throw new FormatException("Format specifier was invalid");
         return new Decimal(this.value).ToString(format, provider);
     }
+
+    @Override public int CompareTo(Object value) {
+        if (value == null) return 1;
+        if (value instanceof UInt32 other) return Long.compare(this.value, other.value);
+        throw new ArgumentException("Object must be of type UInt32.");
+    }
+    public int CompareTo(UInt32 value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return Long.compare(this.value, value.value);
+    }
+    public boolean Equals(UInt32 value) { return value != null && this.value == value.value; }
+    public boolean Equals(Object value) { return value instanceof UInt32 other && this.value == other.value; }
+    public int GetHashCode() { return (int)this.value; }
+    @Override public boolean equals(Object value) { return Equals(value); }
+    @Override public int hashCode() { return GetHashCode(); }
 
     @Override
     public String toString() {
