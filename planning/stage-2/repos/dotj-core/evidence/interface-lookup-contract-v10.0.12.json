@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "22b70e31d33df2eb315f2d34266cd3002d7758a5f15de243073ca689687d1774",
+  "oracleSha256": "af5c5135746a98208de2771e5a14961ee09a8483ab4a7948094e37c3f4abdf3e",
   "types": [
     {
       "name": "System.String",
@@ -102,12 +102,12 @@
     {
       "name": "System.SByte",
       "selectedInterfaces": [
+        "System.IComparable",
         "System.IConvertible",
         "System.IFormattable"
       ],
       "omittedInterfaces": [
         "System.IBinaryIntegerParseAndFormatInfo`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "System.IComparable",
         "System.IComparable`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IEquatable`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IParsable`1[[System.SByte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -1767,6 +1767,102 @@
     {
       "source": "System.SByte",
       "query": "system.IFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "System.IComparable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "System.IComparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "IComparable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "IComparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "system.icomparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "system.icomparable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "icomparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "icomparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "System.icomparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "System.icomparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "system.IComparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SByte",
+      "query": "system.IComparable",
       "ignoreCase": true,
       "result": {
         "name": null
