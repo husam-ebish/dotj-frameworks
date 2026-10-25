@@ -12,6 +12,8 @@ import System.IO.FileLoadException;
 import System.IO.IOException;
 import System.Diagnostics.Stopwatch;
 import System.Text.Encoding;
+import System.Text.Encoder;
+import System.Text.Decoder;
 import System.Text.EncoderFallback;
 import System.Text.DecoderFallback;
 import System.Text.EncoderReplacementFallback;
@@ -520,6 +522,8 @@ public abstract class Type extends MemberInfo {
             case "System.TimeSpan" -> fromJavaClass(TimeSpan.class);
             case "System.Diagnostics.Stopwatch" -> fromJavaClass(Stopwatch.class);
             case "System.Text.Encoding" -> fromJavaClass(Encoding.class);
+            case "System.Text.Encoder" -> fromJavaClass(Encoder.class);
+            case "System.Text.Decoder" -> fromJavaClass(Decoder.class);
             case "System.Text.EncoderFallback" -> fromJavaClass(EncoderFallback.class);
             case "System.Text.DecoderFallback" -> fromJavaClass(DecoderFallback.class);
             case "System.Text.EncoderReplacementFallback" -> fromJavaClass(EncoderReplacementFallback.class);
@@ -705,6 +709,8 @@ public abstract class Type extends MemberInfo {
             case "system.timespan" -> ignoreCase ? fromJavaClass(TimeSpan.class) : null;
             case "system.diagnostics.stopwatch" -> ignoreCase ? fromJavaClass(Stopwatch.class) : null;
             case "system.text.encoding" -> ignoreCase ? fromJavaClass(Encoding.class) : null;
+            case "system.text.encoder" -> ignoreCase ? fromJavaClass(Encoder.class) : null;
+            case "system.text.decoder" -> ignoreCase ? fromJavaClass(Decoder.class) : null;
             case "system.text.encoderfallback" -> ignoreCase ? fromJavaClass(EncoderFallback.class) : null;
             case "system.text.decoderfallback" -> ignoreCase ? fromJavaClass(DecoderFallback.class) : null;
             case "system.text.encoderreplacementfallback" -> ignoreCase ? fromJavaClass(EncoderReplacementFallback.class) : null;
@@ -1129,7 +1135,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsAbstract() {
-        return this.definition == EncoderFallback.class || this.definition == DecoderFallback.class || this.definition == EncoderFallbackBuffer.class || this.definition == DecoderFallbackBuffer.class
+        return this.definition == Encoder.class || this.definition == Decoder.class
+                || this.definition == EncoderFallback.class || this.definition == DecoderFallback.class || this.definition == EncoderFallbackBuffer.class || this.definition == DecoderFallbackBuffer.class
                 || this.definition == Encoding.class || this.definition == Type.class || this.definition == Number.class
                 || this.definition == Enum.class || this.definition == java.lang.reflect.Array.class
                 || this.definition == MemberInfo.class || this.definition == MethodBase.class
@@ -1936,8 +1943,9 @@ public abstract class Type extends MemberInfo {
         return new Type[0];
     }
 
-    private boolean selectedFallbackType() {
-        return this.definition == EncoderFallback.class
+    private boolean selectedTextProtocolType() {
+        return this.definition == Encoder.class || this.definition == Decoder.class
+                || this.definition == EncoderFallback.class
                 || this.definition == DecoderFallback.class
                 || this.definition == EncoderReplacementFallback.class
                 || this.definition == DecoderReplacementFallback.class
@@ -1948,7 +1956,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
-        if (!get_HasElementType() && selectedFallbackType()) return new Type[0];
+        if (!get_HasElementType() && selectedTextProtocolType()) return new Type[0];
         if (this.definition == ICloneable.class) return new Type[0];
         if (!this.get_IsArray() && Encoding.class.isAssignableFrom(this.definition)) {
             return new Type[] {fromJavaClass(ICloneable.class)};
@@ -2128,7 +2136,7 @@ public abstract class Type extends MemberInfo {
 
     public Type GetInterface(String fullname, boolean ignoreCase) {
         if (fullname == null) throw new ArgumentNullException("fullname");
-        if (selectedFallbackType() || this.definition == ICloneable.class || Encoding.class.isAssignableFrom(this.definition)
+        if (selectedTextProtocolType() || this.definition == ICloneable.class || Encoding.class.isAssignableFrom(this.definition)
                 || this.get_IsArray() || this.definition == java.lang.reflect.Array.class
                 || this.definition == String.class || this.definition == Int32.class
                 || this.definition == Byte.class || this.definition == SByte.class

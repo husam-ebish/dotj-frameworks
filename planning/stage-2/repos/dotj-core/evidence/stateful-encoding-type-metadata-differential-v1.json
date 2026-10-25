@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "casesPassed": 54,
+  "selectedShapes": 4,
+  "nativeDeclaredMethods": 28,
+  "directDeclaredProjections": 14,
+  "missingNativeMethods": [
+    {
+      "owner": "System.Text.Decoder",
+      "signature": "Void Convert(Byte*, Int32, Char*, Int32, Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Decoder",
+      "signature": "Void Convert(Byte[], Int32, Int32, Char[], Int32, Int32, Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Decoder",
+      "signature": "Void Convert(System.ReadOnlySpan`1[System.Byte], System.Span`1[System.Char], Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Decoder",
+      "signature": "Int32 GetCharCount(Byte*, Int32, Boolean)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Decoder",
+      "signature": "Int32 GetCharCount(System.ReadOnlySpan`1[System.Byte], Boolean)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Decoder",
+      "signature": "Int32 GetChars(Byte*, Int32, Char*, Int32, Boolean)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Decoder",
+      "signature": "Int32 GetChars(System.ReadOnlySpan`1[System.Byte], System.Span`1[System.Char], Boolean)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Encoder",
+      "signature": "Void Convert(Char*, Int32, Byte*, Int32, Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Encoder",
+      "signature": "Void Convert(System.ReadOnlySpan`1[System.Char], System.Span`1[System.Byte], Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Encoder",
+      "signature": "Void Convert(Char[], Int32, Int32, Byte[], Int32, Int32, Boolean, Int32 ByRef, Int32 ByRef, Boolean ByRef)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Encoder",
+      "signature": "Int32 GetByteCount(Char*, Int32, Boolean)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Encoder",
+      "signature": "Int32 GetByteCount(System.ReadOnlySpan`1[System.Char], Boolean)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Encoder",
+      "signature": "Int32 GetBytes(Char*, Int32, Byte*, Int32, Boolean)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    },
+    {
+      "owner": "System.Text.Encoder",
+      "signature": "Int32 GetBytes(System.ReadOnlySpan`1[System.Char], System.Span`1[System.Byte], Boolean)",
+      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
+    }
+  ],
+  "javaInheritedObjectFacadeBridges": [],
+  "arrayInterfaceQualification": false,
+  "oracleEvidence": "stateful-encoding-type-metadata-contract-v10.0.12.json",
+  "oracleSha256": "906a0d2cf78f56873586f5698b6363285df0f636c1ce825a2e2878591d5ff793",
+  "candidateJarSha256": "1cfcf2a823a6578cda36abe52ee362d8f2a7914b69a24dd9c8bdb21136240a9b",
+  "qualification": "SELECTED_METADATA_AND_DECLARATION_INVENTORY_ONLY; CONVERT_POINTER_SPAN_FULL_REFLECTION_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN"
+}
