@@ -3,7 +3,7 @@
   "casesPassed": 54,
   "selectedShapes": 4,
   "nativeDeclaredMethods": 28,
-  "directDeclaredProjections": 14,
+  "directDeclaredProjections": 18,
   "missingNativeMethods": [
     {
       "owner": "System.Text.Decoder",
@@ -27,17 +27,7 @@
     },
     {
       "owner": "System.Text.Decoder",
-      "signature": "Int32 GetCharCount(System.ReadOnlySpan`1[System.Byte], Boolean)",
-      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
-    },
-    {
-      "owner": "System.Text.Decoder",
       "signature": "Int32 GetChars(Byte*, Int32, Char*, Int32, Boolean)",
-      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
-    },
-    {
-      "owner": "System.Text.Decoder",
-      "signature": "Int32 GetChars(System.ReadOnlySpan`1[System.Byte], System.Span`1[System.Char], Boolean)",
       "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
     },
     {
@@ -62,17 +52,7 @@
     },
     {
       "owner": "System.Text.Encoder",
-      "signature": "Int32 GetByteCount(System.ReadOnlySpan`1[System.Char], Boolean)",
-      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
-    },
-    {
-      "owner": "System.Text.Encoder",
       "signature": "Int32 GetBytes(Char*, Int32, Byte*, Int32, Boolean)",
-      "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
-    },
-    {
-      "owner": "System.Text.Encoder",
-      "signature": "Int32 GetBytes(System.ReadOnlySpan`1[System.Char], System.Span`1[System.Byte], Boolean)",
       "status": "UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN"
     }
   ],
@@ -80,6 +60,6 @@
   "arrayInterfaceQualification": false,
   "oracleEvidence": "stateful-encoding-type-metadata-contract-v10.0.12.json",
   "oracleSha256": "906a0d2cf78f56873586f5698b6363285df0f636c1ce825a2e2878591d5ff793",
-  "candidateJarSha256": "7570cca5ca25aed0ab5c29ae50862b4fe11498f7fb5a5ae537aa916880a61624",
+  "candidateJarSha256": "13a25e5a17a5d572b85b7371603087d86905e22afefa1e4993b734124db2fa8e",
   "qualification": "SELECTED_METADATA_AND_DECLARATION_INVENTORY_ONLY; CONVERT_POINTER_SPAN_FULL_REFLECTION_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN"
 }
