@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "nativeTypes": 14,
+  "constructorProfiles": 4,
+  "typeCoverage": [
+    {
+      "nativeType": "System.Text.Encoding",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 73,
+      "declaredNativeConstructors": 0
+    },
+    {
+      "nativeType": "System.Text.UTF8Encoding",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 25,
+      "declaredNativeConstructors": 3
+    },
+    {
+      "nativeType": "System.Text.EncoderFallback",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 4,
+      "declaredNativeConstructors": 0
+    },
+    {
+      "nativeType": "System.Text.DecoderFallback",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 4,
+      "declaredNativeConstructors": 0
+    },
+    {
+      "nativeType": "System.Text.EncoderReplacementFallback",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 5,
+      "declaredNativeConstructors": 2
+    },
+    {
+      "nativeType": "System.Text.DecoderReplacementFallback",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 5,
+      "declaredNativeConstructors": 2
+    },
+    {
+      "nativeType": "System.Text.EncoderExceptionFallback",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 4,
+      "declaredNativeConstructors": 1
+    },
+    {
+      "nativeType": "System.Text.DecoderExceptionFallback",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 4,
+      "declaredNativeConstructors": 1
+    },
+    {
+      "nativeType": "System.Text.EncoderFallbackException",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 5,
+      "declaredNativeConstructors": 3
+    },
+    {
+      "nativeType": "System.Text.DecoderFallbackException",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 2,
+      "declaredNativeConstructors": 4
+    },
+    {
+      "nativeType": "System.Text.Encoder",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 13,
+      "declaredNativeConstructors": 0
+    },
+    {
+      "nativeType": "System.Text.Decoder",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 15,
+      "declaredNativeConstructors": 0
+    },
+    {
+      "nativeType": "System.Text.EncoderFallbackBuffer",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 6,
+      "declaredNativeConstructors": 0
+    },
+    {
+      "nativeType": "System.Text.DecoderFallbackBuffer",
+      "candidateClassPresent": false,
+      "declaredNativeMethods": 5,
+      "declaredNativeConstructors": 0
+    }
+  ],
+  "nativeMethodCount": 170,
+  "oracleEvidence": "utf8-contract-inventory-contract-v10.0.12.json",
+  "oracleSha256": "914c305d26cd1065a0e884daf719a9b4c55cfa50416c9b1725752e67c48963a6",
+  "candidateJarSha256": "2c63ca73e2afd50a99667b9bcc29a4d2c8bd95a6f814dc72c2c9c4f9521760a9",
+  "qualification": "CONTRACT_INVENTORY_ONLY; CLASS_PRESENCE_IS_NOT_BEHAVIOR_OR_TASK_ACCEPTANCE",
+  "openCriteria": [
+    "UTF-8 invalid-input replacement and strict modes",
+    "stateful Encoder/Decoder behavior",
+    "span and pointer overloads",
+    "normalization and culture comparison",
+    "source identity and CLR ABI",
+    "E01/E02/E03/N01 and implementation-task acceptance"
+  ]
+}
