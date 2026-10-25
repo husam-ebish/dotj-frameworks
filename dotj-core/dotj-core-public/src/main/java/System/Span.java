@@ -70,6 +70,20 @@ public final class Span<T> {
                 : new Span<>(this.bytes, this.offset + start, length);
     }
 
+    public void Clear() {
+        if (this.chars != null) java.util.Arrays.fill(this.chars, this.offset, this.offset + this.length, (char) 0);
+        else java.util.Arrays.fill(this.bytes, this.offset, this.offset + this.length, (byte) 0);
+    }
+
+    public void Fill(T value) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (this.chars != null && value instanceof Character character) {
+            java.util.Arrays.fill(this.chars, this.offset, this.offset + this.length, character.charValue());
+        } else if (this.bytes != null && value instanceof Byte number) {
+            java.util.Arrays.fill(this.bytes, this.offset, this.offset + this.length, (byte) number.get_Value());
+        } else throw new ArgumentException("Value must match the Span element carrier.", "value");
+    }
+
     public int get_Length() { return this.length; }
 
     public boolean get_IsEmpty() { return this.length == 0; }
