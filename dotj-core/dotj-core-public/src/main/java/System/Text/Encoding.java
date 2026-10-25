@@ -64,6 +64,8 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     }
     public abstract int GetMaxByteCount(int charCount);
     public abstract int GetMaxCharCount(int byteCount);
+    public abstract EncoderFallback get_EncoderFallback();
+    public abstract DecoderFallback get_DecoderFallback();
     public abstract int get_CodePage();
     public abstract String get_EncodingName();
     public boolean get_IsReadOnly() { return this.readOnly; }

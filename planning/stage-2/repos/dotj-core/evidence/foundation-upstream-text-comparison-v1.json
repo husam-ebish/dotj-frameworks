@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 83 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 89 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "5f5fad179f9076e2704012e3aa48ada3fce35841d3a0def964e3916f25a8c526",
+  "jarSha256": "116dcec9f4db1cacdb4f4185cec94a4d7e8268384a64b6721ed2d1d4e805093a",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -804,11 +804,71 @@
       "sharedIdentifierShingleSamples": []
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderExceptionFallback.java",
+      "productSha256": "d5edbafe02f45256c2757aaa46d1435a0e6bb2cf16bc0b6c01b0f64fbec9a899",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/DecoderExceptionFallback.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderExceptionFallback.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "efbc47c51ba51b6955f7ed0eaedc941fa1a3ada19293ece3ca7c30f54d1109ba",
+      "productIdentifierCount": 38,
+      "upstreamIdentifierCount": 300,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderFallback.java",
+      "productSha256": "156f053c10ad824b31ea80322bc95ca40fbd349f8a55972110345ae37988d612",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/DecoderFallback.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderFallback.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "118661aa450cb05c5780194c2a2dc2bbc0cbccbaf1e6d3647967f547edf8aa43",
+      "productIdentifierCount": 67,
+      "upstreamIdentifierCount": 1066,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderFallbackException.java",
       "productSha256": "e0afc2665879a4b39105ee8ce51d1d85c933cba3731c5a7538b283dbd68dde1e",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/DecoderFallbackException.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderFallbackException.cs",
       "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderReplacementFallback.java",
+      "productSha256": "a899fac645bfa49f19b0a15422b689f49bd44b640729c6c8b66ce345bab79014",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/DecoderReplacementFallback.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderReplacementFallback.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "b0b653c5b53a2786ad47fdef7df1bbb919c2b285c88a3787b3772f9b075fd235",
+      "productIdentifierCount": 69,
+      "upstreamIdentifierCount": 528,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderExceptionFallback.java",
+      "productSha256": "6ed04889073a790a972f0b181ea1cf9c3f856eaea916092bc81a1b0a63ec8cab",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderExceptionFallback.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderExceptionFallback.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "a36e5c20e99367cf7310fcb63103ac92e90e2cadd733a37657189b72cfee3208",
+      "productIdentifierCount": 38,
+      "upstreamIdentifierCount": 378,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallback.java",
+      "productSha256": "f9268cbb2959a946043362e40baa18d7d88a6e528bfc4f0dc4d02a167b297bee",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallback.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallback.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "fecaa8e71992f9d568254202327662e6de473b3d73ad5b6fa83a79417cc98715",
+      "productIdentifierCount": 135,
+      "upstreamIdentifierCount": 1314,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackException.java",
@@ -818,25 +878,37 @@
       "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderReplacementFallback.java",
+      "productSha256": "57866ce19f7d65fb16c3dfb85a246dbf3a2c2097274f8ce2d44f6c85533f569d",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/EncoderReplacementFallback.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderReplacementFallback.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "735c5015ddd6fb9d5be7e20fc85703de97a1dd40db2843aa79eeb5271ed1fba1",
+      "productIdentifierCount": 69,
+      "upstreamIdentifierCount": 610,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
-      "productSha256": "3b37b94e4976c4999f47c993e5444c5a002cbd0507e3cf0b3669e4b0729f1672",
+      "productSha256": "5d2c97e2e9b075dec2ab543e8732adaba6a8304ee4c8d455e665b5916e21734d",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/Encoding.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/Encoding.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "44b11ddb443bd71b1c7a4406a8749d234c0e0b135d9a36dc53c4f0887b197db4",
-      "productIdentifierCount": 432,
+      "productIdentifierCount": 440,
       "upstreamIdentifierCount": 6571,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java",
-      "productSha256": "3b3ecf8b43292392086292ef3ff02da0fff91b68939300e89560bbd5857a61cc",
+      "productSha256": "ba77a439a016a6ea8fb67663914c85459fe4524fc53b7329501a3b61d266754b",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/UTF8Encoding.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/UTF8Encoding.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "47f5e4c98751367a86329ab1e0a76d86b39fd076a5b019284694f39d40fd9011",
-      "productIdentifierCount": 687,
+      "productIdentifierCount": 725,
       "upstreamIdentifierCount": 3715,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
