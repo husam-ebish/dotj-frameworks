@@ -12,6 +12,7 @@ import System.IO.FileLoadException;
 import System.IO.IOException;
 import System.Diagnostics.Stopwatch;
 import System.Text.Encoding;
+import System.Text.NormalizationForm;
 import System.Text.Encoder;
 import System.Text.Decoder;
 import System.Text.EncoderFallback;
@@ -521,6 +522,8 @@ public abstract class Type extends MemberInfo {
             case "System.DateTime" -> fromJavaClass(DateTime.class);
             case "System.TimeSpan" -> fromJavaClass(TimeSpan.class);
             case "System.Diagnostics.Stopwatch" -> fromJavaClass(Stopwatch.class);
+            case "System.Text.NormalizationForm" -> fromJavaClass(NormalizationForm.class);
+            case "System.Text.NormalizationForm[]" -> fromJavaClass(NormalizationForm.class).MakeArrayType();
             case "System.Text.Encoding" -> fromJavaClass(Encoding.class);
             case "System.Text.Encoder" -> fromJavaClass(Encoder.class);
             case "System.Text.Decoder" -> fromJavaClass(Decoder.class);
@@ -710,6 +713,8 @@ public abstract class Type extends MemberInfo {
             case "system.datetime" -> ignoreCase ? fromJavaClass(DateTime.class) : null;
             case "system.timespan" -> ignoreCase ? fromJavaClass(TimeSpan.class) : null;
             case "system.diagnostics.stopwatch" -> ignoreCase ? fromJavaClass(Stopwatch.class) : null;
+            case "system.text.normalizationform" -> ignoreCase ? fromJavaClass(NormalizationForm.class) : null;
+            case "system.text.normalizationform[]" -> ignoreCase ? fromJavaClass(NormalizationForm.class).MakeArrayType() : null;
             case "system.text.encoding" -> ignoreCase ? fromJavaClass(Encoding.class) : null;
             case "system.text.encoder" -> ignoreCase ? fromJavaClass(Encoder.class) : null;
             case "system.text.decoder" -> ignoreCase ? fromJavaClass(Decoder.class) : null;
@@ -1075,7 +1080,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == StreamingContextStates.class
                 || this.definition == GenericParameterAttributes.class
                 || this.definition == ParameterAttributes.class
-                || this.definition == TypeCode.class
+                || this.definition == NormalizationForm.class || this.definition == TypeCode.class
                 || this.definition == NumberStyles.class || this.definition == TimeSpanStyles.class || this.definition == DateTimeStyles.class
                 || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class) {
             return fromJavaClass(Enum.class);
@@ -1123,7 +1128,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == StreamingContextStates.class
                         || this.definition == GenericParameterAttributes.class
                         || this.definition == ParameterAttributes.class
-                        || this.definition == TypeCode.class || this.definition == NumberStyles.class || this.definition == TimeSpanStyles.class || this.definition == DateTimeStyles.class
+                        || this.definition == NormalizationForm.class || this.definition == TypeCode.class || this.definition == NumberStyles.class || this.definition == TimeSpanStyles.class || this.definition == DateTimeStyles.class
                         || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class);
     }
 
@@ -1317,7 +1322,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == StreamingContextStates.class
                 || this.definition == GenericParameterAttributes.class
                 || this.definition == ParameterAttributes.class
-                || this.definition == TypeCode.class
+                || this.definition == NormalizationForm.class || this.definition == TypeCode.class
                 || this.definition == NumberStyles.class || this.definition == TimeSpanStyles.class || this.definition == DateTimeStyles.class
                 || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class;
     }
@@ -1427,6 +1432,7 @@ public abstract class Type extends MemberInfo {
     }
 
     private Object[] enumConstants() {
+        if (this.definition == NormalizationForm.class) return NormalizationForm.values();
         if (this.definition == GenericParameterAttributes.class) return GenericParameterAttributes.values();
         if (this.definition == DateTimeStyles.class) return DateTimeStyles.values();
         if (this.definition == TimeSpanStyles.class) {
@@ -1454,6 +1460,7 @@ public abstract class Type extends MemberInfo {
     }
 
     private static String enumConstantName(Object constant) {
+        if (constant instanceof NormalizationForm form) return form.get_Name();
         if (constant instanceof GenericParameterAttributes attributes) return attributes.get_Name();
         if (constant instanceof DateTimeStyles styles) return styles.get_Name();
         if (constant instanceof TimeSpanStyles styles) {
@@ -1481,6 +1488,7 @@ public abstract class Type extends MemberInfo {
     }
 
     private static int enumNumericValue(Object constant) {
+        if (constant instanceof NormalizationForm form) return form.get_Value();
         if (constant instanceof DateTimeStyles styles) return styles.get_Value();
         if (constant instanceof TimeSpanStyles styles) {
             return styles.get_Value();
@@ -1933,7 +1941,7 @@ public abstract class Type extends MemberInfo {
             return new MemberInfo[] {new DefaultPropertyMember("Item", this)};
         }
         if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class
-                || this.definition == TypeCode.class) {
+                || this.definition == NormalizationForm.class || this.definition == TypeCode.class) {
             return new MemberInfo[0];
         }
         throw new UnsupportedOperationException("Default members are not mapped for this candidate type");

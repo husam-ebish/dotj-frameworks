@@ -52,6 +52,7 @@ EXCEPTION_SOURCES.append(SOURCE.parent / "Text/DecoderFallbackBuffer.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Text/EncoderFallbackBuffer.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("OutOfMemoryException.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("NotSupportedException.java"))
+EXCEPTION_SOURCES.append(SOURCE.parent / "Text/NormalizationForm.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Text/Decoder.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Text/Encoder.java")
 EXCEPTION_SOURCES += [SOURCE.parent / "Text" / (name + ".java") for name in ('EncoderFallback', 'DecoderFallback', 'EncoderReplacementFallback', 'DecoderReplacementFallback', 'EncoderExceptionFallback', 'DecoderExceptionFallback')]

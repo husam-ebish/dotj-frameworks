@@ -217,6 +217,8 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     public int GetHashCode() {
         return this.codePage + get_EncoderFallback().GetHashCode() + get_DecoderFallback().GetHashCode();
     }
+    public final boolean IsAlwaysNormalized() { return IsAlwaysNormalized(NormalizationForm.FormC); }
+    public boolean IsAlwaysNormalized(NormalizationForm form) { return false; }
     public boolean get_IsReadOnly() { return this.readOnly; }
     @Override public Object Clone() {
         try {
