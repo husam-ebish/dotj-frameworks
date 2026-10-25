@@ -254,7 +254,146 @@ public class UTF8Encoding extends Encoding {
             }
             return written;
         }
+        private boolean customProvider() {
+            return !(get_Fallback() instanceof EncoderReplacementFallback)
+                    && !(get_Fallback() instanceof EncoderExceptionFallback);
+        }
         private int transcode(char[] chars, int index, int count, Byte[] bytes, int offset,
+                boolean flush, boolean counting) {
+            if (!customProvider()) return transcodePredefined(chars, index, count, bytes, offset, flush, counting);
+            return counting ? countCustom(chars, index, count, flush)
+                    : writeCustom(chars, index, count, bytes, offset, flush);
+        }
+        private static int scalarWidth(char[] chars, int cursor, int end) {
+            if (!Character.isSurrogate(chars[cursor])) return 1;
+            return Character.isHighSurrogate(chars[cursor]) && cursor + 1 < end
+                    && Character.isLowSurrogate(chars[cursor + 1]) ? 2 : 0;
+        }
+        private static void fastCustom(char[] chars, int end, Byte[] bytes, int offset,
+                int[] state, boolean counting) {
+            while (state[0] < end) {
+                int width = scalarWidth(chars, state[0], end);
+                if (width == 0) return;
+                byte[] encoded = Utf8Codec.encode(new String(chars, state[0], width), true);
+                if (!counting) {
+                    if (encoded.length > bytes.length - offset - state[1]) return;
+                    for (int n = 0; n < encoded.length; n++) bytes[offset + state[1] + n] = new Byte(encoded[n] & 255);
+                }
+                state[0] += width;
+                state[1] += encoded.length;
+            }
+        }
+        private int drainCustom(EncoderFallbackBuffer buffer, Byte[] bytes, int offset, boolean counting) {
+            int written = 0;
+            String rune;
+            while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
+                if (buffer.encodingContext == null) throw new NullReferenceException();
+                byte[] encoded = Utf8Codec.encode(rune, true);
+                if (!counting) {
+                    if (encoded.length > bytes.length - offset - written) {
+                        for (int n = 0; n < rune.length(); n++) buffer.MovePrevious();
+                        return -written - 1;
+                    }
+                    for (int n = 0; n < encoded.length; n++) bytes[offset + written + n] = new Byte(encoded[n] & 255);
+                }
+                written += encoded.length;
+            }
+            return written;
+        }
+        private void customCapacityFailure() {
+            resetFallbackBuffer();
+            throw new ArgumentException("Insufficient destination capacity.", "bytes");
+        }
+        private int countCustom(char[] chars, int index, int count, boolean flush) {
+            int end = index + count;
+            int[] state = {index, 0};
+            EncoderFallbackBuffer existing = existingFallbackBuffer();
+            boolean hasLeftover = this.pending != 0 || existing != null && existing.get_Remaining() > 0;
+            if (!hasLeftover) {
+                fastCustom(chars, end, null, 0, state, true);
+                if (state[0] == end) return state[1];
+            }
+            existing = existingFallbackBuffer();
+            if (existing != null && existing.get_Remaining() > 0) {
+                throw new ArgumentException("Fallback buffer is not empty.");
+            }
+            if (this.pending != 0 && (state[0] < end || flush)) {
+                if (state[0] < end && Character.isLowSurrogate(chars[state[0]])) {
+                    state[1] += 4;
+                    state[0]++;
+                } else {
+                    EncoderFallbackBuffer buffer = fallbackBuffer();
+                    buffer.Fallback(this.pending, -1);
+                    state[1] += drainCustom(buffer, null, 0, true);
+                }
+            }
+            fastCustom(chars, end, null, 0, state, true);
+            if (state[0] == end) return state[1];
+            EncoderFallbackBuffer buffer = fallbackBuffer();
+            while (state[0] < end) {
+                char first = chars[state[0]];
+                if (Character.isHighSurrogate(first) && state[0] + 1 == end && !flush) break;
+                if (buffer.Fallback(first, state[0] - index)) state[1] += drainCustom(buffer, null, 0, true);
+                state[0]++;
+                fastCustom(chars, end, null, 0, state, true);
+            }
+            return state[1];
+        }
+        private int writeCustom(char[] chars, int index, int count, Byte[] bytes, int offset, boolean flush) {
+            int end = index + count;
+            int[] state = {index, 0};
+            EncoderFallbackBuffer existing = existingFallbackBuffer();
+            boolean hasLeftover = this.pending != 0 || existing != null && existing.get_Remaining() > 0;
+            if (!hasLeftover) {
+                fastCustom(chars, end, bytes, offset, state, false);
+                if (state[0] == end) return state[1];
+            }
+            boolean checkExisting = true;
+            if (this.pending != 0) {
+                if (state[0] == end && !flush) checkExisting = false;
+                else {
+                    char previous = this.pending;
+                    this.pending = 0;
+                    if (state[0] < end && Character.isLowSurrogate(chars[state[0]])) {
+                        if (bytes.length - offset - state[1] < 4) customCapacityFailure();
+                        byte[] encoded = Utf8Codec.encode(new String(new char[] {previous, chars[state[0]++]}), true);
+                        for (int n = 0; n < encoded.length; n++) bytes[offset + state[1] + n] = new Byte(encoded[n] & 255);
+                        state[1] += encoded.length;
+                        checkExisting = false;
+                    } else fallbackBuffer().Fallback(previous, -1);
+                }
+            }
+            existing = existingFallbackBuffer();
+            if (checkExisting && existing != null && existing.get_Remaining() > 0) {
+                int drained = drainCustom(existing, bytes, offset + state[1], false);
+                if (drained < 0) customCapacityFailure();
+                state[1] += drained;
+            }
+            fastCustom(chars, end, bytes, offset, state, false);
+            if (state[0] == end) return state[1];
+            EncoderFallbackBuffer buffer = fallbackBuffer();
+            while (state[0] < end) {
+                char first = chars[state[0]];
+                if (Character.isHighSurrogate(first) && state[0] + 1 == end && !flush) {
+                    this.pending = first;
+                    state[0] = end;
+                    break;
+                }
+                if (scalarWidth(chars, state[0], end) != 0) break;
+                boolean completed = true;
+                if (buffer.Fallback(first, state[0] - index)) {
+                    int drained = drainCustom(buffer, bytes, offset + state[1], false);
+                    completed = drained >= 0;
+                    state[1] += completed ? drained : -drained - 1;
+                }
+                state[0]++;
+                if (!completed) break;
+                fastCustom(chars, end, bytes, offset, state, false);
+            }
+            if (state[0] < end || buffer.get_Remaining() > 0) customCapacityFailure();
+            return state[1];
+        }
+        private int transcodePredefined(char[] chars, int index, int count, Byte[] bytes, int offset,
                 boolean flush, boolean counting) {
             int end = index + count, cursor = index, written = 0;
             EncoderFallbackBuffer existing = existingFallbackBuffer();
