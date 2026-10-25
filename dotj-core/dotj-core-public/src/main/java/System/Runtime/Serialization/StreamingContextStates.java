@@ -7,10 +7,16 @@ import System.IFormattable;
 import System.IFormatProvider;
 import System.IComparable;
 import System.Int32;
+import System.IConvertible;
+import System.Type;
+import System.TypeCode;
+import System.Decimal;
+import System.DateTime;
+import System.ArgumentNullException;
 import System.ArgumentException;
 
 /** Pinned streaming-context state flags and unnamed zero value. */
-public final class StreamingContextStates implements IFormattable, IComparable {
+public final class StreamingContextStates implements IFormattable, IComparable, IConvertible {
     public static final StreamingContextStates CrossProcess = new StreamingContextStates("CrossProcess", 1);
     public static final StreamingContextStates CrossMachine = new StreamingContextStates("CrossMachine", 2);
     public static final StreamingContextStates File = new StreamingContextStates("File", 4);
@@ -77,6 +83,28 @@ public final class StreamingContextStates implements IFormattable, IComparable {
             }
         }
         return remaining == 0 && !parts.isEmpty() ? String.join(", ", parts) : java.lang.Integer.toString(this.value);
+    }
+    @Override public TypeCode GetTypeCode() { return TypeCode.Int32; }
+    @Override public boolean ToBoolean(IFormatProvider provider) { return new Int32(this.value).ToBoolean(provider); }
+    @Override public char ToChar(IFormatProvider provider) { return new Int32(this.value).ToChar(provider); }
+    @Override public byte ToSByte(IFormatProvider provider) { return new Int32(this.value).ToSByte(provider); }
+    @Override public short ToByte(IFormatProvider provider) { return new Int32(this.value).ToByte(provider); }
+    @Override public short ToInt16(IFormatProvider provider) { return new Int32(this.value).ToInt16(provider); }
+    @Override public int ToUInt16(IFormatProvider provider) { return new Int32(this.value).ToUInt16(provider); }
+    @Override public int ToInt32(IFormatProvider provider) { return new Int32(this.value).ToInt32(provider); }
+    @Override public long ToUInt32(IFormatProvider provider) { return new Int32(this.value).ToUInt32(provider); }
+    @Override public long ToInt64(IFormatProvider provider) { return new Int32(this.value).ToInt64(provider); }
+    @Override public java.math.BigInteger ToUInt64(IFormatProvider provider) { return new Int32(this.value).ToUInt64(provider); }
+    @Override public float ToSingle(IFormatProvider provider) { return new Int32(this.value).ToSingle(provider); }
+    @Override public double ToDouble(IFormatProvider provider) { return new Int32(this.value).ToDouble(provider); }
+    @Override public Decimal ToDecimal(IFormatProvider provider) { return new Int32(this.value).ToDecimal(provider); }
+    @Override public DateTime ToDateTime(IFormatProvider provider) { return new Int32(this.value).ToDateTime(provider); }
+    @Override public Object ToType(Type targetType, IFormatProvider provider) {
+        if (targetType == null) throw new ArgumentNullException("targetType");
+        if (targetType == Type.GetType("System.Runtime.Serialization.StreamingContextStates")
+                || targetType == Type.GetType("System.Object") || targetType == Type.GetType("System.Enum")) return this;
+        if (targetType == Type.GetType("System.String")) return ToString(provider);
+        return new Int32(this.value).ToType(targetType, provider);
     }
     @Override public int CompareTo(Object other) {
         if (other == null) return 1;
