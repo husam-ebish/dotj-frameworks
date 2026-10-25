@@ -208,6 +208,93 @@ public class UTF8Encoding extends Encoding {
         private char pending;
         private final Encoding encoding;
         private Utf8Encoder(Encoding encoding) { this.encoding = encoding; set_Fallback(encoding.get_EncoderFallback()); }
+        @Override public void Convert(char[] chars, int charIndex, int charCount, Byte[] bytes,
+                int byteIndex, int byteCount, boolean flush, int[] charsUsed, int[] bytesUsed,
+                boolean[] completed) {
+            if (charsUsed == null || bytesUsed == null || completed == null) {
+                throw new java.lang.NullPointerException("Output carrier");
+            }
+            if (charsUsed.length == 0 || bytesUsed.length == 0 || completed.length == 0) {
+                throw new java.lang.ArrayIndexOutOfBoundsException("Output carrier");
+            }
+            if (chars == null) throw new ArgumentNullException("chars");
+            if (bytes == null) throw new ArgumentNullException("bytes");
+            if (charIndex < 0) throw new ArgumentOutOfRangeException("charIndex");
+            if (charCount < 0) throw new ArgumentOutOfRangeException("charCount");
+            if (byteIndex < 0) throw new ArgumentOutOfRangeException("byteIndex");
+            if (byteCount < 0) throw new ArgumentOutOfRangeException("byteCount");
+            if (charIndex > chars.length - charCount) throw new ArgumentOutOfRangeException("chars");
+            if (byteIndex > bytes.length - byteCount) throw new ArgumentOutOfRangeException("bytes");
+            if (customProvider()) throw new UnsupportedOperationException(
+                    "Custom-provider Convert is outside the selected candidate surface.");
+            Byte[] target = java.util.Arrays.copyOfRange(bytes, byteIndex, byteIndex + byteCount);
+            int[] progress;
+            try {
+                progress = convertPredefined(chars, charIndex, charCount, target, flush);
+            } finally {
+                java.lang.System.arraycopy(target, 0, bytes, byteIndex, byteCount);
+            }
+            bytesUsed[0] = progress[1];
+            charsUsed[0] = progress[0];
+            EncoderFallbackBuffer existing = existingFallbackBuffer();
+            completed[0] = progress[0] == charCount && (!flush || this.pending == 0)
+                    && (existing == null || existing.get_Remaining() == 0);
+        }
+        private int[] convertPredefined(char[] chars, int index, int count, Byte[] target, boolean flush) {
+            int end = index + count, cursor = index, written = 0;
+            boolean overflow = false;
+            EncoderFallbackBuffer existing = existingFallbackBuffer();
+            if (this.pending != 0 && (count != 0 || flush)) {
+                char previous = this.pending;
+                this.pending = 0;
+                if (cursor < end && Character.isLowSurrogate(chars[cursor])) {
+                    byte[] encoded = Utf8Codec.encode(new String(new char[] {previous, chars[cursor]}), true);
+                    if (encoded.length > target.length) return convertOverflow(0, 0);
+                    for (byte value : encoded) target[written++] = new Byte(value & 255);
+                    cursor++;
+                } else {
+                    existing = fallbackBuffer();
+                    existing.Fallback(previous, -1);
+                }
+            }
+            existing = existingFallbackBuffer();
+            if (existing != null && existing.get_Remaining() > 0) {
+                int drained = drainCustom(existing, target, written, false);
+                if (drained < 0) { written += -drained - 1; overflow = true; }
+                else written += drained;
+            }
+            while (!overflow && cursor < end) {
+                int width = scalarWidth(chars, cursor, end);
+                if (width != 0) {
+                    byte[] encoded = Utf8Codec.encode(new String(chars, cursor, width), true);
+                    if (encoded.length > target.length - written) { overflow = true; break; }
+                    for (byte value : encoded) target[written++] = new Byte(value & 255);
+                    cursor += width;
+                    continue;
+                }
+                char invalid = chars[cursor];
+                if (Character.isHighSurrogate(invalid) && cursor + 1 == end && !flush) {
+                    this.pending = invalid;
+                    cursor++;
+                    break;
+                }
+                EncoderFallbackBuffer buffer = fallbackBuffer();
+                buffer.Fallback(invalid, cursor - index);
+                cursor++;
+                int drained = drainCustom(buffer, target, written, false);
+                if (drained < 0) { written += -drained - 1; overflow = true; }
+                else written += drained;
+            }
+            return overflow ? convertOverflow(cursor - index, written) : new int[] {cursor - index, written};
+        }
+        private int[] convertOverflow(int consumed, int written) {
+            if (written == 0) {
+                fallbackBuffer();
+                resetFallbackBuffer();
+                throw new ArgumentException("Insufficient destination capacity.", "bytes");
+            }
+            return new int[] {consumed, written};
+        }
         @Override public void Reset() { this.pending = 0; resetFallbackBuffer(); }
         @Override public int GetByteCount(char[] chars, int index, int count, boolean flush) {
             if (chars == null) throw new ArgumentNullException("chars");

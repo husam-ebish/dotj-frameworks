@@ -25,14 +25,14 @@ def main():
  actual=set()
  for line in result.stdout.splitlines():
   if line.startswith('METHOD\t'):_,owner,name,returns,static,parameters=line.split('\t');actual.add((owner,name,returns,static,parameters))
- def carrier(v):return {'System.Int32':'int','System.Char':'char','System.Boolean':'boolean','System.Void':'void','System.Object':'java.lang.Object','System.String':'java.lang.String','System.Char[]':'char[]','System.ReadOnlySpan`1[System.Char]':'System.ReadOnlySpan','System.ReadOnlySpan`1[System.Byte]':'System.ReadOnlySpan','System.Span`1[System.Char]':'System.Span','System.Span`1[System.Byte]':'System.Span'}.get(v,v)
+ def carrier(v):return {'System.Int32':'int','System.Int32&':'int[]','System.Boolean&':'boolean[]','System.Char':'char','System.Boolean':'boolean','System.Void':'void','System.Object':'java.lang.Object','System.String':'java.lang.String','System.Char[]':'char[]','System.ReadOnlySpan`1[System.Char]':'System.ReadOnlySpan','System.ReadOnlySpan`1[System.Byte]':'System.ReadOnlySpan','System.Span`1[System.Char]':'System.Span','System.Span`1[System.Byte]':'System.Span'}.get(v,v)
  expected={}
  for row in j['declarations']:
   for method in row['methods']:expected[(row['fullName'],method['name'],carrier(method['returnType']),b(method['isStatic']),','.join(carrier(v) for v in method['parameters']))]=method['signature']
  missing=set(expected)-actual;extra=actual-set(expected)
- assert len(expected)==28 and len(missing)==10 and not extra
+ assert len(expected)==28 and len(missing)==9 and not extra
  assert all(row[1]=='Convert' or '*' in row[4] for row in missing)
 
  record=dict(schemaVersion=1,casesPassed=len(cases),selectedShapes=4,nativeDeclaredMethods=len(expected),directDeclaredProjections=len(expected)-len(missing),missingNativeMethods=[dict(owner=row[0],signature=expected[row],status='UNIMPLEMENTED; CONVERT_POINTER_SPAN_SOURCE_ABI_OPEN') for row in sorted(missing)],javaInheritedObjectFacadeBridges=[dict(owner=row[0],method=row[1],qualification='ADAPTER_ONLY; FULL_OBJECT_CONTRACT_OPEN') for row in sorted(extra)],arrayInterfaceQualification=False,oracleEvidence=oracle_path.name,oracleSha256=hashlib.sha256(oracle_path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(a.jar.read_bytes()).hexdigest(),qualification='SELECTED_METADATA_AND_DECLARATION_INVENTORY_ONLY; CONVERT_POINTER_SPAN_FULL_REFLECTION_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN')
- (EVIDENCE/'stateful-encoding-type-metadata-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8');print('PASS selected stateful encoding types: 54 groups; 18/28 declared projections; Convert/pointer APIs remain open')
+ (EVIDENCE/'stateful-encoding-type-metadata-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8');print('PASS selected stateful encoding types: 54 groups; 19/28 declared projections; Convert/pointer APIs remain open')
 if __name__=='__main__':main()
