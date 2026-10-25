@@ -340,6 +340,49 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return TryParseExact(s.selectedText(), format.selectedText(), provider, styles, result);
     }
 
+    public static DateTime ParseExact(String text, String[] formats, IFormatProvider provider, DateTimeStyles styles) {
+        selectedValidateStyles(styles, "style");
+        if (provider != null) throw new UnsupportedOperationException("Only null-provider invariant exact parsing is mapped.");
+        if (text == null) throw new ArgumentNullException("s");
+        if (formats == null) throw new ArgumentNullException("formats");
+        DateTime[] result = new DateTime[1];
+        if (selectedTryParseExactMultiple(text, formats, provider, styles, result)) return result[0];
+        throw new FormatException("Input string was not in a selected exact format");
+    }
+
+    public static boolean TryParseExact(String text, String[] formats, IFormatProvider provider, DateTimeStyles styles, DateTime[] result) {
+        selectedValidateStyles(styles, "style");
+        if (provider != null) throw new UnsupportedOperationException("Only null-provider invariant exact parsing is mapped.");
+        return selectedTryParseExactMultiple(text, formats, provider, styles, result);
+    }
+
+    private static boolean selectedTryParseExactMultiple(String text, String[] formats, IFormatProvider provider, DateTimeStyles styles, DateTime[] result) {
+        if (text != null && !text.isEmpty() && formats != null) {
+            DateTime[] candidate = new DateTime[1];
+            for (String format : formats) {
+                if (format == null || format.isEmpty()) break;
+                if (TryParseExact(text, format, provider, styles, candidate)) {
+                    result[0] = candidate[0];
+                    return true;
+                }
+            }
+        }
+        result[0] = new DateTime(0L);
+        return false;
+    }
+
+    public static DateTime ParseExact(ReadOnlySpan<Character> text, String[] formats, IFormatProvider provider, DateTimeStyles styles) {
+        selectedValidateStyles(styles, "style");
+        if (text == null) throw new ArgumentNullException("s");
+        return ParseExact(text.selectedText(), formats, provider, styles);
+    }
+
+    public static boolean TryParseExact(ReadOnlySpan<Character> text, String[] formats, IFormatProvider provider, DateTimeStyles styles, DateTime[] result) {
+        selectedValidateStyles(styles, "style");
+        if (text == null) throw new ArgumentNullException("s");
+        return TryParseExact(text.selectedText(), formats, provider, styles, result);
+    }
+
     public static DateTime FromBinary(long dateData) {
         long ticks = dateData & 0x3fff_ffff_ffff_ffffL;
         if ((dateData & Long.MIN_VALUE) != 0L) {
