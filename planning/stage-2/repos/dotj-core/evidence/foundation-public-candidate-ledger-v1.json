@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "a6f4473646d15a2bc9e93148633f045129c13812db74e5ff18971e4a54e8c5f6",
+  "candidateJarSha256": "5c88feb54d48cc4a550f0c07f8fa326a221d4a9e242d1e30ddd15f678e859fef",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -1002,7 +1002,7 @@
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 0,
       "javaPublicConstructors": 0,
-      "javaPublicHeader": "public final class System.Globalization.NumberStyles {",
+      "javaPublicHeader": "public final class System.Globalization.NumberStyles implements System.IFormattable {",
       "javaPublicDeclarations": [
         "public static final System.Globalization.NumberStyles None;",
         "public static final System.Globalization.NumberStyles AllowLeadingWhite;",
@@ -1023,14 +1023,20 @@
         "public static final System.Globalization.NumberStyles HexNumber;",
         "public static final System.Globalization.NumberStyles AllowBinarySpecifier;",
         "public static final System.Globalization.NumberStyles BinaryNumber;",
+        "public static System.Globalization.NumberStyles FromInt32(int);",
         "public int get_Value();",
         "public java.lang.String get_Name();",
         "public System.Globalization.NumberStyles Or(System.Globalization.NumberStyles);",
         "public static System.Globalization.NumberStyles[] values();",
+        "public java.lang.String ToString();",
+        "public java.lang.String ToString(System.IFormatProvider);",
+        "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+        "public java.lang.String ToString(java.lang.String);",
+        "public java.lang.String toString();",
         "public boolean equals(java.lang.Object);",
         "public int hashCode();"
       ],
-      "disposition": "SELECTED_FLAG_VALUES; immutable Java carrier plus Type enum projection; CLR ABI open",
+      "disposition": "SELECTED_FLAG_VALUES_AND_INHERITED_ENUM_FORMATTING; immutable carrier, IFormattable and Type projection; CLR ABI open",
       "qualified": false
     }
   ],
