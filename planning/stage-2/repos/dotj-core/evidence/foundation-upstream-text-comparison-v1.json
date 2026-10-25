@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 82 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 83 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "8f1d4830c124ff7d71d355d8792840f7232873993016ddf21f5bf8034249046b",
+  "jarSha256": "768f0f6c71455ffb98de691971bf8ec641dab0e944e37063cc2aacc2ff275b92",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -321,6 +321,18 @@
       "upstreamSha256": "783c7d561e5e777bd0bc5d7ba27bdcd4832eed29f3d4fac6dc0e1c414f38d51c",
       "productIdentifierCount": 668,
       "upstreamIdentifierCount": 33,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/ICloneable.java",
+      "productSha256": "c617713639922f7abb692660a7286e62b5804796f5704bf917d719a302209624",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/ICloneable.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/ICloneable.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "f780115d0bfd3b79f23f8343a311fa2f385c4295267e3566fad26a8e14cd5907",
+      "productIdentifierCount": 19,
+      "upstreamIdentifierCount": 29,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
     },
@@ -807,12 +819,12 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
-      "productSha256": "7722d85bcb8746d81be32d96152fd1b3193c56ee61be0e13bdfabe69dfe41bf1",
+      "productSha256": "3b37b94e4976c4999f47c993e5444c5a002cbd0507e3cf0b3669e4b0729f1672",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/Encoding.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/Encoding.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "44b11ddb443bd71b1c7a4406a8749d234c0e0b135d9a36dc53c4f0887b197db4",
-      "productIdentifierCount": 397,
+      "productIdentifierCount": 432,
       "upstreamIdentifierCount": 6571,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []

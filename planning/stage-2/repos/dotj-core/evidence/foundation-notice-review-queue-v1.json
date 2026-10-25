@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "8f1d4830c124ff7d71d355d8792840f7232873993016ddf21f5bf8034249046b",
+  "jarSha256": "768f0f6c71455ffb98de691971bf8ec641dab0e944e37063cc2aacc2ff275b92",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 82,
-  "directNameMatchedCount": 74,
+  "sourceCount": 83,
+  "directNameMatchedCount": 75,
   "directNameMissingCount": 8,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
@@ -469,6 +469,23 @@
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Globalization/TimeSpanStyles.cs",
       "upstreamSha256": "783c7d561e5e777bd0bc5d7ba27bdcd4832eed29f3d4fac6dc0e1c414f38d51c",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/ICloneable.java",
+      "productSha256": "c617713639922f7abb692660a7286e62b5804796f5704bf917d719a302209624",
+      "classEntries": [
+        "System/ICloneable.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "ad5c20536dfb0bcf839a3ccaf069cbf2786e1d4d",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/ICloneable.cs",
+      "upstreamSha256": "f780115d0bfd3b79f23f8343a311fa2f385c4295267e3566fad26a8e14cd5907",
       "sharedIdentifierShinglesOfLength12": 0,
       "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
       "sharedIdentifierShingleSamples": [],
@@ -1226,7 +1243,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
-      "productSha256": "7722d85bcb8746d81be32d96152fd1b3193c56ee61be0e13bdfabe69dfe41bf1",
+      "productSha256": "3b37b94e4976c4999f47c993e5444c5a002cbd0507e3cf0b3669e4b0729f1672",
       "classEntries": [
         "System/Text/Encoding.class",
         "System/Text/Encoding$DefaultUtf8.class"
