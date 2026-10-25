@@ -8,7 +8,7 @@
   "typeCoverage": [
     {
       "nativeType": "System.Text.Encoder",
-      "candidateClassPresent": false,
+      "candidateClassPresent": true,
       "nativeDeclaredMethods": 13,
       "candidateBehaviorQualifiedByThisBaseline": false
     },
@@ -21,7 +21,7 @@
   ],
   "oracleEvidence": "stateful-utf8-contracts-contract-v10.0.12.json",
   "oracleSha256": "e79d934d5e4c295025e05c91b9861a7d84562ac075850b5ee733880be9075297",
-  "candidateJarSha256": "95c75cce401c65f903616d51c6cead82251020d950531474612f9a22ee608850",
+  "candidateJarSha256": "45f308c3fd63a9dd8924c7f189d9b72c085f1afaffd2749f022e8ecd6daa1bce",
   "nextImplementation": "Selected UTF-8 Encoder array count/write with pending surrogate, flush, Reset and fallback property semantics; then Decoder pending byte prefixes",
   "qualification": "NATIVE_CONTRACT_BASELINE_ONLY; NO_CANDIDATE_STATEFUL_BEHAVIOR_OR_TASK_ACCEPTANCE"
 }

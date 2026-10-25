@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "Built dotj-core foundation candidate JAR, not a release",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "95c75cce401c65f903616d51c6cead82251020d950531474612f9a22ee608850",
+  "jarSha256": "45f308c3fd63a9dd8924c7f189d9b72c085f1afaffd2749f022e8ecd6daa1bce",
   "sourceToClasses": {
     "dotj-core/dotj-core-public/src/main/java/System/IDisposable.java": [
       "System/IDisposable.class"
@@ -254,7 +254,8 @@
       "System/Text/Encoding$DefaultUtf8.class"
     ],
     "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java": [
-      "System/Text/UTF8Encoding.class"
+      "System/Text/UTF8Encoding.class",
+      "System/Text/UTF8Encoding$Utf8Encoder.class"
     ],
     "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/Utf8Codec.java": [
       "org/dotj/internal/text/Utf8Codec.class",
@@ -301,6 +302,9 @@
     ],
     "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/MarvinStringHash.java": [
       "org/dotj/internal/text/MarvinStringHash.class"
+    ],
+    "dotj-core/dotj-core-public/src/main/java/System/Text/Encoder.java": [
+      "System/Text/Encoder.class"
     ]
   },
   "manifestEntry": "META-INF/MANIFEST.MF",
