@@ -1542,7 +1542,7 @@ public abstract class Type extends MemberInfo {
                 && (candidate.definition == DBNull.class || Exception.class.isAssignableFrom(candidate.definition))) {
             return true;
         }
-        if (this.definition == ISpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == SByte.class || candidate.definition == Byte.class)) {
+        if (this.definition == ISpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == SByte.class || candidate.definition == Byte.class || candidate.definition == UInt16.class)) {
             return true;
         }
         if (this.definition == IUtf8SpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == SByte.class || candidate.definition == Byte.class)) {
@@ -1636,7 +1636,7 @@ public abstract class Type extends MemberInfo {
             return value instanceof DBNull || value instanceof Exception;
         }
         if (this.definition == ISpanFormattable.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates || value instanceof GenericParameterAttributes || value instanceof SByte || value instanceof Byte;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates || value instanceof GenericParameterAttributes || value instanceof SByte || value instanceof Byte || value instanceof UInt16;
         }
         if (this.definition == IUtf8SpanFormattable.class) {
             return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof SByte || value instanceof Byte;
@@ -1969,7 +1969,7 @@ public abstract class Type extends MemberInfo {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
         }
         if (this.definition == UInt16.class) {
-            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class), fromJavaClass(IFormattable.class)};
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class)};
         }
         if (this.definition == UInt32.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class), fromJavaClass(IFormattable.class)};
