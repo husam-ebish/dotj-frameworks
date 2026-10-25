@@ -17,6 +17,10 @@ public final class EncoderFallbackException extends ArgumentException {
         super(message == null ? "Value does not fall within the expected range." : message, innerException); this.charUnknown = 0; this.index = 0;
         this.charUnknownHigh = 0; this.charUnknownLow = 0; this.pair = false;
     }
+    EncoderFallbackException(String message, char charUnknown, int index) {
+        super(message); this.charUnknown = charUnknown; this.index = index;
+        this.charUnknownHigh = 0; this.charUnknownLow = 0; this.pair = false;
+    }
     EncoderFallbackException(char charUnknown, int index) {
         super("Unable to translate Unicode character to UTF-8.");
         this.charUnknown = charUnknown; this.index = index;

@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "f5185b0ad05df823c87e9f199efce0285a42fff5f2e61314ec6287afe68e2127",
+  "jarSha256": "1dd9ee0dd56aff65a97ba70da8dd5ef2d1e3e5e03dcea4e56d84116cc0930582",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 97,
-  "directNameMatchedCount": 86,
+  "sourceCount": 98,
+  "directNameMatchedCount": 87,
   "directNameMissingCount": 11,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
@@ -1440,7 +1440,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackException.java",
-      "productSha256": "68b5a91df6f9a5967537518ee816d188ba0505b0bc3b4713089fe69e12ba37d8",
+      "productSha256": "eb2d5bcaff802f01c7da796437ec84de354fe6d045012b5f66e96c568c65febe",
       "classEntries": [
         "System/Text/EncoderFallbackException.class"
       ],
@@ -1475,13 +1475,14 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
-      "productSha256": "3a448c892f53bd870b4b78482f62d07dd7226d23d0eca2f1ac49257dfd8dd007",
+      "productSha256": "3064d646cf4940a61cd50fd0c24de80388a381e340997483d364511a86d6691e",
       "classEntries": [
         "System/Text/Encoding.class",
         "System/Text/Encoding$DefaultUtf8.class",
         "System/Text/Encoding$DefaultEncoder.class",
         "System/Text/Encoding$DefaultDecoder.class",
-        "System/Text/Encoding$Metadata.class"
+        "System/Text/Encoding$Metadata.class",
+        "System/Text/Encoding$DefaultUtf16.class"
       ],
       "mitSpdxHeaderObserved": true,
       "localIntroductionCommit": "4385bf00b1a91a1f00ad8e5dc37557d7f19cc45e",
@@ -1531,6 +1532,23 @@
       "supplementalAdjacencyEvidence": "custom-stateful-decoder-source-adjacency-v10.0.12.json"
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Text/UnicodeEncoding.java",
+      "productSha256": "3ecbdb6bf7a6ed6703a13328c037f7a21923ce64d427cfc48047662f73fac6a2",
+      "classEntries": [
+        "System/Text/UnicodeEncoding.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "3efea7348bf7b7c0814557393212ad83658c255f",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Text/UnicodeEncoding.cs",
+      "upstreamSha256": "b5a717988edb22bae8688fb5cf9d8efe9d503dfe2918cdb5a9c95578a5768828",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java",
       "productSha256": "6a47bf60566edd39e14c9051b15c0527e89608ad0bf483013d7e22e81f33b78d",
       "classEntries": [
@@ -1570,7 +1588,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "de69ebc31bec0ab236082b3e19eb48ff85438338b5466c1895c6d72a584712a7",
+      "productSha256": "5b70b1a9d1c4d2d8e5f0c0964b83406353c5581b4528ac21ccc59431c8038a9a",
       "classEntries": [
         "System/Type.class",
         "System/Type$1.class",

@@ -24,6 +24,7 @@ import System.Text.DecoderExceptionFallback;
 import System.Text.EncoderFallbackBuffer;
 import System.Text.DecoderFallbackBuffer;
 import System.Text.UTF8Encoding;
+import System.Text.UnicodeEncoding;
 import System.Text.EncoderFallbackException;
 import System.Text.DecoderFallbackException;
 import System.Reflection.MemberInfo;
@@ -536,6 +537,7 @@ public abstract class Type extends MemberInfo {
             case "System.Text.EncoderFallbackBuffer" -> fromJavaClass(EncoderFallbackBuffer.class);
             case "System.Text.DecoderFallbackBuffer" -> fromJavaClass(DecoderFallbackBuffer.class);
             case "System.Text.UTF8Encoding" -> fromJavaClass(UTF8Encoding.class);
+            case "System.Text.UnicodeEncoding" -> fromJavaClass(UnicodeEncoding.class);
             case "System.Text.EncoderFallbackException" -> fromJavaClass(EncoderFallbackException.class);
             case "System.Text.DecoderFallbackException" -> fromJavaClass(DecoderFallbackException.class);
             case "System.DateTimeKind" -> fromJavaClass(DateTimeKind.class);
@@ -727,6 +729,7 @@ public abstract class Type extends MemberInfo {
             case "system.text.encoderfallbackbuffer" -> ignoreCase ? fromJavaClass(EncoderFallbackBuffer.class) : null;
             case "system.text.decoderfallbackbuffer" -> ignoreCase ? fromJavaClass(DecoderFallbackBuffer.class) : null;
             case "system.text.utf8encoding" -> ignoreCase ? fromJavaClass(UTF8Encoding.class) : null;
+            case "system.text.unicodeencoding" -> ignoreCase ? fromJavaClass(UnicodeEncoding.class) : null;
             case "system.text.encoderfallbackexception" -> ignoreCase ? fromJavaClass(EncoderFallbackException.class) : null;
             case "system.text.decoderfallbackexception" -> ignoreCase ? fromJavaClass(DecoderFallbackException.class) : null;
             case "system.datetimekind" -> ignoreCase ? fromJavaClass(DateTimeKind.class) : null;

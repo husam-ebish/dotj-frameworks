@@ -33,6 +33,8 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         this.decoderFallback = decoderFallback == null ? DecoderFallback.get_ReplacementFallback() : decoderFallback;
     }
     public static Encoding get_UTF8() { return DefaultUtf8.VALUE; }
+    public static Encoding get_Unicode() { return DefaultUtf16.LITTLE; }
+    public static Encoding get_BigEndianUnicode() { return DefaultUtf16.BIG; }
     public static Byte[] Convert(Encoding srcEncoding, Encoding dstEncoding, Byte[] bytes) {
         if (bytes == null) throw new ArgumentNullException("bytes");
         return Convert(srcEncoding, dstEncoding, bytes, 0, bytes.length);
@@ -46,12 +48,14 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
     }
     public static Encoding GetEncoding(int codepage) {
         if (codepage == 65001) return get_UTF8();
+        if (codepage == 1200) return get_Unicode();
+        if (codepage == 1201) return get_BigEndianUnicode();
         if (codepage == 0) return DefaultUtf8.DEFAULT_VALUE;
         if (codepage < 0 || codepage > 65535) throw new ArgumentOutOfRangeException("codepage");
         if (codepage == 1 || codepage == 2 || codepage == 3 || codepage == 42) {
             throw new ArgumentException("The code page is not supported.", "codepage");
         }
-        throw new UnsupportedOperationException("The candidate supports only UTF-8 encoding lookups.");
+        throw new UnsupportedOperationException("The candidate supports UTF-8 and UTF-16 encoding lookups.");
     }
     public static Encoding GetEncoding(int codepage, EncoderFallback encoderFallback,
             DecoderFallback decoderFallback) {
@@ -70,16 +74,17 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         return switch (folded.toString()) {
             case "utf-8", "unicode-1-1-utf-8", "unicode-2-0-utf-8",
                     "x-unicode-1-1-utf-8", "x-unicode-2-0-utf-8" -> get_UTF8();
+            case "iso-10646-ucs-2", "ucs-2", "unicode", "utf-16", "utf-16le" -> get_Unicode();
+            case "unicodefffe", "utf-16be" -> get_BigEndianUnicode();
             case "ansi_x3.4-1968", "ansi_x3.4-1986", "ascii", "cp367", "cp819",
                     "csascii", "csisolatin1", "csunicode11utf7", "ibm367", "ibm819",
-                    "iso-10646-ucs-2", "iso-8859-1", "iso-ir-100", "iso-ir-6",
+                    "iso-8859-1", "iso-ir-100", "iso-ir-6",
                     "iso646-us", "iso8859-1", "iso_646.irv:1991", "iso_8859-1",
-                    "iso_8859-1:1987", "l1", "latin1", "ucs-2", "unicode",
-                    "unicode-1-1-utf-7", "unicode-2-0-utf-7", "unicodefffe", "us",
-                    "us-ascii", "utf-16", "utf-16be", "utf-16le", "utf-32",
+                    "iso_8859-1:1987", "l1", "latin1", "unicode-1-1-utf-7", "unicode-2-0-utf-7", "us",
+                    "us-ascii", "utf-32",
                     "utf-32be", "utf-32le", "utf-7", "x-unicode-1-1-utf-7",
                     "x-unicode-2-0-utf-7" -> throw new UnsupportedOperationException(
-                            "This recognized encoding is outside the candidate UTF-8 surface.");
+                            "This recognized encoding is outside the candidate UTF-8/UTF-16 surface.");
             default -> throw new ArgumentException("The encoding name is not supported.", "name");
         };
     }
@@ -91,6 +96,10 @@ public abstract class Encoding implements ICloneable, java.lang.Cloneable {
         return result;
     }
 
+    private static final class DefaultUtf16 {
+        private static final Encoding LITTLE = new UnicodeEncoding(false, true);
+        private static final Encoding BIG = new UnicodeEncoding(true, true);
+    }
     private static final class DefaultUtf8 {
         private static final Encoding VALUE = new UTF8Encoding(true);
         private static final Encoding DEFAULT_VALUE = new UTF8Encoding(false);

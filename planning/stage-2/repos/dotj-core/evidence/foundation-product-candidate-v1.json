@@ -87,7 +87,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "de69ebc31bec0ab236082b3e19eb48ff85438338b5466c1895c6d72a584712a7"
+      "sha256": "5b70b1a9d1c4d2d8e5f0c0964b83406353c5581b4528ac21ccc59431c8038a9a"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/DBNull.java",
@@ -219,7 +219,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
-      "sha256": "3a448c892f53bd870b4b78482f62d07dd7226d23d0eca2f1ac49257dfd8dd007"
+      "sha256": "3064d646cf4940a61cd50fd0c24de80388a381e340997483d364511a86d6691e"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java",
@@ -227,7 +227,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackException.java",
-      "sha256": "68b5a91df6f9a5967537518ee816d188ba0505b0bc3b4713089fe69e12ba37d8"
+      "sha256": "eb2d5bcaff802f01c7da796437ec84de354fe6d045012b5f66e96c568c65febe"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderFallbackException.java",
@@ -388,10 +388,14 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/NormalizationForm.java",
       "sha256": "3c9b17dea025de43ef4f648e16f5d58291f47a408fef39cfee85b317c80d0681"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Text/UnicodeEncoding.java",
+      "sha256": "3ecbdb6bf7a6ed6703a13328c037f7a21923ce64d427cfc48047662f73fac6a2"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "f5185b0ad05df823c87e9f199efce0285a42fff5f2e61314ec6287afe68e2127",
+  "jarSha256": "1dd9ee0dd56aff65a97ba70da8dd5ef2d1e3e5e03dcea4e56d84116cc0930582",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -490,6 +494,7 @@
     "System/Text/EncoderReplacementFallback.class",
     "System/Text/Encoding$DefaultDecoder.class",
     "System/Text/Encoding$DefaultEncoder.class",
+    "System/Text/Encoding$DefaultUtf16.class",
     "System/Text/Encoding$DefaultUtf8.class",
     "System/Text/Encoding$Metadata.class",
     "System/Text/Encoding.class",
@@ -497,6 +502,7 @@
     "System/Text/UTF8Encoding$Utf8Decoder.class",
     "System/Text/UTF8Encoding$Utf8Encoder.class",
     "System/Text/UTF8Encoding.class",
+    "System/Text/UnicodeEncoding.class",
     "System/TimeSpan.class",
     "System/Type$1.class",
     "System/Type$2.class",
@@ -611,30 +617,32 @@
     "System/Text/EncoderFallback$Defaults.class": "139346749e5f0b787eef406dece357bcbde0566999cf41a5b94ed5fa53bed11d",
     "System/Text/EncoderFallback.class": "f3eadf208ede71b0505727f73ed1b7ed3003d29d7ad30fc89d1aaef872573c81",
     "System/Text/EncoderFallbackBuffer.class": "df23921c1f6ae9a8134f36399fe5f19a22177e6469be0506453ec51c5a239f00",
-    "System/Text/EncoderFallbackException.class": "7fa4f5e381a26568df3b0b8c295dbfbbc06e6f746a7d46448ed733179f8d3612",
+    "System/Text/EncoderFallbackException.class": "a656dd0e349453a027ece68f6b2ee3396527857975cf8885e1e55404d0540dd2",
     "System/Text/EncoderReplacementFallback$Buffer.class": "e4884c69e981af4213e1cbc0daf02e1eab9e029307f3c0abbb51a55ef0045c42",
     "System/Text/EncoderReplacementFallback.class": "ec9206a48254f79af0d5fd1a64663b82c90a0b18cc778eb81b33cfe86a6c8c85",
-    "System/Text/Encoding$DefaultDecoder.class": "584e2623ed3be9a2fbcc32f3bd22bbdf8a9edefb0a6ab465ced716118ba9a565",
-    "System/Text/Encoding$DefaultEncoder.class": "c5b2f8697825e29de96db4eb7a19a7b5148cff49054df868878be2fb8ea46414",
-    "System/Text/Encoding$DefaultUtf8.class": "029076a6e6d15057c59421b7787d333dcb3fe843b3f95cad40141de4f20e6052",
-    "System/Text/Encoding$Metadata.class": "ba02d8ee449690fec380c608a2aa057f3b890c1d154ef4c3cc445f4a92a8dac1",
-    "System/Text/Encoding.class": "b6b4dcd1fd646bc617cba0869a43f8a8dbec7895f211394e1476fdefffe59959",
+    "System/Text/Encoding$DefaultDecoder.class": "0e1252ecb3eb56e6f955a671e13a7e15b9e38622b6f4a946036e44ec7bf30bc5",
+    "System/Text/Encoding$DefaultEncoder.class": "9dd860e79665de83eda21fd6de3602d9c7a06e005bf158c8a96dd10044da2921",
+    "System/Text/Encoding$DefaultUtf16.class": "b2f01f960a09e2599893fbc2d71dc13ca9ad29947b1fc6650ed720efbfcb419b",
+    "System/Text/Encoding$DefaultUtf8.class": "0b84a5248b482f5251a9288a7ebce3360b7c3be9f15b7fd2bd6fd5f74747ebc1",
+    "System/Text/Encoding$Metadata.class": "cf8d6b88b16377130c4726b3dbe45dc2dafeab83e3a75334fb89735c7588a6fd",
+    "System/Text/Encoding.class": "f5190d4d310986a43f3bddd2cb7a651f259b610037f2a0ab3bee30c974f242ef",
     "System/Text/NormalizationForm.class": "3b4af8060e2bfaf56b4749a4471c3df6842b23756f100b630c19d69cd285e157",
     "System/Text/UTF8Encoding$Utf8Decoder.class": "57e0299bc791686dcbbb6c2ce573d8df39382d17181bded87f5844145e5217cb",
     "System/Text/UTF8Encoding$Utf8Encoder.class": "9e67fdc238e3de34b7769998e4b62a997f5d371d687952f7bec25e2244b98431",
     "System/Text/UTF8Encoding.class": "b6bc999e83bd12ffdf084e733e91e5552bebc1cee5be90cc3c36baeb0fcbe134",
+    "System/Text/UnicodeEncoding.class": "ae05a3a8b8f0acd93b0255859ecca4146267469d025e44cc4c13158486a5eb6e",
     "System/TimeSpan.class": "7ba310346c6886e0f736c7256230fb27631c73e233e5bbb1adcc25419e598994",
-    "System/Type$1.class": "378274f300709326bfd8da9b4d948796be972a3db577caa26c862bffe2a3dee7",
-    "System/Type$2.class": "a750880f8e1155a8ede4fd7fe3bb90c3b6a2f6d5ffc1bcce6c61125d53b8f48c",
-    "System/Type$ArrayType.class": "dc25398c2ba453f81e01a45ed5a45725b551cda806a1d8a3872affea3ca4c92f",
-    "System/Type$ByRefType.class": "9c421aa508b8a34d42e2e5abc563b35ce5a1a3d1be12ea0338eaa375b6034a26",
-    "System/Type$DefaultMethodMember.class": "da1557f012af0a41af396547f3bf0523f75482e05626a5a0423b3242bcc0632c",
-    "System/Type$DefaultParameterInfo.class": "2a5c3ad20a3945744cd5a13d026e7e7d3a0da2b64a5af1167bb7b1c13d7338be",
-    "System/Type$DefaultPropertyMember.class": "338709161e7f7770b1200c40d9842e7b94e32e33220fa957b142a574e2c8fde8",
-    "System/Type$GenericParameterType.class": "9942221ab13ad47c54641f5fba10c36071547b21c11ae4414eb49be017108f5a",
-    "System/Type$PointerType.class": "e468391b04c99627d58a07fc141a57cecbf5d37a9034d9301fd2d2dcebd54972",
-    "System/Type$ResolvedType.class": "cd0f993577c6d66776f59db3eef680c777d8db12c7a80c2557f1943ad3370404",
-    "System/Type.class": "ffcf972bdf8cc719e238cdb0cc13f41fc259f51b6d0d444d1ff4409f4f3deae7",
+    "System/Type$1.class": "1f6cbee9d820b7c45fa9628fdb440991720118d19befd462b5b2721613806463",
+    "System/Type$2.class": "13e16cc77fdbe96ac89c3969e4b144fabb25ed897bc4664cba9325026ba234c0",
+    "System/Type$ArrayType.class": "dc61fc6981f7eab0e94e2feb733c6f462bec02cf3e091fd36381e6bbee170d53",
+    "System/Type$ByRefType.class": "c520fcad344712e2e3a4c12785e6979ee18482380080f858baba58bfd1e435cb",
+    "System/Type$DefaultMethodMember.class": "3ed3a6939922a299ba6a8db99833d443d1b8a67fef705d3bcde1cb5e9637f212",
+    "System/Type$DefaultParameterInfo.class": "8ecfd7315bde6cd38c14d8354d5d28a0b03c1a48b45f2c44c786773cc2d0a148",
+    "System/Type$DefaultPropertyMember.class": "bacfd4622560ffa7fba98b9a72cdaf0f986ab6bc9124c11024528bfa8753e25c",
+    "System/Type$GenericParameterType.class": "ce43e9ef42c582c90daaf1fb6ef8b8b2c1731d21f8e3417e40455cd6904b1ec6",
+    "System/Type$PointerType.class": "d5ffb3e944f52a4d63d22426645b704bc1079f2a8885e24d860798957ef4dda6",
+    "System/Type$ResolvedType.class": "5e8f2baf2c65699e249054927c82f355349f56592008dc5f29b69ef1517ed951",
+    "System/Type.class": "e138994b364dd389b6857577e34d2747691dc4cb1df8c4ea3fa719fbfefc6708",
     "System/TypeCode.class": "5f6956717c868ad4b0c4eb615505de94484bd689c0ee71825a7769f7b94d2c6e",
     "System/TypeLoadException.class": "4c635384504421fae41239b2d4f290cc6812c82eb53e09666ceba9bf553c8990",
     "System/UInt16.class": "40ebc78730ff9fa0ff6d8e7c0db895e28ea88e6b71d7e1c7edf85b32b63ea070",
