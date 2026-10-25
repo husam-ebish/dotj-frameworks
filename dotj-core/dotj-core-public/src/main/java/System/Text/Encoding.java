@@ -49,6 +49,9 @@ public abstract class Encoding {
         if (count < 0) throw new ArgumentOutOfRangeException("count");
         if (index > length - count) throw new ArgumentOutOfRangeException(rangeParameter);
     }
+    public abstract int GetBytes(String s, int charIndex, int charCount, Byte[] bytes, int byteIndex);
+    public abstract int GetBytes(char[] chars, int charIndex, int charCount, Byte[] bytes, int byteIndex);
+    public abstract int GetChars(Byte[] bytes, int byteIndex, int byteCount, char[] chars, int charIndex);
     public abstract int get_CodePage();
     public abstract String get_EncodingName();
     public boolean get_IsReadOnly() { return true; }

@@ -38,6 +38,22 @@ public final class Utf8Codec {
         }
         return bytes.toByteArray();
     }
+    public static int prefixLength(byte[] bytes, int index, int end) {
+        int first = bytes[index] & 255;
+        int length = first >= 0xc2 && first <= 0xdf ? 2
+                : first >= 0xe0 && first <= 0xef ? 3
+                : first >= 0xf0 && first <= 0xf4 ? 4 : 1;
+        int consumed = 1;
+        while (consumed < length && index + consumed < end) {
+            int next = bytes[index + consumed] & 255;
+            if (next < 0x80 || next > 0xbf) break;
+            if (consumed == 1 && (first == 0xe0 && next < 0xa0
+                    || first == 0xed && next > 0x9f || first == 0xf0 && next < 0x90
+                    || first == 0xf4 && next > 0x8f)) break;
+            consumed++;
+        }
+        return consumed;
+    }
     public static String decode(byte[] bytes) { return decode(bytes, false); }
     public static String decode(byte[] bytes, boolean strict) {
         StringBuilder text = new StringBuilder();
