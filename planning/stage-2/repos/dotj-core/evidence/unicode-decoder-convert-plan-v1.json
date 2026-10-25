@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "task": "DJ-001-WP-05-T2",
+  "qualification": "NATIVE_UNICODE_DECODER_ARRAY_CONVERT_REFERENCE_AND_IMPLEMENTATION_PLAN_ONLY",
+  "javaImplementationQualified": false,
+  "acceptedImplementationTasksCredited": 0,
+  "projectBatchTotal": null,
+  "projectBatchesRemaining": null,
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "sources": {
+    "UnicodeEncoding": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/UnicodeEncoding.cs",
+      "sha256": "b5a717988edb22bae8688fb5cf9d8efe9d503dfe2918cdb5a9c95578a5768828"
+    },
+    "DecoderNLS": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderNLS.cs",
+      "sha256": "ffeed3616bb6c97a321f84e6bb24a87c2eacc11d406149fa1812f750eea30450"
+    },
+    "DecoderFallback": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderFallback.cs",
+      "sha256": "118661aa450cb05c5780194c2a2dc2bbc0cbccbaf1e6d3647967f547edf8aa43"
+    }
+  },
+  "nativeCalls": 131080,
+  "negativeBytesUsedCases": 456,
+  "unreportedPrefixWrites": 588,
+  "implementationRequirements": [
+    "Match specialized Decoder.Convert maximal-prefix and pending odd-byte/high-surrogate state under the captured capacities.",
+    "Preserve the selected pinned-version bytesUsed=-1 results; do not clamp them or infer nonnegative counters.",
+    "Compare whole destination buffers because incomplete fallback may leave visible characters beyond reported charsUsed.",
+    "Continue using the exact reported signed bytesUsed and captured outer source prefix.",
+    "Match consumed/written/completed outputs, fallback byte/index payloads, failure state and null/range guards.",
+    "Prove a packaged Java differential consumer before selected Convert qualification.",
+    "Capture heap Convert spans separately; keep custom buffers, pointer/byref lifetimes and source ABI open."
+  ],
+  "openWork": [
+    "Java specialized decoder Convert array implementation",
+    "Decoder Convert heap spans and cross-method state protocol",
+    "Arbitrary custom fallback protocols and reentrancy",
+    "Pointer/byref/source ABI and E01/E02/E03/N01/Q01 acceptance closure"
+  ]
+}
