@@ -14,7 +14,9 @@ public final class Utf8Codec {
         }
     }
     public static byte[] encode(String text) { return encode(text, false); }
-    public static byte[] encode(String text, boolean strict) {
+    public static byte[] encode(String text, boolean strict) { return encode(text, strict, "\ufffd"); }
+    public static byte[] encode(String text, boolean strict, String replacement) {
+        byte[] fallback = strict ? null : encode(replacement, true, null);
         java.io.ByteArrayOutputStream bytes = new java.io.ByteArrayOutputStream();
         for (int i = 0; i < text.length(); i++) {
             int value = text.charAt(i);
@@ -23,7 +25,8 @@ public final class Utf8Codec {
                 value = Character.toCodePoint((char)value, text.charAt(++i));
             } else if (value >= 0xd800 && value <= 0xdfff) {
                 if (strict) throw new Failure(i, (char)value, null);
-                value = 0xfffd;
+                bytes.writeBytes(fallback);
+                continue;
             }
             if (value < 0x80) bytes.write(value);
             else if (value < 0x800) {
@@ -55,7 +58,8 @@ public final class Utf8Codec {
         return consumed;
     }
     public static String decode(byte[] bytes) { return decode(bytes, false); }
-    public static String decode(byte[] bytes, boolean strict) {
+    public static String decode(byte[] bytes, boolean strict) { return decode(bytes, strict, "\ufffd"); }
+    public static String decode(byte[] bytes, boolean strict, String replacement) {
         StringBuilder text = new StringBuilder();
         for (int i = 0; i < bytes.length;) {
             int first = bytes[i] & 255;
@@ -65,7 +69,7 @@ public final class Utf8Codec {
                     : first >= 0xf0 && first <= 0xf4 ? 4 : 0;
             if (length == 0) {
                 if (strict) throw new Failure(i, (char)0, new byte[] {bytes[i]});
-                text.append('\ufffd'); i++; continue;
+                text.append(replacement); i++; continue;
             }
             int consumed = 1, scalar = first & (127 >> length);
             while (consumed < length && i + consumed < bytes.length) {
@@ -79,7 +83,7 @@ public final class Utf8Codec {
             if (consumed == length) text.appendCodePoint(scalar);
             else {
                 if (strict) throw new Failure(i, (char)0, java.util.Arrays.copyOfRange(bytes, i, i + consumed));
-                text.append('\ufffd');
+                text.append(replacement);
             }
             i += consumed;
         }
