@@ -1,0 +1,9 @@
+# Selected Encoder boundaries and recovery
+
+Batch 2188 preserves the native distinction between an exposed fallback buffer and a buffer initialized by an encoding operation. If a caller fills a newly exposed buffer before any encoding operation initializes its context, a writing call consumes the next scalar then throws NullReferenceException. Remaining buffer state is observable afterward. The candidate now records that context on the buffer and initializes it through the selected UTF-8 paths.
+
+The pinned fixture generates 2,992 request forms under five fallback configurations, producing 14,960 boundary scenarios. It covers real null inputs/destinations, validation priority, negative/oversized indices and counts, pending high surrogates, flush flags, seven capacities, two offsets, partial writes and a subsequent low-surrogate recovery call. Sixty direct controls cover stable FallbackBuffer identity, externally filled buffers, null/change attempts, nonempty-buffer count rejection, Reset, replacement and remaining state.
+
+The packaged consumer passes 53,970 groups, comparing result/exception type/HResult/parameter/payload, complete supplied destinations and recovery outcomes. Earlier count/write partitions and stateless/custom-provider suites remain regressions. The buffer context is an internal implementation detail; no new public helper is required by consumers.
+
+These selected tests do not qualify arbitrary custom stateful buffer mutation, shared-buffer reentrancy, Convert, spans, pointers, complete metadata/source ABI or WP-05-T2 acceptance. No accepted task or qualified framework is credited. Next is the selected UTF-8 Decoder array implementation with pending byte prefixes, count/write behavior, flush, Reset and fallback changes against the native baseline and expanded partitions.
