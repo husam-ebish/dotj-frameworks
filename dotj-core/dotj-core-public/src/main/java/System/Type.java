@@ -1512,7 +1512,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IComparable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == Byte.class || candidate.definition == SByte.class || candidate.definition == UInt16.class)) {
             return true;
         }
-        if (this.definition == IFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == SByte.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == Byte.class || candidate.definition == UInt16.class)) {
+        if (this.definition == IFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == SByte.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == Byte.class || candidate.definition == UInt16.class || candidate.definition == UInt32.class)) {
             return true;
         }
         if (this.definition == IConvertible.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class)) {
@@ -1624,7 +1624,7 @@ public abstract class Type extends MemberInfo {
                     || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates || value instanceof GenericParameterAttributes || value instanceof Byte || value instanceof SByte || value instanceof UInt16;
         }
         if (this.definition == IFormattable.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates || value instanceof SByte || value instanceof GenericParameterAttributes || value instanceof Byte || value instanceof UInt16;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles || value instanceof BindingFlags || value instanceof MemberTypes || value instanceof CallingConventions || value instanceof MethodImplAttributes || value instanceof StreamingContextStates || value instanceof SByte || value instanceof GenericParameterAttributes || value instanceof Byte || value instanceof UInt16 || value instanceof UInt32;
         }
         if (this.definition == IConvertible.class) {
             return value instanceof String || value instanceof Integer || value instanceof Int32 || value instanceof DBNull
@@ -1970,6 +1970,9 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == UInt16.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class), fromJavaClass(IFormattable.class)};
+        }
+        if (this.definition == UInt32.class) {
+            return new Type[] {fromJavaClass(IConvertible.class), fromJavaClass(IFormattable.class)};
         }
         if (this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
