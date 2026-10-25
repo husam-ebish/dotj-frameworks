@@ -1,0 +1,14 @@
+param([Parameter(Mandatory)][string]$OutputPath)
+$ErrorActionPreference='Stop';Set-StrictMode -Version Latest
+$coreHash=(Get-FileHash -LiteralPath ([object].Assembly.Location) -Algorithm SHA256).Hash.ToLowerInvariant();if([Environment]::Version.ToString() -ne '10.0.12' -or $coreHash -ne '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'){throw 'Pinned CoreLib required'}
+$owners=@([ICloneable],[Text.Encoding],[Text.UTF8Encoding]);$metadata=@();$queries=@()
+foreach($owner in $owners){$metadata+=[ordered]@{fullName=$owner.FullName;baseType=$(if($null -eq $owner.BaseType){$null}else{$owner.BaseType.FullName});isInterface=$owner.IsInterface;isClass=$owner.IsClass;isAbstract=$owner.IsAbstract;isSealed=$owner.IsSealed;isSerializable=$owner.IsSerializable;interfaces=@($owner.GetInterfaces()|ForEach-Object FullName)}
+ foreach($name in @('ICloneable','System.ICloneable','icloneable','system.icloneable','Missing','','ICloneable`1')){foreach($ignoreCase in @($false,$true)){$resolved=$owner.GetInterface($name,$ignoreCase);$queries+=[ordered]@{owner=$owner.FullName;name=$name;ignoreCase=$ignoreCase;resolved=$(if($null -eq $resolved){$null}else{$resolved.FullName})}}}
+}
+$targets=@([ICloneable],[Text.Encoding],[Text.UTF8Encoding],[object],[Text.EncoderFallbackException],[Text.DecoderFallbackException]);$relations=@()
+foreach($target in $targets){foreach($source in $targets){$relations+=[ordered]@{target=$target.FullName;source=$source.FullName;assignable=$target.IsAssignableFrom($source);subclass=$source.IsSubclassOf($target)}}}
+$instances=[object[]]::new(7);$instances[0]=[object]::new();$instances[1]=[Text.UTF8Encoding]::new();$instances[2]=[Text.UTF8Encoding]::new($true,$true);$instances[3]=[Text.Encoding]::UTF8;$instances[4]=[Text.EncoderFallbackException]::new();$instances[5]=[Text.DecoderFallbackException]::new();$instances[6]=$null;$instanceRows=@()
+foreach($target in $targets){foreach($i in 0..6){$instanceRows+=[ordered]@{target=$target.FullName;instance=$i;isInstance=$target.IsInstanceOfType($instances[$i])}}}
+$others=@(foreach($type in @([string],[array],[int[]])){[ordered]@{fullName=$type.FullName;cloneable=[ICloneable].IsAssignableFrom($type);qualified=$false}})
+$record=[ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash;oracleSha256=(Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant();types=$metadata;queries=$queries;relations=$relations;instances=$instanceRows;otherNativeImplementors=$others;qualification='SELECTED_ICLONEABLE_ENCODING_METADATA_ONLY; OTHER_IMPLEMENTOR_INVOCATION_FULL_REFLECTION_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN'}
+[IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 11)+"`n",[Text.UTF8Encoding]::new($false));Write-Output 'PASS pinned ICloneable/Encoding metadata: three owners, 42 queries, 36 relations and 42 instances'

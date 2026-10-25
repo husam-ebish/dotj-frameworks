@@ -455,6 +455,7 @@ public abstract class Type extends MemberInfo {
             case "System.Array" -> fromJavaClass(java.lang.reflect.Array.class);
             case "System.IDisposable" -> fromJavaClass(IDisposable.class);
             case "System.IComparable" -> fromJavaClass(IComparable.class);
+            case "System.ICloneable" -> fromJavaClass(ICloneable.class);
             case "System.IFormattable" -> fromJavaClass(IFormattable.class);
             case "System.ISpanFormattable" -> fromJavaClass(ISpanFormattable.class);
             case "System.IUtf8SpanFormattable" -> fromJavaClass(IUtf8SpanFormattable.class);
@@ -619,6 +620,7 @@ public abstract class Type extends MemberInfo {
             case "system.array" -> ignoreCase ? fromJavaClass(java.lang.reflect.Array.class) : null;
             case "system.idisposable" -> ignoreCase ? fromJavaClass(IDisposable.class) : null;
             case "system.icomparable" -> ignoreCase ? fromJavaClass(IComparable.class) : null;
+            case "system.icloneable" -> ignoreCase ? fromJavaClass(ICloneable.class) : null;
             case "system.iformattable" -> ignoreCase ? fromJavaClass(IFormattable.class) : null;
             case "system.ispanformattable" -> ignoreCase ? fromJavaClass(ISpanFormattable.class) : null;
             case "system.iutf8spanformattable" -> ignoreCase ? fromJavaClass(IUtf8SpanFormattable.class) : null;
@@ -1259,7 +1261,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsInterface() {
-        return this.definition == IDisposable.class || this.definition == IComparable.class
+        return this.definition == ICloneable.class || this.definition == IDisposable.class || this.definition == IComparable.class
                 || this.definition == IFormattable.class || this.definition == IFormatProvider.class
                 || this.definition == IConvertible.class || this.definition == ISerializable.class
                 || this.definition == IFormatterConverter.class
@@ -1503,6 +1505,9 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if (this == candidate) {
+            return true;
+        }
+        if (this.definition == ICloneable.class && ICloneable.class.isAssignableFrom(candidate.definition)) {
             return true;
         }
         if ((this.definition == IEnumerable.class || this.definition == ICollection.class)
@@ -1906,6 +1911,10 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
+        if (this.definition == ICloneable.class) return new Type[0];
+        if (!this.get_IsArray() && Encoding.class.isAssignableFrom(this.definition)) {
+            return new Type[] {fromJavaClass(ICloneable.class)};
+        }
         if (this.get_IsArray() || this.definition == java.lang.reflect.Array.class) {
             return new Type[] {fromJavaClass(ICollection.class), fromJavaClass(IEnumerable.class)};
         }
@@ -2081,7 +2090,8 @@ public abstract class Type extends MemberInfo {
 
     public Type GetInterface(String fullname, boolean ignoreCase) {
         if (fullname == null) throw new ArgumentNullException("fullname");
-        if (this.get_IsArray() || this.definition == java.lang.reflect.Array.class
+        if (this.definition == ICloneable.class || Encoding.class.isAssignableFrom(this.definition)
+                || this.get_IsArray() || this.definition == java.lang.reflect.Array.class
                 || this.definition == String.class || this.definition == Int32.class
                 || this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
