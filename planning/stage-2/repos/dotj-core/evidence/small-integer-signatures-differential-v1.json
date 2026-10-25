@@ -4,13 +4,23 @@
     {
       "fullName": "System.SByte",
       "nativeDeclaredMethodCount": 52,
-      "selectedProjectedMethodCount": 23,
-      "outsideSelectedMethodCount": 29,
+      "selectedProjectedMethodCount": 28,
+      "outsideSelectedMethodCount": 24,
       "methods": [
         {
           "nativeSignature": "SByte Abs(SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte Abs(System.SByte);",
+          "projectedJava": {
+            "name": "Abs",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte Clamp(SByte, SByte, SByte)",
@@ -61,8 +71,19 @@
         },
         {
           "nativeSignature": "SByte CopySign(SByte, SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte CopySign(System.SByte, System.SByte);",
+          "projectedJava": {
+            "name": "CopySign",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte",
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte CreateChecked[TOther](TOther)",
@@ -233,8 +254,19 @@
         },
         {
           "nativeSignature": "SByte MaxMagnitude(SByte, SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte MaxMagnitude(System.SByte, System.SByte);",
+          "projectedJava": {
+            "name": "MaxMagnitude",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte",
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte Min(SByte, SByte)",
@@ -254,8 +286,19 @@
         },
         {
           "nativeSignature": "SByte MinMagnitude(SByte, SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte MinMagnitude(System.SByte, System.SByte);",
+          "projectedJava": {
+            "name": "MinMagnitude",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte",
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
@@ -346,8 +389,18 @@
         },
         {
           "nativeSignature": "Int32 Sign(SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static int Sign(System.SByte);",
+          "projectedJava": {
+            "name": "Sign",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "int",
+            "parameters": [
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "System.String ToString()",
@@ -565,6 +618,11 @@
         "public static boolean IsEvenInteger(System.SByte);",
         "public static boolean IsOddInteger(System.SByte);",
         "public static boolean IsPow2(System.SByte);",
+        "public static System.SByte Abs(System.SByte);",
+        "public static int Sign(System.SByte);",
+        "public static System.SByte CopySign(System.SByte, System.SByte);",
+        "public static System.SByte MaxMagnitude(System.SByte, System.SByte);",
+        "public static System.SByte MinMagnitude(System.SByte, System.SByte);",
         "public System.SByte(int);",
         "public byte get_Value();",
         "public java.lang.String ToString();",
@@ -2313,9 +2371,9 @@
       ]
     }
   ],
-  "selectedProjectedMethodCount": 92,
+  "selectedProjectedMethodCount": 97,
   "oracleEvidence": "small-integer-signatures-contract-v10.0.12.json",
   "oracleSha256": "93f598654fa6b0417c7a8ed66262c31be19db0facb672bf3e54eaf63a37be607",
-  "candidateJarSha256": "08f08895649e21a1fcd93099d220d928f39812c00d98d8947e9d4a9061a67cd0",
+  "candidateJarSha256": "6b98b55e72e38e7baaf24c17f473593f702d44f8e2cc14ecd433e3e7f5d50259",
   "qualification": "SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN"
 }

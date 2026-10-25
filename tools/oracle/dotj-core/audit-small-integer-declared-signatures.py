@@ -18,7 +18,7 @@ def main():
   primitive={'System.Boolean':'boolean','System.Int32':'int','System.String':'java.lang.String','System.Object':'java.lang.Object','System.IFormatProvider':'System.IFormatProvider','System.TypeCode':'System.TypeCode',owner:owner}
   methods=[];matched=set();selected=0
   for method in native['methods']:
-   parameters=[v['type'] for v in method['parameters']];name=method['name'];is_selected=not method['isSpecialName'] and ((not method['isStatic'] and name in ['ToString','CompareTo','Equals','GetHashCode','GetTypeCode','TryFormat']) or (method['isStatic'] and name in ['Min','Max','Clamp','LeadingZeroCount','TrailingZeroCount','PopCount','RotateLeft','RotateRight','IsEvenInteger','IsOddInteger','IsPow2']))
+   parameters=[v['type'] for v in method['parameters']];name=method['name'];is_selected=not method['isSpecialName'] and ((not method['isStatic'] and name in ['ToString','CompareTo','Equals','GetHashCode','GetTypeCode','TryFormat']) or (method['isStatic'] and name in ['Min','Max','Clamp','LeadingZeroCount','TrailingZeroCount','PopCount','RotateLeft','RotateRight','IsEvenInteger','IsOddInteger','IsPow2'] or (owner=='System.SByte' and method['isStatic'] and name in ['Abs','Sign','CopySign','MaxMagnitude','MinMagnitude'])))
    item=dict(nativeSignature=method['signature'],selected=is_selected)
    if is_selected:
     selected+=1
@@ -34,7 +34,7 @@ def main():
     item.update(status='PROJECTED_SELECTED_DECLARATION',candidateDeclaration=found[0]['declaration'],projectedJava=expected);matched.add(found[0]['declaration'])
    else:item['status']='OUTSIDE_SELECTED_PROJECTION_AUDIT'
    methods.append(item)
-  assert selected==23,(owner,selected)
+  assert selected==(28 if owner=='System.SByte' else 23),(owner,selected)
   bridge=[v for v in candidate if v['name']=='TryFormat' and v['genericArity']==1 and v['parameters']==['System.Span<T>','int[]','System.ReadOnlySpan<java.lang.Character>','System.IFormatProvider'] and v['returnType']=='boolean'];assert len(bridge)==1,(owner,bridge)
   matched.add(bridge[0]['declaration'])
   fields=[dict(nativeField=v,candidateNamePresent=any(s.endswith(' '+v['name']+';') for s in declarations)) for v in native['fields']]
