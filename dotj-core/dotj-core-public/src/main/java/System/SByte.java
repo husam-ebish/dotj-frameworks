@@ -4,6 +4,9 @@ package System;
 
 /** Selected signed byte value carrier for public serialization paths. */
 public final class SByte implements IConvertible, IFormattable, IComparable, ISpanFormattable, IUtf8SpanFormattable {
+    public static final int MinValue = -128;
+    public static final int MaxValue = 127;
+
     private final byte value;
 
     public SByte(int value) {

@@ -4,6 +4,9 @@ package System;
 
 /** Selected unsigned byte value carrier for public serialization paths. */
 public final class Byte implements IConvertible, IFormattable, IComparable, ISpanFormattable, IUtf8SpanFormattable {
+    public static final int MinValue = 0;
+    public static final int MaxValue = 255;
+
     private final short value;
 
     public Byte(int value) {

@@ -4,6 +4,9 @@ package System;
 
 /** Selected unsigned 32-bit value carrier for public serialization paths. */
 public final class UInt32 implements IConvertible, IFormattable, IComparable, ISpanFormattable, IUtf8SpanFormattable {
+    public static final long MinValue = 0L;
+    public static final long MaxValue = 4294967295L;
+
     private final long value;
 
     public UInt32(long value) {
