@@ -328,6 +328,18 @@ public class UnicodeEncoding extends Encoding {
             destination(chars.length, charIndex, "charIndex");
             return process(bytes, byteIndex, byteCount, chars, charIndex, flush, true);
         }
+        @Override public int GetCharCount(ReadOnlySpan<Byte> bytes, boolean flush) {
+            Byte[] input = snapshotBytes(bytes);
+            return GetCharCount(input, 0, input.length, flush);
+        }
+        @Override public int GetChars(ReadOnlySpan<Byte> bytes, Span<Character> chars, boolean flush) {
+            Byte[] input = snapshotBytes(bytes);
+            if (chars == null) throw new ArgumentNullException("chars");
+            char[] output = new char[chars.get_Length()];
+            chars.CopyTo(Span.OfChars(output));
+            try { return GetChars(input, 0, input.length, output, 0, flush); }
+            finally { ReadOnlySpan.OfChars(output).CopyTo(chars); }
+        }
         @Override public void Reset() { this.pendingByte = -1; this.pendingHigh = 0; resetFallbackBuffer(); }
     }
     @Override public Encoder GetEncoder() { return new UnicodeEncoder(this); }
