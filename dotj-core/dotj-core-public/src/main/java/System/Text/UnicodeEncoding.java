@@ -417,7 +417,7 @@ public class UnicodeEncoding extends Encoding {
             int written;
             try { written = convertCore(bytes, byteIndex, byteCount, output, flush, consumed); }
             finally { java.lang.System.arraycopy(output, 0, chars, charIndex, output.length); }
-            bytesUsed[0] = consumed[0]; charsUsed[0] = written;
+            charsUsed[0] = written; bytesUsed[0] = consumed[0];
             DecoderFallbackBuffer buffer = existingFallbackBuffer();
             completed[0] = consumed[0] == byteCount && (!flush || this.pendingByte < 0 && this.pendingHigh == 0)
                     && (buffer == null || buffer.get_Remaining() == 0);
@@ -559,7 +559,7 @@ public class UnicodeEncoding extends Encoding {
                 consumed++; written = this.encoding.putWord(current, bytes, byteIndex, written);
             }
             this.pending = carry;
-            charsUsed[0] = consumed; bytesUsed[0] = written;
+            bytesUsed[0] = written; charsUsed[0] = consumed;
             EncoderFallbackBuffer fallback = existingFallbackBuffer();
             completed[0] = consumed == charCount && (!flush || carry == 0)
                     && (fallback == null || fallback.get_Remaining() == 0);
