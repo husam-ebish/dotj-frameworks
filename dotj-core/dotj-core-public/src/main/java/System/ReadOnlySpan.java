@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 public final class ReadOnlySpan<T> {
     private final char[] chars;
     private final byte[] bytes;
+    private final Byte[] boxedBytes;
     private final int offset;
     private final int length;
 
@@ -27,11 +28,27 @@ public final class ReadOnlySpan<T> {
         return new ReadOnlySpan<>(values, offset, length);
     }
 
+    public static ReadOnlySpan<Byte> OfUtf8Bytes(Byte[] values) {
+        return OfUtf8Bytes(values, 0, values == null ? 0 : values.length);
+    }
+    public static ReadOnlySpan<Byte> OfUtf8Bytes(Byte[] values, int offset, int length) {
+        return new ReadOnlySpan<>(values, offset, length);
+    }
+    private ReadOnlySpan(Byte[] values, int offset, int length) {
+        if (values == null) throw new ArgumentNullException("values");
+        checkRange(values.length, offset, length);
+        this.chars = null;
+        this.bytes = null;
+        this.boxedBytes = values;
+        this.offset = offset;
+        this.length = length;
+    }
     private ReadOnlySpan(char[] values, int offset, int length) {
         if (values == null) throw new ArgumentNullException("values");
         checkRange(values.length, offset, length);
         this.chars = values;
         this.bytes = null;
+        this.boxedBytes = null;
         this.offset = offset;
         this.length = length;
     }
@@ -41,6 +58,7 @@ public final class ReadOnlySpan<T> {
         checkRange(values.length, offset, length);
         this.chars = null;
         this.bytes = values;
+        this.boxedBytes = null;
         this.offset = offset;
         this.length = length;
     }
@@ -67,7 +85,9 @@ public final class ReadOnlySpan<T> {
         if (start < 0 || length < 0 || start > this.length || length > this.length - start) throw new ArgumentOutOfRangeException();
         return this.chars != null
                 ? new ReadOnlySpan<>(this.chars, this.offset + start, length)
-                : new ReadOnlySpan<>(this.bytes, this.offset + start, length);
+                : this.boxedBytes != null
+                        ? new ReadOnlySpan<>(this.boxedBytes, this.offset + start, length)
+                        : new ReadOnlySpan<>(this.bytes, this.offset + start, length);
     }
 
     public int get_Length() { return this.length; }
@@ -84,12 +104,14 @@ public final class ReadOnlySpan<T> {
     }
 
     Object selectedBufferCopy() {
-        return this.chars != null
-                ? java.util.Arrays.copyOfRange(this.chars, this.offset, this.offset + this.length)
-                : java.util.Arrays.copyOfRange(this.bytes, this.offset, this.offset + this.length);
+        if (this.chars != null) return java.util.Arrays.copyOfRange(this.chars, this.offset, this.offset + this.length);
+        if (this.bytes != null) return java.util.Arrays.copyOfRange(this.bytes, this.offset, this.offset + this.length);
+        byte[] result = new byte[this.length];
+        for (int i = 0; i < result.length; i++) result[i] = (byte)this.boxedBytes[this.offset + i].get_Value();
+        return result;
     }
 
-    boolean selectedUtf8() { return this.bytes != null; }
+    boolean selectedUtf8() { return this.bytes != null || this.boxedBytes != null; }
 
     String selectedInt32Text() {
         return selectedText();
@@ -98,6 +120,6 @@ public final class ReadOnlySpan<T> {
     String selectedText() {
         return this.chars != null
                 ? new String(this.chars, this.offset, this.length)
-                : new String(this.bytes, this.offset, this.length, StandardCharsets.UTF_8);
+                : new String((byte[])selectedBufferCopy(), StandardCharsets.UTF_8);
     }
 }
