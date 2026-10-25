@@ -1,0 +1,9 @@
+# NormalizationForm selected formatting
+
+Batch 2227 adds G/g, F/f, D/d and X/x formatting to the provisional Int32 NormalizationForm carrier and implements the selected IFormattable route. Null and empty format strings select G. G uses an exact named value or signed decimal number; D uses signed decimal and X uses eight uppercase hexadecimal digits. F uses the named values in descending numeric order to consume a complete bit decomposition, returning numeric text when decomposition is incomplete. This applies even though the native enum is not marked Flags. It renders 3 as FormC, FormD and 7 as FormC, FormKD. Invalid formats produce the selected native FormatException message and HResult.
+
+The pinned native corpus contains 546 cases: fourteen defined/undefined and boundary Int32 values, thirteen formats including null/empty/invalid strings, and invariant/en-US/tr-TR providers. The packaged consumer compares direct and IFormattable formatting plus default/provider/Java string adapters, totaling 1,638 groups. Providers do not alter the selected native results. A native provider that throws if GetFormat is consulted returns the expected F string; the Java consumer uses rejecting providers to check the corresponding absence of provider queries. No CultureInfo facade is added. Existing normalization query and type-identity consumers remain in the retained gate.
+
+This changes the existing carrier only; the source/class inventory remains 97 Java sources. CoreLib, producer, fixture, consumer and JAR hashes bind the selected evidence, with LF source and evidence attributes. The Java product has no additional runtime library dependency.
+
+Conversions, span formatting, full enum ABI, normalization transforms, E01 applicability, task acceptance and framework qualification remain open. No acceptance credit is claimed. Next is selected enum conversion and comparison behavior.
