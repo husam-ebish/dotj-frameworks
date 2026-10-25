@@ -25,6 +25,11 @@ public class UTF8Encoding extends Encoding {
         this.encoderFallback = throwOnInvalidBytes ? EncoderFallback.get_ExceptionFallback() : new EncoderReplacementFallback("\ufffd");
         this.decoderFallback = throwOnInvalidBytes ? DecoderFallback.get_ExceptionFallback() : new DecoderReplacementFallback("\ufffd");
     }
+    @Override public int GetCharCount(Byte[] bytes, int index, int count) {
+        if (bytes == null) throw new ArgumentNullException("bytes");
+        validateArraySlice(bytes.length, index, count, "bytes");
+        return GetCharCount(java.util.Arrays.copyOfRange(bytes, index, index + count));
+    }
     @Override public Byte[] GetBytes(String s, int index, int count) {
         if (s == null) throw new ArgumentNullException("s");
         validateArraySlice(s.length(), index, count, "index");
