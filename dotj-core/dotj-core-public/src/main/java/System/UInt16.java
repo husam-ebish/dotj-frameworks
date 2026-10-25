@@ -4,6 +4,9 @@ package System;
 
 /** Selected unsigned 16-bit value carrier for public serialization paths. */
 public final class UInt16 implements IConvertible, IFormattable, IComparable, ISpanFormattable, IUtf8SpanFormattable {
+    public static final int MinValue = 0;
+    public static final int MaxValue = 65535;
+
     private final int value;
 
     public UInt16(int value) {

@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "bfee785f9d9c16602f4657c72e5766dcfb30212396569bfbf707db429c701bfc",
+  "types": [
+    {
+      "fullName": "System.SByte",
+      "min": -128,
+      "max": 127,
+      "cases": [
+        {
+          "input": -129,
+          "result": {
+            "exception": "System.OverflowException",
+            "hResult": -2146233066
+          }
+        },
+        {
+          "input": -128,
+          "result": {
+            "value": -128,
+            "text": "-128"
+          }
+        },
+        {
+          "input": -127,
+          "result": {
+            "value": -127,
+            "text": "-127"
+          }
+        },
+        {
+          "input": 126,
+          "result": {
+            "value": 126,
+            "text": "126"
+          }
+        },
+        {
+          "input": 127,
+          "result": {
+            "value": 127,
+            "text": "127"
+          }
+        },
+        {
+          "input": 128,
+          "result": {
+            "exception": "System.OverflowException",
+            "hResult": -2146233066
+          }
+        }
+      ]
+    },
+    {
+      "fullName": "System.Byte",
+      "min": 0,
+      "max": 255,
+      "cases": [
+        {
+          "input": -1,
+          "result": {
+            "exception": "System.OverflowException",
+            "hResult": -2146233066
+          }
+        },
+        {
+          "input": 0,
+          "result": {
+            "value": 0,
+            "text": "0"
+          }
+        },
+        {
+          "input": 1,
+          "result": {
+            "value": 1,
+            "text": "1"
+          }
+        },
+        {
+          "input": 254,
+          "result": {
+            "value": 254,
+            "text": "254"
+          }
+        },
+        {
+          "input": 255,
+          "result": {
+            "value": 255,
+            "text": "255"
+          }
+        },
+        {
+          "input": 256,
+          "result": {
+            "exception": "System.OverflowException",
+            "hResult": -2146233066
+          }
+        }
+      ]
+    },
+    {
+      "fullName": "System.UInt16",
+      "min": 0,
+      "max": 65535,
+      "cases": [
+        {
+          "input": -1,
+          "result": {
+            "exception": "System.OverflowException",
+            "hResult": -2146233066
+          }
+        },
+        {
+          "input": 0,
+          "result": {
+            "value": 0,
+            "text": "0"
+          }
+        },
+        {
+          "input": 1,
+          "result": {
+            "value": 1,
+            "text": "1"
+          }
+        },
+        {
+          "input": 65534,
+          "result": {
+            "value": 65534,
+            "text": "65534"
+          }
+        },
+        {
+          "input": 65535,
+          "result": {
+            "value": 65535,
+            "text": "65535"
+          }
+        },
+        {
+          "input": 65536,
+          "result": {
+            "exception": "System.OverflowException",
+            "hResult": -2146233066
+          }
+        }
+      ]
+    },
+    {
+      "fullName": "System.UInt32",
+      "min": 0,
+      "max": 4294967295,
+      "cases": [
+        {
+          "input": -1,
+          "result": {
+            "exception": "System.OverflowException",
+            "hResult": -2146233066
+          }
+        },
+        {
+          "input": 0,
+          "result": {
+            "value": 0,
+            "text": "0"
+          }
+        },
+        {
+          "input": 1,
+          "result": {
+            "value": 1,
+            "text": "1"
+          }
+        },
+        {
+          "input": 4294967294,
+          "result": {
+            "value": 4294967294,
+            "text": "4294967294"
+          }
+        },
+        {
+          "input": 4294967295,
+          "result": {
+            "value": 4294967295,
+            "text": "4294967295"
+          }
+        },
+        {
+          "input": 4294967296,
+          "result": {
+            "exception": "System.OverflowException",
+            "hResult": -2146233066
+          }
+        }
+      ]
+    }
+  ],
+  "qualification": "SMALL_INTEGER_NATIVE_LIMITS_AND_CONVERSION_BOUNDARIES; CARRIER_FIELD_WIDTHS_AND_RELEASE_REMAIN_JAVA_ADAPTER_SCOPE"
+}
