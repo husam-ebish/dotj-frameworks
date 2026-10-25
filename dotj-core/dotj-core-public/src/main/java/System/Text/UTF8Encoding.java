@@ -15,13 +15,12 @@ import org.dotj.internal.text.Utf8Codec;
 /** Selected UTF-8 replacement behavior with an explicit unsigned byte array adapter. */
 public class UTF8Encoding extends Encoding {
     private final boolean emitIdentifier;
-    private EncoderFallback encoderFallback;
-    private DecoderFallback decoderFallback;
     public UTF8Encoding() { this(false); }
     public UTF8Encoding(boolean encoderShouldEmitUTF8Identifier) {
         this(encoderShouldEmitUTF8Identifier, false);
     }
     public UTF8Encoding(boolean encoderShouldEmitUTF8Identifier, boolean throwOnInvalidBytes) {
+        super(65001);
         this.emitIdentifier = encoderShouldEmitUTF8Identifier;
         this.encoderFallback = throwOnInvalidBytes ? EncoderFallback.get_ExceptionFallback() : new EncoderReplacementFallback("\ufffd");
         this.decoderFallback = throwOnInvalidBytes ? DecoderFallback.get_ExceptionFallback() : new DecoderReplacementFallback("\ufffd");
@@ -259,7 +258,7 @@ public class UTF8Encoding extends Encoding {
     @Override public int get_CodePage() { return 65001; }
     @Override public String get_EncodingName() { return "Unicode (UTF-8)"; }
     @Override public Byte[] GetPreamble() {
-        return wrap(this.emitIdentifier ? new byte[] {(byte)0xef, (byte)0xbb, (byte)0xbf} : new byte[0]);
+        return this.emitIdentifier ? wrap(new byte[] {(byte)0xef, (byte)0xbb, (byte)0xbf}) : EMPTY_PREAMBLE;
     }
     @Override public Byte[] GetBytes(String s) {
         if (s == null) throw new ArgumentNullException("s");
