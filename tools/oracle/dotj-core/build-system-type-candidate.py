@@ -47,6 +47,8 @@ EXCEPTION_SOURCES.append(SOURCE.with_name("TimeSpan.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/TimeSpanStyles.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/DateTimeStyles.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Diagnostics/Stopwatch.java")
+EXCEPTION_SOURCES += [SOURCE.parent / "Text" / (name + ".java") for name in ('Encoding', 'UTF8Encoding', 'EncoderFallbackException', 'DecoderFallbackException')]
+EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/Utf8Codec.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("ReadOnlySpan.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Span.java"))

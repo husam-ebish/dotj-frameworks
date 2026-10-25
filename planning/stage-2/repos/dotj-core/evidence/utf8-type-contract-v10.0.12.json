@@ -1,0 +1,1377 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "3c6b21886b683339a20832f4ffaff7483bcd6b0e81d288f60b3f4213710d74b2",
+  "types": [
+    {
+      "fullName": "System.Text.Encoding",
+      "name": "Encoding",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Object",
+      "isAbstract": true,
+      "isSealed": false,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": false,
+      "nativeInterfaces": [
+        "System.ICloneable"
+      ]
+    },
+    {
+      "fullName": "System.Text.Encoding[]",
+      "name": "Encoding[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.Encoding[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "nativeInterfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "fullName": "System.Text.UTF8Encoding",
+      "name": "UTF8Encoding",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.UTF8Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Text.Encoding",
+      "isAbstract": false,
+      "isSealed": false,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": false,
+      "nativeInterfaces": [
+        "System.ICloneable"
+      ]
+    },
+    {
+      "fullName": "System.Text.UTF8Encoding[]",
+      "name": "UTF8Encoding[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.UTF8Encoding[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "nativeInterfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.UTF8Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.UTF8Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.UTF8Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.UTF8Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.UTF8Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderFallbackException",
+      "name": "EncoderFallbackException",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.EncoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.ArgumentException",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "nativeInterfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "fullName": "System.Text.EncoderFallbackException[]",
+      "name": "EncoderFallbackException[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.EncoderFallbackException[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "nativeInterfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.EncoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.EncoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.EncoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.EncoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.EncoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderFallbackException",
+      "name": "DecoderFallbackException",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.DecoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.ArgumentException",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "nativeInterfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "fullName": "System.Text.DecoderFallbackException[]",
+      "name": "DecoderFallbackException[]",
+      "namespace": "System.Text",
+      "assemblyQualifiedName": "System.Text.DecoderFallbackException[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "baseType": "System.Array",
+      "isAbstract": false,
+      "isSealed": true,
+      "isPublic": true,
+      "isClass": true,
+      "isValueType": false,
+      "isSerializable": true,
+      "nativeInterfaces": [
+        "System.ICloneable",
+        "System.Collections.IList",
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.Collections.Generic.IList`1[[System.Text.DecoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.ICollection`1[[System.Text.DecoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Text.DecoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Text.DecoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Text.DecoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    }
+  ],
+  "lookups": [
+    {
+      "query": "System.Text.Encoding",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding"
+      }
+    },
+    {
+      "query": "System.Text.Encoding",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding"
+      }
+    },
+    {
+      "query": "System.Text.Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding"
+      }
+    },
+    {
+      "query": "System.Text.Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding"
+      }
+    },
+    {
+      "query": "system.text.encoding",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "system.text.encoding",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding"
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.ENCODING",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.ENCODING",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding"
+      }
+    },
+    {
+      "query": "System.Text.Encoding, mscorlib",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding"
+      }
+    },
+    {
+      "query": "System.Text.Encoding, mscorlib",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding"
+      }
+    },
+    {
+      "query": "System.Text.Encoding, Missing.Encoding.Assembly",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.Encoding, Missing.Encoding.Assembly",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.Encoding[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.Encoding[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.Encoding[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.Encoding[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding[]"
+      }
+    },
+    {
+      "query": "system.text.encoding[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "system.text.encoding[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding[]"
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.ENCODING[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.ENCODING[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.Encoding[], mscorlib",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.Encoding[], mscorlib",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.Encoding[], Missing.Encoding.Assembly",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.Encoding[], Missing.Encoding.Assembly",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding"
+      }
+    },
+    {
+      "query": "system.text.utf8encoding",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "system.text.utf8encoding",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding"
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.UTF8ENCODING",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.UTF8ENCODING",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding, mscorlib",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding, mscorlib",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding, Missing.Encoding.Assembly",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding, Missing.Encoding.Assembly",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding[]"
+      }
+    },
+    {
+      "query": "system.text.utf8encoding[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "system.text.utf8encoding[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding[]"
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.UTF8ENCODING[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.UTF8ENCODING[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding[], mscorlib",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding[], mscorlib",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.UTF8Encoding[]"
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding[], Missing.Encoding.Assembly",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.UTF8Encoding[], Missing.Encoding.Assembly",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException"
+      }
+    },
+    {
+      "query": "system.text.encoderfallbackexception",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "system.text.encoderfallbackexception",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException"
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.ENCODERFALLBACKEXCEPTION",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.ENCODERFALLBACKEXCEPTION",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException, mscorlib",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException, mscorlib",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException, Missing.Encoding.Assembly",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException, Missing.Encoding.Assembly",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException[]"
+      }
+    },
+    {
+      "query": "system.text.encoderfallbackexception[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "system.text.encoderfallbackexception[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException[]"
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.ENCODERFALLBACKEXCEPTION[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.ENCODERFALLBACKEXCEPTION[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException[], mscorlib",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException[], mscorlib",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.EncoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException[], Missing.Encoding.Assembly",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.EncoderFallbackException[], Missing.Encoding.Assembly",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException"
+      }
+    },
+    {
+      "query": "system.text.decoderfallbackexception",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "system.text.decoderfallbackexception",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException"
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.DECODERFALLBACKEXCEPTION",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.DECODERFALLBACKEXCEPTION",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException, mscorlib",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException, mscorlib",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException, Missing.Encoding.Assembly",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException, Missing.Encoding.Assembly",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException[]"
+      }
+    },
+    {
+      "query": "system.text.decoderfallbackexception[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "system.text.decoderfallbackexception[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException[]"
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.DECODERFALLBACKEXCEPTION[]",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "SYSTEM.TEXT.DECODERFALLBACKEXCEPTION[]",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException[], mscorlib",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException[], mscorlib",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": "System.Text.DecoderFallbackException[]"
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException[], Missing.Encoding.Assembly",
+      "ignoreCase": false,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    },
+    {
+      "query": "System.Text.DecoderFallbackException[], Missing.Encoding.Assembly",
+      "ignoreCase": true,
+      "result": {
+        "ok": true,
+        "resolved": null
+      }
+    }
+  ],
+  "relations": [
+    {
+      "target": "System.Object",
+      "source": "System.Object",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Object",
+      "source": "System.ArgumentException",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.Encoding",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.UTF8Encoding",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.EncoderFallbackException",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Object",
+      "source": "System.Text.DecoderFallbackException",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.ArgumentException",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.ArgumentException",
+      "source": "System.ArgumentException",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.ArgumentException",
+      "source": "System.Text.Encoding",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.ArgumentException",
+      "source": "System.Text.UTF8Encoding",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.ArgumentException",
+      "source": "System.Text.EncoderFallbackException",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.ArgumentException",
+      "source": "System.Text.DecoderFallbackException",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Text.Encoding",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.Encoding",
+      "source": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.Encoding",
+      "source": "System.Text.Encoding",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.Encoding",
+      "source": "System.Text.UTF8Encoding",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "target": "System.Text.Encoding",
+      "source": "System.Text.EncoderFallbackException",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.Encoding",
+      "source": "System.Text.DecoderFallbackException",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "source": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "source": "System.Text.Encoding",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "source": "System.Text.UTF8Encoding",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "source": "System.Text.EncoderFallbackException",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "source": "System.Text.DecoderFallbackException",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "source": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "source": "System.Text.Encoding",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "source": "System.Text.UTF8Encoding",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "source": "System.Text.EncoderFallbackException",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "source": "System.Text.DecoderFallbackException",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "source": "System.Object",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "source": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "source": "System.Text.Encoding",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "source": "System.Text.UTF8Encoding",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "source": "System.Text.EncoderFallbackException",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "source": "System.Text.DecoderFallbackException",
+      "assignable": true,
+      "subclass": false
+    }
+  ],
+  "instances": [
+    {
+      "target": "System.Object",
+      "instance": 0,
+      "isInstance": true
+    },
+    {
+      "target": "System.Object",
+      "instance": 1,
+      "isInstance": true
+    },
+    {
+      "target": "System.Object",
+      "instance": 2,
+      "isInstance": true
+    },
+    {
+      "target": "System.Object",
+      "instance": 3,
+      "isInstance": true
+    },
+    {
+      "target": "System.Object",
+      "instance": 4,
+      "isInstance": true
+    },
+    {
+      "target": "System.Object",
+      "instance": 5,
+      "isInstance": true
+    },
+    {
+      "target": "System.Object",
+      "instance": 6,
+      "isInstance": false
+    },
+    {
+      "target": "System.ArgumentException",
+      "instance": 0,
+      "isInstance": false
+    },
+    {
+      "target": "System.ArgumentException",
+      "instance": 1,
+      "isInstance": true
+    },
+    {
+      "target": "System.ArgumentException",
+      "instance": 2,
+      "isInstance": false
+    },
+    {
+      "target": "System.ArgumentException",
+      "instance": 3,
+      "isInstance": false
+    },
+    {
+      "target": "System.ArgumentException",
+      "instance": 4,
+      "isInstance": true
+    },
+    {
+      "target": "System.ArgumentException",
+      "instance": 5,
+      "isInstance": true
+    },
+    {
+      "target": "System.ArgumentException",
+      "instance": 6,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.Encoding",
+      "instance": 0,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.Encoding",
+      "instance": 1,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.Encoding",
+      "instance": 2,
+      "isInstance": true
+    },
+    {
+      "target": "System.Text.Encoding",
+      "instance": 3,
+      "isInstance": true
+    },
+    {
+      "target": "System.Text.Encoding",
+      "instance": 4,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.Encoding",
+      "instance": 5,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.Encoding",
+      "instance": 6,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "instance": 0,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "instance": 1,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "instance": 2,
+      "isInstance": true
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "instance": 3,
+      "isInstance": true
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "instance": 4,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "instance": 5,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.UTF8Encoding",
+      "instance": 6,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "instance": 0,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "instance": 1,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "instance": 2,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "instance": 3,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "instance": 4,
+      "isInstance": true
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "instance": 5,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.EncoderFallbackException",
+      "instance": 6,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "instance": 0,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "instance": 1,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "instance": 2,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "instance": 3,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "instance": 4,
+      "isInstance": false
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "instance": 5,
+      "isInstance": true
+    },
+    {
+      "target": "System.Text.DecoderFallbackException",
+      "instance": 6,
+      "isInstance": false
+    }
+  ],
+  "qualification": "SELECTED_UTF8_LOGICAL_TYPE_IDENTITY_ONLY; ICLONEABLE_FULL_METADATA_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN"
+}

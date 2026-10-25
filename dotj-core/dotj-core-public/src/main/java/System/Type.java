@@ -11,6 +11,10 @@ import System.IO.FileNotFoundException;
 import System.IO.FileLoadException;
 import System.IO.IOException;
 import System.Diagnostics.Stopwatch;
+import System.Text.Encoding;
+import System.Text.UTF8Encoding;
+import System.Text.EncoderFallbackException;
+import System.Text.DecoderFallbackException;
 import System.Reflection.MemberInfo;
 import System.Reflection.MethodBase;
 import System.Reflection.MethodInfo;
@@ -506,6 +510,10 @@ public abstract class Type extends MemberInfo {
             case "System.DateTime" -> fromJavaClass(DateTime.class);
             case "System.TimeSpan" -> fromJavaClass(TimeSpan.class);
             case "System.Diagnostics.Stopwatch" -> fromJavaClass(Stopwatch.class);
+            case "System.Text.Encoding" -> fromJavaClass(Encoding.class);
+            case "System.Text.UTF8Encoding" -> fromJavaClass(UTF8Encoding.class);
+            case "System.Text.EncoderFallbackException" -> fromJavaClass(EncoderFallbackException.class);
+            case "System.Text.DecoderFallbackException" -> fromJavaClass(DecoderFallbackException.class);
             case "System.DateTimeKind" -> fromJavaClass(DateTimeKind.class);
             case "System.DayOfWeek" -> fromJavaClass(DayOfWeek.class);
             case "System.OverflowException" -> fromJavaClass(OverflowException.class);
@@ -678,6 +686,10 @@ public abstract class Type extends MemberInfo {
             case "system.datetime" -> ignoreCase ? fromJavaClass(DateTime.class) : null;
             case "system.timespan" -> ignoreCase ? fromJavaClass(TimeSpan.class) : null;
             case "system.diagnostics.stopwatch" -> ignoreCase ? fromJavaClass(Stopwatch.class) : null;
+            case "system.text.encoding" -> ignoreCase ? fromJavaClass(Encoding.class) : null;
+            case "system.text.utf8encoding" -> ignoreCase ? fromJavaClass(UTF8Encoding.class) : null;
+            case "system.text.encoderfallbackexception" -> ignoreCase ? fromJavaClass(EncoderFallbackException.class) : null;
+            case "system.text.decoderfallbackexception" -> ignoreCase ? fromJavaClass(DecoderFallbackException.class) : null;
             case "system.datetimekind" -> ignoreCase ? fromJavaClass(DateTimeKind.class) : null;
             case "system.dayofweek" -> ignoreCase ? fromJavaClass(DayOfWeek.class) : null;
             case "system.overflowexception" -> ignoreCase ? fromJavaClass(OverflowException.class) : null;
@@ -1091,7 +1103,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsAbstract() {
-        return this.definition == Type.class || this.definition == Number.class
+        return this.definition == Encoding.class || this.definition == Type.class || this.definition == Number.class
                 || this.definition == Enum.class || this.definition == java.lang.reflect.Array.class
                 || this.definition == MemberInfo.class || this.definition == MethodBase.class
                 || this.definition == MethodInfo.class
@@ -1104,6 +1116,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == DBNull.class || this.definition == NumberFormatInfo.class
                 || this.definition == SerializationInfo.class
                 || this.definition == SerializationInfoEnumerator.class
+                || this.definition == EncoderFallbackException.class || this.definition == DecoderFallbackException.class
                 || this.definition == NullableAttribute.class || this.definition == IndexOutOfRangeException.class;
     }
 

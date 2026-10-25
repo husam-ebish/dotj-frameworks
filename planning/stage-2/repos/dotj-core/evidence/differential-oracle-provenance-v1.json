@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "recordsBound": 157,
+  "recordsBound": 158,
   "controlGroupsPassed": 5,
   "records": [
     {
@@ -251,7 +251,7 @@
     {
       "differential": "datetime-timeonly-offset-differential-v1.json",
       "oracle": "datetime-timeonly-offset-contract-v10.0.12.json",
-      "oracleSha256": "ed0e07bae08abe83b69c8aaba804df0a7ad3b6474b7dc3f3fed960a0816fb5dc"
+      "oracleSha256": "c014fa53170901198dc416d25e3849cf5685a0eaca4a5796201cea4cd57eee72"
     },
     {
       "differential": "dbnull-differential-v1.json",
@@ -516,7 +516,7 @@
     {
       "differential": "stopwatch-differential-v1.json",
       "oracle": "stopwatch-contract-v10.0.12.json",
-      "oracleSha256": "4e36f17a50523f01127c8f9e9b357ed8aac9bc97614652cd096e0970d3ab2fd9"
+      "oracleSha256": "b9b25a58b2c80cb77c9160efcb6119d7e3568ff83de00b4d78df1f3713e54662"
     },
     {
       "differential": "stopwatch-type-differential-v1.json",
@@ -787,6 +787,11 @@
       "differential": "utf8-strict-differential-v1.json",
       "oracle": "utf8-strict-contract-v10.0.12.json",
       "oracleSha256": "ec237d061b28c7058a5562810b0304c48ab137ef7ff94f11873f2140aca6545b"
+    },
+    {
+      "differential": "utf8-type-differential-v1.json",
+      "oracle": "utf8-type-contract-v10.0.12.json",
+      "oracleSha256": "ce02c8b0d13af4f1dd4c31c5ac261e995525b73e6c1da8a5297b024a8fdda6b0"
     }
   ],
   "qualification": "BOUNDED_DIFFERENTIAL_ORACLE_BINDING_PASS; FIXTURE_COVERAGE_API_AND_RELEASE_QUALIFICATION_OPEN"
