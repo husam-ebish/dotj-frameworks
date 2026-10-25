@@ -98,6 +98,12 @@ public final class TimeSpanStyles implements IFormattable, IComparable, IConvert
         written[0] = text.length();
         return true;
     }
+    /** Java Object carries the selected CLR Enum argument domain. */
+    public boolean HasFlag(Object flag) {
+        if (flag == null) throw new ArgumentNullException("flag");
+        if (!(flag instanceof TimeSpanStyles styles)) throw new ArgumentException("Flag must be the same enum type");
+        return (this.value & styles.value) == styles.value;
+    }
     @Override public int CompareTo(Object other) {
         if (other == null) return 1;
         if (other instanceof TimeSpanStyles styles) return Integer.compare(this.value, styles.value);
