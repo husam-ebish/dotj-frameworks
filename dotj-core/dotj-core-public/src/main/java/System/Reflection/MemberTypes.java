@@ -8,6 +8,9 @@ import System.IFormatProvider;
 import System.IComparable;
 import System.Int32;
 import System.IConvertible;
+import System.ISpanFormattable;
+import System.Span;
+import System.ReadOnlySpan;
 import System.Type;
 import System.TypeCode;
 import System.Decimal;
@@ -16,7 +19,7 @@ import System.ArgumentNullException;
 import System.ArgumentException;
 
 /** Selected reflection member-kind values with value-preserving combinations. */
-public final class MemberTypes implements IFormattable, IComparable, IConvertible {
+public final class MemberTypes implements IFormattable, IComparable, IConvertible, ISpanFormattable {
     public static final MemberTypes Constructor = new MemberTypes("Constructor", 1);
     public static final MemberTypes Event = new MemberTypes("Event", 2);
     public static final MemberTypes Field = new MemberTypes("Field", 4);
@@ -118,6 +121,21 @@ public final class MemberTypes implements IFormattable, IComparable, IConvertibl
                 || targetType == Type.GetType("System.Object") || targetType == Type.GetType("System.Enum")) return this;
         if (targetType == Type.GetType("System.String")) return ToString(provider);
         return new Int32(this.value).ToType(targetType, provider);
+    }
+    @Override public boolean TryFormat(char[] destination, int[] written, String format, IFormatProvider provider) {
+        String text = ToString(format, provider);
+        if (text.length() > destination.length) { written[0] = 0; return false; }
+        text.getChars(0, text.length(), destination, 0);
+        written[0] = text.length();
+        return true;
+    }
+    public boolean TryFormat(Span<Character> destination, int[] written, ReadOnlySpan<Character> format, IFormatProvider provider) {
+        if (destination == null) throw new ArgumentNullException("destination");
+        if (format == null) throw new ArgumentNullException("format");
+        String text = ToString(format.ToString(), provider);
+        if (!ReadOnlySpan.OfChars(text.toCharArray()).TryCopyTo(destination)) { written[0] = 0; return false; }
+        written[0] = text.length();
+        return true;
     }
     @Override public int CompareTo(Object other) {
         if (other == null) return 1;
