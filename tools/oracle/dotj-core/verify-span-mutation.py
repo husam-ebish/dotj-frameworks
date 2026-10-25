@@ -12,6 +12,7 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--jar',type=Path);args=parser.parse_args()
     if args.jar is None:args.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))['jarPath']
     path=EVIDENCE/'span-mutation-contract-v10.0.12.json';oracle=json.loads(path.read_text(encoding='utf-8'))
+    oracle_path=path
     assert oracle['runtimeVersion']=='10.0.12' and oracle['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-span-mutation-contract.ps1').read_bytes()).hexdigest()
     cases=[]
@@ -37,7 +38,7 @@ def main():
         rejected.append(name)
     output=subprocess.run(['javap','-public','-classpath',str(args.jar),'System.Span'],check=True,capture_output=True,text=True).stdout
     assert 'public void Clear();' in output and 'public void Fill(T);' in output
-    record=dict(schemaVersion=1,casesPassed=len(cases),compileRejections=rejected,oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_CHAR_BYTE_SPAN_MUTATION_PASS; BYREF_LIFETIME_OTHER_ELEMENTS_MEMORY_CONCURRENCY_LANGUAGE_AND_RELEASE_OPEN')
+    record=dict(schemaVersion=1,casesPassed=len(cases),compileRejections=rejected,oracleEvidence=oracle_path.name,oracleSha256=hashlib.sha256(oracle_path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_CHAR_BYTE_SPAN_MUTATION_PASS; BYREF_LIFETIME_OTHER_ELEMENTS_MEMORY_CONCURRENCY_LANGUAGE_AND_RELEASE_OPEN')
     (EVIDENCE/'span-mutation-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
     print('PASS typed Span Clear/Fill: 336 pinned groups and two mismatched-element compile rejections')
 
