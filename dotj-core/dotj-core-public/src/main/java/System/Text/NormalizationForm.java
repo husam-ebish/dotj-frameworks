@@ -93,6 +93,12 @@ public final class NormalizationForm implements IFormattable, IConvertible, ICom
         charsWritten[0] = text.length();
         return true;
     }
+    /** Object carries the selected CLR Enum argument domain. */
+    public boolean HasFlag(Object flag) {
+        if (flag == null) throw new ArgumentNullException("flag");
+        if (!(flag instanceof NormalizationForm form)) throw new ArgumentException("The argument type, '" + flag.getClass().getName() + "', is not the same as the enum type 'System.Text.NormalizationForm'.");
+        return (this.value & form.value) == form.value;
+    }
     @Override public int CompareTo(Object other) {
         if (other == null) return 1;
         if (other instanceof NormalizationForm form) return Integer.compare(this.value, form.value);
