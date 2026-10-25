@@ -17,7 +17,7 @@ def main():
     cases=[]
     assert oracle['enumType']=='System.Globalization.DateTimeStyles' and oracle['flags'] and oracle['formatDeclaringType']=='System.Enum' and oracle['providerThrowsIfQueried']
     assert set(oracle['interfaces'])=={'System.IComparable','System.ISpanFormattable','System.IFormattable','System.IConvertible'}
-    cases.append('{Type type=Type.GetType("System.Globalization.DateTimeStyles");Type contract=Type.GetType("System.IFormattable");Type[] interfaces=type.GetInterfaces();check(interfaces.length==3 && interfaces[1]==contract && interfaces[0]==Type.GetType("System.IComparable") && type.GetInterface("IFormattable")==contract && type.GetInterface("System.iformattable",true)==contract && type.GetInterface("system.IFormattable",true)==null && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(DateTimeStyles.FromInt32(3)),0);interfaces[0]=null;check(type.GetInterfaces()[0]==Type.GetType("System.IComparable"),0);}')
+    cases.append('{Type type=Type.GetType("System.Globalization.DateTimeStyles");Type contract=Type.GetType("System.IFormattable");Type[] interfaces=type.GetInterfaces();check(interfaces.length==4 && interfaces[2]==contract && interfaces[0]==Type.GetType("System.IComparable") && type.GetInterface("IFormattable")==contract && type.GetInterface("System.iformattable",true)==contract && type.GetInterface("system.IFormattable",true)==null && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(DateTimeStyles.FromInt32(3)),0);interfaces[0]=null;check(type.GetInterfaces()[0]==Type.GetType("System.IComparable"),0);}')
     for row in oracle['defaults']:
         for expression,key in [(f'DateTimeStyles.FromInt32({row["value"]}).ToString()','text'),(f'DateTimeStyles.FromInt32({row["value"]}).ToString(PROVIDER)','providerText')]:
             index=len(cases);cases.append('{check('+expression+'.equals('+json.dumps(row[key])+'),'+str(index)+');}')
@@ -35,10 +35,10 @@ def main():
     subprocess.run(['javac','-Xmaxerrs','5','--release','21','-cp',str(args.jar),'-d',str(work),str(source)],check=True)
     subprocess.run(['java','-Duser.timezone=Europe/Zurich','-cp',str(args.jar)+';'+str(work),'DateTimeStyleFormatProbe'],check=True)
     output=subprocess.run(['javap','-public','-classpath',str(args.jar),'System.Globalization.DateTimeStyles'],check=True,capture_output=True,text=True).stdout
-    assert 'public final class System.Globalization.DateTimeStyles implements System.IFormattable,System.IComparable,System.IConvertible {' in output
+    assert 'public final class System.Globalization.DateTimeStyles implements System.IFormattable,System.IComparable,System.IConvertible,System.ISpanFormattable {' in output
     signatures={line.strip() for line in output.splitlines() if ' ToString(' in line}
     assert signatures=={'public java.lang.String ToString();','public java.lang.String ToString(System.IFormatProvider);','public java.lang.String ToString(java.lang.String, System.IFormatProvider);','public java.lang.String ToString(java.lang.String);'}
-    record=dict(schemaVersion=1,casesPassed=len(cases),omittedNativeInterfaces=sorted(set(oracle['interfaces'])-{'System.IFormattable','System.IComparable','System.IConvertible'}),oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_INT32_DATETIME_STYLE_FORMAT_PASS; OTHER_ENUM_INTERFACES_LANGUAGE_AND_RELEASE_OPEN')
+    record=dict(schemaVersion=1,casesPassed=len(cases),omittedNativeInterfaces=sorted(set(oracle['interfaces'])-{'System.IFormattable','System.IComparable','System.IConvertible','System.ISpanFormattable'}),oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_INT32_DATETIME_STYLE_FORMAT_PASS; OTHER_ENUM_INTERFACES_LANGUAGE_AND_RELEASE_OPEN')
     (EVIDENCE/'datetime-style-format-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
     print('PASS DateTimeStyles formatting: 12362 pinned groups')
 
