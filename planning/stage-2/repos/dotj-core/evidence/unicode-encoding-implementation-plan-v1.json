@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 1,
+  "task": "DJ-001-WP-05-T2",
+  "qualification": "NATIVE_REFERENCE_AND_IMPLEMENTATION_PLAN_ONLY",
+  "javaImplementationQualified": false,
+  "acceptedImplementationTasksCredited": 0,
+  "projectBatchTotal": null,
+  "projectBatchesRemaining": null,
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "sourceSha256": "b5a717988edb22bae8688fb5cf9d8efe9d503dfe2918cdb5a9c95578a5768828",
+  "sourceEntry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/UnicodeEncoding.cs",
+  "nativeEvidence": "unicode-encoding-plan-contract-v10.0.12.json",
+  "nativeStates": 18,
+  "nativeConversionRows": 1224,
+  "nativeMaximumRows": 360,
+  "nativeEqualityRows": 324,
+  "methodProjection": [
+    {
+      "native": {
+        "name": "Equals",
+        "returnType": "System.Boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "System.Object"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "Equals(System.Object)->System.Boolean",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "Equals",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "get_Preamble",
+        "returnType": "System.ReadOnlySpan`1<System.Byte>",
+        "parameters": [],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "get_Preamble()->System.ReadOnlySpan`1<System.Byte>",
+      "status": "PLANNED_HEAP_SPAN_ADAPTER",
+      "javaName": "get_Preamble",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetByteCount",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "chars",
+            "type": "System.Char[]"
+          },
+          {
+            "name": "index",
+            "type": "System.Int32"
+          },
+          {
+            "name": "count",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetByteCount(System.Char[],System.Int32,System.Int32)->System.Int32",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetByteCount",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetByteCount",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "chars",
+            "type": "System.Char*"
+          },
+          {
+            "name": "count",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetByteCount(System.Char*,System.Int32)->System.Int32",
+      "status": "OPEN_POINTER_ABI",
+      "javaName": "GetByteCount",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetByteCount",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "s",
+            "type": "System.String"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetByteCount(System.String)->System.Int32",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetByteCount",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetBytes",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "chars",
+            "type": "System.Char[]"
+          },
+          {
+            "name": "charIndex",
+            "type": "System.Int32"
+          },
+          {
+            "name": "charCount",
+            "type": "System.Int32"
+          },
+          {
+            "name": "bytes",
+            "type": "System.Byte[]"
+          },
+          {
+            "name": "byteIndex",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)->System.Int32",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetBytes",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetBytes",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "chars",
+            "type": "System.Char*"
+          },
+          {
+            "name": "charCount",
+            "type": "System.Int32"
+          },
+          {
+            "name": "bytes",
+            "type": "System.Byte*"
+          },
+          {
+            "name": "byteCount",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetBytes(System.Char*,System.Int32,System.Byte*,System.Int32)->System.Int32",
+      "status": "OPEN_POINTER_ABI",
+      "javaName": "GetBytes",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetBytes",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "s",
+            "type": "System.String"
+          },
+          {
+            "name": "charIndex",
+            "type": "System.Int32"
+          },
+          {
+            "name": "charCount",
+            "type": "System.Int32"
+          },
+          {
+            "name": "bytes",
+            "type": "System.Byte[]"
+          },
+          {
+            "name": "byteIndex",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetBytes(System.String,System.Int32,System.Int32,System.Byte[],System.Int32)->System.Int32",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetBytes",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetCharCount",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "bytes",
+            "type": "System.Byte[]"
+          },
+          {
+            "name": "index",
+            "type": "System.Int32"
+          },
+          {
+            "name": "count",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetCharCount(System.Byte[],System.Int32,System.Int32)->System.Int32",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetCharCount",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetCharCount",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "bytes",
+            "type": "System.Byte*"
+          },
+          {
+            "name": "count",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetCharCount(System.Byte*,System.Int32)->System.Int32",
+      "status": "OPEN_POINTER_ABI",
+      "javaName": "GetCharCount",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetChars",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "bytes",
+            "type": "System.Byte[]"
+          },
+          {
+            "name": "byteIndex",
+            "type": "System.Int32"
+          },
+          {
+            "name": "byteCount",
+            "type": "System.Int32"
+          },
+          {
+            "name": "chars",
+            "type": "System.Char[]"
+          },
+          {
+            "name": "charIndex",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)->System.Int32",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetChars",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetChars",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "bytes",
+            "type": "System.Byte*"
+          },
+          {
+            "name": "byteCount",
+            "type": "System.Int32"
+          },
+          {
+            "name": "chars",
+            "type": "System.Char*"
+          },
+          {
+            "name": "charCount",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetChars(System.Byte*,System.Int32,System.Char*,System.Int32)->System.Int32",
+      "status": "OPEN_POINTER_ABI",
+      "javaName": "GetChars",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetDecoder",
+        "returnType": "System.Text.Decoder",
+        "parameters": [],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetDecoder()->System.Text.Decoder",
+      "status": "OPEN_STATEFUL_CONTRACT",
+      "javaName": "GetDecoder",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetEncoder",
+        "returnType": "System.Text.Encoder",
+        "parameters": [],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetEncoder()->System.Text.Encoder",
+      "status": "OPEN_STATEFUL_CONTRACT",
+      "javaName": "GetEncoder",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetHashCode",
+        "returnType": "System.Int32",
+        "parameters": [],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetHashCode()->System.Int32",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetHashCode",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetMaxByteCount",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "charCount",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetMaxByteCount(System.Int32)->System.Int32",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetMaxByteCount",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetMaxCharCount",
+        "returnType": "System.Int32",
+        "parameters": [
+          {
+            "name": "byteCount",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetMaxCharCount(System.Int32)->System.Int32",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetMaxCharCount",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetPreamble",
+        "returnType": "System.Byte[]",
+        "parameters": [],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetPreamble()->System.Byte[]",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetPreamble",
+      "javaQualification": "OPEN"
+    },
+    {
+      "native": {
+        "name": "GetString",
+        "returnType": "System.String",
+        "parameters": [
+          {
+            "name": "bytes",
+            "type": "System.Byte[]"
+          },
+          {
+            "name": "index",
+            "type": "System.Int32"
+          },
+          {
+            "name": "count",
+            "type": "System.Int32"
+          }
+        ],
+        "isVirtual": true,
+        "isFinal": false
+      },
+      "nativeSignature": "GetString(System.Byte[],System.Int32,System.Int32)->System.String",
+      "status": "PLANNED_STATELESS_ADAPTER",
+      "javaName": "GetString",
+      "javaQualification": "OPEN"
+    }
+  ],
+  "openWork": [
+    "stateful encoder/decoder carry",
+    "inherited span override dispatch",
+    "slice validation and partial writes",
+    "pointer ABI and byref lifetimes",
+    "full N01/E01/E02/E03 closure",
+    "culture comparisons and normalization transforms"
+  ],
+  "implementationSequence": [
+    {
+      "order": 1,
+      "task": "Implement public UnicodeEncoding stateless array core, constructors/default fallbacks, code-page identity, preamble, maxima, equality/hash and UTF-16 aliases.",
+      "acceptance": "Bounded packaged consumer against the pinned 18-state corpus; independently capture destination/range failures before claiming those routes.",
+      "status": "PLANNED; NO TASK ACCEPTANCE CREDIT"
+    },
+    {
+      "order": 2,
+      "task": "Capture and implement range-validation ordering, destination partial writes, inherited span behavior and subclass dispatch.",
+      "acceptance": "Exact native exception parameters, counts, traces and complete destination buffers.",
+      "status": "OPEN; ASSIGN BATCHES FROM ACTUAL SCOPE"
+    },
+    {
+      "order": 3,
+      "task": "Capture and implement specialized Unicode encoder/decoder pending surrogate/byte state and Convert behavior.",
+      "acceptance": "Native paired state sequences across flush, reset, fallback changes and capacity boundaries.",
+      "status": "OPEN; ASSIGN BATCHES FROM ACTUAL SCOPE"
+    },
+    {
+      "order": 4,
+      "task": "Close applicable API/source/notice decisions and remaining WP-05 fixtures before accepting the implementation task.",
+      "acceptance": "Full criteria from WORK-PACKAGES and acceptance tracker, including culture/normalization scope and applicable E01/E02/E03/N01 decisions.",
+      "status": "OPEN; PREREQUISITES NOT ACCEPTED"
+    }
+  ],
+  "nextConcreteTask": "Batch 2232: implement and qualify the first owned stateless UnicodeEncoding/UTF-16 candidate against this native corpus, with range/stateful/pointer gaps explicit.",
+  "dependencyScope": {
+    "product": "JDK APIs only; no new third-party Java runtime dependency established.",
+    "development": "Python repository scripts and pinned SDK 10.0.401/runtime 10.0.12 reference tools.",
+    "broaderProject": "The 66-framework resolved dependency graph and public .j installation/feed remain open."
+  },
+  "runtimeHashPolicy": "Replacement fallback hashes have process-local seeds. Validate unchecked formula from same-process fallback contributions; do not compare raw .NET and Java hash numbers.",
+  "rightsStatus": "Source archive and selected file hashes only; MIT selection does not close E01 rights applicability."
+}
