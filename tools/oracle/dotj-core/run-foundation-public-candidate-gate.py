@@ -64,6 +64,7 @@ CHECKS = (
     "verify-datetime-binary.py",
     "verify-datetime-saturation.py",
     "verify-stopwatch.py",
+    "verify-datetime-timeonly-offset.py",
     "verify-stopwatch-type.py",
     "verify-array-shape.py",
     "verify-element-modifier.py",
@@ -126,7 +127,7 @@ def main():
     args=parser.parse_args()
     first=CHECKS.index('verify-span-factory-types.py')
     last=CHECKS.index('verify-idisposable-file-map.py')
-    live_names={'verify-datetime-wall-clock.py','verify-clock-envelope.py','verify-stopwatch.py'}
+    live_names={'verify-datetime-wall-clock.py','verify-clock-envelope.py','verify-stopwatch.py','verify-datetime-timeonly-offset.py'}
     independent=tuple(name for name in CHECKS[first:last] if name not in live_names)
     live=tuple(name for name in CHECKS[first:last] if name in live_names)
     phases=(('prerequisites',CHECKS[:first],1),('independent',independent,args.check_workers),
@@ -226,6 +227,8 @@ def main():
         "enum-receiver-contract-v10.0.12.json",
         "enum-receiver-differential-v1.json",
         "decimal-target-conversion-contract-v10.0.12.json",
+        "datetime-timeonly-offset-contract-v10.0.12.json",
+        "datetime-timeonly-offset-differential-v1.json",
         "datetime-custom-unicode-contract-v10.0.12.json",
         "datetime-custom-unicode-differential-v1.json",
         "datetime-custom-buffer-contract-v10.0.12.json",
