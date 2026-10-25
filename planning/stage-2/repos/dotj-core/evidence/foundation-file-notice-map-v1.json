@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "Built dotj-core foundation candidate JAR, not a release",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "293a95810e652542a9870b57618db6e036b304bace22bb935604adde98f21305",
+  "jarSha256": "7abd9d001de5fb9deb4f655b9fc1dd8117e7bffa51903adf9969d030b39d6423",
   "sourceToClasses": {
     "dotj-core/dotj-core-public/src/main/java/System/IDisposable.java": [
       "System/IDisposable.class"
@@ -257,7 +257,14 @@
       "System/Text/UTF8Encoding.class"
     ],
     "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/text/Utf8Codec.java": [
-      "org/dotj/internal/text/Utf8Codec.class"
+      "org/dotj/internal/text/Utf8Codec.class",
+      "org/dotj/internal/text/Utf8Codec$Failure.class"
+    ],
+    "dotj-core/dotj-core-public/src/main/java/System/Text/EncoderFallbackException.java": [
+      "System/Text/EncoderFallbackException.class"
+    ],
+    "dotj-core/dotj-core-public/src/main/java/System/Text/DecoderFallbackException.java": [
+      "System/Text/DecoderFallbackException.class"
     ]
   },
   "manifestEntry": "META-INF/MANIFEST.MF",
