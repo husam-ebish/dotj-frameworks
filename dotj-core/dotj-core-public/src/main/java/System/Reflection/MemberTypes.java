@@ -137,6 +137,12 @@ public final class MemberTypes implements IFormattable, IComparable, IConvertibl
         written[0] = text.length();
         return true;
     }
+    /** Java Object carries the selected CLR Enum argument domain. */
+    public boolean HasFlag(Object flag) {
+        if (flag == null) throw new ArgumentNullException("flag");
+        if (!(flag instanceof MemberTypes styles)) throw new ArgumentException("Flag must be the same enum type");
+        return (this.value & styles.value) == styles.value;
+    }
     @Override public int CompareTo(Object other) {
         if (other == null) return 1;
         if (other instanceof MemberTypes flags) return java.lang.Integer.compare(this.value, flags.value);

@@ -135,6 +135,7 @@ def main():
             assert "public int get_Value();" in declarations
             assert "public System.Reflection.MemberTypes or(System.Reflection.MemberTypes);" in declarations
             assert "public static System.Reflection.MemberTypes FromInt32(int);" in declarations
+            assert 'public boolean HasFlag(java.lang.Object);' in declarations
             assert 'public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);' in declarations
             assert 'public boolean TryFormat(System.Span<java.lang.Character>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);' in declarations
             assert 'public System.TypeCode GetTypeCode();' in declarations
