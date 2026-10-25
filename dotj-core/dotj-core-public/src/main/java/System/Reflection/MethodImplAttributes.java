@@ -5,9 +5,12 @@ package System.Reflection;
 import System.FormatException;
 import System.IFormattable;
 import System.IFormatProvider;
+import System.IComparable;
+import System.Int32;
+import System.ArgumentException;
 
 /** Pinned implementation-attribute values with composable flags. */
-public final class MethodImplAttributes implements IFormattable {
+public final class MethodImplAttributes implements IFormattable, IComparable {
     public static final MethodImplAttributes IL = new MethodImplAttributes("IL", 0);
     public static final MethodImplAttributes Managed = new MethodImplAttributes("Managed", 0);
     public static final MethodImplAttributes Native = new MethodImplAttributes("Native", 1);
@@ -103,6 +106,13 @@ public final class MethodImplAttributes implements IFormattable {
         }
         return remaining == 0 && !parts.isEmpty() ? String.join(", ", parts) : java.lang.Integer.toString(this.value);
     }
+    @Override public int CompareTo(Object other) {
+        if (other == null) return 1;
+        if (other instanceof MethodImplAttributes flags) return java.lang.Integer.compare(this.value, flags.value);
+        throw new ArgumentException("Object must be the same enum type");
+    }
+    public boolean Equals(Object other) { return equals(other); }
+    public Int32 GetHashCode() { return new Int32(this.value); }
     @Override public String toString() { return ToString(); }
 
     @Override
