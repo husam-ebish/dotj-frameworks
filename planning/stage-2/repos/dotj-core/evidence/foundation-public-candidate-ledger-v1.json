@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "951eb257a489d533b34e771c6b02bd526d191b1712606b0678d6e8eb79ce25ba",
+  "candidateJarSha256": "cd19a63d52dcf191fb95635bcf0e3c5abf3d2b4a64632ab75dd320abdd64555a",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -711,7 +711,7 @@
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 0,
       "javaPublicConstructors": 0,
-      "javaPublicHeader": "public final class System.Reflection.GenericParameterAttributes extends java.lang.Enum<System.Reflection.GenericParameterAttributes> {",
+      "javaPublicHeader": "public final class System.Reflection.GenericParameterAttributes implements System.IFormattable {",
       "javaPublicDeclarations": [
         "public static final System.Reflection.GenericParameterAttributes None;",
         "public static final System.Reflection.GenericParameterAttributes Covariant;",
@@ -722,11 +722,21 @@
         "public static final System.Reflection.GenericParameterAttributes DefaultConstructorConstraint;",
         "public static final System.Reflection.GenericParameterAttributes SpecialConstraintMask;",
         "public static final System.Reflection.GenericParameterAttributes AllowByRefLike;",
+        "public static System.Reflection.GenericParameterAttributes FromInt32(int);",
+        "public int get_Value();",
+        "public java.lang.String get_Name();",
+        "public java.lang.String name();",
         "public static System.Reflection.GenericParameterAttributes[] values();",
         "public static System.Reflection.GenericParameterAttributes valueOf(java.lang.String);",
-        "public int get_Value();"
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();",
+        "public java.lang.String ToString();",
+        "public java.lang.String ToString(System.IFormatProvider);",
+        "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+        "public java.lang.String ToString(java.lang.String);",
+        "public java.lang.String toString();"
       ],
-      "disposition": "SELECTED_ENUM_VALUES; Java enum differs from CLR flags enum",
+      "disposition": "SELECTED_GENERIC_PARAMETER_FLAGS_AND_ENUM_FORMATTING; named/unnamed Java carrier, physical CLR/JVM enum inheritance open",
       "qualified": false
     },
     {
