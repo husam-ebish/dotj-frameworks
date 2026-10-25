@@ -69,6 +69,35 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         return value.value > 0 && (value.value & (value.value - 1)) == 0;
     }
 
+    public static SByte Abs(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return new SByte(Math.abs((int) value.value));
+    }
+    public static int Sign(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return Integer.signum(value.value);
+    }
+    public static SByte CopySign(SByte value, SByte sign) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (sign == null) throw new ArgumentNullException("sign");
+        int magnitude = Math.abs((int) value.value);
+        return new SByte(sign.value < 0 ? -magnitude : magnitude);
+    }
+    public static SByte MaxMagnitude(SByte x, SByte y) {
+        if (x == null) throw new ArgumentNullException("x");
+        if (y == null) throw new ArgumentNullException("y");
+        int left = Math.abs((int) x.value);
+        int right = Math.abs((int) y.value);
+        return left > right || (left == right && x.value >= y.value) ? x : y;
+    }
+    public static SByte MinMagnitude(SByte x, SByte y) {
+        if (x == null) throw new ArgumentNullException("x");
+        if (y == null) throw new ArgumentNullException("y");
+        int left = Math.abs((int) x.value);
+        int right = Math.abs((int) y.value);
+        return left < right || (left == right && x.value <= y.value) ? x : y;
+    }
+
     public SByte(int value) {
         if (value < -128 || value > 127) {
             throw new OverflowException("Value was outside the range of SByte");
