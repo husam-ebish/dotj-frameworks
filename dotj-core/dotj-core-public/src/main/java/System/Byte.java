@@ -9,6 +9,24 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
 
     private final short value;
 
+    public static Byte Min(Byte x, Byte y) {
+        if (x == null) throw new ArgumentNullException("x");
+        if (y == null) throw new ArgumentNullException("y");
+        return x.value <= y.value ? x : y;
+    }
+    public static Byte Max(Byte x, Byte y) {
+        if (x == null) throw new ArgumentNullException("x");
+        if (y == null) throw new ArgumentNullException("y");
+        return x.value >= y.value ? x : y;
+    }
+    public static Byte Clamp(Byte value, Byte min, Byte max) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (min == null) throw new ArgumentNullException("min");
+        if (max == null) throw new ArgumentNullException("max");
+        if (min.value > max.value) throw new ArgumentException("Minimum must not exceed maximum.");
+        return value.value < min.value ? min : value.value > max.value ? max : value;
+    }
+
     public Byte(int value) {
         if (value < 0 || value > 255) {
             throw new OverflowException("Value was outside the range of Byte");

@@ -4,8 +4,8 @@
     {
       "fullName": "System.SByte",
       "nativeDeclaredMethodCount": 52,
-      "selectedProjectedMethodCount": 12,
-      "outsideSelectedMethodCount": 40,
+      "selectedProjectedMethodCount": 15,
+      "outsideSelectedMethodCount": 37,
       "methods": [
         {
           "nativeSignature": "SByte Abs(SByte)",
@@ -14,8 +14,20 @@
         },
         {
           "nativeSignature": "SByte Clamp(SByte, SByte, SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte Clamp(System.SByte, System.SByte, System.SByte);",
+          "projectedJava": {
+            "name": "Clamp",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte",
+              "System.SByte",
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "Int32 CompareTo(System.Object)",
@@ -165,8 +177,19 @@
         },
         {
           "nativeSignature": "SByte Max(SByte, SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte Max(System.SByte, System.SByte);",
+          "projectedJava": {
+            "name": "Max",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte",
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte MaxMagnitude(SByte, SByte)",
@@ -175,8 +198,19 @@
         },
         {
           "nativeSignature": "SByte Min(SByte, SByte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.SByte Min(System.SByte, System.SByte);",
+          "projectedJava": {
+            "name": "Min",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.SByte",
+            "parameters": [
+              "System.SByte",
+              "System.SByte"
+            ]
+          }
         },
         {
           "nativeSignature": "SByte MinMagnitude(SByte, SByte)",
@@ -438,6 +472,9 @@
         "public final class System.SByte implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {",
         "public static final int MinValue;",
         "public static final int MaxValue;",
+        "public static System.SByte Min(System.SByte, System.SByte);",
+        "public static System.SByte Max(System.SByte, System.SByte);",
+        "public static System.SByte Clamp(System.SByte, System.SByte, System.SByte);",
         "public System.SByte(int);",
         "public byte get_Value();",
         "public java.lang.String ToString();",
@@ -476,13 +513,25 @@
     {
       "fullName": "System.Byte",
       "nativeDeclaredMethodCount": 46,
-      "selectedProjectedMethodCount": 12,
-      "outsideSelectedMethodCount": 34,
+      "selectedProjectedMethodCount": 15,
+      "outsideSelectedMethodCount": 31,
       "methods": [
         {
           "nativeSignature": "Byte Clamp(Byte, Byte, Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.Byte Clamp(System.Byte, System.Byte, System.Byte);",
+          "projectedJava": {
+            "name": "Clamp",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.Byte",
+              "System.Byte",
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "Int32 CompareTo(System.Object)",
@@ -617,13 +666,35 @@
         },
         {
           "nativeSignature": "Byte Max(Byte, Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.Byte Max(System.Byte, System.Byte);",
+          "projectedJava": {
+            "name": "Max",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.Byte",
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "Byte Min(Byte, Byte)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.Byte Min(System.Byte, System.Byte);",
+          "projectedJava": {
+            "name": "Min",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.Byte",
+            "parameters": [
+              "System.Byte",
+              "System.Byte"
+            ]
+          }
         },
         {
           "nativeSignature": "Byte Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
@@ -880,6 +951,9 @@
         "public final class System.Byte implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {",
         "public static final int MinValue;",
         "public static final int MaxValue;",
+        "public static System.Byte Min(System.Byte, System.Byte);",
+        "public static System.Byte Max(System.Byte, System.Byte);",
+        "public static System.Byte Clamp(System.Byte, System.Byte, System.Byte);",
         "public System.Byte(int);",
         "public short get_Value();",
         "public java.lang.String ToString();",
@@ -918,13 +992,25 @@
     {
       "fullName": "System.UInt16",
       "nativeDeclaredMethodCount": 46,
-      "selectedProjectedMethodCount": 12,
-      "outsideSelectedMethodCount": 34,
+      "selectedProjectedMethodCount": 15,
+      "outsideSelectedMethodCount": 31,
       "methods": [
         {
           "nativeSignature": "UInt16 Clamp(UInt16, UInt16, UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt16 Clamp(System.UInt16, System.UInt16, System.UInt16);",
+          "projectedJava": {
+            "name": "Clamp",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.UInt16",
+              "System.UInt16",
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "Int32 CompareTo(System.Object)",
@@ -1059,13 +1145,35 @@
         },
         {
           "nativeSignature": "UInt16 Max(UInt16, UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt16 Max(System.UInt16, System.UInt16);",
+          "projectedJava": {
+            "name": "Max",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.UInt16",
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt16 Min(UInt16, UInt16)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt16 Min(System.UInt16, System.UInt16);",
+          "projectedJava": {
+            "name": "Min",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt16",
+            "parameters": [
+              "System.UInt16",
+              "System.UInt16"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt16 Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
@@ -1322,6 +1430,9 @@
         "public final class System.UInt16 implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {",
         "public static final int MinValue;",
         "public static final int MaxValue;",
+        "public static System.UInt16 Min(System.UInt16, System.UInt16);",
+        "public static System.UInt16 Max(System.UInt16, System.UInt16);",
+        "public static System.UInt16 Clamp(System.UInt16, System.UInt16, System.UInt16);",
         "public System.UInt16(int);",
         "public int get_Value();",
         "public java.lang.String ToString();",
@@ -1360,8 +1471,8 @@
     {
       "fullName": "System.UInt32",
       "nativeDeclaredMethodCount": 47,
-      "selectedProjectedMethodCount": 12,
-      "outsideSelectedMethodCount": 35,
+      "selectedProjectedMethodCount": 15,
+      "outsideSelectedMethodCount": 32,
       "methods": [
         {
           "nativeSignature": "UInt64 BigMul(UInt32, UInt32)",
@@ -1370,8 +1481,20 @@
         },
         {
           "nativeSignature": "UInt32 Clamp(UInt32, UInt32, UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt32 Clamp(System.UInt32, System.UInt32, System.UInt32);",
+          "projectedJava": {
+            "name": "Clamp",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.UInt32",
+              "System.UInt32",
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "Int32 CompareTo(System.Object)",
@@ -1506,13 +1629,35 @@
         },
         {
           "nativeSignature": "UInt32 Max(UInt32, UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt32 Max(System.UInt32, System.UInt32);",
+          "projectedJava": {
+            "name": "Max",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.UInt32",
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt32 Min(UInt32, UInt32)",
-          "selected": false,
-          "status": "OUTSIDE_SELECTED_PROJECTION_AUDIT"
+          "selected": true,
+          "status": "PROJECTED_SELECTED_DECLARATION",
+          "candidateDeclaration": "public static System.UInt32 Min(System.UInt32, System.UInt32);",
+          "projectedJava": {
+            "name": "Min",
+            "isStatic": true,
+            "genericArity": 0,
+            "returnType": "System.UInt32",
+            "parameters": [
+              "System.UInt32",
+              "System.UInt32"
+            ]
+          }
         },
         {
           "nativeSignature": "UInt32 Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
@@ -1769,6 +1914,9 @@
         "public final class System.UInt32 implements System.IConvertible,System.IFormattable,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {",
         "public static final long MinValue;",
         "public static final long MaxValue;",
+        "public static System.UInt32 Min(System.UInt32, System.UInt32);",
+        "public static System.UInt32 Max(System.UInt32, System.UInt32);",
+        "public static System.UInt32 Clamp(System.UInt32, System.UInt32, System.UInt32);",
         "public System.UInt32(long);",
         "public long get_Value();",
         "public java.lang.String ToString();",
@@ -1805,9 +1953,9 @@
       ]
     }
   ],
-  "selectedProjectedMethodCount": 48,
+  "selectedProjectedMethodCount": 60,
   "oracleEvidence": "small-integer-signatures-contract-v10.0.12.json",
   "oracleSha256": "93f598654fa6b0417c7a8ed66262c31be19db0facb672bf3e54eaf63a37be607",
-  "candidateJarSha256": "50891e5c6a43bba052a2f6951c035313b8bb978ee7ed4f1a590d1594a4989f0a",
+  "candidateJarSha256": "e9419b8c98fb7806499002619a3b9c9f3576b5ac666e9562febe8d45b3984945",
   "qualification": "SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN"
 }

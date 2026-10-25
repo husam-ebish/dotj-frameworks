@@ -9,6 +9,24 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
 
     private final int value;
 
+    public static UInt16 Min(UInt16 x, UInt16 y) {
+        if (x == null) throw new ArgumentNullException("x");
+        if (y == null) throw new ArgumentNullException("y");
+        return x.value <= y.value ? x : y;
+    }
+    public static UInt16 Max(UInt16 x, UInt16 y) {
+        if (x == null) throw new ArgumentNullException("x");
+        if (y == null) throw new ArgumentNullException("y");
+        return x.value >= y.value ? x : y;
+    }
+    public static UInt16 Clamp(UInt16 value, UInt16 min, UInt16 max) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (min == null) throw new ArgumentNullException("min");
+        if (max == null) throw new ArgumentNullException("max");
+        if (min.value > max.value) throw new ArgumentException("Minimum must not exceed maximum.");
+        return value.value < min.value ? min : value.value > max.value ? max : value;
+    }
+
     public UInt16(int value) {
         if (value < 0 || value > 65535) {
             throw new OverflowException("Value was outside the range of UInt16");

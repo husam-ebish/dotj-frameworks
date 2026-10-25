@@ -9,6 +9,24 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
 
     private final byte value;
 
+    public static SByte Min(SByte x, SByte y) {
+        if (x == null) throw new ArgumentNullException("x");
+        if (y == null) throw new ArgumentNullException("y");
+        return x.value <= y.value ? x : y;
+    }
+    public static SByte Max(SByte x, SByte y) {
+        if (x == null) throw new ArgumentNullException("x");
+        if (y == null) throw new ArgumentNullException("y");
+        return x.value >= y.value ? x : y;
+    }
+    public static SByte Clamp(SByte value, SByte min, SByte max) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (min == null) throw new ArgumentNullException("min");
+        if (max == null) throw new ArgumentNullException("max");
+        if (min.value > max.value) throw new ArgumentException("Minimum must not exceed maximum.");
+        return value.value < min.value ? min : value.value > max.value ? max : value;
+    }
+
     public SByte(int value) {
         if (value < -128 || value > 127) {
             throw new OverflowException("Value was outside the range of SByte");

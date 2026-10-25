@@ -18,7 +18,7 @@ def main():
   primitive={'System.Boolean':'boolean','System.Int32':'int','System.String':'java.lang.String','System.Object':'java.lang.Object','System.IFormatProvider':'System.IFormatProvider','System.TypeCode':'System.TypeCode',owner:owner}
   methods=[];matched=set();selected=0
   for method in native['methods']:
-   parameters=[v['type'] for v in method['parameters']];name=method['name'];is_selected=not method['isStatic'] and not method['isSpecialName'] and name in ['ToString','CompareTo','Equals','GetHashCode','GetTypeCode','TryFormat']
+   parameters=[v['type'] for v in method['parameters']];name=method['name'];is_selected=not method['isSpecialName'] and ((not method['isStatic'] and name in ['ToString','CompareTo','Equals','GetHashCode','GetTypeCode','TryFormat']) or (method['isStatic'] and name in ['Min','Max','Clamp']))
    item=dict(nativeSignature=method['signature'],selected=is_selected)
    if is_selected:
     selected+=1
@@ -29,12 +29,12 @@ def main():
      if value=='System.ReadOnlySpan`1[System.Char]':return 'java.lang.String'
      assert value in primitive,(owner,name,value)
      return primitive[value]
-    expected=dict(name=name,isStatic=False,genericArity=0,returnType=project(method['returnType']),parameters=[project(v) for v in parameters])
+    expected=dict(name=name,isStatic=method['isStatic'],genericArity=0,returnType=project(method['returnType']),parameters=[project(v) for v in parameters])
     found=[v for v in candidate if all(v[k]==v2 for k,v2 in expected.items())];assert len(found)==1,(owner,method,expected,found)
     item.update(status='PROJECTED_SELECTED_DECLARATION',candidateDeclaration=found[0]['declaration'],projectedJava=expected);matched.add(found[0]['declaration'])
    else:item['status']='OUTSIDE_SELECTED_PROJECTION_AUDIT'
    methods.append(item)
-  assert selected==12,(owner,selected)
+  assert selected==15,(owner,selected)
   bridge=[v for v in candidate if v['name']=='TryFormat' and v['genericArity']==1 and v['parameters']==['System.Span<T>','int[]','System.ReadOnlySpan<java.lang.Character>','System.IFormatProvider'] and v['returnType']=='boolean'];assert len(bridge)==1,(owner,bridge)
   matched.add(bridge[0]['declaration'])
   fields=[dict(nativeField=v,candidateNamePresent=any(s.endswith(' '+v['name']+';') for s in declarations)) for v in native['fields']]

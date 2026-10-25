@@ -9,6 +9,24 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
 
     private final long value;
 
+    public static UInt32 Min(UInt32 x, UInt32 y) {
+        if (x == null) throw new ArgumentNullException("x");
+        if (y == null) throw new ArgumentNullException("y");
+        return x.value <= y.value ? x : y;
+    }
+    public static UInt32 Max(UInt32 x, UInt32 y) {
+        if (x == null) throw new ArgumentNullException("x");
+        if (y == null) throw new ArgumentNullException("y");
+        return x.value >= y.value ? x : y;
+    }
+    public static UInt32 Clamp(UInt32 value, UInt32 min, UInt32 max) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (min == null) throw new ArgumentNullException("min");
+        if (max == null) throw new ArgumentNullException("max");
+        if (min.value > max.value) throw new ArgumentException("Minimum must not exceed maximum.");
+        return value.value < min.value ? min : value.value > max.value ? max : value;
+    }
+
     public UInt32(long value) {
         if (value < 0 || value > 4294967295L) {
             throw new OverflowException("Value was outside the range of UInt32");
