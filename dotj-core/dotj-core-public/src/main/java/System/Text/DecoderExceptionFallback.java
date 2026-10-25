@@ -13,8 +13,14 @@ public final class DecoderExceptionFallback extends DecoderFallback {
     @Override public DecoderFallbackBuffer CreateFallbackBuffer() { return new Buffer(); }
     private static final class Buffer extends DecoderFallbackBuffer {
         @Override public boolean Fallback(Byte[] bytesUnknown, int index) {
-            throw new DecoderFallbackException("Unable to translate bytes to Unicode.",
-                    bytesUnknown == null ? new Byte[0] : bytesUnknown, index);
+            Byte[] unknown = bytesUnknown == null ? new Byte[0] : bytesUnknown;
+            StringBuilder description = new StringBuilder();
+            for (int i = 0; i < unknown.length && i < 20; i++) {
+                description.append(String.format(java.util.Locale.ROOT, "[%02X]", unknown[i].get_Value()));
+            }
+            if (unknown.length > 20) description.append(" ...");
+            throw new DecoderFallbackException("Unable to translate bytes " + description + " at index " + index
+                    + " from specified code page to Unicode.", unknown, index);
         }
         @Override public char GetNextChar() { return 0; }
         @Override public boolean MovePrevious() { return false; }
