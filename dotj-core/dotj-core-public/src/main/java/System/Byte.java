@@ -69,6 +69,11 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         return value.value > 0 && (value.value & (value.value - 1)) == 0;
     }
 
+    public static Byte Log2(Byte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return new Byte(value.value == 0 ? 0 : 63 - Long.numberOfLeadingZeros(value.value));
+    }
+
     public Byte(int value) {
         if (value < 0 || value > 255) {
             throw new OverflowException("Value was outside the range of Byte");
