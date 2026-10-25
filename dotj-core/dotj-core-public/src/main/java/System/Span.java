@@ -58,6 +58,18 @@ public final class Span<T> {
 
     @Override public String toString() { return ToString(); }
 
+    public Span<T> Slice(int start) {
+        if (start < 0 || start > this.length) throw new ArgumentOutOfRangeException();
+        return Slice(start, this.length - start);
+    }
+
+    public Span<T> Slice(int start, int length) {
+        if (start < 0 || length < 0 || start > this.length || length > this.length - start) throw new ArgumentOutOfRangeException();
+        return this.chars != null
+                ? new Span<>(this.chars, this.offset + start, length)
+                : new Span<>(this.bytes, this.offset + start, length);
+    }
+
     public int get_Length() { return this.length; }
 
     public boolean get_IsEmpty() { return this.length == 0; }
