@@ -167,6 +167,15 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         catch (FormatException | OverflowException expected) { result[0] = new SByte(0); return false; }
     }
 
+    public static boolean IsPositive(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return value.value >= 0;
+    }
+    public static boolean IsNegative(SByte value) {
+        if (value == null) throw new ArgumentNullException("value");
+        return value.value < 0;
+    }
+
     public SByte(int value) {
         if (value < -128 || value > 127) {
             throw new OverflowException("Value was outside the range of SByte");
