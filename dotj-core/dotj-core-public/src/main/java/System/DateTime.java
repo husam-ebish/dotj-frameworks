@@ -201,10 +201,14 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     private static int selectedValidateStyles(DateTimeStyles styles) {
-        if (styles == null) throw new ArgumentNullException("styles");
+        return selectedValidateStyles(styles, "styles");
+    }
+
+    private static int selectedValidateStyles(DateTimeStyles styles, String parameter) {
+        if (styles == null) throw new ArgumentNullException(parameter);
         int flags = styles.get_Value();
         if ((flags & ~255) != 0 || (flags & 96) == 96 || (flags & 128) != 0 && (flags & 112) != 0) {
-            throw new ArgumentException("DateTimeStyles combination is invalid", "styles");
+            throw new ArgumentException("DateTimeStyles combination is invalid", parameter);
         }
         return flags;
     }
@@ -259,62 +263,81 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public static DateTime ParseExact(String text, String format, IFormatProvider provider) {
-        if (text == null) {
-            throw new ArgumentNullException("s");
-        }
-        if (format == null) {
-            throw new ArgumentNullException("format");
-        }
-        try {
-            DateTime parsed = switch (format) {
-                case "yyyy-MM-dd" -> new DateTime(LocalDate.parse(text,
-                        DateTimeFormatter.ISO_LOCAL_DATE).atStartOfDay());
-                case "yyyy-MM-dd HH:mm:ss" -> new DateTime(LocalDateTime.parse(text,
-                        DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ss")
-                                .withResolverStyle(ResolverStyle.STRICT)));
-                case "yyyy-MM-ddTHH:mm:ss.fffffff" -> new DateTime(LocalDateTime.parse(text,
-                        DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSSSSSS")
-                                .withResolverStyle(ResolverStyle.STRICT)));
-                default -> throw new FormatException("Input string was not in a correct format");
-            };
-            if (parsed.get_Year() < 1 || parsed.get_Year() > 9999) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return parsed;
-        } catch (DateTimeParseException invalid) {
-            throw new FormatException("Input string was not in a correct format");
-        }
+        return ParseExact(text, format, provider, DateTimeStyles.None);
     }
 
-    public static boolean TryParseExact(String text, String format,
-                                        IFormatProvider provider, DateTime[] result) {
+    public static DateTime ParseExact(String text, String format, IFormatProvider provider, DateTimeStyles styles) {
+        int flags = selectedValidateStyles(styles, "style");
+        if (provider != null) throw new UnsupportedOperationException("Only null-provider invariant exact parsing is mapped.");
+        if (text == null) throw new ArgumentNullException("s");
+        if (format == null) throw new ArgumentNullException("format");
+        int start = 0, end = text.length();
+        if ((flags & 5) != 0) while (start < end && parseSpace(text.charAt(start))) start++;
+        if ((flags & 2) != 0) while (end > start && parseSpace(text.charAt(end - 1))) end--;
+        String input = text.substring(start, end);
+        boolean inner = (flags & 4) != 0;
+        String white = inner ? "\\s*" : "";
+        String date = "([0-9]{4})" + white + "-" + white + "([0-9]{2})" + white + "-" + white + "([0-9]{2})";
+        String time = "([0-9]{2})" + white + ":" + white + "([0-9]{2})" + white + ":" + white + "([0-9]{2})";
+        boolean hasTime, fraction, roundTrip;
+        String separator;
+        switch (format) {
+            case "yyyy-MM-dd" -> { hasTime = false; fraction = false; roundTrip = false; separator = ""; }
+            case "yyyy-MM-dd HH:mm:ss" -> { hasTime = true; fraction = false; roundTrip = false; separator = inner ? white : (flags & 2) != 0 ? " ?" : " "; }
+            case "s" -> { hasTime = true; fraction = false; roundTrip = false; separator = white + "T" + white; }
+            case "yyyy-MM-ddTHH:mm:ss.fffffff" -> { hasTime = true; fraction = true; roundTrip = false; separator = white + "T" + white; }
+            case "o", "O" -> { hasTime = true; fraction = true; roundTrip = true; separator = white + "T" + white; }
+            default -> throw new FormatException("Format is not mapped for selected exact parsing");
+        }
+        String pattern = date + (hasTime ? separator + time : "")
+                + (fraction ? white + "\\." + white + "([0-9]{7})" : "")
+                + (roundTrip ? "(?:" + white + "(Z|[+-][0-9]{2}:[0-9]{2}))?" : "");
+        java.util.regex.Matcher match = java.util.regex.Pattern.compile(pattern).matcher(input);
+        if (!match.matches()) throw new FormatException("Input string was not in the selected exact format");
+        String canonical = match.group(1) + "-" + match.group(2) + "-" + match.group(3);
+        if (hasTime) canonical += "T" + match.group(4) + ":" + match.group(5) + ":" + match.group(6);
+        if (fraction) canonical += "." + match.group(7);
+        if (roundTrip && match.group(8) != null) canonical += match.group(8);
+        return Parse(canonical, provider, styles);
+    }
+
+    public static boolean TryParseExact(String text, String format, IFormatProvider provider, DateTime[] result) {
+        return TryParseExact(text, format, provider, DateTimeStyles.None, result);
+    }
+
+    public static boolean TryParseExact(String text, String format, IFormatProvider provider, DateTimeStyles styles, DateTime[] result) {
+        selectedValidateStyles(styles, "style");
+        if (provider != null) throw new UnsupportedOperationException("Only null-provider invariant exact parsing is mapped.");
         if (text != null && !text.isEmpty() && format != null && format.length() == 1
                 && "dDfFgGmMoOrRstTuUyY".indexOf(format.charAt(0)) < 0) {
             throw new FormatException("Input string was not in a correct format");
         }
-        result[0] = new DateTime(1, 1, 1);
-        if (text == null || format == null) {
-            return false;
-        }
-        try {
-            result[0] = ParseExact(text, format, provider);
-            return true;
-        } catch (FormatException expected) {
-            return false;
-        }
+        result[0] = new DateTime(0L);
+        if (text == null || format == null) return false;
+        try { result[0] = ParseExact(text, format, provider, styles); return true; }
+        catch (FormatException invalid) { return false; }
     }
 
     public static DateTime ParseExact(ReadOnlySpan<Character> s, ReadOnlySpan<Character> format, IFormatProvider provider) {
-        if (s == null) { throw new ArgumentNullException("s"); }
-        if (format == null) { throw new ArgumentNullException("format"); }
-        return ParseExact(s.selectedText(), format.selectedText(), provider);
+        return ParseExact(s, format, provider, DateTimeStyles.None);
     }
 
-    public static boolean TryParseExact(ReadOnlySpan<Character> s, ReadOnlySpan<Character> format,
-            IFormatProvider provider, DateTime[] result) {
-        if (s == null) { throw new ArgumentNullException("s"); }
-        if (format == null) { throw new ArgumentNullException("format"); }
-        return TryParseExact(s.selectedText(), format.selectedText(), provider, result);
+    public static DateTime ParseExact(ReadOnlySpan<Character> s, ReadOnlySpan<Character> format, IFormatProvider provider, DateTimeStyles styles) {
+        selectedValidateStyles(styles, "style");
+        if (s == null) throw new ArgumentNullException("s");
+        if (format == null) throw new ArgumentNullException("format");
+        return ParseExact(s.selectedText(), format.selectedText(), provider, styles);
+    }
+
+    public static boolean TryParseExact(ReadOnlySpan<Character> s, ReadOnlySpan<Character> format, IFormatProvider provider, DateTime[] result) {
+        return TryParseExact(s, format, provider, DateTimeStyles.None, result);
+    }
+
+    public static boolean TryParseExact(ReadOnlySpan<Character> s, ReadOnlySpan<Character> format, IFormatProvider provider, DateTimeStyles styles, DateTime[] result) {
+        selectedValidateStyles(styles, "style");
+        if (s == null) throw new ArgumentNullException("s");
+        if (format == null) throw new ArgumentNullException("format");
+        return TryParseExact(s.selectedText(), format.selectedText(), provider, styles, result);
     }
 
     public static DateTime FromBinary(long dateData) {
