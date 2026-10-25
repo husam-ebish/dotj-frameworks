@@ -13,10 +13,10 @@ public final class DecoderFallbackException extends ArgumentException {
     public DecoderFallbackException() { this(null); }
     public DecoderFallbackException(String message) { this(message, (Exception)null); }
     public DecoderFallbackException(String message, Exception innerException) {
-        super(message, innerException); this.bytesUnknown = null; this.index = 0;
+        super(message == null ? "Value does not fall within the expected range." : message, innerException); this.bytesUnknown = null; this.index = 0;
     }
     public DecoderFallbackException(String message, Byte[] bytesUnknown, int index) {
-        super(message); this.bytesUnknown = bytesUnknown; this.index = index;
+        super(message == null ? "Value does not fall within the expected range." : message); this.bytesUnknown = bytesUnknown; this.index = index;
     }
     public Byte[] get_BytesUnknown() { return this.bytesUnknown; }
     public int get_Index() { return this.index; }

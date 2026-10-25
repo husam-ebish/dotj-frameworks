@@ -28,7 +28,7 @@ public class UTF8Encoding extends Encoding {
         return wrap(encode(s));
     }
     @Override public int GetByteCount(String s) {
-        if (s == null) throw new ArgumentNullException("s");
+        if (s == null) throw new ArgumentNullException("chars");
         return encode(s).length;
     }
     @Override public String GetString(Byte[] bytes) {

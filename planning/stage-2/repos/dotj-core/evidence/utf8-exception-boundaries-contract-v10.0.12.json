@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "165b0e2dead0995f6cd5c68ad7b80231e1e429cea393a8d0610b1cbb6d92531a",
+  "constructors": [
+    {
+      "direction": "Encoder",
+      "kind": "default",
+      "result": {
+        "exception": "System.Text.EncoderFallbackException",
+        "message": "Value does not fall within the expected range.",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 0,
+        "charUnknown": 0,
+        "charUnknownHigh": 0,
+        "charUnknownLow": 0,
+        "isUnknownSurrogate": false
+      }
+    },
+    {
+      "direction": "Encoder",
+      "kind": "null-message",
+      "result": {
+        "exception": "System.Text.EncoderFallbackException",
+        "message": "Value does not fall within the expected range.",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 0,
+        "charUnknown": 0,
+        "charUnknownHigh": 0,
+        "charUnknownLow": 0,
+        "isUnknownSurrogate": false
+      }
+    },
+    {
+      "direction": "Encoder",
+      "kind": "empty-message",
+      "result": {
+        "exception": "System.Text.EncoderFallbackException",
+        "message": "",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 0,
+        "charUnknown": 0,
+        "charUnknownHigh": 0,
+        "charUnknownLow": 0,
+        "isUnknownSurrogate": false
+      }
+    },
+    {
+      "direction": "Encoder",
+      "kind": "message",
+      "result": {
+        "exception": "System.Text.EncoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 0,
+        "charUnknown": 0,
+        "charUnknownHigh": 0,
+        "charUnknownLow": 0,
+        "isUnknownSurrogate": false
+      }
+    },
+    {
+      "direction": "Encoder",
+      "kind": "inner",
+      "result": {
+        "exception": "System.Text.EncoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": "inner payload",
+        "index": 0,
+        "charUnknown": 0,
+        "charUnknownHigh": 0,
+        "charUnknownLow": 0,
+        "isUnknownSurrogate": false
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "default",
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "Value does not fall within the expected range.",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 0,
+        "bytesUnknown": null
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "null-message",
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "Value does not fall within the expected range.",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 0,
+        "bytesUnknown": null
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "empty-message",
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 0,
+        "bytesUnknown": null
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "message",
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 0,
+        "bytesUnknown": null
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "inner",
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": "inner payload",
+        "index": 0,
+        "bytesUnknown": null
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "bytes-index",
+      "index": -7,
+      "nullBytes": false,
+      "preservesReference": true,
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": -7,
+        "bytesUnknown": [
+          128,
+          255
+        ]
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "bytes-index",
+      "index": -7,
+      "nullBytes": true,
+      "preservesReference": true,
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": -7,
+        "bytesUnknown": null
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "bytes-index",
+      "index": 0,
+      "nullBytes": false,
+      "preservesReference": true,
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 0,
+        "bytesUnknown": [
+          128,
+          255
+        ]
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "bytes-index",
+      "index": 0,
+      "nullBytes": true,
+      "preservesReference": true,
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 0,
+        "bytesUnknown": null
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "bytes-index",
+      "index": 3,
+      "nullBytes": false,
+      "preservesReference": true,
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 3,
+        "bytesUnknown": [
+          128,
+          255
+        ]
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "bytes-index",
+      "index": 3,
+      "nullBytes": true,
+      "preservesReference": true,
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 3,
+        "bytesUnknown": null
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "bytes-index",
+      "index": 2147483647,
+      "nullBytes": false,
+      "preservesReference": true,
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 2147483647,
+        "bytesUnknown": [
+          128,
+          255
+        ]
+      }
+    },
+    {
+      "direction": "Decoder",
+      "kind": "bytes-index",
+      "index": 2147483647,
+      "nullBytes": true,
+      "preservesReference": true,
+      "result": {
+        "exception": "System.Text.DecoderFallbackException",
+        "message": "custom payload",
+        "hResult": -2147024809,
+        "paramName": null,
+        "innerMessage": null,
+        "index": 2147483647,
+        "bytesUnknown": null
+      }
+    }
+  ],
+  "nullControls": [
+    {
+      "strict": false,
+      "method": "GetBytes",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "message": "Value cannot be null. (Parameter 's')",
+        "hResult": -2147467261,
+        "paramName": "s",
+        "innerMessage": null
+      }
+    },
+    {
+      "strict": false,
+      "method": "GetByteCount",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "message": "Value cannot be null. (Parameter 'chars')",
+        "hResult": -2147467261,
+        "paramName": "chars",
+        "innerMessage": null
+      }
+    },
+    {
+      "strict": false,
+      "method": "GetChars",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "message": "Value cannot be null. (Parameter 'bytes')",
+        "hResult": -2147467261,
+        "paramName": "bytes",
+        "innerMessage": null
+      }
+    },
+    {
+      "strict": false,
+      "method": "GetCharCount",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "message": "Value cannot be null. (Parameter 'bytes')",
+        "hResult": -2147467261,
+        "paramName": "bytes",
+        "innerMessage": null
+      }
+    },
+    {
+      "strict": false,
+      "method": "GetString",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "message": "Value cannot be null. (Parameter 'bytes')",
+        "hResult": -2147467261,
+        "paramName": "bytes",
+        "innerMessage": null
+      }
+    },
+    {
+      "strict": true,
+      "method": "GetBytes",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "message": "Value cannot be null. (Parameter 's')",
+        "hResult": -2147467261,
+        "paramName": "s",
+        "innerMessage": null
+      }
+    },
+    {
+      "strict": true,
+      "method": "GetByteCount",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "message": "Value cannot be null. (Parameter 'chars')",
+        "hResult": -2147467261,
+        "paramName": "chars",
+        "innerMessage": null
+      }
+    },
+    {
+      "strict": true,
+      "method": "GetChars",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "message": "Value cannot be null. (Parameter 'bytes')",
+        "hResult": -2147467261,
+        "paramName": "bytes",
+        "innerMessage": null
+      }
+    },
+    {
+      "strict": true,
+      "method": "GetCharCount",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "message": "Value cannot be null. (Parameter 'bytes')",
+        "hResult": -2147467261,
+        "paramName": "bytes",
+        "innerMessage": null
+      }
+    },
+    {
+      "strict": true,
+      "method": "GetString",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "message": "Value cannot be null. (Parameter 'bytes')",
+        "hResult": -2147467261,
+        "paramName": "bytes",
+        "innerMessage": null
+      }
+    }
+  ],
+  "qualification": "SELECTED_EXCEPTION_CONSTRUCTOR_AND_NULL_BOUNDARIES_ONLY; RANGE_STATEFUL_SOURCE_ABI_AND_TASK_ACCEPTANCE_OPEN"
+}
