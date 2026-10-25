@@ -61,6 +61,26 @@ public class UnicodeEncoding extends Encoding {
         destination(bytes.length,byteIndex,"byteIndex");
         return encode(s.toCharArray(),charIndex,charCount,bytes,byteIndex);
     }
+    private static void stringRange(String s, int index, int count) {
+        if (s == null) throw new ArgumentNullException("s");
+        nonnegative(index, "index"); nonnegative(count, "count");
+        int limit = s.length() - count;
+        if (index > limit) throw new ArgumentOutOfRangeException("index", index, "index ('" + index + "') must be less than or equal to '" + limit + "'.");
+    }
+    @Override public int GetByteCount(String s, int index, int count) {
+        stringRange(s, index, count);
+        return encode(s.toCharArray(), index, count, null, 0);
+    }
+    @Override public Byte[] GetBytes(String s, int index, int count) {
+        stringRange(s, index, count);
+        char[] input = s.toCharArray();
+        int length = encode(input, index, count, null, 0);
+        if (length == 0) return EMPTY_PREAMBLE;
+        Byte[] output = new Byte[length];
+        java.util.Arrays.fill(output, new Byte(0));
+        encode(input, index, count, output, 0);
+        return output;
+    }
     private int putWord(char value, Byte[] output, int offset, int written) {
         if (output != null) {
             output[offset+written] = new Byte(this.bigEndian ? value >> 8 : value & 255);
