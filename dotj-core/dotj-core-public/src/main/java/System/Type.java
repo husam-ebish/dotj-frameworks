@@ -1540,7 +1540,7 @@ public abstract class Type extends MemberInfo {
                 && (candidate.definition == DBNull.class || Exception.class.isAssignableFrom(candidate.definition))) {
             return true;
         }
-        if (this.definition == ISpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class)) {
+        if (this.definition == ISpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class)) {
             return true;
         }
         if (this.definition == IUtf8SpanFormattable.class && candidate.definition == Int32.class) {
@@ -1634,7 +1634,7 @@ public abstract class Type extends MemberInfo {
             return value instanceof DBNull || value instanceof Exception;
         }
         if (this.definition == ISpanFormattable.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan || value instanceof DateTimeStyles || value instanceof TimeSpanStyles || value instanceof NumberStyles;
         }
         if (this.definition == IUtf8SpanFormattable.class) {
             return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan;
@@ -1904,7 +1904,7 @@ public abstract class Type extends MemberInfo {
         }
 
         if (this.definition == NumberStyles.class) {
-            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
         if (this.definition == TimeSpanStyles.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};

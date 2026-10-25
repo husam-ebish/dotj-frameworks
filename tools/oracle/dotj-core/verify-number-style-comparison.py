@@ -16,7 +16,7 @@ def main():
     assert oracle['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-number-style-comparison-contract.ps1').read_bytes()).hexdigest()
     cases=[]
     assert oracle['enumType']=='System.Globalization.NumberStyles' and oracle['valueCount']==31
-    cases.append('{Type type=Type.GetType("System.Globalization.NumberStyles");Type contract=Type.GetType("System.IComparable");Type[] interfaces=type.GetInterfaces();check(interfaces.length==3 && interfaces[0]==contract && interfaces[1]==Type.GetType("System.IFormattable") && type.GetInterface("IComparable")==contract && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(NumberStyles.FromInt32(3)),0);interfaces[0]=null;check(type.GetInterfaces()[0]==contract,0);}')
+    cases.append('{Type type=Type.GetType("System.Globalization.NumberStyles");Type contract=Type.GetType("System.IComparable");Type[] interfaces=type.GetInterfaces();check(interfaces.length==4 && interfaces[0]==contract && interfaces[2]==Type.GetType("System.IFormattable") && type.GetInterface("IComparable")==contract && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(NumberStyles.FromInt32(3)),0);interfaces[0]=null;check(type.GetInterfaces()[0]==contract,0);}')
     for row in oracle['hashes']:
         for expression in [f'NumberStyles.FromInt32({row["value"]}).GetHashCode().get_Value()',f'NumberStyles.FromInt32({row["value"]}).hashCode()']:
             index=len(cases);cases.append('{check('+expression+'=='+str(row['hash'])+','+str(index)+');}')
@@ -51,9 +51,9 @@ def main():
     subprocess.run(['javac','-Xmaxerrs','5','--release','21','-cp',str(args.jar),'-d',str(work),str(source)],check=True)
     subprocess.run(['java','-Duser.timezone=Europe/Zurich','-cp',str(args.jar)+';'+str(work),'NumberStyleComparisonProbe'],check=True)
     output=subprocess.run(['javap','-public','-classpath',str(args.jar),'System.Globalization.NumberStyles'],check=True,capture_output=True,text=True).stdout
-    assert 'implements System.IFormattable,System.IComparable,System.IConvertible {' in output
+    assert 'implements System.IFormattable,System.IComparable,System.IConvertible,System.ISpanFormattable {' in output
     for signature in ['public int CompareTo(java.lang.Object);','public boolean Equals(java.lang.Object);','public System.Int32 GetHashCode();']:assert signature in output
-    record=dict(schemaVersion=1,casesPassed=len(cases),omittedNativeInterfaces=sorted(set(oracle['interfaces'])-{'System.IFormattable','System.IComparable','System.IConvertible'}),oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_NUMBER_STYLE_COMPARISON_PASS; OTHER_ENUM_INTERFACES_LANGUAGE_AND_RELEASE_OPEN')
+    record=dict(schemaVersion=1,casesPassed=len(cases),omittedNativeInterfaces=sorted(set(oracle['interfaces'])-{'System.IFormattable','System.IComparable','System.IConvertible','System.ISpanFormattable'}),oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_NUMBER_STYLE_COMPARISON_PASS; OTHER_ENUM_INTERFACES_LANGUAGE_AND_RELEASE_OPEN')
     (EVIDENCE/'number-style-comparison-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
     print('PASS NumberStyles comparison: 5643 pinned groups')
 

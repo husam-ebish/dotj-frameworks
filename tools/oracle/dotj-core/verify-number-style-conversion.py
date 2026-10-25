@@ -16,7 +16,7 @@ def main():
     assert oracle['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-number-style-conversion-contract.ps1').read_bytes()).hexdigest()
     cases=[]
     assert oracle['enumType']=='System.Globalization.NumberStyles' and oracle['providerThrowsIfQueried'] and oracle['valueCount']==39
-    cases.append('{Type type=Type.GetType("System.Globalization.NumberStyles");Type contract=Type.GetType("System.IConvertible");Type[] interfaces=type.GetInterfaces();check(interfaces.length==3 && interfaces[2]==contract && type.GetInterface("IConvertible")==contract && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(NumberStyles.FromInt32(3)),0);interfaces[2]=null;check(type.GetInterfaces()[2]==contract,0);}')
+    cases.append('{Type type=Type.GetType("System.Globalization.NumberStyles");Type contract=Type.GetType("System.IConvertible");Type[] interfaces=type.GetInterfaces();check(interfaces.length==4 && interfaces[3]==contract && type.GetInterface("IConvertible")==contract && contract.IsAssignableFrom(type) && contract.IsInstanceOfType(NumberStyles.FromInt32(3)),0);interfaces[3]=null;check(type.GetInterfaces()[3]==contract,0);}')
     def errors(expression,result,index):
         parameter=f' && java.util.Objects.equals(((ArgumentException)expected).get_ParamName(),{json.dumps(result["paramName"])})' if result['exception'].endswith(('ArgumentException','ArgumentNullException')) else ''
         return f'try{{{expression};throw new AssertionError("missing enum conversion error {index}");}}catch({result["exception"].split(".")[-1]} expected){{check(expected.getClass().getName().equals("{result["exception"]}") && expected.get_HResult()=={result["hResult"]}{parameter},{index});}}'
@@ -60,9 +60,9 @@ def main():
     subprocess.run(['javac','-Xmaxerrs','5','--release','21','-cp',str(args.jar),'-d',str(work),str(source)],check=True)
     subprocess.run(['java','-Duser.timezone=Europe/Zurich','-cp',str(args.jar)+';'+str(work),'NumberStyleConversionProbe'],check=True)
     output=subprocess.run(['javap','-public','-classpath',str(args.jar),'System.Globalization.NumberStyles'],check=True,capture_output=True,text=True).stdout
-    assert 'implements System.IFormattable,System.IComparable,System.IConvertible {' in output
+    assert 'implements System.IFormattable,System.IComparable,System.IConvertible,System.ISpanFormattable {' in output
     assert 'public System.TypeCode GetTypeCode();' in output and 'public java.lang.Object ToType(System.Type, System.IFormatProvider);' in output
-    record=dict(schemaVersion=1,casesPassed=len(cases),omittedNativeInterfaces=sorted(set(oracle['interfaces'])-{'System.IFormattable','System.IComparable','System.IConvertible'}),oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_NUMBER_STYLE_CONVERSION_PASS; OTHER_ENUM_INTERFACES_LANGUAGE_AND_RELEASE_OPEN')
+    record=dict(schemaVersion=1,casesPassed=len(cases),omittedNativeInterfaces=sorted(set(oracle['interfaces'])-{'System.IFormattable','System.IComparable','System.IConvertible','System.ISpanFormattable'}),oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),qualification='BOUNDED_NUMBER_STYLE_CONVERSION_PASS; OTHER_ENUM_INTERFACES_LANGUAGE_AND_RELEASE_OPEN')
     (EVIDENCE/'number-style-conversion-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
     print('PASS NumberStyles conversions: 3199 pinned groups')
 

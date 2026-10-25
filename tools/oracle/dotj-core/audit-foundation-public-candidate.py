@@ -384,10 +384,12 @@ def main():
             assert "public java.lang.String get_InvalidCultureName();" in declarations
             disposition = "SELECTED_EXCEPTION_CONSTRUCTORS; culture semantics and exact messages open"
         elif name == "System.Globalization.NumberStyles":
-            assert header == "public final class System.Globalization.NumberStyles implements System.IFormattable,System.IComparable,System.IConvertible {"
+            assert header == "public final class System.Globalization.NumberStyles implements System.IFormattable,System.IComparable,System.IConvertible,System.ISpanFormattable {"
             assert "public int get_Value();" in declarations
             assert "public System.Globalization.NumberStyles Or(System.Globalization.NumberStyles);" in declarations
             assert "public static System.Globalization.NumberStyles FromInt32(int);" in declarations
+            assert "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);" in declarations
+            assert "public boolean TryFormat(System.Span<java.lang.Character>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);" in declarations
             assert "public System.TypeCode GetTypeCode();" in declarations
             assert "public java.lang.Object ToType(System.Type, System.IFormatProvider);" in declarations
             assert "public int CompareTo(java.lang.Object);" in declarations
