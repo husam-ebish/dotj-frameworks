@@ -128,7 +128,6 @@ public class UnicodeEncoding extends Encoding {
                 else buffer.GetNextChar();
                 replacement = value.toString();
             }
-            else if(selectedFallback instanceof EncoderReplacementFallback r) replacement=r.get_DefaultString();
             else {
                 if(buffer==null){buffer=selectedFallback.CreateFallbackBuffer();buffer.encodingContext=this;}
                 StringBuilder value=new StringBuilder();
