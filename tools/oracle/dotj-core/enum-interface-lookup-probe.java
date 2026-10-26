@@ -1,0 +1,14 @@
+import System.Exception;import System.ArgumentException;import System.ArgumentOutOfRangeException;import System.Globalization.NumberFormatInfo;import System.Type;import java.nio.file.*;import java.util.*;
+class EnumInterfaceLookupProbe {
+ interface Action{void run();}
+ static String units(String s){if(s==null)return "~";StringJoiner j=new StringJoiner(",");for(char c:s.toCharArray())j.add(Integer.toString(c));return j.toString();}
+ static String text(String s){if(s.equals("~"))return null;StringBuilder b=new StringBuilder();if(!s.isEmpty())for(String u:s.split(","))b.append((char)Integer.parseInt(u));return b.toString();}
+ static int[] sizes(String s){if(s.equals("~"))return null;if(s.isEmpty())return new int[0];String[] p=s.split(",");int[] a=new int[p.length];for(int i=0;i<a.length;i++)a[i]=Integer.parseInt(p[i]);return a;}
+ static String csv(int[] a){StringJoiner j=new StringJoiner(",");for(int v:a)j.add(Integer.toString(v));return j.toString();}
+ static String outcome(Action a){try{a.run();return "OK";}catch(Exception e){return String.join("|","ERR",e.getClass().getName(),units(e.get_Message()),Integer.toString(e.get_HResult()),units(e instanceof ArgumentException x?x.get_ParamName():null),e instanceof ArgumentOutOfRangeException x&&x.get_ActualValue()!=null?x.get_ActualValue().toString():"~");}}
+ static void check(String a,String e,String c){if(!a.equals(e))throw new AssertionError(c+" actual="+a+" expected="+e);}
+ static String flag(boolean b){return b?"1":"0";}
+ static String interfaces(Type[] types){StringJoiner j=new StringJoiner(",");for(Type t:types)j.add(t.get_FullName());return j.toString();}
+ static String lookup(Type t,String query,String route){try{Type found=route.equals("default")?t.GetInterface(query):t.GetInterface(query,route.equals("ignore-case"));return "OK|"+units(found==null?null:found.get_FullName());}catch(Exception e){return String.join("|","ERR",e.getClass().getName(),units(e.get_Message()),Integer.toString(e.get_HResult()),units(e instanceof ArgumentException x?x.get_ParamName():null),"~");}}
+ public static void main(String[] args)throws java.lang.Exception{int calls=0,groups=0;for(String line:Files.readAllLines(Path.of(args[0]))){String[] p=line.split("\t",-1);Type t=Type.GetType(p[1]);if(p[0].equals("I")){Type[] first=t.GetInterfaces(),second=t.GetInterfaces();check(interfaces(first),p[2],"ordered interfaces "+p[1]);check(flag(first!=second),p[3],"array identity "+p[1]);boolean canonical=true;for(Type c:first)canonical&=c==Type.GetType(c.get_FullName());first[0]=null;check(interfaces(t.GetInterfaces()),p[4],"mutation isolation "+p[1]);check(flag(canonical),p[5],"canonical elements "+p[1]);groups+=4;}else{check(lookup(t,text(p[2]),p[3]),p[4],line);calls++;groups++;}}java.lang.System.out.println("PASS enum interface lookup calls="+calls+" groups="+groups);}
+}

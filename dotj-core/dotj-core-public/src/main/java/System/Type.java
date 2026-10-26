@@ -2002,7 +2002,7 @@ public abstract class Type extends MemberInfo {
                     fromJavaClass(IFormattable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
         }
 
-        if (this.definition == MidpointRounding.class) {
+        if (this.definition == MidpointRounding.class || this.definition == DigitShapes.class || this.definition == NormalizationForm.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
         if (this.definition == BindingFlags.class) {
@@ -2168,7 +2168,7 @@ public abstract class Type extends MemberInfo {
 
     public Type GetInterface(String fullname, boolean ignoreCase) {
         if (fullname == null) throw new ArgumentNullException("fullname");
-        if (selectedTextProtocolType() || this.definition == ICloneable.class || this.definition == NumberFormatInfo.class || Encoding.class.isAssignableFrom(this.definition)
+        if (this.definition == MidpointRounding.class || this.definition == DigitShapes.class || this.definition == NormalizationForm.class || selectedTextProtocolType() || this.definition == ICloneable.class || this.definition == NumberFormatInfo.class || Encoding.class.isAssignableFrom(this.definition)
                 || this.get_IsArray() || this.definition == java.lang.reflect.Array.class
                 || this.definition == String.class || this.definition == Int32.class
                 || this.definition == Byte.class || this.definition == SByte.class
@@ -2190,7 +2190,7 @@ public abstract class Type extends MemberInfo {
             String name = fullname.substring(separator + 1);
             for (Type contract : GetInterfaces()) {
                 if ((namespace == null || namespace.equals(contract.get_Namespace()))
-                        && (name.equals(contract.get_Name()) || ignoreCase && (this.definition == NumberFormatInfo.class ? asciiInterfaceNameEquals(name, contract.get_Name()) : name.equalsIgnoreCase(contract.get_Name())))) {
+                        && (name.equals(contract.get_Name()) || ignoreCase && ((this.definition == NumberFormatInfo.class || this.definition == MidpointRounding.class || this.definition == DigitShapes.class || this.definition == NormalizationForm.class) ? asciiInterfaceNameEquals(name, contract.get_Name()) : name.equalsIgnoreCase(contract.get_Name())))) {
                     return contract;
                 }
             }
