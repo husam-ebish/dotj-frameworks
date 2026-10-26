@@ -1,0 +1,9 @@
+# DigitShapes Char span and HasFlag qualification
+
+Batch 2308 qualifies the existing DigitShapes carrier without changing Java source. Inventory remains 99 sources, 130 classes and 27 represented NumberFormatInfo fields. The native capture uses Reflection.Emit to call ISpanFormattable over arrays and slices; no C# source or generated/vendor code is changed.
+
+The paired matrix contains 1548 native Char buffers covering 14 Int32 values, 13 null/empty/valid/invalid format inputs and capacities around native output boundaries. Every case compares the result/failure and the written count plus complete sentinel buffer. Sliced spans retain prefix/suffix sentinels. The provider throws if consulted and remains unused. Five interface controls establish the four selected enum interfaces and absence of IUtf8SpanFormattable, corroborated by a compile rejection. HasFlag contributes 484 signed-bit pairs and 66 null/foreign-enum controls. Combined comparison count is 3651. CoreLib, Enum.cs, DigitShapes.cs, producer, fixture, consumer and JAR hashes bind evidence.
+
+Canonical qualification requires 323 foundation checks, retaining conversion/comparison and NumberFormatInfo state contracts and API/source/map/notice/distribution audits. Passing the prior product unchanged is expected for this qualification. Byref lifetime, UTF8, parsing, complete enum ABI, cultures, metadata, serialization and E01/E02/E03/N01/Q01 remain open. No implementation task or framework is accepted. Next is boxed and foreign-enum argument validation in Type.IsEnumDefined/GetEnumName.
+
+JDK APIs are product runtime dependencies. Python and pinned .NET are development/reference tools. Broader dependencies and public .j distribution remain unresolved. Temporary assets stay under D:\AI\Implementation\dotj Frameworks. Milestone 2500 is numbered; total project batches remain unknown.
