@@ -14,6 +14,9 @@ import System.Type;
 public final class NumberFormatInfo implements IFormatProvider, ICloneable {
     private static final NumberFormatInfo invariantInfo = ReadOnly(new NumberFormatInfo());
     private boolean isReadOnly;
+    private String nanSymbol = "NaN";
+    private String positiveInfinitySymbol = "Infinity";
+    private String negativeInfinitySymbol = "-Infinity";
     private String numberGroupSeparator = ",";
     private int[] numberGroupSizes = {3};
     private String numberDecimalSeparator = ".";
@@ -86,6 +89,9 @@ public final class NumberFormatInfo implements IFormatProvider, ICloneable {
         result.percentDecimalDigits = this.percentDecimalDigits;
         result.percentPositivePattern = this.percentPositivePattern;
         result.percentNegativePattern = this.percentNegativePattern;
+        result.nanSymbol = this.nanSymbol;
+        result.positiveInfinitySymbol = this.positiveInfinitySymbol;
+        result.negativeInfinitySymbol = this.negativeInfinitySymbol;
         return result;
     }
 
@@ -333,6 +339,30 @@ public final class NumberFormatInfo implements IFormatProvider, ICloneable {
         requireRange(value, 11);
         requireWritable();
         this.percentNegativePattern = value;
+    }
+
+    public String get_NaNSymbol() { return this.nanSymbol; }
+
+    public void set_NaNSymbol(String value) {
+        if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
+        this.nanSymbol = value;
+    }
+
+    public String get_PositiveInfinitySymbol() { return this.positiveInfinitySymbol; }
+
+    public void set_PositiveInfinitySymbol(String value) {
+        if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
+        this.positiveInfinitySymbol = value;
+    }
+
+    public String get_NegativeInfinitySymbol() { return this.negativeInfinitySymbol; }
+
+    public void set_NegativeInfinitySymbol(String value) {
+        if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
+        this.negativeInfinitySymbol = value;
     }
 
     @Override
