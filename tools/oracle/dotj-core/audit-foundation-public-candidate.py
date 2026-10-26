@@ -230,6 +230,8 @@ def main():
                                     "public static <T> System.Decimal Parse(System.ReadOnlySpan<T>);",
                                     "public static System.Decimal Parse(java.lang.String, System.IFormatProvider);",
                                     "public static <T> System.Decimal Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+                                    "public static System.Decimal Parse(java.lang.String, System.Globalization.NumberStyles);",
+                                    "public static <T> System.Decimal Parse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles);",
                                     "public static System.Decimal Parse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider);",
                                     "public static <T> System.Decimal Parse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider);",
                                     "public static boolean TryParse(java.lang.String, System.Decimal[]);",
