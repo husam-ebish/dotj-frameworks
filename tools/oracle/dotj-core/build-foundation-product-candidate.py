@@ -230,6 +230,7 @@ EXPECTED_CLASSES = [
     "org/dotj/internal/collections/ExceptionDataDictionary$CollectionView.class",
     "org/dotj/internal/collections/ExceptionDataDictionary$EntryEnumerator.class",
     "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class",
+    "org/dotj/internal/collections/ExceptionDataDictionary$Node.class",
     "org/dotj/internal/collections/ExceptionDataDictionary.class",
     "org/dotj/internal/throwing/ThrowSite.class",
 ]
