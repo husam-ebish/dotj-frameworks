@@ -33,6 +33,13 @@ public final class NumberFormatInfo implements IFormatProvider {
     private int percentPositivePattern = 0;
     private int percentNegativePattern = 0;
 
+    private static void requireRange(int value, int maximum) {
+        if (value < 0 || value > maximum) {
+            throw new ArgumentOutOfRangeException("value", value,
+                    "Valid values are between 0 and " + maximum + ", inclusive.");
+        }
+    }
+
     public String get_NumberGroupSeparator() {
         return this.numberGroupSeparator;
     }
@@ -76,9 +83,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_NumberDecimalDigits(int value) {
-        if (value < 0 || value > 99) {
-            throw new ArgumentOutOfRangeException("value");
-        }
+        requireRange(value, 99);
         this.numberDecimalDigits = value;
     }
 
@@ -87,7 +92,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_NumberNegativePattern(int value) {
-        if (value < 0 || value > 4) throw new ArgumentOutOfRangeException("value");
+        requireRange(value, 4);
         this.numberNegativePattern = value;
     }
 
@@ -151,7 +156,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_CurrencyDecimalDigits(int value) {
-        if (value < 0 || value > 99) throw new ArgumentOutOfRangeException("value");
+        requireRange(value, 99);
         this.currencyDecimalDigits = value;
     }
 
@@ -164,12 +169,12 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_CurrencyPositivePattern(int value) {
-        if (value < 0 || value > 3) throw new ArgumentOutOfRangeException("value");
+        requireRange(value, 3);
         this.currencyPositivePattern = value;
     }
 
     public void set_CurrencyNegativePattern(int value) {
-        if (value < 0 || value > 16) throw new ArgumentOutOfRangeException("value");
+        requireRange(value, 16);
         this.currencyNegativePattern = value;
     }
 
@@ -224,7 +229,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_PercentDecimalDigits(int value) {
-        if (value < 0 || value > 99) throw new ArgumentOutOfRangeException("value");
+        requireRange(value, 99);
         this.percentDecimalDigits = value;
     }
 
@@ -233,7 +238,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_PercentPositivePattern(int value) {
-        if (value < 0 || value > 3) throw new ArgumentOutOfRangeException("value");
+        requireRange(value, 3);
         this.percentPositivePattern = value;
     }
 
@@ -242,7 +247,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_PercentNegativePattern(int value) {
-        if (value < 0 || value > 11) throw new ArgumentOutOfRangeException("value");
+        requireRange(value, 11);
         this.percentNegativePattern = value;
     }
 
