@@ -37,7 +37,7 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
     @Override public Object get_Item(Object key) {
         requireKey(key);
         for (Node node = this.head; node != null; node = node.next) {
-            if (node.key.equals(key)) return node.value;
+            if (keysEqual(node.key, key)) return node.value;
         }
         return null;
     }
@@ -47,7 +47,7 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
         this.version++;
         Node last = null;
         for (Node node = this.head; node != null; node = node.next) {
-            if (node.key.equals(key)) { node.value = value; return; }
+            if (keysEqual(node.key, key)) { node.value = value; return; }
             last = node;
         }
         append(last, key, value);
@@ -67,7 +67,7 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
     @Override public boolean Contains(Object key) {
         requireKey(key);
         for (Node node = this.head; node != null; node = node.next) {
-            if (node.key.equals(key)) return true;
+            if (keysEqual(node.key, key)) return true;
         }
         return false;
     }
@@ -77,7 +77,7 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
         this.version++;
         Node last = null;
         for (Node node = this.head; node != null; node = node.next) {
-            if (node.key.equals(key)) {
+            if (keysEqual(node.key, key)) {
                 throw new ArgumentException("Item has already been added. Key in dictionary: '"
                         + keyText(node.key) + "'  Key being added: '" + keyText(key) + "'");
             }
@@ -92,7 +92,7 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
         this.version++;
         Node last = null;
         for (Node node = this.head; node != null; node = node.next) {
-            if (node.key.equals(key)) {
+            if (keysEqual(node.key, key)) {
                 if (node == this.head) this.head = node.next;
                 else {
                     if (last == null) throw new NullReferenceException();
@@ -103,6 +103,16 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
             }
             last = node;
         }
+    }
+
+    private static boolean keysEqual(Object stored, Object query) {
+        if (stored instanceof Double left && query instanceof Double right) {
+            return left.doubleValue() == right.doubleValue() || Double.isNaN(left) && Double.isNaN(right);
+        }
+        if (stored instanceof Float left && query instanceof Float right) {
+            return left.floatValue() == right.floatValue() || Float.isNaN(left) && Float.isNaN(right);
+        }
+        return stored.equals(query);
     }
 
     private static String keyText(Object key) {
