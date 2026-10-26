@@ -233,20 +233,19 @@ public class UTF8Encoding extends Encoding {
         if (offset < 0 || offset > capacity) throw new ArgumentOutOfRangeException(destinationParameter);
     }
     @Override public int GetMaxByteCount(int charCount) {
-        if (charCount < 0) throw new ArgumentOutOfRangeException("charCount");
-        long factor = Math.max(1, this.encoderFallback.get_MaxCharCount());
-        long units = (long)charCount + 1;
-        if (units > Integer.MAX_VALUE / (3 * factor)) throw new ArgumentOutOfRangeException("charCount");
-        return (int)(units * 3 * factor);
+        if (charCount < 0) throw new ArgumentOutOfRangeException("charCount", charCount, "charCount ('" + charCount + "') must be a non-negative value.");
+        long count = (long)charCount + 1;
+        if (this.encoderFallback.get_MaxCharCount() > 1) count *= this.encoderFallback.get_MaxCharCount();
+        count *= 3;
+        if (count > Integer.MAX_VALUE) throw new ArgumentOutOfRangeException("charCount", "Too many characters. The resulting number of bytes is larger than what can be returned as an int.");
+        return (int)count;
     }
     @Override public int GetMaxCharCount(int byteCount) {
-        if (byteCount < 0 || byteCount == Integer.MAX_VALUE) {
-            throw new ArgumentOutOfRangeException("byteCount");
-        }
-        long factor = Math.max(1, this.decoderFallback.get_MaxCharCount());
-        long units = (long)byteCount + 1;
-        if (units > Integer.MAX_VALUE / factor) throw new ArgumentOutOfRangeException("byteCount");
-        return (int)(units * factor);
+        if (byteCount < 0) throw new ArgumentOutOfRangeException("byteCount", byteCount, "byteCount ('" + byteCount + "') must be a non-negative value.");
+        long count = (long)byteCount + 1;
+        if (this.decoderFallback.get_MaxCharCount() > 1) count *= this.decoderFallback.get_MaxCharCount();
+        if (count > Integer.MAX_VALUE) throw new ArgumentOutOfRangeException("byteCount", "Too many bytes. The resulting number of chars is larger than what can be returned as an int.");
+        return (int)count;
     }
     @Override public void set_EncoderFallback(EncoderFallback value) {
         if (get_IsReadOnly()) throw new InvalidOperationException("Instance is read-only.");
