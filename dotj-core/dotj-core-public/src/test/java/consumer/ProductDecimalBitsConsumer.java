@@ -4,6 +4,7 @@ import System.ArgumentException;
 import System.ArgumentNullException;
 import System.ArgumentOutOfRangeException;
 import System.Decimal;
+import System.IFormatProvider;
 import System.MidpointRounding;
 import System.OverflowException;
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public final class ProductDecimalBitsConsumer {
             }
             if (!Arrays.equals(Decimal.GetBits(value), patterns[index])
                     || !Arrays.equals(Decimal.GetBits(value.ToDecimal(null)), patterns[index])
-                    || !texts[index].equals(value.ToString(null))) {
+                    || !texts[index].equals(value.ToString((IFormatProvider)null))) {
                 throw new AssertionError("Decimal bit pattern changed: " + index);
             }
             int[] result = Decimal.GetBits(value);

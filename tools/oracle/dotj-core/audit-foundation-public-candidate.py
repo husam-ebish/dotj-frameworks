@@ -243,6 +243,7 @@ def main():
                                     "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
                                     "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
                                     "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+                                    "public java.lang.String ToString(java.lang.String);",
                                     "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
                                     "public System.TypeCode GetTypeCode();",
                                     "public boolean ToBoolean(System.IFormatProvider);",

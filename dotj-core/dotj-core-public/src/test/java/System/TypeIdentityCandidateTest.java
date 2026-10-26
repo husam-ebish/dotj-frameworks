@@ -51,7 +51,7 @@ public final class TypeIdentityCandidateTest {
         if (Type.GetType("System.DBNull") != Type.fromJavaClass(DBNull.class)
                 || DBNull.Value == null
                 || !"".equals(DBNull.Value.ToString())
-                || !"".equals(DBNull.Value.ToString(null))
+                || !"".equals(DBNull.Value.ToString((IFormatProvider)null))
                 || !"".equals(DBNull.Value.toString())
                 || DBNull.Value.GetTypeCode() != TypeCode.DBNull) {
             throw new AssertionError("Selected DBNull identity changed");
@@ -282,7 +282,7 @@ public final class TypeIdentityCandidateTest {
         if (valueOverloads.get_MemberCount() != 4
                 || valueOverloads.GetChar("character") != 'Q'
                 || valueOverloads.GetSingle("single") != 1.25f
-                || !"12".equals(valueOverloads.GetDecimal("decimal").ToString(null))
+                || !"12".equals(valueOverloads.GetDecimal("decimal").ToString((IFormatProvider)null))
                 || !"2024-02-29".equals(valueOverloads.GetDateTime("date")
                     .ToString("yyyy-MM-dd", null))
                 || !valueCursor.MoveNext()
@@ -331,7 +331,7 @@ public final class TypeIdentityCandidateTest {
                 || uint16Convertible.GetTypeCode() != TypeCode.UInt16
                 || uint16Convertible.ToInt32(null) != 60000
                 || uint16Convertible.ToUInt32(null) != 60000L
-                || !"60000".equals(uint16Convertible.ToString(null))) {
+                || !"60000".equals(uint16Convertible.ToString((IFormatProvider)null))) {
             throw new AssertionError("Selected UInt16 convertible values changed");
         }
         try {
@@ -358,8 +358,8 @@ public final class TypeIdentityCandidateTest {
                 || uint32Convertible.ToInt64(null) != 4000000000L
                 || uint32Convertible.ToUInt32(null) != 4000000000L
                 || !"4000000000".equals(uint32Convertible.ToUInt64(null).toString())
-                || !"4000000000".equals(uint32Convertible.ToDecimal(null).ToString(null))
-                || !"4000000000".equals(uint32Convertible.ToString(null))) {
+                || !"4000000000".equals(uint32Convertible.ToDecimal(null).ToString((IFormatProvider)null))
+                || !"4000000000".equals(uint32Convertible.ToString((IFormatProvider)null))) {
             throw new AssertionError("Selected UInt32 convertible values changed");
         }
         try {
@@ -426,7 +426,7 @@ public final class TypeIdentityCandidateTest {
                 || !Long.valueOf(4000000000L).equals(uint32Convertible.ToType(
                     Type.GetType("System.Int64"), null))
                 || !"4000000000".equals(((Decimal) uint32Convertible.ToType(
-                    Type.GetType("System.Decimal"), null)).ToString(null))
+                    Type.GetType("System.Decimal"), null)).ToString((IFormatProvider)null))
                 || !"4000000000".equals(uint32Convertible.ToType(
                     Type.GetType("System.String"), null))) {
             throw new AssertionError("Selected unsigned ToType values changed");
@@ -518,12 +518,12 @@ public final class TypeIdentityCandidateTest {
         }
         SerializationInfo decimalText = new SerializationInfo(dbnullType, selectedConverter);
         decimalText.AddValue("decimalText", "12.5");
-        if (!"12.5".equals(decimalText.GetDecimal("decimalText").ToString(null))
+        if (!"12.5".equals(decimalText.GetDecimal("decimalText").ToString((IFormatProvider)null))
                 || !"12.5".equals(((Decimal) selectedConverter.Convert(
-                    "12.5", Type.GetType("System.Decimal"))).ToString(null))
+                    "12.5", Type.GetType("System.Decimal"))).ToString((IFormatProvider)null))
                 || !"12.5".equals(((Decimal) selectedConverter.Convert(
-                    "12.5", TypeCode.Decimal)).ToString(null))
-                || !"42".equals(selectedConverter.ToDecimal(42).ToString(null))) {
+                    "12.5", TypeCode.Decimal)).ToString((IFormatProvider)null))
+                || !"42".equals(selectedConverter.ToDecimal(42).ToString((IFormatProvider)null))) {
             throw new AssertionError("Selected Decimal formatter routes changed");
         }
         try {
@@ -659,7 +659,7 @@ public final class TypeIdentityCandidateTest {
                 || dateConvertible.GetTypeCode() != TypeCode.DateTime
                 || dateCopy == leapDay || dateTypeCopy == leapDay
                 || !"2024-02-29".equals(dateCopy.ToString("yyyy-MM-dd", null))
-                || !"02/29/2024 00:00:00".equals(dateConvertible.ToString(null))) {
+                || !"02/29/2024 00:00:00".equals(dateConvertible.ToString((IFormatProvider)null))) {
             throw new AssertionError("Selected DateTime IConvertible values changed");
         }
         try {
@@ -687,8 +687,8 @@ public final class TypeIdentityCandidateTest {
                 || ((IConvertible) Decimal.Parse("13.5")).ToInt32(null) != 14
                 || decimalConvertible.ToDouble(null) != 12.5d
                 || !decimalConvertible.ToBoolean(null)
-                || !"12.5".equals(decimalConvertible.ToString(null))
-                || !"12.5".equals(decimalConvertible.ToDecimal(null).ToString(null))) {
+                || !"12.5".equals(decimalConvertible.ToString((IFormatProvider)null))
+                || !"12.5".equals(decimalConvertible.ToDecimal(null).ToString((IFormatProvider)null))) {
             throw new AssertionError("Selected Decimal IConvertible values changed");
         }
         try {
@@ -706,9 +706,9 @@ public final class TypeIdentityCandidateTest {
         java.math.BigInteger maxUnsigned64 = new java.math.BigInteger("18446744073709551615");
         SerializationInfo crossUnsigned = new SerializationInfo(dbnullType, selectedConverter);
         crossUnsigned.AddValue("u64", maxUnsigned64);
-        if (!"18446744073709551615".equals(selectedConverter.ToDecimal(maxUnsigned64).ToString(null))
+        if (!"18446744073709551615".equals(selectedConverter.ToDecimal(maxUnsigned64).ToString((IFormatProvider)null))
                 || !"18446744073709551615".equals(((Decimal) crossUnsigned.GetValue(
-                    "u64", Type.GetType("System.Decimal"))).ToString(null))
+                    "u64", Type.GetType("System.Decimal"))).ToString((IFormatProvider)null))
                 || selectedConverter.ToInt64(java.math.BigInteger.valueOf(42)) != 42L) {
             throw new AssertionError("Selected UInt64 cross conversions changed");
         }
@@ -747,8 +747,8 @@ public final class TypeIdentityCandidateTest {
                 || sbyteConvertible.GetTypeCode() != TypeCode.SByte
                 || byteConvertible.ToInt32(null) != 200
                 || sbyteConvertible.ToInt32(null) != -5
-                || !"200".equals(byteConvertible.ToString(null))
-                || !"-5".equals(sbyteConvertible.ToString(null))) {
+                || !"200".equals(byteConvertible.ToString((IFormatProvider)null))
+                || !"-5".equals(sbyteConvertible.ToString((IFormatProvider)null))) {
             throw new AssertionError("Selected byte convertible contract changed");
         }
         try {
@@ -778,9 +778,9 @@ public final class TypeIdentityCandidateTest {
                 || !"200".equals(byteConvertible.ToType(Type.GetType("System.String"), null))
                 || !"-5".equals(sbyteConvertible.ToType(Type.GetType("System.String"), null))
                 || !"200".equals(((Decimal) byteConvertible.ToType(
-                    Type.GetType("System.Decimal"), null)).ToString(null))
+                    Type.GetType("System.Decimal"), null)).ToString((IFormatProvider)null))
                 || !"-5".equals(((Decimal) sbyteConvertible.ToType(
-                    Type.GetType("System.Decimal"), null)).ToString(null))) {
+                    Type.GetType("System.Decimal"), null)).ToString((IFormatProvider)null))) {
             throw new AssertionError("Selected Byte/SByte ToType values changed");
         }
         try {
@@ -874,7 +874,7 @@ public final class TypeIdentityCandidateTest {
             }
         }
         if (!"5000000000".equals(selectedConverter.ToString(5000000000L))
-                || !"5000000000".equals(selectedConverter.ToDecimal(5000000000L).ToString(null))
+                || !"5000000000".equals(selectedConverter.ToDecimal(5000000000L).ToString((IFormatProvider)null))
                 || selectedConverter.ToDouble(5000000000L) != 5000000000d
                 || !selectedConverter.ToBoolean(5000000000L)
                 || !"5000000000".equals(selectedConverter.ToUInt64(5000000000L).toString())) {
@@ -888,8 +888,8 @@ public final class TypeIdentityCandidateTest {
         }
         if (selectedConverter.ToSingle(1.25d) != 1.25f
                 || selectedConverter.ToDouble(1.25f) != 1.25d
-                || !"1.25".equals(selectedConverter.ToDecimal(1.25d).ToString(null))
-                || !"1.25".equals(selectedConverter.ToDecimal(1.25f).ToString(null))
+                || !"1.25".equals(selectedConverter.ToDecimal(1.25d).ToString((IFormatProvider)null))
+                || !"1.25".equals(selectedConverter.ToDecimal(1.25f).ToString((IFormatProvider)null))
                 || selectedConverter.ToInt32(2.5d) != 2
                 || selectedConverter.ToInt32(3.5d) != 4
                 || !selectedConverter.ToBoolean(1.25d)) {
@@ -940,9 +940,9 @@ public final class TypeIdentityCandidateTest {
             // Pinned CLR failure type.
         }
         if (!"79228162514264337593543950335".equals(
-                    Decimal.Parse("79228162514264337593543950335").ToString(null))
+                    Decimal.Parse("79228162514264337593543950335").ToString((IFormatProvider)null))
                 || !"-79228162514264337593543950335".equals(
-                    Decimal.Parse("-79228162514264337593543950335").ToString(null))) {
+                    Decimal.Parse("-79228162514264337593543950335").ToString((IFormatProvider)null))) {
             throw new AssertionError("Selected Decimal integer limits changed");
         }
         for (String text : new String[] {
@@ -961,8 +961,8 @@ public final class TypeIdentityCandidateTest {
         } catch (OverflowException expected) {
             // Pinned CLR failure type.
         }
-        if (!"1234.50".equals(Decimal.Parse("1,234.50").ToString(null))
-                || !"-1234.50".equals(Decimal.Parse("-1,234.50").ToString(null))) {
+        if (!"1234.50".equals(Decimal.Parse("1,234.50").ToString((IFormatProvider)null))
+                || !"-1234.50".equals(Decimal.Parse("-1,234.50").ToString((IFormatProvider)null))) {
             throw new AssertionError("Selected invariant Decimal grouping changed");
         }
         if (!Float.isNaN(selectedConverter.ToSingle("NaN"))

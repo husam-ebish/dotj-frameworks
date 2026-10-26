@@ -1,6 +1,7 @@
 package consumer;
 
 import System.Decimal;
+import System.IFormatProvider;
 
 /** Compares packaged Decimal invariant formatting with pinned .NET text. */
 public final class ProductDecimalFormattingConsumer {
@@ -27,7 +28,7 @@ public final class ProductDecimalFormattingConsumer {
             }
             Decimal value = new Decimal(words(fields[0]));
             if (!value.ToString().equals(fields[1])
-                    || !value.ToString(null).equals(fields[1])) {
+                    || !value.ToString((IFormatProvider)null).equals(fields[1])) {
                 throw new AssertionError("Decimal formatting changed: " + index);
             }
         }

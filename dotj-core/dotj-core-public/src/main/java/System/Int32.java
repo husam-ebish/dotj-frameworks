@@ -1019,7 +1019,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     private static BigInteger selectedDecimalInteger(Decimal source) {
-        return new BigDecimal(source.ToString(null)).toBigInteger();
+        return new BigDecimal(source.ToString((IFormatProvider)null)).toBigInteger();
     }
 
     private static Int32 selectedDecimalClamped(Decimal source) {
