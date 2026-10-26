@@ -1581,6 +1581,7 @@ public abstract class Type extends MemberInfo {
         }
         if (candidate.definition == NormalizationForm.class && (this.definition == IFormattable.class || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == ISpanFormattable.class)) return true;
         if (candidate.definition == DigitShapes.class && (this.definition == IFormattable.class || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == ISpanFormattable.class)) return true;
+        if (candidate.definition == MidpointRounding.class && (this.definition == IFormattable.class || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == ISpanFormattable.class)) return true;
         if (this.definition == IComparable.class && candidate.definition == String.class) {
             return true;
         }
@@ -2001,6 +2002,9 @@ public abstract class Type extends MemberInfo {
                     fromJavaClass(IFormattable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
         }
 
+        if (this.definition == MidpointRounding.class) {
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
+        }
         if (this.definition == BindingFlags.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
