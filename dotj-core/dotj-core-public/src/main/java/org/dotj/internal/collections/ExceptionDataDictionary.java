@@ -6,6 +6,7 @@ import System.ArgumentException;
 import System.ArgumentNullException;
 import System.ArgumentOutOfRangeException;
 import System.InvalidCastException;
+import System.IFormattable;
 import System.IndexOutOfRangeException;
 import System.InvalidOperationException;
 import System.NullReferenceException;
@@ -102,7 +103,7 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
     }
 
     private static String keyText(Object key) {
-        String text = key.toString();
+        String text = key instanceof IFormattable formatted ? formatted.ToString(null, null) : key.toString();
         return text == null ? "" : text;
     }
 
