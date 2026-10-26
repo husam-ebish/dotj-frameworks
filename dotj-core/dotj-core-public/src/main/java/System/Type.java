@@ -1337,14 +1337,14 @@ public abstract class Type extends MemberInfo {
 
     public Type GetEnumUnderlyingType() {
         if (!this.get_IsEnum()) {
-            throw new ArgumentException("Type must be an enum", "enumType");
+            throw new ArgumentException("Type provided must be an Enum.", "enumType");
         }
         return fromJavaClass(Int32.class);
     }
 
     public String[] GetEnumNames() {
         if (!this.get_IsEnum()) {
-            throw new ArgumentException("Type must be an enum", "enumType");
+            throw new ArgumentException("Type provided must be an Enum.", "enumType");
         }
         Object[] constants = this.enumConstants();
         String[] names = new String[constants.length];
@@ -1356,14 +1356,14 @@ public abstract class Type extends MemberInfo {
 
     public Object[] GetEnumValues() {
         if (!this.get_IsEnum()) {
-            throw new ArgumentException("Type must be an enum", "enumType");
+            throw new ArgumentException("Type provided must be an Enum.", "enumType");
         }
         return this.enumConstants();
     }
 
     public int[] GetEnumValuesAsUnderlyingType() {
         if (!this.get_IsEnum()) {
-            throw new ArgumentException("Type must be an enum", "enumType");
+            throw new ArgumentException("Type provided must be an Enum.", "enumType");
         }
         Object[] constants = this.enumConstants();
         int[] values = new int[constants.length];
@@ -1389,7 +1389,7 @@ public abstract class Type extends MemberInfo {
 
     public boolean IsEnumDefined(Object value) {
         if (value == null) throw new ArgumentNullException("value");
-        if (!this.get_IsEnum()) throw new ArgumentException("Type must be an enum", "enumType");
+        if (!this.get_IsEnum()) throw new ArgumentException("Type provided must be an Enum.", "enumType");
         Object[] constants = this.enumConstants();
         if (value instanceof String name) {
             for (Object constant : constants) if (enumConstantName(constant).equals(name)) return true;
@@ -1423,7 +1423,7 @@ public abstract class Type extends MemberInfo {
         if (number == null) {
             throw new ArgumentException("The value passed in must be an enum base or an underlying type for an enum, such as an Int32.", "value");
         }
-        if (!this.get_IsEnum()) throw new ArgumentException("Type must be an enum", "enumType");
+        if (!this.get_IsEnum()) throw new ArgumentException("Type provided must be an Enum.", "enumType");
         for (Object constant : this.enumConstants()) {
             if (number.equals(BigInteger.valueOf(enumNumericValue(constant)))) return enumConstantName(constant);
         }
