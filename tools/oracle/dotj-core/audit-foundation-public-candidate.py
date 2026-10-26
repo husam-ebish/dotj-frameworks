@@ -172,7 +172,7 @@ def main():
             assert upstream["declaredPublicMethodCount"] == 0
             disposition = "SELECTED_ENUM_VALUES; Java enum differs from CLR Enum"
         elif name == "System.Decimal":
-            assert header == "public final class System.Decimal implements System.IConvertible,System.IComparable,System.IFormattable {"
+            assert header == "public final class System.Decimal implements System.IConvertible,System.IComparable,System.IFormattable,System.ISpanFormattable {"
             assert declarations == ["public System.Decimal(int);", "public System.Decimal(long);",
                                     "public System.Decimal(int[]);",
                                     "public System.Decimal(int, int, int, boolean, int);",
@@ -240,6 +240,8 @@ def main():
                                     "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider, System.Decimal[]);",
                                     "public java.lang.String ToString();",
                                     "public java.lang.String ToString(System.IFormatProvider);",
+                                    "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+                                    "public boolean TryFormat(System.Span<java.lang.Character>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
                                     "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
                                     "public System.TypeCode GetTypeCode();",
                                     "public boolean ToBoolean(System.IFormatProvider);",
@@ -258,7 +260,7 @@ def main():
                                     "public System.DateTime ToDateTime(System.IFormatProvider);",
                                     "public java.lang.Object ToType(System.Type, System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 78
-            disposition = "PARTIAL_VALUE_SURFACE; selected Decimal IConvertible/IComparable/IFormattable, Parse and selected provider text; span/generic interfaces open"
+            disposition = "PARTIAL_VALUE_SURFACE; selected Decimal IConvertible/IComparable/IFormattable/ISpanFormattable, Parse and selected provider/Char-span formatting; UTF8/generic interfaces open"
         elif name == "System.DateTime":
             assert header == "public final class System.DateTime implements System.IConvertible,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {"
             assert declarations == ["public static final System.DateTime MinValue;",
