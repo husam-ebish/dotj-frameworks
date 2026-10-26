@@ -7,8 +7,9 @@ import System.Exception;
 
 /** Selected I/O exception hierarchy candidate. */
 public class IOException extends SystemException {
+    private static final String DEFAULT_MESSAGE = "I/O error occurred.";
     public IOException() {
-        super();
+        super(DEFAULT_MESSAGE);
         this.set_HResult(-2146232800);
     }
 

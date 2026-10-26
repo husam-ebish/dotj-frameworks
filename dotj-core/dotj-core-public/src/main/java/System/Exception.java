@@ -31,7 +31,8 @@ public class Exception extends RuntimeException implements ISerializable {
     }
 
     public String get_Message() {
-        return this.getMessage();
+        String message = this.getMessage();
+        return message == null ? "Exception of type '" + this.getClass().getName() + "' was thrown." : message;
     }
 
     public Exception get_InnerException() {
