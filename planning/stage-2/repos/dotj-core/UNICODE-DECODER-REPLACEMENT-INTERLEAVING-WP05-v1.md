@@ -1,0 +1,11 @@
+# UTF16 decoder replacement cross-method interleavings
+
+Batch 2256 qualifies selected owned UnicodeDecoder cross-method and standard-buffer behavior for eighteen endian/replacement configurations. Nine empty/NUL/surrogate replacement strings combine with four seeds, six input shapes, two flush modes, four capacities and sixteen intervening operations, producing 55,296 independently initialized sequences.
+
+The packaged consumer passes 1,669,248 groups over 663,552 native calls. Each sequence checks the seed, initial Convert, an intervening operation, fallback/owner identity and replacement contents, empty count/write, six cursor operations and a final Convert. Intervening operations include counts/writes, empty calls, Reset, fallback setters, owner mutation, cursor reset/rewind/read and explicit priming before count/write/setter calls. Exact outcomes, whole buffers, signed output carriers, completed and fallback-buffer Remaining are compared.
+
+No additional product source correction is required for the selected replacement matrix. This extends the existing standard-buffer protocol proof to NUL-terminated drains and residual replacement contents rather than assuming those cases match non-NUL replacements. Runtime, producer, fixture, consumer and candidate JAR hashes bind the proof. Final integration requires the full foundation gate, retained behavior consumers, compiled API audit and source/map/notice/distribution checks. The source inventory remains 98 and the API is unchanged.
+
+The scope is selected owned decoder arrays and standard buffers. Arbitrary callbacks, equivalent span cross-method protocols, pointers/lifetimes and complete byref/source ABI remain open. Encoder nonterminal residual-fallback interleavings remain mismatched/unqualified. Native bounded no-return observations do not become Java passes or prove infinite execution. E01/E02/E03/N01/Q01 and complete task acceptance remain open; no task or framework is accepted.
+
+Next is decoder replacement Convert output-cell aliasing. The candidate uses JDK APIs only; Python and pinned .NET are development/reference tools. Broader dependencies and public .j distribution remain unresolved. Scratch artifacts use D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized milestone; total project batches remain unknown.
