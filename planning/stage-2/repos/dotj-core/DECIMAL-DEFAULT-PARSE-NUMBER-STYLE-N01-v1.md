@@ -1,0 +1,7 @@
+# Default Decimal Number-style parsing
+
+Batch 2325 delegates default String Parse and TryParse to existing Number-style provider-aware routes. Existing Char-span defaults delegate through these corrected String defaults. This removes a stricter separate regular expression that rejected native trailing signs and permissive thousands grouping.
+
+192 pinned calls cover 48 null/empty/valid/malformed inputs through String/Char-span Parse/TryParse: signs including negative zero, trailing signs, irregular/consecutive/trailing commas, fractional scale, 96-bit limits, rounding at scale 28, forbidden exponent/currency/parentheses, and ASCII whitespace. Successful bits, failure type/HResult/parameter and result holder bits yield 384 groups. Existing malformed/overflow messages remain explicitly deferred. Previous product fails native grouping/trailing-sign controls. No complete grammar claim is made.
+
+Canonical qualification requires 340 checks and retained parsing, provider boundary, formatting, conversion, interfaces and strict API checks. Inventory remains 99 sources/130 classes, with no task or framework acceptance. Next is ASCII versus Unicode whitespace and trailing NUL. E01/E02/E03/N01/Q01, ambient culture/UTF8/full ABI remain open. Temporary assets stay on D. Milestone 2500 is numbered; total project batches unknown. JDK APIs are product dependencies; Python/.NET validation tools; broader dependency/distribution questions open.
