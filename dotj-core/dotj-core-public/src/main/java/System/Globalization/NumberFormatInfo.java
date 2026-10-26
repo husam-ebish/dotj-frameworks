@@ -5,11 +5,13 @@ package System.Globalization;
 import System.ArgumentNullException;
 import System.ArgumentException;
 import System.ArgumentOutOfRangeException;
+import System.InvalidOperationException;
 import System.IFormatProvider;
 import System.Type;
 
 /** Selected mutable numeric symbols used by Int32 N, C and P formatting. */
 public final class NumberFormatInfo implements IFormatProvider {
+    private boolean isReadOnly;
     private String numberGroupSeparator = ",";
     private int[] numberGroupSizes = {3};
     private String numberDecimalSeparator = ".";
@@ -33,6 +35,49 @@ public final class NumberFormatInfo implements IFormatProvider {
     private int percentPositivePattern = 0;
     private int percentNegativePattern = 0;
 
+    public boolean get_IsReadOnly() { return this.isReadOnly; }
+
+    public static NumberFormatInfo ReadOnly(NumberFormatInfo nfi) {
+        if (nfi == null) throw new ArgumentNullException("nfi");
+        if (nfi.isReadOnly) return nfi;
+        NumberFormatInfo result = nfi.copy();
+        result.isReadOnly = true;
+        return result;
+    }
+
+    public Object Clone() { return copy(); }
+
+    private NumberFormatInfo copy() {
+        NumberFormatInfo result = new NumberFormatInfo();
+        result.numberGroupSeparator = this.numberGroupSeparator;
+        result.numberGroupSizes = this.numberGroupSizes.clone();
+        result.numberDecimalSeparator = this.numberDecimalSeparator;
+        result.numberDecimalDigits = this.numberDecimalDigits;
+        result.numberNegativePattern = this.numberNegativePattern;
+        result.negativeSign = this.negativeSign;
+        result.positiveSign = this.positiveSign;
+        result.currencySymbol = this.currencySymbol;
+        result.currencyGroupSeparator = this.currencyGroupSeparator;
+        result.currencyGroupSizes = this.currencyGroupSizes.clone();
+        result.currencyDecimalSeparator = this.currencyDecimalSeparator;
+        result.currencyDecimalDigits = this.currencyDecimalDigits;
+        result.currencyPositivePattern = this.currencyPositivePattern;
+        result.currencyNegativePattern = this.currencyNegativePattern;
+        result.percentSymbol = this.percentSymbol;
+        result.perMilleSymbol = this.perMilleSymbol;
+        result.percentGroupSeparator = this.percentGroupSeparator;
+        result.percentGroupSizes = this.percentGroupSizes.clone();
+        result.percentDecimalSeparator = this.percentDecimalSeparator;
+        result.percentDecimalDigits = this.percentDecimalDigits;
+        result.percentPositivePattern = this.percentPositivePattern;
+        result.percentNegativePattern = this.percentNegativePattern;
+        return result;
+    }
+
+    private void requireWritable() {
+        if (this.isReadOnly) throw new InvalidOperationException("Instance is read-only.");
+    }
+
     private static void requireRange(int value, int maximum) {
         if (value < 0 || value > maximum) {
             throw new ArgumentOutOfRangeException("value", value,
@@ -45,6 +90,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_NumberGroupSeparator(String value) {
+        requireWritable();
         if (value == null) throw new ArgumentNullException("value");
         this.numberGroupSeparator = value;
     }
@@ -54,6 +100,8 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_NumberGroupSizes(int[] value) {
+        if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
         this.numberGroupSizes = copyGroupSizes(value);
     }
 
@@ -74,6 +122,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_NumberDecimalSeparator(String value) {
+        requireWritable();
         if (value == null) throw new ArgumentNullException("value");
         if (value.isEmpty()) throw new ArgumentException("The value cannot be an empty string.", "value");
         this.numberDecimalSeparator = value;
@@ -85,6 +134,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_NumberDecimalDigits(int value) {
         requireRange(value, 99);
+        requireWritable();
         this.numberDecimalDigits = value;
     }
 
@@ -94,6 +144,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_NumberNegativePattern(int value) {
         requireRange(value, 4);
+        requireWritable();
         this.numberNegativePattern = value;
     }
 
@@ -103,6 +154,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_NegativeSign(String value) {
         if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
         this.negativeSign = value;
     }
 
@@ -112,6 +164,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_PositiveSign(String value) {
         if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
         this.positiveSign = value;
     }
 
@@ -121,6 +174,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_CurrencySymbol(String value) {
         if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
         this.currencySymbol = value;
     }
 
@@ -129,6 +183,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_CurrencyGroupSeparator(String value) {
+        requireWritable();
         if (value == null) throw new ArgumentNullException("value");
         this.currencyGroupSeparator = value;
     }
@@ -138,6 +193,8 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_CurrencyGroupSizes(int[] value) {
+        if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
         this.currencyGroupSizes = copyGroupSizes(value);
     }
 
@@ -146,6 +203,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_CurrencyDecimalSeparator(String value) {
+        requireWritable();
         if (value == null) throw new ArgumentNullException("value");
         if (value.isEmpty()) throw new ArgumentException("The value cannot be an empty string.", "value");
         this.currencyDecimalSeparator = value;
@@ -157,6 +215,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_CurrencyDecimalDigits(int value) {
         requireRange(value, 99);
+        requireWritable();
         this.currencyDecimalDigits = value;
     }
 
@@ -170,11 +229,13 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_CurrencyPositivePattern(int value) {
         requireRange(value, 3);
+        requireWritable();
         this.currencyPositivePattern = value;
     }
 
     public void set_CurrencyNegativePattern(int value) {
         requireRange(value, 16);
+        requireWritable();
         this.currencyNegativePattern = value;
     }
 
@@ -184,6 +245,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_PercentSymbol(String value) {
         if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
         this.percentSymbol = value;
     }
 
@@ -193,6 +255,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_PerMilleSymbol(String value) {
         if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
         this.perMilleSymbol = value;
     }
 
@@ -201,6 +264,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_PercentGroupSeparator(String value) {
+        requireWritable();
         if (value == null) throw new ArgumentNullException("value");
         this.percentGroupSeparator = value;
     }
@@ -210,6 +274,8 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_PercentGroupSizes(int[] value) {
+        if (value == null) throw new ArgumentNullException("value");
+        requireWritable();
         this.percentGroupSizes = copyGroupSizes(value);
     }
 
@@ -218,6 +284,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_PercentDecimalSeparator(String value) {
+        requireWritable();
         if (value == null) throw new ArgumentNullException("value");
         if (value.isEmpty()) throw new ArgumentException("The value cannot be an empty string.", "value");
         this.percentDecimalSeparator = value;
@@ -229,6 +296,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_PercentDecimalDigits(int value) {
         requireRange(value, 99);
+        requireWritable();
         this.percentDecimalDigits = value;
     }
 
@@ -238,6 +306,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_PercentPositivePattern(int value) {
         requireRange(value, 3);
+        requireWritable();
         this.percentPositivePattern = value;
     }
 
@@ -247,6 +316,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_PercentNegativePattern(int value) {
         requireRange(value, 11);
+        requireWritable();
         this.percentNegativePattern = value;
     }
 
