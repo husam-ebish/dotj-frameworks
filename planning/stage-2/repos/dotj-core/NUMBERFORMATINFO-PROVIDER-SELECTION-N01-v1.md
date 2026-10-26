@@ -1,0 +1,9 @@
+# Selected invariant NumberFormatInfo.GetInstance
+
+Batch 2302 adds GetInstance(IFormatProvider) within the selected invariant-culture candidate. A direct NumberFormatInfo is returned unchanged. Other non-null providers receive one GetFormat call with the canonical NumberFormatInfo Type. A returned NumberFormatInfo retains its identity and mutability; null or wrong-type results fall back to the invariant provider. Callback failures propagate. Fallback does not claim ambient CurrentInfo/CultureInfo support outside the explicitly captured invariant profile.
+
+The CLR IL callback oracle covers 11 profiles over four calls each: null, direct mutable/read-only, callback null/String/Int32/mutable/read-only/clone, throwing callback and a changing sequence. The 44 native calls pass 132 groups of exact result/state/identity, cumulative callback counts and type arguments. The invariant CurrentInfo==InvariantInfo precondition is recorded. The previous JAR lacks the API. Runtime, producer, explicit plan, pinned NumberFormatInfo source, consumer and JAR hashes bind evidence.
+
+Source/class inventory remains 98/129. Canonical qualification requires 317 foundation checks, preceding state/provider/reflection cases, relevant numeric/type/exception consumers, API and source/map/notice/distribution audits. Current-culture policy and CultureInfo fast paths, other fields/full metadata, serialization and E01/E02/E03/N01/Q01 remain open. No accepted task or qualified framework is credited. The next feature explicitly expands represented NumberFormatInfo fields from 22 to 25 with NaN/infinity symbols.
+
+JDK APIs are product runtime dependencies. Python and pinned .NET are development/reference tools; broader dependencies and public .j distribution remain unresolved. Scratch stays under D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized numbered milestone; project-wide batch total remains unknown.

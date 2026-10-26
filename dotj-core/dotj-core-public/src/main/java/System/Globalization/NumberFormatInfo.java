@@ -39,6 +39,17 @@ public final class NumberFormatInfo implements IFormatProvider, ICloneable {
 
     public static NumberFormatInfo get_InvariantInfo() { return invariantInfo; }
 
+    /** Provider selection for the selected invariant-culture candidate. */
+    public static NumberFormatInfo GetInstance(IFormatProvider formatProvider) {
+        if (formatProvider instanceof NumberFormatInfo info) return info;
+        if (formatProvider != null) {
+            Object supplied = formatProvider.GetFormat(Type.GetType("System.Globalization.NumberFormatInfo"));
+            if (supplied instanceof NumberFormatInfo info) return info;
+        }
+        return get_InvariantInfo();
+    }
+
+
     public boolean get_IsReadOnly() { return this.isReadOnly; }
 
     public static NumberFormatInfo ReadOnly(NumberFormatInfo nfi) {
