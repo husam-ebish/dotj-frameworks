@@ -87,7 +87,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "db7d318b64a5bc7425af48a53e909ccf977f8dcd87c63e8b8b3dc5a56d2cfa2b"
+      "sha256": "6c88377e7b7717f40cf6709a3175bc6f2a3fd8da69deebe0b63d8629cc68a0bd"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/DBNull.java",
@@ -203,7 +203,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Globalization/NumberFormatInfo.java",
-      "sha256": "31ed1f69969ef50d01d5266c1c9f8b3dbf924071a448730b286115a46aed41c4"
+      "sha256": "409bd6d211ec7862b8ce997bc21f9c2f8bd6a27d85bd93b333238423e6eb38b8"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Globalization/TimeSpanStyles.java",
@@ -392,10 +392,14 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/UnicodeEncoding.java",
       "sha256": "fb3b3555af00e424e05b1dde71fbf188b562671c9ddbeed6d1b907d774511667"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Globalization/DigitShapes.java",
+      "sha256": "a441578c374211acb314f1f791091a1a2acd1343b440ee1bf81e4bbc55988366"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "1efd451d6af6f8ada06a849eaa51cc6aa5bdffb461792d47ec68ebe2d3355db5",
+  "jarSha256": "ba9239b8a168feb0cc326bb4ceb56c377242b898d1e604af73353b8e56ec02c8",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -425,6 +429,7 @@
     "System/FormatException.class",
     "System/Globalization/CultureNotFoundException.class",
     "System/Globalization/DateTimeStyles.class",
+    "System/Globalization/DigitShapes.class",
     "System/Globalization/NumberFormatInfo.class",
     "System/Globalization/NumberStyles.class",
     "System/Globalization/TimeSpanStyles.class",
@@ -556,7 +561,8 @@
     "System/FormatException.class": "24c30f986f2da795fdf87494bcf90c2038f7a81d3ec313d8f1b83f277c92cbf6",
     "System/Globalization/CultureNotFoundException.class": "7878ef9be0d5c92a082af0e65b9430b92f0b0e66ff614ae70b8634ef63e34c88",
     "System/Globalization/DateTimeStyles.class": "a0f385cad13f1343349078f6b4582532567e5acc3e52848b3bb5c8e0bbaebaef",
-    "System/Globalization/NumberFormatInfo.class": "e0b0e14266cdec6e4a574b23501ea9a231a3dd519be03ab856bd953c97120cf5",
+    "System/Globalization/DigitShapes.class": "3380ebdab8ceca1dbed146c2e14774d948d387b3583890bf335447e93245ac31",
+    "System/Globalization/NumberFormatInfo.class": "f803493e4270279f552c280196d029bef3473cb37016ec577ca30f6e40338ce0",
     "System/Globalization/NumberStyles.class": "dabad4dd36f58e36b1ff5e500db435c20700d032799e4749b149ae29d7a40e11",
     "System/Globalization/TimeSpanStyles.class": "76fcb0ed730313c82b8233afbd9f859e64a77259d62a5778e90c09b3df11aee3",
     "System/ICloneable.class": "e0db2c8af6c7f0d43c35fc3d47a83d97d99691cf26006f2f98e6adee33acc3f6",
@@ -637,17 +643,17 @@
     "System/Text/UnicodeEncoding$UnicodeEncoder.class": "596213c4aab12a891cc435aefa20de890bba826008e2809b7f36aae1540705e2",
     "System/Text/UnicodeEncoding.class": "2111ac3da9822d7383ebfb7b74014c556648dda2d7954dba3e4613c9203b569f",
     "System/TimeSpan.class": "7ba310346c6886e0f736c7256230fb27631c73e233e5bbb1adcc25419e598994",
-    "System/Type$1.class": "1f6cbee9d820b7c45fa9628fdb440991720118d19befd462b5b2721613806463",
-    "System/Type$2.class": "13e16cc77fdbe96ac89c3969e4b144fabb25ed897bc4664cba9325026ba234c0",
-    "System/Type$ArrayType.class": "9ee7bb25c7c47244f89bff90b6571601762ff37320a8bf56bbe84db0ba8a63f1",
-    "System/Type$ByRefType.class": "f4d578d103d1c89312ec979be3c74087c6819b9c38c6594908dc1f84f57652bb",
-    "System/Type$DefaultMethodMember.class": "b0d5367b734c70b84a4637a8d5a377577441413454fb75c7a84509b97bf7774b",
-    "System/Type$DefaultParameterInfo.class": "b9fd6eff26d4e8d84764818622f975fed4ba22017d017ba218b4a665988a548b",
-    "System/Type$DefaultPropertyMember.class": "7948944e350cef2fcde72f6774fecba41c433e834261d2647f55d43a5e595bda",
-    "System/Type$GenericParameterType.class": "8c4b2d0632acc4a695d94257f81eb1d5d557c7dfea2ae0191a09e87d31b26e70",
-    "System/Type$PointerType.class": "ae7e0426dda2412cddaac3bca8da444f78aab8f477734ec80642c6aa84c35611",
-    "System/Type$ResolvedType.class": "bd0d136f78d312b3f8580b9aefe408a094ae603b43e5b4f48f53a23e8f0a79c2",
-    "System/Type.class": "a403a62e93b00e6803dcfa88f06fdfc331fa5c858766af08217f73af329b6052",
+    "System/Type$1.class": "1436115abf5ddd11c233eb9db51c2c7b4b0a29e33b4ce06cb460c1690d07ac8a",
+    "System/Type$2.class": "8a0fe66bf32a783dc937a054c7db40c144a57585ebfcab27587a152a2ae01e5b",
+    "System/Type$ArrayType.class": "0262964c2d4872c28d5908ebee8f4e3195f0c835df509e20f5f14cca9fe13185",
+    "System/Type$ByRefType.class": "e90443b09ef259d07e77c9eb914875f3f08ae2594f3414d1bb5cb4e12c4b0f8d",
+    "System/Type$DefaultMethodMember.class": "9d77998a9104e535de5d42c223cb902e7da76569ac30cdcda2495ca3a1c0d184",
+    "System/Type$DefaultParameterInfo.class": "9d0747c657a5fd48a47aeb829eda15d580ced1d6dcae2f9ebff84b05f0a6bb94",
+    "System/Type$DefaultPropertyMember.class": "00a9939df6a30f75603c2398fcb560cff9f5fc7504a1dcc14bad67036c68bee1",
+    "System/Type$GenericParameterType.class": "aac3640226b5fa2c31313e9a744eded15a273b694273ad3e59f0eef4accc1baf",
+    "System/Type$PointerType.class": "4ddd6592699c33407a904c138573f774a604101eb7807778e200f81c880a4db9",
+    "System/Type$ResolvedType.class": "4406bcd012a836822d0cf2dbc2500b20c5f0f10d2d9ea7b997dc5fca299848cc",
+    "System/Type.class": "e49b87a6f43116934a5c3f0d12091e75fd0b956426770f6a42e14cb7416967b4",
     "System/TypeCode.class": "5f6956717c868ad4b0c4eb615505de94484bd689c0ee71825a7769f7b94d2c6e",
     "System/TypeLoadException.class": "07b9942f392d8a03718bd0cfca9dff0f213f140b09506958ac08a7d8cb121e9d",
     "System/UInt16.class": "40ebc78730ff9fa0ff6d8e7c0db895e28ea88e6b71d7e1c7edf85b32b63ea070",

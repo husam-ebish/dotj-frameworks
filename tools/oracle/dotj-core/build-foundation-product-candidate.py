@@ -358,6 +358,9 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/UnicodeEncoding$Unico
 
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/UnicodeEncoding$UnicodeDecoder.class"])
 
+SOURCES.append(PRODUCT / "src/main/java/System/Globalization/DigitShapes.java")
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Globalization/DigitShapes.class"])
+
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))

@@ -14,6 +14,7 @@ import System.Type;
 public final class NumberFormatInfo implements IFormatProvider, ICloneable {
     private static final NumberFormatInfo invariantInfo = ReadOnly(new NumberFormatInfo());
     private String[] nativeDigits = {"0","1","2","3","4","5","6","7","8","9"};
+    private DigitShapes digitSubstitution = DigitShapes.None;
     private boolean isReadOnly;
     private String nanSymbol = "NaN";
     private String positiveInfinitySymbol = "Infinity";
@@ -90,6 +91,7 @@ public final class NumberFormatInfo implements IFormatProvider, ICloneable {
         result.percentDecimalDigits = this.percentDecimalDigits;
         result.percentPositivePattern = this.percentPositivePattern;
         result.percentNegativePattern = this.percentNegativePattern;
+        result.digitSubstitution = this.digitSubstitution;
         result.nativeDigits = this.nativeDigits;
         result.nanSymbol = this.nanSymbol;
         result.positiveInfinitySymbol = this.positiveInfinitySymbol;
@@ -384,6 +386,17 @@ public final class NumberFormatInfo implements IFormatProvider, ICloneable {
             }
         }
         this.nativeDigits = value;
+    }
+
+    public DigitShapes get_DigitSubstitution() { return this.digitSubstitution; }
+
+    public void set_DigitSubstitution(DigitShapes value) {
+        requireWritable();
+        if (value == null) throw new ArgumentNullException("value");
+        if (value.get_Value() < 0 || value.get_Value() > 2) {
+            throw new ArgumentException("The DigitSubstitution property must be of a valid member of the DigitShapes enumeration. Valid entries include Context, NativeNational or None.", "value");
+        }
+        this.digitSubstitution = value;
     }
 
     @Override
