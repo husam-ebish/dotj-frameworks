@@ -575,6 +575,14 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return Parse(text.selectedText(), NumberStyles.Number, provider);
     }
 
+    public static Decimal Parse(String text, NumberStyles style) {
+        return Parse(text, style, null);
+    }
+
+    public static <T> Decimal Parse(ReadOnlySpan<T> text, NumberStyles style) {
+        return Parse(text, style, null);
+    }
+
     private static NumberFormatInfo selectedNumberFormatInfo(IFormatProvider provider) {
         if (provider == null) {
             return null;

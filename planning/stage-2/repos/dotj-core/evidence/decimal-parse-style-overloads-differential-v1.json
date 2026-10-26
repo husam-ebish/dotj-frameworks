@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "casesPassed": 147,
+  "nativeCalls": 144,
+  "methodShapeChecks": 2,
+  "ambiguousNullCompileRejection": true,
+  "outcomes": {
+    "OK": 26,
+    "System.FormatException": 55,
+    "System.OverflowException": 18,
+    "System.ArgumentNullException": 12,
+    "System.ArgumentException": 33
+  },
+  "exceptionMessageQualification": "Legacy format/overflow messages explicitly deferred; type/HResult/parameter compared here, invalid-style exact messages retained in prior gate.",
+  "oracleEvidence": "decimal-parse-style-overloads-contract-v10.0.12.json",
+  "oracleSha256": "99347c208c8c923a7b762e9a9c01100a55db039b0291875a0c3e80a11fc1de17",
+  "planSha256": "5a5bc80d9b5dc7cfc2ea3b4ced8988a6e5d97f501e05ce33fb3cf5286f77d70f",
+  "consumerSourceSha256": "13c4fa45ceb32ffca5a7589a8a926185be54217bd8216df75d93d2965a44378e",
+  "candidateJarSha256": "e2f1f4e9e1e80c4736a461901f0dd8ba84be09e3a311e898866cd84f5e333f1b",
+  "qualification": "SELECTED_DECIMAL_PARSE_STYLE_ONLY_OVERLOADS; LEGACY_FORMAT_ERROR_TEXT_VALID_STYLE_GRAMMAR_CULTURES_UTF8_AND_FULL_QUALIFICATION_OPEN"
+}
