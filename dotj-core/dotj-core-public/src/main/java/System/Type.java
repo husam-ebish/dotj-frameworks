@@ -544,6 +544,7 @@ public abstract class Type extends MemberInfo {
             case "System.Text.EncoderFallbackException" -> fromJavaClass(EncoderFallbackException.class);
             case "System.Text.DecoderFallbackException" -> fromJavaClass(DecoderFallbackException.class);
             case "System.DateTimeKind" -> fromJavaClass(DateTimeKind.class);
+            case "System.MidpointRounding" -> fromJavaClass(MidpointRounding.class);
             case "System.DayOfWeek" -> fromJavaClass(DayOfWeek.class);
             case "System.OverflowException" -> fromJavaClass(OverflowException.class);
             case "System.OutOfMemoryException" -> fromJavaClass(OutOfMemoryException.class);
@@ -577,6 +578,7 @@ public abstract class Type extends MemberInfo {
             case "System.TimeSpan[]" -> fromJavaClass(TimeSpan.class).MakeArrayType();
             case "System.Diagnostics.Stopwatch[]" -> fromJavaClass(Stopwatch.class).MakeArrayType();
             case "System.DateTimeKind[]" -> fromJavaClass(DateTimeKind.class).MakeArrayType();
+            case "System.MidpointRounding[]" -> fromJavaClass(MidpointRounding.class).MakeArrayType();
             case "System.DayOfWeek[]" -> fromJavaClass(DayOfWeek.class).MakeArrayType();
             case "System.Boolean[]" -> fromJavaClass(Boolean.class).MakeArrayType();
             case "System.Char[]" -> fromJavaClass(Character.class).MakeArrayType();
@@ -738,6 +740,7 @@ public abstract class Type extends MemberInfo {
             case "system.text.encoderfallbackexception" -> ignoreCase ? fromJavaClass(EncoderFallbackException.class) : null;
             case "system.text.decoderfallbackexception" -> ignoreCase ? fromJavaClass(DecoderFallbackException.class) : null;
             case "system.datetimekind" -> ignoreCase ? fromJavaClass(DateTimeKind.class) : null;
+            case "system.midpointrounding" -> ignoreCase ? fromJavaClass(MidpointRounding.class) : null;
             case "system.dayofweek" -> ignoreCase ? fromJavaClass(DayOfWeek.class) : null;
             case "system.overflowexception" -> ignoreCase ? fromJavaClass(OverflowException.class) : null;
             case "system.outofmemoryexception" -> ignoreCase ? fromJavaClass(OutOfMemoryException.class) : null;
@@ -777,6 +780,7 @@ public abstract class Type extends MemberInfo {
             case "system.timespan[]" -> ignoreCase ? fromJavaClass(TimeSpan.class).MakeArrayType() : null;
             case "system.diagnostics.stopwatch[]" -> ignoreCase ? fromJavaClass(Stopwatch.class).MakeArrayType() : null;
             case "system.datetimekind[]" -> ignoreCase ? fromJavaClass(DateTimeKind.class).MakeArrayType() : null;
+            case "system.midpointrounding[]" -> ignoreCase ? fromJavaClass(MidpointRounding.class).MakeArrayType() : null;
             case "system.dayofweek[]" -> ignoreCase ? fromJavaClass(DayOfWeek.class).MakeArrayType() : null;
             case "system.boolean[]" -> ignoreCase ? fromJavaClass(Boolean.class).MakeArrayType() : null;
             case "system.char[]" -> ignoreCase ? fromJavaClass(Character.class).MakeArrayType() : null;
@@ -1090,7 +1094,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == ParameterAttributes.class
                 || this.definition == DigitShapes.class || this.definition == NormalizationForm.class || this.definition == TypeCode.class
                 || this.definition == NumberStyles.class || this.definition == TimeSpanStyles.class || this.definition == DateTimeStyles.class
-                || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class) {
+                || this.definition == MidpointRounding.class || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class) {
             return fromJavaClass(Enum.class);
         }
         if (this.definition == Enum.class) {
@@ -1137,7 +1141,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == GenericParameterAttributes.class
                         || this.definition == ParameterAttributes.class
                         || this.definition == DigitShapes.class || this.definition == NormalizationForm.class || this.definition == TypeCode.class || this.definition == NumberStyles.class || this.definition == TimeSpanStyles.class || this.definition == DateTimeStyles.class
-                        || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class);
+                        || this.definition == MidpointRounding.class || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class);
     }
 
     public boolean get_IsPrimitive() {
@@ -1332,7 +1336,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == ParameterAttributes.class
                 || this.definition == DigitShapes.class || this.definition == NormalizationForm.class || this.definition == TypeCode.class
                 || this.definition == NumberStyles.class || this.definition == TimeSpanStyles.class || this.definition == DateTimeStyles.class
-                || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class;
+                || this.definition == MidpointRounding.class || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class;
     }
 
     public Type GetEnumUnderlyingType() {
@@ -1490,6 +1494,7 @@ public abstract class Type extends MemberInfo {
 
     private static int enumNumericValue(Object constant) {
         if (constant instanceof NormalizationForm form) return form.get_Value();
+        if (constant instanceof MidpointRounding rounding) return rounding.get_Value();
         if (constant instanceof DigitShapes form) return form.get_Value();
         if (constant instanceof DateTimeStyles styles) return styles.get_Value();
         if (constant instanceof TimeSpanStyles styles) {
@@ -1949,7 +1954,7 @@ public abstract class Type extends MemberInfo {
             return new MemberInfo[] {new DefaultPropertyMember("Item", this)};
         }
         if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class || this.definition == ICloneable.class
-                || this.definition == DigitShapes.class || this.definition == NormalizationForm.class || this.definition == TypeCode.class) {
+                || this.definition == MidpointRounding.class || this.definition == DigitShapes.class || this.definition == NormalizationForm.class || this.definition == TypeCode.class) {
             return new MemberInfo[0];
         }
         throw new UnsupportedOperationException("Default members are not mapped for this candidate type");
