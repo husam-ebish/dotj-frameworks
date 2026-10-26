@@ -6,6 +6,7 @@ import System.ArgumentException;
 import System.ArgumentNullException;
 import System.ArgumentOutOfRangeException;
 import System.InvalidCastException;
+import System.IndexOutOfRangeException;
 import System.InvalidOperationException;
 import System.NullReferenceException;
 import System.Collections.DictionaryEntry;
@@ -143,6 +144,7 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
                 else if (element == float.class) value = 0F;
                 else if (element == double.class) value = 0D;
             }
+            if (index + position >= Array.getLength(array)) throw new IndexOutOfRangeException();
             try { Array.set(array, index + position, value); }
             catch (IllegalArgumentException mismatch) {
                 if (element.isPrimitive() && (value instanceof Number
