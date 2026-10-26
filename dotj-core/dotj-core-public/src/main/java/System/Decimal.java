@@ -9,7 +9,7 @@ import System.Globalization.NumberStyles;
 import System.Globalization.NumberFormatInfo;
 
 /** Bounded immutable Decimal candidate for integer construction and invariant text. */
-public final class Decimal implements IConvertible {
+public final class Decimal implements IConvertible, IComparable, IFormattable {
     private static final BigDecimal MAX_MAGNITUDE =
             new BigDecimal("79228162514264337593543950335");
     private static final BigInteger LOW_64_MASK = BigInteger.ONE.shiftLeft(64).subtract(BigInteger.ONE);
@@ -317,7 +317,7 @@ public final class Decimal implements IConvertible {
             return 1;
         }
         if (!(value instanceof Decimal other)) {
-            throw new ArgumentException("Object must be Decimal");
+            throw new ArgumentException("Object must be of type Decimal.");
         }
         return Compare(this, other);
     }
@@ -1529,6 +1529,9 @@ public final class Decimal implements IConvertible {
             int decimals = format.length() - 2;
             return applyNumberFormat(this.value.setScale(decimals, RoundingMode.HALF_UP)
                     .stripTrailingZeros().toPlainString(), provider);
+        }
+        if (format != null && format.matches("[A-Za-z][0-9]*")) {
+            throw new FormatException("Format specifier was invalid.");
         }
         throw new FormatException("Format string was not supported");
     }

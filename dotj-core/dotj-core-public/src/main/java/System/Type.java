@@ -1608,7 +1608,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IConvertible.class && candidate.definition == DateTime.class) {
             return true;
         }
-        if (this.definition == IConvertible.class && candidate.definition == Decimal.class) {
+        if ((this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == IFormattable.class) && candidate.definition == Decimal.class) {
             return true;
         }
         if (this.definition == IConvertible.class && candidate.definition == DBNull.class) {
@@ -2061,6 +2061,9 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == GenericParameterAttributes.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
+        }
+        if (this.definition == Decimal.class) {
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
         if (this.definition == SByte.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
