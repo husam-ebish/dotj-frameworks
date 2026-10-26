@@ -13,6 +13,7 @@ import System.Type;
 /** Selected mutable numeric symbols used by Int32 N, C and P formatting. */
 public final class NumberFormatInfo implements IFormatProvider, ICloneable {
     private static final NumberFormatInfo invariantInfo = ReadOnly(new NumberFormatInfo());
+    private String[] nativeDigits = {"0","1","2","3","4","5","6","7","8","9"};
     private boolean isReadOnly;
     private String nanSymbol = "NaN";
     private String positiveInfinitySymbol = "Infinity";
@@ -89,6 +90,7 @@ public final class NumberFormatInfo implements IFormatProvider, ICloneable {
         result.percentDecimalDigits = this.percentDecimalDigits;
         result.percentPositivePattern = this.percentPositivePattern;
         result.percentNegativePattern = this.percentNegativePattern;
+        result.nativeDigits = this.nativeDigits;
         result.nanSymbol = this.nanSymbol;
         result.positiveInfinitySymbol = this.positiveInfinitySymbol;
         result.negativeInfinitySymbol = this.negativeInfinitySymbol;
@@ -363,6 +365,25 @@ public final class NumberFormatInfo implements IFormatProvider, ICloneable {
         if (value == null) throw new ArgumentNullException("value");
         requireWritable();
         this.negativeInfinitySymbol = value;
+    }
+
+    public String[] get_NativeDigits() { return this.nativeDigits.clone(); }
+
+    public void set_NativeDigits(String[] value) {
+        requireWritable();
+        if (value == null) throw new ArgumentNullException("nativeDig");
+        if (value.length != 10) throw new ArgumentException("The NativeDigits array must contain exactly ten members.", "value");
+        for (int i = 0; i < value.length; i++) {
+            String digit = value[i];
+            if (digit == null) throw new ArgumentNullException("value", "Found a null value within an array.");
+            boolean scalar = digit.length() == 1 || digit.length() == 2 && Character.isSurrogatePair(digit.charAt(0), digit.charAt(1));
+            int codePoint = digit.isEmpty() ? -1 : digit.codePointAt(0);
+            int category = codePoint < 0 ? Character.UNASSIGNED : Character.getType(codePoint);
+            if (!scalar || category != Character.PRIVATE_USE && (category != Character.DECIMAL_DIGIT_NUMBER || Character.digit(codePoint, 10) != i)) {
+                throw new ArgumentException("Each member of the NativeDigits array must be a single text element (one or more UTF-16 code points) with a Unicode Nd (Number, Decimal Digit) property indicating it is a digit.", "value");
+            }
+        }
+        this.nativeDigits = value;
     }
 
     @Override
