@@ -1,0 +1,11 @@
+# UTF16 decoder replacement Convert output-cell aliasing
+
+Batch 2257 qualifies selected owned UnicodeDecoder replacement Convert output-cell aliasing across arrays and heap spans. Eighteen endian/replacement configurations combine four seed states, eight byte inputs, both flush modes, six capacities, two destination offsets, two call forms and shared/distinct integer output cells. The native matrix contains 55,296 cases, including 27,648 with a shared output cell.
+
+The packaged consumer passes 829,440 groups. It checks seed writes, initial conversion, empty flush, Reset and a final conversion, comparing exact outcomes, whole buffers, both visible integer output values, completed and fallback-buffer Remaining. There are 38,936 successful returned calls with distinct consumed and written counts in the separate-cell controls. The shared-cell observations preserve native assignment order even with NUL replacements, signed consumption and partial output; consumed input is assigned last.
+
+No additional product source change is required. The prior native assignment-order correction already covers the selected replacement matrix. Runtime, producer, fixture, consumer and candidate JAR hashes bind the proof. Final integration requires the full foundation gate, retained consumers, compiled API audit and source/map/notice/distribution checks. Source inventory remains 98 and the compiled API is unchanged.
+
+This qualifies selected decoder integer output-cell aliasing only. It does not qualify complete CLR byref/source ABI, arbitrary callbacks, unsafe pointers or lifetimes. Encoder nonterminal residual-fallback interleavings remain mismatched/unqualified. Native bounded no-return observations do not become Java passes or an infinite-execution proof. E01/E02/E03/N01/Q01 and task acceptance remain open; no implementation task or framework is accepted.
+
+Next is decoder replacement cross-method heap-span interleaving. The product uses JDK APIs only; Python and pinned .NET are development/reference tools. Broader dependencies and public .j distribution remain unresolved. Scratch artifacts use D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized milestone; total project batches remain unknown.
