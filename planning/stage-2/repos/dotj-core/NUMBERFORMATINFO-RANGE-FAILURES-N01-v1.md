@@ -1,0 +1,9 @@
+# NumberFormatInfo digit and pattern setter ranges
+
+Batch 2295 corrects exact range failures for the represented writable NumberFormatInfo digit and numeric-pattern setters. All eight setters now retain the original Int32 ActualValue and native range text instead of a generic ArgumentOutOfRangeException with no ActualValue. Valid inputs still assign the selected field; failures preserve its preceding value and all other represented numeric fields. Number/Currency/Percent decimal digits allow 0..99; negative-number pattern 0..4; currency positive 0..3 and negative 0..16; percent positive 0..3 and negative 0..11.
+
+The pinned oracle covers eight properties, three initial values and 21 boundary/extreme inputs: 504 cases and 1,512 comparison groups. It compares complete eight-field snapshots before and after each call and exact exception type/message/HResult/ParamName/ActualValue. There are 258 range failures and 246 successes. The old JAR fails the first Int32.MinValue diagnostic witness. Runtime, producer, pinned NumberFormatInfo source and Strings.resx, consumer and JAR hashes bind evidence. Source normalization is explicitly pinned to LF before canonical checkout.
+
+Source/class inventory remains 98/129. Canonical qualification requires 310 foundation checks, relevant numeric formatting/parsing and exception consumers, API and source/map/notice/distribution audits. Read-only/clone semantics, full culture and metadata surface and E01/E02/E03/N01/Q01 remain open. No accepted task or qualified framework is credited. Group-size validation and defensive copies are next.
+
+JDK APIs are product runtime dependencies. Python and pinned .NET are development/reference tools; broader dependencies and public .j distribution remain unresolved. Scratch stays under D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized numbered milestone; project-wide batch total remains unknown.
