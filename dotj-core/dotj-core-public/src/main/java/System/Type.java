@@ -1373,70 +1373,61 @@ public abstract class Type extends MemberInfo {
         return values;
     }
 
+    private static BigInteger enumLookupNumber(Object value) {
+        if (value instanceof Int32 number) return BigInteger.valueOf(number.get_Value());
+        if (value instanceof SByte number) return BigInteger.valueOf(number.get_Value());
+        if (value instanceof Byte number) return BigInteger.valueOf(number.get_Value());
+        if (value instanceof UInt16 number) return BigInteger.valueOf(number.get_Value());
+        if (value instanceof UInt32 number) return BigInteger.valueOf(number.get_Value());
+        if (value instanceof Character character) return BigInteger.valueOf(character);
+        if (value instanceof Integer || value instanceof Long || value instanceof Short || value instanceof java.lang.Byte) {
+            return BigInteger.valueOf(((Number)value).longValue());
+        }
+        if (value instanceof BigInteger number) return number;
+        return null;
+    }
+
     public boolean IsEnumDefined(Object value) {
-        if (value == null) {
-            throw new ArgumentNullException("value");
-        }
-        if (!this.get_IsEnum()) {
-            throw new ArgumentException("Type must be an enum", "enumType");
-        }
+        if (value == null) throw new ArgumentNullException("value");
+        if (!this.get_IsEnum()) throw new ArgumentException("Type must be an enum", "enumType");
         Object[] constants = this.enumConstants();
         if (value instanceof String name) {
-            for (Object constant : constants) {
-                if (enumConstantName(constant).equals(name)) {
-                    return true;
-                }
-            }
+            for (Object constant : constants) if (enumConstantName(constant).equals(name)) return true;
             return false;
         }
-        if (value.getClass() == this.definition) {
+        Type valueType = fromJavaClass(value.getClass());
+        if (valueType.get_IsEnum()) {
+            if (value.getClass() != this.definition) {
+                throw new ArgumentException("Object must be the same type as the enum. The type passed in was '" + valueType.get_FullName() + "'; the enum type was '" + this.get_FullName() + "'.");
+            }
             int number = enumNumericValue(value);
-            for (Object constant : constants) {
-                if (enumNumericValue(constant) == number) return true;
-            }
+            for (Object constant : constants) if (enumNumericValue(constant) == number) return true;
             return false;
         }
-        if (value instanceof Integer number) {
-            for (Object constant : constants) {
-                if (enumNumericValue(constant) == number) {
-                    return true;
-                }
+        BigInteger number = enumLookupNumber(value);
+        if (number != null) {
+            if (!(value instanceof Integer || value instanceof Int32)) {
+                String name = value instanceof java.lang.Byte ? "System.SByte" : valueType.get_FullName();
+                throw new ArgumentException("Enum underlying type and the object must be same type or object must be a String. Type passed in was '" + name + "'; the enum underlying type was 'System.Int32'.");
             }
+            for (Object constant : constants) if (number.equals(BigInteger.valueOf(enumNumericValue(constant)))) return true;
             return false;
         }
-        if (value instanceof Boolean || value instanceof Float || value instanceof Double) {
-            throw new InvalidOperationException("Unknown enum value type");
-        }
-        throw new ArgumentException("Value type must match the enum or its underlying type");
+        throw new InvalidOperationException("Unknown enum type.");
     }
 
     public String GetEnumName(Object value) {
-        if (value == null) {
-            throw new ArgumentNullException("value");
+        if (value == null) throw new ArgumentNullException("value");
+        Type valueType = fromJavaClass(value.getClass());
+        BigInteger number = valueType.get_IsEnum() ? BigInteger.valueOf(enumNumericValue(value)) : enumLookupNumber(value);
+        if (number == null) {
+            throw new ArgumentException("The value passed in must be an enum base or an underlying type for an enum, such as an Int32.", "value");
         }
-        if (!(value instanceof Integer || value instanceof Long || value instanceof Short
-                || value instanceof java.lang.Byte || Type.fromJavaClass(value.getClass()).get_IsEnum())) {
-            throw new ArgumentException("Value must be an enum or its underlying type", "value");
+        if (!this.get_IsEnum()) throw new ArgumentException("Type must be an enum", "enumType");
+        for (Object constant : this.enumConstants()) {
+            if (number.equals(BigInteger.valueOf(enumNumericValue(constant)))) return enumConstantName(constant);
         }
-        if (!this.get_IsEnum()) {
-            throw new ArgumentException("Type must be an enum", "enumType");
-        }
-        Long number = null;
-        if (value instanceof Integer || value instanceof Long
-                || value instanceof Short || value instanceof java.lang.Byte) {
-            number = ((Number) value).longValue();
-        } else if (Type.fromJavaClass(value.getClass()).get_IsEnum()) {
-            number = (long) enumNumericValue(value);
-        }
-        if (number != null) {
-            for (Object constant : this.enumConstants()) {
-                if (enumNumericValue(constant) == number.longValue()) {
-                    return enumConstantName(constant);
-                }
-            }
-            return null;
-        }
-        throw new ArgumentException("Value must be an enum or its underlying type", "value");
+        return null;
     }
 
     private Object[] enumConstants() {
