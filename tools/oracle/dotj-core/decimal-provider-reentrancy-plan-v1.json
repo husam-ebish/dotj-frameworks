@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "bits": [
+    [
+      125,
+      0,
+      0,
+      131072
+    ],
+    [
+      125,
+      0,
+      0,
+      -2147352576
+    ]
+  ],
+  "formats": [
+    "G",
+    "F2",
+    "X"
+  ],
+  "innerFormats": [
+    "G",
+    "X"
+  ],
+  "innerProviders": [
+    "custom",
+    "throwing"
+  ],
+  "catchNested": [
+    false,
+    true
+  ],
+  "routes": [
+    "char-array",
+    "char-span",
+    "byte-array",
+    "byte-span"
+  ],
+  "capacities": [
+    0,
+    1,
+    5,
+    32,
+    80
+  ],
+  "qualification": "SELECTED_NESTED_DECIMAL_PROVIDER_FORMATTING_AND_SHARED_OUTPUT_STATE_ONLY; ARBITRARY_RECURSION_CONCURRENCY_FULL_ABI_AND_TASK_ACCEPTANCE_OPEN"
+}

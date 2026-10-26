@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "casesPassed": 4800,
+  "nativeBufferCalls": 960,
+  "nativeNestedReferences": 48,
+  "callbackIdentityChecks": 960,
+  "nestedResultChecks": 960,
+  "immutableInputChecks": 960,
+  "bufferStateChecks": 960,
+  "outcomes": {
+    "shortBuffer": 160,
+    "success": 240,
+    "System.InvalidOperationException": 240,
+    "System.FormatException": 320
+  },
+  "sourceSha256": "fd3c0ea9e8a880122bde525501a81e31db55e8a060cbbf9717cf51cbb17fb57a",
+  "planSha256": "b5531e94576b1cb67f86efc5bc58100b7166fa4af64c53d5fdcad355ac6350f6",
+  "oracleEvidence": "decimal-provider-reentrancy-contract-v10.0.12.json",
+  "oracleSha256": "241e8553dfa898d08b92f2fa931500fe8fc13b198020bf3397fb56611b87bf12",
+  "consumerSourceSha256": "a0eb194f00340ad4dd67f457c60f70c6f9344e95d485f72d944c78f619b631b8",
+  "candidateJarSha256": "151b310a332455e38de6dc15677b1e322be4bce4437de06a6d55fdc87f39b9b9",
+  "qualification": "SELECTED_NESTED_DECIMAL_PROVIDER_FORMATTING_AND_SHARED_OUTPUT_ONLY; ALL_UNICODE_VERSIONS_FORMATTING_CULTURES_METADATA_SERIALIZATION_E01_AND_TASK_ACCEPTANCE_OPEN"
+}
