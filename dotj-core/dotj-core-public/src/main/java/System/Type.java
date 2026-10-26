@@ -1555,6 +1555,9 @@ public abstract class Type extends MemberInfo {
         if (this == candidate) {
             return true;
         }
+        if (this.definition == IFormatProvider.class && candidate.definition == NumberFormatInfo.class) {
+            return true;
+        }
         if (this.definition == ICloneable.class && ICloneable.class.isAssignableFrom(candidate.definition)) {
             return true;
         }
@@ -1974,6 +1977,9 @@ public abstract class Type extends MemberInfo {
     public Type[] GetInterfaces() {
         if (!get_HasElementType() && selectedTextProtocolType()) return new Type[0];
         if (this.definition == ICloneable.class) return new Type[0];
+        if (this.definition == NumberFormatInfo.class) {
+            return new Type[] {fromJavaClass(IFormatProvider.class), fromJavaClass(ICloneable.class)};
+        }
         if (!this.get_IsArray() && Encoding.class.isAssignableFrom(this.definition)) {
             return new Type[] {fromJavaClass(ICloneable.class)};
         }
@@ -2152,7 +2158,7 @@ public abstract class Type extends MemberInfo {
 
     public Type GetInterface(String fullname, boolean ignoreCase) {
         if (fullname == null) throw new ArgumentNullException("fullname");
-        if (selectedTextProtocolType() || this.definition == ICloneable.class || Encoding.class.isAssignableFrom(this.definition)
+        if (selectedTextProtocolType() || this.definition == ICloneable.class || this.definition == NumberFormatInfo.class || Encoding.class.isAssignableFrom(this.definition)
                 || this.get_IsArray() || this.definition == java.lang.reflect.Array.class
                 || this.definition == String.class || this.definition == Int32.class
                 || this.definition == Byte.class || this.definition == SByte.class
@@ -2174,13 +2180,24 @@ public abstract class Type extends MemberInfo {
             String name = fullname.substring(separator + 1);
             for (Type contract : GetInterfaces()) {
                 if ((namespace == null || namespace.equals(contract.get_Namespace()))
-                        && (name.equals(contract.get_Name()) || ignoreCase && name.equalsIgnoreCase(contract.get_Name()))) {
+                        && (name.equals(contract.get_Name()) || ignoreCase && (this.definition == NumberFormatInfo.class ? asciiInterfaceNameEquals(name, contract.get_Name()) : name.equalsIgnoreCase(contract.get_Name())))) {
                     return contract;
                 }
             }
             return null;
         }
         throw new UnsupportedOperationException("Interface lookup is not mapped for this candidate type");
+    }
+
+    private static boolean asciiInterfaceNameEquals(String left, String right) {
+        if (left.length() != right.length()) return false;
+        for (int index = 0; index < left.length(); index++) {
+            char actual = left.charAt(index), expected = right.charAt(index);
+            if (actual >= 'A' && actual <= 'Z') actual = (char) (actual + ('a' - 'A'));
+            if (expected >= 'A' && expected <= 'Z') expected = (char) (expected + ('a' - 'A'));
+            if (actual != expected) return false;
+        }
+        return true;
     }
 
     private static String arraySuffix(int rank, boolean vector) {

@@ -7,10 +7,11 @@ import System.ArgumentException;
 import System.ArgumentOutOfRangeException;
 import System.InvalidOperationException;
 import System.IFormatProvider;
+import System.ICloneable;
 import System.Type;
 
 /** Selected mutable numeric symbols used by Int32 N, C and P formatting. */
-public final class NumberFormatInfo implements IFormatProvider {
+public final class NumberFormatInfo implements IFormatProvider, ICloneable {
     private boolean isReadOnly;
     private String numberGroupSeparator = ",";
     private int[] numberGroupSizes = {3};
@@ -45,7 +46,7 @@ public final class NumberFormatInfo implements IFormatProvider {
         return result;
     }
 
-    public Object Clone() { return copy(); }
+    @Override public Object Clone() { return copy(); }
 
     private NumberFormatInfo copy() {
         NumberFormatInfo result = new NumberFormatInfo();
