@@ -1,0 +1,11 @@
+# UTF16 terminal encoder replacement heap spans
+
+Batch 2253 qualifies selected stateless UnicodeEncoding count/write heap spans with malformed input confined to the terminal position. Both endians and nine empty/NUL/surrogate replacement strings form eighteen configurations. Eight backing input shapes, deduplicated full/tail/empty source slices, count-before-write controls, five capacities and two offsets produce 6,840 native cases.
+
+The packaged consumer passes 17,100 comparison groups. It compares exact counts and failures and the entire destination backing buffer. Protected source prefix/suffix surrogate sentinels distinguish the visible slice; three destination suffix bytes remain outside the writable view. This checks the stateless terminal correction through the span entry points and checks that a throwing write still exposes native partial output only within the view.
+
+No further product source change is needed. The existing span overrides snapshot the visible source and copy the full writable output view back in a finally block. The producer, fixture, consumer and candidate JAR are hashed, and the native runtime identity is pinned. Final integration requires the full foundation gate, compiled API audit and existing source/map/notice/distribution and retained behavior checks. There are still 98 Java sources and no API addition.
+
+The scope is terminal stateless input only. Nonterminal residual-fallback interleavings remain mismatched/unqualified. Owned encoder replacement state, Convert edges, arbitrary callbacks, unsafe pointer/lifetime semantics and complete byref/source ABI remain open. Native bounded no-return observations do not become Java passes or prove infinite execution, and no product liveness policy is asserted. E01/E02/E03/N01/Q01 and implementation-task acceptance remain open; no task or framework is accepted.
+
+The next task is decoder replacement Convert behavior. The product uses JDK APIs only; Python and pinned .NET are development/reference tools. Broader dependencies and a public .j distribution remain unresolved. Scratch artifacts use D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized numbered milestone; project-wide total batches remain unknown.
