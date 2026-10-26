@@ -5,7 +5,7 @@ package System;
 /** Selected null-reference failure type. */
 public class NullReferenceException extends SystemException {
     public NullReferenceException() {
-        super();
+        super("Object reference not set to an instance of an object.");
         this.set_HResult(-2147467261);
     }
 

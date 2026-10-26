@@ -711,7 +711,7 @@ public class UTF8Encoding extends Encoding {
                 if (cursor < end && Character.isLowSurrogate(chars[cursor])) {
                     written += emit(new String(new char[] {previous, chars[cursor++]}), bytes, offset + written, counting);
                 } else {
-                    EncoderFallbackBuffer buffer = fallbackBuffer();
+                    EncoderFallbackBuffer buffer = counting ? fallbackBuffer() : get_FallbackBuffer();
                     buffer.Fallback(previous, -1);
                     if (counting || buffer.get_Remaining() > 0) {
                         written += drain(buffer, bytes, offset + written, counting);
@@ -726,6 +726,7 @@ public class UTF8Encoding extends Encoding {
                         cursor += 2; continue;
                     }
                     if (cursor + 1 == end && !flush) {
+                        fallbackBuffer();
                         if (!counting) this.pending = first;
                         cursor++; continue;
                     }
