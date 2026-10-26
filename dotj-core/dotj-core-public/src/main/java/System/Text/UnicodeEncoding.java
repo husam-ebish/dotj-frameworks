@@ -173,7 +173,7 @@ public class UnicodeEncoding extends Encoding {
             int fallbackIndex=c>=0xd800 && c<=0xdbff?Math.min(i+4,end)-2-index:i-index;
             Byte[] unknown=java.util.Arrays.copyOfRange(bytes,i,i+width);String replacement;
             if(this.decoderFallback instanceof DecoderExceptionFallback){StringBuilder value=new StringBuilder();for(Byte v:unknown)value.append(String.format(java.util.Locale.ROOT,"[%02X]",v.get_Value()));throw new DecoderFallbackException("Unable to translate bytes "+value+" at index "+fallbackIndex+" from specified code page to Unicode.",unknown,fallbackIndex);}
-            if(this.decoderFallback instanceof DecoderReplacementFallback r)replacement=r.get_DefaultString();
+            if(output==null && this.decoderFallback instanceof DecoderReplacementFallback r)replacement=r.get_DefaultString();
             else{if(buffer==null)buffer=this.decoderFallback.CreateFallbackBuffer();StringBuilder value=new StringBuilder();if(buffer.Fallback(unknown,fallbackIndex)){char next;while((next=buffer.GetNextChar())!=0)value.append(next);}replacement=value.toString();}
             for(int k=0;k<replacement.length();k++){
                 if(output!=null && written==output.length-offset)overflow(false);
