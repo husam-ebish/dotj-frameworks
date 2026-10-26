@@ -20,7 +20,7 @@ public class ArgumentOutOfRangeException extends ArgumentException {
     }
 
     public ArgumentOutOfRangeException(String message, Exception innerException) {
-        super(message, innerException);
+        super(message == null ? DEFAULT_MESSAGE : message, innerException);
         this.actualValue = null;
         this.set_HResult(-2146233086);
     }
