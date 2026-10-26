@@ -1,0 +1,27 @@
+import System.IFormatProvider;import System.IFormattable;import System.Exception;import System.ArgumentException;import System.InvalidOperationException;import System.Collections.*;import java.nio.file.*;import java.util.*;
+class ReentrantTextOracleKey {
+ int id,equalsCalls,textCalls,textMode,fmtCalls;String lastFormat="unseen";IFormatProvider lastProvider;boolean accepts,textFired;int textAction;IDictionary dictionary;ReentrantTextOracleKey stored,fresh;String text;List<Integer> trace;
+ ReentrantTextOracleKey(int id,String text,int mode,boolean accepts,List<Integer> trace){this.id=id;this.text=text;textMode=mode;this.accepts=accepts;this.trace=trace;}
+ void mutateText(){if(textAction==0||textFired)return;textFired=true;switch(textAction){case 1->dictionary.Clear();case 2->{dictionary.Clear();dictionary.Add(fresh,"nested");}case 3->dictionary.set_Item(stored,"nested");case 4->dictionary.Remove(stored);default->throw new AssertionError();}}
+ @Override public boolean equals(Object other){equalsCalls++;return accepts;}
+ @Override public int hashCode(){throw new InvalidOperationException("unexpected hash");}
+ @Override public String toString(){textCalls++;mutateText();trace.add(id);if(textMode==2)throw new InvalidOperationException("key text failure");return textMode==1?null:text;}
+}
+class FormattedReentrantTextKey extends ReentrantTextOracleKey implements IFormattable {
+ FormattedReentrantTextKey(int id,String text,int mode,boolean accepts,List<Integer> trace){super(id,text,mode,accepts,trace);}
+ @Override public String ToString(String format,IFormatProvider provider){fmtCalls++;mutateText();trace.add(100+id);lastFormat=format;lastProvider=provider;if(textMode==2)throw new InvalidOperationException("formatted key text failure");return textMode==1?null:"F:"+text.substring(2);}
+}
+class ExceptionDataReentrantKeyTextProbe {
+ interface Action{Object run();}
+ static String units(String s){if(s==null)return "~";StringJoiner j=new StringJoiner(",");for(char c:s.toCharArray())j.add(Integer.toString(c));return j.toString();}
+ static String text(String units){StringBuilder b=new StringBuilder();if(!units.isEmpty())for(String u:units.split(","))b.append((char)Integer.parseInt(u));return b.toString();}
+ static String normal(Object v){return v instanceof DictionaryEntry e?"K"+((ReentrantTextOracleKey)e.get_Key()).id+"="+e.get_Value():v instanceof ReentrantTextOracleKey k?"K"+k.id:v==null?"~":"V"+v;}
+ static String outcome(Action a,String kind){try{Object v=a.run();return "OK|"+kind+"|"+(kind.equals("void")?"~":kind.equals("bool")?((Boolean)v?"1":"0"):kind.equals("current")?normal(v):v==null?"~":v.toString());}catch(Exception e){return "ERR|"+e.getClass().getName()+"|"+units(e.get_Message())+"|"+e.get_HResult()+"|"+units(e instanceof ArgumentException x?x.get_ParamName():null);}}
+ static String contents(IDictionary d){StringJoiner j=new StringJoiner(";");IDictionaryEnumerator c=d.GetEnumerator();while(c.MoveNext())j.add(normal(c.get_Entry()));return j.toString();}
+ static String calls(ReentrantTextOracleKey k){return k.equalsCalls+","+k.textCalls+","+k.fmtCalls+"|"+units(k.lastFormat)+"|"+(k.fmtCalls==0?"unseen":k.lastProvider==null?"null":k.lastProvider.getClass().getName())+"|"+(k.textFired?"1":"0");}
+ static void check(String a,String e,String c){if(!a.equals(e))throw new AssertionError(c+" actual="+a+" expected="+e);}
+ static ReentrantTextOracleKey key(int kind,int id,String text,int mode,boolean accepts,List<Integer> trace){return kind==0?new ReentrantTextOracleKey(id,text,mode,accepts,trace):new FormattedReentrantTextKey(id,text,mode,accepts,trace);}
+ public static void main(String[] args)throws java.lang.Exception{int cases=0,groups=0;for(String line:Files.readAllLines(Path.of(args[0]))){String[] p=line.split("\t",-1);List<Integer> trace=new ArrayList<>();ReentrantTextOracleKey s=key(Integer.parseInt(p[1]),1,text(p[8]),Integer.parseInt(p[3]),true,trace),q=p[5].equals("1")?s:key(Integer.parseInt(p[2]),2,text(p[9]),Integer.parseInt(p[4]),false,trace),fresh=key(0,9,"O:fresh",0,false,trace);IDictionary d=new Exception("reentrant text").get_Data();d.Add(s,"initial");s.dictionary=d;s.stored=s;s.fresh=fresh;s.textAction=Integer.parseInt(p[6]);if(q!=s){q.dictionary=d;q.stored=s;q.fresh=fresh;q.textAction=Integer.parseInt(p[7]);}ICollection keys=d.get_Keys(),values=d.get_Values();IEnumerator[] cursors={d.GetEnumerator(),keys.GetEnumerator(),values.GetEnumerator()};for(int i=0;i<3;i++){final IEnumerator c=cursors[i];check(outcome(c::MoveNext,"bool"),p[10+i],"before "+line);groups++;}check(outcome(()->{d.Add(q,"outer");return null;},"void"),p[13],"result "+line);groups++;
+ for(int i=0;i<3;i++){final IEnumerator c=cursors[i];int o=22+i*3;check(outcome(c::get_Current,"current"),p[o],"current "+line);check(outcome(c::MoveNext,"bool"),p[o+1],"move "+line);check(outcome(()->{c.Reset();return null;},"void"),p[o+2],"reset "+line);groups+=3;}
+ check(Integer.toString(d.get_Count()),p[14],"count "+line);check(Integer.toString(keys.get_Count()),p[15],"key count "+line);check(Integer.toString(values.get_Count()),p[16],"value count "+line);check(contents(d),p[17],"contents "+line);check(calls(s),p[18],"stored dispatch "+line);check(calls(q),p[19],"query dispatch "+line);check(calls(fresh),p[20],"fresh dispatch "+line);StringJoiner events=new StringJoiner(",");for(int id:trace)events.add(Integer.toString(id));check(events.toString(),p[21],"text order "+line);groups+=8;cases++;}java.lang.System.out.println("PASS reentrant key text cases="+cases+" groups="+groups);}
+}
