@@ -1,0 +1,25 @@
+"""Compare TryGetBytes for every selected known returned stateless count context."""
+import argparse,base64,hashlib,json,subprocess
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
+def csv(v):return '~' if v is None else ','.join(map(str,v))
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
+ if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text())['jarPath']
+ path=EVIDENCE/'unicode-encoder-returned-replacement-try-spans-contract-v10.0.12.json';j=json.loads(path.read_text());assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-unicode-encoder-returned-replacement-try-spans-contract.ps1').read_bytes()).hexdigest();assert len(j['profiles'])==18 and j['nativeCalls']==1656 and j['selectedKnownReturnedCountContexts']==138 and j['unselectedStatelessSourceContexts']==6
+ refPath=EVIDENCE/'unicode-encoder-returned-replacement-allocations-contract-v10.0.12.json';ref=json.loads(refPath.read_text());assert j['inputSha256']==hashlib.sha256(refPath.read_bytes()).hexdigest();basis={r['basisCaseId']:(pid,r) for pid,p in enumerate(ref['profiles']) for r in p['rows']};assert len(basis)==138;expected={(pid,cid,cap,offset) for cid,(pid,r) in basis.items() for cap in [0,1,2,3,4,8] for offset in [0,2]};seen=set();work=Path('D:/AI/Implementation/dotj Frameworks/verification/unicode-encoder-returned-replacement-try-spans');work.mkdir(parents=True,exist_ok=True);specs=[];events=[];groups=small=failures=0
+ for pid,profile in enumerate(j['profiles']):
+  assert profile['bigEndian']==ref['profiles'][pid]['bigEndian'] and profile['replacement']==ref['profiles'][pid]['replacement'];specs.append('\t'.join([str(int(profile['bigEndian'])),csv(profile['replacement'])]));events.append('N\t'+str(pid))
+  for row in profile['rows']:
+   cid=row['basisCaseId'];assert cid in basis;oldPid,old=basis[cid];key=(pid,cid,row['capacity'],row['offset']);assert oldPid==pid and key in expected and key not in seen;seen.add(key)
+   for field in ['source','start','count']:assert row[field]==old[field]
+   assert row['requiredResult']==old['results']['CountArray'];result=row['result'];assert len(row['after'])==row['offset']+row['capacity']+3 and row['after'][:row['offset']]==[99]*row['offset'] and row['after'][row['offset']+row['capacity']:]==[99]*3
+   if result['ok']:
+    assert row['requiredResult']['ok'] and result['success']==(row['requiredResult']['value']<=row['capacity'])
+    if not result['success']:assert row['written']==0 and row['after']==[99]*len(row['after']);small+=1
+   else:failures+=1
+   events.append('\t'.join([csv(row['source']),str(row['start']),str(row['count']),str(len(row['after'])),str(row['offset']),str(row['capacity']),str(int(result.get('success',False))),str(row['written']),csv(row['after']),result.get('exception',''),base64.b64encode(result.get('message','').encode()).decode(),str(result.get('hResult',0)),result.get('paramName') or '~',str(result.get('unknown',0)),str(result.get('index',0)),str(result.get('high',0)),str(result.get('low',0)),str(int(result.get('isPair',False)))]));groups+=3
+ assert seen==expected and groups==4968,groups
+ states=work/'profiles.tsv';states.write_text('\n'.join(specs)+'\n',encoding='ascii');vectors=work/'events.tsv';vectors.write_text('\n'.join(events)+'\n',encoding='ascii');component=Path(__file__).with_name('unicode-encoder-returned-replacement-try-spans-probe.java');source=work/'UnicodeEncoderReturnedReplacementTrySpansProbe.java';source.write_bytes(component.read_bytes());subprocess.run(['javac','--release','21','-cp',str(a.jar),'-d',str(work),str(source)],check=True);result=subprocess.run(['java','-cp',str(a.jar)+';'+str(work),'UnicodeEncoderReturnedReplacementTrySpansProbe',str(states),str(vectors)],capture_output=True,text=True,timeout=60);print(result.stdout,end='');print(result.stderr,end='');result.check_returncode();assert f'groups={groups}' in result.stdout
+ record=dict(schemaVersion=1,casesPassed=groups,nativeCalls=1656,selectedKnownReturnedCountContexts=138,unselectedStatelessSourceContexts=6,tooSmallReturns=small,exceptionOutcomes=failures,oracleEvidence=path.name,oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),referenceSha256=j['inputSha256'],consumerSourceSha256=hashlib.sha256(component.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(a.jar.read_bytes()).hexdigest(),qualification='ENCODER_TRY_HEAP_SPANS_FOR_ALL_SELECTED_KNOWN_RETURNED_STATELESS_COUNT_CONTEXTS_ONLY; UNSELECTED_NO_RETURN_OUTCOMES_PRODUCT_LIVENESS_POLICY_CUSTOM_CALLBACKS_FULL_ABI_E01_AND_TASK_ACCEPTANCE_OPEN');(EVIDENCE/'unicode-encoder-returned-replacement-try-spans-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8',newline='\n');print(f'PASS returned encoder Try spans: {groups} groups, 1656 calls across 138 known returned count contexts')
+if __name__=='__main__':main()
