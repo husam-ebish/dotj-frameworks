@@ -583,6 +583,25 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return supplied instanceof NumberFormatInfo format ? format : null;
     }
 
+    private static boolean numberParseWhite(char value) {
+        return value == ' ' || (value >= '\t' && value <= '\r');
+    }
+
+    private static String selectedNumberParseText(String text) {
+        int start = 0;
+        int end = text.length();
+        while (end > 0 && text.charAt(end - 1) == '\0') {
+            end--;
+        }
+        while (start < end && numberParseWhite(text.charAt(start))) {
+            start++;
+        }
+        while (end > start && numberParseWhite(text.charAt(end - 1))) {
+            end--;
+        }
+        return text.substring(start, end);
+    }
+
     private static void validateParseStyle(NumberStyles style) {
         int flags = style == null ? 0 : style.get_Value();
         if ((flags & ~2047) != 0) {
@@ -888,13 +907,13 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
             return Parse(trimmed, NumberStyles.Number, provider);
         }
         if (NumberStyles.Number.equals(style)) {
-            String trimmed = text.strip();
-            if (!trimmed.matches("(?:[+-]?(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)|(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)[+-])")) {
+            String trimmed = selectedNumberParseText(text);
+            if (!trimmed.matches("(?:[+-]?(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)|(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)[\\x09-\\x0D ]*[+-])")) {
                 throw new FormatException("Input string was not in a correct format");
             }
             boolean negative = trimmed.startsWith("-") || trimmed.endsWith("-");
             String unsigned = trimmed.replaceFirst("^[+-]", "").replaceFirst("[+-]$", "");
-            BigDecimal parsed = new BigDecimal(unsigned.replace(",", ""));
+            BigDecimal parsed = new BigDecimal(selectedNumberParseText(unsigned).replace(",", ""));
             return bounded(negative ? parsed.negate() : parsed, negative);
         }
         if (!NumberStyles.Float.equals(style)) {
