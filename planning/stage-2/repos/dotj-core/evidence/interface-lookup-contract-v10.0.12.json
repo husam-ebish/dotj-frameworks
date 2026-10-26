@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "ff8401241488ff6a1beafd2720cfc44450d4e91b14b28cba19f204058b0577c2",
+  "oracleSha256": "ed70165073856c0a3740591eda5c8e7473cf1af64d29e36fb94cad81eec25a63",
   "types": [
     {
       "name": "System.String",
@@ -219,13 +219,13 @@
     {
       "name": "System.Decimal",
       "selectedInterfaces": [
-        "System.IConvertible"
+        "System.IComparable",
+        "System.IConvertible",
+        "System.IFormattable"
       ],
       "omittedInterfaces": [
-        "System.IComparable",
         "System.IComparable`1[[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.IEquatable`1[[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "System.IFormattable",
         "System.IParsable`1[[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "System.ISpanFormattable",
         "System.ISpanParsable`1[[System.Decimal, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -3507,6 +3507,198 @@
     {
       "source": "System.Decimal",
       "query": "system.IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "System.IComparable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "System.IComparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "IComparable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "IComparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "system.icomparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "system.icomparable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "icomparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "icomparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "System.icomparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "System.icomparable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IComparable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "system.IComparable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "system.IComparable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "System.IFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IFormattable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "System.IFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IFormattable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "IFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.IFormattable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "IFormattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IFormattable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "system.iformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "system.iformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "iformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "iformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IFormattable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "System.iformattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "System.iformattable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.IFormattable"
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "system.IFormattable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Decimal",
+      "query": "system.IFormattable",
       "ignoreCase": true,
       "result": {
         "name": null
