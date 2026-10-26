@@ -584,10 +584,21 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return supplied instanceof NumberFormatInfo format ? format : null;
     }
 
+    private static void validateParseStyle(NumberStyles style) {
+        int flags = style == null ? 0 : style.get_Value();
+        if ((flags & ~2047) != 0) {
+            throw new ArgumentException("An undefined NumberStyles value is being used.", "style");
+        }
+        if ((flags & 1536) != 0) {
+            throw new ArgumentException("The number styles AllowHexSpecifier and AllowBinarySpecifier are not supported on floating point data types.", "style");
+        }
+    }
+
     public static Decimal Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (text == null) {
             throw new ArgumentNullException("s");
         }
+        validateParseStyle(style);
         provider = selectedNumberFormatInfo(provider);
         if (provider instanceof NumberFormatInfo format
                 && NumberStyles.AllowCurrencySymbol.equals(style)) {
@@ -905,6 +916,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
 
     public static <T> Decimal Parse(ReadOnlySpan<T> text, NumberStyles style,
                                     IFormatProvider provider) {
+        validateParseStyle(style);
         return Parse(text.selectedText(), style, provider);
     }
 
@@ -936,6 +948,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
 
     public static boolean TryParse(String text, NumberStyles style,
                                    IFormatProvider provider, Decimal[] result) {
+        validateParseStyle(style);
         result[0] = new Decimal(0);
         if (text == null) {
             return false;
@@ -950,6 +963,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
 
     public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style,
                                        IFormatProvider provider, Decimal[] result) {
+        validateParseStyle(style);
         return TryParse(text.selectedText(), style, provider, result);
     }
 
