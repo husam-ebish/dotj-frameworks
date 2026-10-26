@@ -1,0 +1,7 @@
+# Decimal invalid parse-style guards
+
+Batch 2322 corrects unsupported hex/binary and undefined NumberStyles validation. Native String Parse checks null text before style validation. Char-span Parse validates style before parsing text. TryParse validates style before mutating its result. The implementation preserves this ordering and native ArgumentException text/parameter names. No parsing overload was missing in this scope; existing span overloads now reject invalid styles correctly.
+
+Pinned .NET 10.0.12/CoreLib and Decimal source evidence bind 220 calls: 11 styles, five null/empty/valid/malformed texts and String/Char-span Parse/TryParse routes. Each result is compared with exact exception type/message/HResult/parameter and the existing result bits, yielding 440 groups. Char input uses a bounded slice surrounded by invalid sentinels. Previous product fails the comparison. Canonical qualification requires 337 checks and retained Decimal conversion/format/span/interface/API checks. All temporary files remain on D.
+
+Inventory stays 99 sources/130 classes. Valid-style grammar, UTF8 parsing, ambient cultures, complete .NET parity and E01/E02/E03/N01/Q01 remain open. No accepted implementation task or framework qualification is added. Next is the missing style-only Parse overload pair. Numbered milestone is 2500; total project batches remain unknown. JDK APIs are product runtime dependencies; Python/.NET are validation tools; broader distribution/dependency decisions remain open.
