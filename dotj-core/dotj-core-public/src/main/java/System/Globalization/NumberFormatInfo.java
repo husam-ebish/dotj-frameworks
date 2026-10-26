@@ -12,6 +12,7 @@ import System.Type;
 
 /** Selected mutable numeric symbols used by Int32 N, C and P formatting. */
 public final class NumberFormatInfo implements IFormatProvider, ICloneable {
+    private static final NumberFormatInfo invariantInfo = ReadOnly(new NumberFormatInfo());
     private boolean isReadOnly;
     private String numberGroupSeparator = ",";
     private int[] numberGroupSizes = {3};
@@ -35,6 +36,8 @@ public final class NumberFormatInfo implements IFormatProvider, ICloneable {
     private int percentDecimalDigits = 2;
     private int percentPositivePattern = 0;
     private int percentNegativePattern = 0;
+
+    public static NumberFormatInfo get_InvariantInfo() { return invariantInfo; }
 
     public boolean get_IsReadOnly() { return this.isReadOnly; }
 
