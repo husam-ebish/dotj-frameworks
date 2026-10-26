@@ -957,10 +957,12 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     public static boolean TryParse(String text, NumberStyles style,
                                    IFormatProvider provider, Decimal[] result) {
         validateParseStyle(style);
-        result[0] = new Decimal(0);
         if (text == null) {
+            result[0] = new Decimal(0);
             return false;
         }
+        provider = selectedNumberFormatInfo(provider);
+        result[0] = new Decimal(0);
         try {
             result[0] = Parse(text, style, provider);
             return true;

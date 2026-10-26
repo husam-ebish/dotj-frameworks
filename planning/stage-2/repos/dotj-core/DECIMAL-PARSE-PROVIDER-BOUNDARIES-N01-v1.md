@@ -1,0 +1,7 @@
+# Decimal parsing provider boundaries
+
+Batch 2324 corrects TryParse ordering: validate style, handle String null without a callback, resolve the provider, then initialize the result and attempt parsing. Provider exceptions now escape before output mutation, including a provider-thrown FormatException previously swallowed by the parser catch. String Parse and span route distinctions are retained.
+
+Pinned reference coverage is 480 calls: four styles, six null/empty/valid/custom/malformed texts, five provider behaviors and four String/Char-span Parse/TryParse routes. 2400 groups compare parsed/try outcomes, holder bits, callback counts, canonical requested NumberFormatInfo type and thrown provider exception object identity. Provider failure messages are checked exactly; existing malformed-input messages remain deferred. Null/wrong/custom return values, invalid style precedence and null String suppression are covered. Prior product fails output preservation and FormatException propagation controls.
+
+Canonical qualification requires 339 checks and retained Decimal parsing, formatting, conversion, interface and API audits. No inventory/API surface growth (99 sources/130 classes). E01/E02/E03/N01/Q01, complete grammar, ambient cultures, UTF8 and task/framework acceptance remain open. Next is default Number-style delegation. Temporary assets stay on D. Milestone 2500 is numbered; project total unknown. JDK APIs are product dependencies; Python/.NET are validation tools; broader distribution/dependency decisions remain open.
