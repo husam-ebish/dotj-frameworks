@@ -101,7 +101,16 @@ public final class DigitShapes implements IFormattable, IConvertible, IComparabl
     @Override public int CompareTo(Object other) {
         if (other == null) return 1;
         if (other instanceof DigitShapes form) return Integer.compare(this.value, form.value);
-        String type = other instanceof String ? "System.String" : other instanceof Integer ? "System.Int32" : other.getClass().getName();
+        String type = other instanceof String ? "System.String"
+                : other instanceof Integer ? "System.Int32"
+                : other instanceof Short ? "System.Int16"
+                : other instanceof Long ? "System.Int64"
+                : other instanceof Boolean ? "System.Boolean"
+                : other instanceof Character ? "System.Char"
+                : other instanceof Float ? "System.Single"
+                : other instanceof Double ? "System.Double"
+                : other instanceof java.lang.Byte ? "System.SByte"
+                : other.getClass() == Object.class ? "System.Object" : other.getClass().getName();
         throw new ArgumentException("Object must be the same type as the enum. The type passed in was '" + type + "'; the enum type was 'System.Globalization.DigitShapes'.");
     }
     public boolean Equals(Object other) { return other instanceof DigitShapes form && this.value == form.value; }
