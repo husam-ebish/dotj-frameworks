@@ -30,7 +30,7 @@ public abstract class MethodInfo extends MethodBase {
     public abstract String ToString();
 
     public MethodInfo GetGenericMethodDefinition() {
-        throw new InvalidOperationException("Method is not generic");
+        throw new InvalidOperationException();
     }
 
     public Object[] GetCustomAttributes(boolean inherit) {
@@ -52,7 +52,8 @@ public abstract class MethodInfo extends MethodBase {
         if (typeArguments == null) {
             throw new ArgumentNullException("methodInstantiation");
         }
-        throw new InvalidOperationException("Method is not a generic method definition");
+        throw new InvalidOperationException(this.ToString()
+                + " is not a GenericMethodDefinition. MakeGenericMethod may only be called on a method for which MethodBase.IsGenericMethodDefinition is true.");
     }
 
     @Override
