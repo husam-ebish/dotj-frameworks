@@ -9,7 +9,7 @@ import System.Globalization.NumberStyles;
 import System.Globalization.NumberFormatInfo;
 
 /** Bounded immutable Decimal candidate for integer construction and invariant text. */
-public final class Decimal implements IConvertible, IComparable, IFormattable {
+public final class Decimal implements IConvertible, IComparable, IFormattable, ISpanFormattable {
     private static final BigDecimal MAX_MAGNITUDE =
             new BigDecimal("79228162514264337593543950335");
     private static final BigInteger LOW_64_MASK = BigInteger.ONE.shiftLeft(64).subtract(BigInteger.ONE);
@@ -992,6 +992,30 @@ public final class Decimal implements IConvertible, IComparable, IFormattable {
         } catch (NumberFormatException expected) {
             throw new FormatException("Format precision is invalid");
         }
+    }
+
+    @Override
+    public boolean TryFormat(char[] destination, int[] charsWritten, String format, IFormatProvider provider) {
+        String text = ToString(format, provider);
+        if (text.length() > destination.length) {
+            charsWritten[0] = 0;
+            return false;
+        }
+        text.getChars(0, text.length(), destination, 0);
+        charsWritten[0] = text.length();
+        return true;
+    }
+
+    public boolean TryFormat(Span<Character> destination, int[] charsWritten, ReadOnlySpan<Character> format, IFormatProvider provider) {
+        if (destination == null) throw new ArgumentNullException("destination");
+        if (format == null) throw new ArgumentNullException("format");
+        String text = ToString(format.ToString(), provider);
+        if (!ReadOnlySpan.OfChars(text.toCharArray()).TryCopyTo(destination)) {
+            charsWritten[0] = 0;
+            return false;
+        }
+        charsWritten[0] = text.length();
+        return true;
     }
 
     public String ToString(String format, IFormatProvider provider) {
