@@ -9,7 +9,7 @@ import System.Globalization.NumberStyles;
 import System.Globalization.NumberFormatInfo;
 
 /** Bounded immutable Decimal candidate for integer construction and invariant text. */
-public final class Decimal implements IConvertible, IComparable, IFormattable, ISpanFormattable {
+public final class Decimal implements IConvertible, IComparable, IFormattable, ISpanFormattable, IUtf8SpanFormattable {
     private static final BigDecimal MAX_MAGNITUDE =
             new BigDecimal("79228162514264337593543950335");
     private static final BigInteger LOW_64_MASK = BigInteger.ONE.shiftLeft(64).subtract(BigInteger.ONE);
@@ -1006,15 +1006,24 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return true;
     }
 
-    public boolean TryFormat(Span<Character> destination, int[] charsWritten, ReadOnlySpan<Character> format, IFormatProvider provider) {
+    /** One Java carrier for the selected CLR Char and UTF-8 Byte spans. */
+    public <T> boolean TryFormat(Span<T> destination, int[] written, ReadOnlySpan<Character> format, IFormatProvider provider) {
         if (destination == null) throw new ArgumentNullException("destination");
         if (format == null) throw new ArgumentNullException("format");
-        String text = ToString(format.ToString(), provider);
-        if (!ReadOnlySpan.OfChars(text.toCharArray()).TryCopyTo(destination)) {
-            charsWritten[0] = 0;
+        int count = destination.writeSelectedDecimalText(ToString(format.ToString(), provider));
+        written[0] = count < 0 ? 0 : count;
+        return count >= 0;
+    }
+
+    @Override
+    public boolean TryFormat(byte[] destination, int[] bytesWritten, String format, IFormatProvider provider) {
+        byte[] encoded = org.dotj.internal.text.Utf8Codec.encode(ToString(format, provider));
+        if (encoded.length > destination.length) {
+            bytesWritten[0] = 0;
             return false;
         }
-        charsWritten[0] = text.length();
+        java.lang.System.arraycopy(encoded, 0, destination, 0, encoded.length);
+        bytesWritten[0] = encoded.length;
         return true;
     }
 

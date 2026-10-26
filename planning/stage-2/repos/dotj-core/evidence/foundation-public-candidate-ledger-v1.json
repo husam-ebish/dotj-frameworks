@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "9eb3980abc735fc34272e876d55073a230710c8ab1bffcc66b00974546bdec7b",
+  "candidateJarSha256": "151b310a332455e38de6dc15677b1e322be4bce4437de06a6d55fdc87f39b9b9",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -180,7 +180,7 @@
       "upstreamDeclaredProperties": 1,
       "upstreamPublicConstructors": 9,
       "javaPublicConstructors": 4,
-      "javaPublicHeader": "public final class System.Decimal implements System.IConvertible,System.IComparable,System.IFormattable,System.ISpanFormattable {",
+      "javaPublicHeader": "public final class System.Decimal implements System.IConvertible,System.IComparable,System.IFormattable,System.ISpanFormattable,System.IUtf8SpanFormattable {",
       "javaPublicDeclarations": [
         "public System.Decimal(int);",
         "public System.Decimal(long);",
@@ -251,7 +251,8 @@
         "public java.lang.String ToString();",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
-        "public boolean TryFormat(System.Span<java.lang.Character>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+        "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+        "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
         "public System.TypeCode GetTypeCode();",
         "public boolean ToBoolean(System.IFormatProvider);",
@@ -270,7 +271,7 @@
         "public System.DateTime ToDateTime(System.IFormatProvider);",
         "public java.lang.Object ToType(System.Type, System.IFormatProvider);"
       ],
-      "disposition": "PARTIAL_VALUE_SURFACE; selected Decimal IConvertible/IComparable/IFormattable/ISpanFormattable, Parse and selected provider/Char-span formatting; UTF8/generic interfaces open",
+      "disposition": "PARTIAL_VALUE_SURFACE; selected Decimal IConvertible/IComparable/IFormattable/ISpanFormattable/IUtf8SpanFormattable, Parse and selected provider/Char/UTF8 formatting; generic interfaces open",
       "qualified": false
     },
     {
