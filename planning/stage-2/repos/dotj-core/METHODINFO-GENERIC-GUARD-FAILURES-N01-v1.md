@@ -1,0 +1,9 @@
+# Selected nongeneric MethodInfo guard failures
+
+Batch 2301 corrects GetGenericMethodDefinition and MakeGenericMethod diagnostics for represented nongeneric interface methods. Definition lookup uses the native invalid-operation resource. Non-null construction attempts include the method descriptor and full native GenericMethodDefinition diagnostic. A null type-argument array still fails first with ArgumentNullException(methodInstantiation); non-null arrays containing null or having a wrong length retain the nongeneric-method failure before argument/constraint validation.
+
+Five methods are covered: IDisposable.Dispose, IComparable.CompareTo, IFormattable.ToString, IFormatProvider.GetFormat and ICloneable.Clone. The 45 native failures pass 90 descriptor/outcome groups: five null failures and forty invalid-operation failures. Typed argument arrays are passed through direct reflection to preserve null/empty/element distinctions. The old JAR fails guard text. Runtime, producer, pinned source archive, consumer and JAR hashes bind evidence. Source LF is explicitly pinned before canonical checkout.
+
+Source/class inventory remains 98/129. Canonical qualification requires 316 foundation checks, prior Clone reflection and type/interface consumers, API and source/map/notice/distribution audits. Generic construction, invocation, constraints, complete reflection and E01/E02/E03/N01/Q01 remain open. No accepted task or qualified framework is credited. Selected invariant NumberFormatInfo.GetInstance provider selection is next.
+
+JDK APIs are product runtime dependencies. Python and pinned .NET are development/reference tools; broader dependencies and public .j distribution remain unresolved. Scratch stays under D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized numbered milestone; project-wide batch total remains unknown.
