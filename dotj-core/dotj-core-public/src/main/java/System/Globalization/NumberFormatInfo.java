@@ -54,18 +54,19 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_NumberGroupSizes(int[] value) {
-        validateGroupSizes(value);
-        this.numberGroupSizes = value.clone();
+        this.numberGroupSizes = copyGroupSizes(value);
     }
 
-    private static void validateGroupSizes(int[] value) {
+    private static int[] copyGroupSizes(int[] value) {
         if (value == null) throw new ArgumentNullException("value");
-        for (int index = 0; index < value.length; index++) {
-            if (value[index] < 0 || value[index] > 9
-                    || (value[index] == 0 && index != value.length - 1)) {
-                throw new ArgumentException("Invalid group size", "value");
+        int[] sizes = value.clone();
+        for (int index = 0; index < sizes.length; index++) {
+            if (sizes[index] < 0 || sizes[index] > 9
+                    || (sizes[index] == 0 && index != sizes.length - 1)) {
+                throw new ArgumentException("Every element in the value array should be between one and nine, except for the last element, which can be zero.", "value");
             }
         }
+        return sizes;
     }
 
     public String get_NumberDecimalSeparator() {
@@ -137,8 +138,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_CurrencyGroupSizes(int[] value) {
-        validateGroupSizes(value);
-        this.currencyGroupSizes = value.clone();
+        this.currencyGroupSizes = copyGroupSizes(value);
     }
 
     public String get_CurrencyDecimalSeparator() {
@@ -210,8 +210,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_PercentGroupSizes(int[] value) {
-        validateGroupSizes(value);
-        this.percentGroupSizes = value.clone();
+        this.percentGroupSizes = copyGroupSizes(value);
     }
 
     public String get_PercentDecimalSeparator() {
