@@ -1,0 +1,9 @@
+# NumberFormatInfo special symbols: represented state 22 to 25
+
+Batch 2303 adds NaNSymbol, PositiveInfinitySymbol and NegativeInfinitySymbol getters/setters. This explicitly expands represented NumberFormatInfo state from 22 to 25 fields without changing the 98-source/129-class inventory. Invariant defaults are NaN, Infinity and -Infinity. Symbol null checks precede writability, empty/Unicode values are retained, read-only instances reject non-null mutation, and copies preserve all three new fields. No public Single/Double formatting API is qualified by this state work.
+
+The paired oracle covers three properties, nine input profiles and mutable/read-only/clone/invariant modes: 108 setter cases plus default and final cached state, totaling 435 groups. Full 25-field snapshots include nondefault symbol seeds so clone omissions are detected. Inputs cover null, empty, ASCII, infinity, NUL, unpaired UTF-16 and combining text. There are 48 successes, 48 read-only failures and 12 null failures. The old JAR lacks these properties and fails compilation. Runtime, producer, explicit 25-field plan, pinned NumberFormatInfo source, consumer and JAR hashes bind evidence.
+
+Canonical qualification requires 318 foundation checks, prior provider/state/reflection cases, relevant numeric/type/exception consumers, API and source/map/notice/distribution audits. Floating formatting, other culture fields, complete metadata/serialization and E01/E02/E03/N01/Q01 remain open. No accepted task or qualified framework is credited. NativeDigits validation and its distinct native array-sharing behavior are next; field scope will be explicitly expanded to 26.
+
+JDK APIs are product runtime dependencies. Python and pinned .NET are development/reference tools; broader dependencies and public .j distribution remain unresolved. Scratch stays under D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized numbered milestone; project-wide batch total remains unknown.
