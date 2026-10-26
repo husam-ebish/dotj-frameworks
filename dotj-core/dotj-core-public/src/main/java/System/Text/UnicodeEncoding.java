@@ -548,6 +548,71 @@ public class UnicodeEncoding extends Encoding {
                 ReadOnlySpan.OfUtf8Bytes(raw).CopyTo(bytes);
             }
         }
+        private int convertReplacement(char[] chars, int index, int count, Byte[] bytes, int offset,
+                int capacity, boolean flush, int[] used, EncoderReplacementFallback selected) {
+            int consumed = 0, written = 0, position = 0, lastWritten = -1;
+            char high = this.pending;
+            boolean retriedEnd = false, fallbackStarted = false;
+            boolean guardCycles = selected.get_DefaultString().indexOf((char)0) >= 0;
+            java.util.Set<String> visited = guardCycles ? new java.util.HashSet<>() : null;
+            EncoderFallbackBuffer buffer = existingFallbackBuffer();
+            while (true) {
+                if (guardCycles && fallbackStarted) {
+                    if (written != lastWritten) { visited.clear(); lastWritten = written; }
+                    String state = consumed + ":" + (int)high + ":" + position + ":" + buffer.get_Remaining();
+                    if (!visited.add(state)) throw new ArgumentException("Recursive fallback is not allowed.", "chars");
+                }
+                char next = buffer == null ? 0 : buffer.GetNextChar();
+                boolean fallingBack = next != 0;
+                if (buffer != null) position = Math.min(position + 1, selected.get_DefaultString().length() * 2 + 1);
+                char invalid;
+                if (next == 0 && consumed == count) {
+                    if (!flush || high == 0) break;
+                    if (retriedEnd) throw new ArgumentException(String.format(java.util.Locale.ROOT,
+                            "Recursive fallback not allowed for character \\\\u%04X.", (int)high), "chars");
+                    invalid = high; high = 0; retriedEnd = true;
+                } else {
+                    if (next == 0) next = chars[index + consumed++];
+                    if (Character.isHighSurrogate(next)) {
+                        if (high == 0) { high = next; continue; }
+                        consumed--; invalid = high; high = 0;
+                    } else if (Character.isLowSurrogate(next)) {
+                        if (high != 0) {
+                            if (capacity - written < 4) {
+                                if (fallingBack) { buffer.MovePrevious(); buffer.MovePrevious(); }
+                                else consumed -= 2;
+                                if (written == 0) convertNoProgress();
+                                high = 0; break;
+                            }
+                            written = this.encoding.putWord(high, bytes, offset, written);
+                            written = this.encoding.putWord(next, bytes, offset, written);
+                            high = 0; continue;
+                        }
+                        invalid = next;
+                    } else if (high != 0) {
+                        consumed--; invalid = high; high = 0;
+                    } else {
+                        if (capacity - written < 2) {
+                            if (fallingBack) buffer.MovePrevious(); else consumed--;
+                            if (written == 0) convertNoProgress();
+                            break;
+                        }
+                        written = this.encoding.putWord(next, bytes, offset, written);
+                        continue;
+                    }
+                }
+                if (buffer == null) buffer = get_FallbackBuffer();
+                buffer.encodingContext = this.encoding;
+                int fallbackIndex = consumed - 1;
+                if (Character.isHighSurrogate(invalid) && consumed < count
+                        && Character.isLowSurrogate(chars[index + consumed])) {
+                    buffer.Fallback(invalid, chars[index + consumed++], fallbackIndex);
+                } else buffer.Fallback(invalid, fallbackIndex);
+                position = 0; fallbackStarted = true;
+            }
+            this.pending = high; used[0] = consumed;
+            return written;
+        }
         private void beginConvertFallback(char value, int index) {
             if (get_Fallback() instanceof EncoderExceptionFallback) {
                 throw new EncoderFallbackException(String.format(java.util.Locale.ROOT, ENCODER_MESSAGE,
@@ -570,6 +635,15 @@ public class UnicodeEncoding extends Encoding {
             nonnegative(byteIndex, "byteIndex"); nonnegative(byteCount, "byteCount");
             if (charIndex > chars.length - charCount) throw new ArgumentOutOfRangeException("chars", "Index and count must refer to a location within the buffer.");
             if (byteIndex > bytes.length - byteCount) throw new ArgumentOutOfRangeException("bytes", "Index and count must refer to a location within the buffer.");
+            if (get_Fallback() instanceof EncoderReplacementFallback selected) {
+                int[] used = new int[1];
+                int written = convertReplacement(chars, charIndex, charCount, bytes, byteIndex, byteCount, flush, used, selected);
+                bytesUsed[0] = written; charsUsed[0] = used[0];
+                EncoderFallbackBuffer buffer = existingFallbackBuffer();
+                completed[0] = used[0] == charCount && (!flush || this.pending == 0)
+                        && (buffer == null || buffer.get_Remaining() == 0);
+                return;
+            }
             int consumed = 0, written = 0, carryIndex = -1;
             char carry = this.pending;
             while (true) {

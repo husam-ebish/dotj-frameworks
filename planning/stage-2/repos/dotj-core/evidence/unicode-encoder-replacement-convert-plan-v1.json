@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "task": "DJ-001-WP-05-T2",
+  "profiles": 18,
+  "casesPerProfile": 512,
+  "totalCases": 9216,
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "sources": {
+    "UnicodeEncoding": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/UnicodeEncoding.cs",
+      "sha256": "b5a717988edb22bae8688fb5cf9d8efe9d503dfe2918cdb5a9c95578a5768828"
+    },
+    "EncoderNLS": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderNLS.cs",
+      "sha256": "79a6e4501f5da67690194d5c31da8c92b44271941422d5a5bf49113c43601b15"
+    },
+    "EncoderFallback": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallback.cs",
+      "sha256": "fecaa8e71992f9d568254202327662e6de473b3d73ad5b6fa83a79417cc98715"
+    },
+    "EncoderReplacementFallback": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderReplacementFallback.cs",
+      "sha256": "735c5015ddd6fb9d5be7e20fc85703de97a1dd40db2843aa79eeb5271ed1fba1"
+    }
+  },
+  "qualification": "SELECTED_ENCODER_REPLACEMENT_CONVERT_RETURNED_CASES_ONLY; NATIVE_NO_RETURN_OUTCOMES_AND_FINAL_PRODUCT_LIVENESS_POLICY_OPEN",
+  "nativeNoReturnRowsHaveReturnedValues": false,
+  "javaOnlyFiniteControlsAreNativeParityEvidence": false,
+  "acceptedImplementationTasksCredited": 0,
+  "projectBatchTotal": null,
+  "projectBatchesRemaining": null
+}
