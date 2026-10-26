@@ -1,0 +1,9 @@
+# Encoding owner and stateful fallback snapshots
+
+Batch 2275 qualifies 5,472 comparisons across 2,016 native write calls and 144 stateful sequences. UTF8, UTF16LE and UTF16BE each cover 16 old/new standard replacement combinations and three pending-input seeds. Existing encoder/decoder objects and a clone created before owner mutation retain the original fallback objects. The owner, its later clone and newly created stateful objects retain the replacement fallbacks. Ten reference-identity assertions per sequence distinguish same-text but distinct fallback objects.
+
+Existing state is flushed after owner mutation and reused on invalid input. Independent owner, before-clone, after-clone and new stateful writes compare full guarded destination buffers and exact method outcomes. The native fixture uses typed source/destination arrays; no PowerShell wrapper failures are permitted. Exact profile, seed, event and identity coverage is enforced. Native runtime/producer, pinned UTF8/Unicode source archive members, consumer and JAR hashes bind the proof. All selected outcomes match the candidate, so no product changes are needed.
+
+Canonical qualification requires the full 290-check gate and retained packaged consumers, compiled API and source/map/notice/distribution checks. The source inventory remains 98 with unchanged API. Direct stateful fallback replacement with pending input and previously created buffers is next. NUL replacements, arbitrary callbacks, full encoding parity, original bounded no-return cases, final liveness policy, E01/E02/E03/N01/Q01 and task acceptance remain open. No task or framework is accepted.
+
+JDK APIs are the Java product runtime dependencies; Python and pinned .NET are development/reference tools. Broader dependencies and public .j distribution remain unresolved. Scratch uses D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized milestone; total project batches remain unknown.
