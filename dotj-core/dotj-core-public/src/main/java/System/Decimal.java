@@ -612,6 +612,71 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         }
     }
 
+    private static boolean parseTokenAt(String text, int offset, String token) {
+        return !token.isEmpty() && text.startsWith(token, offset);
+    }
+
+    private static String selectedNumberProviderText(String text, NumberFormatInfo format) {
+        String input = selectedNumberParseText(text);
+        String positive = format.get_PositiveSign();
+        String negative = format.get_NegativeSign();
+        String decimal = format.get_NumberDecimalSeparator();
+        String group = format.get_NumberGroupSeparator();
+        int offset = 0;
+        boolean signed = false;
+        boolean isNegative = false;
+        if (parseTokenAt(input, offset, positive)) {
+            offset += positive.length();
+            signed = true;
+        } else if (parseTokenAt(input, offset, negative)) {
+            offset += negative.length();
+            signed = true;
+            isNegative = true;
+        }
+        if (signed && format.get_NumberNegativePattern() == 2) {
+            while (offset < input.length() && numberParseWhite(input.charAt(offset))) {
+                offset++;
+            }
+        }
+        StringBuilder number = new StringBuilder();
+        boolean digit = false;
+        boolean point = false;
+        while (offset < input.length()) {
+            char current = input.charAt(offset);
+            if (current >= '0' && current <= '9') {
+                number.append(current);
+                digit = true;
+                offset++;
+            } else if (!point && parseTokenAt(input, offset, decimal)) {
+                number.append('.');
+                point = true;
+                offset += decimal.length();
+            } else if (digit && !point && parseTokenAt(input, offset, group)) {
+                offset += group.length();
+            } else {
+                break;
+            }
+        }
+        while (offset < input.length() && numberParseWhite(input.charAt(offset))) {
+            offset++;
+        }
+        if (!signed) {
+            if (parseTokenAt(input, offset, positive)) {
+                offset += positive.length();
+            } else if (parseTokenAt(input, offset, negative)) {
+                offset += negative.length();
+                isNegative = true;
+            }
+        }
+        while (offset < input.length() && numberParseWhite(input.charAt(offset))) {
+            offset++;
+        }
+        if (!digit || offset != input.length()) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        return (isNegative ? "-" : "") + number;
+    }
+
     private static boolean numberParseWhite(char value) {
         return value == ' ' || (value >= '\t' && value <= '\r');
     }
@@ -731,6 +796,9 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 normalized = normalized.replace(positive, "+");
             }
             return Parse(normalized, style, null);
+        }
+        if (provider instanceof NumberFormatInfo format && NumberStyles.Number.equals(style)) {
+            return Parse(selectedNumberProviderText(text, format), style, null);
         }
         if (provider instanceof NumberFormatInfo format
                 && (NumberStyles.Integer.equals(style) || NumberStyles.Number.equals(style)
