@@ -13,138 +13,82 @@ import System.Collections.IDictionary;
 import System.Collections.IDictionaryEnumerator;
 import System.Collections.IEnumerator;
 import java.lang.reflect.Array;
-import java.util.AbstractCollection;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.Map;
 
-/** Mutable per-exception dictionary for the selected CLR Data paths. */
-public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
-        implements IDictionary {
-    private long version;
+/** Ordered storage for the selected Exception.Data dictionary contract. */
+public final class ExceptionDataDictionary implements IDictionary, java.io.Serializable {
+    private final ArrayList<Map.Entry<Object, Object>> entries = new ArrayList<>();
+    private int version;
 
-    @Override
-    public Object put(Object key, Object value) {
-        Object previous = super.put(key, value);
+    private int find(Object key) {
+        for (int index = 0; index < this.entries.size(); index++) {
+            if (this.entries.get(index).getKey().equals(key)) return index;
+        }
+        return -1;
+    }
+
+    @Override public Object get_Item(Object key) {
+        requireKey(key);
+        int index = find(key);
+        return index < 0 ? null : this.entries.get(index).getValue();
+    }
+
+    @Override public void set_Item(Object key, Object value) {
+        requireKey(key);
         this.version++;
-        return previous;
+        int index = find(key);
+        if (index < 0) this.entries.add(new AbstractMap.SimpleEntry<>(key, value));
+        else this.entries.get(index).setValue(value);
     }
 
-    @Override
-    public Object remove(Object key) {
-        if (!this.containsKey(key)) {
-            return null;
-        }
-        Object previous = super.remove(key);
+    @Override public ICollection get_Keys() { return new CollectionView(this, true); }
+    @Override public ICollection get_Values() { return new CollectionView(this, false); }
+    @Override public boolean get_IsReadOnly() { return false; }
+    @Override public boolean get_IsFixedSize() { return false; }
+    @Override public boolean Contains(Object key) { requireKey(key); return find(key) >= 0; }
+
+    @Override public void Add(Object key, Object value) {
+        requireKey(key);
         this.version++;
-        return previous;
-    }
-
-    @Override
-    public void clear() {
-        if (!this.isEmpty()) {
-            super.clear();
-            this.version++;
+        int index = find(key);
+        if (index >= 0) {
+            throw new ArgumentException("Item has already been added. Key in dictionary: '"
+                    + this.entries.get(index).getKey() + "'  Key being added: '" + key + "'");
         }
+        this.entries.add(new AbstractMap.SimpleEntry<>(key, value));
     }
 
-    @Override
-    public Object get_Item(Object key) {
+    @Override public void Clear() { this.entries.clear(); this.version++; }
+    @Override public void Remove(Object key) {
         requireKey(key);
-        return this.get(key);
-    }
-
-    @Override
-    public void set_Item(Object key, Object value) {
-        requireKey(key);
-        this.put(key, value);
-    }
-
-    @Override
-    public ICollection get_Keys() {
-        return new CollectionView(this, this.keySet());
-    }
-
-    @Override
-    public ICollection get_Values() {
-        return new CollectionView(this, this.values());
-    }
-
-    @Override
-    public boolean get_IsReadOnly() {
-        return false;
-    }
-
-    @Override
-    public boolean get_IsFixedSize() {
-        return false;
-    }
-
-    @Override
-    public boolean Contains(Object key) {
-        requireKey(key);
-        return this.containsKey(key);
-    }
-
-    @Override
-    public void Add(Object key, Object value) {
-        requireKey(key);
-        if (this.containsKey(key)) {
-            throw new ArgumentException("An item with the same key has already been added", "key");
-        }
-        this.put(key, value);
-    }
-
-    @Override
-    public void Clear() {
-        this.clear();
-    }
-
-    @Override
-    public void Remove(Object key) {
-        requireKey(key);
-        this.remove(key);
+        this.version++;
+        int index = find(key);
+        if (index >= 0) this.entries.remove(index);
     }
 
     private static void requireKey(Object key) {
-        if (key == null) {
-            throw new ArgumentNullException("key");
+        if (key == null) throw new ArgumentNullException("key");
+    }
+
+    @Override public int get_Count() { return this.entries.size(); }
+    @Override public boolean get_IsSynchronized() { return false; }
+    @Override public Object get_SyncRoot() { return this; }
+    @Override public IDictionaryEnumerator GetEnumerator() { return new EntryEnumerator(this); }
+
+    @Override public void CopyTo(Object array, int index) {
+        Object[] values = new Object[this.entries.size()];
+        for (int position = 0; position < values.length; position++) {
+            Map.Entry<Object, Object> entry = this.entries.get(position);
+            values[position] = new DictionaryEntry(entry.getKey(), entry.getValue());
         }
-    }
-
-    @Override
-    public int get_Count() {
-        return this.size();
-    }
-
-    @Override
-    public boolean get_IsSynchronized() {
-        return false;
-    }
-
-    @Override
-    public Object get_SyncRoot() {
-        return this;
-    }
-
-    @Override
-    public void CopyTo(Object array, int index) {
-        copy(this.entrySet().stream().map(entry -> new DictionaryEntry(
-                entry.getKey(), entry.getValue())).toArray(), array, index);
-    }
-
-    @Override
-    public IDictionaryEnumerator GetEnumerator() {
-        return new EntryEnumerator(this);
+        copy(values, array, index);
     }
 
     private static void copy(Object[] values, Object array, int index) {
-        if (array == null) {
-            throw new ArgumentNullException("array");
-        }
-        if (index < 0) {
-            throw new ArgumentOutOfRangeException("index");
-        }
+        if (array == null) throw new ArgumentNullException("array");
+        if (index < 0) throw new ArgumentOutOfRangeException("index");
         if (!array.getClass().isArray() || array.getClass().getComponentType().isArray()) {
             throw new ArgumentException("Destination must be a single-dimensional array");
         }
@@ -152,166 +96,94 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
             throw new ArgumentException("Destination array cannot hold the collection", "index");
         }
         for (int position = 0; position < values.length; position++) {
-            try {
-                Array.set(array, index + position, values[position]);
-            } catch (IllegalArgumentException mismatch) {
+            try { Array.set(array, index + position, values[position]); }
+            catch (IllegalArgumentException mismatch) {
                 throw new InvalidCastException("Destination element type is incompatible");
             }
         }
     }
 
+    private static InvalidOperationException unpositioned() {
+        return new InvalidOperationException("Enumeration has either not started or has already finished.");
+    }
+
     private static final class EntryEnumerator implements IDictionaryEnumerator {
         private final ExceptionDataDictionary dictionary;
-        private final long version;
-        private Iterator<Map.Entry<Object, Object>> iterator;
+        private final int version;
+        private int index = -1;
         private Map.Entry<Object, Object> current;
-
         private EntryEnumerator(ExceptionDataDictionary dictionary) {
             this.dictionary = dictionary;
             this.version = dictionary.version;
-            this.iterator = dictionary.entrySet().iterator();
         }
-
-        @Override
-        public boolean MoveNext() {
-            this.requireUnchanged();
-            if (!this.iterator.hasNext()) {
-                this.current = null;
-                return false;
-            }
-            this.current = this.iterator.next();
+        @Override public boolean MoveNext() {
+            requireUnchanged();
+            if (this.index >= this.dictionary.entries.size() || ++this.index >= this.dictionary.entries.size()) { this.current = null; return false; }
+            this.current = this.dictionary.entries.get(this.index);
             return true;
         }
-
-        @Override
-        public void Reset() {
-            this.requireUnchanged();
-            this.iterator = this.dictionary.entrySet().iterator();
-            this.current = null;
-        }
-
+        @Override public void Reset() { requireUnchanged(); this.index = -1; this.current = null; }
         private void requireUnchanged() {
-            if (this.dictionary.version != this.version) {
-                throw new InvalidOperationException("Collection was modified during enumeration");
+            if (this.version != this.dictionary.version) {
+                throw new InvalidOperationException("Collection was modified; enumeration operation may not execute.");
             }
         }
-
-        @Override
-        public Object get_Current() {
-            return this.get_Entry();
-        }
-
-        @Override
-        public DictionaryEntry get_Entry() {
-            if (this.current == null) {
-                throw new InvalidOperationException("Enumerator is not positioned on an entry");
-            }
+        @Override public Object get_Current() { return get_Entry(); }
+        @Override public DictionaryEntry get_Entry() {
+            if (this.current == null) throw unpositioned();
             return new DictionaryEntry(this.current.getKey(), this.current.getValue());
         }
-
-        @Override
-        public Object get_Key() {
-            return this.get_Entry().get_Key();
-        }
-
-        @Override
-        public Object get_Value() {
-            return this.get_Entry().get_Value();
-        }
+        @Override public Object get_Key() { return get_Entry().get_Key(); }
+        @Override public Object get_Value() { return get_Entry().get_Value(); }
     }
 
-    private static final class CollectionView extends AbstractCollection<Object>
-            implements ICollection {
+    private static final class CollectionView implements ICollection {
         private final ExceptionDataDictionary dictionary;
-        private final java.util.Collection<Object> values;
-
-        private CollectionView(ExceptionDataDictionary dictionary, java.util.Collection<Object> values) {
+        private final boolean keys;
+        private CollectionView(ExceptionDataDictionary dictionary, boolean keys) {
             this.dictionary = dictionary;
-            this.values = values;
+            this.keys = keys;
         }
-
-        @Override
-        public Iterator<Object> iterator() {
-            return this.values.iterator();
+        @Override public int get_Count() { return this.dictionary.entries.size(); }
+        @Override public boolean get_IsSynchronized() { return false; }
+        @Override public Object get_SyncRoot() { return this.dictionary; }
+        @Override public void CopyTo(Object array, int index) {
+            Object[] values = new Object[this.dictionary.entries.size()];
+            for (int position = 0; position < values.length; position++) {
+                Map.Entry<Object, Object> entry = this.dictionary.entries.get(position);
+                values[position] = this.keys ? entry.getKey() : entry.getValue();
+            }
+            copy(values, array, index);
         }
-
-        @Override
-        public int size() {
-            return this.values.size();
-        }
-
-        @Override
-        public int get_Count() {
-            return this.size();
-        }
-
-        @Override
-        public boolean get_IsSynchronized() {
-            return false;
-        }
-
-        @Override
-        public Object get_SyncRoot() {
-            return this.dictionary;
-        }
-
-        @Override
-        public void CopyTo(Object array, int index) {
-            copy(this.values.toArray(), array, index);
-        }
-
-        @Override
-        public IEnumerator GetEnumerator() {
-            return new ValueEnumerator(this.dictionary, this.values);
-        }
+        @Override public IEnumerator GetEnumerator() { return new ValueEnumerator(this.dictionary, this.keys); }
     }
 
     private static final class ValueEnumerator implements IEnumerator {
         private final ExceptionDataDictionary dictionary;
-        private final long version;
-        private final java.util.Collection<Object> values;
-        private Iterator<Object> iterator;
-        private Object current;
-        private boolean positioned;
-
-        private ValueEnumerator(ExceptionDataDictionary dictionary, java.util.Collection<Object> values) {
+        private final int version;
+        private final boolean keys;
+        private int index = -1;
+        private Map.Entry<Object, Object> current;
+        private ValueEnumerator(ExceptionDataDictionary dictionary, boolean keys) {
             this.dictionary = dictionary;
             this.version = dictionary.version;
-            this.values = values;
-            this.iterator = values.iterator();
+            this.keys = keys;
         }
-
-        @Override
-        public boolean MoveNext() {
-            this.requireUnchanged();
-            if (!this.iterator.hasNext()) {
-                this.positioned = false;
-                return false;
-            }
-            this.current = this.iterator.next();
-            this.positioned = true;
+        @Override public boolean MoveNext() {
+            requireUnchanged();
+            if (this.index >= this.dictionary.entries.size() || ++this.index >= this.dictionary.entries.size()) { this.current = null; return false; }
+            this.current = this.dictionary.entries.get(this.index);
             return true;
         }
-
-        @Override
-        public void Reset() {
-            this.requireUnchanged();
-            this.iterator = this.values.iterator();
-            this.positioned = false;
-        }
-
+        @Override public void Reset() { requireUnchanged(); this.index = -1; this.current = null; }
         private void requireUnchanged() {
-            if (this.dictionary.version != this.version) {
-                throw new InvalidOperationException("Collection was modified during enumeration");
+            if (this.version != this.dictionary.version) {
+                throw new InvalidOperationException("Collection was modified; enumeration operation may not execute.");
             }
         }
-
-        @Override
-        public Object get_Current() {
-            if (!this.positioned) {
-                throw new InvalidOperationException("Enumerator is not positioned on an item");
-            }
-            return this.current;
+        @Override public Object get_Current() {
+            if (this.current == null) throw unpositioned();
+            return this.keys ? this.current.getKey() : this.current.getValue();
         }
     }
 }
