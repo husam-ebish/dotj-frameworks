@@ -4,6 +4,8 @@ package System;
 
 /** Selected System.ArgumentException parameter identity candidate. */
 public class ArgumentException extends SystemException {
+    private static final String DEFAULT_MESSAGE = "Value does not fall within the expected range.";
+    private String resolvedMessage;
     private final String paramName;
 
     public static void ThrowIfNullOrEmpty(String argument) {
@@ -40,7 +42,7 @@ public class ArgumentException extends SystemException {
     }
 
     public ArgumentException() {
-        this(null, null, null);
+        this(DEFAULT_MESSAGE, null, null);
     }
 
     public ArgumentException(String message) {
@@ -67,7 +69,10 @@ public class ArgumentException extends SystemException {
 
     @Override
     public String get_Message() {
-        String message = super.get_Message();
-        return this.paramName == null ? message : message + " (Parameter '" + this.paramName + "')";
+        if (this.getMessage() == null && this.resolvedMessage == null && this.get_HResult() == -2147024809) {
+            this.resolvedMessage = DEFAULT_MESSAGE;
+        }
+        String message = this.resolvedMessage == null ? super.get_Message() : this.resolvedMessage;
+        return this.paramName == null || this.paramName.isEmpty() ? message : message + " (Parameter '" + this.paramName + "')";
     }
 }
