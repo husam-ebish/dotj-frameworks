@@ -1,0 +1,9 @@
+# Named MidpointRounding Char span and flag qualification
+
+Batch 2313 qualifies the existing named MidpointRounding carrier with unchanged product source. Inventory remains 99 sources, 130 classes and 27 represented NumberFormatInfo fields. The five named values retain the provisional Java enum representation; arbitrary undefined values are outside this contract.
+
+The Reflection.Emit native oracle covers 610 Char buffers across five values, 13 null/empty/valid/invalid formats, whole arrays and sliced spans, and capacities around native output boundaries. Each case compares result/failure plus complete written-count/sentinel-buffer state. The provider must remain unused. Five interface controls check the four selected enum interfaces and absence of IUtf8SpanFormattable, reinforced by a compile rejection. Twenty-five HasFlag pairs and 15 null/foreign-enum controls complete 1265 groups. Pinned CoreLib/Enum/MidpointRounding source, producer, fixture, consumer and JAR hashes bind evidence. The previous product passes unchanged, as expected for qualification.
+
+Canonical qualification requires 328 foundation checks and retained conversion/comparison/identity, Decimal rounding and API/source/map/notice/distribution audits. Undefined enum values, complete interface lookup/reflection, byref lifetimes, UTF8, cultures, metadata, serialization and E01/E02/E03/N01/Q01 remain open. No task/framework acceptance is credited. Next is missing ordered interface enumeration/name lookup for DigitShapes, MidpointRounding and NormalizationForm with native namespace/case/null boundaries.
+
+JDK APIs are product runtime dependencies. Python and pinned .NET are development/reference tools. Broader dependencies and public .j distribution remain unresolved. Temporary assets stay under D:\AI\Implementation\dotj Frameworks. Milestone 2500 is numbered; total project batches remain unknown.
