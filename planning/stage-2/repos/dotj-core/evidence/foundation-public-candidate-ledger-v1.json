@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "fb67e47c4647ec1fb637e0d1f70b3ffa731e081afb46fda2e309c1e2fe20ae74",
+  "candidateJarSha256": "90d0515829dc0a881fc0d66d7202d59357ee02e8382736187675a2985eaf0f82",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -975,7 +975,8 @@
         "public System.Globalization.CultureNotFoundException(java.lang.String, int, System.Exception);",
         "public System.Globalization.CultureNotFoundException(java.lang.String, int, java.lang.String);",
         "public java.lang.String get_InvalidCultureName();",
-        "public java.lang.Integer get_InvalidCultureId();"
+        "public java.lang.Integer get_InvalidCultureId();",
+        "public java.lang.String get_Message();"
       ],
       "disposition": "SELECTED_EXCEPTION_CONSTRUCTORS; culture semantics and exact messages open",
       "qualified": false

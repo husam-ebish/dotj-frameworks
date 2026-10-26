@@ -5,10 +5,10 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "9e6d5e390418428a584b668bf3dc839e42126f1f37a51aa45172d221238171b0",
+  "javaCandidateEvidenceSha256": "f596040d07d7fcbbc323e9c04d2d0325e5a481c7fb53695c821eb3c3e7ac3983",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 39,
-  "nameLevelMissingPublicGetterCount": 21,
+  "nameLevelMissingPublicGetterCount": 20,
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -13371,7 +13371,8 @@
         "public System.Globalization.CultureNotFoundException(java.lang.String, int, System.Exception);",
         "public System.Globalization.CultureNotFoundException(java.lang.String, int, java.lang.String);",
         "public java.lang.String get_InvalidCultureName();",
-        "public java.lang.Integer get_InvalidCultureId();"
+        "public java.lang.Integer get_InvalidCultureId();",
+        "public java.lang.String get_Message();"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -13379,14 +13380,13 @@
         },
         "javaCandidateDeclaredMethodOverloads": {
           "get_InvalidCultureId": 1,
-          "get_InvalidCultureName": 1
+          "get_InvalidCultureName": 1,
+          "get_Message": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "GetObjectData"
         ],
-        "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
-          "Message"
-        ],
+        "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }
     },
