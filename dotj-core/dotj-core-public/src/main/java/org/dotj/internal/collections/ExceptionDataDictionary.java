@@ -16,6 +16,9 @@ import System.Collections.IDictionary;
 import System.Collections.IDictionaryEnumerator;
 import System.Collections.IEnumerator;
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 /** Ordered node storage for the selected Exception.Data dictionary contract. */
@@ -103,8 +106,55 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
     }
 
     private static String keyText(Object key) {
-        String text = key instanceof IFormattable formatted ? formatted.ToString(null, null) : key.toString();
+        String text;
+        if (key instanceof IFormattable formatted) text = formatted.ToString(null, null);
+        else if (key instanceof Boolean value) text = value ? "True" : "False";
+        else if (key instanceof Float value) text = floatingKeyText(value.doubleValue(), true);
+        else if (key instanceof Double value) text = floatingKeyText(value, false);
+        else text = key.toString();
         return text == null ? "" : text;
+    }
+
+    private static String floatingKeyText(double value, boolean single) {
+        if (Double.isNaN(value)) return "NaN";
+        if (Double.isInfinite(value)) return value < 0 ? "-Infinity" : "Infinity";
+        boolean negative = Double.doubleToRawLongBits(value) < 0;
+        if (value == 0) return negative ? "-0" : "0";
+        value = Math.abs(value);
+        BigDecimal exact = new BigDecimal(value);
+        int exponent = exact.precision() - exact.scale() - 1;
+        BigDecimal selected = null;
+        int maximumDigits = single ? 9 : 17;
+        for (int precision = 1; precision <= maximumDigits && selected == null; precision++) {
+            BigDecimal unit = BigDecimal.ONE.scaleByPowerOfTen(exponent - precision + 1);
+            BigDecimal rounded = exact.round(new MathContext(precision, RoundingMode.HALF_EVEN));
+            BigDecimal distance = null;
+            for (BigDecimal candidate : new BigDecimal[]{rounded, rounded.subtract(unit), rounded.add(unit)}) {
+                candidate = candidate.stripTrailingZeros();
+                if (candidate.signum() <= 0 || candidate.precision() > precision) continue;
+                double parsed = single ? (double) Float.parseFloat(candidate.toString())
+                        : Double.parseDouble(candidate.toString());
+                if (Double.doubleToRawLongBits(parsed) != Double.doubleToRawLongBits(value)) continue;
+                BigDecimal candidateDistance = candidate.subtract(exact).abs();
+                int comparison = distance == null ? -1 : candidateDistance.compareTo(distance);
+                if (comparison < 0 || comparison == 0 && !candidate.unscaledValue().testBit(0)) {
+                    selected = candidate;
+                    distance = candidateDistance;
+                }
+            }
+        }
+        if (selected == null) throw new IllegalStateException("No round-trip decimal representation");
+        exponent = selected.precision() - selected.scale() - 1;
+        String text;
+        if (exponent >= -4 && exponent < maximumDigits) text = selected.toPlainString();
+        else {
+            String digits = selected.unscaledValue().toString();
+            String significand = digits.substring(0, 1) + (digits.length() == 1 ? "" : "." + digits.substring(1));
+            int magnitude = Math.abs(exponent);
+            text = significand + "E" + (exponent < 0 ? "-" : "+")
+                    + (magnitude < 10 ? "0" : "") + magnitude;
+        }
+        return negative ? "-" + text : text;
     }
 
     private static void requireKey(Object key) {
