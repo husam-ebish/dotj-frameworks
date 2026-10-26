@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "casesPassed": 168,
+  "nativeDeclaredMethods": 15,
+  "nonvirtualMembers": 5,
+  "retainedVirtualMembers": 10,
+  "nativeValueCases": 34,
+  "negativeCompileControls": [
+    {
+      "name": "BadInner",
+      "rejected": true,
+      "sourceSha256": "d41ba6a4cbd3e0648196f2074cdc85c3d8a6e442a829ca6a17a40699c880313d"
+    },
+    {
+      "name": "BadType",
+      "rejected": true,
+      "sourceSha256": "61706663d180b337815cbfb7424adcd47b4bc97e45ccdf422e71f94bf50ef7b9"
+    },
+    {
+      "name": "BadTarget",
+      "rejected": true,
+      "sourceSha256": "4f22664ec9946ee1739d7e16e88e251b078d37a2b0949a3fcdd329b93d8a2c11"
+    },
+    {
+      "name": "BadHResultGet",
+      "rejected": true,
+      "sourceSha256": "33f38a3d1c748fe3212be4a4978cabeb5845fd056a2c231e0bb11d1a83f76c78"
+    },
+    {
+      "name": "BadHResultSet",
+      "rejected": true,
+      "sourceSha256": "b78f40038bdfb48492ed0d6cdf7a43e090e68664abef806f169f36549a17823d"
+    }
+  ],
+  "positiveVirtualOverrideControlSha256": "9f4e743abeb6975179064b2449770146069355ea0d6e7acdac0d71297e3b9ceb",
+  "sourcePins": {
+    "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Exception.cs": "3f44c5b9eb6851301091fc65ce6dd6671e1a750f8a7f120837bc09021ecf12ab",
+    "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/coreclr/System.Private.CoreLib/src/System/Exception.CoreCLR.cs": "6489f279eb132c1f9499c65a7d20ae7c115779c3676d2779232db10373bbe370"
+  },
+  "oracleEvidence": "exception-nonvirtual-member-boundaries-contract-v10.0.12.json",
+  "oracleSha256": "a212b111f5d066c472e8a955a02f0cfc1a7175da0f2d8759a243b09be8753e05",
+  "consumerSourceSha256": "b9e4365eced981f68baf3e0a2f1408c51e3fd059d0976361e16f3609e17feef6",
+  "candidateJarSha256": "aef265d29f62eb0703ed3ec1142759b657415d49e8e0c4885ab5c49659e35a33",
+  "qualification": "DECLARED_EXCEPTION_DISPATCH_BOUNDARIES_AND_SELECTED_UNTHROWN_VALUES_ONLY; CSHARP_MEMBER_HIDING_ACTUAL_STACKS_SERIALIZATION_FULL_METADATA_E01_AND_TASK_ACCEPTANCE_OPEN"
+}
