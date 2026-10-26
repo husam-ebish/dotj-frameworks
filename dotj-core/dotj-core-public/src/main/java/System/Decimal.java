@@ -555,7 +555,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     }
 
     public static <T> Decimal Parse(ReadOnlySpan<T> text) {
-        return Parse(text.selectedText());
+        return Parse(text, NumberStyles.Number, null);
     }
 
     public static Decimal Parse(String text, IFormatProvider provider) {
@@ -563,7 +563,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     }
 
     public static <T> Decimal Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
-        return Parse(text.selectedText(), NumberStyles.Number, provider);
+        return Parse(text, NumberStyles.Number, provider);
     }
 
     public static Decimal Parse(String text, NumberStyles style) {
@@ -581,6 +581,35 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         Object supplied = provider.GetFormat(
                 Type.GetType("System.Globalization.NumberFormatInfo"));
         return supplied instanceof NumberFormatInfo format ? format : null;
+    }
+
+    private static <T> NumberStyles selectedDecimalSpanParseStyle(ReadOnlySpan<T> text,
+                                                                   NumberStyles style) {
+        if (!text.selectedUtf8()) {
+            validateParseStyle(style);
+            return style;
+        }
+        int flags = style == null ? 0 : style.get_Value();
+        if ((flags & (~2047 | 1536)) != 0 && (flags & ~515) != 0
+                && (flags & ~1027) != 0) {
+            throw new ArgumentException((flags & ~2047) != 0
+                    ? "An undefined NumberStyles value is being used."
+                    : "With the AllowHexSpecifier or AllowBinarySpecifier bit set in the enum bit field, the only other valid bits that can be combined into the enum value must be AllowLeadingWhite and AllowTrailingWhite.",
+                    "style");
+        }
+        // Pinned .NET 10 UTF8 Decimal uses integer style validation, then decimal parsing.
+        return NumberStyles.FromInt32(flags & ~1536);
+    }
+
+    private static <T> String selectedDecimalParseText(ReadOnlySpan<T> text) {
+        if (!text.selectedUtf8()) {
+            return text.selectedText();
+        }
+        try {
+            return org.dotj.internal.text.Utf8Codec.decode((byte[])text.selectedBufferCopy(), true);
+        } catch (org.dotj.internal.text.Utf8Codec.Failure invalid) {
+            throw new FormatException("Input string was not in a correct format");
+        }
     }
 
     private static boolean numberParseWhite(char value) {
@@ -934,8 +963,9 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
 
     public static <T> Decimal Parse(ReadOnlySpan<T> text, NumberStyles style,
                                     IFormatProvider provider) {
-        validateParseStyle(style);
-        return Parse(text.selectedText(), style, provider);
+        style = selectedDecimalSpanParseStyle(text, style);
+        provider = selectedNumberFormatInfo(provider);
+        return Parse(selectedDecimalParseText(text), style, provider);
     }
 
     public static boolean TryParse(String text, Decimal[] result) {
@@ -943,7 +973,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     }
 
     public static <T> boolean TryParse(ReadOnlySpan<T> text, Decimal[] result) {
-        return TryParse(text.selectedText(), result);
+        return TryParse(text, NumberStyles.Number, null, result);
     }
 
     public static boolean TryParse(String text, IFormatProvider provider, Decimal[] result) {
@@ -952,7 +982,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
 
     public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider,
                                        Decimal[] result) {
-        return TryParse(text.selectedText(), NumberStyles.Number, provider, result);
+        return TryParse(text, NumberStyles.Number, provider, result);
     }
 
     public static boolean TryParse(String text, NumberStyles style,
@@ -974,8 +1004,16 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
 
     public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style,
                                        IFormatProvider provider, Decimal[] result) {
-        validateParseStyle(style);
-        return TryParse(text.selectedText(), style, provider, result);
+        style = selectedDecimalSpanParseStyle(text, style);
+        provider = selectedNumberFormatInfo(provider);
+        String decoded;
+        try {
+            decoded = selectedDecimalParseText(text);
+        } catch (FormatException invalid) {
+            result[0] = new Decimal(0);
+            return false;
+        }
+        return TryParse(decoded, style, provider, result);
     }
 
     private static Decimal bounded(BigDecimal parsed, boolean negativeZero) {
