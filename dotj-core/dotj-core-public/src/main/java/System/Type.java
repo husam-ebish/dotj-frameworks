@@ -1897,7 +1897,7 @@ public abstract class Type extends MemberInfo {
         if (!name.equals(interfaceMethod)) {
             return null;
         }
-        boolean matches = this.definition == IDisposable.class && types.length == 0
+        boolean matches = (this.definition == IDisposable.class || this.definition == ICloneable.class) && types.length == 0
                 || this.definition == IComparable.class
                     && Arrays.equals(types, new Type[] {fromJavaClass(Object.class)})
                 || this.definition == IFormattable.class
@@ -1925,6 +1925,7 @@ public abstract class Type extends MemberInfo {
     }
 
     private String selectedInterfaceMethodName() {
+        if (this.definition == ICloneable.class) return "Clone";
         if (this.definition == IDisposable.class) {
             return "Dispose";
         }
@@ -1947,7 +1948,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == java.util.List.class && !this.get_HasElementType()) {
             return new MemberInfo[] {new DefaultPropertyMember("Item", this)};
         }
-        if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class
+        if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class || this.definition == ICloneable.class
                 || this.definition == NormalizationForm.class || this.definition == TypeCode.class) {
             return new MemberInfo[0];
         }
@@ -2568,7 +2569,7 @@ public abstract class Type extends MemberInfo {
                 case "Dispose" -> fromJavaClass(Void.class);
                 case "CompareTo" -> fromJavaClass(Int32.class);
                 case "ToString" -> fromJavaClass(String.class);
-                case "GetFormat" -> fromJavaClass(Object.class);
+                case "GetFormat", "Clone" -> fromJavaClass(Object.class);
                 default -> throw new UnsupportedOperationException("Method return type is not mapped");
             };
         }
@@ -2591,7 +2592,7 @@ public abstract class Type extends MemberInfo {
                 return result;
             }
             return switch (this.name) {
-                case "Dispose" -> new ParameterInfo[0];
+                case "Dispose", "Clone" -> new ParameterInfo[0];
                 case "CompareTo" -> new ParameterInfo[] {
                     new DefaultParameterInfo("obj", fromJavaClass(Object.class), 0, this)};
                 case "ToString" -> new ParameterInfo[] {

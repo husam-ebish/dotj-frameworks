@@ -1,0 +1,9 @@
+# ICloneable parameterless Clone member reflection
+
+Batch 2299 extends the existing interface descriptor path to ICloneable.Clone. Named, flagged and typed lookups, member/method enumeration and member-kind filtering now expose the public abstract instance method with Object return and no parameters. Default-member enumeration remains empty. The existing descriptor model supplies selected calling convention, visibility, security, generic/body, base-definition and return-parameter metadata without adding reflection invocation or native handles.
+
+The paired reference captures 2,723 cases across 12 routes: ten names, twenty raw BindingFlags values, six parameter arrays and five member masks. Null arguments use direct CLR reflection and unknown enum bits use Enum.ToObject, preserving typed CLR inputs without PowerShell coercion. There are 646 ArgumentNullException outcomes. All found descriptors share exact recorded method and return-parameter metadata. The previous JAR fails method lookup. Runtime, producer, pinned archive/ICloneable source, consumer and candidate hashes bind evidence.
+
+Source/class inventory remains 98/129. Canonical qualification requires 314 foundation checks, existing type/interface/clone and numeric consumers, API and source/map/notice/distribution audits. Reflection invocation, tokens/handles, full custom attributes and metadata, other reflection types and E01/E02/E03/N01/Q01 remain open. No accepted task or qualified framework is credited. NumberFormatInfo.InvariantInfo is next.
+
+JDK APIs are product runtime dependencies. Python and pinned .NET are development/reference tools; broader dependencies and public .j distribution remain unresolved. Scratch stays under D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized numbered milestone; project-wide batch total remains unknown.
