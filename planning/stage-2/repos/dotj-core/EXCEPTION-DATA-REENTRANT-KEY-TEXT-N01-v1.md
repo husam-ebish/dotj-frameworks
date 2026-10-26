@@ -1,0 +1,9 @@
+# Exception.Data selected reentrant key text qualification
+
+Batch 2292 expands qualification of the preceding node and formatting corrections without changing product Java source. Once-only CLR IL object/IFormattable text callbacks perform no action, Clear, Clear/Add, replacement of the original stored key or removal of that key. Each key independently selects an action; aliases retain one shared callback state. Normal, null and throwing text combine with object/formattable dispatch and ASCII or NUL/unpaired UTF-16 profiles.
+
+The complete 3,600-case matrix passes 75,600 packaged comparisons. It checks exact failure details, three pre-moves, all current/move/reset outcomes, stored/key/value counts, ordered reachable entries, original/query/fresh key call counts, fired markers, format/provider arguments and text-event order. There are 2,000 duplicate and 1,600 callback failures. Final count distribution is 0:1,488, 1:2,064, 2:48. The unchanged Batch 2291 JAR already passes this expanded contract. Native callbacks directly invoke CLR IDictionary operations; PowerShell delegates or script callback exceptions are excluded. Runtime, producer, pinned source archive/ListDictionaryInternal, consumer and JAR hashes bind the evidence.
+
+Canonical qualification requires 307 foundation checks. Source/class inventory remains 98/129; API/source/map/notice/distribution and retained consumers remain required. This qualifies selected returned callback sequences only. Arbitrary recursion and concurrency, other cultures, complete boxed object/serialization ABI and E01/E02/E03/N01/Q01 remain open. No task or framework is accepted.
+
+JDK APIs are product runtime dependencies. Python and pinned .NET are development/reference tools; broader dependencies and public .j distribution remain unresolved. Scratch stays under D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized numbered milestone; project-wide batch total remains unknown.
