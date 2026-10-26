@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "task": "DJ-001-WP-05-T2",
+  "qualification": "NATIVE_REPLACEMENT_EDGE_REFERENCE_AND_BOUNDED_NO_RETURN_PLAN_ONLY",
+  "javaImplementationQualified": false,
+  "acceptedImplementationTasksCredited": 0,
+  "projectBatchTotal": null,
+  "projectBatchesRemaining": null,
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "sources": {
+    "UnicodeEncoding": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/UnicodeEncoding.cs",
+      "sha256": "b5a717988edb22bae8688fb5cf9d8efe9d503dfe2918cdb5a9c95578a5768828"
+    },
+    "EncoderNLS": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderNLS.cs",
+      "sha256": "79a6e4501f5da67690194d5c31da8c92b44271941422d5a5bf49113c43601b15"
+    },
+    "DecoderNLS": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderNLS.cs",
+      "sha256": "ffeed3616bb6c97a321f84e6bb24a87c2eacc11d406149fa1812f750eea30450"
+    },
+    "EncoderFallback": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderFallback.cs",
+      "sha256": "fecaa8e71992f9d568254202327662e6de473b3d73ad5b6fa83a79417cc98715"
+    },
+    "DecoderFallback": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderFallback.cs",
+      "sha256": "118661aa450cb05c5780194c2a2dc2bbc0cbccbaf1e6d3647967f547edf8aa43"
+    },
+    "EncoderReplacementFallback": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/EncoderReplacementFallback.cs",
+      "sha256": "735c5015ddd6fb9d5be7e20fc85703de97a1dd40db2843aa79eeb5271ed1fba1"
+    },
+    "DecoderReplacementFallback": {
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Text/DecoderReplacementFallback.cs",
+      "sha256": "b0b653c5b53a2786ad47fdef7df1bbb919c2b285c88a3787b3772f9b075fd235"
+    }
+  },
+  "totalCases": 40320,
+  "profiles": 18,
+  "casesPerProfile": 2240,
+  "observationPolicy": "Returned results and observed no-return-within-bound cases must be separate; time bounds do not prove infinite execution or define a Java return value.",
+  "implementationRequirements": [
+    "Compare all recorded returned outcomes, full buffers and later fallback-buffer observations.",
+    "Preserve standard fallback NUL/code-unit behavior instead of assuming count equals actual written output.",
+    "Keep explicit bounded no-return rows in the corpus; never turn them into passing Java value comparisons.",
+    "Do not claim full semantic/liveness qualification for cases that did not return within the bound.",
+    "Establish a documented product policy or further source proof for native no-return cases before task acceptance."
+  ],
+  "openWork": [
+    "Java returned-result conformance for standard UTF16 NUL/surrogate replacements",
+    "Native no-return interpretation and product liveness policy",
+    "Equivalent spans/Convert/custom callbacks and complete source ABI",
+    "E01/E02/E03/N01/Q01 and implementation-task acceptance"
+  ]
+}
