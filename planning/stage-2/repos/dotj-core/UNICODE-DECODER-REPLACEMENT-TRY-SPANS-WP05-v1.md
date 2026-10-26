@@ -1,0 +1,11 @@
+# UTF16 decoder replacement TryGetChars heap spans
+
+Batch 2260 qualifies selected stateless UnicodeEncoding TryGetChars heap spans with nine empty/NUL/surrogate replacement strings under both endians. Seventeen inputs form 828 source views, each tested at six capacities and two destination offsets. The capture contains 9,936 Try calls with protected source sentinels and destination suffixes.
+
+The packaged consumer passes 29,808 groups comparing success/failure, charsWritten and complete destination buffers. The native capture records 2,486 false capacity returns and 26 recursive-fallback exceptions. The count-based capacity precheck remains observable even when NUL would reduce actual writes: insufficient counted capacity returns false, writes zero to the carrier and leaves the destination unchanged. Exceptions preserve native carrier and partial-buffer effects. Exact exception type, message, HResult and parameter are compared.
+
+No product source correction is needed for this selected matrix. The inherited TryGetChars path uses the selected count and write overrides, and the write override copies the complete visible output back on failures. Runtime, producer, fixture, consumer and candidate JAR hashes bind the proof. Final integration requires the full foundation gate, retained consumers, compiled API audit and source/map/notice/distribution checks. Source inventory remains 98 and the API is unchanged.
+
+This is selected stateless decoder TryGetChars heap-span evidence only. Arbitrary callbacks, pointers/lifetimes and complete byref/source ABI remain open. Encoder nonterminal residual-fallback interleavings remain mismatched/unqualified; they are the next correction task rather than being treated as solved by these decoder proofs. Native bounded no-return observations do not become Java passes or prove infinite execution. E01/E02/E03/N01/Q01 and task acceptance remain open; no task or framework is accepted.
+
+The candidate uses JDK APIs only; Python and pinned .NET are development/reference tools. Broader dependencies and public .j distribution remain unresolved. Scratch artifacts use D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized milestone; total project batches remain unknown.
