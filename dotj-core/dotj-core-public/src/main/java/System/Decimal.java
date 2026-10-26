@@ -968,7 +968,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     }
 
     public String ToString() {
-        return this.ToString(null);
+        return this.ToString((IFormatProvider)null);
     }
 
     public String ToString(IFormatProvider provider) {
@@ -1025,6 +1025,10 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         java.lang.System.arraycopy(encoded, 0, destination, 0, encoded.length);
         bytesWritten[0] = encoded.length;
         return true;
+    }
+
+    public String ToString(String format) {
+        return ToString(format, null);
     }
 
     public String ToString(String format, IFormatProvider provider) {
