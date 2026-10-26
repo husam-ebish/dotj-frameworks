@@ -1,0 +1,7 @@
+# Decimal Number whitespace, signs and trailing NUL
+
+Batch 2326 replaces Java Unicode strip in the Number-style branch with selected native ASCII numeric whitespace (tab through carriage return and space). It accepts native whitespace between the magnitude and trailing sign. An all-NUL trailing remainder is discarded before whitespace processing; embedded/leading NUL and a NUL followed by a non-NUL remain invalid. Other style branches are unchanged.
+
+348 inputs exercise ASCII whitespace and Unicode separators/control characters around positive/negative/trailing-sign numbers, plus spacing and zero/one/two/embedded/trailing NUL. Four String/Char-span Parse/TryParse routes yield 1392 pinned native outcomes and holder bits, or 2784 groups. Previous product fails Unicode rejection, trailing sign spacing and NUL controls. Exact malformed-input messages remain deferred; valid values compare exact Decimal bits.
+
+Canonical qualification requires 341 checks and retained parsing/provider/format/conversion/interface/API checks. Inventory stays 99 sources/130 classes; no task or framework acceptance. E01/E02/E03/N01/Q01, other styles, ambient culture, complete grammar and full ABI remain open. Next is strict malformed UTF8 parsing with replacement-character provider tokens. Temporary assets stay on D. Numbered milestone is 2500; project total unknown. JDK APIs are product dependencies; Python/.NET validation tools; broader dependency/distribution decisions unresolved.
