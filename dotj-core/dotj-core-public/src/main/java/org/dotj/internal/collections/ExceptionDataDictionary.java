@@ -75,7 +75,7 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
         for (Node node = this.head; node != null; node = node.next) {
             if (node.key.equals(key)) {
                 throw new ArgumentException("Item has already been added. Key in dictionary: '"
-                        + node.key + "'  Key being added: '" + key + "'");
+                        + keyText(node.key) + "'  Key being added: '" + keyText(key) + "'");
             }
             last = node;
         }
@@ -99,6 +99,11 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
             }
             last = node;
         }
+    }
+
+    private static String keyText(Object key) {
+        String text = key.toString();
+        return text == null ? "" : text;
     }
 
     private static void requireKey(Object key) {

@@ -1,0 +1,9 @@
+# Exception.Data duplicate key object text
+
+Batch 2290 corrects null object ToString results in duplicate Add diagnostics. Native composite formatting substitutes empty text; the prior Java string concatenation emitted the literal null. The helper now calls each key once in the native order and coalesces a returned null to an empty string. Throwing callbacks still propagate their selected exception. Version mutation on failed Add and all collection contents remain intact.
+
+The CLR IL key oracle records equality and text call counts plus an ordered text trace. Three stored modes, three query modes, aliases and four text profiles yield 72 cases and 1,296 packaged comparisons. Profiles cover ASCII, empty, NUL and unpaired UTF-16 code units, transported as explicit integer units. There are 40 duplicate failures and 32 text callback failures. Object callbacks run stored key before query; aliased keys are invoked twice when the first call returns. All three enumerator current/move/reset outcomes, original contents and count match. The previous JAR fails the null query-text witness. Runtime, producer, pinned source archive/ListDictionaryInternal, consumer and JAR hashes bind the evidence.
+
+The source/class inventory stays 98/129. Canonical qualification requires 305 foundation checks, prior dictionary/reentrant/CopyTo/exception/encoding consumers, API and source/map/notice/distribution audits. IFormattable dispatch, other cultures, reentrant formatting, serialization and the full object ABI remain open, as do E01/E02/E03/N01/Q01. No accepted implementation task or qualified framework is credited.
+
+JDK APIs are product runtime dependencies. Python and pinned .NET are development/reference tools; broader dependencies and public .j distribution remain unresolved. Scratch stays under D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized numbered milestone; total project batches remain unknown.
