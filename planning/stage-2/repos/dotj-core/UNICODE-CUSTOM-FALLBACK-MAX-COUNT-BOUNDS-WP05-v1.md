@@ -1,0 +1,9 @@
+# UTF16 custom fallback maximum-count calls
+
+Batch 2269 corrects a demonstrated callback mismatch. For GetMaxByteCount and GetMaxCharCount, the pinned implementation tests MaxCharCount and reads it again for multiplication when the first value exceeds one. The former candidate read the property once through Math.max. Custom subclasses can observe this difference. The prior packaged JAR fails the native getter-count witness; the corrected candidate passes all 1,016 selected native outcomes.
+
+Twenty endian/constant-maximum profiles cover Int32 minimum, negative one, zero, one, two, three, ten, 65,535, 1,073,741,824 and Int32 maximum. Input counts include negative values, exact overflow neighbors, small and large values and Int32 maximum. Exact input/profile coverage, mathematical outcomes, exceptions and getter/factory calls are checked. Negative inputs fail before a getter read. Values at most one cause one read; larger values cause two. No fallback buffer is allocated. Native producer, runtime, archive/source, consumer and JAR hashes bind the proof.
+
+Only the two methods change; source inventory remains 98, class ownership and public API are unchanged. Final qualification requires the full 284-check gate and retained packaged consumers, compiled API and source/map/notice/distribution checks. Changing and throwing getter profiles are next; arbitrary custom callback behavior is not accepted by these bounded observations.
+
+Full Unicode parity, earlier native no-return cases, final liveness policy, E01/E02/E03/N01/Q01 and task acceptance remain open. No task or framework is accepted. The product uses JDK APIs; Python and pinned .NET are development/reference tools. Broader dependencies and public .j distribution remain unresolved. Scratch uses D:\AI\Implementation\dotj Frameworks. The authorized numbered milestone is 2500; project-wide batch totals remain unknown.

@@ -713,11 +713,14 @@ public class UnicodeEncoding extends Encoding {
     }
     @Override public Byte[] GetPreamble(){return !this.byteOrderMark?EMPTY_PREAMBLE:this.bigEndian?new Byte[]{new Byte(254),new Byte(255)}:new Byte[]{new Byte(255),new Byte(254)};}
     @Override public int GetMaxByteCount(int charCount){
-        nonnegative(charCount,"charCount");long count=((long)charCount+1)*2*Math.max(1,this.encoderFallback.get_MaxCharCount());
+        nonnegative(charCount,"charCount");long count=(long)charCount+1;
+        if(this.encoderFallback.get_MaxCharCount()>1)count*=this.encoderFallback.get_MaxCharCount();
+        count<<=1;
         if(count>Integer.MAX_VALUE)throw new ArgumentOutOfRangeException("charCount","Too many characters. The resulting number of bytes is larger than what can be returned as an int.");return (int)count;
     }
     @Override public int GetMaxCharCount(int byteCount){
-        nonnegative(byteCount,"byteCount");long count=((long)(byteCount>>1)+(byteCount&1)+1)*Math.max(1,this.decoderFallback.get_MaxCharCount());
+        nonnegative(byteCount,"byteCount");long count=(long)(byteCount>>1)+(byteCount&1)+1;
+        if(this.decoderFallback.get_MaxCharCount()>1)count*=this.decoderFallback.get_MaxCharCount();
         if(count>Integer.MAX_VALUE)throw new ArgumentOutOfRangeException("byteCount","Too many bytes. The resulting number of chars is larger than what can be returned as an int.");return (int)count;
     }
     @Override public boolean Equals(Object value){return value instanceof UnicodeEncoding other && get_CodePage()==other.get_CodePage() && this.bigEndian==other.bigEndian && this.byteOrderMark==other.byteOrderMark && this.encoderFallback.Equals(other.encoderFallback) && this.decoderFallback.Equals(other.decoderFallback);}
