@@ -88,17 +88,37 @@ public final class ExceptionDataDictionary implements IDictionary, java.io.Seria
 
     private static void copy(Object[] values, Object array, int index) {
         if (array == null) throw new ArgumentNullException("array");
-        if (index < 0) throw new ArgumentOutOfRangeException("index");
         if (!array.getClass().isArray() || array.getClass().getComponentType().isArray()) {
-            throw new ArgumentException("Destination must be a single-dimensional array");
+            throw new ArgumentException("Only single dimensional arrays are supported for the requested action.");
         }
-        if (index > Array.getLength(array) || values.length > Array.getLength(array) - index) {
-            throw new ArgumentException("Destination array cannot hold the collection", "index");
+        if (index < 0) {
+            throw new ArgumentOutOfRangeException("index", index,
+                    "index ('" + index + "') must be a non-negative value.");
         }
+        if (Array.getLength(array) - index < values.length) {
+            throw new ArgumentException("Index was out of range. Must be non-negative and less than or equal to the size of the collection.", "index");
+        }
+        Class<?> element = array.getClass().getComponentType();
         for (int position = 0; position < values.length; position++) {
-            try { Array.set(array, index + position, values[position]); }
+            Object value = values[position];
+            if (value == null) {
+                if (element == DictionaryEntry.class) value = new DictionaryEntry(null, null);
+                else if (element == boolean.class) value = false;
+                else if (element == char.class) value = (char) 0;
+                else if (element == byte.class) value = (byte) 0;
+                else if (element == short.class) value = (short) 0;
+                else if (element == int.class) value = 0;
+                else if (element == long.class) value = 0L;
+                else if (element == float.class) value = 0F;
+                else if (element == double.class) value = 0D;
+            }
+            try { Array.set(array, index + position, value); }
             catch (IllegalArgumentException mismatch) {
-                throw new InvalidCastException("Destination element type is incompatible");
+                if (element.isPrimitive() && (value instanceof Number
+                        || value instanceof Character || value instanceof Boolean)) {
+                    throw new ArgumentException("Cannot widen from source type to target type either because the source type is a not a primitive type or the conversion cannot be accomplished.");
+                }
+                throw new InvalidCastException("Object cannot be stored in an array of this type.");
             }
         }
     }
