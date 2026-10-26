@@ -82,15 +82,16 @@ public class Exception extends RuntimeException implements ISerializable {
     public String ToString() {
         String typeName = this.getClass().getName();
         String message = this.get_Message();
-        if (message == null) {
-            message = "Exception of type '" + typeName + "' was thrown.";
-        }
-        String result = typeName + ": " + message;
         Exception inner = this.get_InnerException();
+        String innerText = inner == null ? "" : inner.ToString();
+        if (innerText == null) innerText = "";
+        String stackTrace = this.get_StackTrace();
+        String result = message == null || message.isEmpty() ? typeName : typeName + ": " + message;
         if (inner != null) {
-            result += "\r\n ---> " + inner.ToString()
+            result += "\r\n ---> " + innerText
                     + "\r\n   --- End of inner exception stack trace ---";
         }
+        if (stackTrace != null) result += "\r\n" + stackTrace;
         return result;
     }
 

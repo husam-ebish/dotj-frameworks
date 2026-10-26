@@ -1,0 +1,9 @@
+# Exception.ToString text formatting
+
+Batch 2282 corrects Exception.ToString formatting. Empty or null virtual Message text now leaves the class name without an added colon. Null inner ToString text is treated as empty while retaining the inner-exception delimiters. Virtual StackTrace text is appended, including an explicitly empty stack string. Message is read before inner text, and stack text is read afterward; an inner text failure propagates before the stack getter is called. Public signatures, class ownership and the 98-source inventory are unchanged.
+
+The previous JAR fails the witness; the corrected packaged candidate passes 1,428 meaningful comparisons across 1,017 native cases: 816 unthrown cases over seventeen exception families, 192 synthetic virtual message/stack controls and nine null/throwing inner text controls. Exact case/profile coverage and UTF16 output/failure payloads are compared, plus applicable virtual getter/call counts. Fake stack strings are explicit public-getter controls, not evidence of actual native/JVM frame-layout parity. Native runtime/producer, pinned Exception source/resource data, consumer and candidate hashes bind the proof.
+
+Canonical qualification requires all 297 foundation checks, retained exception/encoding/lowering consumers, compiled API and source/map/notice/distribution checks. Next is the discovered native public HResult setter visibility gap; the existing Java setter is protected. Actual platform stack layouts, very large result-length overflow, serialization, complete exception metadata, E01/E02/E03/N01/Q01 and task acceptance remain open. No task or framework is accepted.
+
+JDK APIs are the Java product runtime dependencies. Python and pinned .NET are development/reference tools; broader dependencies and public .j distribution remain unresolved. Scratch uses D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized milestone; total project batches remain unknown.
