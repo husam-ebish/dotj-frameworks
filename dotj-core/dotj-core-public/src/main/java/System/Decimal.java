@@ -551,16 +551,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     }
 
     public static Decimal Parse(String text) {
-        if (text == null) {
-            throw new ArgumentNullException("s");
-        }
-        String trimmed = text.strip();
-        if (!trimmed.matches("[+-]?(?:[0-9]+|[0-9]{1,3}(?:,[0-9]{3})+)(?:\\.[0-9]*)?")
-                && !trimmed.matches("[+-]?\\.[0-9]+")) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        BigDecimal parsed = new BigDecimal(trimmed.replace(",", ""));
-        return bounded(parsed, trimmed.startsWith("-"));
+        return Parse(text, NumberStyles.Number, null);
     }
 
     public static <T> Decimal Parse(ReadOnlySpan<T> text) {
@@ -929,16 +920,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     }
 
     public static boolean TryParse(String text, Decimal[] result) {
-        result[0] = new Decimal(0);
-        if (text == null) {
-            return false;
-        }
-        try {
-            result[0] = Parse(text);
-            return true;
-        } catch (FormatException | OverflowException expected) {
-            return false;
-        }
+        return TryParse(text, NumberStyles.Number, null, result);
     }
 
     public static <T> boolean TryParse(ReadOnlySpan<T> text, Decimal[] result) {
