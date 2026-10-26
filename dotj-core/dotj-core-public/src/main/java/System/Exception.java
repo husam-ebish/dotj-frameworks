@@ -35,7 +35,7 @@ public class Exception extends RuntimeException implements ISerializable {
         return message == null ? "Exception of type '" + this.getClass().getName() + "' was thrown." : message;
     }
 
-    public Exception get_InnerException() {
+    public final Exception get_InnerException() {
         return this.getCause() instanceof Exception innerException ? innerException : null;
     }
 
@@ -95,7 +95,7 @@ public class Exception extends RuntimeException implements ISerializable {
         return result;
     }
 
-    public Type GetType() {
+    public final Type GetType() {
         return Type.fromJavaClass(this.getClass());
     }
 
@@ -103,7 +103,7 @@ public class Exception extends RuntimeException implements ISerializable {
         return org.dotj.internal.throwing.ThrowSite.stackText(this);
     }
 
-    public MethodBase get_TargetSite() {
+    public final MethodBase get_TargetSite() {
         StackTraceElement frame = org.dotj.internal.throwing.ThrowSite.targetFrame(this);
         if (frame == null) {
             return null;

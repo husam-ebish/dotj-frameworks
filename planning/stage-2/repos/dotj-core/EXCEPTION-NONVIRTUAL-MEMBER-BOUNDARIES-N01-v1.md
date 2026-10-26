@@ -1,0 +1,9 @@
+# Exception native dispatch boundaries
+
+Batch 2284 marks get_InnerException, GetType and get_TargetSite final, matching their nonvirtual native declarations. The previously mapped HResult accessors remain final. Ten native virtual members retain Java overriding. Exact names/signatures remain unchanged; the public API audit now requires the five final facade declarations rather than the old overridable forms. The audit is strengthened, not bypassed. One product source and its existing audit change; source/class inventory remains 98.
+
+The previous JAR fails the dispatch witness. The corrected candidate passes 168 groups: four metadata comparisons for each of fifteen declared native methods, three value checks for 34 represented family/inner cases, five negative compiler controls, and one positive compiler control overriding all ten native virtual members. Runtime type, supplied inner identity and null unthrown TargetSite are compared. Native runtime/producer, Exception and CoreCLR partial source hashes, consumer and JAR hashes bind the proof. Independent API audit and retained exception/encoding/lowering consumers pass.
+
+Canonical qualification requires all 299 foundation checks and source/map/notice/distribution checks. C# new-member hiding is an explicit language gap; Java final facades model dispatch of the represented base members. Actual stack layouts, serialization, complete metadata, E01/E02/E03/N01/Q01 and task acceptance remain open; no task or framework is accepted. Next is Exception.Data key matching/version behavior, where the candidate hash map differs from the pinned ordered-list dictionary.
+
+JDK APIs are the Java product runtime dependencies. Python and pinned .NET are development/reference tools; broader dependencies and public .j distribution remain unresolved. Scratch uses D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized milestone; total project batches remain unknown.

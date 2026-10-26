@@ -436,10 +436,13 @@ def main():
             assert header.startswith(prefix + name)
             if name == "System.Exception":
                 assert "public java.lang.String get_Message();" in declarations
-                assert "public System.Exception get_InnerException();" in declarations
+                assert "public final System.Exception get_InnerException();" in declarations
                 assert "public System.Collections.IDictionary get_Data();" in declarations
                 assert "public void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext);" in declarations
-                assert "public System.Reflection.MethodBase get_TargetSite();" in declarations
+                assert "public final System.Reflection.MethodBase get_TargetSite();" in declarations
+                assert "public final System.Type GetType();" in declarations
+                assert "public final int get_HResult();" in declarations
+                assert "public final void set_HResult(int);" in declarations
             if name == "System.ArgumentException":
                 assert "public java.lang.String get_ParamName();" in declarations
             disposition = "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only"
