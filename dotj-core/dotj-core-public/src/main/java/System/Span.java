@@ -111,6 +111,18 @@ public final class Span<T> {
         throw new ArgumentException("Span element carriers must match.", "destination");
     }
 
+    int writeSelectedDecimalText(String text) {
+        if (this.chars != null) {
+            if (text.length() > this.length) return -1;
+            text.getChars(0, text.length(), this.chars, this.offset);
+            return text.length();
+        }
+        byte[] encoded = org.dotj.internal.text.Utf8Codec.encode(text);
+        if (encoded.length > this.length) return -1;
+        java.lang.System.arraycopy(encoded, 0, this.bytes, this.offset, encoded.length);
+        return encoded.length;
+    }
+
     int writeSelectedInt32Text(String text) {
         if (this.chars != null) {
             if (text.length() > this.length) return -1;
