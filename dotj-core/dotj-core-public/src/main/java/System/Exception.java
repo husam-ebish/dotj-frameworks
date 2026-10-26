@@ -55,11 +55,11 @@ public class Exception extends RuntimeException implements ISerializable {
         return this.data;
     }
 
-    public int get_HResult() {
+    public final int get_HResult() {
         return this.hResult;
     }
 
-    protected void set_HResult(int value) {
+    public final void set_HResult(int value) {
         this.hResult = value;
     }
 
