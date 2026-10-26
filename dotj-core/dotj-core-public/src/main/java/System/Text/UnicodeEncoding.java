@@ -98,6 +98,55 @@ public class UnicodeEncoding extends Encoding {
         }
         return written;
     }
+    private int encodeReplacement(char[] chars, int index, int count, Byte[] output, int offset,
+            EncoderReplacementFallback selected, int indexShift, Encoder activeEncoder, boolean flush, char[] pending) {
+        int written = 0, current = index, end = index + count, position = 0, lastWritten = -1;
+        char high = 0;
+        boolean retriedEnd = false, fallbackStarted = false;
+        boolean guardCycles = selected.get_DefaultString().indexOf((char)0) >= 0;
+        java.util.Set<String> visited = guardCycles ? new java.util.HashSet<>() : null;
+        EncoderFallbackBuffer buffer = activeEncoder == null ? null : activeEncoder.existingFallbackBuffer();
+        while (true) {
+            if (guardCycles && fallbackStarted) {
+                if (output != null && written != lastWritten) { visited.clear(); lastWritten = written; }
+                String state = current + ":" + (int)high + ":" + position + ":" + buffer.get_Remaining();
+                if (!visited.add(state)) throw new ArgumentException("Recursive fallback is not allowed.", "chars");
+            }
+            char next = buffer == null ? 0 : buffer.GetNextChar();
+            if (buffer != null) position = Math.min(position + 1, selected.get_DefaultString().length() * 2 + 1);
+            char invalid;
+            if (next == 0 && current == end) {
+                if (high == 0) return written;
+                if (!flush) { if (pending != null) pending[0] = high; return written; }
+                if (retriedEnd) throw new ArgumentException("Recursive fallback is not allowed.", "chars");
+                invalid = high; high = 0; retriedEnd = true;
+            } else {
+                if (next == 0) next = chars[current++];
+                if (Character.isHighSurrogate(next)) {
+                    if (high == 0) { high = next; continue; }
+                    current--; invalid = high; high = 0;
+                } else if (Character.isLowSurrogate(next)) {
+                    if (high != 0) {
+                        written = emit(new String(new char[] { high, next }), output, offset, written);
+                        high = 0; continue;
+                    }
+                    invalid = next;
+                } else if (high != 0) {
+                    current--; invalid = high; high = 0;
+                } else {
+                    written = emit(String.valueOf(next), output, offset, written);
+                    continue;
+                }
+            }
+            if (buffer == null) buffer = activeEncoder == null ? selected.CreateFallbackBuffer() : activeEncoder.get_FallbackBuffer();
+            buffer.encodingContext = this;
+            int fallbackIndex = current - index - 1 + indexShift;
+            if (Character.isHighSurrogate(invalid) && current < end && Character.isLowSurrogate(chars[current])) {
+                buffer.Fallback(invalid, chars[current++], fallbackIndex);
+            } else buffer.Fallback(invalid, fallbackIndex);
+            position = 0; fallbackStarted = true;
+        }
+    }
     private int encode(char[] chars, int index, int count, Byte[] output, int offset) {
         return encode(chars, index, count, output, offset, this.encoderFallback, 0);
     }
@@ -105,6 +154,7 @@ public class UnicodeEncoding extends Encoding {
         return encode(chars, index, count, output, offset, selectedFallback, indexShift, null);
     }
     private int encode(char[] chars, int index, int count, Byte[] output, int offset, EncoderFallback selectedFallback, int indexShift, Encoder activeEncoder) {
+        if (selectedFallback instanceof EncoderReplacementFallback selected) return encodeReplacement(chars, index, count, output, offset, selected, indexShift, activeEncoder, true, null);
         int written=0,end=index+count;
         EncoderFallbackBuffer buffer=activeEncoder == null ? null : activeEncoder.existingFallbackBuffer();
         if (buffer != null) { buffer.encodingContext=this; buffer.GetNextChar(); }
@@ -454,14 +504,22 @@ public class UnicodeEncoding extends Encoding {
             java.lang.System.arraycopy(chars, index, input, prefix, count);
             char nextPending = 0;
             int length = input.length;
-            if (!flush && length > 0 && Character.isHighSurrogate(input[length - 1])) nextPending = input[--length];
+            boolean standardReplacement = get_Fallback() instanceof EncoderReplacementFallback;
+            if (!standardReplacement && !flush && length > 0 && Character.isHighSurrogate(input[length - 1])) nextPending = input[--length];
             int result;
-            try { result = this.encoding.encode(input, 0, length, bytes, byteIndex, get_Fallback(), -prefix, this); }
+            try {
+                if (standardReplacement) {
+                    char[] carry = new char[1];
+                    result = this.encoding.encodeReplacement(input, 0, length, bytes, byteIndex,
+                            (EncoderReplacementFallback)get_Fallback(), -prefix, this, flush, carry);
+                    nextPending = carry[0];
+                } else result = this.encoding.encode(input, 0, length, bytes, byteIndex, get_Fallback(), -prefix, this);
+            }
             catch (ArgumentException failure) {
                 if (update && failure.getClass() == ArgumentException.class && "bytes".equals(failure.get_ParamName())) resetFallbackBuffer();
                 throw failure;
             }
-            if (nextPending != 0 && existingFallbackBuffer() != null) existingFallbackBuffer().GetNextChar();
+            if (!standardReplacement && nextPending != 0 && existingFallbackBuffer() != null) existingFallbackBuffer().GetNextChar();
             if (update) this.pending = nextPending;
             return result;
         }
