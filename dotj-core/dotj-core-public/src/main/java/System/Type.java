@@ -2190,7 +2190,7 @@ public abstract class Type extends MemberInfo {
             String name = fullname.substring(separator + 1);
             for (Type contract : GetInterfaces()) {
                 if ((namespace == null || namespace.equals(contract.get_Namespace()))
-                        && (name.equals(contract.get_Name()) || ignoreCase && ((this.definition == NumberFormatInfo.class || this.definition == MidpointRounding.class || this.definition == DigitShapes.class || this.definition == NormalizationForm.class) ? asciiInterfaceNameEquals(name, contract.get_Name()) : name.equalsIgnoreCase(contract.get_Name())))) {
+                        && (name.equals(contract.get_Name()) || ignoreCase && asciiInterfaceNameEquals(name, contract.get_Name()))) {
                     return contract;
                 }
             }
