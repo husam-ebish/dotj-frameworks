@@ -23,13 +23,25 @@ public final class EncoderReplacementFallback extends EncoderFallback {
         private int position = -1;
         private int remaining = -1;
         Buffer(String replacement) { this.replacement = replacement; }
-        @Override public boolean Fallback(char charUnknown, int index) { return begin(this.replacement); }
+        private ArgumentException recursive(int value) {
+            return new ArgumentException(String.format(java.util.Locale.ROOT,
+                    "Recursive fallback not allowed for character \\\\u%04X.", value), "chars");
+        }
+        @Override public boolean Fallback(char charUnknown, int index) {
+            if (get_Remaining() > 0) {
+                int value = Character.isHighSurrogate(charUnknown)
+                        && Character.isLowSurrogate(this.output.charAt(this.position + 1))
+                        ? Character.toCodePoint(charUnknown, this.output.charAt(this.position + 1)) : charUnknown;
+                throw recursive(value);
+            }
+            return begin(this.replacement);
+        }
         @Override public boolean Fallback(char high, char low, int index) {
             validateSurrogatePair(high, low);
+            if (get_Remaining() > 0) throw recursive(Character.toCodePoint(high, low));
             return begin(this.replacement + this.replacement);
         }
         private boolean begin(String text) {
-            if (get_Remaining() > 0) throw new ArgumentException("Recursive fallback is not allowed.", "chars");
             this.output = text; this.position = -1; this.remaining = text.length();
             return !text.isEmpty();
         }
