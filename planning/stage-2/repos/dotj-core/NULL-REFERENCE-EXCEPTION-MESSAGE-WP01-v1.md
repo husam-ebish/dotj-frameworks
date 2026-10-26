@@ -1,0 +1,9 @@
+# NullReferenceException represented constructor messages
+
+Batch 2277 corrects the two message-taking NullReferenceException constructors: an explicit null message now uses the pinned default resource text. Explicit empty strings remain empty. The preceding default-constructor correction is retained and shares one private constant. The public API and class ownership are unchanged; source inventory remains 98.
+
+The previous JAR fails the null-message witness; the corrected packaged candidate passes 264 comparisons across all 33 selected constructor cases. The three represented public signatures cover default construction, eight null/empty/UTF16 message profiles and three supplied-inner profiles. Messages include embedded NUL, a surrogate pair, unpaired high/low units and Japanese text; integer UTF16 vectors preserve every unit. Native/current UI cultures are explicitly invariant. Exact Message, HRESULT, runtime type, inner presence/type/message, supplied-inner identity and GetBaseException identity are compared. Exact case-ID/signature/profile coverage is enforced. Runtime, producer, source archive/member, consumer and candidate hashes bind the proof.
+
+Canonical qualification requires all 292 foundation checks, retained exception and UTF8 failure consumers, compiled API and source/map/notice/distribution checks. Serialization constructors, full exception metadata and general exception-family defaults remain open; those defaults are next. E01/E02/E03/N01/Q01 and task acceptance remain open; no task or framework is accepted. This work maps to DJ-001-WP-01-T1 and does not imply WP-01 acceptance.
+
+JDK APIs are the Java product runtime dependencies; Python and pinned .NET are development/reference tools. Broader dependencies and public .j distribution remain unresolved. Scratch uses D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized milestone; total project batches remain unknown.
