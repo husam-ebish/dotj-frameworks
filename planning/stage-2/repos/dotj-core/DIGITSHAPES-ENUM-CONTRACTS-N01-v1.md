@@ -1,0 +1,9 @@
+# DigitShapes conversions and comparison domains
+
+Batch 2307 corrects CompareTo failure text for boxed native primitive domains. Java Short, Long, Boolean, Character, Float, Double, Byte and Object now report the represented native System.Int16, Int64, Boolean, Char, Single, Double, SByte and Object names. Existing String/Int32 and represented foreign enum names remain native-shaped. The prior JAR fails the first Int16 control. No source/class/field inventory expansion occurs: 99 sources, 130 classes, 27 represented NumberFormatInfo fields.
+
+The native matrix covers 16 values and 15 IConvertible direct methods under three providers (720 cases), 27 ToType targets under those providers (1296 cases), 100 enum comparison/equality/hash pairs, 60 null/boxed primitive/string/object/foreign-enum comparison controls and four identity/type-code/interface checks: 2180 groups. Scalar floating comparisons use raw bits. Typed conversions check result type, value, reference identity and exact failure type/message/HResult/parameter. Provider callbacks must not be queried. Pinned CoreLib, Enum.cs, DigitShapes.cs, producer, fixture, consumer and candidate hashes bind evidence.
+
+Canonical qualification requires 322 foundation checks, retained DigitSubstitution identity/format/state cases, existing numeric/type/exception consumers and API/source/map/notice/distribution audits. HasFlag and span qualification follow in the next batch. Parsing, complete enum ABI, cultures, metadata, serialization and E01/E02/E03/N01/Q01 remain open. No acceptance credit is recorded.
+
+JDK APIs are product runtime dependencies; Python and pinned .NET are development/reference tools. Broader dependencies and public .j distribution remain unresolved. Temporary assets stay under D:\AI\Implementation\dotj Frameworks. Milestone 2500 is numbered; total project batches remain unknown.
