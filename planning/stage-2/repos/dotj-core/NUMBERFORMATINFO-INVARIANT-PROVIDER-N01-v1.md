@@ -1,0 +1,9 @@
+# Represented NumberFormatInfo.InvariantInfo
+
+Batch 2300 adds the static get_InvariantInfo() provider. It returns one cached read-only instance with the represented invariant defaults; mutable constructors retain their prior behavior. ReadOnly returns this instance unchanged, Clone produces a distinct mutable copy, and all represented setters preserve the cached object. JDK class initialization establishes the candidate cache; this does not qualify native first-access race or private lazy-initialization layout.
+
+The paired oracle passes 329 groups across 64 sequential identity reads, 22 property mutation/clone-isolation cases, 128 Int32 formats and final state. It compares all 22 represented default fields, read-only flags, provider identity, exact mutation failure, clone independence and numeric D/G/N/C/P/X consumption using null/empty and explicit formats. The old JAR lacks the getter and fails compilation. Runtime, producer, explicit plan, pinned NumberFormatInfo source, consumer and JAR hashes bind evidence.
+
+Source/class inventory remains 98/129. Canonical qualification requires 315 foundation checks, prior range/group/read-only/interface/reflection cases, relevant numeric/type/exception consumers, API and source/map/notice/distribution audits. CurrentInfo and other cultures, first-access races, unrepresented fields, complete metadata/serialization and E01/E02/E03/N01/Q01 remain open. No accepted task or qualified framework is credited. Nongeneric MethodInfo guard diagnostics are next.
+
+JDK APIs are product runtime dependencies. Python and pinned .NET are development/reference tools; broader dependencies and public .j distribution remain unresolved. Scratch stays under D:\AI\Implementation\dotj Frameworks. Batch 2500 is the authorized numbered milestone; project-wide batch total remains unknown.
