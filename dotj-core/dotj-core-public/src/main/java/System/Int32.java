@@ -810,6 +810,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (literalFraction != null) return literalFraction;
         String decorated = selectedIntegerCustomLiteralFormat(format, (long) this.value, resolved, false);
         if (decorated != null) return decorated;
+        String inline = selectedIntegerSimpleCustomFormat(format, (long) this.value, resolved, false);
+        if (inline != null) return inline;
         String sections = selectedIntegerSectionsFormat(format, (long) this.value, resolved);
         if (sections != null) return sections;
         return selectedIntegerFormatCore(format, resolved);
@@ -842,7 +844,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     static boolean selectedIntegerSectionSupported(String section) {
         return section.isEmpty() || selectedIntegerLiteralFormat(section, true) != null
                 || section.matches("([0#]+|#,##0)(\\.[0#]+)?")
-                || selectedIntegerCustomLiteralParts(section, true) != null;
+                || selectedIntegerCustomLiteralParts(section, true) != null
+                || selectedIntegerSimpleCustomSupported(selectedIntegerCustomTokens(section, true));
     }
 
     static String selectedIntegerSectionsFormat(String format, long value,
@@ -887,13 +890,11 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         }
     }
 
-    static String[] selectedIntegerCustomLiteralParts(String format, boolean custom) {
+    static String[] selectedIntegerCustomTokens(String format, boolean custom) {
         if (format == null || format.isEmpty() || (!custom && format.matches("[A-Za-z][0-9]*"))) return null;
         StringBuilder tokens = new StringBuilder();
         StringBuilder controls = new StringBuilder();
         char quote = 0;
-        int first = -1;
-        int last = -1;
         for (int index = 0; index < format.length(); index++) {
             char ch = format.charAt(index);
             boolean control = false;
@@ -903,13 +904,96 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             else if (ch == '\\') {
                 if (++index >= format.length()) return null;
                 ch = format.charAt(index);
-            } else control = "0#.,;%\u2030".indexOf(ch) >= 0;
-            if (control && (ch == '0' || ch == '#')) {
-                if (first < 0) first = tokens.length();
-                last = tokens.length();
+            } else {
+                if (ch == 'E' || ch == 'e') {
+                    int next = index + 1;
+                    if (next < format.length() && (format.charAt(next) == '+' || format.charAt(next) == '-')) next++;
+                    if (next < format.length() && format.charAt(next) == '0') return null;
+                }
+                control = "0#.,;%\u2030".indexOf(ch) >= 0;
             }
             tokens.append(ch);
             controls.append(control ? '1' : '0');
+        }
+        return new String[] { tokens.toString(), controls.toString() };
+    }
+
+    static boolean selectedIntegerSimpleCustomSupported(String[] parsed) {
+        if (parsed == null) return false;
+        int points = 0;
+        int placeholders = 0;
+        for (int index = 0; index < parsed[0].length(); index++) {
+            if (parsed[1].charAt(index) != '1') continue;
+            char ch = parsed[0].charAt(index);
+            if (ch == '.') points++;
+            else if (ch == '0' || ch == '#') placeholders++;
+            else return false;
+        }
+        return points <= 1 && placeholders > 0;
+    }
+
+    static String selectedIntegerSimpleCustomFormat(String format, long value,
+                                                    IFormatProvider provider, boolean custom) {
+        String[] parsed = selectedIntegerCustomTokens(format, custom);
+        if (!selectedIntegerSimpleCustomSupported(parsed)) return null;
+        String tokens = parsed[0];
+        String controls = parsed[1];
+        int point = tokens.length();
+        for (int index = 0; index < tokens.length(); index++) {
+            if (controls.charAt(index) == '1' && tokens.charAt(index) == '.') { point = index; break; }
+        }
+        int integers = 0;
+        int firstZero = -1;
+        int fractions = 0;
+        int fractionZeroes = 0;
+        for (int index = 0; index < tokens.length(); index++) {
+            if (controls.charAt(index) != '1' || tokens.charAt(index) == '.') continue;
+            if (index < point) {
+                if (tokens.charAt(index) == '0' && firstZero < 0) firstZero = integers;
+                integers++;
+            } else {
+                fractions++;
+                if (tokens.charAt(index) == '0') fractionZeroes = fractions;
+            }
+        }
+        int minimum = firstZero < 0 ? 0 : integers - firstZero;
+        long magnitude = value < 0 ? -value : value;
+        String digits = magnitude == 0 ? "" : Long.toString(magnitude);
+        digits = "0".repeat(Math.max(0, minimum - digits.length())) + digits;
+        int missing = Math.max(0, integers - digits.length());
+        int extra = Math.max(0, digits.length() - integers);
+        int position = 0;
+        int integerSlot = 0;
+        int fractionSlot = 0;
+        boolean copiedExtra = false;
+        NumberFormatInfo info = (NumberFormatInfo) provider;
+        StringBuilder text = new StringBuilder();
+        if (value < 0) text.append(info == null ? "-" : info.get_NegativeSign());
+        for (int index = 0; index < tokens.length(); index++) {
+            char ch = tokens.charAt(index);
+            if (controls.charAt(index) != '1') { text.append(ch); continue; }
+            if (!copiedExtra) { text.append(digits, 0, extra); position = extra; copiedExtra = true; }
+            if (ch == '.') {
+                if (fractionZeroes > 0) text.append(info == null ? "." : info.get_NumberDecimalSeparator());
+            } else if (index < point) {
+                if (integerSlot++ >= missing) text.append(digits.charAt(position++));
+            } else if (fractionSlot++ < fractionZeroes) text.append('0');
+        }
+        return text.toString();
+    }
+
+    static String[] selectedIntegerCustomLiteralParts(String format, boolean custom) {
+        String[] parsed = selectedIntegerCustomTokens(format, custom);
+        if (parsed == null) return null;
+        String tokens = parsed[0];
+        String controls = parsed[1];
+        int first = -1;
+        int last = -1;
+        for (int index = 0; index < tokens.length(); index++) {
+            if (controls.charAt(index) == '1' && (tokens.charAt(index) == '0' || tokens.charAt(index) == '#')) {
+                if (first < 0) first = index;
+                last = index;
+            }
         }
         if (first < 0 || (first == 0 && last == tokens.length() - 1)) return null;
         for (int index = 0; index < tokens.length(); index++) {
@@ -922,7 +1006,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     static String selectedIntegerCustomNumericCore(String format, long magnitude,
                                                    IFormatProvider provider) {
-        if (format.matches("#+")) return magnitude == 0 ? "" : Long.toString(magnitude);
+        String simple = selectedIntegerSimpleCustomFormat(format, magnitude, provider, true);
+        if (simple != null) return simple;
         return new Decimal(magnitude).ToString(format, provider);
     }
 
@@ -1598,6 +1683,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (literalFraction != null) return literalFraction;
         String decorated = selectedIntegerCustomLiteralFormat(deferred, (long) this.value, resolved, true);
         if (decorated != null) return decorated;
+        String inline = selectedIntegerSimpleCustomFormat(deferred, (long) this.value, resolved, true);
+        if (inline != null) return inline;
         String sections = selectedIntegerSectionsFormat(deferred, (long) this.value, resolved);
         if (sections != null) return sections;
         return selectedIntegerFormatCore(deferred, resolved);

@@ -286,6 +286,8 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
         if (literalFraction != null) return literalFraction;
         String decorated = Int32.selectedIntegerCustomLiteralFormat(format, (long) this.value, resolved, false);
         if (decorated != null) return decorated;
+        String inline = Int32.selectedIntegerSimpleCustomFormat(format, (long) this.value, resolved, false);
+        if (inline != null) return inline;
         String sections = Int32.selectedIntegerSectionsFormat(format, (long) this.value, resolved);
         if (sections != null) return sections;
         return selectedIntegerFormatCore(format, resolved);
@@ -339,6 +341,8 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
         if (literalFraction != null) return literalFraction;
         String decorated = Int32.selectedIntegerCustomLiteralFormat(deferred, (long) this.value, resolved, true);
         if (decorated != null) return decorated;
+        String inline = Int32.selectedIntegerSimpleCustomFormat(deferred, (long) this.value, resolved, true);
+        if (inline != null) return inline;
         String sections = Int32.selectedIntegerSectionsFormat(deferred, (long) this.value, resolved);
         if (sections != null) return sections;
         return selectedIntegerFormatCore(deferred, resolved);
