@@ -132,6 +132,33 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return true;
     }
 
+    /** Selected INumberBase creation projection for integer and Decimal carriers. */
+    public static <T> Decimal CreateChecked(T value) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (value instanceof Decimal decimal) return new Decimal(decimal.value, decimal.negativeZero);
+        BigInteger integer = selectedCreateInteger(value);
+        if (integer == null) throw new NotSupportedException();
+        if (integer.abs().compareTo(MAX_MAGNITUDE.toBigIntegerExact()) > 0) {
+            throw new OverflowException("Value was either too large or too small for a Decimal.");
+        }
+        return new Decimal(new BigDecimal(integer), false);
+    }
+
+    private static BigInteger selectedCreateInteger(Object value) {
+        if (value instanceof BigInteger integer) return integer;
+        if (value instanceof Int32 integer) return BigInteger.valueOf(integer.get_Value());
+        if (value instanceof UInt32 integer) return BigInteger.valueOf(integer.get_Value());
+        if (value instanceof SByte integer) return BigInteger.valueOf(integer.get_Value());
+        if (value instanceof Byte integer) return BigInteger.valueOf(integer.get_Value());
+        if (value instanceof UInt16 integer) return BigInteger.valueOf(integer.get_Value());
+        if (value instanceof java.lang.Byte || value instanceof java.lang.Short
+                || value instanceof java.lang.Integer || value instanceof java.lang.Long) {
+            return BigInteger.valueOf(((java.lang.Number) value).longValue());
+        }
+        if (value instanceof Character character) return BigInteger.valueOf(character.charValue());
+        return null;
+    }
+
     public static Decimal Truncate(Decimal value) {
         return roundIntegral(value, RoundingMode.DOWN);
     }
