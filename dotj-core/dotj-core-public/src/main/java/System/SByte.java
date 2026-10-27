@@ -148,11 +148,15 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         return Parse(text, style, null);
     }
     public static SByte Parse(String text, NumberStyles style, IFormatProvider provider) {
-        java.math.BigInteger value = Int32.selectedParseIntegerStyles(text, style, provider, 8, true);
+        if (text == null) throw new ArgumentNullException("s");
+        Int32.selectedValidateIntegerStyleExact(style);
+        IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
+        java.math.BigInteger value = Int32.selectedParseCharacterIntegerValue(text, style, resolved, 8, true,
+                "Value was either too large or too small for a signed byte.");
         return new SByte(value.intValue());
     }
     public static boolean TryParse(String text, NumberStyles style, IFormatProvider provider, SByte[] result) {
-        Int32.selectedValidateIntegerStyles(style);
+        Int32.selectedValidateIntegerStyleExact(style);
         if (text == null) { result[0] = new SByte(0); return false; }
         IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
         try { result[0] = Parse(text, style, resolved); return true; }
@@ -160,19 +164,18 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
     }
     public static <T> SByte Parse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
-        if (text.selectedUtf8()) Int32.selectedValidateIntegerStyleExact(style);
-        else Int32.selectedValidateIntegerStyles(style);
+        Int32.selectedValidateIntegerStyleExact(style);
         IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
         java.math.BigInteger value = text.selectedUtf8()
                 ? Int32.selectedParseUtf8IntegerValue(text.selectedInt32Text(), style, resolved, 8, true,
                         "Value was either too large or too small for a signed byte.")
-                : Int32.selectedParseIntegerStyles(text.selectedInt32Text(), style, resolved, 8, true, false);
+                : Int32.selectedParseCharacterIntegerValue(text.selectedInt32Text(), style, resolved, 8, true,
+                        "Value was either too large or too small for a signed byte.");
         return new SByte(value.intValue());
     }
     public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider, SByte[] result) {
         if (text == null) throw new ArgumentNullException("text");
-        if (text.selectedUtf8()) Int32.selectedValidateIntegerStyleExact(style);
-        else Int32.selectedValidateIntegerStyles(style);
+        Int32.selectedValidateIntegerStyleExact(style);
         IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
         try { result[0] = Parse(text, style, resolved); return true; }
         catch (FormatException | OverflowException expected) { result[0] = new SByte(0); return false; }

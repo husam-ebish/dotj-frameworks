@@ -123,11 +123,15 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
         return Parse(text, style, null);
     }
     public static UInt16 Parse(String text, NumberStyles style, IFormatProvider provider) {
-        java.math.BigInteger value = Int32.selectedParseIntegerStyles(text, style, provider, 16, false);
+        if (text == null) throw new ArgumentNullException("s");
+        Int32.selectedValidateIntegerStyleExact(style);
+        IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
+        java.math.BigInteger value = Int32.selectedParseCharacterIntegerValue(text, style, resolved, 16, false,
+                "Value was either too large or too small for a UInt16.");
         return new UInt16(value.intValue());
     }
     public static boolean TryParse(String text, NumberStyles style, IFormatProvider provider, UInt16[] result) {
-        Int32.selectedValidateIntegerStyles(style);
+        Int32.selectedValidateIntegerStyleExact(style);
         if (text == null) { result[0] = new UInt16(0); return false; }
         IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
         try { result[0] = Parse(text, style, resolved); return true; }
@@ -135,19 +139,18 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
     }
     public static <T> UInt16 Parse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
-        if (text.selectedUtf8()) Int32.selectedValidateIntegerStyleExact(style);
-        else Int32.selectedValidateIntegerStyles(style);
+        Int32.selectedValidateIntegerStyleExact(style);
         IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
         java.math.BigInteger value = text.selectedUtf8()
                 ? Int32.selectedParseUtf8IntegerValue(text.selectedInt32Text(), style, resolved, 16, false,
                         "Value was either too large or too small for a UInt16.")
-                : Int32.selectedParseIntegerStyles(text.selectedInt32Text(), style, resolved, 16, false, false);
+                : Int32.selectedParseCharacterIntegerValue(text.selectedInt32Text(), style, resolved, 16, false,
+                        "Value was either too large or too small for a UInt16.");
         return new UInt16(value.intValue());
     }
     public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider, UInt16[] result) {
         if (text == null) throw new ArgumentNullException("text");
-        if (text.selectedUtf8()) Int32.selectedValidateIntegerStyleExact(style);
-        else Int32.selectedValidateIntegerStyles(style);
+        Int32.selectedValidateIntegerStyleExact(style);
         IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
         try { result[0] = Parse(text, style, resolved); return true; }
         catch (FormatException | OverflowException expected) { result[0] = new UInt16(0); return false; }

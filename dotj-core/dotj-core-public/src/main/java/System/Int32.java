@@ -56,12 +56,19 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     private static Int32 selectedInt32CharacterValue(String text, NumberStyles style,
                                                      IFormatProvider resolved) {
+        return new Int32(selectedParseCharacterIntegerValue(text, style, resolved, 32, true,
+                "Value was either too large or too small for an Int32.").intValue());
+    }
+
+    static BigInteger selectedParseCharacterIntegerValue(String text, NumberStyles style,
+                                                         IFormatProvider resolved, int width,
+                                                         boolean signed, String overflowMessage) {
         try {
-            return new Int32(selectedParseIntegerStyles(text, style, resolved, 32, true, false).intValue());
+            return selectedParseIntegerStyles(text, style, resolved, width, signed, false);
         } catch (FormatException invalid) {
             throw new FormatException("The input string '" + text + "' was not in a correct format.");
         } catch (OverflowException overflow) {
-            throw new OverflowException("Value was either too large or too small for an Int32.");
+            throw new OverflowException(overflowMessage);
         }
     }
 
