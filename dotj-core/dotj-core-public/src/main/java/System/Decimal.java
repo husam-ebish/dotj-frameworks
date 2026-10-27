@@ -624,18 +624,24 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return selected;
     }
 
-    private static boolean parseTokenAt(String text, int offset, String token) {
-        if (token.isEmpty() || offset > text.length() - token.length()) {
-            return false;
+    private static int decimalTokenLength(String text, int offset, String token) {
+        int terminator = token.indexOf('\0');
+        int length = terminator < 0 ? token.length() : terminator;
+        if (length == 0 || offset > text.length() - length) {
+            return 0;
         }
-        for (int i = 0; i < token.length(); i++) {
+        for (int i = 0; i < length; i++) {
             char expected = token.charAt(i);
             char actual = text.charAt(offset + i);
             if (expected != actual && !((expected == 0x00a0 || expected == 0x202f) && actual == ' ')) {
-                return false;
+                return 0;
             }
         }
-        return true;
+        return length;
+    }
+
+    private static boolean parseTokenAt(String text, int offset, String token) {
+        return decimalTokenLength(text, offset, token) > 0;
     }
 
     private static boolean decimalAllowsHyphen(String negative) {
@@ -650,8 +656,9 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
 
     private static int decimalNegativeTokenLength(String text, int offset, String negative,
                                                    boolean allowHyphen) {
-        if (parseTokenAt(text, offset, negative)) {
-            return negative.length();
+        int matched = decimalTokenLength(text, offset, negative);
+        if (matched > 0) {
+            return matched;
         }
         return allowHyphen && offset < text.length() && text.charAt(offset) == '-' ? 1 : 0;
     }
@@ -678,7 +685,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 offset++;
             } else if (!signed && (flags & 4) != 0
                     && parseTokenAt(input, offset, positive)) {
-                offset += positive.length();
+                offset += decimalTokenLength(input, offset, positive);
                 signed = true;
             } else if (!signed && (flags & 4) != 0
                     && decimalNegativeTokenLength(input, offset, negative, allowHyphen) > 0) {
@@ -691,7 +698,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 isNegative = true;
                 parentheses = true;
             } else if (currencyAllowed && !currencySeen && parseTokenAt(input, offset, currency)) {
-                offset += currency.length();
+                offset += decimalTokenLength(input, offset, currency);
                 currencySeen = true;
             } else {
                 break;
@@ -711,11 +718,13 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                     || (currencyAllowed && !currencySeen && parseTokenAt(input, offset, numberDecimal)))) {
                 number.append('.');
                 point = true;
-                offset += parseTokenAt(input, offset, decimal) ? decimal.length() : numberDecimal.length();
+                offset += parseTokenAt(input, offset, decimal) ? decimalTokenLength(input, offset, decimal)
+                        : decimalTokenLength(input, offset, numberDecimal);
             } else if (digit && !point && (flags & 64) != 0
                     && (parseTokenAt(input, offset, group)
                     || (currencyAllowed && !currencySeen && parseTokenAt(input, offset, numberGroup)))) {
-                offset += parseTokenAt(input, offset, group) ? group.length() : numberGroup.length();
+                offset += parseTokenAt(input, offset, group) ? decimalTokenLength(input, offset, group)
+                        : decimalTokenLength(input, offset, numberGroup);
             } else {
                 break;
             }
@@ -726,7 +735,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
             offset++;
             if (parseTokenAt(input, offset, positive)) {
                 number.append('+');
-                offset += positive.length();
+                offset += decimalTokenLength(input, offset, positive);
             } else if (decimalNegativeTokenLength(input, offset, negative, allowHyphen) > 0) {
                 number.append('-');
                 offset += decimalNegativeTokenLength(input, offset, negative, allowHyphen);
@@ -745,7 +754,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 offset++;
             } else if (!signed && (flags & 8) != 0
                     && parseTokenAt(input, offset, positive)) {
-                offset += positive.length();
+                offset += decimalTokenLength(input, offset, positive);
                 signed = true;
             } else if (!signed && (flags & 8) != 0
                     && decimalNegativeTokenLength(input, offset, negative, allowHyphen) > 0) {
@@ -756,7 +765,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 parentheses = false;
                 offset++;
             } else if (currencyAllowed && !currencySeen && parseTokenAt(input, offset, currency)) {
-                offset += currency.length();
+                offset += decimalTokenLength(input, offset, currency);
                 currencySeen = true;
             } else {
                 break;
