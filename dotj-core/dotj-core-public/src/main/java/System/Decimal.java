@@ -176,6 +176,29 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return CreateSaturating(value);
     }
 
+    /** Explicit target-token bridge for the native generic result; no CLR generic ABI projection. */
+    public static Object ConvertToInteger(Decimal value, Type integerType) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (integerType == null) throw new ArgumentNullException("integerType");
+        BigInteger integer = value.value.toBigInteger();
+        if (integerType == Type.GetType("System.SByte")) return new SByte(selectedClampInteger(integer, 8, false).byteValue());
+        if (integerType == Type.GetType("System.Byte")) return new Byte(selectedClampInteger(integer, 8, true).intValue());
+        if (integerType == Type.GetType("System.Int16")) return java.lang.Short.valueOf(selectedClampInteger(integer, 16, false).shortValue());
+        if (integerType == Type.GetType("System.UInt16")) return new UInt16(selectedClampInteger(integer, 16, true).intValue());
+        if (integerType == Type.GetType("System.Int32")) return new Int32(selectedClampInteger(integer, 32, false).intValue());
+        if (integerType == Type.GetType("System.UInt32")) return new UInt32(selectedClampInteger(integer, 32, true).longValue());
+        if (integerType == Type.GetType("System.Int64")) return java.lang.Long.valueOf(selectedClampInteger(integer, 64, false).longValue());
+        if (integerType == Type.GetType("System.UInt64")) return selectedClampInteger(integer, 64, true);
+        if (integerType == Type.GetType("System.Char")) return Character.valueOf((char)selectedClampInteger(integer, 16, true).intValue());
+        throw new NotSupportedException();
+    }
+
+    private static BigInteger selectedClampInteger(BigInteger value, int bits, boolean unsigned) {
+        BigInteger minimum = unsigned ? BigInteger.ZERO : BigInteger.ONE.shiftLeft(bits - 1).negate();
+        BigInteger maximum = BigInteger.ONE.shiftLeft(unsigned ? bits : bits - 1).subtract(BigInteger.ONE);
+        return value.max(minimum).min(maximum);
+    }
+
     private static Decimal selectedCreateSaturatingFloating(double input, int exponent, int precisionMinusOne) {
         if (java.lang.Double.isNaN(input)) return new Decimal(BigDecimal.ZERO.setScale(1), false);
         double limit = MAX_MAGNITUDE.doubleValue();

@@ -185,6 +185,7 @@ def main():
                                     "public static <T> System.Decimal CreateChecked(T);",
                                     "public static <T> System.Decimal CreateSaturating(T);",
                                     "public static <T> System.Decimal CreateTruncating(T);",
+                                    "public static java.lang.Object ConvertToInteger(System.Decimal, System.Type);",
                                     "public static System.Decimal Truncate(System.Decimal);",
                                     "public static System.Decimal Floor(System.Decimal);",
                                     "public static System.Decimal Ceiling(System.Decimal);",
