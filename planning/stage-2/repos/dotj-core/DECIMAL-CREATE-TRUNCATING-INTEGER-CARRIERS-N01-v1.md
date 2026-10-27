@@ -1,0 +1,7 @@
+# Decimal CreateTruncating integer carriers
+
+Batch 2386: Fourteen native integer types and thirty-four Decimal bit states cover 110 native and 120 Java calls. Native truncating results equal saturation for this Decimal profile, including Int128/UInt128/BigInteger limits, Char and pointer-width integers. All 240 result/immutability groups and two Java-only carrier controls pass.
+
+110 pinned native calls and 120 Java facade calls pass 240 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. CreateTruncating delegates to the shared Decimal saturation path after verifying native integer behavior rather than assuming integer-width wrapping. Strict compiled API inventory includes the generic projection, removing one name-level gap. Fresh packaged/API/retained verification is required; the full 401-check canonical gate remains required before merge.
+
+Selected integer/Decimal creation profile only; floating truncation qualification, Half identity, custom INumberBase dispatch, CLR generic constraints/ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify Float/Double Decimal.CreateTruncating raw IEEE results, including NaN scale-one zero, exact limit clamping and retained checked/saturating behavior.

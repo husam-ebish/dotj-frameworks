@@ -171,6 +171,11 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return new Decimal(new BigDecimal(integer), false);
     }
 
+    /** Selected truncating creation shares native Decimal saturation semantics. */
+    public static <T> Decimal CreateTruncating(T value) {
+        return CreateSaturating(value);
+    }
+
     private static Decimal selectedCreateSaturatingFloating(double input, int exponent, int precisionMinusOne) {
         if (java.lang.Double.isNaN(input)) return new Decimal(BigDecimal.ZERO.setScale(1), false);
         double limit = MAX_MAGNITUDE.doubleValue();

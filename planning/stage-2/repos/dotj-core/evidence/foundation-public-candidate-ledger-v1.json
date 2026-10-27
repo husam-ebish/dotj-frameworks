@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "3ab8d360f0c0f220b33fb700af5aa64993ae969fd067b1e3ccf26443d70b559b",
+  "candidateJarSha256": "dadc1096ce9a86f8e0cbccf7b373d0ff212ea67c2334d1042ff8fdb165c64b9d",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -194,6 +194,7 @@
         "public static boolean TryGetBits(System.Decimal, System.Span<System.Int32>, int[]);",
         "public static <T> System.Decimal CreateChecked(T);",
         "public static <T> System.Decimal CreateSaturating(T);",
+        "public static <T> System.Decimal CreateTruncating(T);",
         "public static System.Decimal Truncate(System.Decimal);",
         "public static System.Decimal Floor(System.Decimal);",
         "public static System.Decimal Ceiling(System.Decimal);",
