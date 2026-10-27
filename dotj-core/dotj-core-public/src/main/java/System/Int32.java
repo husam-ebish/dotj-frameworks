@@ -853,6 +853,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 zero = selectedCustomRoundedMagnitude(parsed, value).signum() == 0;
             } else if (selectedIntegerScientificSupported(section)) {
                 int[] pattern = selectedIntegerScientificPattern(section);
+                section = selectedScientificTrailingMarkersLiteral(section, pattern[1]);
                 String[] mantissa = selectedIntegerCustomTokens(section.substring(0, pattern[0])
                         + section.substring(pattern[1]), true);
                 int placeholders = 0;
@@ -1142,8 +1143,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             int zeroStart = cursor;
             while (cursor < format.length() && format.charAt(cursor) == '0') cursor++;
             if (cursor == zeroStart) continue;
-            if (found != null) return null;
-            found = new int[] { index, cursor, Math.min(10, cursor - zeroStart), positive ? 1 : 0 };
+            if (found == null) found = new int[] {
+                    index, cursor, Math.min(10, cursor - zeroStart), positive ? 1 : 0 };
             index = cursor - 1;
         }
         return found;
@@ -1161,9 +1162,46 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return points <= 1;
     }
 
+    static String selectedScientificTrailingMarkersLiteral(String format, int start) {
+        StringBuilder result = new StringBuilder(format.substring(0, start));
+        char quote = 0;
+        for (int index = start; index < format.length(); index++) {
+            char ch = format.charAt(index);
+            if (quote != 0) {
+                result.append(ch);
+                if (ch == quote) quote = 0;
+                continue;
+            }
+            if (ch == '\'' || ch == '"') { quote = ch; result.append(ch); continue; }
+            if (ch == '\\') {
+                result.append(ch);
+                if (index + 1 < format.length()) result.append(format.charAt(++index));
+                continue;
+            }
+            if (ch == 'E' || ch == 'e') {
+                int cursor = index + 1;
+                if (cursor < format.length() && (format.charAt(cursor) == '+'
+                        || format.charAt(cursor) == '-')) cursor++;
+                int zeroStart = cursor;
+                while (cursor < format.length() && format.charAt(cursor) == '0') cursor++;
+                if (cursor > zeroStart) {
+                    for (int offset = index; offset < cursor; offset++) {
+                        result.append('\\').append(format.charAt(offset));
+                    }
+                    index = cursor - 1;
+                    continue;
+                }
+            }
+            result.append(ch);
+        }
+        return result.toString();
+    }
+
     static boolean selectedIntegerScientificSupported(String format) {
         int[] pattern = selectedIntegerScientificPattern(format);
-        return pattern != null && selectedScientificMantissaSupported(selectedIntegerCustomTokens(
+        if (pattern == null) return false;
+        format = selectedScientificTrailingMarkersLiteral(format, pattern[1]);
+        return selectedScientificMantissaSupported(selectedIntegerCustomTokens(
                 format.substring(0, pattern[0]) + format.substring(pattern[1]), true));
     }
 
@@ -1177,6 +1215,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (format == null || (!custom && format.matches("[A-Za-z][0-9]*"))) return null;
         int[] pattern = selectedIntegerScientificPattern(format);
         if (pattern == null) return null;
+        format = selectedScientificTrailingMarkersLiteral(format, pattern[1]);
         String without = format.substring(0, pattern[0]) + format.substring(pattern[1]);
         String[] parsed = selectedIntegerCustomTokens(without, true);
         if (!selectedScientificMantissaSupported(parsed)) return null;
