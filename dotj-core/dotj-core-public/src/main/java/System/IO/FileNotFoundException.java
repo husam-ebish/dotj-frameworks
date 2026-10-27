@@ -6,10 +6,12 @@ import System.Exception;
 
 /** Selected missing-assembly exception candidate. */
 public class FileNotFoundException extends IOException {
+    private static final String DEFAULT_MESSAGE = "Unable to find the specified file.";
     private final String fileName;
+    private String selectedMessage;
 
     public FileNotFoundException() {
-        this(null, null, null);
+        this(DEFAULT_MESSAGE, null, null);
     }
 
     public FileNotFoundException(String message) {
@@ -28,6 +30,41 @@ public class FileNotFoundException extends IOException {
         super(message, innerException);
         this.set_HResult(-2147024894);
         this.fileName = fileName;
+        this.selectedMessage = message;
+    }
+
+    @Override
+    public String get_Message() {
+        if (this.selectedMessage == null) {
+            if (this.fileName == null && this.get_HResult() == -2146233088) {
+                this.selectedMessage = DEFAULT_MESSAGE;
+            } else if (this.fileName != null) {
+                this.selectedMessage = "Could not load file or assembly '" + this.fileName
+                        + "'. The system cannot find the file specified.";
+            }
+        }
+        return this.selectedMessage;
+    }
+
+    public String get_FusionLog() { return null; }
+
+    @Override
+    public String ToString() {
+        String message = this.get_Message();
+        String result = this.getClass().getName() + ": " + (message == null ? "" : message);
+        if (this.fileName != null && !this.fileName.isEmpty()) {
+            result += "\r\nFile name: '" + this.fileName + "'";
+        }
+        Exception inner = this.get_InnerException();
+        if (inner != null) {
+            String text = inner.ToString();
+            result += "\r\n ---> " + (text == null ? "" : text);
+        }
+        String stack = this.get_StackTrace();
+        if (stack != null) result += "\r\n" + stack;
+        String fusion = this.get_FusionLog();
+        if (fusion != null) result += "\r\n\r\n" + fusion;
+        return result;
     }
 
     public String get_FileName() {
