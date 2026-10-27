@@ -2,7 +2,6 @@
 
 package System;
 
-import java.nio.charset.StandardCharsets;
 
 /** Selected mutable Char or UTF-8 Byte view for bounded formatting. */
 public final class Span<T> {
@@ -129,7 +128,7 @@ public final class Span<T> {
             text.getChars(0, text.length(), this.chars, this.offset);
             return text.length();
         }
-        byte[] encoded = text.getBytes(StandardCharsets.UTF_8);
+        byte[] encoded = org.dotj.internal.text.Utf8Codec.encode(text);
         if (encoded.length > this.length) return -1;
         java.lang.System.arraycopy(encoded, 0, this.bytes, this.offset, encoded.length);
         return encoded.length;

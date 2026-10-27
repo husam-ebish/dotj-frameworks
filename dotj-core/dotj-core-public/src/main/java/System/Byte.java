@@ -343,7 +343,7 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         return count >= 0;
     }
     @Override public boolean TryFormat(byte[] destination, int[] written, String format, IFormatProvider provider) {
-        byte[] text = ToString(format, provider).getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        byte[] text = org.dotj.internal.text.Utf8Codec.encode(ToString(format, provider));
         if (text.length > destination.length) { written[0] = 0; return false; }
         java.lang.System.arraycopy(text, 0, destination, 0, text.length);
         written[0] = text.length;

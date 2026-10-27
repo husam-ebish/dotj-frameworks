@@ -1485,8 +1485,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     @Override
     public boolean TryFormat(byte[] destination, int[] bytesWritten, String format,
                              IFormatProvider provider) {
-        byte[] text = this.ToString(format, provider)
-                .getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        byte[] text = org.dotj.internal.text.Utf8Codec.encode(this.ToString(format, provider));
         if (destination.length < text.length) {
             bytesWritten[0] = 0;
             return false;
