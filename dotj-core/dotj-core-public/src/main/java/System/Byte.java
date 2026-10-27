@@ -135,7 +135,7 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
     }
     public static <T> Byte Parse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
-        if (text.selectedUtf8()) Int32.selectedValidateUtf8IntegerStyles(style);
+        if (text.selectedUtf8()) Int32.selectedValidateIntegerStyleExact(style);
         else Int32.selectedValidateIntegerStyles(style);
         IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
         java.math.BigInteger value = text.selectedUtf8()
@@ -146,7 +146,7 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
     }
     public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider, Byte[] result) {
         if (text == null) throw new ArgumentNullException("text");
-        if (text.selectedUtf8()) Int32.selectedValidateUtf8IntegerStyles(style);
+        if (text.selectedUtf8()) Int32.selectedValidateIntegerStyleExact(style);
         else Int32.selectedValidateIntegerStyles(style);
         IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
         try { result[0] = Parse(text, style, resolved); return true; }
