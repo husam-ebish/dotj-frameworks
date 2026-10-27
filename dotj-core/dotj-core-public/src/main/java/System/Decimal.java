@@ -602,37 +602,65 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     }
 
     private static <T> String selectedDecimalParseText(ReadOnlySpan<T> text) {
-        if (!text.selectedUtf8()) {
-            return text.selectedText();
-        }
-        try {
-            return org.dotj.internal.text.Utf8Codec.decode((byte[])text.selectedBufferCopy(), true);
-        } catch (org.dotj.internal.text.Utf8Codec.Failure invalid) {
-            throw new FormatException("Input string was not in a correct format");
-        }
+        return text.selectedUtf8()
+                ? new String((byte[])text.selectedBufferCopy(), java.nio.charset.StandardCharsets.ISO_8859_1)
+                : text.selectedText();
+    }
+
+    private static String decimalUtf8Token(String token) {
+        return new String(org.dotj.internal.text.Utf8Codec.encode(token),
+                java.nio.charset.StandardCharsets.ISO_8859_1);
+    }
+
+    private static NumberFormatInfo decimalUtf8Format(NumberFormatInfo format) {
+        NumberFormatInfo selected = (NumberFormatInfo)format.Clone();
+        selected.set_NegativeSign(decimalUtf8Token(format.get_NegativeSign()));
+        selected.set_PositiveSign(decimalUtf8Token(format.get_PositiveSign()));
+        selected.set_NumberDecimalSeparator(decimalUtf8Token(format.get_NumberDecimalSeparator()));
+        selected.set_NumberGroupSeparator(decimalUtf8Token(format.get_NumberGroupSeparator()));
+        selected.set_CurrencySymbol(decimalUtf8Token(format.get_CurrencySymbol()));
+        selected.set_CurrencyDecimalSeparator(decimalUtf8Token(format.get_CurrencyDecimalSeparator()));
+        selected.set_CurrencyGroupSeparator(decimalUtf8Token(format.get_CurrencyGroupSeparator()));
+        return selected;
     }
 
     private static boolean parseTokenAt(String text, int offset, String token) {
-        return !token.isEmpty() && text.startsWith(token, offset);
+        if (token.isEmpty() || offset > text.length() - token.length()) {
+            return false;
+        }
+        for (int i = 0; i < token.length(); i++) {
+            char expected = token.charAt(i);
+            char actual = text.charAt(offset + i);
+            if (expected != actual && !((expected == 0x00a0 || expected == 0x202f) && actual == ' ')) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    private static int decimalNegativeTokenLength(String text, int offset, String negative) {
-        if (parseTokenAt(text, offset, negative)) {
-            return negative.length();
-        }
-        if (negative.length() != 1 || offset >= text.length() || text.charAt(offset) != '-') {
-            return 0;
+    private static boolean decimalAllowsHyphen(String negative) {
+        if (negative.length() != 1) {
+            return false;
         }
         return switch (negative.charAt(0)) {
-            case 0x2012, 0x207b, 0x208b, 0x2212, 0x2796, 0xfe63, 0xff0d -> 1;
-            default -> 0;
+            case 0x2012, 0x207b, 0x208b, 0x2212, 0x2796, 0xfe63, 0xff0d -> true;
+            default -> false;
         };
     }
 
+    private static int decimalNegativeTokenLength(String text, int offset, String negative,
+                                                   boolean allowHyphen) {
+        if (parseTokenAt(text, offset, negative)) {
+            return negative.length();
+        }
+        return allowHyphen && offset < text.length() && text.charAt(offset) == '-' ? 1 : 0;
+    }
+
     private static String selectedNumberProviderText(String input, NumberFormatInfo format,
-                                                       int flags) {
+                                                       int flags, String originalNegativeSign) {
         String positive = format.get_PositiveSign();
         String negative = format.get_NegativeSign();
+        boolean allowHyphen = decimalAllowsHyphen(originalNegativeSign == null ? negative : originalNegativeSign);
         boolean currencyAllowed = (flags & 256) != 0;
         String currency = format.get_CurrencySymbol();
         String numberDecimal = format.get_NumberDecimalSeparator();
@@ -653,8 +681,8 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 offset += positive.length();
                 signed = true;
             } else if (!signed && (flags & 4) != 0
-                    && decimalNegativeTokenLength(input, offset, negative) > 0) {
-                offset += decimalNegativeTokenLength(input, offset, negative);
+                    && decimalNegativeTokenLength(input, offset, negative, allowHyphen) > 0) {
+                offset += decimalNegativeTokenLength(input, offset, negative, allowHyphen);
                 signed = true;
                 isNegative = true;
             } else if (!signed && (flags & 16) != 0 && input.charAt(offset) == '(') {
@@ -699,9 +727,9 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
             if (parseTokenAt(input, offset, positive)) {
                 number.append('+');
                 offset += positive.length();
-            } else if (decimalNegativeTokenLength(input, offset, negative) > 0) {
+            } else if (decimalNegativeTokenLength(input, offset, negative, allowHyphen) > 0) {
                 number.append('-');
-                offset += decimalNegativeTokenLength(input, offset, negative);
+                offset += decimalNegativeTokenLength(input, offset, negative, allowHyphen);
             }
             int exponentStart = offset;
             while (offset < input.length() && input.charAt(offset) >= '0'
@@ -720,8 +748,8 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 offset += positive.length();
                 signed = true;
             } else if (!signed && (flags & 8) != 0
-                    && decimalNegativeTokenLength(input, offset, negative) > 0) {
-                offset += decimalNegativeTokenLength(input, offset, negative);
+                    && decimalNegativeTokenLength(input, offset, negative, allowHyphen) > 0) {
+                offset += decimalNegativeTokenLength(input, offset, negative, allowHyphen);
                 signed = true;
                 isNegative = true;
             } else if (parentheses && input.charAt(offset) == ')') {
@@ -793,6 +821,11 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     }
 
     public static Decimal Parse(String text, NumberStyles style, IFormatProvider provider) {
+        return selectedParse(text, style, provider, null);
+    }
+
+    private static Decimal selectedParse(String text, NumberStyles style, IFormatProvider provider,
+                                         String originalNegativeSign) {
         if (text == null) {
             throw new ArgumentNullException("s");
         }
@@ -809,7 +842,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         if (style != null && (style.get_Value() & ~511) == 0) {
             NumberFormatInfo format = provider instanceof NumberFormatInfo selected
                     ? selected : NumberFormatInfo.get_InvariantInfo();
-            String normalized = selectedNumberProviderText(text, format, style.get_Value());
+            String normalized = selectedNumberProviderText(text, format, style.get_Value(), originalNegativeSign);
             return selectedParsedNumber(normalized);
         }
         if (provider instanceof NumberFormatInfo format
@@ -1132,7 +1165,14 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                                     IFormatProvider provider) {
         style = selectedDecimalSpanParseStyle(text, style);
         provider = selectedNumberFormatInfo(provider);
-        return Parse(selectedDecimalParseText(text), style, provider);
+        String originalNegativeSign = null;
+        if (text.selectedUtf8()) {
+            NumberFormatInfo format = provider instanceof NumberFormatInfo selected
+                    ? selected : NumberFormatInfo.get_InvariantInfo();
+            originalNegativeSign = format.get_NegativeSign();
+            provider = decimalUtf8Format(format);
+        }
+        return selectedParse(selectedDecimalParseText(text), style, provider, originalNegativeSign);
     }
 
     public static boolean TryParse(String text, Decimal[] result) {
@@ -1154,6 +1194,12 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
 
     public static boolean TryParse(String text, NumberStyles style,
                                    IFormatProvider provider, Decimal[] result) {
+        return selectedTryParse(text, style, provider, result, null);
+    }
+
+    private static boolean selectedTryParse(String text, NumberStyles style,
+                                            IFormatProvider provider, Decimal[] result,
+                                            String originalNegativeSign) {
         validateParseStyle(style);
         if (text == null) {
             result[0] = new Decimal(0);
@@ -1162,7 +1208,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         provider = selectedNumberFormatInfo(provider);
         result[0] = new Decimal(0);
         try {
-            result[0] = Parse(text, style, provider);
+            result[0] = selectedParse(text, style, provider, originalNegativeSign);
             return true;
         } catch (FormatException | OverflowException expected) {
             return false;
@@ -1173,14 +1219,14 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                                        IFormatProvider provider, Decimal[] result) {
         style = selectedDecimalSpanParseStyle(text, style);
         provider = selectedNumberFormatInfo(provider);
-        String decoded;
-        try {
-            decoded = selectedDecimalParseText(text);
-        } catch (FormatException invalid) {
-            result[0] = new Decimal(0);
-            return false;
+        String originalNegativeSign = null;
+        if (text.selectedUtf8()) {
+            NumberFormatInfo format = provider instanceof NumberFormatInfo selected
+                    ? selected : NumberFormatInfo.get_InvariantInfo();
+            originalNegativeSign = format.get_NegativeSign();
+            provider = decimalUtf8Format(format);
         }
-        return TryParse(decoded, style, provider, result);
+        return selectedTryParse(selectedDecimalParseText(text), style, provider, result, originalNegativeSign);
     }
 
     private static Decimal bounded(BigDecimal parsed, boolean negativeZero) {
