@@ -843,15 +843,39 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return index >= sections.length || sections[index].isEmpty() ? 0 : index;
     }
 
-    static long[] selectedIntegerCustomSectionSelection(String[] sections, long value) {
-        int index = selectedIntegerSectionIndex(sections, value);
-        String[] parsed = selectedIntegerCustomTokens(sections[index], true);
-        if (value != 0 && selectedIntegerSimpleCustomSupported(parsed)
-                && selectedIntegerCustomRoundedMagnitude(parsed, value).signum() == 0) {
-            value = 0;
-            index = selectedIntegerSectionIndex(sections, 0);
+    static int[] selectedCustomSectionSelection(String[] sections, BigDecimal value) {
+        int index = selectedIntegerSectionIndex(sections, value.signum());
+        String section = sections[index];
+        String[] parsed = selectedIntegerCustomTokens(section, true);
+        boolean zero = false;
+        if (value.signum() != 0) {
+            if (selectedIntegerSimpleCustomSupported(parsed)) {
+                zero = selectedCustomRoundedMagnitude(parsed, value).signum() == 0;
+            } else if (selectedIntegerScientificSupported(section)) {
+                int[] pattern = selectedIntegerScientificPattern(section);
+                String[] mantissa = selectedIntegerCustomTokens(section.substring(0, pattern[0])
+                        + section.substring(pattern[1]), true);
+                int placeholders = 0;
+                for (int offset = 0; offset < mantissa[0].length(); offset++) {
+                    if (mantissa[1].charAt(offset) == '1' && (mantissa[0].charAt(offset) == '0'
+                            || mantissa[0].charAt(offset) == '#')) placeholders++;
+                }
+                if (placeholders == 0) {
+                    BigDecimal scaled = value.abs().scaleByPowerOfTen(selectedIntegerCustomScale(mantissa)[0]);
+                    zero = scaled.unscaledValue().abs().toString().charAt(0) < '5';
+                }
+            } else if (section.isEmpty() || selectedIntegerLiteralFormat(section, true) != null) {
+                zero = value.abs().setScale(0, RoundingMode.HALF_UP).signum() == 0;
+            }
         }
-        return new long[] { index, index > 0 && value < 0 ? -value : value };
+        if (zero) index = selectedIntegerSectionIndex(sections, 0);
+        return new int[] { index, zero ? 1 : 0, index > 0 ? 1 : 0 };
+    }
+
+    static long[] selectedIntegerCustomSectionSelection(String[] sections, long value) {
+        int[] selection = selectedCustomSectionSelection(sections, BigDecimal.valueOf(value));
+        long effective = selection[1] != 0 ? 0 : selection[2] != 0 && value < 0 ? -value : value;
+        return new long[] { selection[0], effective };
     }
 
     static boolean selectedIntegerSectionSupported(String section) {
@@ -864,30 +888,42 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     static String selectedIntegerSectionsFormat(String format, long value,
                                                 IFormatProvider provider) {
+        return selectedCustomSectionsFormat(format, BigDecimal.valueOf(value), provider);
+    }
+
+    static String selectedCustomSectionsFormat(String format, BigDecimal value,
+                                               IFormatProvider provider) {
         String[] sections = selectedIntegerCustomSections(format);
         if (sections == null) return null;
-        long[] selection = selectedIntegerCustomSectionSelection(sections, value);
-        int index = (int) selection[0];
-        String section = sections[index];
+        int[] selection = selectedCustomSectionSelection(sections, value);
+        String section = sections[selection[0]];
         if (!selectedIntegerSectionSupported(section)) return null;
-        long effective = selection[1];
+        BigDecimal effective = selection[1] != 0 ? BigDecimal.ZERO
+                : selection[2] != 0 && value.signum() < 0 ? value.abs() : value;
         NumberFormatInfo info = (NumberFormatInfo) provider;
-        String sign = effective < 0 ? (info == null ? "-" : info.get_NegativeSign()) : "";
+        String sign = effective.signum() < 0 ? (info == null ? "-" : info.get_NegativeSign()) : "";
         if (section.isEmpty()) return sign;
         String literal = selectedIntegerLiteralFormat(section, true);
         if (literal != null) return sign + literal;
-        String decorated = selectedIntegerCustomLiteralFormat(section, effective, provider, true);
-        if (decorated != null) return decorated;
-        return sign + selectedIntegerCustomNumericCore(section, effective < 0 ? -effective : effective, provider);
+        String[] parsed = selectedIntegerCustomTokens(section, true);
+        if (selectedIntegerSimpleCustomSupported(parsed)) {
+            return selectedIntegerRenderCustom(parsed, selectedCustomRoundedMagnitude(parsed, effective),
+                    effective.signum() < 0, provider);
+        }
+        return selectedCustomScientificFormat(section, effective, provider, true);
     }
 
     static void selectedValidateUtf8IntegerFormatLiterals(String format, long value) {
+        selectedValidateUtf8CustomFormatLiterals(format, BigDecimal.valueOf(value));
+    }
+
+    static void selectedValidateUtf8CustomFormatLiterals(String format, BigDecimal value) {
         if (format == null) return;
         int terminator = format.indexOf('\0');
         if (terminator >= 0) format = format.substring(0, terminator);
         String[] sections = selectedIntegerCustomSections(format);
         if (sections != null) {
-            String section = sections[(int) selectedIntegerCustomSectionSelection(sections, value)[0]];
+            String section = sections[selectedCustomSectionSelection(sections, value)[0]];
             if (!selectedIntegerSectionSupported(section)) return;
             format = section;
         }

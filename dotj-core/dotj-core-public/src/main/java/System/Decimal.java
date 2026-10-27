@@ -1014,11 +1014,9 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return ToString(format, null);
     }
 
-    private static void selectedValidateUtf8FormatLiterals(String format) {
+    private void selectedValidateUtf8FormatLiterals(String format) {
         format = Int32.selectedIntegerFormatPrefix(format);
-        if (Int32.selectedIntegerCustomSections(format) == null) {
-            Int32.selectedValidateUtf8IntegerFormatLiterals(format, 0);
-        }
+        Int32.selectedValidateUtf8CustomFormatLiterals(format, this.value);
     }
 
     public String ToString(String format, IFormatProvider provider) {
@@ -1040,6 +1038,8 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
             }
             String scientific = Int32.selectedCustomScientificFormat(format, this.value, provider, true);
             if (scientific != null) return scientific;
+            String sections = Int32.selectedCustomSectionsFormat(format, this.value, provider);
+            if (sections != null) return sections;
         }
         if (format != null && format.matches("(\"[^\";:]{1,20}\"|\\\\[A-Za-z0-9!?() ])#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?\u2030(\"[^\";:]{1,20}\"|\\\\[A-Za-z0-9!?() ])")) {
             int coreStart = format.indexOf("#,##0");
