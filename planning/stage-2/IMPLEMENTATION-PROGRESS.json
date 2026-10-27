@@ -2375,7 +2375,8 @@
     "Batch-2358",
     "Batch-2359",
     "Batch-2360",
-    "Batch-2361"
+    "Batch-2361",
+    "Batch-2362"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2568,7 +2569,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2361",
+      "lastUpdatedBatch": "Batch-2362",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12179,19 +12180,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2362",
+    "id": "Batch-2363",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Implement and qualify custom percent/per-mille and trailing-comma scaling, exact midpoint rounding and zero-section transitions for integer formatters.",
+    "outcome": "Implement and qualify custom scientific exponent patterns, significand rounding, sign/padding metadata and Char/UTF8 output for integer formatters.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2361,
+    "completedBatches": 2362,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12200,8 +12201,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 360,
-    "remainingBatches": 139,
+    "completedBatches": 361,
+    "remainingBatches": 138,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },
