@@ -946,6 +946,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         StringBuilder tokens = new StringBuilder();
         StringBuilder controls = new StringBuilder();
         char quote = 0;
+        boolean decimalSeen = false;
         for (int index = 0; index < format.length(); index++) {
             char ch = format.charAt(index);
             boolean control = false;
@@ -953,7 +954,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 if (ch == quote) { quote = 0; continue; }
             } else if (ch == '\'' || ch == '"') { quote = ch; continue; }
             else if (ch == '\\') {
-                if (++index >= format.length()) return null;
+                if (++index >= format.length()) break;
                 ch = format.charAt(index);
             } else {
                 if (ch == 'E' || ch == 'e') {
@@ -962,6 +963,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     if (next < format.length() && format.charAt(next) == '0') return null;
                 }
                 control = "0#.,;%\u2030".indexOf(ch) >= 0;
+            }
+            if (control && ch == '.') {
+                if (decimalSeen) continue;
+                decimalSeen = true;
             }
             tokens.append(ch);
             controls.append(control ? '1' : '0');
@@ -980,7 +985,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             else if (ch == '0' || ch == '#') placeholders++;
             else if (ch != ',' && ch != '%' && ch != '\u2030') return false;
         }
-        return points <= 1 && placeholders > 0;
+        return points <= 1 && (placeholders > 0 || points > 0);
     }
 
     static int[] selectedIntegerCustomScale(String[] parsed) {

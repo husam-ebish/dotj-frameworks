@@ -1,0 +1,7 @@
+# Integer custom token termination
+
+Batch 2376: Thirty custom formats across all five integer types cover dangling escapes, unclosed quotes, repeated decimal markers, decimal-only bodies, scientific/scaling combinations, extra sections, NUL termination and malformed literals. Full ToString and Char/UTF8 outputs, destination holders and callback state match all 94248 pinned native groups; the previous product reaches unsupported formatting paths.
+
+23862 pinned native calls and 23862 Java facade calls pass 94248 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The shared formatter stops cleanly at a dangling escape, retains the first unescaped decimal marker and supports decimal-only numeric bodies. Integer and Decimal callers use the same tokenizer. Fresh packaged, API and retained regressions are required; the full 391-check canonical gate remains required before merge.
+
+Selected token/section boundaries only; multiple exponent markers, full grammar/cultures/ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify the shared custom-token fixes against exact Decimal coefficients, fractional rounding, scale-28 values, section transitions and Char/UTF8 literal errors.
