@@ -112,6 +112,26 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return true;
     }
 
+    public static int GetBits(Decimal value, Span<Int32> destination) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (destination == null) throw new ArgumentNullException("destination");
+        if (!destination.selectedInt32()) throw new ArgumentException("Span element carrier must be Int32.", "destination");
+        if (destination.get_Length() < 4) throw new ArgumentException("Destination is too short.", "destination");
+        return destination.writeSelectedInt32Bits(GetBits(value));
+    }
+
+    public static boolean TryGetBits(Decimal value, Span<Int32> destination, int[] valuesWritten) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (destination == null) throw new ArgumentNullException("destination");
+        if (valuesWritten == null) throw new ArgumentNullException("valuesWritten");
+        if (valuesWritten.length == 0) throw new ArgumentException("An output holder is required.", "valuesWritten");
+        if (!destination.selectedInt32()) throw new ArgumentException("Span element carrier must be Int32.", "destination");
+        if (destination.get_Length() < 4) { valuesWritten[0] = 0; return false; }
+        destination.writeSelectedInt32Bits(GetBits(value));
+        valuesWritten[0] = 4;
+        return true;
+    }
+
     public static Decimal Truncate(Decimal value) {
         return roundIntegral(value, RoundingMode.DOWN);
     }

@@ -3,10 +3,11 @@
 package System;
 
 
-/** Selected mutable Char or UTF-8 Byte view for bounded formatting. */
+/** Selected mutable Char, UTF-8 Byte or Int32 managed-array view. */
 public final class Span<T> {
     private final char[] chars;
     private final byte[] bytes;
+    private final int[] ints;
     private final int offset;
     private final int length;
 
@@ -31,6 +32,7 @@ public final class Span<T> {
         checkRange(values.length, offset, length);
         this.chars = values;
         this.bytes = null;
+        this.ints = null;
         this.offset = offset;
         this.length = length;
     }
@@ -40,6 +42,27 @@ public final class Span<T> {
         checkRange(values.length, offset, length);
         this.chars = null;
         this.bytes = values;
+        this.ints = null;
+        this.offset = offset;
+        this.length = length;
+    }
+
+    public static Span<Int32> OfInt32s(int[] values) {
+        return OfInt32s(values, 0, values == null ? 0 : values.length);
+    }
+
+    public static Span<Int32> OfInt32s(int[] values, int offset, int length) {
+        return new Span<>(values, offset, length);
+    }
+
+    private Span(int[] values, int offset, int length) {
+        int capacity = values == null ? 0 : values.length;
+        if (offset < 0 || length < 0 || offset > capacity || length > capacity - offset) {
+            throw new ArgumentOutOfRangeException();
+        }
+        this.chars = null;
+        this.bytes = null;
+        this.ints = values == null ? new int[0] : values;
         this.offset = offset;
         this.length = length;
     }
@@ -51,7 +74,8 @@ public final class Span<T> {
     }
 
     public String ToString() {
-        return this.chars != null ? new String(this.chars, this.offset, this.length)
+        return this.ints != null ? "System.Span<Int32>[" + this.length + "]"
+                : this.chars != null ? new String(this.chars, this.offset, this.length)
                 : "System.Span<Byte>[" + this.length + "]";
     }
 
@@ -64,19 +88,22 @@ public final class Span<T> {
 
     public Span<T> Slice(int start, int length) {
         if (start < 0 || length < 0 || start > this.length || length > this.length - start) throw new ArgumentOutOfRangeException();
-        return this.chars != null
-                ? new Span<>(this.chars, this.offset + start, length)
+        return this.ints != null ? new Span<>(this.ints, this.offset + start, length)
+                : this.chars != null ? new Span<>(this.chars, this.offset + start, length)
                 : new Span<>(this.bytes, this.offset + start, length);
     }
 
     public void Clear() {
-        if (this.chars != null) java.util.Arrays.fill(this.chars, this.offset, this.offset + this.length, (char) 0);
+        if (this.ints != null) java.util.Arrays.fill(this.ints, this.offset, this.offset + this.length, 0);
+        else if (this.chars != null) java.util.Arrays.fill(this.chars, this.offset, this.offset + this.length, (char) 0);
         else java.util.Arrays.fill(this.bytes, this.offset, this.offset + this.length, (byte) 0);
     }
 
     public void Fill(T value) {
         if (value == null) throw new ArgumentNullException("value");
-        if (this.chars != null && value instanceof Character character) {
+        if (this.ints != null && value instanceof Int32 number) {
+            java.util.Arrays.fill(this.ints, this.offset, this.offset + this.length, number.get_Value());
+        } else if (this.chars != null && value instanceof Character character) {
             java.util.Arrays.fill(this.chars, this.offset, this.offset + this.length, character.charValue());
         } else if (this.bytes != null && value instanceof Byte number) {
             java.util.Arrays.fill(this.bytes, this.offset, this.offset + this.length, (byte) number.get_Value());
@@ -97,6 +124,11 @@ public final class Span<T> {
     }
 
     boolean tryCopySelectedBuffer(Object source) {
+        if (this.ints != null && source instanceof int[] values) {
+            if (values.length > this.length) return false;
+            java.lang.System.arraycopy(values, 0, this.ints, this.offset, values.length);
+            return true;
+        }
         if (this.chars != null && source instanceof char[] values) {
             if (values.length > this.length) return false;
             java.lang.System.arraycopy(values, 0, this.chars, this.offset, values.length);
@@ -111,6 +143,10 @@ public final class Span<T> {
     }
 
     int writeSelectedDecimalText(String text) {
+        if (this.ints != null) {
+            throw new ArgumentException("Span element carrier is not a formatting destination.", "destination");
+        }
+
         if (this.chars != null) {
             if (text.length() > this.length) return -1;
             text.getChars(0, text.length(), this.chars, this.offset);
@@ -124,7 +160,20 @@ public final class Span<T> {
 
     boolean selectedUtf8() { return this.bytes != null; }
 
+    boolean selectedInt32() { return this.ints != null; }
+
+    int writeSelectedInt32Bits(int[] bits) {
+        if (this.ints == null) throw new ArgumentException("Span element carrier must be Int32.", "destination");
+        if (bits.length > this.length) return -1;
+        java.lang.System.arraycopy(bits, 0, this.ints, this.offset, bits.length);
+        return bits.length;
+    }
+
     int writeSelectedInt32Text(String text) {
+        if (this.ints != null) {
+            throw new ArgumentException("Span element carrier is not a formatting destination.", "destination");
+        }
+
         if (this.chars != null) {
             if (text.length() > this.length) return -1;
             text.getChars(0, text.length(), this.chars, this.offset);
@@ -137,13 +186,16 @@ public final class Span<T> {
     }
 
     Object selectedBufferCopy() {
-        return this.chars != null
+        return this.ints != null ? java.util.Arrays.copyOfRange(this.ints, this.offset, this.offset + this.length)
+                : this.chars != null
                 ? java.util.Arrays.copyOfRange(this.chars, this.offset, this.offset + this.length)
                 : java.util.Arrays.copyOfRange(this.bytes, this.offset, this.offset + this.length);
     }
 
     void writeSelectedBuffer(Object buffer) {
-        if (this.chars != null && buffer instanceof char[] chars && chars.length == this.length) {
+        if (this.ints != null && buffer instanceof int[] ints && ints.length == this.length) {
+            java.lang.System.arraycopy(ints, 0, this.ints, this.offset, this.length);
+        } else if (this.chars != null && buffer instanceof char[] chars && chars.length == this.length) {
             java.lang.System.arraycopy(chars, 0, this.chars, this.offset, this.length);
         } else if (this.bytes != null && buffer instanceof byte[] bytes && bytes.length == this.length) {
             java.lang.System.arraycopy(bytes, 0, this.bytes, this.offset, this.length);
