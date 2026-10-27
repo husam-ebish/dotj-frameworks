@@ -85,6 +85,33 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         };
     }
 
+    /** Selected managed-array projection of GetBits(decimal, Span<int>). */
+    public static int GetBits(Decimal value, int[] destination) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (destination == null || destination.length < 4) {
+            throw new ArgumentException("Destination is too short.", "destination");
+        }
+        int[] bits = GetBits(value);
+        java.lang.System.arraycopy(bits, 0, destination, 0, 4);
+        return 4;
+    }
+
+    /** Selected managed-array projection; valuesWritten[0] carries the native out value. */
+    public static boolean TryGetBits(Decimal value, int[] destination, int[] valuesWritten) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (valuesWritten == null) throw new ArgumentNullException("valuesWritten");
+        if (valuesWritten.length == 0) {
+            throw new ArgumentException("An output holder is required.", "valuesWritten");
+        }
+        if (destination == null || destination.length < 4) {
+            valuesWritten[0] = 0;
+            return false;
+        }
+        GetBits(value, destination);
+        valuesWritten[0] = 4;
+        return true;
+    }
+
     public static Decimal Truncate(Decimal value) {
         return roundIntegral(value, RoundingMode.DOWN);
     }
