@@ -288,6 +288,8 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         if (decorated != null) return decorated;
         String inline = Int32.selectedIntegerSimpleCustomFormat(format, (long) this.value, resolved, false);
         if (inline != null) return inline;
+        String scientific = Int32.selectedIntegerCustomScientificFormat(format, (long) this.value, resolved, false);
+        if (scientific != null) return scientific;
         String sections = Int32.selectedIntegerSectionsFormat(format, (long) this.value, resolved);
         if (sections != null) return sections;
         return selectedIntegerFormatCore(format, resolved);
@@ -343,6 +345,8 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         if (decorated != null) return decorated;
         String inline = Int32.selectedIntegerSimpleCustomFormat(deferred, (long) this.value, resolved, true);
         if (inline != null) return inline;
+        String scientific = Int32.selectedIntegerCustomScientificFormat(deferred, (long) this.value, resolved, true);
+        if (scientific != null) return scientific;
         String sections = Int32.selectedIntegerSectionsFormat(deferred, (long) this.value, resolved);
         if (sections != null) return sections;
         return selectedIntegerFormatCore(deferred, resolved);

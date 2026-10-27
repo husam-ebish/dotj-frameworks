@@ -812,6 +812,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (decorated != null) return decorated;
         String inline = selectedIntegerSimpleCustomFormat(format, (long) this.value, resolved, false);
         if (inline != null) return inline;
+        String scientific = selectedIntegerCustomScientificFormat(format, (long) this.value, resolved, false);
+        if (scientific != null) return scientific;
         String sections = selectedIntegerSectionsFormat(format, (long) this.value, resolved);
         if (sections != null) return sections;
         return selectedIntegerFormatCore(format, resolved);
@@ -856,7 +858,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return section.isEmpty() || selectedIntegerLiteralFormat(section, true) != null
                 || section.matches("([0#]+|#,##0)(\\.[0#]+)?")
                 || selectedIntegerCustomLiteralParts(section, true) != null
-                || selectedIntegerSimpleCustomSupported(selectedIntegerCustomTokens(section, true));
+                || selectedIntegerSimpleCustomSupported(selectedIntegerCustomTokens(section, true))
+                || selectedIntegerScientificSupported(section);
     }
 
     static String selectedIntegerSectionsFormat(String format, long value,
@@ -998,6 +1001,11 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                                                     IFormatProvider provider, boolean custom) {
         String[] parsed = selectedIntegerCustomTokens(format, custom);
         if (!selectedIntegerSimpleCustomSupported(parsed)) return null;
+        return selectedIntegerRenderCustom(parsed, selectedIntegerCustomRoundedMagnitude(parsed, value), value < 0, provider);
+    }
+
+    static String selectedIntegerRenderCustom(String[] parsed, BigDecimal rounded,
+                                              boolean negative, IFormatProvider provider) {
         String tokens = parsed[0];
         String controls = parsed[1];
         int point = tokens.length();
@@ -1019,7 +1027,6 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
         }
         int minimum = firstZero < 0 ? 0 : integers - firstZero;
-        BigDecimal rounded = selectedIntegerCustomRoundedMagnitude(parsed, value);
         String plain = rounded.toPlainString();
         int decimal = plain.indexOf('.');
         String digits = decimal < 0 ? plain : plain.substring(0, decimal);
@@ -1051,7 +1058,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
         }
         StringBuilder text = new StringBuilder();
-        if (value < 0 && rounded.signum() != 0) text.append(info == null ? "-" : info.get_NegativeSign());
+        if (negative && rounded.signum() != 0) text.append(info == null ? "-" : info.get_NegativeSign());
         for (int index = 0; index < tokens.length(); index++) {
             char ch = tokens.charAt(index);
             if (controls.charAt(index) != '1') { text.append(ch); continue; }
@@ -1072,6 +1079,82 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
         }
         return text.toString();
+    }
+
+    static int[] selectedIntegerScientificPattern(String format) {
+        if (format == null) return null;
+        int[] found = null;
+        char quote = 0;
+        for (int index = 0; index < format.length(); index++) {
+            char ch = format.charAt(index);
+            if (quote != 0) { if (ch == quote) quote = 0; continue; }
+            if (ch == '\'' || ch == '"') { quote = ch; continue; }
+            if (ch == '\\') { index++; continue; }
+            if (ch == ';') return null;
+            if (ch != 'E' && ch != 'e') continue;
+            int cursor = index + 1;
+            boolean positive = cursor < format.length() && format.charAt(cursor) == '+';
+            if (cursor < format.length() && (format.charAt(cursor) == '+' || format.charAt(cursor) == '-')) cursor++;
+            int zeroStart = cursor;
+            while (cursor < format.length() && format.charAt(cursor) == '0') cursor++;
+            if (cursor == zeroStart) continue;
+            if (found != null) return null;
+            found = new int[] { index, cursor, Math.min(10, cursor - zeroStart), positive ? 1 : 0 };
+            index = cursor - 1;
+        }
+        return found;
+    }
+
+    static boolean selectedIntegerScientificSupported(String format) {
+        int[] pattern = selectedIntegerScientificPattern(format);
+        return pattern != null && selectedIntegerSimpleCustomSupported(selectedIntegerCustomTokens(
+                format.substring(0, pattern[0]) + format.substring(pattern[1]), true));
+    }
+
+    static String selectedIntegerCustomScientificFormat(String format, long value,
+                                                        IFormatProvider provider, boolean custom) {
+        if (format == null || (!custom && format.matches("[A-Za-z][0-9]*"))) return null;
+        int[] pattern = selectedIntegerScientificPattern(format);
+        if (pattern == null) return null;
+        String without = format.substring(0, pattern[0]) + format.substring(pattern[1]);
+        String[] parsed = selectedIntegerCustomTokens(without, true);
+        if (!selectedIntegerSimpleCustomSupported(parsed)) return null;
+        int integers = 0;
+        int fractions = 0;
+        boolean point = false;
+        for (int index = 0; index < parsed[0].length(); index++) {
+            if (parsed[1].charAt(index) != '1') continue;
+            char ch = parsed[0].charAt(index);
+            if (ch == '.') point = true;
+            else if (ch == '0' || ch == '#') { if (point) fractions++; else integers++; }
+        }
+        long magnitude = value < 0 ? -value : value;
+        BigDecimal rounded = BigDecimal.valueOf(magnitude)
+                .scaleByPowerOfTen(selectedIntegerCustomScale(parsed)[0])
+                .round(new java.math.MathContext(integers + fractions, RoundingMode.HALF_UP));
+        int exponent = rounded.signum() == 0 ? 0 : rounded.precision() - rounded.scale() - integers;
+        BigDecimal mantissa = rounded.scaleByPowerOfTen(-exponent).setScale(fractions, RoundingMode.HALF_UP);
+        NumberFormatInfo info = (NumberFormatInfo) provider;
+        String sign = exponent < 0 ? (info == null ? "-" : info.get_NegativeSign())
+                : pattern[3] != 0 ? (info == null ? "+" : info.get_PositiveSign()) : "";
+        String digits = Integer.toString(Math.abs(exponent));
+        String text = format.charAt(pattern[0]) + sign + "0".repeat(Math.max(0, pattern[2] - digits.length())) + digits;
+        StringBuilder escaped = new StringBuilder();
+        for (int index = 0; index < text.length(); index++) escaped.append('\\').append(text.charAt(index));
+        String rewritten = format.substring(0, pattern[0]) + escaped + format.substring(pattern[1]);
+        String[] rendered = selectedIntegerCustomTokens(rewritten, true);
+        if (!selectedIntegerSimpleCustomSupported(rendered)) return null;
+        if (rounded.signum() == 0) {
+            char[] zeroPattern = rendered[0].toCharArray();
+            boolean fraction = false;
+            for (int index = 0; index < zeroPattern.length; index++) {
+                if (rendered[1].charAt(index) != '1') continue;
+                if (zeroPattern[index] == '.') fraction = true;
+                else if (!fraction && zeroPattern[index] == '#') zeroPattern[index] = '0';
+            }
+            rendered[0] = new String(zeroPattern);
+        }
+        return selectedIntegerRenderCustom(rendered, mantissa, value < 0, provider);
     }
 
     static String[] selectedIntegerCustomLiteralParts(String format, boolean custom) {
@@ -1100,6 +1183,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                                                    IFormatProvider provider) {
         String simple = selectedIntegerSimpleCustomFormat(format, magnitude, provider, true);
         if (simple != null) return simple;
+        String scientific = selectedIntegerCustomScientificFormat(format, magnitude, provider, true);
+        if (scientific != null) return scientific;
         return new Decimal(magnitude).ToString(format, provider);
     }
 
@@ -1777,6 +1862,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (decorated != null) return decorated;
         String inline = selectedIntegerSimpleCustomFormat(deferred, (long) this.value, resolved, true);
         if (inline != null) return inline;
+        String scientific = selectedIntegerCustomScientificFormat(deferred, (long) this.value, resolved, true);
+        if (scientific != null) return scientific;
         String sections = selectedIntegerSectionsFormat(deferred, (long) this.value, resolved);
         if (sections != null) return sections;
         return selectedIntegerFormatCore(deferred, resolved);
