@@ -136,12 +136,55 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     public static <T> Decimal CreateChecked(T value) {
         if (value == null) throw new ArgumentNullException("value");
         if (value instanceof Decimal decimal) return new Decimal(decimal.value, decimal.negativeZero);
+        if (value instanceof java.lang.Float number) {
+            int exponent = ((Float.floatToRawIntBits(number) >>> 23) & 0xff) - 126;
+            return selectedCreateFloating(number.doubleValue(), exponent, 6);
+        }
+        if (value instanceof java.lang.Double number) {
+            int exponent = (int)((Double.doubleToRawLongBits(number) >>> 52) & 0x7ff) - 1022;
+            return selectedCreateFloating(number.doubleValue(), exponent, 14);
+        }
         BigInteger integer = selectedCreateInteger(value);
         if (integer == null) throw new NotSupportedException();
         if (integer.abs().compareTo(MAX_MAGNITUDE.toBigIntegerExact()) > 0) {
             throw new OverflowException("Value was either too large or too small for a Decimal.");
         }
         return new Decimal(new BigDecimal(integer), false);
+    }
+
+    private static Decimal selectedCreateFloating(double input, int exponent, int precisionMinusOne) {
+        if (exponent < -94) return new Decimal(0);
+        if (exponent > 96) throw new OverflowException("Value was either too large or too small for a Decimal.");
+        boolean negative = input < 0;
+        double scaled = Math.abs(input);
+        int power = precisionMinusOne - ((exponent * 19728) >> 16);
+        double upper = precisionMinusOne == 6 ? 1e7 : 1e15;
+        double lower = precisionMinusOne == 6 ? 1e6 : 1e14;
+        if (power >= 0) {
+            power = Math.min(power, 28);
+            scaled *= DOUBLE_POWERS_OF_TEN[power];
+        } else if (power != -1 || scaled >= upper) {
+            scaled /= DOUBLE_POWERS_OF_TEN[-power];
+        } else {
+            power = 0;
+        }
+        if (scaled < lower && power < 28) { scaled *= 10; power++; }
+        long mantissa = (long)Math.rint(scaled);
+        if (mantissa == 0) return new Decimal(0);
+        BigInteger coefficient;
+        if (power < 0) {
+            coefficient = BigInteger.valueOf(mantissa).multiply(BigInteger.TEN.pow(-power));
+            power = 0;
+        } else {
+            int removable = Math.min(power, precisionMinusOne);
+            while (removable > 0 && mantissa % 10 == 0) { mantissa /= 10; power--; removable--; }
+            coefficient = BigInteger.valueOf(mantissa);
+        }
+        if (coefficient.compareTo(MAX_MAGNITUDE.toBigIntegerExact()) > 0) {
+            throw new OverflowException("Value was either too large or too small for a Decimal.");
+        }
+        if (negative) coefficient = coefficient.negate();
+        return new Decimal(new BigDecimal(coefficient, power), false);
     }
 
     private static BigInteger selectedCreateInteger(Object value) {
