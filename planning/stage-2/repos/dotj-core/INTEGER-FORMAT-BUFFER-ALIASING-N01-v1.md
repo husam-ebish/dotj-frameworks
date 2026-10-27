@@ -1,0 +1,7 @@
+# Integer formatter shared-buffer aliasing
+
+Batch 2364: Five layouts share the same Char array between format and destination views, including identical starts, format-before-destination, format-inside-destination and variable overlap. Ten format mutations, four provider modes, five integer widths and seven capacities verify result, callback/exception identity, full destination state, format alias state and immutable values. Native bridge identity checks confirm true array aliasing. All 105000 comparison groups pass.
+
+21000 pinned native calls and 21000 Java facade calls pass 105000 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The tested JAR is byte-identical to Batch 2363. Existing packaged, API/signature and retained formatter evidence remains applicable. This batch adds native qualification of actual shared Char backing arrays rather than disjoint copies; the full 379-check canonical gate remains required before merge.
+
+Selected managed Char-array alias layouts only; cross-element aliases, arbitrary format grammar/cultures/ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Align Decimal provider-before-format classification with pinned Decimal.cs; read mutable Char format backing after GetFormat and qualify literal/UTF8 error behavior.
