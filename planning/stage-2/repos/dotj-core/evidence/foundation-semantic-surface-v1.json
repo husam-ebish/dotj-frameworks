@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "c8deebbd4db3fd603b6ba1bc4753205b3156777e5034ad0964c575538e4bade8",
+  "javaCandidateEvidenceSha256": "c401739a14bcd8dd54c6ec0c339620c38d8d904e138e87ef3a4beed69681b2c8",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 33,
+  "nameLevelMissingMethodCount": 32,
   "nameLevelMissingPublicGetterCount": 20,
   "types": [
     {
@@ -3276,6 +3276,7 @@
         "public static <T> System.Decimal CreateSaturating(T);",
         "public static <T> System.Decimal CreateTruncating(T);",
         "public static java.lang.Object ConvertToInteger(System.Decimal, System.Type);",
+        "public static java.lang.Object ConvertToIntegerNative(System.Decimal, System.Type);",
         "public static System.Decimal Truncate(System.Decimal);",
         "public static System.Decimal Floor(System.Decimal);",
         "public static System.Decimal Ceiling(System.Decimal);",
@@ -3425,6 +3426,7 @@
           "Compare": 1,
           "CompareTo": 2,
           "ConvertToInteger": 1,
+          "ConvertToIntegerNative": 1,
           "CopySign": 1,
           "CreateChecked": 1,
           "CreateSaturating": 1,
@@ -3478,9 +3480,7 @@
           "get_Scale": 1,
           "hashCode": 1
         },
-        "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "ConvertToIntegerNative"
-        ],
+        "upstreamMethodNamesAbsentFromJavaDeclarations": [],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }
