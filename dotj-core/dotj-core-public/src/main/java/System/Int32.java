@@ -922,14 +922,27 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (parsed == null) return false;
         int points = 0;
         int placeholders = 0;
+        int integers = 0;
+        int lastComma = -1;
         for (int index = 0; index < parsed[0].length(); index++) {
             if (parsed[1].charAt(index) != '1') continue;
             char ch = parsed[0].charAt(index);
             if (ch == '.') points++;
-            else if (ch == '0' || ch == '#') placeholders++;
+            else if (ch == ',') { if (points == 0 && integers > 0) lastComma = integers; }
+            else if (ch == '0' || ch == '#') { placeholders++; if (points == 0) integers++; }
             else return false;
         }
-        return points <= 1 && placeholders > 0;
+        return points <= 1 && placeholders > 0 && (lastComma < 0 || lastComma != integers);
+    }
+
+    static void selectedAppendIntegerCustomDigits(StringBuilder text, String digits,
+                                                  int start, int end,
+                                                  java.util.Set<Integer> boundaries,
+                                                  String separator) {
+        for (int index = start; index < end; index++) {
+            text.append(digits.charAt(index));
+            if (boundaries.contains(digits.length() - index - 1)) text.append(separator);
+        }
     }
 
     static String selectedIntegerSimpleCustomFormat(String format, long value,
@@ -947,7 +960,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         int fractions = 0;
         int fractionZeroes = 0;
         for (int index = 0; index < tokens.length(); index++) {
-            if (controls.charAt(index) != '1' || tokens.charAt(index) == '.') continue;
+            if (controls.charAt(index) != '1' || tokens.charAt(index) == '.' || tokens.charAt(index) == ',') continue;
             if (index < point) {
                 if (tokens.charAt(index) == '0' && firstZero < 0) firstZero = integers;
                 integers++;
@@ -967,16 +980,42 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         int fractionSlot = 0;
         boolean copiedExtra = false;
         NumberFormatInfo info = (NumberFormatInfo) provider;
+        boolean grouping = false;
+        int scannedIntegers = 0;
+        for (int index = 0; index < point; index++) {
+            if (controls.charAt(index) != '1') continue;
+            char ch = tokens.charAt(index);
+            if (ch == '0' || ch == '#') scannedIntegers++;
+            else if (ch == ',' && scannedIntegers > 0) grouping = true;
+        }
+        java.util.Set<Integer> boundaries = new java.util.HashSet<>();
+        String groupSeparator = info == null ? "," : info.get_NumberGroupSeparator();
+        if (grouping) {
+            int[] sizes = info == null ? new int[] {3} : info.get_NumberGroupSizes();
+            int sizeIndex = 0;
+            int size = sizes.length == 0 ? 0 : sizes[0];
+            int boundary = size;
+            while (size > 0 && boundary < digits.length()) {
+                boundaries.add(boundary);
+                if (sizeIndex < sizes.length - 1) size = sizes[++sizeIndex];
+                if (size == 0) break;
+                boundary += size;
+            }
+        }
         StringBuilder text = new StringBuilder();
         if (value < 0) text.append(info == null ? "-" : info.get_NegativeSign());
         for (int index = 0; index < tokens.length(); index++) {
             char ch = tokens.charAt(index);
             if (controls.charAt(index) != '1') { text.append(ch); continue; }
-            if (!copiedExtra) { text.append(digits, 0, extra); position = extra; copiedExtra = true; }
+            if (ch == ',') continue;
+            if (!copiedExtra) { selectedAppendIntegerCustomDigits(text, digits, 0, extra, boundaries, groupSeparator); position = extra; copiedExtra = true; }
             if (ch == '.') {
                 if (fractionZeroes > 0) text.append(info == null ? "." : info.get_NumberDecimalSeparator());
             } else if (index < point) {
-                if (integerSlot++ >= missing) text.append(digits.charAt(position++));
+                if (integerSlot++ >= missing) {
+                    selectedAppendIntegerCustomDigits(text, digits, position, position + 1, boundaries, groupSeparator);
+                    position++;
+                }
             } else if (fractionSlot++ < fractionZeroes) text.append('0');
         }
         return text.toString();
