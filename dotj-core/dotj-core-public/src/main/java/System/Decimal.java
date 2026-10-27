@@ -616,8 +616,8 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return !token.isEmpty() && text.startsWith(token, offset);
     }
 
-    private static String selectedNumberProviderText(String text, NumberFormatInfo format) {
-        String input = selectedNumberParseText(text);
+    private static String selectedNumberProviderText(String input, NumberFormatInfo format,
+                                                       int flags) {
         String positive = format.get_PositiveSign();
         String negative = format.get_NegativeSign();
         String decimal = format.get_NumberDecimalSeparator();
@@ -625,17 +625,27 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         int offset = 0;
         boolean signed = false;
         boolean isNegative = false;
-        if (parseTokenAt(input, offset, positive)) {
-            offset += positive.length();
-            signed = true;
-        } else if (parseTokenAt(input, offset, negative)) {
-            offset += negative.length();
-            signed = true;
-            isNegative = true;
-        }
-        if (signed && format.get_NumberNegativePattern() == 2) {
-            while (offset < input.length() && numberParseWhite(input.charAt(offset))) {
+        boolean parentheses = false;
+        while (offset < input.length()) {
+            if ((flags & 1) != 0 && numberParseWhite(input.charAt(offset))
+                    && (!signed || format.get_NumberNegativePattern() == 2)) {
                 offset++;
+            } else if (!signed && (flags & 4) != 0
+                    && parseTokenAt(input, offset, positive)) {
+                offset += positive.length();
+                signed = true;
+            } else if (!signed && (flags & 4) != 0
+                    && parseTokenAt(input, offset, negative)) {
+                offset += negative.length();
+                signed = true;
+                isNegative = true;
+            } else if (!signed && (flags & 16) != 0 && input.charAt(offset) == '(') {
+                offset++;
+                signed = true;
+                isNegative = true;
+                parentheses = true;
+            } else {
+                break;
             }
         }
         StringBuilder number = new StringBuilder();
@@ -647,31 +657,37 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 number.append(current);
                 digit = true;
                 offset++;
-            } else if (!point && parseTokenAt(input, offset, decimal)) {
+            } else if (!point && (flags & 32) != 0 && parseTokenAt(input, offset, decimal)) {
                 number.append('.');
                 point = true;
                 offset += decimal.length();
-            } else if (digit && !point && parseTokenAt(input, offset, group)) {
+            } else if (digit && !point && (flags & 64) != 0
+                    && parseTokenAt(input, offset, group)) {
                 offset += group.length();
             } else {
                 break;
             }
         }
-        while (offset < input.length() && numberParseWhite(input.charAt(offset))) {
-            offset++;
-        }
-        if (!signed) {
-            if (parseTokenAt(input, offset, positive)) {
+        while (offset < input.length()) {
+            if ((flags & 2) != 0 && numberParseWhite(input.charAt(offset))) {
+                offset++;
+            } else if (!signed && (flags & 8) != 0
+                    && parseTokenAt(input, offset, positive)) {
                 offset += positive.length();
-            } else if (parseTokenAt(input, offset, negative)) {
+                signed = true;
+            } else if (!signed && (flags & 8) != 0
+                    && parseTokenAt(input, offset, negative)) {
                 offset += negative.length();
+                signed = true;
                 isNegative = true;
+            } else if (parentheses && input.charAt(offset) == ')') {
+                parentheses = false;
+                offset++;
+            } else {
+                break;
             }
         }
-        while (offset < input.length() && numberParseWhite(input.charAt(offset))) {
-            offset++;
-        }
-        if (!digit || offset != input.length()) {
+        if (!digit || parentheses || offset != input.length()) {
             throw new FormatException("Input string was not in a correct format");
         }
         return (isNegative ? "-" : "") + number;
@@ -719,6 +735,12 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         text = text.substring(0, numericEnd);
         if (text.indexOf('\0') >= 0) {
             throw new FormatException("Input string was not in a correct format");
+        }
+        if (style != null && (style.get_Value() & ~127) == 0) {
+            NumberFormatInfo format = provider instanceof NumberFormatInfo selected
+                    ? selected : NumberFormatInfo.get_InvariantInfo();
+            String normalized = selectedNumberProviderText(text, format, style.get_Value());
+            return bounded(new BigDecimal(normalized), normalized.startsWith("-"));
         }
         if (provider instanceof NumberFormatInfo format
                 && NumberStyles.AllowCurrencySymbol.equals(style)) {
@@ -806,9 +828,6 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 normalized = normalized.replace(positive, "+");
             }
             return Parse(normalized, style, null);
-        }
-        if (provider instanceof NumberFormatInfo format && NumberStyles.Number.equals(style)) {
-            return Parse(selectedNumberProviderText(text, format), style, null);
         }
         if (provider instanceof NumberFormatInfo format
                 && (NumberStyles.Integer.equals(style) || NumberStyles.Number.equals(style)
