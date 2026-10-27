@@ -1,0 +1,7 @@
+# Span indexed access
+
+Batch 2388: 660 native cases across Char, Byte and Int32 views cover empty/nested views, extreme indices, unsigned bytes, UTF16 surrogate units and signed 32-bit limits. All 1320 exact result/message and complete backing-array comparisons pass, plus three typed-carrier checks and two Java-only null/erasure guards. Selected writes preserve all elements outside the addressed cell.
+
+660 pinned native calls and 660 Java facade calls pass 1320 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. Span adds typed get_Item and set_Item methods over owned managed views. Byte reads preserve unsigned values and all carriers observe shared backing arrays. Bounds match native IndexOutOfRangeException payloads; erased/wrong/null Java carrier guards are explicit adaptations. Fresh packaged/API and retained span regressions are required; the full 403-check canonical gate remains required before merge.
+
+Value getter and explicit assignment projections only; native ref returns, generic span indexing beyond selected carriers, CLR byref ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify Char/Byte ReadOnlySpan indexed value reads, including primitive/boxed Byte bridges, empty/sliced bounds and visibility of external backing-array mutations.

@@ -110,6 +110,30 @@ public final class Span<T> {
         } else throw new ArgumentException("Value must match the Span element carrier.", "value");
     }
 
+    /** Selected value projection of the native ref-returning indexer. */
+    @SuppressWarnings("unchecked")
+    public T get_Item(int index) {
+        if (index < 0 || index >= this.length) throw new IndexOutOfRangeException();
+        int position = this.offset + index;
+        if (this.chars != null) return (T)Character.valueOf(this.chars[position]);
+        if (this.bytes != null) return (T)new Byte(this.bytes[position] & 0xff);
+        return (T)new Int32(this.ints[position]);
+    }
+
+    /** Selected assignment projection; the managed view shares its backing array. */
+    public void set_Item(int index, T value) {
+        if (index < 0 || index >= this.length) throw new IndexOutOfRangeException();
+        if (value == null) throw new ArgumentNullException("value");
+        int position = this.offset + index;
+        if (this.chars != null && value instanceof Character character) {
+            this.chars[position] = character.charValue();
+        } else if (this.bytes != null && value instanceof Byte number) {
+            this.bytes[position] = (byte)number.get_Value();
+        } else if (this.ints != null && value instanceof Int32 number) {
+            this.ints[position] = number.get_Value();
+        } else throw new ArgumentException("Value must match the Span element carrier.", "value");
+    }
+
     public int get_Length() { return this.length; }
 
     public boolean get_IsEmpty() { return this.length == 0; }
