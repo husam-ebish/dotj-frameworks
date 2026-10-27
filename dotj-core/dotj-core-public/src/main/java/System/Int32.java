@@ -15,19 +15,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     public static final int MinValue = Integer.MIN_VALUE;
 
     public static Int32 Parse(String text) {
-        if (text == null) {
-            throw new ArgumentNullException("s");
-        }
-        String trimmed = text.strip();
-        if (!trimmed.matches("[+-]?[0-9]+")) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        BigInteger parsed = new BigInteger(trimmed);
-        if (parsed.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
-                || parsed.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
-            throw new OverflowException("Value was outside the range of Int32");
-        }
-        return new Int32(parsed.intValue());
+        return Parse(text, NumberStyles.Integer, null);
     }
 
     public static Int32 Parse(String text, NumberStyles style) {
@@ -49,21 +37,31 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     public static <T> Int32 Parse(ReadOnlySpan<T> text, NumberStyles style,
                                   IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
-        if (text.selectedUtf8()) {
-            selectedValidateUtf8IntegerStyles(style);
-            IFormatProvider resolved = selectedNumberFormatInfo(provider);
-            return selectedInt32Utf8Value(text.selectedInt32Text(), style, resolved);
-        }
-        return Parse(text.selectedInt32Text(), style, provider);
+        selectedValidateIntegerStyleExact(style);
+        IFormatProvider resolved = selectedNumberFormatInfo(provider);
+        return text.selectedUtf8()
+                ? selectedInt32Utf8Value(text.selectedInt32Text(), style, resolved)
+                : selectedInt32CharacterValue(text.selectedInt32Text(), style, resolved);
     }
 
-    static void selectedValidateUtf8IntegerStyles(NumberStyles style) {
+    static void selectedValidateIntegerStyleExact(NumberStyles style) {
         if (style == null) throw new ArgumentNullException("style");
         int flags = style.get_Value();
         if ((flags & (~2047 | 1536)) != 0 && (flags & ~515) != 0 && (flags & ~1027) != 0) {
             throw new ArgumentException((flags & ~2047) != 0
                     ? "An undefined NumberStyles value is being used."
                     : "With the AllowHexSpecifier or AllowBinarySpecifier bit set in the enum bit field, the only other valid bits that can be combined into the enum value must be AllowLeadingWhite and AllowTrailingWhite.", "style");
+        }
+    }
+
+    private static Int32 selectedInt32CharacterValue(String text, NumberStyles style,
+                                                     IFormatProvider resolved) {
+        try {
+            return new Int32(selectedParseIntegerStyles(text, style, resolved, 32, true, false).intValue());
+        } catch (FormatException invalid) {
+            throw new FormatException("The input string '" + text + "' was not in a correct format.");
+        } catch (OverflowException overflow) {
+            throw new OverflowException("Value was either too large or too small for an Int32.");
         }
     }
 
@@ -93,102 +91,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     public static Int32 Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (style == null) throw new ArgumentNullException("style");
         if (text == null) throw new ArgumentNullException("s");
-        selectedValidateStyle(style);
-        int flags = style.get_Value();
-        if ((flags & (512 | 1024)) != 0) {
-            boolean hex = (flags & 512) != 0;
-            return selectedParseRadix(text, flags, hex ? 16 : 2);
-        }
-        if (style == NumberStyles.Integer) {
-            if (text != null) {
-                NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
-                if (numberFormat != null) {
-                    String trimmed = text.strip();
-                    String negativeSign = numberFormat.get_NegativeSign();
-                    if (!negativeSign.isEmpty() && !negativeSign.equals("-")) {
-                        if (trimmed.startsWith(negativeSign)) {
-                            return Parse("-" + trimmed.substring(negativeSign.length()));
-                        }
-                        if (trimmed.startsWith("-")) {
-                            throw new FormatException("Input string was not in a correct format");
-                        }
-                    }
-                    String positiveSign = numberFormat.get_PositiveSign();
-                    if (!positiveSign.isEmpty() && !positiveSign.equals("+")) {
-                        if (trimmed.startsWith(positiveSign)) {
-                            return Parse("+" + trimmed.substring(positiveSign.length()));
-                        }
-                        if (trimmed.startsWith("+")) {
-                            throw new FormatException("Input string was not in a correct format");
-                        }
-                    }
-                }
-            }
-            return Parse(text);
-        }
-        if (style == NumberStyles.None) {
-            if (text == null) {
-                throw new ArgumentNullException("s");
-            }
-            if (!text.matches("[0-9]+")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return Parse(text);
-        }
-        if (style == NumberStyles.Number) {
-            return selectedParseNumber(text, provider);
-        }
-        if ((style.get_Value() & ~255) == 0
-                && ((style.get_Value() & 16) != 0
-                || (style.get_Value() & 96) == 96)) {
-            return selectedParseExtended(text, provider, style);
-        }
-        if (style.get_Value() != 0 && (style.get_Value() & ~167) == 0) {
-            return selectedParseFloat(text, provider, style);
-        }
-        if ((style.get_Value() & (8 | 64)) != 0
-                && (style.get_Value() & ~79) == 0) {
-            return selectedParseThousands(text, provider, style);
-        }
-        if (style == NumberStyles.Currency) {
-            return selectedParseCurrencyLike(text, provider, false);
-        }
-        if (style == NumberStyles.Any) {
-            return selectedParseCurrencyLike(text, provider, true);
-        }
-        if ((style.get_Value() & 256) != 0 && (style.get_Value() & ~511) == 0) {
-            return selectedParseCurrencyFlags(text, provider, style);
-        }
-        if ((style.get_Value() & ~511) == 0) {
-            return selectedParseExtended(text, provider, style);
-        }
-        throw new UnsupportedOperationException("NumberStyles value is not mapped");
+        selectedValidateIntegerStyleExact(style);
+        IFormatProvider resolved = selectedNumberFormatInfo(provider);
+        return selectedInt32CharacterValue(text, style, resolved);
     }
 
-    private static void selectedValidateStyle(NumberStyles style) {
-        if (style == null) throw new ArgumentNullException("style");
-        int flags = style.get_Value();
-        if ((flags & (512 | 1024)) != 0) {
-            int allowed = ((flags & 512) != 0 ? 512 : 1024) | 3;
-            if ((flags & ~allowed) != 0) {
-                throw new ArgumentException("Invalid NumberStyles value", "style");
-            }
-        }
-    }
 
-    private static Int32 selectedParseRadix(String text, int flags, int radix) {
-        if (text == null) throw new ArgumentNullException("s");
-        String digits = (flags & 1) != 0 ? text.stripLeading() : text;
-        if ((flags & 2) != 0) digits = digits.stripTrailing();
-        if (!digits.matches(radix == 16 ? "[0-9a-fA-F]+" : "[01]+")) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        BigInteger parsed = new BigInteger(digits, radix);
-        if (parsed.compareTo(BigInteger.valueOf(0xffff_ffffL)) > 0) {
-            throw new OverflowException("Value was outside the range of Int32");
-        }
-        return new Int32(parsed.intValue());
-    }
+
+
 
     private static boolean selectedIntegerCarrierWhite(char value) {
         return value == ' ' || (value >= '\t' && value <= '\r');
@@ -450,362 +360,17 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return grouped.toString();
     }
 
-    private static Int32 selectedParseNumber(String text, IFormatProvider provider) {
-        if (text == null) throw new ArgumentNullException("s");
-        NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
-        String groupSeparator = numberFormat == null ? ","
-                : numberFormat.get_NumberGroupSeparator();
-        String decimalSeparator = numberFormat == null ? "."
-                : numberFormat.get_NumberDecimalSeparator();
-        String negativeSign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
-        String positiveSign = numberFormat == null ? "+" : numberFormat.get_PositiveSign();
-        String number = text.strip();
-        boolean negative = false;
-        boolean signed = false;
-        if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
-            number = number.substring(negativeSign.length());
-            negative = signed = true;
-        } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
-            number = number.substring(positiveSign.length());
-            signed = true;
-        }
-        if (!negativeSign.isEmpty() && number.endsWith(negativeSign)) {
-            if (signed) throw new FormatException("Input string was not in a correct format");
-            number = number.substring(0, number.length() - negativeSign.length());
-            negative = signed = true;
-        } else if (!positiveSign.isEmpty() && number.endsWith(positiveSign)) {
-            if (signed) throw new FormatException("Input string was not in a correct format");
-            number = number.substring(0, number.length() - positiveSign.length());
-        }
-        boolean hadDecimalSeparator = false;
-        String fraction = null;
-        if (!decimalSeparator.isEmpty()) {
-            int separator = number.indexOf(decimalSeparator);
-            if (separator >= 0) {
-                hadDecimalSeparator = true;
-                if (number.indexOf(decimalSeparator, separator + decimalSeparator.length()) >= 0) {
-                    throw new FormatException("Input string was not in a correct format");
-                }
-                fraction = number.substring(separator + decimalSeparator.length());
-                if (!fraction.matches("[0-9]*")) {
-                    throw new FormatException("Input string was not in a correct format");
-                }
-                if (!fraction.matches("0*")) throw new OverflowException();
-                number = number.substring(0, separator);
-            }
-        }
-        if (!groupSeparator.isEmpty()) {
-            if (number.startsWith(groupSeparator)) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            number = number.replace(groupSeparator, "");
-        }
-        if (number.isEmpty() && hadDecimalSeparator && !fraction.isEmpty()) {
-            number = "0";
-        }
-        if (!number.matches("[0-9]+")) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        BigInteger parsed = new BigInteger(number);
-        if (negative) parsed = parsed.negate();
-        if (parsed.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
-                || parsed.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
-            throw new OverflowException();
-        }
-        return new Int32(parsed.intValue());
-    }
 
-    private static Int32 selectedParseThousands(String text, IFormatProvider provider,
-                                                NumberStyles style) {
-        if (text == null) throw new ArgumentNullException("s");
-        NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
-        int flags = style.get_Value();
-        String separator = (flags & 64) == 0 ? "" : numberFormat == null ? ","
-                : numberFormat.get_NumberGroupSeparator();
-        String number = (flags & 1) != 0 ? text.stripLeading() : text;
-        if ((flags & 2) != 0) number = number.stripTrailing();
-        boolean negative = false;
-        boolean signed = false;
-        String negativeSign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
-        String positiveSign = numberFormat == null ? "+" : numberFormat.get_PositiveSign();
-        if ((flags & 4) != 0) {
-            if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
-                number = number.substring(negativeSign.length());
-                negative = signed = true;
-            } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
-                number = number.substring(positiveSign.length());
-                signed = true;
-            }
-        }
-        if ((flags & 8) != 0) {
-            if (!negativeSign.isEmpty() && number.endsWith(negativeSign)) {
-                if (signed) throw new FormatException("Input string was not in a correct format");
-                number = number.substring(0, number.length() - negativeSign.length());
-                negative = true;
-            } else if (!positiveSign.isEmpty() && number.endsWith(positiveSign)) {
-                if (signed) throw new FormatException("Input string was not in a correct format");
-                number = number.substring(0, number.length() - positiveSign.length());
-            }
-        }
-        if (!separator.isEmpty() && number.startsWith(separator)) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        String digits = separator.isEmpty() ? number : number.replace(separator, "");
-        if (!digits.matches("[0-9]+")) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        BigInteger parsed = new BigInteger(digits);
-        if (negative) parsed = parsed.negate();
-        if (parsed.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
-                || parsed.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
-            throw new OverflowException();
-        }
-        return new Int32(parsed.intValue());
-    }
 
-    private static Int32 selectedParseCurrencyLike(String text, IFormatProvider provider,
-                                                    boolean allowExponent) {
-        if (text == null) throw new ArgumentNullException("s");
-        NumberFormatInfo format = selectedNumberFormatInfo(provider);
-        String symbol = format == null ? "\u00a4" : format.get_CurrencySymbol();
-        String negativeSign = format == null ? "-" : format.get_NegativeSign();
-        String positiveSign = format == null ? "+" : format.get_PositiveSign();
-        String number = text.strip();
-        boolean parentheses = number.startsWith("(") && number.endsWith(")");
-        if (parentheses) number = number.substring(1, number.length() - 1).strip();
-        String leadingSign = "";
-        if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
-            leadingSign = negativeSign;
-            number = number.substring(negativeSign.length()).strip();
-        } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
-            leadingSign = positiveSign;
-            number = number.substring(positiveSign.length()).strip();
-        }
-        boolean hasSymbol = false;
-        if (!symbol.isEmpty() && number.startsWith(symbol)) {
-            number = number.substring(symbol.length()).strip();
-            hasSymbol = true;
-        } else if (!symbol.isEmpty() && number.endsWith(symbol)) {
-            number = number.substring(0, number.length() - symbol.length()).strip();
-            hasSymbol = true;
-        }
-        if (parentheses && (!leadingSign.isEmpty()
-                || (!negativeSign.isEmpty() && number.endsWith(negativeSign))
-                || (!positiveSign.isEmpty() && number.endsWith(positiveSign)))) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        String currencyGroup = format == null ? "," : format.get_CurrencyGroupSeparator();
-        String currencyDecimal = format == null ? "." : format.get_CurrencyDecimalSeparator();
-        boolean useCurrencySeparators = hasSymbol
-                || (!currencyGroup.isEmpty() && number.contains(currencyGroup))
-                || (!currencyDecimal.isEmpty() && number.contains(currencyDecimal));
-        NumberFormatInfo parsingFormat = new NumberFormatInfo();
-        parsingFormat.set_NumberGroupSeparator(useCurrencySeparators ? currencyGroup
-                : format == null ? "," : format.get_NumberGroupSeparator());
-        parsingFormat.set_NumberDecimalSeparator(useCurrencySeparators ? currencyDecimal
-                : format == null ? "." : format.get_NumberDecimalSeparator());
-        parsingFormat.set_NegativeSign(negativeSign);
-        parsingFormat.set_PositiveSign(positiveSign);
-        Int32 parsed;
-        if (allowExponent && (number.indexOf('e') >= 0 || number.indexOf('E') >= 0)) {
-            String group = parsingFormat.get_NumberGroupSeparator();
-            if (!group.isEmpty() && number.startsWith(group)) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            if (!group.isEmpty()) number = number.replace(group, "");
-            parsed = selectedParseFloat(leadingSign + number, parsingFormat,
-                    NumberStyles.Float);
-        } else {
-            parsed = selectedParseNumber(leadingSign + number, parsingFormat);
-        }
-        if (!parentheses) return parsed;
-        if (parsed.value == Integer.MIN_VALUE) throw new OverflowException();
-        return new Int32(-parsed.value);
-    }
 
-    private static Int32 selectedParseCurrencyFlags(String text, IFormatProvider provider,
-                                                    NumberStyles style) {
-        if (text == null) throw new ArgumentNullException("s");
-        NumberFormatInfo format = selectedNumberFormatInfo(provider);
-        int flags = style.get_Value();
-        String number = (flags & 1) != 0 ? text.stripLeading() : text;
-        if ((flags & 2) != 0) number = number.stripTrailing();
-        String negativeSign = format == null ? "-" : format.get_NegativeSign();
-        String positiveSign = format == null ? "+" : format.get_PositiveSign();
-        String leadingSign = "";
-        if ((flags & 4) != 0) {
-            if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
-                leadingSign = negativeSign;
-                number = number.substring(negativeSign.length());
-            } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
-                leadingSign = positiveSign;
-                number = number.substring(positiveSign.length());
-            }
-        }
-        String symbol = format == null ? "\u00a4" : format.get_CurrencySymbol();
-        boolean hasSymbol = false;
-        if (!symbol.isEmpty() && number.startsWith(symbol)) {
-            number = number.substring(symbol.length());
-            hasSymbol = true;
-        } else if (!symbol.isEmpty() && number.endsWith(symbol)) {
-            number = number.substring(0, number.length() - symbol.length());
-            hasSymbol = true;
-        }
-        String currencyGroup = format == null ? "," : format.get_CurrencyGroupSeparator();
-        String currencyDecimal = format == null ? "." : format.get_CurrencyDecimalSeparator();
-        boolean currencySeparators = hasSymbol
-                || (!currencyGroup.isEmpty() && number.contains(currencyGroup))
-                || (!currencyDecimal.isEmpty() && number.contains(currencyDecimal));
-        NumberFormatInfo parsingFormat = new NumberFormatInfo();
-        parsingFormat.set_NumberGroupSeparator(currencySeparators ? currencyGroup
-                : format == null ? "," : format.get_NumberGroupSeparator());
-        parsingFormat.set_NumberDecimalSeparator(currencySeparators ? currencyDecimal
-                : format == null ? "." : format.get_NumberDecimalSeparator());
-        parsingFormat.set_NegativeSign(negativeSign);
-        parsingFormat.set_PositiveSign(positiveSign);
-        return selectedParseExtended(leadingSign + number, parsingFormat, style);
-    }
 
-    private static Int32 selectedParseExtended(String text, IFormatProvider provider,
-                                               NumberStyles style) {
-        if (text == null) throw new ArgumentNullException("s");
-        int flags = style.get_Value();
-        NumberFormatInfo format = selectedNumberFormatInfo(provider);
-        String negativeSign = format == null ? "-" : format.get_NegativeSign();
-        String positiveSign = format == null ? "+" : format.get_PositiveSign();
-        String groupSeparator = format == null ? "," : format.get_NumberGroupSeparator();
-        String decimalSeparator = format == null ? "." : format.get_NumberDecimalSeparator();
-        String number = (flags & 1) != 0 ? text.stripLeading() : text;
-        if ((flags & 2) != 0) number = number.stripTrailing();
-        boolean negative = false;
-        boolean signed = false;
-        if ((flags & 16) != 0 && number.startsWith("(") && number.endsWith(")")) {
-            number = number.substring(1, number.length() - 1);
-            negative = signed = true;
-        }
-        if ((flags & 4) != 0) {
-            if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
-                if (signed) throw new FormatException("Input string was not in a correct format");
-                number = number.substring(negativeSign.length());
-                negative = signed = true;
-            } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
-                if (signed) throw new FormatException("Input string was not in a correct format");
-                number = number.substring(positiveSign.length());
-                signed = true;
-            }
-        }
-        if ((flags & 8) != 0) {
-            if (!negativeSign.isEmpty() && number.endsWith(negativeSign)) {
-                if (signed) throw new FormatException("Input string was not in a correct format");
-                number = number.substring(0, number.length() - negativeSign.length());
-                negative = signed = true;
-            } else if (!positiveSign.isEmpty() && number.endsWith(positiveSign)) {
-                if (signed) throw new FormatException("Input string was not in a correct format");
-                number = number.substring(0, number.length() - positiveSign.length());
-                signed = true;
-            }
-        }
-        BigInteger exponent = BigInteger.ZERO;
-        int exponentIndex = Math.max(number.indexOf('e'), number.indexOf('E'));
-        if ((flags & 128) != 0 && exponentIndex >= 0) {
-            String exponentText = number.substring(exponentIndex + 1);
-            number = number.substring(0, exponentIndex);
-            boolean exponentNegative = false;
-            if (!negativeSign.isEmpty() && exponentText.startsWith(negativeSign)) {
-                exponentText = exponentText.substring(negativeSign.length());
-                exponentNegative = true;
-            } else if (!positiveSign.isEmpty() && exponentText.startsWith(positiveSign)) {
-                exponentText = exponentText.substring(positiveSign.length());
-            }
-            if (!exponentText.matches("[0-9]+")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            exponent = new BigInteger(exponentText);
-            if (exponentNegative) exponent = exponent.negate();
-        }
-        boolean hasDecimal = false;
-        String fraction = "";
-        if ((flags & 32) != 0 && !decimalSeparator.isEmpty()) {
-            int decimalIndex = number.indexOf(decimalSeparator);
-            if (decimalIndex >= 0) {
-                if (number.indexOf(decimalSeparator,
-                        decimalIndex + decimalSeparator.length()) >= 0) {
-                    throw new FormatException("Input string was not in a correct format");
-                }
-                fraction = number.substring(decimalIndex + decimalSeparator.length());
-                number = number.substring(0, decimalIndex);
-                hasDecimal = true;
-            }
-        }
-        if ((flags & 64) != 0 && !groupSeparator.isEmpty()) {
-            if (number.startsWith(groupSeparator)) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            number = number.replace(groupSeparator, "");
-        }
-        String normalized = number + (hasDecimal ? "." + fraction : "");
-        if (!(hasDecimal ? normalized.matches("[0-9]+\\.[0-9]*|\\.[0-9]+")
-                : normalized.matches("[0-9]+"))) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        return selectedIntegralDecimal(normalized, exponent, negative);
-    }
 
-    private static Int32 selectedParseFloat(String text, IFormatProvider provider,
-                                            NumberStyles style) {
-        if (text == null) throw new ArgumentNullException("s");
-        int flags = style.get_Value();
-        boolean allowLeadingWhite = (flags & 1) != 0;
-        boolean allowTrailingWhite = (flags & 2) != 0;
-        boolean allowLeadingSign = (flags & 4) != 0;
-        boolean allowDecimal = (flags & 32) != 0;
-        boolean allowExponent = (flags & 128) != 0;
-        NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
-        String decimalSeparator = numberFormat == null ? "."
-                : numberFormat.get_NumberDecimalSeparator();
-        String negativeSign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
-        String positiveSign = numberFormat == null ? "+" : numberFormat.get_PositiveSign();
-        String number = allowLeadingWhite ? text.stripLeading() : text;
-        if (allowTrailingWhite) number = number.stripTrailing();
-        boolean negative = false;
-        if (allowLeadingSign && !negativeSign.isEmpty() && number.startsWith(negativeSign)) {
-            number = number.substring(negativeSign.length());
-            negative = true;
-        } else if (allowLeadingSign && !positiveSign.isEmpty()
-                && number.startsWith(positiveSign)) {
-            number = number.substring(positiveSign.length());
-        }
-        int exponentIndex = allowExponent
-                ? Math.max(number.indexOf('e'), number.indexOf('E')) : -1;
-        BigInteger exponent = BigInteger.ZERO;
-        if (exponentIndex >= 0) {
-            String exponentText = number.substring(exponentIndex + 1);
-            number = number.substring(0, exponentIndex);
-            boolean exponentNegative = false;
-            if (!negativeSign.isEmpty() && exponentText.startsWith(negativeSign)) {
-                exponentText = exponentText.substring(negativeSign.length());
-                exponentNegative = true;
-            } else if (!positiveSign.isEmpty() && exponentText.startsWith(positiveSign)) {
-                exponentText = exponentText.substring(positiveSign.length());
-            }
-            if (!exponentText.matches("[0-9]+")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            exponent = new BigInteger(exponentText);
-            if (exponentNegative) exponent = exponent.negate();
-        }
-        if (allowDecimal && !decimalSeparator.isEmpty()) {
-            int separatorIndex = number.indexOf(decimalSeparator);
-            if (separatorIndex >= 0) {
-                number = number.substring(0, separatorIndex) + "."
-                        + number.substring(separatorIndex + decimalSeparator.length());
-            }
-        }
-        if (!number.matches("[0-9]+(\\.[0-9]*)?|\\.[0-9]+")) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        return selectedIntegralDecimal(number, exponent, negative);
-    }
+
+
+
+
+
+
 
     private static Int32 selectedIntegralDecimal(String normalized, BigInteger exponent,
                                                  boolean negative) {
@@ -838,16 +403,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     public static boolean TryParse(String text, Int32[] result) {
-        result[0] = new Int32(0);
-        if (text == null) {
-            return false;
-        }
-        try {
-            result[0] = Parse(text);
-            return true;
-        } catch (FormatException | OverflowException expected) {
-            return false;
-        }
+        return TryParse(text, NumberStyles.Integer, null, result);
     }
 
     public static boolean TryParse(String text, IFormatProvider provider, Int32[] result) {
@@ -866,31 +422,32 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style,
                                        IFormatProvider provider, Int32[] result) {
         if (text == null) throw new ArgumentNullException("text");
-        if (text.selectedUtf8()) {
-            selectedValidateUtf8IntegerStyles(style);
-            IFormatProvider resolved = selectedNumberFormatInfo(provider);
-            try {
-                result[0] = selectedInt32Utf8Value(text.selectedInt32Text(), style, resolved);
-                return true;
-            } catch (FormatException | OverflowException expected) {
-                result[0] = new Int32(0);
-                return false;
-            }
+        selectedValidateIntegerStyleExact(style);
+        IFormatProvider resolved = selectedNumberFormatInfo(provider);
+        try {
+            result[0] = text.selectedUtf8()
+                    ? selectedInt32Utf8Value(text.selectedInt32Text(), style, resolved)
+                    : selectedInt32CharacterValue(text.selectedInt32Text(), style, resolved);
+            return true;
+        } catch (FormatException | OverflowException expected) {
+            result[0] = new Int32(0);
+            return false;
         }
-        return TryParse(text.selectedInt32Text(), style, provider, result);
     }
 
     public static boolean TryParse(String text, NumberStyles style,
                                    IFormatProvider provider, Int32[] result) {
-        result[0] = new Int32(0);
-        selectedValidateStyle(style);
+        selectedValidateIntegerStyleExact(style);
         if (text == null) {
+            result[0] = new Int32(0);
             return false;
         }
+        IFormatProvider resolved = selectedNumberFormatInfo(provider);
         try {
-            result[0] = Parse(text, style, provider);
+            result[0] = selectedInt32CharacterValue(text, style, resolved);
             return true;
         } catch (FormatException | OverflowException expected) {
+            result[0] = new Int32(0);
             return false;
         }
     }

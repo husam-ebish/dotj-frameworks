@@ -160,7 +160,7 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
     }
     public static <T> SByte Parse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
-        if (text.selectedUtf8()) Int32.selectedValidateUtf8IntegerStyles(style);
+        if (text.selectedUtf8()) Int32.selectedValidateIntegerStyleExact(style);
         else Int32.selectedValidateIntegerStyles(style);
         IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
         java.math.BigInteger value = text.selectedUtf8()
@@ -171,7 +171,7 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
     }
     public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider, SByte[] result) {
         if (text == null) throw new ArgumentNullException("text");
-        if (text.selectedUtf8()) Int32.selectedValidateUtf8IntegerStyles(style);
+        if (text.selectedUtf8()) Int32.selectedValidateIntegerStyleExact(style);
         else Int32.selectedValidateIntegerStyles(style);
         IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
         try { result[0] = Parse(text, style, resolved); return true; }
