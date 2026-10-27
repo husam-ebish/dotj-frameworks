@@ -80,6 +80,8 @@ def main():
         name = declaration.split("(", 1)[0].split()[-1]
         if name in CONVERSION_METHODS:
             disposition = "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+        elif declaration == "public static <T> System.Int32 Parse(System.ReadOnlySpan<T>);":
+            disposition = "JAVA_OPTIONAL_PARAMETER_ADAPTER; native span Parse style=Integer and provider=null"
         elif name == "get_Value":
             disposition = "BOXED_VALUE_CARRIER_ACCESSOR; no CLR Int32 public Value property"
         elif name in {"equals", "hashCode"}:
@@ -87,7 +89,7 @@ def main():
         else:
             raise AssertionError("Unclassified extra public method: " + declaration)
         extras.append({"declaration": declaration, "disposition": disposition})
-    assert len(extras) == 18
+    assert len(extras) == 19
     output = {
         "schemaVersion": 1,
         "scope": "Selected Int32 ReadOnlySpan overloads and extra Java public declarations",
@@ -106,7 +108,7 @@ def main():
     }
     OUTPUT.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
     print("PASS Int32 erasure contract: 10 parsing CLR overloads, 5 ReadOnlySpan carriers; "
-          "2 formatting overloads, 1 Span carrier; 18 extras; javac clashes reproduced")
+          "2 formatting overloads, 1 Span carrier; 19 extras including default optional-argument adapter; javac clashes reproduced")
 
 
 if __name__ == "__main__":

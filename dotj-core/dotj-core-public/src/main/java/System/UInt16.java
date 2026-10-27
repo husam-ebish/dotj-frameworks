@@ -103,6 +103,10 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
     }
 
     /** One Java generic carrier for the native Char and UTF-8 Byte parsing overloads. */
+    public static <T> UInt16 Parse(ReadOnlySpan<T> text) {
+        return Parse(text, NumberStyles.Integer, null);
+    }
+
     public static <T> UInt16 Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
         return Parse(text, NumberStyles.Integer, provider);

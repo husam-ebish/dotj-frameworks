@@ -14,6 +14,8 @@
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.SByte[]);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.SByte[]);"
       ],
+      "optionalDefaultSpanAdapter": "public static <T> System.SByte Parse(System.ReadOnlySpan<T>);",
+      "optionalAdapterStatus": "JAVA_CONVENIENCE_FOR_NATIVE_STYLE_INTEGER_PROVIDER_NULL; NOT_AN_ADDITIONAL_CLR_DECLARATION",
       "outsideSelectedMethodCount": 0,
       "methods": [
         {
@@ -861,6 +863,7 @@
       "typedSpanBridge": "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
       "typedSpanBridgeNativeOverloadCount": 2,
       "extraJavaPublicMethods": [
+        "public static <T> System.SByte Parse(System.ReadOnlySpan<T>);",
         "public byte get_Value();",
         "public boolean ToBoolean(System.IFormatProvider);",
         "public char ToChar(System.IFormatProvider);",
@@ -906,6 +909,7 @@
         "public static System.SByte Parse(java.lang.String, System.IFormatProvider);",
         "public static boolean TryParse(java.lang.String, System.SByte[]);",
         "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.SByte[]);",
+        "public static <T> System.SByte Parse(System.ReadOnlySpan<T>);",
         "public static <T> System.SByte Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.SByte[]);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.SByte[]);",
@@ -968,6 +972,8 @@
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider, System.Byte[]);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.Byte[]);"
       ],
+      "optionalDefaultSpanAdapter": "public static <T> System.Byte Parse(System.ReadOnlySpan<T>);",
+      "optionalAdapterStatus": "JAVA_CONVENIENCE_FOR_NATIVE_STYLE_INTEGER_PROVIDER_NULL; NOT_AN_ADDITIONAL_CLR_DECLARATION",
       "outsideSelectedMethodCount": 0,
       "methods": [
         {
@@ -1722,6 +1728,7 @@
       "typedSpanBridge": "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
       "typedSpanBridgeNativeOverloadCount": 2,
       "extraJavaPublicMethods": [
+        "public static <T> System.Byte Parse(System.ReadOnlySpan<T>);",
         "public short get_Value();",
         "public boolean ToBoolean(System.IFormatProvider);",
         "public char ToChar(System.IFormatProvider);",
@@ -1763,6 +1770,7 @@
         "public static System.Byte Parse(java.lang.String, System.IFormatProvider);",
         "public static boolean TryParse(java.lang.String, System.Byte[]);",
         "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.Byte[]);",
+        "public static <T> System.Byte Parse(System.ReadOnlySpan<T>);",
         "public static <T> System.Byte Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Byte[]);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.Byte[]);",
@@ -1823,6 +1831,8 @@
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt16[]);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt16[]);"
       ],
+      "optionalDefaultSpanAdapter": "public static <T> System.UInt16 Parse(System.ReadOnlySpan<T>);",
+      "optionalAdapterStatus": "JAVA_CONVENIENCE_FOR_NATIVE_STYLE_INTEGER_PROVIDER_NULL; NOT_AN_ADDITIONAL_CLR_DECLARATION",
       "outsideSelectedMethodCount": 0,
       "methods": [
         {
@@ -2577,6 +2587,7 @@
       "typedSpanBridge": "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
       "typedSpanBridgeNativeOverloadCount": 2,
       "extraJavaPublicMethods": [
+        "public static <T> System.UInt16 Parse(System.ReadOnlySpan<T>);",
         "public int get_Value();",
         "public boolean ToBoolean(System.IFormatProvider);",
         "public char ToChar(System.IFormatProvider);",
@@ -2618,6 +2629,7 @@
         "public static System.UInt16 Parse(java.lang.String, System.IFormatProvider);",
         "public static boolean TryParse(java.lang.String, System.UInt16[]);",
         "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.UInt16[]);",
+        "public static <T> System.UInt16 Parse(System.ReadOnlySpan<T>);",
         "public static <T> System.UInt16 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt16[]);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt16[]);",
@@ -2678,6 +2690,8 @@
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt32[]);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt32[]);"
       ],
+      "optionalDefaultSpanAdapter": "public static <T> System.UInt32 Parse(System.ReadOnlySpan<T>);",
+      "optionalAdapterStatus": "JAVA_CONVENIENCE_FOR_NATIVE_STYLE_INTEGER_PROVIDER_NULL; NOT_AN_ADDITIONAL_CLR_DECLARATION",
       "outsideSelectedMethodCount": 0,
       "methods": [
         {
@@ -3448,6 +3462,7 @@
       "typedSpanBridge": "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
       "typedSpanBridgeNativeOverloadCount": 2,
       "extraJavaPublicMethods": [
+        "public static <T> System.UInt32 Parse(System.ReadOnlySpan<T>);",
         "public long get_Value();",
         "public boolean ToBoolean(System.IFormatProvider);",
         "public char ToChar(System.IFormatProvider);",
@@ -3489,6 +3504,7 @@
         "public static System.UInt32 Parse(java.lang.String, System.IFormatProvider);",
         "public static boolean TryParse(java.lang.String, System.UInt32[]);",
         "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.UInt32[]);",
+        "public static <T> System.UInt32 Parse(System.ReadOnlySpan<T>);",
         "public static <T> System.UInt32 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.UInt32[]);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.UInt32[]);",
@@ -3543,6 +3559,6 @@
   "selectedProjectedMethodCount": 151,
   "oracleEvidence": "small-integer-signatures-contract-v10.0.12.json",
   "oracleSha256": "93f598654fa6b0417c7a8ed66262c31be19db0facb672bf3e54eaf63a37be607",
-  "candidateJarSha256": "30d503ae1ec5a5a9c24c6b6ec73ff4239404abe4a3cc172f99f80dbd1e2d6e65",
+  "candidateJarSha256": "7bcb291d7a6f4d497829b47e22bf27f578bd2d2abf436ec5d8e20d5cea4b9ef9",
   "qualification": "SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN"
 }

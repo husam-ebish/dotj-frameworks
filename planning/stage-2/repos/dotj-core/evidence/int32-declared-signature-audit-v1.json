@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "Declared public System.Int32 methods and fields in pinned CoreLib versus compiled Java candidate",
   "surfaceEvidence": "foundation-semantic-surface-v1.json",
-  "surfaceSha256": "5f37d99322125dea7af998ba5bebffc3351d6c68f84584c54ab2a23d92453c69",
+  "surfaceSha256": "8e3a77e271c71370beb8ed45ce71c3a8fd1f971ba564498c7348044486f1f4d4",
   "upstreamMethodCount": 53,
   "projectedCandidateMethodCount": 43,
   "missingProjectedSignatureCount": 10,
@@ -13,7 +13,7 @@
     "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
     "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)"
   ],
-  "extraJavaPublicMethodCount": 18,
+  "extraJavaPublicMethodCount": 19,
   "upstreamFields": [
     {
       "name": "MaxValue",
@@ -29,6 +29,7 @@
     }
   ],
   "extraJavaPublicMethods": [
+    "public static <T> System.Int32 Parse(System.ReadOnlySpan<T>);",
     "public int get_Value();",
     "public boolean ToBoolean(System.IFormatProvider);",
     "public char ToChar(System.IFormatProvider);",
