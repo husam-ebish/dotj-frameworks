@@ -1,0 +1,7 @@
+# Decimal format specifier and literal boundaries
+
+Batch 2366: Twenty-nine explicit UTF16 formats, ten Decimal bit states and four providers cover leading precision zeroes, invalid precision above 999999999, NUL/default classification, standard invalid specifiers, custom numeric/scientific formats and quoted/escaped malformed or supplementary literals. Exact ToString and four destination routes compare original bits, full messages, callback identity and buffer/holder state. All 93592 comparison groups pass.
+
+23688 pinned native calls and 23688 Java facade calls pass 93592 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The tested JAR is byte-identical to Batch 2365. Existing packaged/API and retained numeric evidence applies. This batch extends direct ToString and Char/UTF8 array/span comparisons, including malformed and supplementary format literals and provider exceptions before precision validation; the full 381-check canonical gate remains required before merge.
+
+Selected formats only; full Decimal sections, aliasing, grammar/cultures/ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify Decimal shared Char format/destination backing arrays, overlapping views, provider-before-classification changes and immutable Decimal bits.
