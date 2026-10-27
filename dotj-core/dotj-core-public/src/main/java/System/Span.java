@@ -122,6 +122,8 @@ public final class Span<T> {
         return encoded.length;
     }
 
+    boolean selectedUtf8() { return this.bytes != null; }
+
     int writeSelectedInt32Text(String text) {
         if (this.chars != null) {
             if (text.length() > this.length) return -1;

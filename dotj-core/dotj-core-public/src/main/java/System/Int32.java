@@ -808,7 +808,65 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (literal != null) return (this.value < 0 ? (resolved == null ? "-" : ((NumberFormatInfo) resolved).get_NegativeSign()) : "") + literal;
         String literalFraction = selectedIntegerLiteralFractionFormat(format, (long) this.value, resolved);
         if (literalFraction != null) return literalFraction;
+        String decorated = selectedIntegerCustomLiteralFormat(format, (long) this.value, resolved, false);
+        if (decorated != null) return decorated;
         return selectedIntegerFormatCore(format, resolved);
+    }
+
+    static void selectedValidateUtf8IntegerFormatLiterals(String format) {
+        if (format == null) return;
+        int terminator = format.indexOf('\0');
+        if (terminator >= 0) format = format.substring(0, terminator);
+        char quote = 0;
+        for (int index = 0; index < format.length(); index++) {
+            char ch = format.charAt(index);
+            if (quote != 0) {
+                if (ch == quote) quote = 0;
+            } else if (ch == '\'' || ch == '"') quote = ch;
+            else if (ch == '\\') index++;
+            else if (ch == ';') return; // Section-specific literal encoding remains outside this selected path.
+        }
+        for (int index = 0; index < format.length(); index++) {
+            if (Character.isSurrogate(format.charAt(index))) throw new ArgumentOutOfRangeException("ch");
+        }
+    }
+
+    static String selectedIntegerCustomLiteralFormat(String format, long value,
+                                                     IFormatProvider provider, boolean custom) {
+        if (format == null || format.isEmpty() || (!custom && format.matches("[A-Za-z][0-9]*"))) return null;
+        StringBuilder tokens = new StringBuilder();
+        StringBuilder controls = new StringBuilder();
+        char quote = 0;
+        int first = -1;
+        int last = -1;
+        for (int index = 0; index < format.length(); index++) {
+            char ch = format.charAt(index);
+            boolean control = false;
+            if (quote != 0) {
+                if (ch == quote) { quote = 0; continue; }
+            } else if (ch == '\'' || ch == '"') { quote = ch; continue; }
+            else if (ch == '\\') {
+                if (++index >= format.length()) return null;
+                ch = format.charAt(index);
+            } else control = "0#.,;%\u2030".indexOf(ch) >= 0;
+            if (control && (ch == '0' || ch == '#')) {
+                if (first < 0) first = tokens.length();
+                last = tokens.length();
+            }
+            tokens.append(ch);
+            controls.append(control ? '1' : '0');
+        }
+        if (first < 0 || (first == 0 && last == tokens.length() - 1)) return null;
+        for (int index = 0; index < tokens.length(); index++) {
+            if ((index < first || index > last) ? controls.charAt(index) == '1' : controls.charAt(index) != '1') return null;
+        }
+        String numeric = tokens.substring(first, last + 1);
+        if (!numeric.matches("([0#]+|#,##0)(\\.[0#]+)?")) return null;
+        long magnitude = value < 0 ? -value : value;
+        String digits = new Decimal(magnitude).ToString(numeric, provider);
+        NumberFormatInfo info = (NumberFormatInfo) provider;
+        String sign = value < 0 ? (info == null ? "-" : info.get_NegativeSign()) : "";
+        return sign + tokens.substring(0, first) + digits + tokens.substring(last + 1);
     }
 
     static String selectedIntegerLiteralFractionFormat(String format, long value,
@@ -1458,17 +1516,20 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     /** One Java carrier for the CLR Char and UTF-8 Byte span overloads. */
     private String selectedIntegerSpanFormatText(ReadOnlySpan<Character> format,
-                                                  IFormatProvider provider) {
+                                                  IFormatProvider provider, boolean utf8) {
         String initial = selectedIntegerFormatPrefix(format.selectedInt32Text());
         if (initial.isEmpty() || initial.matches("[A-Za-z][0-9]*")) return ToString(initial, provider);
         IFormatProvider resolved = selectedIntegerFormatProvider(initial, this.value < 0, provider);
         String deferred = format.selectedInt32Text();
         int terminator = deferred.indexOf('\0');
         if (terminator >= 0) deferred = deferred.substring(0, terminator);
+        if (utf8) selectedValidateUtf8IntegerFormatLiterals(deferred);
         String literal = selectedIntegerLiteralFormat(deferred, true);
         if (literal != null) return (this.value < 0 ? (resolved == null ? "-" : ((NumberFormatInfo) resolved).get_NegativeSign()) : "") + literal;
         String literalFraction = selectedIntegerLiteralFractionFormat(deferred, (long) this.value, resolved);
         if (literalFraction != null) return literalFraction;
+        String decorated = selectedIntegerCustomLiteralFormat(deferred, (long) this.value, resolved, true);
+        if (decorated != null) return decorated;
         return selectedIntegerFormatCore(deferred, resolved);
     }
 
@@ -1477,7 +1538,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                                  IFormatProvider provider) {
         if (format == null) throw new ArgumentNullException("format");
         int count = destination.writeSelectedInt32Text(
-                selectedIntegerSpanFormatText(format, provider));
+                selectedIntegerSpanFormatText(format, provider, destination.selectedUtf8()));
         written[0] = count < 0 ? 0 : count;
         return count >= 0;
     }
@@ -1485,7 +1546,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     @Override
     public boolean TryFormat(byte[] destination, int[] bytesWritten, String format,
                              IFormatProvider provider) {
-        byte[] text = org.dotj.internal.text.Utf8Codec.encode(this.ToString(format, provider));
+        String formatted = this.ToString(format, provider);
+        selectedValidateUtf8IntegerFormatLiterals(format);
+        byte[] text = org.dotj.internal.text.Utf8Codec.encode(formatted);
         if (destination.length < text.length) {
             bytesWritten[0] = 0;
             return false;

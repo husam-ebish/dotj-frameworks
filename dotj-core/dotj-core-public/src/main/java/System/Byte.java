@@ -284,6 +284,8 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         if (literal != null) return (false ? (resolved == null ? "-" : ((NumberFormatInfo) resolved).get_NegativeSign()) : "") + literal;
         String literalFraction = Int32.selectedIntegerLiteralFractionFormat(format, (long) this.value, resolved);
         if (literalFraction != null) return literalFraction;
+        String decorated = Int32.selectedIntegerCustomLiteralFormat(format, (long) this.value, resolved, false);
+        if (decorated != null) return decorated;
         return selectedIntegerFormatCore(format, resolved);
     }
 
@@ -321,29 +323,34 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
     }
     /** One Java carrier for the CLR Char and UTF-8 Byte span overloads. */
     private String selectedIntegerSpanFormatText(ReadOnlySpan<Character> format,
-                                                  IFormatProvider provider) {
+                                                  IFormatProvider provider, boolean utf8) {
         String initial = Int32.selectedIntegerFormatPrefix(format.selectedInt32Text());
         if (initial.isEmpty() || initial.matches("[A-Za-z][0-9]*")) return ToString(initial, provider);
         IFormatProvider resolved = Int32.selectedIntegerFormatProvider(initial, false, provider);
         String deferred = format.selectedInt32Text();
         int terminator = deferred.indexOf('\0');
         if (terminator >= 0) deferred = deferred.substring(0, terminator);
+        if (utf8) Int32.selectedValidateUtf8IntegerFormatLiterals(deferred);
         String literal = Int32.selectedIntegerLiteralFormat(deferred, true);
         if (literal != null) return (false ? (resolved == null ? "-" : ((NumberFormatInfo) resolved).get_NegativeSign()) : "") + literal;
         String literalFraction = Int32.selectedIntegerLiteralFractionFormat(deferred, (long) this.value, resolved);
         if (literalFraction != null) return literalFraction;
+        String decorated = Int32.selectedIntegerCustomLiteralFormat(deferred, (long) this.value, resolved, true);
+        if (decorated != null) return decorated;
         return selectedIntegerFormatCore(deferred, resolved);
     }
 
     public <T> boolean TryFormat(Span<T> destination, int[] written, ReadOnlySpan<Character> format, IFormatProvider provider) {
         if (destination == null) throw new ArgumentNullException("destination");
         if (format == null) throw new ArgumentNullException("format");
-        int count = destination.writeSelectedInt32Text(selectedIntegerSpanFormatText(format, provider));
+        int count = destination.writeSelectedInt32Text(selectedIntegerSpanFormatText(format, provider, destination.selectedUtf8()));
         written[0] = count < 0 ? 0 : count;
         return count >= 0;
     }
     @Override public boolean TryFormat(byte[] destination, int[] written, String format, IFormatProvider provider) {
-        byte[] text = org.dotj.internal.text.Utf8Codec.encode(ToString(format, provider));
+        String formatted = ToString(format, provider);
+        Int32.selectedValidateUtf8IntegerFormatLiterals(format);
+        byte[] text = org.dotj.internal.text.Utf8Codec.encode(formatted);
         if (text.length > destination.length) { written[0] = 0; return false; }
         java.lang.System.arraycopy(text, 0, destination, 0, text.length);
         written[0] = text.length;
