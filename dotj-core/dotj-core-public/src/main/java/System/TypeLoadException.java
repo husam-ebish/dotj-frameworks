@@ -2,21 +2,31 @@
 
 package System;
 
-/** Selected Type.GetType missing-name exception candidate. */
+/** Selected constructor and missing-name TypeLoadException profile. */
 public class TypeLoadException extends SystemException {
     private static final String DEFAULT_MESSAGE = "Failure has occurred while loading a type.";
+    private final String typeName;
+
     public TypeLoadException() {
-        super(DEFAULT_MESSAGE);
-        this.set_HResult(-2146233054);
+        this(DEFAULT_MESSAGE, null, "");
     }
 
     public TypeLoadException(String message) {
-        super(message == null ? DEFAULT_MESSAGE : message);
-        this.set_HResult(-2146233054);
+        this(message, null, "");
     }
 
     public TypeLoadException(String message, Exception inner) {
+        this(message, inner, "");
+    }
+
+    TypeLoadException(String message, Exception inner, String typeName) {
         super(message == null ? DEFAULT_MESSAGE : message, inner);
+        this.typeName = typeName == null ? "" : typeName;
         this.set_HResult(-2146233054);
     }
+
+    @Override
+    public String get_Message() { return super.get_Message(); }
+
+    public String get_TypeName() { return this.typeName; }
 }

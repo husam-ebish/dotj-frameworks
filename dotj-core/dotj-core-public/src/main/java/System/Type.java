@@ -838,9 +838,27 @@ public abstract class Type extends MemberInfo {
             default -> resolveSelectedCoreLibGeneric(name, ignoreCase);
         };
         if (resolved == null && throwOnError) {
-            throw new TypeLoadException("Could not resolve selected type: " + typeName);
+            throw new TypeLoadException("Could not resolve selected type: " + typeName, null, selectedMissingTypeName(name));
         }
         return resolved;
+    }
+
+    private static String selectedMissingTypeName(String name) {
+        boolean changed;
+        do {
+            changed = false;
+            if (name.endsWith("*") || name.endsWith("&")) {
+                name = name.substring(0, name.length() - 1);
+                changed = true;
+            } else if (name.endsWith("]")) {
+                int open = name.lastIndexOf('[');
+                if (open >= 0 && name.substring(open + 1, name.length() - 1).matches("[,]*|\\*")) {
+                    name = name.substring(0, open);
+                    changed = true;
+                }
+            }
+        } while (changed);
+        return name;
     }
 
     public Type MakeGenericType(Type[] typeArguments) {
