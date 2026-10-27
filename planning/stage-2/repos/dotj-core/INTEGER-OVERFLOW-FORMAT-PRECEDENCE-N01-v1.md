@@ -1,0 +1,5 @@
+# Integer oversized format/overflow precedence
+
+Batch 2346 qualifies the current parser unchanged against 98,550 pinned .NET calls: five integer widths, nine decimal/general/hex/binary styles, oversized signed mantissas, malformed suffixes, whitespace, terminal and embedded NUL, fractional and exponent forms. String/Char/UTF8 Parse/TryParse including primitive and boxed byte spans produce 131,400 Java calls and 262,800 exact result, exception-message and holder groups. The native producer, complete plan, pinned CoreLib and source archive are hash bound.
+
+The 361-check canonical gate, packaged consumers and retained API/signature/parser/Decimal checks remain required. This is bounded qualification, with no task or framework acceptance credit. E01/E02/E03/N01/Q01 remain open; all cultures/grammar and large exponent cancellation remain unqualified. Product dependencies remain JDK APIs; Python and .NET are development/reference tools. Temporary work stays under D. Numbered milestone is 2500; project-wide batch total remains unknown. Next is exponent cancellation.
