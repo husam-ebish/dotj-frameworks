@@ -802,6 +802,20 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     @Override
     public String ToString(String format, IFormatProvider provider) {
+        return selectedIntegerFormatCore(format, selectedIntegerFormatProvider(format, this.value < 0, provider));
+    }
+
+    static IFormatProvider selectedIntegerFormatProvider(String format, boolean negative,
+                                                        IFormatProvider provider) {
+        boolean needsProvider;
+        if (format == null || format.isEmpty() || format.matches("[gG]0*")) needsProvider = negative;
+        else if (format.matches("[dD][0-9]*")) needsProvider = negative;
+        else if (format.matches("[xXbB][0-9]*")) needsProvider = false;
+        else needsProvider = true;
+        return needsProvider ? selectedNumberFormatInfo(provider) : NumberFormatInfo.get_InvariantInfo();
+    }
+
+    private String selectedIntegerFormatCore(String format, IFormatProvider provider) {
         if (format != null && format.matches("(\"[^\";:]{1,20}\"|\\\\[A-Za-z0-9!?() ])#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?\u2030(\"[^\";:]{1,20}\"|\\\\[A-Za-z0-9!?() ])")) {
             return new Decimal(this.value).ToString(format, provider);
         }
@@ -1354,9 +1368,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     : numberFormat.get_PositiveSign()) + paddedExponent;
         }
         if (format.equals("Q")) {
-            throw new FormatException("Format specifier was invalid");
+            throw new FormatException("Format specifier was invalid.");
         }
-        if (format.matches("[A-Za-z]")) throw new FormatException("Format specifier was invalid");
+        if (format.matches("[A-Za-z]")) throw new FormatException("Format specifier was invalid.");
         if (format.equals("?")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String sign = this.value < 0 ? (numberFormat == null ? "-" : numberFormat.get_NegativeSign()) : "";

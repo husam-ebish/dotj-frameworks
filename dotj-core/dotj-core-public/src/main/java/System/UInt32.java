@@ -323,6 +323,10 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
 
     public String ToString(String format) { return ToString(format, null); }
     @Override public String ToString(String format, IFormatProvider provider) {
+        return selectedIntegerFormatCore(format, Int32.selectedIntegerFormatProvider(format, false, provider));
+    }
+
+    private String selectedIntegerFormatCore(String format, IFormatProvider provider) {
         if (format == null || format.isEmpty()) return Long.toString(this.value);
         if (format.matches("[dDxXbB][0-9]*")) {
             int precision;
@@ -335,8 +339,9 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
             if (specifier == 'X') digits = digits.toUpperCase(java.util.Locale.ROOT);
             return "0".repeat(Math.max(0, precision - digits.length())) + digits;
         }
+        if (format.matches("[dDxXgGrR]-1")) return format;
         if (format.matches("[Rr][0-9]*")) format = (format.charAt(0) == 'R' ? "G" : "g") + format.substring(1);
-        if (format.matches("[A-Za-z]") && !format.matches("[cCeEfFgGnNpP]")) throw new FormatException("Format specifier was invalid");
+        if (format.matches("[A-Za-z]") && !format.matches("[cCeEfFgGnNpP]")) throw new FormatException("Format specifier was invalid.");
         return new Decimal(this.value).ToString(format, provider);
     }
 

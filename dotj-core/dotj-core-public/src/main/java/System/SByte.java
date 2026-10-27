@@ -310,11 +310,15 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
     public String ToString(String format) { return ToString(format, null); }
 
     @Override public String ToString(String format, IFormatProvider provider) {
+        return selectedIntegerFormatCore(format, Int32.selectedIntegerFormatProvider(format, this.value < 0, provider));
+    }
+
+    private String selectedIntegerFormatCore(String format, IFormatProvider provider) {
         if (format != null && format.matches("[xXbB][0-9]*")) {
             return new Int32(this.value & 0xff).ToString(format, provider);
         }
         if ("d".equals(format)) format = "D";
-        if (format != null && format.matches("[A-Za-z]") && !format.matches("[cCdDeEfFgGnNpPrRxXbB]")) throw new FormatException("Format specifier was invalid");
+        if (format != null && format.matches("[A-Za-z]") && !format.matches("[cCdDeEfFgGnNpPrRxXbB]")) throw new FormatException("Format specifier was invalid.");
         if ("R".equals(format) || "r".equals(format)) format = "G";
         return new Int32(this.value).ToString(format, provider);
     }
