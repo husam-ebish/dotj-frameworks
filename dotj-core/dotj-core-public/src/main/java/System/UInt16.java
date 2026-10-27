@@ -276,11 +276,15 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
     public String ToString(String format) { return ToString(format, null); }
 
     @Override public String ToString(String format, IFormatProvider provider) {
+        return selectedIntegerFormatCore(format, Int32.selectedIntegerFormatProvider(format, false, provider));
+    }
+
+    private String selectedIntegerFormatCore(String format, IFormatProvider provider) {
         if (format != null && format.matches("[xXbB][0-9]*")) {
             return new Int32(this.value & 0xffff).ToString(format, provider);
         }
         if ("d".equals(format)) format = "D";
-        if (format != null && format.matches("[A-Za-z]") && !format.matches("[cCdDeEfFgGnNpPrRxXbB]")) throw new FormatException("Format specifier was invalid");
+        if (format != null && format.matches("[A-Za-z]") && !format.matches("[cCdDeEfFgGnNpPrRxXbB]")) throw new FormatException("Format specifier was invalid.");
         if ("R".equals(format) || "r".equals(format)) format = "G";
         return new Int32(this.value).ToString(format, provider);
     }
