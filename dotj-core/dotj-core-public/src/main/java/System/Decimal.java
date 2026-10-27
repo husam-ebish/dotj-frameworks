@@ -616,6 +616,19 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return !token.isEmpty() && text.startsWith(token, offset);
     }
 
+    private static int decimalNegativeTokenLength(String text, int offset, String negative) {
+        if (parseTokenAt(text, offset, negative)) {
+            return negative.length();
+        }
+        if (negative.length() != 1 || offset >= text.length() || text.charAt(offset) != '-') {
+            return 0;
+        }
+        return switch (negative.charAt(0)) {
+            case 0x2012, 0x207b, 0x208b, 0x2212, 0x2796, 0xfe63, 0xff0d -> 1;
+            default -> 0;
+        };
+    }
+
     private static String selectedNumberProviderText(String input, NumberFormatInfo format,
                                                        int flags) {
         String positive = format.get_PositiveSign();
@@ -640,8 +653,8 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 offset += positive.length();
                 signed = true;
             } else if (!signed && (flags & 4) != 0
-                    && parseTokenAt(input, offset, negative)) {
-                offset += negative.length();
+                    && decimalNegativeTokenLength(input, offset, negative) > 0) {
+                offset += decimalNegativeTokenLength(input, offset, negative);
                 signed = true;
                 isNegative = true;
             } else if (!signed && (flags & 16) != 0 && input.charAt(offset) == '(') {
@@ -686,9 +699,9 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
             if (parseTokenAt(input, offset, positive)) {
                 number.append('+');
                 offset += positive.length();
-            } else if (parseTokenAt(input, offset, negative)) {
+            } else if (decimalNegativeTokenLength(input, offset, negative) > 0) {
                 number.append('-');
-                offset += negative.length();
+                offset += decimalNegativeTokenLength(input, offset, negative);
             }
             int exponentStart = offset;
             while (offset < input.length() && input.charAt(offset) >= '0'
@@ -707,8 +720,8 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 offset += positive.length();
                 signed = true;
             } else if (!signed && (flags & 8) != 0
-                    && parseTokenAt(input, offset, negative)) {
-                offset += negative.length();
+                    && decimalNegativeTokenLength(input, offset, negative) > 0) {
+                offset += decimalNegativeTokenLength(input, offset, negative);
                 signed = true;
                 isNegative = true;
             } else if (parentheses && input.charAt(offset) == ')') {
