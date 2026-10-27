@@ -2400,7 +2400,8 @@
     "Batch-2383",
     "Batch-2384",
     "Batch-2385",
-    "Batch-2386"
+    "Batch-2386",
+    "Batch-2387"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2593,7 +2594,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2386",
+      "lastUpdatedBatch": "Batch-2387",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12204,19 +12205,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2387",
+    "id": "Batch-2388",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Qualify Float/Double Decimal.CreateTruncating raw IEEE results, including NaN scale-one zero, exact limit clamping and retained checked/saturating behavior.",
+    "outcome": "Implement and qualify selected Char/Byte/Int32 Span element reads and writes through array-backed views, including aliasing, bounds, full-buffer preservation and explicit ref-return adaptation limits.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2386,
+    "completedBatches": 2387,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12225,8 +12226,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 385,
-    "remainingBatches": 114,
+    "completedBatches": 386,
+    "remainingBatches": 113,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },
