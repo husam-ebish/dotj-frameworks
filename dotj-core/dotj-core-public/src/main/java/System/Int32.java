@@ -841,6 +841,17 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return index >= sections.length || sections[index].isEmpty() ? 0 : index;
     }
 
+    static long[] selectedIntegerCustomSectionSelection(String[] sections, long value) {
+        int index = selectedIntegerSectionIndex(sections, value);
+        String[] parsed = selectedIntegerCustomTokens(sections[index], true);
+        if (value != 0 && selectedIntegerSimpleCustomSupported(parsed)
+                && selectedIntegerCustomRoundedMagnitude(parsed, value).signum() == 0) {
+            value = 0;
+            index = selectedIntegerSectionIndex(sections, 0);
+        }
+        return new long[] { index, index > 0 && value < 0 ? -value : value };
+    }
+
     static boolean selectedIntegerSectionSupported(String section) {
         return section.isEmpty() || selectedIntegerLiteralFormat(section, true) != null
                 || section.matches("([0#]+|#,##0)(\\.[0#]+)?")
@@ -852,10 +863,11 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                                                 IFormatProvider provider) {
         String[] sections = selectedIntegerCustomSections(format);
         if (sections == null) return null;
-        int index = selectedIntegerSectionIndex(sections, value);
+        long[] selection = selectedIntegerCustomSectionSelection(sections, value);
+        int index = (int) selection[0];
         String section = sections[index];
         if (!selectedIntegerSectionSupported(section)) return null;
-        long effective = index > 0 && value < 0 ? -value : value;
+        long effective = selection[1];
         NumberFormatInfo info = (NumberFormatInfo) provider;
         String sign = effective < 0 ? (info == null ? "-" : info.get_NegativeSign()) : "";
         if (section.isEmpty()) return sign;
@@ -872,7 +884,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (terminator >= 0) format = format.substring(0, terminator);
         String[] sections = selectedIntegerCustomSections(format);
         if (sections != null) {
-            String section = sections[selectedIntegerSectionIndex(sections, value)];
+            String section = sections[(int) selectedIntegerCustomSectionSelection(sections, value)[0]];
             if (!selectedIntegerSectionSupported(section)) return;
             format = section;
         }
@@ -922,17 +934,54 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (parsed == null) return false;
         int points = 0;
         int placeholders = 0;
-        int integers = 0;
-        int lastComma = -1;
         for (int index = 0; index < parsed[0].length(); index++) {
             if (parsed[1].charAt(index) != '1') continue;
             char ch = parsed[0].charAt(index);
             if (ch == '.') points++;
-            else if (ch == ',') { if (points == 0 && integers > 0) lastComma = integers; }
-            else if (ch == '0' || ch == '#') { placeholders++; if (points == 0) integers++; }
-            else return false;
+            else if (ch == '0' || ch == '#') placeholders++;
+            else if (ch != ',' && ch != '%' && ch != '\u2030') return false;
         }
-        return points <= 1 && placeholders > 0 && (lastComma < 0 || lastComma != integers);
+        return points <= 1 && placeholders > 0;
+    }
+
+    static int[] selectedIntegerCustomScale(String[] parsed) {
+        int integers = 0;
+        int commaPosition = -1;
+        int commaCount = 0;
+        int adjustment = 0;
+        boolean point = false;
+        boolean grouping = false;
+        for (int index = 0; index < parsed[0].length(); index++) {
+            if (parsed[1].charAt(index) != '1') continue;
+            char ch = parsed[0].charAt(index);
+            if (ch == '.') point = true;
+            else if (ch == '%') adjustment += 2;
+            else if (ch == '\u2030') adjustment += 3;
+            else if (!point && (ch == '0' || ch == '#')) integers++;
+            else if (!point && ch == ',' && integers > 0) {
+                if (commaPosition == integers) commaCount++;
+                else { if (commaPosition >= 0) grouping = true; commaPosition = integers; commaCount = 1; }
+            }
+        }
+        if (commaPosition >= 0) {
+            if (commaPosition == integers) adjustment -= commaCount * 3;
+            else grouping = true;
+        }
+        return new int[] { adjustment, grouping ? 1 : 0 };
+    }
+
+    static BigDecimal selectedIntegerCustomRoundedMagnitude(String[] parsed, long value) {
+        int fractions = 0;
+        boolean point = false;
+        for (int index = 0; index < parsed[0].length(); index++) {
+            if (parsed[1].charAt(index) != '1') continue;
+            char ch = parsed[0].charAt(index);
+            if (ch == '.') point = true;
+            else if (point && (ch == '0' || ch == '#')) fractions++;
+        }
+        long magnitude = value < 0 ? -value : value;
+        return BigDecimal.valueOf(magnitude).scaleByPowerOfTen(selectedIntegerCustomScale(parsed)[0])
+                .setScale(fractions, RoundingMode.HALF_UP);
     }
 
     static void selectedAppendIntegerCustomDigits(StringBuilder text, String digits,
@@ -960,7 +1009,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         int fractions = 0;
         int fractionZeroes = 0;
         for (int index = 0; index < tokens.length(); index++) {
-            if (controls.charAt(index) != '1' || tokens.charAt(index) == '.' || tokens.charAt(index) == ',') continue;
+            if (controls.charAt(index) != '1' || (tokens.charAt(index) != '0' && tokens.charAt(index) != '#')) continue;
             if (index < point) {
                 if (tokens.charAt(index) == '0' && firstZero < 0) firstZero = integers;
                 integers++;
@@ -970,8 +1019,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
         }
         int minimum = firstZero < 0 ? 0 : integers - firstZero;
-        long magnitude = value < 0 ? -value : value;
-        String digits = magnitude == 0 ? "" : Long.toString(magnitude);
+        BigDecimal rounded = selectedIntegerCustomRoundedMagnitude(parsed, value);
+        String plain = rounded.toPlainString();
+        int decimal = plain.indexOf('.');
+        String digits = decimal < 0 ? plain : plain.substring(0, decimal);
+        if (digits.equals("0")) digits = "";
+        String fractionDigits = decimal < 0 ? "" : plain.substring(decimal + 1);
+        int displayedFractions = fractionDigits.length();
+        while (displayedFractions > fractionZeroes && fractionDigits.charAt(displayedFractions - 1) == '0') displayedFractions--;
         digits = "0".repeat(Math.max(0, minimum - digits.length())) + digits;
         int missing = Math.max(0, integers - digits.length());
         int extra = Math.max(0, digits.length() - integers);
@@ -980,14 +1035,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         int fractionSlot = 0;
         boolean copiedExtra = false;
         NumberFormatInfo info = (NumberFormatInfo) provider;
-        boolean grouping = false;
-        int scannedIntegers = 0;
-        for (int index = 0; index < point; index++) {
-            if (controls.charAt(index) != '1') continue;
-            char ch = tokens.charAt(index);
-            if (ch == '0' || ch == '#') scannedIntegers++;
-            else if (ch == ',' && scannedIntegers > 0) grouping = true;
-        }
+        boolean grouping = selectedIntegerCustomScale(parsed)[1] != 0;
         java.util.Set<Integer> boundaries = new java.util.HashSet<>();
         String groupSeparator = info == null ? "," : info.get_NumberGroupSeparator();
         if (grouping) {
@@ -1003,20 +1051,25 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
         }
         StringBuilder text = new StringBuilder();
-        if (value < 0) text.append(info == null ? "-" : info.get_NegativeSign());
+        if (value < 0 && rounded.signum() != 0) text.append(info == null ? "-" : info.get_NegativeSign());
         for (int index = 0; index < tokens.length(); index++) {
             char ch = tokens.charAt(index);
             if (controls.charAt(index) != '1') { text.append(ch); continue; }
             if (ch == ',') continue;
+            if (ch == '%') { text.append(info == null ? "%" : info.get_PercentSymbol()); continue; }
+            if (ch == '\u2030') { text.append(info == null ? "\u2030" : info.get_PerMilleSymbol()); continue; }
             if (!copiedExtra) { selectedAppendIntegerCustomDigits(text, digits, 0, extra, boundaries, groupSeparator); position = extra; copiedExtra = true; }
             if (ch == '.') {
-                if (fractionZeroes > 0) text.append(info == null ? "." : info.get_NumberDecimalSeparator());
+                if (displayedFractions > 0) text.append(info == null ? "." : info.get_NumberDecimalSeparator());
             } else if (index < point) {
                 if (integerSlot++ >= missing) {
                     selectedAppendIntegerCustomDigits(text, digits, position, position + 1, boundaries, groupSeparator);
                     position++;
                 }
-            } else if (fractionSlot++ < fractionZeroes) text.append('0');
+            } else {
+                if (fractionSlot < displayedFractions) text.append(fractionDigits.charAt(fractionSlot));
+                fractionSlot++;
+            }
         }
         return text.toString();
     }
