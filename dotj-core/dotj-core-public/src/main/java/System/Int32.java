@@ -162,7 +162,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             if (value.bitLength() > width) throw new OverflowException("Integer value exceeded its native range.");
             if (signed && value.testBit(width - 1)) value = value.subtract(BigInteger.ONE.shiftLeft(width));
         } else {
-            value = selectedParseIntegerDecimalStyles(text, flags, info, utf8);
+            value = selectedParseIntegerDecimalStyles(text, flags, info, utf8, signed);
         }
         BigInteger minimum = signed ? BigInteger.ONE.shiftLeft(width - 1).negate() : BigInteger.ZERO;
         BigInteger maximum = BigInteger.ONE.shiftLeft(signed ? width - 1 : width).subtract(BigInteger.ONE);
@@ -210,7 +210,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return length;
     }
 
-    private static BigInteger selectedParseIntegerDecimalStyles(String text, int flags, NumberFormatInfo info, boolean utf8) {
+    private static BigInteger selectedParseIntegerDecimalStyles(String text, int flags, NumberFormatInfo info, boolean utf8, boolean signed) {
         int cursor = 0;
         boolean negative = false;
         boolean signSeen = false;
@@ -293,7 +293,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         }
         if (parenthesis || !selectedIntegerCarrierEnd(text, cursor)) throw new FormatException("Input string was not in a correct format.");
         BigInteger coefficient = new BigInteger(digits.toString());
-        if (coefficient.signum() == 0) return BigInteger.ZERO;
+        if (coefficient.signum() == 0) {
+            if (!signed && decimalSeen && negative) {
+                throw new OverflowException("Unsigned decimal-zero input retained a negative sign.");
+            }
+            return BigInteger.ZERO;
+        }
         long scale = fractionalDigits - exponent;
         if (scale > 0) {
             if (scale >= digits.length()) throw new OverflowException("Integer input contained a nonzero fractional value.");
