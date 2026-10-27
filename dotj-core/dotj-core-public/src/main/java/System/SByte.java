@@ -130,14 +130,14 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
     /** One Java generic carrier for the native Char and UTF-8 Byte parsing overloads. */
     public static <T> SByte Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
-        return Parse(text.selectedInt32Text(), provider);
+        return Parse(text, NumberStyles.Integer, provider);
     }
     public static <T> boolean TryParse(ReadOnlySpan<T> text, SByte[] result) {
         return TryParse(text, null, result);
     }
     public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider, SByte[] result) {
         if (text == null) throw new ArgumentNullException("text");
-        return TryParse(text.selectedInt32Text(), provider, result);
+        return TryParse(text, NumberStyles.Integer, provider, result);
     }
 
     public static SByte Parse(String text, NumberStyles style) {
@@ -156,7 +156,9 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
     }
     public static <T> SByte Parse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
-        java.math.BigInteger value = Int32.selectedParseIntegerStyles(text.selectedInt32Text(), style, provider, 8, true, text.selectedUtf8());
+        Int32.selectedValidateIntegerStyles(style);
+        IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
+        java.math.BigInteger value = Int32.selectedParseIntegerStyles(text.selectedInt32Text(), style, resolved, 8, true, text.selectedUtf8());
         return new SByte(value.intValue());
     }
     public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider, SByte[] result) {

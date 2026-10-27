@@ -114,7 +114,9 @@ public final class ReadOnlySpan<T> {
     boolean selectedUtf8() { return this.bytes != null || this.boxedBytes != null; }
 
     String selectedInt32Text() {
-        return selectedText();
+        return selectedUtf8()
+                ? new String((byte[])selectedBufferCopy(), StandardCharsets.ISO_8859_1)
+                : selectedText();
     }
 
     String selectedText() {

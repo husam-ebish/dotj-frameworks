@@ -105,14 +105,14 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
     /** One Java generic carrier for the native Char and UTF-8 Byte parsing overloads. */
     public static <T> UInt16 Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
-        return Parse(text.selectedInt32Text(), provider);
+        return Parse(text, NumberStyles.Integer, provider);
     }
     public static <T> boolean TryParse(ReadOnlySpan<T> text, UInt16[] result) {
         return TryParse(text, null, result);
     }
     public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider, UInt16[] result) {
         if (text == null) throw new ArgumentNullException("text");
-        return TryParse(text.selectedInt32Text(), provider, result);
+        return TryParse(text, NumberStyles.Integer, provider, result);
     }
 
     public static UInt16 Parse(String text, NumberStyles style) {
@@ -131,7 +131,9 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
     }
     public static <T> UInt16 Parse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
-        java.math.BigInteger value = Int32.selectedParseIntegerStyles(text.selectedInt32Text(), style, provider, 16, false, text.selectedUtf8());
+        Int32.selectedValidateIntegerStyles(style);
+        IFormatProvider resolved = Int32.selectedIntegerCarrierProvider(provider);
+        java.math.BigInteger value = Int32.selectedParseIntegerStyles(text.selectedInt32Text(), style, resolved, 16, false, text.selectedUtf8());
         return new UInt16(value.intValue());
     }
     public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style, IFormatProvider provider, UInt16[] result) {

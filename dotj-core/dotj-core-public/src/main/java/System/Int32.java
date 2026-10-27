@@ -39,12 +39,45 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     public static <T> Int32 Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
-        return Parse(text.selectedInt32Text(), NumberStyles.Integer, provider);
+        return Parse(text, NumberStyles.Integer, provider);
     }
 
     public static <T> Int32 Parse(ReadOnlySpan<T> text, NumberStyles style,
                                   IFormatProvider provider) {
+        if (text == null) throw new ArgumentNullException("text");
+        if (text.selectedUtf8()) {
+            selectedInt32Utf8Style(style);
+            IFormatProvider resolved = selectedNumberFormatInfo(provider);
+            return selectedInt32Utf8Value(text.selectedInt32Text(), style, resolved);
+        }
         return Parse(text.selectedInt32Text(), style, provider);
+    }
+
+    private static void selectedInt32Utf8Style(NumberStyles style) {
+        if (style == null) throw new ArgumentNullException("style");
+        int flags = style.get_Value();
+        if ((flags & (~2047 | 1536)) != 0 && (flags & ~515) != 0 && (flags & ~1027) != 0) {
+            throw new ArgumentException((flags & ~2047) != 0
+                    ? "An undefined NumberStyles value is being used."
+                    : "With the AllowHexSpecifier or AllowBinarySpecifier bit set in the enum bit field, the only other valid bits that can be combined into the enum value must be AllowLeadingWhite and AllowTrailingWhite.", "style");
+        }
+    }
+
+    private static Int32 selectedInt32Utf8Value(String raw, NumberStyles style, IFormatProvider resolved) {
+        try {
+            return new Int32(selectedParseIntegerStyles(raw, style, resolved, 32, true, true).intValue());
+        } catch (FormatException invalid) {
+            String display;
+            try {
+                display = org.dotj.internal.text.Utf8Codec.decode(
+                        raw.getBytes(java.nio.charset.StandardCharsets.ISO_8859_1), true);
+            } catch (org.dotj.internal.text.Utf8Codec.Failure malformed) {
+                throw new FormatException("Input string was not in a correct format.");
+            }
+            throw new FormatException("The input string '" + display + "' was not in a correct format.");
+        } catch (OverflowException overflow) {
+            throw new OverflowException("Value was either too large or too small for an Int32.");
+        }
     }
 
     public static Int32 Parse(String text, NumberStyles style, IFormatProvider provider) {
@@ -216,18 +249,37 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     private static int selectedIntegerCarrierToken(String text, int cursor, String token, boolean utf8) {
-        if (token.isEmpty() || cursor + token.length() > text.length()) return 0;
-        for (int index = 0; index < token.length(); index++) {
-            char expected = token.charAt(index);
-            char actual = text.charAt(cursor + index);
-            if (actual != expected && !(!utf8 && actual == ' ' && (expected == '\u00a0' || expected == '\u202f'))) return 0;
-        }
-        return token.length();
+        return selectedIntegerCarrierToken(text, cursor, token, utf8, true);
     }
 
-    private static int selectedIntegerCarrierNegative(String text, int cursor, NumberFormatInfo info, boolean utf8) {
-        int length = selectedIntegerCarrierToken(text, cursor, info.get_NegativeSign(), utf8);
-        if (length == 0 && cursor < text.length() && text.charAt(cursor) == '-' && selectedIntegerCarrierHyphenSign(info.get_NegativeSign())) return 1;
+    private static int selectedIntegerCarrierToken(String text, int cursor, String token,
+                                                    boolean utf8, boolean general) {
+        if (utf8) {
+            token = new String(org.dotj.internal.text.Utf8Codec.encode(token),
+                    java.nio.charset.StandardCharsets.ISO_8859_1);
+        }
+        int terminator = general ? token.indexOf('\0') : -1;
+        int length = terminator < 0 ? token.length() : terminator;
+        if (length == 0 || cursor > text.length() - length) return 0;
+        for (int index = 0; index < length; index++) {
+            char expected = token.charAt(index);
+            char actual = text.charAt(cursor + index);
+            if (actual != expected && !(general && actual == ' '
+                    && (expected == '\u00a0' || expected == '\u202f'))) return 0;
+        }
+        return length;
+    }
+
+    private static int selectedIntegerCarrierNegative(String text, int cursor,
+                                                       NumberFormatInfo info, boolean utf8) {
+        return selectedIntegerCarrierNegative(text, cursor, info, utf8, true);
+    }
+
+    private static int selectedIntegerCarrierNegative(String text, int cursor,
+                                                       NumberFormatInfo info, boolean utf8, boolean general) {
+        int length = selectedIntegerCarrierToken(text, cursor, info.get_NegativeSign(), utf8, general);
+        if (length == 0 && cursor < text.length() && text.charAt(cursor) == '-'
+                && selectedIntegerCarrierHyphenSign(info.get_NegativeSign())) return 1;
         return length;
     }
 
@@ -244,9 +296,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     && (!signSeen || currencySeen || (general && info.get_NumberNegativePattern() == 2))) { cursor++; continue; }
             int length;
             if ((flags & 4) != 0 && !signSeen) {
-                length = selectedIntegerCarrierToken(text, cursor, info.get_PositiveSign(), utf8);
+                if (!general && ch == '-' && selectedIntegerCarrierHyphenSign(info.get_NegativeSign())) {
+                    cursor++; signSeen = true; negative = true; continue;
+                }
+                length = selectedIntegerCarrierToken(text, cursor, info.get_PositiveSign(), utf8, general);
                 if (length > 0) { cursor += length; signSeen = true; continue; }
-                length = selectedIntegerCarrierNegative(text, cursor, info, utf8);
+                length = selectedIntegerCarrierNegative(text, cursor, info, utf8, general);
                 if (length > 0) { cursor += length; signSeen = true; negative = true; continue; }
             }
             if ((flags & 16) != 0 && !signSeen && ch == '(') { cursor++; signSeen = true; negative = true; parenthesis = true; continue; }
@@ -790,16 +845,28 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     public static <T> boolean TryParse(ReadOnlySpan<T> text, Int32[] result) {
-        return TryParse(text.selectedInt32Text(), result);
+        return TryParse(text, NumberStyles.Integer, null, result);
     }
 
     public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider,
                                        Int32[] result) {
-        return TryParse(text.selectedInt32Text(), NumberStyles.Integer, provider, result);
+        return TryParse(text, NumberStyles.Integer, provider, result);
     }
 
     public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style,
                                        IFormatProvider provider, Int32[] result) {
+        if (text == null) throw new ArgumentNullException("text");
+        if (text.selectedUtf8()) {
+            selectedInt32Utf8Style(style);
+            IFormatProvider resolved = selectedNumberFormatInfo(provider);
+            try {
+                result[0] = selectedInt32Utf8Value(text.selectedInt32Text(), style, resolved);
+                return true;
+            } catch (FormatException | OverflowException expected) {
+                result[0] = new Int32(0);
+                return false;
+            }
+        }
         return TryParse(text.selectedInt32Text(), style, provider, result);
     }
 
