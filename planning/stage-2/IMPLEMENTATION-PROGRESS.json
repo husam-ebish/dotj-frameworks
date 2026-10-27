@@ -2393,7 +2393,8 @@
     "Batch-2376",
     "Batch-2377",
     "Batch-2378",
-    "Batch-2379"
+    "Batch-2379",
+    "Batch-2380"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2586,7 +2587,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2379",
+      "lastUpdatedBatch": "Batch-2380",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12197,19 +12198,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2380",
+    "id": "Batch-2381",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Implement native-backed Decimal GetBits and TryGetBits array bridges with complete bit fidelity, short destination behavior, trailing preservation and aliased output holders; record explicit Span adaptation limits.",
+    "outcome": "Implement native-backed Span<Int32> carrier and Decimal bit-copy overloads, including sliced views, guarded prefixes/suffixes, overlapping output holders and invalid view bounds.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2379,
+    "completedBatches": 2380,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12218,8 +12219,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 378,
-    "remainingBatches": 121,
+    "completedBatches": 379,
+    "remainingBatches": 120,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },

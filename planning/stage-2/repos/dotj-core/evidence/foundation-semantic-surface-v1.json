@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "c54a5c9d5cb402558cf8be30b7be1caa1ba460982a9425d513a0dd7698721839",
+  "javaCandidateEvidenceSha256": "bb594da41d86ae018de4bf47f997350da4e6799d58805b1b3fb31f2c747252cc",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 38,
+  "nameLevelMissingMethodCount": 37,
   "nameLevelMissingPublicGetterCount": 20,
   "types": [
     {
@@ -3268,6 +3268,8 @@
         "public System.Decimal(int, int, int, boolean, int);",
         "public int get_Scale();",
         "public static int[] GetBits(System.Decimal);",
+        "public static int GetBits(System.Decimal, int[]);",
+        "public static boolean TryGetBits(System.Decimal, int[], int[]);",
         "public static System.Decimal Truncate(System.Decimal);",
         "public static System.Decimal Floor(System.Decimal);",
         "public static System.Decimal Ceiling(System.Decimal);",
@@ -3421,7 +3423,7 @@
           "Equals": 3,
           "Floor": 1,
           "FromOACurrency": 1,
-          "GetBits": 1,
+          "GetBits": 2,
           "GetHashCode": 1,
           "GetTypeCode": 1,
           "IsCanonical": 1,
@@ -3460,6 +3462,7 @@
           "ToUInt64": 2,
           "Truncate": 1,
           "TryFormat": 3,
+          "TryGetBits": 1,
           "TryParse": 6,
           "equals": 1,
           "get_Scale": 1,
@@ -3470,8 +3473,7 @@
           "ConvertToIntegerNative",
           "CreateChecked",
           "CreateSaturating",
-          "CreateTruncating",
-          "TryGetBits"
+          "CreateTruncating"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
