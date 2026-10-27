@@ -838,12 +838,28 @@ public abstract class Type extends MemberInfo {
             default -> resolveSelectedCoreLibGeneric(name, ignoreCase);
         };
         if (resolved == null && throwOnError) {
-            throw new TypeLoadException("Could not resolve selected type: " + typeName, null, selectedMissingTypeName(name));
+            throw new TypeLoadException("Could not resolve selected type: " + typeName, null, selectedMissingTypeName(name, ignoreCase));
         }
         return resolved;
     }
 
-    private static String selectedMissingTypeName(String name) {
+    private static String selectedMissingTypeName(String name, boolean ignoreCase) {
+        String missing = selectedUnresolvedTypeName(name, ignoreCase, 0);
+        return missing == null ? selectedTypeNameCore(name) : missing;
+    }
+
+    private static String selectedTypeNameCore(String name) {
+        name = name.stripLeading();
+        int bracketDepth = 0;
+        for (int index = 0; index < name.length(); index++) {
+            char character = name.charAt(index);
+            if (character == '[') bracketDepth++;
+            else if (character == ']') bracketDepth--;
+            else if (character == ',' && bracketDepth == 0) {
+                name = name.substring(0, index);
+                break;
+            }
+        }
         boolean changed;
         do {
             changed = false;
@@ -852,13 +868,69 @@ public abstract class Type extends MemberInfo {
                 changed = true;
             } else if (name.endsWith("]")) {
                 int open = name.lastIndexOf('[');
-                if (open >= 0 && name.substring(open + 1, name.length() - 1).matches("[,]*|\\*")) {
+                if (open >= 0 && name.substring(open + 1, name.length() - 1).chars()
+                        .allMatch(character -> character == ',' || character == '*')) {
                     name = name.substring(0, open);
                     changed = true;
                 }
             }
         } while (changed);
         return name;
+    }
+
+    private static String selectedUnresolvedTypeName(String name, boolean ignoreCase, int depth) {
+        name = selectedTypeNameCore(name);
+        if (depth > 32) return name;
+        int genericStart = name.indexOf('[');
+        if (genericStart < 0 || !name.endsWith("]")) {
+            return GetType(name, false, ignoreCase) == null ? name : null;
+        }
+        String definition = name.substring(0, genericStart);
+        if (GetType(definition, false, ignoreCase) == null) return definition;
+        java.util.ArrayList<String> arguments = selectedGenericArgumentNames(
+                name.substring(genericStart + 1, name.length() - 1));
+        if (arguments == null) return name;
+        for (String argument : arguments) {
+            String missing = selectedUnresolvedTypeName(argument, ignoreCase, depth + 1);
+            if (missing != null) return missing;
+        }
+        return null;
+    }
+
+    private static java.util.ArrayList<String> selectedGenericArgumentNames(String body) {
+        java.util.ArrayList<String> arguments = new java.util.ArrayList<>();
+        if (body.startsWith("[")) {
+            int cursor = 0;
+            while (cursor < body.length()) {
+                if (body.charAt(cursor) != '[') return null;
+                int start = ++cursor;
+                int depth = 1;
+                while (cursor < body.length() && depth != 0) {
+                    char character = body.charAt(cursor++);
+                    if (character == '[') depth++;
+                    else if (character == ']') depth--;
+                }
+                if (depth != 0) return null;
+                arguments.add(body.substring(start, cursor - 1));
+                if (cursor == body.length()) break;
+                if (body.charAt(cursor++) != ',') return null;
+                while (cursor < body.length() && body.charAt(cursor) == ' ') cursor++;
+            }
+        } else {
+            int depth = 0;
+            int start = 0;
+            for (int index = 0; index < body.length(); index++) {
+                char character = body.charAt(index);
+                if (character == '[') depth++;
+                else if (character == ']') depth--;
+                else if (character == ',' && depth == 0) {
+                    arguments.add(body.substring(start, index));
+                    start = index + 1;
+                }
+            }
+            arguments.add(body.substring(start));
+        }
+        return arguments;
     }
 
     public Type MakeGenericType(Type[] typeArguments) {
