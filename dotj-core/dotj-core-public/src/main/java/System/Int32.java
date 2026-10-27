@@ -974,6 +974,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     static BigDecimal selectedIntegerCustomRoundedMagnitude(String[] parsed, long value) {
+        return selectedCustomRoundedMagnitude(parsed, BigDecimal.valueOf(value));
+    }
+
+    static BigDecimal selectedCustomRoundedMagnitude(String[] parsed, BigDecimal value) {
         int fractions = 0;
         boolean point = false;
         for (int index = 0; index < parsed[0].length(); index++) {
@@ -982,8 +986,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             if (ch == '.') point = true;
             else if (point && (ch == '0' || ch == '#')) fractions++;
         }
-        long magnitude = value < 0 ? -value : value;
-        return BigDecimal.valueOf(magnitude).scaleByPowerOfTen(selectedIntegerCustomScale(parsed)[0])
+        return value.abs().scaleByPowerOfTen(selectedIntegerCustomScale(parsed)[0])
                 .setScale(fractions, RoundingMode.HALF_UP);
     }
 
@@ -1113,6 +1116,11 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     static String selectedIntegerCustomScientificFormat(String format, long value,
                                                         IFormatProvider provider, boolean custom) {
+        return selectedCustomScientificFormat(format, BigDecimal.valueOf(value), provider, custom);
+    }
+
+    static String selectedCustomScientificFormat(String format, BigDecimal value,
+                                                        IFormatProvider provider, boolean custom) {
         if (format == null || (!custom && format.matches("[A-Za-z][0-9]*"))) return null;
         int[] pattern = selectedIntegerScientificPattern(format);
         if (pattern == null) return null;
@@ -1128,8 +1136,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             if (ch == '.') point = true;
             else if (ch == '0' || ch == '#') { if (point) fractions++; else integers++; }
         }
-        long magnitude = value < 0 ? -value : value;
-        BigDecimal rounded = BigDecimal.valueOf(magnitude)
+        BigDecimal rounded = value.abs()
                 .scaleByPowerOfTen(selectedIntegerCustomScale(parsed)[0])
                 .round(new java.math.MathContext(integers + fractions, RoundingMode.HALF_UP));
         int exponent = rounded.signum() == 0 ? 0 : rounded.precision() - rounded.scale() - integers;
@@ -1154,7 +1161,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
             rendered[0] = new String(zeroPattern);
         }
-        return selectedIntegerRenderCustom(rendered, mantissa, value < 0, provider);
+        return selectedIntegerRenderCustom(rendered, mantissa, value.signum() < 0, provider);
     }
 
     static String[] selectedIntegerCustomLiteralParts(String format, boolean custom) {

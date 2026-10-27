@@ -987,14 +987,20 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     public <T> boolean TryFormat(Span<T> destination, int[] written, ReadOnlySpan<Character> format, IFormatProvider provider) {
         if (destination == null) throw new ArgumentNullException("destination");
         if (format == null) throw new ArgumentNullException("format");
-        int count = destination.writeSelectedDecimalText(ToString(format.ToString(), provider));
+        IFormatProvider resolved = selectedNumberFormatInfo(provider);
+        String current = format.ToString();
+        String text = ToString(current, resolved);
+        if (destination.selectedUtf8()) selectedValidateUtf8FormatLiterals(current);
+        int count = destination.writeSelectedDecimalText(text);
         written[0] = count < 0 ? 0 : count;
         return count >= 0;
     }
 
     @Override
     public boolean TryFormat(byte[] destination, int[] bytesWritten, String format, IFormatProvider provider) {
-        byte[] encoded = org.dotj.internal.text.Utf8Codec.encode(ToString(format, provider));
+        String text = ToString(format, provider);
+        selectedValidateUtf8FormatLiterals(format);
+        byte[] encoded = org.dotj.internal.text.Utf8Codec.encode(text);
         if (encoded.length > destination.length) {
             bytesWritten[0] = 0;
             return false;
@@ -1008,8 +1014,33 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return ToString(format, null);
     }
 
+    private static void selectedValidateUtf8FormatLiterals(String format) {
+        format = Int32.selectedIntegerFormatPrefix(format);
+        if (Int32.selectedIntegerCustomSections(format) == null) {
+            Int32.selectedValidateUtf8IntegerFormatLiterals(format, 0);
+        }
+    }
+
     public String ToString(String format, IFormatProvider provider) {
         provider = selectedNumberFormatInfo(provider);
+        format = Int32.selectedIntegerFormatPrefix(format);
+        if (format != null && !format.isEmpty() && !format.matches("[A-Za-z][0-9]*")) {
+            String literal = Int32.selectedIntegerLiteralFormat(format, true);
+            if (literal != null) {
+                boolean negative = this.value.signum() < 0
+                        && this.value.abs().setScale(0, RoundingMode.HALF_UP).signum() != 0;
+                NumberFormatInfo info = (NumberFormatInfo) provider;
+                return (negative ? (info == null ? "-" : info.get_NegativeSign()) : "") + literal;
+            }
+            String[] parsed = Int32.selectedIntegerCustomTokens(format, true);
+            if (Int32.selectedIntegerSimpleCustomSupported(parsed)) {
+                return Int32.selectedIntegerRenderCustom(parsed,
+                        Int32.selectedCustomRoundedMagnitude(parsed, this.value),
+                        this.value.signum() < 0, provider);
+            }
+            String scientific = Int32.selectedCustomScientificFormat(format, this.value, provider, true);
+            if (scientific != null) return scientific;
+        }
         if (format != null && format.matches("(\"[^\";:]{1,20}\"|\\\\[A-Za-z0-9!?() ])#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?\u2030(\"[^\";:]{1,20}\"|\\\\[A-Za-z0-9!?() ])")) {
             int coreStart = format.indexOf("#,##0");
             String coreFormat = format.substring(coreStart, format.indexOf('\u2030', coreStart) + 1);
