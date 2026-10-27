@@ -2,6 +2,8 @@
 
 package System;
 
+import System.Globalization.NumberFormatInfo;
+
 import System.Globalization.NumberStyles;
 
 /** Selected unsigned 32-bit value carrier for public serialization paths. */
@@ -323,7 +325,13 @@ public final class UInt32 implements IConvertible, IFormattable, IComparable, IS
 
     public String ToString(String format) { return ToString(format, null); }
     @Override public String ToString(String format, IFormatProvider provider) {
-        return selectedIntegerFormatCore(format, Int32.selectedIntegerFormatProvider(format, false, provider));
+        format = Int32.selectedIntegerFormatPrefix(format);
+        IFormatProvider resolved = Int32.selectedIntegerFormatProvider(format, false, provider);
+        String literal = Int32.selectedIntegerLiteralFormat(format);
+        if (literal != null) return (false ? (resolved == null ? "-" : ((NumberFormatInfo) resolved).get_NegativeSign()) : "") + literal;
+        String literalFraction = Int32.selectedIntegerLiteralFractionFormat(format, (long) this.value, resolved);
+        if (literalFraction != null) return literalFraction;
+        return selectedIntegerFormatCore(format, resolved);
     }
 
     private String selectedIntegerFormatCore(String format, IFormatProvider provider) {
