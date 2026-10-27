@@ -1,0 +1,7 @@
+# Integer custom scientific multiple markers
+
+Batch 2378: Twenty-six custom formats across five integer types cover repeated E/e markers, exponent signs and long zero runs, marker-adjacent digit placeholders, scaling, repeated decimal points, sections, malformed literals and NUL termination. All 86240 groups match pinned native outcomes and complete buffer/provider state. The pinned Number.Formatting.Common.cs emits the first exponent and copies later marker/sign/zero sequences as literals.
+
+21820 pinned native calls and 21820 Java facade calls pass 86240 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. Scientific scanning retains the first marker while treating later complete exponent patterns as escaped literal runs. Mantissa precision/scaling and section-zero selection exclude those later exponent zeros. Fresh packaged/API/retained verification is required; the full 393-check canonical gate remains required before merge.
+
+Selected scientific token combinations only; arbitrary grammar/cultures/ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify multiple custom scientific marker semantics for exact Decimal coefficients, fractional rounding, scale-28 values, section transitions and Char/UTF8 literal errors.
