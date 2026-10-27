@@ -804,21 +804,6 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return value == ' ' || (value >= '\t' && value <= '\r');
     }
 
-    private static String selectedNumberParseText(String text) {
-        int start = 0;
-        int end = text.length();
-        while (end > 0 && text.charAt(end - 1) == '\0') {
-            end--;
-        }
-        while (start < end && numberParseWhite(text.charAt(start))) {
-            start++;
-        }
-        while (end > start && numberParseWhite(text.charAt(end - 1))) {
-            end--;
-        }
-        return text.substring(start, end);
-    }
-
     private static void validateParseStyle(NumberStyles style) {
         int flags = style == null ? 0 : style.get_Value();
         if ((flags & ~2047) != 0) {
@@ -840,6 +825,26 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         }
         validateParseStyle(style);
         provider = selectedNumberFormatInfo(provider);
+        try {
+            return selectedParseValue(text, style, provider, originalNegativeSign);
+        } catch (FormatException invalid) {
+            String display = text;
+            if (originalNegativeSign != null) {
+                try {
+                    display = org.dotj.internal.text.Utf8Codec.decode(
+                            text.getBytes(java.nio.charset.StandardCharsets.ISO_8859_1), true);
+                } catch (org.dotj.internal.text.Utf8Codec.Failure malformed) {
+                    throw new FormatException("Input string was not in a correct format.");
+                }
+            }
+            throw new FormatException("The input string '" + display + "' was not in a correct format.");
+        } catch (OverflowException overflow) {
+            throw new OverflowException("Value was either too large or too small for a Decimal.");
+        }
+    }
+
+    private static Decimal selectedParseValue(String text, NumberStyles style, IFormatProvider provider,
+                                              String originalNegativeSign) {
         int numericEnd = text.length();
         while (numericEnd > 0 && text.charAt(numericEnd - 1) == '\0') {
             numericEnd--;
@@ -854,320 +859,7 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
             String normalized = selectedNumberProviderText(text, format, style.get_Value(), originalNegativeSign);
             return selectedParsedNumber(normalized);
         }
-        if (provider instanceof NumberFormatInfo format
-                && NumberStyles.AllowCurrencySymbol.equals(style)) {
-            String symbol = format.get_CurrencySymbol();
-            if (!symbol.equals("¤") && text.contains("¤")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            String normalized = symbol.isEmpty() ? text : text.replace(symbol, "¤");
-            return Parse(normalized, style, null);
-        }
-        if (provider instanceof NumberFormatInfo format
-                && NumberStyles.Any.equals(style)) {
-            String currencySymbol = format.get_CurrencySymbol();
-            String currencyGroup = format.get_CurrencyGroupSeparator();
-            String currencyDecimal = format.get_CurrencyDecimalSeparator();
-            String numberGroup = format.get_NumberGroupSeparator();
-            String numberDecimal = format.get_NumberDecimalSeparator();
-            String negative = format.get_NegativeSign();
-            String positive = format.get_PositiveSign();
-            boolean currencyTokens = (!currencySymbol.isEmpty() && text.contains(currencySymbol))
-                    || (!currencyGroup.isEmpty() && text.contains(currencyGroup))
-                    || (!currencyDecimal.isEmpty() && text.contains(currencyDecimal));
-            if ((!currencySymbol.equals("¤") && text.contains("¤"))
-                    || (!negative.equals("-") && text.contains("-"))
-                    || (!positive.equals("+") && text.contains("+"))
-                    || (currencyTokens && ((!numberGroup.isEmpty() && !numberGroup.equals(currencyGroup)
-                    && text.contains(numberGroup))
-                    || (!numberDecimal.isEmpty() && !numberDecimal.equals(currencyDecimal)
-                    && text.contains(numberDecimal))))) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            String group = currencyTokens ? currencyGroup : numberGroup;
-            String decimal = currencyTokens ? currencyDecimal : numberDecimal;
-            if ((!group.equals(",") && text.contains(","))
-                    || (!decimal.equals(".") && text.contains("."))) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            String normalized = text;
-            if (!currencySymbol.isEmpty()) {
-                normalized = normalized.replace(currencySymbol, "¤");
-            }
-            if (!group.isEmpty()) {
-                normalized = normalized.replace(group, ",");
-            }
-            if (!decimal.isEmpty()) {
-                normalized = normalized.replace(decimal, ".");
-            }
-            if (!negative.isEmpty()) {
-                normalized = normalized.replace(negative, "-");
-            }
-            if (!positive.isEmpty()) {
-                normalized = normalized.replace(positive, "+");
-            }
-            return Parse(normalized, style, null);
-        }
-        if (provider instanceof NumberFormatInfo format
-                && NumberStyles.Currency.equals(style)) {
-            String symbol = format.get_CurrencySymbol();
-            boolean hasSymbol = !symbol.isEmpty() && text.contains(symbol);
-            String group = format.get_CurrencyGroupSeparator();
-            String decimal = format.get_CurrencyDecimalSeparator();
-            String negative = format.get_NegativeSign();
-            String positive = format.get_PositiveSign();
-            if ((!symbol.equals("¤") && text.contains("¤"))
-                    || (hasSymbol && ((!group.equals(",") && text.contains(","))
-                    || (!decimal.equals(".") && text.contains("."))))
-                    || (!negative.equals("-") && text.contains("-"))
-                    || (!positive.equals("+") && text.contains("+"))) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            String normalized = text;
-            if (hasSymbol) {
-                normalized = normalized.replace(symbol, "¤");
-                if (!group.isEmpty()) {
-                    normalized = normalized.replace(group, ",");
-                }
-                if (!decimal.isEmpty()) {
-                    normalized = normalized.replace(decimal, ".");
-                }
-            }
-            if (!negative.isEmpty()) {
-                normalized = normalized.replace(negative, "-");
-            }
-            if (!positive.isEmpty()) {
-                normalized = normalized.replace(positive, "+");
-            }
-            return Parse(normalized, style, null);
-        }
-        if (provider instanceof NumberFormatInfo format
-                && (NumberStyles.Integer.equals(style) || NumberStyles.Number.equals(style)
-                || NumberStyles.Float.equals(style))) {
-            String group = format.get_NumberGroupSeparator();
-            String decimal = format.get_NumberDecimalSeparator();
-            String negative = format.get_NegativeSign();
-            String positive = format.get_PositiveSign();
-            if ((!group.equals(",") && text.contains(","))
-                    || (!decimal.equals(".") && text.contains("."))
-                    || (!negative.equals("-") && text.contains("-"))
-                    || (!positive.equals("+") && text.contains("+"))) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            String normalized = text;
-            if (!group.isEmpty()) {
-                normalized = normalized.replace(group, ",");
-            }
-            if (!decimal.isEmpty()) {
-                normalized = normalized.replace(decimal, ".");
-            }
-            if (!negative.isEmpty()) {
-                normalized = normalized.replace(negative, "-");
-            }
-            if (!positive.isEmpty()) {
-                normalized = normalized.replace(positive, "+");
-            }
-            return Parse(normalized, style, null);
-        }
-        if (style != null && style.get_Value() == 36) {
-            if (!text.matches("[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(text), text.startsWith("-"));
-        }
-        if (style != null && style.get_Value() == 96) {
-            if (!text.matches("(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(text.replace(",", "")), false);
-        }
-        if (style != null && style.get_Value() == 3) {
-            int start = 0;
-            int end = text.length();
-            while (start < end && (text.charAt(start) == ' '
-                    || (text.charAt(start) >= '\t' && text.charAt(start) <= '\r'))) {
-                start++;
-            }
-            while (end > start && (text.charAt(end - 1) == ' '
-                    || (text.charAt(end - 1) >= '\t' && text.charAt(end - 1) <= '\r'))) {
-                end--;
-            }
-            String digits = text.substring(start, end);
-            if (!digits.matches("[0-9]+")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(digits), false);
-        }
-        if (NumberStyles.None.equals(style)) {
-            if (!text.matches("[0-9]+")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(text), false);
-        }
-        if (NumberStyles.AllowLeadingWhite.equals(style)) {
-            int start = 0;
-            while (start < text.length() && (text.charAt(start) == ' '
-                    || (text.charAt(start) >= '\t' && text.charAt(start) <= '\r'))) {
-                start++;
-            }
-            String digits = text.substring(start);
-            if (!digits.matches("[0-9]+")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(digits), false);
-        }
-        if (NumberStyles.AllowTrailingWhite.equals(style)) {
-            int end = text.length();
-            while (end > 0 && (text.charAt(end - 1) == ' '
-                    || (text.charAt(end - 1) >= '\t' && text.charAt(end - 1) <= '\r'))) {
-                end--;
-            }
-            String digits = text.substring(0, end);
-            if (!digits.matches("[0-9]+")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(digits), false);
-        }
-        if (NumberStyles.AllowThousands.equals(style)) {
-            if (!text.matches("[0-9][0-9,]*")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(text.replace(",", "")), false);
-        }
-        if (NumberStyles.AllowDecimalPoint.equals(style)) {
-            if (!text.matches("(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(text), false);
-        }
-        if (NumberStyles.AllowExponent.equals(style)) {
-            if (!text.matches("[0-9]+(?:[Ee][+-]?[0-9]+)?")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            try {
-                return bounded(new BigDecimal(text), false);
-            } catch (NumberFormatException invalid) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-        }
-        if (NumberStyles.AllowLeadingSign.equals(style)) {
-            if (!text.matches("[+-]?[0-9]+")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(text), text.startsWith("-"));
-        }
-        if (NumberStyles.AllowTrailingSign.equals(style)) {
-            if (!text.matches("[0-9]+[+-]?")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            boolean negative = text.endsWith("-");
-            String unsigned = text.replaceFirst("[+-]$", "");
-            BigDecimal parsed = new BigDecimal(unsigned);
-            return bounded(negative ? parsed.negate() : parsed, negative);
-        }
-        if (NumberStyles.AllowParentheses.equals(style)) {
-            if (!text.matches("(?:[0-9]+|\\([0-9]+\\))")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            boolean negative = text.startsWith("(");
-            String unsigned = negative ? text.substring(1, text.length() - 1) : text;
-            BigDecimal parsed = new BigDecimal(unsigned);
-            return bounded(negative ? parsed.negate() : parsed, negative);
-        }
-        if (NumberStyles.AllowCurrencySymbol.equals(style)) {
-            if (!text.matches("(?:¤?[0-9]+|[0-9]+¤)")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(text.replace("¤", "")), false);
-        }
-        if (NumberStyles.Integer.equals(style)) {
-            String trimmed = text.strip();
-            if (!trimmed.matches("[+-]?[0-9]+")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(new BigDecimal(trimmed), trimmed.startsWith("-"));
-        }
-        if (NumberStyles.Any.equals(style)) {
-            String trimmed = text.strip();
-            boolean parentheses = trimmed.startsWith("(") && trimmed.endsWith(")");
-            if (parentheses) {
-                trimmed = trimmed.substring(1, trimmed.length() - 1).strip();
-            }
-            int symbol = trimmed.indexOf('¤');
-            if (symbol >= 0) {
-                if (trimmed.lastIndexOf('¤') != symbol
-                        || (symbol != 0 && symbol != trimmed.length() - 1
-                        && !(symbol == 1 && (trimmed.charAt(0) == '-'
-                        || trimmed.charAt(0) == '+')))) {
-                    throw new FormatException("Input string was not in a correct format");
-                }
-                trimmed = trimmed.substring(0, symbol)
-                        + trimmed.substring(symbol + 1);
-            }
-            trimmed = trimmed.strip();
-            if (parentheses) {
-                trimmed = "-" + trimmed;
-            }
-            if (!trimmed.matches("(?:[+-]?(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)(?:[Ee][+-]?[0-9]+)?|(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)[+-])")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            boolean negative = trimmed.startsWith("-") || trimmed.endsWith("-");
-            String unsigned = trimmed.replaceFirst("^[+-]", "").replaceFirst("[+-]$", "");
-            BigDecimal parsed;
-            try {
-                parsed = new BigDecimal(unsigned.replace(",", ""));
-            } catch (NumberFormatException invalid) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            return bounded(negative ? parsed.negate() : parsed, negative);
-        }
-        if (NumberStyles.Currency.equals(style)) {
-            String trimmed = text.strip();
-            boolean parentheses = trimmed.startsWith("(") && trimmed.endsWith(")");
-            if (parentheses) {
-                trimmed = trimmed.substring(1, trimmed.length() - 1).strip();
-            }
-            int symbol = trimmed.indexOf('¤');
-            if (symbol >= 0) {
-                if (trimmed.lastIndexOf('¤') != symbol
-                        || (symbol != 0 && symbol != trimmed.length() - 1
-                        && !(symbol == 1 && (trimmed.charAt(0) == '-'
-                        || trimmed.charAt(0) == '+')))) {
-                    throw new FormatException("Input string was not in a correct format");
-                }
-                trimmed = trimmed.substring(0, symbol)
-                        + trimmed.substring(symbol + 1);
-            }
-            trimmed = trimmed.strip();
-            if (parentheses) {
-                trimmed = "-" + trimmed;
-            }
-            return Parse(trimmed, NumberStyles.Number, provider);
-        }
-        if (NumberStyles.Number.equals(style)) {
-            String trimmed = selectedNumberParseText(text);
-            if (!trimmed.matches("(?:[+-]?(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)|(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)[\\x09-\\x0D ]*[+-])")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            boolean negative = trimmed.startsWith("-") || trimmed.endsWith("-");
-            String unsigned = trimmed.replaceFirst("^[+-]", "").replaceFirst("[+-]$", "");
-            BigDecimal parsed = new BigDecimal(selectedNumberParseText(unsigned).replace(",", ""));
-            return bounded(negative ? parsed.negate() : parsed, negative);
-        }
-        if (!NumberStyles.Float.equals(style)) {
-            throw new ArgumentException("Number style was not supported", "style");
-        }
-        String trimmed = text.strip();
-        if (!trimmed.matches("[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[Ee][+-]?[0-9]+)?")) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        BigDecimal parsed;
-        try {
-            parsed = new BigDecimal(trimmed);
-        } catch (NumberFormatException invalid) {
-            throw new FormatException("Input string was not in a correct format");
-        }
-        return bounded(parsed, trimmed.startsWith("-"));
+        throw new ArgumentException("Number style was not supported", "style");
     }
 
     public static <T> Decimal Parse(ReadOnlySpan<T> text, NumberStyles style,
