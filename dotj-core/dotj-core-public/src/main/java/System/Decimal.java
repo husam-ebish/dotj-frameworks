@@ -152,6 +152,17 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         return new Decimal(new BigDecimal(integer), false);
     }
 
+    /** Selected saturating generic-math projection for integer and Decimal carriers. */
+    public static <T> Decimal CreateSaturating(T value) {
+        if (value == null) throw new ArgumentNullException("value");
+        if (value instanceof Decimal decimal) return new Decimal(decimal.value, decimal.negativeZero);
+        BigInteger integer = selectedCreateInteger(value);
+        if (integer == null) throw new NotSupportedException();
+        BigInteger limit = MAX_MAGNITUDE.toBigIntegerExact();
+        integer = integer.max(limit.negate()).min(limit);
+        return new Decimal(new BigDecimal(integer), false);
+    }
+
     private static Decimal selectedCreateFloating(double input, int exponent, int precisionMinusOne) {
         if (exponent < -94) return new Decimal(0);
         if (exponent > 96) throw new OverflowException("Value was either too large or too small for a Decimal.");

@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "c9371fb9cb82d2ada0150881322773a796e540d8f1351fe8bddb61a67ea19de0",
+  "javaCandidateEvidenceSha256": "e514c0c673160182d9c2e191ca495e2588efb4ea2cc75a808df24dc2c2959a62",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 36,
+  "nameLevelMissingMethodCount": 35,
   "nameLevelMissingPublicGetterCount": 20,
   "types": [
     {
@@ -3273,6 +3273,7 @@
         "public static int GetBits(System.Decimal, System.Span<System.Int32>);",
         "public static boolean TryGetBits(System.Decimal, System.Span<System.Int32>, int[]);",
         "public static <T> System.Decimal CreateChecked(T);",
+        "public static <T> System.Decimal CreateSaturating(T);",
         "public static System.Decimal Truncate(System.Decimal);",
         "public static System.Decimal Floor(System.Decimal);",
         "public static System.Decimal Ceiling(System.Decimal);",
@@ -3423,6 +3424,7 @@
           "CompareTo": 2,
           "CopySign": 1,
           "CreateChecked": 1,
+          "CreateSaturating": 1,
           "Divide": 1,
           "Equals": 3,
           "Floor": 1,
@@ -3475,7 +3477,6 @@
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "ConvertToInteger",
           "ConvertToIntegerNative",
-          "CreateSaturating",
           "CreateTruncating"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
