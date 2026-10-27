@@ -286,6 +286,8 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
         if (literalFraction != null) return literalFraction;
         String decorated = Int32.selectedIntegerCustomLiteralFormat(format, (long) this.value, resolved, false);
         if (decorated != null) return decorated;
+        String sections = Int32.selectedIntegerSectionsFormat(format, (long) this.value, resolved);
+        if (sections != null) return sections;
         return selectedIntegerFormatCore(format, resolved);
     }
 
@@ -330,13 +332,15 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
         String deferred = format.selectedInt32Text();
         int terminator = deferred.indexOf('\0');
         if (terminator >= 0) deferred = deferred.substring(0, terminator);
-        if (utf8) Int32.selectedValidateUtf8IntegerFormatLiterals(deferred);
+        if (utf8) Int32.selectedValidateUtf8IntegerFormatLiterals(deferred, (long) this.value);
         String literal = Int32.selectedIntegerLiteralFormat(deferred, true);
         if (literal != null) return (false ? (resolved == null ? "-" : ((NumberFormatInfo) resolved).get_NegativeSign()) : "") + literal;
         String literalFraction = Int32.selectedIntegerLiteralFractionFormat(deferred, (long) this.value, resolved);
         if (literalFraction != null) return literalFraction;
         String decorated = Int32.selectedIntegerCustomLiteralFormat(deferred, (long) this.value, resolved, true);
         if (decorated != null) return decorated;
+        String sections = Int32.selectedIntegerSectionsFormat(deferred, (long) this.value, resolved);
+        if (sections != null) return sections;
         return selectedIntegerFormatCore(deferred, resolved);
     }
 
@@ -349,7 +353,7 @@ public final class UInt16 implements IConvertible, IFormattable, IComparable, IS
     }
     @Override public boolean TryFormat(byte[] destination, int[] written, String format, IFormatProvider provider) {
         String formatted = ToString(format, provider);
-        Int32.selectedValidateUtf8IntegerFormatLiterals(format);
+        Int32.selectedValidateUtf8IntegerFormatLiterals(format, (long) this.value);
         byte[] text = org.dotj.internal.text.Utf8Codec.encode(formatted);
         if (text.length > destination.length) { written[0] = 0; return false; }
         java.lang.System.arraycopy(text, 0, destination, 0, text.length);
