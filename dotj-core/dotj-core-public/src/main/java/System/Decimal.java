@@ -193,6 +193,11 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         throw new NotSupportedException();
     }
 
+    /** Explicit target-token bridge; the pinned Decimal native-named path also saturates. */
+    public static Object ConvertToIntegerNative(Decimal value, Type integerType) {
+        return ConvertToInteger(value, integerType);
+    }
+
     private static BigInteger selectedClampInteger(BigInteger value, int bits, boolean unsigned) {
         BigInteger minimum = unsigned ? BigInteger.ZERO : BigInteger.ONE.shiftLeft(bits - 1).negate();
         BigInteger maximum = BigInteger.ONE.shiftLeft(unsigned ? bits : bits - 1).subtract(BigInteger.ONE);
