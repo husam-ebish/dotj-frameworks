@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 1,
+  "types": [
+    "System.SByte",
+    "System.Byte",
+    "System.UInt16",
+    "System.UInt32",
+    "System.Int32"
+  ],
+  "profiles": [
+    {
+      "name": "null",
+      "kind": "null",
+      "negative": [
+        45
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        46
+      ],
+      "group": [
+        44
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "wrong",
+      "kind": "wrong",
+      "negative": [
+        45
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        46
+      ],
+      "group": [
+        44
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "replacement-negative",
+      "kind": "custom",
+      "negative": [
+        65533
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        46
+      ],
+      "group": [
+        44
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "replacement-decimal",
+      "kind": "custom",
+      "negative": [
+        126
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        65533
+      ],
+      "group": [
+        44
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "replacement-group",
+      "kind": "custom",
+      "negative": [
+        45
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        46
+      ],
+      "group": [
+        65533
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "unicode-minus-nbsp-group",
+      "kind": "custom",
+      "negative": [
+        8722
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        46
+      ],
+      "group": [
+        160
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "nul-prefixes",
+      "kind": "custom",
+      "negative": [
+        88,
+        0,
+        89
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        64,
+        0,
+        89
+      ],
+      "group": [
+        95,
+        0,
+        89
+      ],
+      "currencySymbol": [
+        36,
+        0,
+        89
+      ],
+      "currencyDecimal": [
+        58,
+        0,
+        89
+      ],
+      "currencyGroup": [
+        39,
+        0,
+        89
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "unpaired-negative",
+      "kind": "custom",
+      "negative": [
+        55296
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        46
+      ],
+      "group": [
+        44
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "throwing",
+      "kind": "throwing",
+      "negative": [
+        45
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        46
+      ],
+      "group": [
+        44
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "format-throwing",
+      "kind": "format-throwing",
+      "negative": [
+        45
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        46
+      ],
+      "group": [
+        44
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "overflow-throwing",
+      "kind": "overflow-throwing",
+      "negative": [
+        45
+      ],
+      "positive": [
+        43
+      ],
+      "decimal": [
+        46
+      ],
+      "group": [
+        44
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    },
+    {
+      "name": "unicode-minus-positive-hyphen",
+      "kind": "custom",
+      "negative": [
+        8722
+      ],
+      "positive": [
+        45
+      ],
+      "decimal": [
+        46
+      ],
+      "group": [
+        160
+      ],
+      "currencySymbol": [
+        164
+      ],
+      "currencyDecimal": [
+        46
+      ],
+      "currencyGroup": [
+        44
+      ],
+      "negativePattern": 1
+    }
+  ],
+  "styles": [
+    7,
+    111,
+    167,
+    383,
+    511,
+    512,
+    515,
+    1027,
+    516,
+    2048,
+    -1
+  ],
+  "bytes": [
+    [],
+    [
+      48
+    ],
+    [
+      49,
+      50,
+      51
+    ],
+    [
+      45,
+      49,
+      50
+    ],
+    [
+      43,
+      49,
+      50
+    ],
+    [
+      49,
+      50,
+      46,
+      48
+    ],
+    [
+      49,
+      50,
+      46,
+      53
+    ],
+    [
+      49,
+      50,
+      44,
+      51,
+      52,
+      53
+    ],
+    [
+      126,
+      49,
+      50
+    ],
+    [
+      88,
+      49,
+      50
+    ],
+    [
+      49,
+      50,
+      64,
+      48
+    ],
+    [
+      49,
+      95,
+      50,
+      51,
+      52
+    ],
+    [
+      49,
+      101,
+      50
+    ],
+    [
+      50,
+      49,
+      52,
+      55,
+      52,
+      56,
+      51,
+      54,
+      52,
+      55
+    ],
+    [
+      50,
+      49,
+      52,
+      55,
+      52,
+      56,
+      51,
+      54,
+      52,
+      56
+    ],
+    [
+      52,
+      50,
+      57,
+      52,
+      57,
+      54,
+      55,
+      50,
+      57,
+      53
+    ],
+    [
+      70,
+      70,
+      70,
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    [
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49,
+      49
+    ],
+    [
+      239,
+      191,
+      189,
+      49,
+      50
+    ],
+    [
+      49,
+      50,
+      239,
+      191,
+      189,
+      48
+    ],
+    [
+      49,
+      239,
+      191,
+      189,
+      50,
+      51
+    ],
+    [
+      226,
+      136,
+      146,
+      49,
+      50
+    ],
+    [
+      49,
+      194,
+      160,
+      50,
+      51,
+      52
+    ],
+    [
+      49,
+      50,
+      51,
+      0
+    ],
+    [
+      49,
+      50,
+      36
+    ],
+    [
+      128,
+      49,
+      50
+    ],
+    [
+      49,
+      50,
+      128,
+      48
+    ],
+    [
+      49,
+      128,
+      50,
+      51
+    ],
+    [
+      192,
+      175,
+      49,
+      50
+    ],
+    [
+      237,
+      160,
+      128,
+      49,
+      50
+    ],
+    [
+      194,
+      32,
+      49,
+      50
+    ],
+    [
+      49,
+      194,
+      32,
+      50,
+      51,
+      52
+    ],
+    [
+      88,
+      0,
+      89,
+      49,
+      50
+    ]
+  ],
+  "qualification": "SELECTED_FIVE_INTEGER_UTF8_PROVIDER_TOKEN_BYTES_STYLE_CALLBACK_AND_RESULT_BOUNDARIES_ONLY; SMALL_INTEGER_EXACT_NUMERIC_ERROR_TEXT_CHAR_STRING_BREADTH_AND_ACCEPTANCE_OPEN"
+}
