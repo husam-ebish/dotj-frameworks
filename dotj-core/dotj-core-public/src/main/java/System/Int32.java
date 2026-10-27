@@ -1108,9 +1108,21 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return found;
     }
 
+    static boolean selectedScientificMantissaSupported(String[] parsed) {
+        if (parsed == null) return false;
+        int points = 0;
+        for (int index = 0; index < parsed[0].length(); index++) {
+            if (parsed[1].charAt(index) != '1') continue;
+            char ch = parsed[0].charAt(index);
+            if (ch == '.') points++;
+            else if ("0#,%\u2030".indexOf(ch) < 0) return false;
+        }
+        return points <= 1;
+    }
+
     static boolean selectedIntegerScientificSupported(String format) {
         int[] pattern = selectedIntegerScientificPattern(format);
-        return pattern != null && selectedIntegerSimpleCustomSupported(selectedIntegerCustomTokens(
+        return pattern != null && selectedScientificMantissaSupported(selectedIntegerCustomTokens(
                 format.substring(0, pattern[0]) + format.substring(pattern[1]), true));
     }
 
@@ -1126,7 +1138,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (pattern == null) return null;
         String without = format.substring(0, pattern[0]) + format.substring(pattern[1]);
         String[] parsed = selectedIntegerCustomTokens(without, true);
-        if (!selectedIntegerSimpleCustomSupported(parsed)) return null;
+        if (!selectedScientificMantissaSupported(parsed)) return null;
         int integers = 0;
         int fractions = 0;
         boolean point = false;
@@ -1136,11 +1148,16 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             if (ch == '.') point = true;
             else if (ch == '0' || ch == '#') { if (point) fractions++; else integers++; }
         }
-        BigDecimal rounded = value.abs()
-                .scaleByPowerOfTen(selectedIntegerCustomScale(parsed)[0])
-                .round(new java.math.MathContext(integers + fractions, RoundingMode.HALF_UP));
-        int exponent = rounded.signum() == 0 ? 0 : rounded.precision() - rounded.scale() - integers;
-        BigDecimal mantissa = rounded.scaleByPowerOfTen(-exponent).setScale(fractions, RoundingMode.HALF_UP);
+        BigDecimal scaled = value.abs().scaleByPowerOfTen(selectedIntegerCustomScale(parsed)[0]);
+        boolean noDigits = integers + fractions == 0;
+        boolean literalRoundUp = noDigits && scaled.signum() != 0
+                && scaled.unscaledValue().abs().toString().charAt(0) >= '5';
+        BigDecimal rounded = noDigits ? scaled
+                : scaled.round(new java.math.MathContext(integers + fractions, RoundingMode.HALF_UP));
+        int exponent = noDigits ? (literalRoundUp ? scaled.precision() - scaled.scale() + 1 : 0)
+                : rounded.signum() == 0 ? 0 : rounded.precision() - rounded.scale() - integers;
+        BigDecimal mantissa = noDigits ? BigDecimal.ZERO
+                : rounded.scaleByPowerOfTen(-exponent).setScale(fractions, RoundingMode.HALF_UP);
         NumberFormatInfo info = (NumberFormatInfo) provider;
         String sign = exponent < 0 ? (info == null ? "-" : info.get_NegativeSign())
                 : pattern[3] != 0 ? (info == null ? "+" : info.get_PositiveSign()) : "";
@@ -1150,7 +1167,18 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         for (int index = 0; index < text.length(); index++) escaped.append('\\').append(text.charAt(index));
         String rewritten = format.substring(0, pattern[0]) + escaped + format.substring(pattern[1]);
         String[] rendered = selectedIntegerCustomTokens(rewritten, true);
-        if (!selectedIntegerSimpleCustomSupported(rendered)) return null;
+        if (!selectedScientificMantissaSupported(rendered)) return null;
+        if (noDigits) {
+            StringBuilder literal = new StringBuilder();
+            if (literalRoundUp && value.signum() < 0) literal.append(info == null ? "-" : info.get_NegativeSign());
+            for (int index = 0; index < rendered[0].length(); index++) {
+                char ch = rendered[0].charAt(index);
+                if (rendered[1].charAt(index) != '1') literal.append(ch);
+                else if (ch == '%') literal.append(info == null ? "%" : info.get_PercentSymbol());
+                else if (ch == '\u2030') literal.append(info == null ? "\u2030" : info.get_PerMilleSymbol());
+            }
+            return literal.toString();
+        }
         if (rounded.signum() == 0) {
             char[] zeroPattern = rendered[0].toCharArray();
             boolean fraction = false;
