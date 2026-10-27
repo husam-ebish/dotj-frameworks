@@ -50,14 +50,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                                   IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("text");
         if (text.selectedUtf8()) {
-            selectedInt32Utf8Style(style);
+            selectedValidateUtf8IntegerStyles(style);
             IFormatProvider resolved = selectedNumberFormatInfo(provider);
             return selectedInt32Utf8Value(text.selectedInt32Text(), style, resolved);
         }
         return Parse(text.selectedInt32Text(), style, provider);
     }
 
-    private static void selectedInt32Utf8Style(NumberStyles style) {
+    static void selectedValidateUtf8IntegerStyles(NumberStyles style) {
         if (style == null) throw new ArgumentNullException("style");
         int flags = style.get_Value();
         if ((flags & (~2047 | 1536)) != 0 && (flags & ~515) != 0 && (flags & ~1027) != 0) {
@@ -68,8 +68,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     private static Int32 selectedInt32Utf8Value(String raw, NumberStyles style, IFormatProvider resolved) {
+        return new Int32(selectedParseUtf8IntegerValue(raw, style, resolved, 32, true,
+                "Value was either too large or too small for an Int32.").intValue());
+    }
+
+    static BigInteger selectedParseUtf8IntegerValue(String raw, NumberStyles style, IFormatProvider resolved,
+                                                    int width, boolean signed, String overflowMessage) {
         try {
-            return new Int32(selectedParseIntegerStyles(raw, style, resolved, 32, true, true).intValue());
+            return selectedParseIntegerStyles(raw, style, resolved, width, signed, true);
         } catch (FormatException invalid) {
             String display;
             try {
@@ -80,7 +86,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
             throw new FormatException("The input string '" + display + "' was not in a correct format.");
         } catch (OverflowException overflow) {
-            throw new OverflowException("Value was either too large or too small for an Int32.");
+            throw new OverflowException(overflowMessage);
         }
     }
 
@@ -861,7 +867,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                                        IFormatProvider provider, Int32[] result) {
         if (text == null) throw new ArgumentNullException("text");
         if (text.selectedUtf8()) {
-            selectedInt32Utf8Style(style);
+            selectedValidateUtf8IntegerStyles(style);
             IFormatProvider resolved = selectedNumberFormatInfo(provider);
             try {
                 result[0] = selectedInt32Utf8Value(text.selectedInt32Text(), style, resolved);
