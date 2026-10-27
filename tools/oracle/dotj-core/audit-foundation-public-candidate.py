@@ -182,6 +182,7 @@ def main():
                                     "public static boolean TryGetBits(System.Decimal, int[], int[]);",
                                     "public static int GetBits(System.Decimal, System.Span<System.Int32>);",
                                     "public static boolean TryGetBits(System.Decimal, System.Span<System.Int32>, int[]);",
+                                    "public static <T> System.Decimal CreateChecked(T);",
                                     "public static System.Decimal Truncate(System.Decimal);",
                                     "public static System.Decimal Floor(System.Decimal);",
                                     "public static System.Decimal Ceiling(System.Decimal);",
