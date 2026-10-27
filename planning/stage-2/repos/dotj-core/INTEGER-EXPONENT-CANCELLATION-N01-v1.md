@@ -1,0 +1,5 @@
+# Integer exponent cancellation
+
+Batch 2347 qualifies the unchanged product against 86,400 native calls and 115,200 Java facade calls: five integer widths, eight style masks, String/Char/UTF8 Parse/TryParse and boxed byte spans. Mantissas span 10, 29, 50, 100 and 400 digits, leading zeroes, negative values, fractional/whole cancellation and one-position scale offsets. Huge positive/negative exponent text covers 999999999, 1000000000, Int32 maximum and beyond, with malformed suffix and NUL controls. All 230,400 exact outcome/message/holder comparisons pass. The native producer/plan/runtime/source archive remain hash bound.
+
+The tested JAR is byte-identical to Batch 2346. Its existing packaged and API evidence is retained; the full 362-check canonical gate is required before merge. No full grammar/culture/ABI or billion-digit cancellation claim follows. E01/E02/E03/N01/Q01 and task/framework acceptance remain open. Numbered milestone is 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next is custom sign grammar.
