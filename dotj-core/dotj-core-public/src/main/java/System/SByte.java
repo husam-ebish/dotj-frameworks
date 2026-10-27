@@ -354,10 +354,25 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         return true;
     }
     /** One Java carrier for the CLR Char and UTF-8 Byte span overloads. */
+    private String selectedIntegerSpanFormatText(ReadOnlySpan<Character> format,
+                                                  IFormatProvider provider) {
+        String initial = Int32.selectedIntegerFormatPrefix(format.selectedInt32Text());
+        if (initial.isEmpty() || initial.matches("[A-Za-z][0-9]*")) return ToString(initial, provider);
+        IFormatProvider resolved = Int32.selectedIntegerFormatProvider(initial, this.value < 0, provider);
+        String deferred = format.selectedInt32Text();
+        int terminator = deferred.indexOf('\0');
+        if (terminator >= 0) deferred = deferred.substring(0, terminator);
+        String literal = Int32.selectedIntegerLiteralFormat(deferred, true);
+        if (literal != null) return (this.value < 0 ? (resolved == null ? "-" : ((NumberFormatInfo) resolved).get_NegativeSign()) : "") + literal;
+        String literalFraction = Int32.selectedIntegerLiteralFractionFormat(deferred, (long) this.value, resolved);
+        if (literalFraction != null) return literalFraction;
+        return selectedIntegerFormatCore(deferred, resolved);
+    }
+
     public <T> boolean TryFormat(Span<T> destination, int[] written, ReadOnlySpan<Character> format, IFormatProvider provider) {
         if (destination == null) throw new ArgumentNullException("destination");
         if (format == null) throw new ArgumentNullException("format");
-        int count = destination.writeSelectedInt32Text(ToString(format.ToString(), provider));
+        int count = destination.writeSelectedInt32Text(selectedIntegerSpanFormatText(format, provider));
         written[0] = count < 0 ? 0 : count;
         return count >= 0;
     }

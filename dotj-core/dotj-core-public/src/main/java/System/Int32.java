@@ -841,7 +841,11 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     static String selectedIntegerLiteralFormat(String format) {
-        if (format == null || format.isEmpty() || format.matches("[A-Za-z][0-9]*")) return null;
+        return selectedIntegerLiteralFormat(format, false);
+    }
+
+    static String selectedIntegerLiteralFormat(String format, boolean custom) {
+        if (format == null || format.isEmpty() || (!custom && format.matches("[A-Za-z][0-9]*"))) return null;
         StringBuilder literal = new StringBuilder();
         char quote = 0;
         for (int index = 0; index < format.length(); index++) {
@@ -1453,12 +1457,27 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     /** One Java carrier for the CLR Char and UTF-8 Byte span overloads. */
+    private String selectedIntegerSpanFormatText(ReadOnlySpan<Character> format,
+                                                  IFormatProvider provider) {
+        String initial = selectedIntegerFormatPrefix(format.selectedInt32Text());
+        if (initial.isEmpty() || initial.matches("[A-Za-z][0-9]*")) return ToString(initial, provider);
+        IFormatProvider resolved = selectedIntegerFormatProvider(initial, this.value < 0, provider);
+        String deferred = format.selectedInt32Text();
+        int terminator = deferred.indexOf('\0');
+        if (terminator >= 0) deferred = deferred.substring(0, terminator);
+        String literal = selectedIntegerLiteralFormat(deferred, true);
+        if (literal != null) return (this.value < 0 ? (resolved == null ? "-" : ((NumberFormatInfo) resolved).get_NegativeSign()) : "") + literal;
+        String literalFraction = selectedIntegerLiteralFractionFormat(deferred, (long) this.value, resolved);
+        if (literalFraction != null) return literalFraction;
+        return selectedIntegerFormatCore(deferred, resolved);
+    }
+
     public <T> boolean TryFormat(Span<T> destination, int[] written,
                                  ReadOnlySpan<Character> format,
                                  IFormatProvider provider) {
         if (format == null) throw new ArgumentNullException("format");
         int count = destination.writeSelectedInt32Text(
-                this.ToString(format.selectedInt32Text(), provider));
+                selectedIntegerSpanFormatText(format, provider));
         written[0] = count < 0 ? 0 : count;
         return count >= 0;
     }
