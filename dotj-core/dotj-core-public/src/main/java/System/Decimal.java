@@ -156,11 +156,27 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
     public static <T> Decimal CreateSaturating(T value) {
         if (value == null) throw new ArgumentNullException("value");
         if (value instanceof Decimal decimal) return new Decimal(decimal.value, decimal.negativeZero);
+        if (value instanceof java.lang.Float number) {
+            int exponent = ((java.lang.Float.floatToRawIntBits(number) >>> 23) & 0xff) - 126;
+            return selectedCreateSaturatingFloating(number.doubleValue(), exponent, 6);
+        }
+        if (value instanceof java.lang.Double number) {
+            int exponent = (int)((java.lang.Double.doubleToRawLongBits(number) >>> 52) & 0x7ff) - 1022;
+            return selectedCreateSaturatingFloating(number.doubleValue(), exponent, 14);
+        }
         BigInteger integer = selectedCreateInteger(value);
         if (integer == null) throw new NotSupportedException();
         BigInteger limit = MAX_MAGNITUDE.toBigIntegerExact();
         integer = integer.max(limit.negate()).min(limit);
         return new Decimal(new BigDecimal(integer), false);
+    }
+
+    private static Decimal selectedCreateSaturatingFloating(double input, int exponent, int precisionMinusOne) {
+        if (java.lang.Double.isNaN(input)) return new Decimal(BigDecimal.ZERO.setScale(1), false);
+        double limit = MAX_MAGNITUDE.doubleValue();
+        if (input >= limit) return new Decimal(MAX_MAGNITUDE, false);
+        if (input <= -limit) return new Decimal(MAX_MAGNITUDE.negate(), false);
+        return selectedCreateFloating(input, exponent, precisionMinusOne);
     }
 
     private static Decimal selectedCreateFloating(double input, int exponent, int precisionMinusOne) {
