@@ -668,6 +668,26 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
                 break;
             }
         }
+        if (digit && (flags & 128) != 0 && offset < input.length()
+                && (input.charAt(offset) == 'E' || input.charAt(offset) == 'e')) {
+            number.append('E');
+            offset++;
+            if (parseTokenAt(input, offset, positive)) {
+                number.append('+');
+                offset += positive.length();
+            } else if (parseTokenAt(input, offset, negative)) {
+                number.append('-');
+                offset += negative.length();
+            }
+            int exponentStart = offset;
+            while (offset < input.length() && input.charAt(offset) >= '0'
+                    && input.charAt(offset) <= '9') {
+                number.append(input.charAt(offset++));
+            }
+            if (offset == exponentStart) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+        }
         while (offset < input.length()) {
             if ((flags & 2) != 0 && numberParseWhite(input.charAt(offset))) {
                 offset++;
@@ -691,6 +711,29 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
             throw new FormatException("Input string was not in a correct format");
         }
         return (isNegative ? "-" : "") + number;
+    }
+
+    private static Decimal selectedParsedNumber(String normalized) {
+        boolean negative = normalized.startsWith("-");
+        int exponentIndex = normalized.indexOf('E');
+        if (exponentIndex < 0) {
+            return bounded(new BigDecimal(normalized), negative);
+        }
+        BigDecimal mantissa = new BigDecimal(normalized.substring(0, exponentIndex));
+        BigInteger exponent = new BigInteger(normalized.substring(exponentIndex + 1));
+        BigInteger scale = BigInteger.valueOf(mantissa.scale()).subtract(exponent);
+        if (mantissa.signum() == 0) {
+            int zeroScale = scale.max(BigInteger.ZERO).min(BigInteger.valueOf(28)).intValue();
+            return new Decimal(BigDecimal.ZERO.setScale(zeroScale), negative);
+        }
+        BigInteger adjusted = BigInteger.valueOf(mantissa.precision()).subtract(scale);
+        if (adjusted.compareTo(BigInteger.valueOf(29)) > 0) {
+            throw new OverflowException("Value was outside the range of Decimal");
+        }
+        if (adjusted.compareTo(BigInteger.valueOf(-28)) < 0) {
+            return new Decimal(BigDecimal.ZERO.setScale(28), negative);
+        }
+        return bounded(mantissa.scaleByPowerOfTen(exponent.intValueExact()), negative);
     }
 
     private static boolean numberParseWhite(char value) {
@@ -736,11 +779,11 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         if (text.indexOf('\0') >= 0) {
             throw new FormatException("Input string was not in a correct format");
         }
-        if (style != null && (style.get_Value() & ~127) == 0) {
+        if (style != null && (style.get_Value() & ~255) == 0) {
             NumberFormatInfo format = provider instanceof NumberFormatInfo selected
                     ? selected : NumberFormatInfo.get_InvariantInfo();
             String normalized = selectedNumberProviderText(text, format, style.get_Value());
-            return bounded(new BigDecimal(normalized), normalized.startsWith("-"));
+            return selectedParsedNumber(normalized);
         }
         if (provider instanceof NumberFormatInfo format
                 && NumberStyles.AllowCurrencySymbol.equals(style)) {

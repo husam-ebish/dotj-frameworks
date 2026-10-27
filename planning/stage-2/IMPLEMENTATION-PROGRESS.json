@@ -2344,7 +2344,8 @@
     "Batch-2327",
     "Batch-2328",
     "Batch-2329",
-    "Batch-2330"
+    "Batch-2330",
+    "Batch-2331"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2537,7 +2538,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2330",
+      "lastUpdatedBatch": "Batch-2331",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12148,19 +12149,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2331",
+    "id": "Batch-2332",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Extend Decimal lexical parsing to all 128 exponent-bearing noncurrency flag combinations, including native signed exponent tokens, large exponents, zero scale and overflow/underflow.",
+    "outcome": "Extend Decimal lexical parsing to all 256 currency-bearing style combinations with leading/trailing currency symbols and native currency/number separator fallback.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2330,
+    "completedBatches": 2331,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12169,8 +12170,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 329,
-    "remainingBatches": 170,
+    "completedBatches": 330,
+    "remainingBatches": 169,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },
