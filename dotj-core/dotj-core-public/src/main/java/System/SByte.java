@@ -2,6 +2,8 @@
 
 package System;
 
+import System.Globalization.NumberFormatInfo;
+
 import System.Globalization.NumberStyles;
 
 /** Selected signed byte value carrier for public serialization paths. */
@@ -310,7 +312,13 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
     public String ToString(String format) { return ToString(format, null); }
 
     @Override public String ToString(String format, IFormatProvider provider) {
-        return selectedIntegerFormatCore(format, Int32.selectedIntegerFormatProvider(format, this.value < 0, provider));
+        format = Int32.selectedIntegerFormatPrefix(format);
+        IFormatProvider resolved = Int32.selectedIntegerFormatProvider(format, this.value < 0, provider);
+        String literal = Int32.selectedIntegerLiteralFormat(format);
+        if (literal != null) return (this.value < 0 ? (resolved == null ? "-" : ((NumberFormatInfo) resolved).get_NegativeSign()) : "") + literal;
+        String literalFraction = Int32.selectedIntegerLiteralFractionFormat(format, (long) this.value, resolved);
+        if (literalFraction != null) return literalFraction;
+        return selectedIntegerFormatCore(format, resolved);
     }
 
     private String selectedIntegerFormatCore(String format, IFormatProvider provider) {

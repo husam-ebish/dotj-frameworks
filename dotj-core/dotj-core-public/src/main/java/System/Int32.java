@@ -802,7 +802,62 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     @Override
     public String ToString(String format, IFormatProvider provider) {
-        return selectedIntegerFormatCore(format, selectedIntegerFormatProvider(format, this.value < 0, provider));
+        format = selectedIntegerFormatPrefix(format);
+        IFormatProvider resolved = selectedIntegerFormatProvider(format, this.value < 0, provider);
+        String literal = selectedIntegerLiteralFormat(format);
+        if (literal != null) return (this.value < 0 ? (resolved == null ? "-" : ((NumberFormatInfo) resolved).get_NegativeSign()) : "") + literal;
+        String literalFraction = selectedIntegerLiteralFractionFormat(format, (long) this.value, resolved);
+        if (literalFraction != null) return literalFraction;
+        return selectedIntegerFormatCore(format, resolved);
+    }
+
+    static String selectedIntegerLiteralFractionFormat(String format, long value,
+                                                       IFormatProvider provider) {
+        if (format == null || !format.matches("[A-Za-z1-9 +\\-]+\\.0{1,28}")) return null;
+        int point = format.indexOf('.');
+        NumberFormatInfo info = (NumberFormatInfo) provider;
+        String sign = value < 0 ? (info == null ? "-" : info.get_NegativeSign()) : "";
+        String magnitude = value == 0 ? "" : BigInteger.valueOf(value).abs().toString();
+        String separator = info == null ? "." : info.get_NumberDecimalSeparator();
+        return sign + format.substring(0, point) + magnitude + separator
+                + "0".repeat(format.length() - point - 1);
+    }
+
+    static String selectedIntegerFormatPrefix(String format) {
+        if (format == null) return null;
+        int terminator = format.indexOf('\0');
+        String effective = terminator < 0 ? format : format.substring(0, terminator);
+        if (!effective.isEmpty() && ((effective.charAt(0) >= 'A' && effective.charAt(0) <= 'Z')
+                || (effective.charAt(0) >= 'a' && effective.charAt(0) <= 'z'))) {
+            int precision = 0;
+            for (int index = 1; index < effective.length(); index++) {
+                char digit = effective.charAt(index);
+                if (digit < '0' || digit > '9') break;
+                if (precision >= 100_000_000) throw new FormatException("Format specifier was invalid.");
+                precision = precision * 10 + digit - '0';
+            }
+        }
+        return effective;
+    }
+
+    static String selectedIntegerLiteralFormat(String format) {
+        if (format == null || format.isEmpty() || format.matches("[A-Za-z][0-9]*")) return null;
+        StringBuilder literal = new StringBuilder();
+        char quote = 0;
+        for (int index = 0; index < format.length(); index++) {
+            char ch = format.charAt(index);
+            if (quote != 0) {
+                if (ch == quote) quote = 0;
+                else literal.append(ch);
+            } else if (ch == '\'' || ch == '"') quote = ch;
+            else if (ch == '\\') {
+                if (index + 1 < format.length()) literal.append(format.charAt(++index));
+            } else {
+                if ("0#.,;%\u2030".indexOf(ch) >= 0) return null;
+                literal.append(ch);
+            }
+        }
+        return literal.toString();
     }
 
     static IFormatProvider selectedIntegerFormatProvider(String format, boolean negative,
@@ -812,7 +867,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         else if (format.matches("[dD][0-9]*")) needsProvider = negative;
         else if (format.matches("[xXbB][0-9]*")) needsProvider = false;
         else needsProvider = true;
-        return needsProvider ? selectedNumberFormatInfo(provider) : NumberFormatInfo.get_InvariantInfo();
+        IFormatProvider resolved = needsProvider ? selectedNumberFormatInfo(provider) : NumberFormatInfo.get_InvariantInfo();
+        if (format != null && format.matches("[A-Za-z][0-9]*")
+                && "cCdDeEfFgGnNpPrRxXbB".indexOf(format.charAt(0)) < 0) {
+            throw new FormatException("Format specifier was invalid.");
+        }
+        return resolved;
     }
 
     private String selectedIntegerFormatCore(String format, IFormatProvider provider) {
