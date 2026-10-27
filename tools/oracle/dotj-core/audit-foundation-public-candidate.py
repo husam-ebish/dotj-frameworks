@@ -389,6 +389,7 @@ def main():
             assert "public System.Decimal ToDecimal(System.IFormatProvider);" in declarations
             assert "public int CompareTo(java.lang.Object);" in declarations
             assert "public static System.Int32 Parse(java.lang.String);" in declarations
+            assert "public static <T> System.Int32 Parse(System.ReadOnlySpan<T>);" in declarations
             assert "public static System.Int32 Parse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider);" in declarations
             assert "public static boolean TryParse(java.lang.String, System.Int32[]);" in declarations
             assert "public static boolean TryParse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider, System.Int32[]);" in declarations

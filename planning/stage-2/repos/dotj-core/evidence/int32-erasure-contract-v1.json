@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "Selected Int32 ReadOnlySpan overloads and extra Java public declarations",
   "signatureAudit": "int32-declared-signature-audit-v1.json",
-  "signatureAuditSha256": "88763dbf843caf68f219104d4c897cb2cd18261c29b9d4f36f6c74f87fb11f09",
+  "signatureAuditSha256": "3cd83e1ddd6fa52399a80740bec5369b2a99101b1aefdf0306ac87c166a1e134",
   "javacErasureProof": {
     "javacRejected": true,
     "probeCount": 2,
@@ -47,8 +47,12 @@
     "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
     "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)"
   ],
-  "extraJavaPublicMethodCount": 18,
+  "extraJavaPublicMethodCount": 19,
   "extraJavaPublicMethods": [
+    {
+      "declaration": "public static <T> System.Int32 Parse(System.ReadOnlySpan<T>);",
+      "disposition": "JAVA_OPTIONAL_PARAMETER_ADAPTER; native span Parse style=Integer and provider=null"
+    },
     {
       "declaration": "public int get_Value();",
       "disposition": "BOXED_VALUE_CARRIER_ACCESSOR; no CLR Int32 public Value property"

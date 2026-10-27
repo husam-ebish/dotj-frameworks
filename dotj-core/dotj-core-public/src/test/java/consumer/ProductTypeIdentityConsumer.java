@@ -1924,7 +1924,7 @@ public final class ProductTypeIdentityConsumer {
             // Selected exception identity.
         }
         try {
-            Int32.Parse(null);
+            Int32.Parse((String)null);
             throw new AssertionError("Null Int32 parsed");
         } catch (ArgumentNullException expected) {
             if (!"s".equals(expected.get_ParamName())) {

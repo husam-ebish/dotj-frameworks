@@ -38,6 +38,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return Parse(text, NumberStyles.Integer, provider);
     }
 
+    public static <T> Int32 Parse(ReadOnlySpan<T> text) {
+        return Parse(text, NumberStyles.Integer, null);
+    }
+
     public static <T> Int32 Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
         return Parse(text, NumberStyles.Integer, provider);
     }
