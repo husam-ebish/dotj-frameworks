@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "seeds": {
+    "Char": [
+      0,
+      65,
+      55296,
+      65535,
+      66,
+      56320,
+      90,
+      1
+    ],
+    "Byte": [
+      0,
+      127,
+      128,
+      255,
+      1,
+      2,
+      254,
+      17
+    ]
+  },
+  "writeValues": {
+    "Char": [
+      0,
+      90,
+      55296,
+      65535
+    ],
+    "Byte": [
+      0,
+      127,
+      128,
+      255
+    ]
+  },
+  "views": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      8,
+      0
+    ]
+  ],
+  "qualification": "SELECTED_READONLY_CHAR_BYTE_SPAN_INDEX_VALUE_READS_AND_EXTERNAL_ARRAY_MUTATIONS_ONLY; NO_CLR_REF_RETURN_GENERIC_ABI_OR_ACCEPTANCE_QUALIFICATION",
+  "mutationModes": [
+    "none",
+    "same",
+    "other"
+  ],
+  "expectedRows": 792
+}

@@ -90,6 +90,18 @@ public final class ReadOnlySpan<T> {
                         : new ReadOnlySpan<>(this.bytes, this.offset + start, length);
     }
 
+    /** Selected value projection of the native ref-readonly indexer. */
+    @SuppressWarnings("unchecked")
+    public T get_Item(int index) {
+        if (index < 0 || index >= this.length) throw new IndexOutOfRangeException();
+        int position = this.offset + index;
+        if (this.chars != null) return (T)Character.valueOf(this.chars[position]);
+        if (this.bytes != null) return (T)new Byte(this.bytes[position] & 0xff);
+        Byte value = this.boxedBytes[position];
+        if (value == null) throw new ArgumentNullException("values");
+        return (T)value;
+    }
+
     public int get_Length() { return this.length; }
 
     public boolean get_IsEmpty() { return this.length == 0; }
