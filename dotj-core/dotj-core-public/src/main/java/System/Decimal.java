@@ -712,6 +712,14 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
         }
         validateParseStyle(style);
         provider = selectedNumberFormatInfo(provider);
+        int numericEnd = text.length();
+        while (numericEnd > 0 && text.charAt(numericEnd - 1) == '\0') {
+            numericEnd--;
+        }
+        text = text.substring(0, numericEnd);
+        if (text.indexOf('\0') >= 0) {
+            throw new FormatException("Input string was not in a correct format");
+        }
         if (provider instanceof NumberFormatInfo format
                 && NumberStyles.AllowCurrencySymbol.equals(style)) {
             String symbol = format.get_CurrencySymbol();
@@ -736,8 +744,10 @@ public final class Decimal implements IConvertible, IComparable, IFormattable, I
             if ((!currencySymbol.equals("¤") && text.contains("¤"))
                     || (!negative.equals("-") && text.contains("-"))
                     || (!positive.equals("+") && text.contains("+"))
-                    || (currencyTokens && ((!numberGroup.isEmpty() && text.contains(numberGroup))
-                    || (!numberDecimal.isEmpty() && text.contains(numberDecimal))))) {
+                    || (currencyTokens && ((!numberGroup.isEmpty() && !numberGroup.equals(currencyGroup)
+                    && text.contains(numberGroup))
+                    || (!numberDecimal.isEmpty() && !numberDecimal.equals(currencyDecimal)
+                    && text.contains(numberDecimal))))) {
                 throw new FormatException("Input string was not in a correct format");
             }
             String group = currencyTokens ? currencyGroup : numberGroup;
