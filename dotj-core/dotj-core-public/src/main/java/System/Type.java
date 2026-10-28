@@ -2559,11 +2559,25 @@ public abstract class Type extends MemberInfo {
         return this.ToString();
     }
 
+    private boolean selectedCoreLibMetadataModule() {
+        Type owner = this;
+        while (owner.get_HasElementType()) owner = owner.GetElementType();
+        if (owner.get_IsGenericParameter()) owner = owner.get_DeclaringType();
+        if (owner == null) return false;
+        if (owner.get_IsGenericType()) owner = owner.GetGenericTypeDefinition();
+        String name = owner.get_FullName();
+        return name != null && GetType(name, false, false) == owner;
+    }
+
     @Override
     public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
         if (other == null) throw new ArgumentNullException("other");
         if (this == other) return true;
-        if (!(other instanceof Type type) || this.get_HasElementType() || type.get_HasElementType()) return false;
+        if (!(other instanceof Type type)) return false;
+        if (this.get_HasElementType() || type.get_HasElementType()) {
+            return this.get_HasElementType() && type.get_HasElementType()
+                    && this.selectedCoreLibMetadataModule() && type.selectedCoreLibMetadataModule();
+        }
         return this.definition == type.definition && this.parameterIndex == type.parameterIndex;
     }
 
