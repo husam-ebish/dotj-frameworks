@@ -940,7 +940,36 @@ public abstract class Type extends MemberInfo {
         return arguments;
     }
 
+    private Type makeNullableType(Type[] typeArguments) {
+        if (typeArguments == null) throw new ArgumentNullException("typeArguments");
+        if (typeArguments.length != 1) {
+            throw new ArgumentException("The number of generic arguments provided doesn't equal the arity of the generic type definition.", "typeArguments");
+        }
+        Type argument = typeArguments[0];
+        if (argument == null) throw new ArgumentNullException();
+        String display = argument.get_IsGenericParameter() ? argument.get_Name() : argument.get_FullName();
+        if (argument.definition == java.util.Optional.class && argument.parameterIndex < 0) {
+            String inner = argument.arguments.isEmpty() ? "T" : argument.arguments.get(0).get_FullName();
+            display = "System.Nullable`1[" + inner + "]";
+        }
+        if (argument.definition == Void.class || argument.get_IsPointer() || argument.get_IsByRef()) {
+            throw new ArgumentException("The type '" + display + "' may not be used as a type argument.");
+        }
+        if (!argument.get_IsValueType()
+                || argument.definition == java.util.Optional.class && argument.parameterIndex < 0) {
+            throw new ArgumentException("GenericArguments[0], '" + display
+                    + "', on 'System.Nullable`1[T]' violates the constraint of type 'T'.");
+        }
+        if (argument == genericParameters.get(java.util.Optional.class)[0]) return fromJavaClass(java.util.Optional.class);
+        List<Type> key = List.of(argument);
+        return canonical.get(java.util.Optional.class).computeIfAbsent(key,
+                arguments -> new ResolvedType(java.util.Optional.class, arguments));
+    }
+
     public Type MakeGenericType(Type[] typeArguments) {
+        if (this.definition == java.util.Optional.class && this.parameterIndex < 0 && this.arguments.isEmpty()) {
+            return this.makeNullableType(typeArguments);
+        }
         if (typeArguments == null) {
             throw new ArgumentNullException("typeArguments");
         }
@@ -955,9 +984,6 @@ public abstract class Type extends MemberInfo {
             if (typeArguments[index] == null) {
                 throw new NullPointerException("typeArguments[" + index + "]");
             }
-        }
-        if (this.definition == java.util.Optional.class && typeArguments[0] != fromJavaClass(Int32.class)) {
-            throw new NotSupportedException("Only the selected Nullable<Int32> metadata construction is available.");
         }
         List<Type> key = List.copyOf(Arrays.asList(typeArguments.clone()));
         return canonical.get(this.definition).computeIfAbsent(key, arguments -> new ResolvedType(this.definition, arguments));
