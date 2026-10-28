@@ -32,6 +32,7 @@ SOURCES += [PRODUCT / "src/main/java/System/Runtime/Serialization" / (name + ".j
             ("FormatterConverter", "IFormatterConverter", "ISerializable", "SerializationEntry", "SerializationException", "SerializationInfo", "SerializationInfoEnumerator", "StreamingContext", "StreamingContextStates")]
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/TypeFilter.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberFilter.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBody.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodInfo.java")
@@ -191,6 +192,7 @@ EXPECTED_CLASSES = [
     "System/Reflection/GenericParameterAttributes.class",
     "System/Reflection/MemberInfo.class",
     "System/Reflection/TypeFilter.class",
+    "System/Reflection/MemberFilter.class",
     "System/Reflection/MemberTypes.class",
     "System/Reflection/MethodBase.class",
     "System/Reflection/MethodBody.class",

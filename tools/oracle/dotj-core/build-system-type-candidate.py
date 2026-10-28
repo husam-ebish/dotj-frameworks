@@ -18,6 +18,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException", "FileLoadException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/TypeFilter.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberFilter.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBase.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBody.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodInfo.java")
@@ -2902,6 +2903,7 @@ def main():
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",
+        "public System.Reflection.MemberInfo[] FindMembers(System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, java.lang.Object);",
         "public System.Type[] FindInterfaces(System.Reflection.TypeFilter, java.lang.Object);",
         "public System.Type[] GetInterfaces();",
         "public System.Type GetInterface(java.lang.String);",
