@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "key": "null-array",
+      "arguments": null
+    },
+    {
+      "key": "empty",
+      "arguments": []
+    },
+    {
+      "key": "two",
+      "arguments": [
+        "Int32",
+        "Int32"
+      ]
+    },
+    {
+      "key": "three",
+      "arguments": [
+        "Int32",
+        "Int32",
+        "Int32"
+      ]
+    },
+    {
+      "key": "null-element",
+      "arguments": [
+        null
+      ]
+    },
+    {
+      "key": "Boolean",
+      "arguments": [
+        "Boolean"
+      ]
+    },
+    {
+      "key": "Byte",
+      "arguments": [
+        "Byte"
+      ]
+    },
+    {
+      "key": "Char",
+      "arguments": [
+        "Char"
+      ]
+    },
+    {
+      "key": "DateTime",
+      "arguments": [
+        "DateTime"
+      ]
+    },
+    {
+      "key": "Decimal",
+      "arguments": [
+        "Decimal"
+      ]
+    },
+    {
+      "key": "Double",
+      "arguments": [
+        "Double"
+      ]
+    },
+    {
+      "key": "Int16",
+      "arguments": [
+        "Int16"
+      ]
+    },
+    {
+      "key": "Int32",
+      "arguments": [
+        "Int32"
+      ]
+    },
+    {
+      "key": "Int64",
+      "arguments": [
+        "Int64"
+      ]
+    },
+    {
+      "key": "SByte",
+      "arguments": [
+        "SByte"
+      ]
+    },
+    {
+      "key": "Single",
+      "arguments": [
+        "Single"
+      ]
+    },
+    {
+      "key": "UInt16",
+      "arguments": [
+        "UInt16"
+      ]
+    },
+    {
+      "key": "UInt32",
+      "arguments": [
+        "UInt32"
+      ]
+    },
+    {
+      "key": "UInt64",
+      "arguments": [
+        "UInt64"
+      ]
+    },
+    {
+      "key": "TimeSpan",
+      "arguments": [
+        "TimeSpan"
+      ]
+    },
+    {
+      "key": "DayOfWeek",
+      "arguments": [
+        "DayOfWeek"
+      ]
+    },
+    {
+      "key": "DateTimeKind",
+      "arguments": [
+        "DateTimeKind"
+      ]
+    },
+    {
+      "key": "MidpointRounding",
+      "arguments": [
+        "MidpointRounding"
+      ]
+    },
+    {
+      "key": "System.Runtime.Serialization.StreamingContext",
+      "arguments": [
+        "System.Runtime.Serialization.StreamingContext"
+      ]
+    },
+    {
+      "key": "System.Runtime.Serialization.SerializationEntry",
+      "arguments": [
+        "System.Runtime.Serialization.SerializationEntry"
+      ]
+    },
+    {
+      "key": "System.Collections.DictionaryEntry",
+      "arguments": [
+        "System.Collections.DictionaryEntry"
+      ]
+    },
+    {
+      "key": "P",
+      "arguments": [
+        "P"
+      ]
+    },
+    {
+      "key": "String",
+      "arguments": [
+        "String"
+      ]
+    },
+    {
+      "key": "Object",
+      "arguments": [
+        "Object"
+      ]
+    },
+    {
+      "key": "ValueType",
+      "arguments": [
+        "ValueType"
+      ]
+    },
+    {
+      "key": "Void",
+      "arguments": [
+        "Void"
+      ]
+    },
+    {
+      "key": "C",
+      "arguments": [
+        "C"
+      ]
+    },
+    {
+      "key": "D",
+      "arguments": [
+        "D"
+      ]
+    },
+    {
+      "key": "Int32[]",
+      "arguments": [
+        "Int32[]"
+      ]
+    },
+    {
+      "key": "Int32&",
+      "arguments": [
+        "Int32&"
+      ]
+    },
+    {
+      "key": "Int32*",
+      "arguments": [
+        "Int32*"
+      ]
+    },
+    {
+      "key": "ListP",
+      "arguments": [
+        "ListP"
+      ]
+    },
+    {
+      "key": "two-nulls",
+      "arguments": [
+        null,
+        null
+      ]
+    },
+    {
+      "key": "two-second-null",
+      "arguments": [
+        "Int32",
+        null
+      ]
+    },
+    {
+      "key": "three-nulls",
+      "arguments": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "key": "two-pointer-first",
+      "arguments": [
+        "Int32*",
+        "Int32"
+      ]
+    },
+    {
+      "key": "two-pointer-second",
+      "arguments": [
+        "Int32",
+        "Int32*"
+      ]
+    },
+    {
+      "key": "two-void",
+      "arguments": [
+        "Void",
+        "Int32"
+      ]
+    }
+  ],
+  "fields": [
+    "outcome",
+    "exception",
+    "messageUnits",
+    "hResult",
+    "paramUnits",
+    "fullName",
+    "assemblyQualifiedName",
+    "name",
+    "namespace",
+    "isValueType",
+    "containsGenericParameters",
+    "isGenericTypeDefinition",
+    "genericDefinition",
+    "argumentName",
+    "canonicalRepeat",
+    "defensiveCopy",
+    "inputUnchanged",
+    "fullRoundtrip"
+  ],
+  "qualification": "SELECTED_NULLABLE_VALUE_TYPE_CONSTRUCTION_NATIVE_NULL_ARITY_CONSTRAINT_ERRORS_CANONICALIZATION_AND_INPUT_COPIES_ONLY; NULLABLE_VALUE_OPERATIONS_AND_ACCEPTANCE_OPEN"
+}
