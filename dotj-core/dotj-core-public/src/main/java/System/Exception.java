@@ -122,17 +122,18 @@ public class Exception extends RuntimeException implements ISerializable {
         if (info == null) {
             throw new ArgumentNullException("info");
         }
+        if (this.source == null) this.source = this.get_Source();
         info.AddValue("ClassName", this.GetType().get_FullName(), Type.GetType("System.String"));
         info.AddValue("Message", this.selectedSerializationMessage(), Type.GetType("System.String"));
         info.AddValue("Data", (Object) this.data, Type.GetType("System.Collections.IDictionary"));
         info.AddValue("InnerException", this.get_InnerException(), Type.GetType("System.Exception"));
-        info.AddValue("HelpURL", this.get_HelpLink(), Type.GetType("System.String"));
-        info.AddValue("StackTraceString", this.get_StackTrace(), Type.GetType("System.String"));
+        info.AddValue("HelpURL", this.helpLink, Type.GetType("System.String"));
+        info.AddValue("StackTraceString", org.dotj.internal.throwing.ThrowSite.stackText(this), Type.GetType("System.String"));
         info.AddValue("RemoteStackTraceString", (Object) null, Type.GetType("System.String"));
         info.AddValue("RemoteStackIndex", 0);
         info.AddValue("ExceptionMethod", (Object) null, Type.GetType("System.String"));
         info.AddValue("HResult", this.get_HResult());
-        info.AddValue("Source", this.get_Source(), Type.GetType("System.String"));
+        info.AddValue("Source", this.source, Type.GetType("System.String"));
         info.AddValue("WatsonBuckets", (Object) null, Type.GetType("System.Byte[]"));
     }
 }
