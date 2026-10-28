@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "f277f1e27ebb50f7ae7a91487e3bf0180859cb07cd56dab0b89f8c16b8f8d40f",
+  "javaCandidateEvidenceSha256": "eff4fda9fad6ae8622e64ee1ccac0de95d38fd1248ec7833677098cde79ff6bf",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 27,
+  "nameLevelMissingMethodCount": 26,
   "nameLevelMissingPublicGetterCount": 14,
   "types": [
     {
@@ -12411,6 +12411,7 @@
         "public System.ArgumentException(java.lang.String, System.Exception);",
         "public System.ArgumentException(java.lang.String, java.lang.String);",
         "public System.ArgumentException(java.lang.String, java.lang.String, System.Exception);",
+        "public void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext);",
         "public java.lang.String get_ParamName();",
         "public java.lang.String get_Message();"
       ],
@@ -12421,14 +12422,13 @@
           "ThrowIfNullOrWhiteSpace": 1
         },
         "javaCandidateDeclaredMethodOverloads": {
+          "GetObjectData": 1,
           "ThrowIfNullOrEmpty": 2,
           "ThrowIfNullOrWhiteSpace": 2,
           "get_Message": 1,
           "get_ParamName": 1
         },
-        "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "GetObjectData"
-        ],
+        "upstreamMethodNamesAbsentFromJavaDeclarations": [],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }

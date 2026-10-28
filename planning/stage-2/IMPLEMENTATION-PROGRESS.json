@@ -2412,7 +2412,8 @@
     "Batch-2395",
     "Batch-2396",
     "Batch-2397",
-    "Batch-2398"
+    "Batch-2398",
+    "Batch-2399"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2605,7 +2606,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2398",
+      "lastUpdatedBatch": "Batch-2399",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12216,19 +12217,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2399",
+    "id": "Batch-2400",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Implement and qualify ArgumentException ParamName serialization and raw-message cache timing, preserving message formatting and base nullable entry declarations.",
+    "outcome": "Qualify inherited ArgumentNullException serialization across nullable parameter/message constructors, message observation and context flags without inventing a new native override.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2398,
+    "completedBatches": 2399,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12237,8 +12238,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 397,
-    "remainingBatches": 102,
+    "completedBatches": 398,
+    "remainingBatches": 101,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },

@@ -1,0 +1,7 @@
+# ArgumentException serialization metadata
+
+Batch 2399: 1128 base/Argument payloads across nullable message/parameter inputs, two contexts and pre/post Message observation plus four null-info controls compare 44788 exact entry-name/type/value/count and error groups. Serialized Message excludes appended parameter text and reflects native default-message cache timing. Native input nulls are preserved explicitly.
+
+1132 pinned native calls and 1132 Java facade calls pass 44788 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. ArgumentException projects its raw/default-cache message for serialization and appends a typed ParamName entry after the base payload. Public Message formatting remains unchanged. Fresh packaged/API and argument/serialization regressions are required; the full 414-check canonical gate remains required before merge.
+
+Selected unthrown public-constructor payloads only; other derived raw-message policies, formatter restoration, thrown/remote stacks, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify inherited ArgumentNullException serialization across nullable parameter/message constructors, message observation and context flags without inventing a new native override.

@@ -2,6 +2,9 @@
 
 package System;
 
+import System.Runtime.Serialization.SerializationInfo;
+import System.Runtime.Serialization.StreamingContext;
+
 /** Selected System.ArgumentException parameter identity candidate. */
 public class ArgumentException extends SystemException {
     private static final String DEFAULT_MESSAGE = "Value does not fall within the expected range.";
@@ -61,6 +64,17 @@ public class ArgumentException extends SystemException {
         super(message, innerException);
         this.paramName = paramName;
         this.set_HResult(-2147024809);
+    }
+
+    @Override
+    protected String selectedSerializationMessage() {
+        return this.resolvedMessage == null ? super.selectedSerializationMessage() : this.resolvedMessage;
+    }
+
+    @Override
+    public void GetObjectData(SerializationInfo info, StreamingContext context) {
+        super.GetObjectData(info, context);
+        info.AddValue("ParamName", this.paramName, Type.GetType("System.String"));
     }
 
     public String get_ParamName() {
