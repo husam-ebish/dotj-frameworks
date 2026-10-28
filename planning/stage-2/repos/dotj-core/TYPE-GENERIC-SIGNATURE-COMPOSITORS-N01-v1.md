@@ -1,0 +1,7 @@
+# Constructed generic signature element composition
+
+Batch 2428: 264 constructors and 25536 operations compare 129000 exact groups across twelve generic signature operands and twenty-two rank/composition chains. Baseline incorrectly returned true for visibility of composites with a restricted generic signature operand; the candidate delegates visibility to the element, preserving native NotSupportedException. Rank errors, metadata and operand identity are compared.
+
+25800 pinned native calls and 25800 Java facade calls pass 129000 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding candidate failed the native generic-signature element visibility boundary. The candidate corrects delegation; fresh packaging, API and retained reflection checks are required; the full 443-check canonical gate remains required before merge.
+
+Selected constructed generic signature element compositions only; method lookup contexts, non-runtime builders and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify construction-input mutation, returned generic-argument arrays and nested signature argument identity over static and runtime generic signature construction.
