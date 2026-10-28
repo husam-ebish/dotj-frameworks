@@ -83,6 +83,8 @@ public abstract class Type extends MemberInfo {
             return result;
         }
     };
+    private static final MemberInfo[] EMPTY_DEFAULT_MEMBERS = new MemberInfo[0];
+    private static final ConcurrentHashMap<List<Object>, MemberInfo> defaultPropertyMembers = new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<List<Object>, MethodInfo> interfaceMethodMembers = new ConcurrentHashMap<>();
 
     private static final ConcurrentHashMap<List<Object>, Type> arrayShapes = new ConcurrentHashMap<>();
@@ -2104,16 +2106,21 @@ public abstract class Type extends MemberInfo {
         return null;
     }
 
+    private static MemberInfo selectedDefaultProperty(String name, Type owner) {
+        return defaultPropertyMembers.computeIfAbsent(List.of(owner, name),
+                ignored -> new DefaultPropertyMember(name, owner));
+    }
+
     public MemberInfo[] GetDefaultMembers() {
         if (this.definition == String.class && !this.get_HasElementType()) {
-            return new MemberInfo[] {new DefaultPropertyMember("Chars", this)};
+            return new MemberInfo[] {selectedDefaultProperty("Chars", this)};
         }
         if (this.definition == java.util.List.class && !this.get_HasElementType()) {
-            return new MemberInfo[] {new DefaultPropertyMember("Item", this)};
+            return new MemberInfo[] {selectedDefaultProperty("Item", this)};
         }
         if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class || this.definition == ICloneable.class
                 || this.definition == MidpointRounding.class || this.definition == DigitShapes.class || this.definition == NormalizationForm.class || this.definition == TypeCode.class) {
-            return new MemberInfo[0];
+            return EMPTY_DEFAULT_MEMBERS;
         }
         throw new UnsupportedOperationException("Default members are not mapped for this candidate type");
     }
