@@ -3,6 +3,9 @@
 package System.IO;
 
 import System.Exception;
+import System.Type;
+import System.Runtime.Serialization.SerializationInfo;
+import System.Runtime.Serialization.StreamingContext;
 
 /** Selected missing-assembly exception candidate. */
 public class FileLoadException extends IOException {
@@ -62,6 +65,16 @@ public class FileLoadException extends IOException {
         String fusion = this.get_FusionLog();
         if (fusion != null) result += "\r\n\r\n" + fusion;
         return result;
+    }
+
+    @Override
+    protected String selectedSerializationMessage() { return this.selectedMessage; }
+
+    @Override
+    public void GetObjectData(SerializationInfo info, StreamingContext context) {
+        super.GetObjectData(info, context);
+        info.AddValue("FileLoad_FileName", this.fileName, Type.GetType("System.String"));
+        info.AddValue("FileLoad_FusionLog", this.get_FusionLog(), Type.GetType("System.String"));
     }
 
     public String get_FileName() {
