@@ -1639,6 +1639,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean IsAssignableFrom(Type candidate) {
+        if (this.definition == java.util.Optional.class && this.arguments.size() == 1
+                && candidate == this.arguments.get(0)) return true;
         if (candidate == null) {
             return false;
         }
