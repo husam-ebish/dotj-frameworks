@@ -221,6 +221,7 @@ EXPECTED_CLASSES = [
     "System/Type$GenericParameterType.class",
     "System/Type$PointerType.class",
     "System/Type$ResolvedType.class",
+    "System/Type$SignatureConstructedType.class",
     "System/Type$SignatureElementType.class",
     "System/Type$SignatureMethodParameter.class",
     "System/Type$SignatureType.class",
