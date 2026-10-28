@@ -18,6 +18,14 @@ public abstract class MemberInfo {
 
     public abstract Type get_ReflectedType();
 
+    public boolean Equals(Object other) {
+        return this == other;
+    }
+
+    public int GetHashCode() {
+        return java.lang.System.identityHashCode(this);
+    }
+
     public boolean get_IsCollectible() {
         return false;
     }
