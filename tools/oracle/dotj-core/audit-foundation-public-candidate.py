@@ -125,11 +125,13 @@ def main():
                                     "public abstract System.Reflection.MemberTypes get_MemberType();",
                                     "public abstract System.Type get_DeclaringType();",
                                     "public abstract System.Type get_ReflectedType();",
+                                    "public boolean Equals(java.lang.Object);",
+                                    "public int GetHashCode();",
                                     "public boolean get_IsCollectible();",
                                     "public boolean HasSameMetadataDefinitionAs(System.Reflection.MemberInfo);"]
             assert upstream["nameGetterIsAbstract"]
             assert upstream["declaringGetterIsAbstract"] and upstream["reflectedGetterIsAbstract"]
-            disposition = "PARTIAL_MEMBERINFO_SURFACE; four selected abstract properties, collectibility and metadata identity"
+            disposition = "PARTIAL_MEMBERINFO_SURFACE; four selected abstract properties, collectibility, base reference/hash declarations and metadata identity"
         elif name == "System.Reflection.MemberTypes":
             assert header == "public final class System.Reflection.MemberTypes implements System.IFormattable,System.IComparable,System.IConvertible,System.ISpanFormattable {"
             assert "public int get_Value();" in declarations

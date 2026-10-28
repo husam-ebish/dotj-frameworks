@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "9e6d5d5e23d2a59df7ba762b0cc247988208ad47fb1a41abd62ac0a24c78301e",
+  "javaCandidateEvidenceSha256": "49ba4a1fd642ac755478fdd317ec28f80a20222ba77fabbdaa4b2473c7e53499",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 25,
+  "nameLevelMissingMethodCount": 23,
   "nameLevelMissingPublicGetterCount": 14,
   "types": [
     {
@@ -11477,6 +11477,8 @@
         "public abstract System.Reflection.MemberTypes get_MemberType();",
         "public abstract System.Type get_DeclaringType();",
         "public abstract System.Type get_ReflectedType();",
+        "public boolean Equals(java.lang.Object);",
+        "public int GetHashCode();",
         "public boolean get_IsCollectible();",
         "public boolean HasSameMetadataDefinitionAs(System.Reflection.MemberInfo);"
       ],
@@ -11490,6 +11492,8 @@
           "IsDefined": 1
         },
         "javaCandidateDeclaredMethodOverloads": {
+          "Equals": 1,
+          "GetHashCode": 1,
           "HasSameMetadataDefinitionAs": 1,
           "get_DeclaringType": 1,
           "get_IsCollectible": 1,
@@ -11498,10 +11502,8 @@
           "get_ReflectedType": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "Equals",
           "GetCustomAttributes",
           "GetCustomAttributesData",
-          "GetHashCode",
           "IsDefined"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [

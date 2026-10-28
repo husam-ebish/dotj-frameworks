@@ -2430,7 +2430,8 @@
     "Batch-2413",
     "Batch-2414",
     "Batch-2415",
-    "Batch-2416"
+    "Batch-2416",
+    "Batch-2417"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2623,7 +2624,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2416",
+      "lastUpdatedBatch": "Batch-2417",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12234,19 +12235,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2417",
+    "id": "Batch-2418",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Implement and qualify MemberInfo base Equals/Object identity and GetHashCode declarations with metadata-getter side-effect controls; Type IsAssignableTo already exists.",
+    "outcome": "Canonicalize and qualify concrete MethodInfo equality/hash and reference identity for the five currently mapped interfaces across repeated lookup routes; other reflection scopes remain open.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2416,
+    "completedBatches": 2417,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12255,8 +12256,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 415,
-    "remainingBatches": 84,
+    "completedBatches": 416,
+    "remainingBatches": 83,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },

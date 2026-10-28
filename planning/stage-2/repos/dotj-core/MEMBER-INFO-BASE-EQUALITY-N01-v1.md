@@ -1,0 +1,7 @@
+# MemberInfo base identity and hash declarations
+
+Batch 2417: 85 native/Java API calls compare 87 equality, stable hash, base object-identity hash and getter-control groups across two custom MemberInfo spies, repeated Type tokens, nullable/array Type tokens, unrelated objects/String and null. Hash values are compared through native relations rather than nonportable numeric values. A positive metadata getter control proves the spy is active.
+
+85 pinned native calls and 85 Java facade calls pass 87 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR lacks the declared MemberInfo Equals(Object)/GetHashCode methods. The candidate adds native base reference/identity behavior without invoking virtual metadata getters. Fresh packaged/API/retained checks are required; the full 432-check canonical gate remains required before merge.
+
+Selected MemberInfo base identity and Type dispatch only; numeric hash parity, concrete method descriptor equality overrides, custom attributes, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Canonicalize and qualify concrete MethodInfo equality/hash and reference identity for the five currently mapped interfaces across repeated lookup routes; other reflection scopes remain open.
