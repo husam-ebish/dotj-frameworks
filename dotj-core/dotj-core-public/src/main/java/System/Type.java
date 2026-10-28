@@ -281,7 +281,8 @@ public abstract class Type extends MemberInfo {
         int arity = switch (selectedDefinition) {
             case "System.Nullable`1", "system.nullable`1",
                     "System.Collections.Generic.List`1", "system.collections.generic.list`1" -> 1;
-            case "System.Collections.Generic.Dictionary`2", "system.collections.generic.dictionary`2" -> 2;
+            case "System.ValueTuple`2", "system.valuetuple`2",
+                    "System.Collections.Generic.Dictionary`2", "system.collections.generic.dictionary`2" -> 2;
             case "System.Collections.Generic.Dictionary`2+Entry",
                     "system.collections.generic.dictionary`2+entry" -> 2;
             default -> 0;
@@ -334,7 +335,8 @@ public abstract class Type extends MemberInfo {
             }
             arguments[index] = argument;
         }
-        String canonicalDefinitionName = nullable ? "System.Nullable`1" : arity == 1
+        String canonicalDefinitionName = selectedDefinition.equalsIgnoreCase("System.ValueTuple`2")
+                ? "System.ValueTuple`2" : nullable ? "System.Nullable`1" : arity == 1
                 ? "System.Collections.Generic.List`1"
                 : selectedDefinition.endsWith("+Entry") || selectedDefinition.endsWith("+entry")
                         ? "System.Collections.Generic.Dictionary`2+Entry"
@@ -997,16 +999,23 @@ public abstract class Type extends MemberInfo {
         }
         if (this.parameterIndex >= 0 || !this.arguments.isEmpty()
                 || this.definition.getTypeParameters().length == 0) {
-            throw new IllegalStateException("Not a generic type definition");
+            throw new InvalidOperationException(this.ToString()
+                    + " is not a GenericTypeDefinition. MakeGenericType may only be called on a type for which Type.IsGenericTypeDefinition is true.");
         }
         if (typeArguments.length != this.definition.getTypeParameters().length) {
-            throw new IllegalArgumentException("Generic argument count does not match the definition");
+            throw new ArgumentException("The number of generic arguments provided doesn't equal the arity of the generic type definition.", "typeArguments");
         }
         for (int index = 0; index < typeArguments.length; index++) {
             if (typeArguments[index] == null) {
-                throw new NullPointerException("typeArguments[" + index + "]");
+                throw new ArgumentNullException();
             }
         }
+        for (Type argument : typeArguments) {
+            if (argument.definition == Void.class || argument.get_IsPointer() || argument.get_IsByRef()) {
+                throw new ArgumentException("The type '" + argument.ToString() + "' may not be used as a type argument.");
+            }
+        }
+        if (Arrays.equals(typeArguments, genericParameters.get(this.definition))) return fromJavaClass(this.definition);
         List<Type> key = List.copyOf(Arrays.asList(typeArguments.clone()));
         return canonical.get(this.definition).computeIfAbsent(key, arguments -> new ResolvedType(this.definition, arguments));
     }
