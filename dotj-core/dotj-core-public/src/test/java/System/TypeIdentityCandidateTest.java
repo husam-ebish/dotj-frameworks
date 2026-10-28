@@ -1817,12 +1817,12 @@ public final class TypeIdentityCandidateTest {
                         index == 2 ? "" : null)
                     || !interfaceParameterTexts[index][interfaceParameterTexts[index].length - 1]
                         .equals(returnParameter.ToString())
-                    || returnParameter == namedMethod.get_ReturnParameter()) {
+                    || returnParameter != namedMethod.get_ReturnParameter()) {
                 throw new AssertionError("Selected return parameter metadata changed");
             }
             ParameterInfo[] parameters = namedMethod.GetParameters();
             if (parameters.length != interfaceMethodParameters[index].length
-                    || parameters == namedMethod.GetParameters()) {
+                    || (parameters == namedMethod.GetParameters()) != (parameters.length == 0)) {
                 throw new AssertionError("Selected method parameter inventory changed");
             }
             for (int parameterIndex = 0; parameterIndex < parameters.length; parameterIndex++) {
