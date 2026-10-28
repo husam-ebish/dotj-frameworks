@@ -1,0 +1,7 @@
+# Nullable Int32 type name round trips
+
+Batch 2414: 3024 scenarios compare 48384 exact lookup/error/type-identity metadata groups across 756 names: six definition/Int32 argument spellings, three case profiles, seven modifier shapes, two assembly forms and three leading whitespace profiles with both throw/ignore-case flags. Successful full-name and assembly-qualified lookups return the canonical Type token.
+
+3024 pinned native calls and 3024 Java facade calls pass 48384 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR fails nullable full-name and assembly argument round trips; the candidate extends only the selected nullable generic name resolver and case aliases while retaining existing collection grammar checks. Fresh packaged/API/retained checks are required; the full 429-check canonical gate remains required before merge.
+
+Selected Nullable<Int32>/definition names and modifiers only; full TypeLoad messages, other nullable argument construction/constraints, arbitrary type-name grammar, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify selected Nullable<T> value-type construction and native constraint/null/arity errors across primitive, Decimal, DateTime and invalid argument profiles.

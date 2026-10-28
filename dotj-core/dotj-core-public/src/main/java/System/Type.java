@@ -257,12 +257,15 @@ public abstract class Type extends MemberInfo {
         }
         String selectedDefinition = ignoreCase ? definitionName.toLowerCase(Locale.ROOT) : definitionName;
         int arity = switch (selectedDefinition) {
-            case "System.Collections.Generic.List`1", "system.collections.generic.list`1" -> 1;
+            case "System.Nullable`1", "system.nullable`1",
+                    "System.Collections.Generic.List`1", "system.collections.generic.list`1" -> 1;
             case "System.Collections.Generic.Dictionary`2", "system.collections.generic.dictionary`2" -> 2;
             case "System.Collections.Generic.Dictionary`2+Entry",
                     "system.collections.generic.dictionary`2+entry" -> 2;
             default -> 0;
         };
+        boolean nullable = selectedDefinition.equalsIgnoreCase("System.Nullable`1");
+        if (nullable && !ignoreCase && !definitionName.equals("System.Nullable`1")) return null;
         if (arity == 0) {
             return null;
         }
@@ -301,15 +304,15 @@ public abstract class Type extends MemberInfo {
             String argumentName = argumentNames.get(index);
             Type argument = GetType(argumentName, false, ignoreCase);
             String canonicalName = argument == null ? null : argument.get_AssemblyQualifiedName();
-            if (canonicalName == null || ignoreCase
+            if (canonicalName == null || !nullable && (ignoreCase
                     && (!argumentName.chars().allMatch(character -> character < 128)
                             || !argumentName.equalsIgnoreCase(canonicalName))
-                    || !ignoreCase && !argumentName.equals(canonicalName)) {
+                    || !ignoreCase && !argumentName.equals(canonicalName))) {
                 return null;
             }
             arguments[index] = argument;
         }
-        String canonicalDefinitionName = arity == 1
+        String canonicalDefinitionName = nullable ? "System.Nullable`1" : arity == 1
                 ? "System.Collections.Generic.List`1"
                 : selectedDefinition.endsWith("+Entry") || selectedDefinition.endsWith("+entry")
                         ? "System.Collections.Generic.Dictionary`2+Entry"
@@ -568,6 +571,8 @@ public abstract class Type extends MemberInfo {
             case "System.Reflection.ParameterAttributes" -> fromJavaClass(ParameterAttributes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Nullable`1" -> fromJavaClass(java.util.Optional.class);
+            case "system.nullable`1" -> ignoreCase ? fromJavaClass(java.util.Optional.class) : null;
+            case "system.nullable`1[system.int32]" -> ignoreCase ? fromJavaClass(java.util.Optional.class).MakeGenericType(new Type[] {fromJavaClass(Int32.class)}) : null;
             case "System.Nullable`1[System.Int32]" -> fromJavaClass(java.util.Optional.class).MakeGenericType(new Type[] {fromJavaClass(Int32.class)});
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
             case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
