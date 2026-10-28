@@ -200,6 +200,17 @@ public abstract class Type extends MemberInfo {
         return new SignatureMethodParameter(position);
     }
 
+    public static Type MakeGenericSignatureType(Type genericTypeDefinition, Type[] typeArguments) {
+        if (genericTypeDefinition == null) throw new ArgumentNullException("genericTypeDefinition");
+        if (typeArguments == null) throw new ArgumentNullException("typeArguments");
+        if (!genericTypeDefinition.get_IsGenericTypeDefinition()) {
+            throw new ArgumentException(genericTypeDefinition.ToString()
+                    + " is not a GenericTypeDefinition. MakeGenericType may only be called on a type for which Type.IsGenericTypeDefinition is true.", "genericTypeDefinition");
+        }
+        return new SignatureConstructedType(genericTypeDefinition, typeArguments);
+    }
+
+
 
     public static Type GetType(String typeName) {
         return GetType(typeName, false, false);
@@ -1001,9 +1012,6 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type MakeGenericType(Type[] typeArguments) {
-        if (this.definition == java.util.Optional.class && this.parameterIndex < 0 && this.arguments.isEmpty()) {
-            return this.makeNullableType(typeArguments);
-        }
         if (typeArguments == null) {
             throw new ArgumentNullException("typeArguments");
         }
@@ -1020,6 +1028,10 @@ public abstract class Type extends MemberInfo {
                 throw new ArgumentNullException();
             }
         }
+        boolean signature = false;
+        for (Type argument : typeArguments) signature |= argument.get_IsSignatureType();
+        if (signature) return new SignatureConstructedType(this, typeArguments);
+        if (this.definition == java.util.Optional.class) return this.makeNullableType(typeArguments);
         for (Type argument : typeArguments) {
             if (argument.definition == Void.class || argument.get_IsPointer() || argument.get_IsByRef()) {
                 throw new ArgumentException("The type '" + argument.ToString() + "' may not be used as a type argument.");
@@ -3040,6 +3052,41 @@ public abstract class Type extends MemberInfo {
         @Override public boolean get_IsGenericParameter() { return true; }
         @Override public boolean get_IsGenericMethodParameter() { return true; }
         @Override public String ToString() { return this.get_Name(); }
+    }
+
+    private static final class SignatureConstructedType extends SignatureType {
+        private final Type genericDefinition;
+        private final Type[] genericArguments;
+        private SignatureConstructedType(Type genericDefinition, Type[] arguments) {
+            this.genericDefinition = genericDefinition;
+            this.genericArguments = arguments.clone();
+            for (Type argument : this.genericArguments) {
+                if (argument == null) throw new ArgumentNullException("typeArguments");
+            }
+        }
+        @Override public String get_Name() { return this.genericDefinition.get_Name(); }
+        @Override public String get_Namespace() { return this.genericDefinition.get_Namespace(); }
+        @Override public boolean get_IsGenericType() { return true; }
+        @Override public boolean get_IsConstructedGenericType() { return true; }
+        @Override public boolean get_IsByRefLike() { return this.genericDefinition.get_IsByRefLike(); }
+        @Override public boolean get_IsEnum() { return this.genericDefinition.get_IsEnum(); }
+        @Override public boolean get_IsValueType() { return this.genericDefinition.get_IsValueType(); }
+        @Override public boolean get_IsVisible() { throw unsupported(); }
+        @Override public boolean get_ContainsGenericParameters() {
+            for (Type argument : this.genericArguments) if (argument.get_ContainsGenericParameters()) return true;
+            return false;
+        }
+        @Override public Type GetGenericTypeDefinition() { return this.genericDefinition; }
+        @Override public Type[] GetGenericArguments() { return this.genericArguments.clone(); }
+        @Override public Type[] get_GenericTypeArguments() { return this.genericArguments.clone(); }
+        @Override public String ToString() {
+            StringBuilder text = new StringBuilder(this.genericDefinition.ToString()).append('[');
+            for (int index = 0; index < this.genericArguments.length; index++) {
+                if (index > 0) text.append(',');
+                text.append(this.genericArguments[index].ToString());
+            }
+            return text.append(']').toString();
+        }
     }
 
     private static final class SignatureElementType extends SignatureType {
