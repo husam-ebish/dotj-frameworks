@@ -5,10 +5,10 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "6e7c9aa5321b1b3f0a9116d4de8f427015fb115b05c846818aec6cc965a16d79",
+  "javaCandidateEvidenceSha256": "339bd963fbfd032c108a899cdbf65dc0e4e7358a2e4c12507144f1dcb8591762",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 30,
-  "nameLevelMissingPublicGetterCount": 16,
+  "nameLevelMissingMethodCount": 29,
+  "nameLevelMissingPublicGetterCount": 14,
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -13162,6 +13162,9 @@
         "public System.IO.FileLoadException(java.lang.String, System.Exception);",
         "public System.IO.FileLoadException(java.lang.String, java.lang.String);",
         "public System.IO.FileLoadException(java.lang.String, java.lang.String, System.Exception);",
+        "public java.lang.String get_Message();",
+        "public java.lang.String get_FusionLog();",
+        "public java.lang.String ToString();",
         "public java.lang.String get_FileName();"
       ],
       "nameLevelComparison": {
@@ -13170,16 +13173,15 @@
           "ToString": 1
         },
         "javaCandidateDeclaredMethodOverloads": {
-          "get_FileName": 1
+          "ToString": 1,
+          "get_FileName": 1,
+          "get_FusionLog": 1,
+          "get_Message": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "GetObjectData",
-          "ToString"
+          "GetObjectData"
         ],
-        "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
-          "FusionLog",
-          "Message"
-        ],
+        "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }
     },
