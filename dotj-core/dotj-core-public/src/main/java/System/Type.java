@@ -3098,6 +3098,7 @@ public abstract class Type extends MemberInfo {
             this.element = element; this.kind = kind; this.rank = rank; this.vector = vector;
         }
         private String suffix() { return this.kind == 0 ? arraySuffix(this.rank, this.vector) : this.kind == 1 ? "*" : "&"; }
+        @Override public boolean get_IsVisible() { return this.element.get_IsVisible(); }
         @Override public String get_Name() { return this.element.get_Name() + this.suffix(); }
         @Override public String get_Namespace() { return this.element.get_Namespace(); }
         @Override public String ToString() { return this.element.ToString() + this.suffix(); }
