@@ -1770,6 +1770,9 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean IsInstanceOfType(Object value) {
+        if (this.definition == java.util.Optional.class) {
+            return this.arguments.size() == 1 && this.arguments.get(0).IsInstanceOfType(value);
+        }
         if (value == null || this.get_IsByRef() || this.get_IsPointer()) {
             return false;
         }
