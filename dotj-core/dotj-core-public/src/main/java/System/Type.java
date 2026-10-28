@@ -182,6 +182,11 @@ public abstract class Type extends MemberInfo {
         return types;
     }
 
+    @Override
+    public boolean get_IsCollectible() {
+        return false;
+    }
+
     public int GetHashCode() {
         return this.hashCode();
     }
@@ -2559,6 +2564,8 @@ public abstract class Type extends MemberInfo {
     }
 
     private static final class DefaultMethodMember extends MethodInfo {
+        @Override
+        public boolean get_IsCollectible() { return false; }
         private static final ParameterInfo[] EMPTY_PARAMETERS = new ParameterInfo[0];
         private volatile ParameterInfo[] parameters;
         private volatile ParameterInfo returnParameter;
@@ -2828,6 +2835,8 @@ public abstract class Type extends MemberInfo {
     }
 
     private static final class DefaultPropertyMember extends MemberInfo {
+        @Override
+        public boolean get_IsCollectible() { return false; }
         private final String name;
         private final Type owner;
 

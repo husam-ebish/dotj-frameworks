@@ -27,7 +27,7 @@ public abstract class MemberInfo {
     }
 
     public boolean get_IsCollectible() {
-        return false;
+        return true;
     }
 
     public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
