@@ -145,6 +145,7 @@ public abstract class Type extends MemberInfo {
         if (type == null) {
             return TypeCode.Empty;
         }
+        if (type.get_IsSignatureType()) throw new NotSupportedException("This method is not supported on signature types.");
         if (type.get_IsEnum()) {
             return GetTypeCode(type.GetEnumUnderlyingType());
         }
@@ -2922,15 +2923,22 @@ public abstract class Type extends MemberInfo {
         }
     }
 
-    private static final class SignatureMethodParameter extends Type {
-        private static final Type[] EMPTY_TYPES = new Type[0];
-        private final int position;
-        private SignatureMethodParameter(int position) { super(Object.class, List.of()); this.position = position; }
-        private static NotSupportedException unsupported() { return new NotSupportedException("This method is not supported on signature types."); }
+    private static abstract class SignatureType extends Type {
+        protected static final Type[] EMPTY_TYPES = new Type[0];
+        protected SignatureType() { super(Object.class, List.of()); }
+        protected static NotSupportedException unsupported() { return new NotSupportedException("This method is not supported on signature types."); }
+        @Override public boolean get_IsGenericParameter() { return false; }
+        @Override public boolean get_IsGenericMethodParameter() { return false; }
+        @Override public int get_GenericParameterPosition() { throw new InvalidOperationException("Method may only be called on a Type for which Type.IsGenericParameter is true."); }
+        @Override public Type MakeArrayType() { return new SignatureElementType(this, 0, 1, true); }
+        @Override public Type MakeArrayType(int rank) {
+            if (rank <= 0) throw new IndexOutOfRangeException();
+            return new SignatureElementType(this, 0, rank, false);
+        }
+        @Override public Type MakePointerType() { return new SignatureElementType(this, 1, 0, false); }
+        @Override public Type MakeByRefType() { return new SignatureElementType(this, 2, 0, false); }
         @Override public boolean get_IsSignatureType() { return true; }
-        @Override public boolean get_IsGenericParameter() { return true; }
         @Override public boolean get_IsGenericTypeParameter() { return false; }
-        @Override public boolean get_IsGenericMethodParameter() { return true; }
         @Override public boolean get_ContainsGenericParameters() { return true; }
         @Override public boolean get_IsGenericType() { return false; }
         @Override public boolean get_IsGenericTypeDefinition() { return false; }
@@ -2976,11 +2984,9 @@ public abstract class Type extends MemberInfo {
         @Override public boolean get_IsSecurityCritical() { throw unsupported(); }
         @Override public boolean get_IsSecuritySafeCritical() { throw unsupported(); }
         @Override public boolean get_IsSecurityTransparent() { throw unsupported(); }
-        @Override public String get_Name() { return "!!" + this.position; }
         @Override public String get_Namespace() { return null; }
         @Override public String get_FullName() { return null; }
         @Override public String get_AssemblyQualifiedName() { return null; }
-        @Override public int get_GenericParameterPosition() { return this.position; }
         @Override public Type get_BaseType() { throw unsupported(); }
         @Override public Type get_DeclaringType() { throw unsupported(); }
         @Override public Type get_ReflectedType() { throw unsupported(); }
@@ -2988,7 +2994,6 @@ public abstract class Type extends MemberInfo {
         @Override public MemberTypes get_MemberType() { return MemberTypes.TypeInfo; }
         @Override public GenericParameterAttributes get_GenericParameterAttributes() { throw unsupported(); }
         @Override public Type[] get_GenericTypeArguments() { return EMPTY_TYPES; }
-        @Override public String ToString() { return this.get_Name(); }
         @Override public Type[] GetGenericArguments() { return EMPTY_TYPES; }
         @Override public Type GetGenericTypeDefinition() { throw new InvalidOperationException("This operation is only valid on generic types."); }
         @Override public int GetArrayRank() { throw new ArgumentException("Must be an array type."); }
@@ -3025,6 +3030,41 @@ public abstract class Type extends MemberInfo {
         @Override public MethodInfo GetMethod(String name, BindingFlags flags) { if (name == null) throw new ArgumentNullException("name"); throw unsupported(); }
         @Override public MethodInfo GetMethod(String name, Type[] types) { if (name == null) throw new ArgumentNullException("name"); if (types == null) throw new ArgumentNullException("types"); for (Type type : types) if (type == null) throw new ArgumentNullException("types"); throw unsupported(); }
         @Override public MethodInfo GetMethod(String name, BindingFlags flags, Type[] types) { if (name == null) throw new ArgumentNullException("name"); if (types == null) throw new ArgumentNullException("types"); for (Type type : types) if (type == null) throw new ArgumentNullException("types"); throw unsupported(); }
+    }
+
+    private static final class SignatureMethodParameter extends SignatureType {
+        private final int position;
+        private SignatureMethodParameter(int position) { this.position = position; }
+        @Override public String get_Name() { return "!!" + this.position; }
+        @Override public int get_GenericParameterPosition() { return this.position; }
+        @Override public boolean get_IsGenericParameter() { return true; }
+        @Override public boolean get_IsGenericMethodParameter() { return true; }
+        @Override public String ToString() { return this.get_Name(); }
+    }
+
+    private static final class SignatureElementType extends SignatureType {
+        private final SignatureType element;
+        private final int kind;
+        private final int rank;
+        private final boolean vector;
+        private SignatureElementType(SignatureType element, int kind, int rank, boolean vector) {
+            this.element = element; this.kind = kind; this.rank = rank; this.vector = vector;
+        }
+        private String suffix() { return this.kind == 0 ? arraySuffix(this.rank, this.vector) : this.kind == 1 ? "*" : "&"; }
+        @Override public String get_Name() { return this.element.get_Name() + this.suffix(); }
+        @Override public String get_Namespace() { return this.element.get_Namespace(); }
+        @Override public String ToString() { return this.element.ToString() + this.suffix(); }
+        @Override public boolean get_HasElementType() { return true; }
+        @Override public boolean get_IsArray() { return this.kind == 0; }
+        @Override public boolean get_IsSZArray() { return this.kind == 0 && this.vector; }
+        @Override public boolean get_IsVariableBoundArray() { return this.kind == 0 && !this.vector; }
+        @Override public boolean get_IsPointer() { return this.kind == 1; }
+        @Override public boolean get_IsByRef() { return this.kind == 2; }
+        @Override public boolean get_IsEnum() { return false; }
+        @Override public boolean get_IsValueType() { return false; }
+        @Override public boolean get_ContainsGenericParameters() { return this.element.get_ContainsGenericParameters(); }
+        @Override public Type GetElementType() { return this.element; }
+        @Override public int GetArrayRank() { if (this.kind == 0) return this.rank; throw new ArgumentException("Must be an array type."); }
     }
 
     private static final class ResolvedType extends Type {
