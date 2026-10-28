@@ -191,6 +191,15 @@ public abstract class Type extends MemberInfo {
         return this.hashCode();
     }
 
+    public static Type MakeGenericMethodParameter(int position) {
+        if (position < 0) {
+            throw new ArgumentOutOfRangeException("position", position,
+                    "position ('" + position + "') must be a non-negative value.");
+        }
+        return new SignatureMethodParameter(position);
+    }
+
+
     public static Type GetType(String typeName) {
         return GetType(typeName, false, false);
     }
@@ -1701,6 +1710,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean IsAssignableFrom(Type candidate) {
+        if (candidate != null && candidate.get_IsSignatureType()) return false;
         if (this.definition == java.util.Optional.class && this.arguments.size() == 1
                 && candidate == this.arguments.get(0)) return true;
         if (candidate == null) {
@@ -2582,7 +2592,7 @@ public abstract class Type extends MemberInfo {
     public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
         if (other == null) throw new ArgumentNullException("other");
         if (this == other) return true;
-        if (!(other instanceof Type type)) return false;
+        if (!(other instanceof Type type) || type.get_IsSignatureType()) return false;
         if (this.get_HasElementType() || type.get_HasElementType()) {
             return this.get_HasElementType() && type.get_HasElementType()
                     && this.selectedCoreLibMetadataModule() && type.selectedCoreLibMetadataModule();
@@ -2910,6 +2920,111 @@ public abstract class Type extends MemberInfo {
         public Type get_ReflectedType() {
             return this.owner;
         }
+    }
+
+    private static final class SignatureMethodParameter extends Type {
+        private static final Type[] EMPTY_TYPES = new Type[0];
+        private final int position;
+        private SignatureMethodParameter(int position) { super(Object.class, List.of()); this.position = position; }
+        private static NotSupportedException unsupported() { return new NotSupportedException("This method is not supported on signature types."); }
+        @Override public boolean get_IsSignatureType() { return true; }
+        @Override public boolean get_IsGenericParameter() { return true; }
+        @Override public boolean get_IsGenericTypeParameter() { return false; }
+        @Override public boolean get_IsGenericMethodParameter() { return true; }
+        @Override public boolean get_ContainsGenericParameters() { return true; }
+        @Override public boolean get_IsGenericType() { return false; }
+        @Override public boolean get_IsGenericTypeDefinition() { return false; }
+        @Override public boolean get_IsConstructedGenericType() { return false; }
+        @Override public boolean get_IsTypeDefinition() { return false; }
+        @Override public boolean get_HasElementType() { return false; }
+        @Override public boolean get_IsArray() { return false; }
+        @Override public boolean get_IsSZArray() { return false; }
+        @Override public boolean get_IsVariableBoundArray() { return false; }
+        @Override public boolean get_IsPointer() { return false; }
+        @Override public boolean get_IsByRef() { return false; }
+        @Override public boolean get_IsByRefLike() { return false; }
+        @Override public boolean get_IsFunctionPointer() { return false; }
+        @Override public boolean get_IsUnmanagedFunctionPointer() { return false; }
+        @Override public boolean get_IsCollectible() { return true; }
+        @Override public boolean get_IsEnum() { throw unsupported(); }
+        @Override public boolean get_IsValueType() { throw unsupported(); }
+        @Override public boolean get_IsPrimitive() { throw unsupported(); }
+        @Override public boolean get_IsClass() { throw unsupported(); }
+        @Override public boolean get_IsInterface() { throw unsupported(); }
+        @Override public boolean get_IsAbstract() { throw unsupported(); }
+        @Override public boolean get_IsSealed() { throw unsupported(); }
+        @Override public boolean get_IsPublic() { throw unsupported(); }
+        @Override public boolean get_IsNotPublic() { throw unsupported(); }
+        @Override public boolean get_IsNested() { throw unsupported(); }
+        @Override public boolean get_IsNestedPublic() { throw unsupported(); }
+        @Override public boolean get_IsNestedPrivate() { throw unsupported(); }
+        @Override public boolean get_IsNestedAssembly() { throw unsupported(); }
+        @Override public boolean get_IsNestedFamily() { throw unsupported(); }
+        @Override public boolean get_IsVisible() { return true; }
+        @Override public boolean get_IsSerializable() { throw unsupported(); }
+        @Override public boolean get_IsSpecialName() { throw unsupported(); }
+        @Override public boolean get_IsAnsiClass() { throw unsupported(); }
+        @Override public boolean get_IsUnicodeClass() { throw unsupported(); }
+        @Override public boolean get_IsAutoClass() { throw unsupported(); }
+        @Override public boolean get_IsAutoLayout() { throw unsupported(); }
+        @Override public boolean get_IsLayoutSequential() { throw unsupported(); }
+        @Override public boolean get_IsExplicitLayout() { throw unsupported(); }
+        @Override public boolean get_IsImport() { throw unsupported(); }
+        @Override public boolean get_IsCOMObject() { throw unsupported(); }
+        @Override public boolean get_IsContextful() { throw unsupported(); }
+        @Override public boolean get_IsMarshalByRef() { throw unsupported(); }
+        @Override public boolean get_IsSecurityCritical() { throw unsupported(); }
+        @Override public boolean get_IsSecuritySafeCritical() { throw unsupported(); }
+        @Override public boolean get_IsSecurityTransparent() { throw unsupported(); }
+        @Override public String get_Name() { return "!!" + this.position; }
+        @Override public String get_Namespace() { return null; }
+        @Override public String get_FullName() { return null; }
+        @Override public String get_AssemblyQualifiedName() { return null; }
+        @Override public int get_GenericParameterPosition() { return this.position; }
+        @Override public Type get_BaseType() { throw unsupported(); }
+        @Override public Type get_DeclaringType() { throw unsupported(); }
+        @Override public Type get_ReflectedType() { throw unsupported(); }
+        @Override public Type get_UnderlyingSystemType() { return this; }
+        @Override public MemberTypes get_MemberType() { return MemberTypes.TypeInfo; }
+        @Override public GenericParameterAttributes get_GenericParameterAttributes() { throw unsupported(); }
+        @Override public Type[] get_GenericTypeArguments() { return EMPTY_TYPES; }
+        @Override public String ToString() { return this.get_Name(); }
+        @Override public Type[] GetGenericArguments() { return EMPTY_TYPES; }
+        @Override public Type GetGenericTypeDefinition() { throw new InvalidOperationException("This operation is only valid on generic types."); }
+        @Override public int GetArrayRank() { throw new ArgumentException("Must be an array type."); }
+        @Override public Type GetElementType() { return null; }
+        @Override public Type[] GetFunctionPointerParameterTypes() { throw new NotSupportedException(); }
+        @Override public Type[] GetFunctionPointerCallingConventions() { throw new NotSupportedException(); }
+        @Override public Type GetFunctionPointerReturnType() { throw new NotSupportedException(); }
+        @Override public Type[] GetGenericParameterConstraints() { throw unsupported(); }
+        @Override public Type[] GetInterfaces() { throw unsupported(); }
+        @Override public boolean IsAssignableFrom(Type other) { throw unsupported(); }
+        @Override public boolean IsInstanceOfType(Object value) { throw unsupported(); }
+        @Override public boolean IsEquivalentTo(Type other) { throw unsupported(); }
+        @Override public boolean IsSubclassOf(Type other) { throw unsupported(); }
+        @Override public boolean HasSameMetadataDefinitionAs(MemberInfo other) { throw unsupported(); }
+        @Override public Type MakeGenericType(Type[] arguments) { throw unsupported(); }
+        @Override public MemberInfo[] GetDefaultMembers() { throw unsupported(); }
+        @Override public MethodInfo[] GetMethods(BindingFlags flags) { throw unsupported(); }
+        @Override public MemberInfo[] GetMembers(BindingFlags flags) { throw unsupported(); }
+        @Override public MemberInfo[] GetMember(String name) { throw unsupported(); }
+        @Override public MemberInfo[] GetMember(String name, BindingFlags flags) { throw unsupported(); }
+        @Override public MemberInfo[] GetMember(String name, MemberTypes kind, BindingFlags flags) { throw unsupported(); }
+        @Override public Type GetNestedType(String name) { throw unsupported(); }
+        @Override public Type GetNestedType(String name, BindingFlags flags) { throw unsupported(); }
+        @Override public Type[] GetNestedTypes(BindingFlags flags) { throw unsupported(); }
+        @Override public Type GetInterface(String name) { throw unsupported(); }
+        @Override public Type GetInterface(String name, boolean ignoreCase) { throw unsupported(); }
+        @Override public String[] GetEnumNames() { throw unsupported(); }
+        @Override public Object[] GetEnumValues() { throw unsupported(); }
+        @Override public int[] GetEnumValuesAsUnderlyingType() { throw unsupported(); }
+        @Override public Type GetEnumUnderlyingType() { throw unsupported(); }
+        @Override public String GetEnumName(Object value) { throw unsupported(); }
+        @Override public boolean IsEnumDefined(Object value) { throw unsupported(); }
+        @Override public MethodInfo GetMethod(String name) { if (name == null) throw new ArgumentNullException("name"); throw unsupported(); }
+        @Override public MethodInfo GetMethod(String name, BindingFlags flags) { if (name == null) throw new ArgumentNullException("name"); throw unsupported(); }
+        @Override public MethodInfo GetMethod(String name, Type[] types) { if (name == null) throw new ArgumentNullException("name"); if (types == null) throw new ArgumentNullException("types"); for (Type type : types) if (type == null) throw new ArgumentNullException("types"); throw unsupported(); }
+        @Override public MethodInfo GetMethod(String name, BindingFlags flags, Type[] types) { if (name == null) throw new ArgumentNullException("name"); if (types == null) throw new ArgumentNullException("types"); for (Type type : types) if (type == null) throw new ArgumentNullException("types"); throw unsupported(); }
     }
 
     private static final class ResolvedType extends Type {

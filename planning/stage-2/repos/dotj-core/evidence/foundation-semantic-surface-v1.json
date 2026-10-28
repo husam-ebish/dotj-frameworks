@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "9d3749719ee335273080ae68d601975bcc6d6154477192c4ed4519851f6fdf79",
+  "javaCandidateEvidenceSha256": "77fb320a583a5d8dc82af2a365157924bff80349ebdb2aa99c81963e76463b6c",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 23,
+  "nameLevelMissingMethodCount": 22,
   "nameLevelMissingPublicGetterCount": 14,
   "types": [
     {
@@ -10856,6 +10856,7 @@
         "public static System.Type[] GetTypeArray(java.lang.Object[]);",
         "public boolean get_IsCollectible();",
         "public int GetHashCode();",
+        "public static System.Type MakeGenericMethodParameter(int);",
         "public static System.Type GetType(java.lang.String);",
         "public static System.Type GetType(java.lang.String, boolean);",
         "public static System.Type GetType(java.lang.String, boolean, boolean);",
@@ -11070,6 +11071,7 @@
           "IsSubclassOf": 1,
           "MakeArrayType": 2,
           "MakeByRefType": 1,
+          "MakeGenericMethodParameter": 1,
           "MakeGenericType": 1,
           "MakePointerType": 1,
           "ToString": 1,
@@ -11153,7 +11155,6 @@
           "GetTypeFromProgID",
           "GetTypeHandle",
           "InvokeMember",
-          "MakeGenericMethodParameter",
           "MakeGenericSignatureType",
           "ReflectionOnlyGetType"
         ],

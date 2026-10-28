@@ -2824,6 +2824,7 @@ def main():
         "public static System.Type[] GetTypeArray(java.lang.Object[]);",
         "public boolean get_IsCollectible();",
         "public int GetHashCode();",
+        "public static System.Type MakeGenericMethodParameter(int);",
         "public static System.Type GetType(java.lang.String);",
         "public static System.Type GetType(java.lang.String, boolean);",
         "public static System.Type GetType(java.lang.String, boolean, boolean);",
