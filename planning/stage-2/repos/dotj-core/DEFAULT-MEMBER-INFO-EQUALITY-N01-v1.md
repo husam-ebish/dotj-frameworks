@@ -1,0 +1,7 @@
+# Default property member descriptor identity
+
+Batch 2420: 172 native/Java lookup/equality/hash calls compare 340 exact descriptor metadata, identity, hash-relation and array-copy groups across String, generic List definition/String/Int32 contexts and eight supported empty-default types. Nonempty caller arrays remain separate and defensively mutable; descriptors and empty arrays preserve native shared identity.
+
+172 pinned native calls and 172 Java facade calls pass 340 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR returns new property descriptors and empty arrays each time. The candidate retains canonical default property descriptors and shares immutable empty arrays. Fresh packaged/API/retained checks are required; the full 435-check canonical gate remains required before merge.
+
+Selected default property MemberInfo descriptors only; full PropertyInfo APIs, other default-member types, numeric hash parity, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Match MemberInfo base collectibility and noncollectible selected runtime Type/method/property descriptor overrides without conflating base defaults with loaded metadata policy.
