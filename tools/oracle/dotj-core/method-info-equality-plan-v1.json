@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "interfaces": [
+    {
+      "type": "System.IDisposable",
+      "method": "Dispose",
+      "parameters": []
+    },
+    {
+      "type": "System.ICloneable",
+      "method": "Clone",
+      "parameters": []
+    },
+    {
+      "type": "System.IComparable",
+      "method": "CompareTo",
+      "parameters": [
+        "System.Object"
+      ]
+    },
+    {
+      "type": "System.IFormattable",
+      "method": "ToString",
+      "parameters": [
+        "System.String",
+        "System.IFormatProvider"
+      ]
+    },
+    {
+      "type": "System.IFormatProvider",
+      "method": "GetFormat",
+      "parameters": [
+        "System.Type"
+      ]
+    }
+  ],
+  "routes": [
+    "name",
+    "flags",
+    "types",
+    "flags-types",
+    "methods",
+    "ignore-case"
+  ],
+  "passes": 2,
+  "qualification": "SELECTED_FIVE_INTERFACE_METHODINFO_LOOKUP_IDENTITY_EQUALS_AND_HASH_CONSISTENCY_ONLY; OTHER_METHOD_SCOPES_AND_ACCEPTANCE_OPEN"
+}
