@@ -2925,6 +2925,8 @@ def main():
         "public boolean get_IsNestedAssembly();",
         "public boolean get_IsNestedPrivate();",
         "public boolean get_IsNestedFamily();",
+        "public boolean get_IsNestedFamANDAssem();",
+        "public boolean get_IsNestedFamORAssem();",
         "public boolean get_ContainsGenericParameters();",
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",

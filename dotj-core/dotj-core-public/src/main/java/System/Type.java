@@ -2515,6 +2515,14 @@ public abstract class Type extends MemberInfo {
                 && java.lang.reflect.Modifier.isProtected(this.definition.getModifiers());
     }
 
+    public boolean get_IsNestedFamANDAssem() {
+        return false;
+    }
+
+    public boolean get_IsNestedFamORAssem() {
+        return false;
+    }
+
     public boolean get_ContainsGenericParameters() {
         if (this.get_IsGenericParameter() || this.get_IsGenericTypeDefinition()) {
             return true;
@@ -2945,6 +2953,8 @@ public abstract class Type extends MemberInfo {
     }
 
     private static abstract class SignatureType extends Type {
+        @Override public boolean get_IsNestedFamANDAssem() { throw unsupported(); }
+        @Override public boolean get_IsNestedFamORAssem() { throw unsupported(); }
         protected static final Type[] EMPTY_TYPES = new Type[0];
         protected SignatureType() { super(Object.class, List.of()); }
         protected static NotSupportedException unsupported() { return new NotSupportedException("This method is not supported on signature types."); }
