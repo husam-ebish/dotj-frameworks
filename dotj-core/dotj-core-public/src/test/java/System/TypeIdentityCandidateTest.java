@@ -2595,8 +2595,8 @@ public final class TypeIdentityCandidateTest {
         try {
             list.MakeGenericType(new Type[] {null});
             throw new AssertionError("Null generic argument accepted");
-        } catch (NullPointerException expected) {
-            if (!"typeArguments[0]".equals(expected.getMessage())) {
+        } catch (ArgumentNullException expected) {
+            if (expected.get_ParamName() != null || !"Value cannot be null.".equals(expected.get_Message())) {
                 throw new AssertionError("Null element identity changed", expected);
             }
         }
