@@ -1,0 +1,7 @@
+# Owned interface parameter assignability
+
+Batch 2432: 3072 native/Java calls compare 15360 exact groups across 192 type operands, four selected parameter positions and four flags. Available owned identities, primitive/reference types, arrays, pointers, byrefs, nullable and constructed generic types exercise Object matching, provider assignability and ExactBinding. Unavailable CultureInfo was excluded before final fixture capture; it receives no qualification claim.
+
+3072 pinned native calls and 3072 Java facade calls pass 15360 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The product JAR is byte-identical to the preceding qualified lookup candidate. Fresh packaging, API and retained reflection checks are required; the full 447-check canonical gate remains required before merge.
+
+Selected available owned types and five interface method declarations only; general overload ranking, arbitrary .NET types, custom binders and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify Type.IsNestedFamANDAssem and IsNestedFamORAssem for available owned runtime identities, generic parameters and signature type shapes.
