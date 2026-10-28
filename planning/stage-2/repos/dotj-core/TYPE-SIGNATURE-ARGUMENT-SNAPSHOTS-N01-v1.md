@@ -1,0 +1,7 @@
+# Generic signature argument mutation snapshots
+
+Batch 2429: 66 successful generic signature constructions and 2112 mutation/alias operations compare 10890 exact groups. Each selected argument slot is replaced with null, a runtime Type or a signature parameter through the constructor input, GetGenericArguments result or GenericTypeArguments property. Stored metadata and argument reference identity remain unchanged, and returned arrays remain distinct even when empty.
+
+2178 pinned native calls and 2178 Java facade calls pass 10890 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The candidate JAR is byte-identical to the preceding qualified generic signature compositor candidate. Fresh packaging, API and retained reflection checks are required; the full 444-check canonical gate remains required before merge.
+
+Selected generic signature argument arrays and nested identities only; signature method lookup contexts and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Inspect and qualify method lookup using generic signature parameter types against selected owned interface methods and constructor validation boundaries.
