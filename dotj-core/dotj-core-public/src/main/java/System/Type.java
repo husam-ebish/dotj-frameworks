@@ -1017,6 +1017,7 @@ public abstract class Type extends MemberInfo {
         if (!this.get_IsGenericParameter()) {
             throw new InvalidOperationException("Not a generic parameter");
         }
+        if (this.definition == java.util.Optional.class) return new Type[] {fromJavaClass(Number.class)};
         return new Type[0];
     }
 
@@ -1157,7 +1158,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type get_BaseType() {
-        if (this.definition == java.util.Optional.class && this.parameterIndex < 0) return fromJavaClass(Number.class);
+        if (this.definition == java.util.Optional.class) return fromJavaClass(Number.class);
         if (this.get_IsByRef() || this.get_IsPointer()) {
             return null;
         }
@@ -1213,6 +1214,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsValueType() {
+        if (this.parameterIndex >= 0 && this.definition == java.util.Optional.class) return true;
         return this.parameterIndex < 0
                 && (this.definition == java.util.Optional.class || this.definition == Int32.class || this.definition == Void.class
                         || this.definition == Boolean.class
@@ -1265,6 +1267,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsSealed() {
+        if (this.parameterIndex >= 0 && this.definition == java.util.Optional.class) return false;
         return this.get_IsArray() || this.get_IsValueType() || this.definition == String.class
                 || this.definition == DBNull.class || this.definition == NumberFormatInfo.class
                 || this.definition == SerializationInfo.class
@@ -2439,6 +2442,7 @@ public abstract class Type extends MemberInfo {
         if (this.parameterIndex < 0) {
             throw new InvalidOperationException("Type is not a generic parameter.");
         }
+        if (this.definition == java.util.Optional.class) return GenericParameterAttributes.FromInt32(24);
         return GenericParameterAttributes.None;
     }
 
