@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "casesPassed": 75816,
+  "nativeCalls": 6318,
+  "javaFacadeCalls": 6318,
+  "limitation": "selected unthrown Exception getter/serialization boundaries only; formatter restoration, thrown/remote stacks and acceptance remain open",
+  "planSha256": "b6077c8c787fa86ee7fdb0073255792421983685f85a09a34cc1ca9a72290449",
+  "oracleEvidence": "exception-serialization-duplicate-field-order-contract-v10.0.12.json",
+  "oracleSha256": "8253815c56b8214241509970852f44630801712fbd63ba19aa55217b6dd8c13b",
+  "consumerSourceSha256": "2ccf49aeef65591a36a45d4f6feaeb4ccf3301885b23f5429fbc863b0ddbf38a",
+  "candidateJarSha256": "89ef21e4dfb0772a82a5d915d30e417e18bec63a1799f0486da148cd9495f636",
+  "qualification": "SELECTED_EXCEPTION_SERIALIZATION_COLLISION_ORDER_PARTIAL_WRITES_AND_NATIVE_DUPLICATE_ERRORS_ONLY; ACCEPTANCE_OPEN"
+}

@@ -129,7 +129,7 @@ public class SerializationInfo {
             throw new ArgumentNullException("type");
         }
         if (this.members.containsKey(name)) {
-            throw new SerializationException("Member already exists: " + name);
+            throw new SerializationException("Cannot add the same member twice to a SerializationInfo object.");
         }
         this.members.put(name, new SerializationEntry(name, type, value));
     }

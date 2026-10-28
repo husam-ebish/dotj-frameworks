@@ -1,0 +1,7 @@
+# Exception serialization duplicate field order
+
+Batch 2407: 6318 attempts across thirteen collision/unknown fields, nullable source/help/message seeds, three Source callback modes, two contexts and null-info/two repeated captures compare 75816 exact payload/order/error/cache groups. Source resolves before duplicate checks; existing entries retain insertion order and writes stop at the first duplicate. 2106 backing-field null-input controls preserve native input identity.
+
+6318 pinned native calls and 6318 Java facade calls pass 75816 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR mismatches native duplicate-member error text; the candidate corrects the SerializationInfo boundary. Fresh packaged/API/retained checks are required; the full 422-check canonical gate remains required before merge.
+
+Selected unthrown base Exception payload collisions only; derived tail-field collisions, arbitrary custom serializers, thrown/remote stacks, formatter restoration, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify base and derived exception serialization tail-field collisions, preserving ordered partial payloads and exact native duplicate errors.
