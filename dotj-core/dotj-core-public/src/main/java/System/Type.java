@@ -2559,11 +2559,27 @@ public abstract class Type extends MemberInfo {
         return this.ToString();
     }
 
+    @Override
+    public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
+        if (other == null) throw new ArgumentNullException("other");
+        if (this == other) return true;
+        if (!(other instanceof Type type) || this.get_HasElementType() || type.get_HasElementType()) return false;
+        return this.definition == type.definition && this.parameterIndex == type.parameterIndex;
+    }
+
     public boolean Equals(Type other) {
         return this == other;
     }
 
     private static final class DefaultMethodMember extends MethodInfo {
+        @Override
+        public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
+            if (other == null) throw new ArgumentNullException("other");
+            return other instanceof DefaultMethodMember method && this.name.equals(method.name)
+                    && this.owner.HasSameMetadataDefinitionAs(method.owner)
+                    && java.util.Objects.equals(this.captured, method.captured);
+        }
+
         @Override
         public boolean get_IsCollectible() { return false; }
         private static final ParameterInfo[] EMPTY_PARAMETERS = new ParameterInfo[0];
@@ -2835,6 +2851,13 @@ public abstract class Type extends MemberInfo {
     }
 
     private static final class DefaultPropertyMember extends MemberInfo {
+        @Override
+        public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
+            if (other == null) throw new ArgumentNullException("other");
+            return other instanceof DefaultPropertyMember property && this.name.equals(property.name)
+                    && this.owner.HasSameMetadataDefinitionAs(property.owner);
+        }
+
         @Override
         public boolean get_IsCollectible() { return false; }
         private final String name;
