@@ -297,7 +297,7 @@ public class SerializationInfo {
             throw new ArgumentNullException("name");
         }
         if (!this.members.containsKey(name)) {
-            throw new SerializationException("Member was not found: " + name);
+            throw new SerializationException("Member '" + name + "' was not found.");
         }
         return this.members.get(name);
     }
