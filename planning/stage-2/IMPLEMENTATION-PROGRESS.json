@@ -2409,7 +2409,8 @@
     "Batch-2392",
     "Batch-2393",
     "Batch-2394",
-    "Batch-2395"
+    "Batch-2395",
+    "Batch-2396"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2602,7 +2603,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2395",
+      "lastUpdatedBatch": "Batch-2396",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12213,19 +12214,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2396",
+    "id": "Batch-2397",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Implement and qualify FileLoadException Message/FusionLog/ToString behavior across nullable messages, file names and inner exceptions using preserved native constructor arguments.",
+    "outcome": "Implement and qualify FileLoadException raw-message serialization and filename/fusion entries before and after Message observation, retaining base and FileNotFound metadata behavior.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2395,
+    "completedBatches": 2396,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12234,8 +12235,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 394,
-    "remainingBatches": 105,
+    "completedBatches": 395,
+    "remainingBatches": 104,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },

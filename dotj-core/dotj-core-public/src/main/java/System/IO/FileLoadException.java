@@ -4,12 +4,14 @@ package System.IO;
 
 import System.Exception;
 
-/** Selected malformed-assembly exception candidate. */
+/** Selected missing-assembly exception candidate. */
 public class FileLoadException extends IOException {
+    private static final String DEFAULT_MESSAGE = "Could not load the specified file.";
     private final String fileName;
+    private String selectedMessage;
 
     public FileLoadException() {
-        this(null, null, null);
+        this(DEFAULT_MESSAGE, null, null);
     }
 
     public FileLoadException(String message) {
@@ -28,6 +30,38 @@ public class FileLoadException extends IOException {
         super(message, innerException);
         this.set_HResult(-2146232799);
         this.fileName = fileName;
+        this.selectedMessage = message;
+    }
+
+    @Override
+    public String get_Message() {
+        if (this.selectedMessage == null) {
+            this.selectedMessage = "Could not load file or assembly '"
+                    + (this.fileName == null ? "" : this.fileName)
+                    + "'. Could not find or load a specific file. (0x80131621)";
+        }
+        return this.selectedMessage;
+    }
+
+    public String get_FusionLog() { return null; }
+
+    @Override
+    public String ToString() {
+        String message = this.get_Message();
+        String result = this.getClass().getName() + ": " + (message == null ? "" : message);
+        if (this.fileName != null && !this.fileName.isEmpty()) {
+            result += "\r\nFile name: '" + this.fileName + "'";
+        }
+        Exception inner = this.get_InnerException();
+        if (inner != null) {
+            String text = inner.ToString();
+            result += "\r\n ---> " + (text == null ? "" : text);
+        }
+        String stack = this.get_StackTrace();
+        if (stack != null) result += "\r\n" + stack;
+        String fusion = this.get_FusionLog();
+        if (fusion != null) result += "\r\n\r\n" + fusion;
+        return result;
     }
 
     public String get_FileName() {
