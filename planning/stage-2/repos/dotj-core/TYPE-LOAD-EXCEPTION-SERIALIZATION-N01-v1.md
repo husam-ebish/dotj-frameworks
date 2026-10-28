@@ -1,0 +1,7 @@
+# TypeLoadException serialization metadata
+
+Batch 2398: 232 base/TypeLoad payloads across public constructors, two contexts and pre/post Message observation plus four null-info controls pass 9992 exact metadata/error groups. Public constructor TypeName remains empty while its serialized class-name field preserves null. Native null-message observation caches the default display text only when read.
+
+236 pinned native calls and 236 Java facade calls pass 9992 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. TypeLoadException preserves nullable raw message/class-name state, computes its selected default Message lazily and serializes four native type-load fields after the base payload. Existing Message/TypeName getters and missing-name metadata are retained. Fresh packaged/API and getter/serialization/exception regressions are required; the full 413-check canonical gate remains required before merge.
+
+Selected unthrown public-constructor payloads only; runtime loader assembly/resource metadata, formatter restoration, thrown/remote stacks, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify ArgumentException ParamName serialization and raw-message cache timing, preserving message formatting and base nullable entry declarations.
