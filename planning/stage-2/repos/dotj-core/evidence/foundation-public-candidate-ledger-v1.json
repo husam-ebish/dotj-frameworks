@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "0a3f3efb15068109d01a4f38e219ade4169b46679c92d7c313b82c9a40227019",
+  "candidateJarSha256": "edc4eabcbfc20821add5c0f13c3e0e71eedb763eee251f4f1acd63f0c725fba9",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -951,6 +951,7 @@
         "public java.lang.String get_Message();",
         "public java.lang.String get_FusionLog();",
         "public java.lang.String ToString();",
+        "public void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext);",
         "public java.lang.String get_FileName();"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",

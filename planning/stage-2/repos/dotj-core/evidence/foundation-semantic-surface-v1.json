@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "5e86d43d5f09b4f4d9e193344368bbcfd677c52aacd3359e9af76574b5249a50",
+  "javaCandidateEvidenceSha256": "6e7c9aa5321b1b3f0a9116d4de8f427015fb115b05c846818aec6cc965a16d79",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 31,
+  "nameLevelMissingMethodCount": 30,
   "nameLevelMissingPublicGetterCount": 16,
   "types": [
     {
@@ -12979,6 +12979,7 @@
         "public java.lang.String get_Message();",
         "public java.lang.String get_FusionLog();",
         "public java.lang.String ToString();",
+        "public void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext);",
         "public java.lang.String get_FileName();"
       ],
       "nameLevelComparison": {
@@ -12987,14 +12988,13 @@
           "ToString": 1
         },
         "javaCandidateDeclaredMethodOverloads": {
+          "GetObjectData": 1,
           "ToString": 1,
           "get_FileName": 1,
           "get_FusionLog": 1,
           "get_Message": 1
         },
-        "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "GetObjectData"
-        ],
+        "upstreamMethodNamesAbsentFromJavaDeclarations": [],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }
