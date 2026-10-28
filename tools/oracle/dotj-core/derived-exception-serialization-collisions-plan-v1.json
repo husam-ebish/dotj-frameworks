@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "texts": [
+    null,
+    [],
+    [
+      114,
+      97,
+      119
+    ]
+  ],
+  "profiles": [
+    "Exception",
+    "ArgumentException",
+    "ArgumentNullException",
+    "ArgumentOutOfRangeException",
+    "CultureNotFoundException",
+    "FileNotFoundException",
+    "FileLoadException",
+    "TypeLoadException"
+  ],
+  "baseFields": [
+    "ClassName",
+    "Message",
+    "Data",
+    "InnerException",
+    "HelpURL",
+    "StackTraceString",
+    "RemoteStackTraceString",
+    "RemoteStackIndex",
+    "ExceptionMethod",
+    "HResult",
+    "Source",
+    "WatsonBuckets"
+  ],
+  "tails": {
+    "Exception": [],
+    "ArgumentException": [
+      "ParamName"
+    ],
+    "ArgumentNullException": [
+      "ParamName"
+    ],
+    "ArgumentOutOfRangeException": [
+      "ParamName",
+      "ActualValue"
+    ],
+    "CultureNotFoundException": [
+      "ParamName",
+      "InvalidCultureId",
+      "InvalidCultureName"
+    ],
+    "FileNotFoundException": [
+      "FileNotFound_FileName",
+      "FileNotFound_FusionLog"
+    ],
+    "FileLoadException": [
+      "FileLoad_FileName",
+      "FileLoad_FusionLog"
+    ],
+    "TypeLoadException": [
+      "TypeLoadClassName",
+      "TypeLoadAssemblyName",
+      "TypeLoadMessageArg",
+      "TypeLoadResourceID"
+    ]
+  },
+  "collisions": [
+    "ClassName",
+    "Message",
+    "Data",
+    "InnerException",
+    "HelpURL",
+    "StackTraceString",
+    "RemoteStackTraceString",
+    "RemoteStackIndex",
+    "ExceptionMethod",
+    "HResult",
+    "Source",
+    "WatsonBuckets",
+    "ParamName",
+    "ActualValue",
+    "InvalidCultureId",
+    "InvalidCultureName",
+    "FileNotFound_FileName",
+    "FileNotFound_FusionLog",
+    "FileLoad_FileName",
+    "FileLoad_FusionLog",
+    "TypeLoadClassName",
+    "TypeLoadAssemblyName",
+    "TypeLoadMessageArg",
+    "TypeLoadResourceID",
+    "Unknown"
+  ],
+  "contextFlags": [
+    0,
+    255
+  ],
+  "observeMessage": [
+    false,
+    true
+  ],
+  "qualification": "SELECTED_BASE_AND_SEVEN_DERIVED_EXCEPTION_SERIALIZATION_COLLISION_ORDER_RAW_TYPED_FIELDS_AND_EXACT_ERRORS_ONLY; ACCEPTANCE_OPEN"
+}
