@@ -2,6 +2,9 @@
 
 package System;
 
+import System.Runtime.Serialization.SerializationInfo;
+import System.Runtime.Serialization.StreamingContext;
+
 /** Selected out-of-range argument exception candidate. */
 public class ArgumentOutOfRangeException extends ArgumentException {
     private static final String DEFAULT_MESSAGE = "Specified argument was out of the range of valid values.";
@@ -29,6 +32,13 @@ public class ArgumentOutOfRangeException extends ArgumentException {
         super(message == null ? DEFAULT_MESSAGE : message, paramName);
         this.actualValue = actualValue;
         this.set_HResult(-2146233086);
+    }
+
+    @Override
+    public void GetObjectData(SerializationInfo info,
+                              StreamingContext context) {
+        super.GetObjectData(info, context);
+        info.AddValue("ActualValue", this.actualValue, Type.GetType("System.Object"));
     }
 
     public Object get_ActualValue() {
