@@ -1,0 +1,7 @@
+# FindInterfaces reentrancy and result snapshots
+
+Batch 2435: 279 scenarios make 675 native/Java FindInterfaces calls and compare 1674 exact aggregate result/error/call-count groups. Repeated zero-interface lookups retain native shared empty-array identity; filtering nonempty inventories to zero returns fresh arrays. Mutating one result preserves later results, and nested filtering preserves outer callback order and criteria identity. The preceding candidate failed shared empty-array identity.
+
+675 pinned native calls and 675 Java facade calls pass 1674 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The candidate shares the empty GetInterfaces result while retaining newly allocated filtered-empty arrays. Fresh packaging, API and retained reflection checks are required; the full 450-check canonical gate remains required before merge.
+
+Selected available interface inventories and callback patterns only; complete generic/numeric/string interface inventories, delegate ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify Type.FindMembers with a Java MemberFilter callback projection for selected owned interface member inventories, flag selection and callback order.
