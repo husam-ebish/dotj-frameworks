@@ -247,6 +247,19 @@ public abstract class Type extends MemberInfo {
             Type element = GetType(name.substring(0, name.length() - 3), false, ignoreCase);
             return element == null ? null : element.MakeArrayType(1);
         }
+        int nullableOpening = name.indexOf('[');
+        if (nullableOpening > 0 && name.endsWith("]") && name.charAt(nullableOpening + 1) != '[') {
+            String nullableName = name.substring(0, nullableOpening);
+            if (nullableName.equals("System.Nullable`1")
+                    || ignoreCase && nullableName.equalsIgnoreCase("System.Nullable`1")) {
+                String argumentName = name.substring(nullableOpening + 1, name.length() - 1);
+                if (argumentName.indexOf(',') < 0) {
+                    Type argument = GetType(argumentName, false, ignoreCase);
+                    return argument == null ? null : fromJavaClass(java.util.Optional.class)
+                            .MakeGenericType(new Type[] {argument});
+                }
+            }
+        }
         int start = name.indexOf("[[");
         if (start < 0 || !name.endsWith("]]")) {
             return null;
