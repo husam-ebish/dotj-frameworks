@@ -1,0 +1,7 @@
+# SerializationInfo declared type getter dispatch
+
+Batch 2410: 4080 native cases and 4335 Java calls (including owned/raw Int32 carriers) compare 34680 exact result/error/callback/holder groups across sixteen actual carriers, seventeen declared types and fifteen getter routes. Direct reads use declared type identity; mismatches call the selected converter exactly once. Null value-type reads throw NullReferenceException; GetString preserves its native null fast path.
+
+4080 pinned native calls and 4335 Java facade calls pass 34680 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR dispatches by Java carrier class; the candidate uses native declared-type identity and explicit selected unboxing/cast boundaries. Fresh packaged/API/retained checks are required; the full 425-check canonical gate remains required before merge.
+
+Selected primitive/String/Decimal/DateTime carriers and throwing converter callbacks only; successful custom conversions, arbitrary carrier/generic constraints, formatter restoration, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify successful custom converter return paths across declared/actual type mismatches, including native null String behavior and owned/raw Int32 adapters.

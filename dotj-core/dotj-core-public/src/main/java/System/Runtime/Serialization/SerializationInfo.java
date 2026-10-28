@@ -3,6 +3,9 @@
 package System.Runtime.Serialization;
 
 import System.ArgumentNullException;
+import System.NullReferenceException;
+import System.InvalidCastException;
+import System.Int32;
 import System.Type;
 import System.Decimal;
 import System.DateTime;
@@ -207,84 +210,169 @@ public class SerializationInfo {
         return this.converter.Convert(entry.get_Value(), type);
     }
 
+    private static Object declaredValue(SerializationEntry entry, Type target) {
+        Object value = entry.get_Value();
+        if (value == null) {
+            if (target.get_IsValueType()) throw new NullReferenceException();
+            return null;
+        }
+        if (!target.IsInstanceOfType(value)) {
+            String actual = Type.GetTypeArray(new Object[] {value})[0].get_FullName();
+            throw new InvalidCastException("Unable to cast object of type '" + actual
+                    + "' to type '" + target.get_FullName() + "'.");
+        }
+        return value;
+    }
+
     public int GetInt32(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof Integer number ? number : this.converter.ToInt32(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.Int32");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return value instanceof Int32 number ? number.get_Value() : (Integer) value;
+        }
+        return this.converter.ToInt32(entry.get_Value());
     }
 
     public String GetString(String name) {
-        Object value = this.member(name).get_Value();
-        return value == null ? null
-                : value instanceof String text ? text : this.converter.ToString(value);
+        SerializationEntry entry = this.member(name);
+        if (entry.get_Value() == null) return null;
+        Type target = Type.GetType("System.String");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return (String) value;
+        }
+        return this.converter.ToString(entry.get_Value());
     }
 
     public boolean GetBoolean(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof Boolean flag ? flag : this.converter.ToBoolean(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.Boolean");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return (Boolean) value;
+        }
+        return this.converter.ToBoolean(entry.get_Value());
     }
 
     public long GetInt64(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof Long number ? number : this.converter.ToInt64(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.Int64");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return (Long) value;
+        }
+        return this.converter.ToInt64(entry.get_Value());
     }
 
     public double GetDouble(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof Double number ? number : this.converter.ToDouble(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.Double");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return (Double) value;
+        }
+        return this.converter.ToDouble(entry.get_Value());
     }
 
     public char GetChar(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof Character character ? character : this.converter.ToChar(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.Char");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return (Character) value;
+        }
+        return this.converter.ToChar(entry.get_Value());
     }
 
     public float GetSingle(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof Float number ? number : this.converter.ToSingle(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.Single");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return (Float) value;
+        }
+        return this.converter.ToSingle(entry.get_Value());
     }
 
     public Decimal GetDecimal(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof Decimal decimal ? decimal : this.converter.ToDecimal(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.Decimal");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return (Decimal) value;
+        }
+        return this.converter.ToDecimal(entry.get_Value());
     }
 
     public DateTime GetDateTime(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof DateTime date ? date : this.converter.ToDateTime(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.DateTime");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return (DateTime) value;
+        }
+        return this.converter.ToDateTime(entry.get_Value());
     }
 
     public short GetInt16(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof Short number ? number : this.converter.ToInt16(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.Int16");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return (Short) value;
+        }
+        return this.converter.ToInt16(entry.get_Value());
     }
 
     public BigInteger GetUInt64(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof BigInteger number ? number : this.converter.ToUInt64(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.UInt64");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return (BigInteger) value;
+        }
+        return this.converter.ToUInt64(entry.get_Value());
     }
 
     public int GetUInt16(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof UInt16 number ? number.get_Value()
-                : this.converter.ToUInt16(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.UInt16");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return ((UInt16) value).get_Value();
+        }
+        return this.converter.ToUInt16(entry.get_Value());
     }
 
     public long GetUInt32(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof UInt32 number ? number.get_Value()
-                : this.converter.ToUInt32(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.UInt32");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return ((UInt32) value).get_Value();
+        }
+        return this.converter.ToUInt32(entry.get_Value());
     }
 
     public short GetByte(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof Byte number ? number.get_Value()
-                : this.converter.ToByte(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.Byte");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return ((Byte) value).get_Value();
+        }
+        return this.converter.ToByte(entry.get_Value());
     }
 
     public byte GetSByte(String name) {
-        Object value = this.member(name).get_Value();
-        return value instanceof SByte number ? number.get_Value()
-                : this.converter.ToSByte(value);
+        SerializationEntry entry = this.member(name);
+        Type target = Type.GetType("System.SByte");
+        if (entry.get_ObjectType() == target) {
+            Object value = declaredValue(entry, target);
+            return ((SByte) value).get_Value();
+        }
+        return this.converter.ToSByte(entry.get_Value());
     }
 
     public SerializationInfoEnumerator GetEnumerator() {
