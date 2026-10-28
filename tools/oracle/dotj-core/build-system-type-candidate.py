@@ -2933,6 +2933,7 @@ def main():
         "public boolean IsEquivalentTo(System.Type);",
         "public java.lang.String ToString();",
         "public java.lang.String toString();",
+        "public boolean HasSameMetadataDefinitionAs(System.Reflection.MemberInfo);",
         "public boolean Equals(System.Type);",
     ], members
     null_exception = run("javap", "-public", "-classpath", str(CLASSES),
