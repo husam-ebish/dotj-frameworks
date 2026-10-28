@@ -1,0 +1,7 @@
+# MemberInfo base and runtime collectibility
+
+Batch 2421: 30 native/Java getter calls compare 47 exact collectibility/repeat/getter-control groups across custom MemberInfo spies, primitive/nullable/generic/array Type tokens and selected method/property descriptors. The native base default is true; represented CoreLib runtime descriptors explicitly override it to false without invoking unrelated metadata getters.
+
+30 pinned native calls and 30 Java facade calls pass 47 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR hardcodes false in MemberInfo itself. The candidate restores the native base default and retains false in represented runtime metadata classes. Fresh packaged/API and relevant reflection regressions are required; full canonical gate remains mandatory; the full 436-check canonical gate remains required before merge.
+
+Selected base and CoreLib runtime descriptors only; collectible assemblies/classloaders, dynamically unloadable metadata, non-runtime Type builders, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Match runtime Type and selected default-property HasSameMetadataDefinitionAs across generic definitions/constructions while retaining distinct runtime identity.

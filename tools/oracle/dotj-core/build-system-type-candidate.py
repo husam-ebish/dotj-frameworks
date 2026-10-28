@@ -2822,6 +2822,7 @@ def main():
     assert members == [
         "public static System.TypeCode GetTypeCode(System.Type);",
         "public static System.Type[] GetTypeArray(java.lang.Object[]);",
+        "public boolean get_IsCollectible();",
         "public int GetHashCode();",
         "public static System.Type GetType(java.lang.String);",
         "public static System.Type GetType(java.lang.String, boolean);",
