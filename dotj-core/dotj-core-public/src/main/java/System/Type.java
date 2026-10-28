@@ -2094,14 +2094,7 @@ public abstract class Type extends MemberInfo {
         if (!name.equals(interfaceMethod)) {
             return null;
         }
-        boolean matches = (this.definition == IDisposable.class || this.definition == ICloneable.class) && types.length == 0
-                || this.definition == IComparable.class
-                    && Arrays.equals(types, new Type[] {fromJavaClass(Object.class)})
-                || this.definition == IFormattable.class
-                    && Arrays.equals(types, new Type[] {fromJavaClass(String.class),
-                        fromJavaClass(IFormatProvider.class)})
-                || this.definition == IFormatProvider.class
-                    && Arrays.equals(types, new Type[] {fromJavaClass(Type.class)});
+        boolean matches = this.selectedParameterTypesMatch(types, false);
         return matches ? selectedMethodMember(interfaceMethod, this) : null;
     }
 
@@ -2118,7 +2111,23 @@ public abstract class Type extends MemberInfo {
             }
         }
         MethodInfo named = this.GetMethod(name, flags);
-        return named == null ? null : this.GetMethod(named.get_Name(), types);
+        return named != null && this.selectedParameterTypesMatch(types, flags.has(BindingFlags.ExactBinding)) ? named : null;
+    }
+
+    private boolean selectedParameterTypesMatch(Type[] types, boolean exact) {
+        Type[] parameters = this.definition == IDisposable.class || this.definition == ICloneable.class
+                ? new Type[0] : this.definition == IComparable.class
+                ? new Type[] { fromJavaClass(Object.class) } : this.definition == IFormattable.class
+                ? new Type[] { fromJavaClass(String.class), fromJavaClass(IFormatProvider.class) }
+                : new Type[] { fromJavaClass(Type.class) };
+        if (types.length != parameters.length) return false;
+        for (int i = 0; i < types.length; i++) {
+            if (parameters[i].Equals(types[i])) continue;
+            if (exact) return false;
+            if (parameters[i].Equals(fromJavaClass(Object.class))) continue;
+            if (types[i].get_IsSignatureType() || !parameters[i].IsAssignableFrom(types[i])) return false;
+        }
+        return true;
     }
 
     private static MethodInfo selectedMethodMember(String name, Type owner) {

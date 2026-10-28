@@ -1,0 +1,7 @@
+# Selected interface signature-aware method lookup
+
+Batch 2430: 4800 native/Java calls compare 24000 exact groups across five owned interfaces, five name/null/case profiles, sixteen argument arrays and twelve flag routes. The baseline rejected String, value types and signature arguments for IComparable.CompareTo(Object); the candidate follows native Object-parameter matching and selected assignability. ExactBinding retains exact type matching and all null validation precedence is compared.
+
+4800 pinned native calls and 4800 Java facade calls pass 24000 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding candidate failed native CompareTo(Object) lookup for String arguments. The candidate implements selected parameter matching and ExactBinding; fresh packaging, API and retained reflection checks are required; the full 445-check canonical gate remains required before merge.
+
+Selected five owned interfaces and existing method declarations only; overload ranking, generic methods, custom binders, general type lookup and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify name, flags and type-array validation order when method lookup is invoked on signature placeholders, element signatures and constructed generic signatures.

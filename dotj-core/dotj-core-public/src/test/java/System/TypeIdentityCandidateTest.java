@@ -1870,16 +1870,16 @@ public final class TypeIdentityCandidateTest {
             if (parameterized == null
                     || !interfaceMethodNames[index].equals(parameterized.get_Name())
                     || parameterized.get_DeclaringType() != owner
-                    || owner.GetMethod(interfaceMethodNames[index],
-                        new Type[] {Type.fromJavaClass(Integer.class)}) != null) {
+                    || (owner.GetMethod(interfaceMethodNames[index],
+                        new Type[] {Type.fromJavaClass(Integer.class)}) != null) != (index == 1)) {
                 throw new AssertionError("Selected method parameter lookup changed");
             }
             if (owner.GetMethod(interfaceMethodNames[index], publicInstance,
                     interfaceMethodParameters[index]) == null
                     || owner.GetMethod(interfaceMethodNames[index], BindingFlags.Public,
                         interfaceMethodParameters[index]) != null
-                    || owner.GetMethod(interfaceMethodNames[index], publicInstance,
-                        new Type[] {Type.fromJavaClass(Integer.class)}) != null
+                    || (owner.GetMethod(interfaceMethodNames[index], publicInstance,
+                        new Type[] {Type.fromJavaClass(Integer.class)}) != null) != (index == 1)
                     || owner.GetMethod(interfaceMethodNames[index]
                         .toLowerCase(java.util.Locale.ROOT),
                         publicInstance.or(BindingFlags.IgnoreCase),
