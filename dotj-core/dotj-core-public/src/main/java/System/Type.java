@@ -2,6 +2,8 @@
 
 package System;
 
+import System.Reflection.TypeFilter;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -2191,6 +2193,21 @@ public abstract class Type extends MemberInfo {
                 || this.definition == DecoderFallbackBuffer.class;
     }
 
+    public Type[] FindInterfaces(TypeFilter filter, Object filterCriteria) {
+        if (filter == null) throw new ArgumentNullException("filter");
+        Type[] interfaces = this.GetInterfaces();
+        int count = 0;
+        for (int i = 0; i < interfaces.length; i++) {
+            if (filter.Invoke(interfaces[i], filterCriteria)) count++;
+            else interfaces[i] = null;
+        }
+        if (count == interfaces.length) return interfaces;
+        Type[] result = new Type[count];
+        int index = 0;
+        for (Type type : interfaces) if (type != null) result[index++] = type;
+        return result;
+    }
+
     public Type[] GetInterfaces() {
         if (!get_HasElementType() && selectedTextProtocolType()) return new Type[0];
         if (this.definition == ICloneable.class) return new Type[0];
@@ -2953,6 +2970,7 @@ public abstract class Type extends MemberInfo {
     }
 
     private static abstract class SignatureType extends Type {
+        @Override public Type[] FindInterfaces(TypeFilter filter, Object criteria) { throw unsupported(); }
         @Override public boolean get_IsNestedFamANDAssem() { throw unsupported(); }
         @Override public boolean get_IsNestedFamORAssem() { throw unsupported(); }
         protected static final Type[] EMPTY_TYPES = new Type[0];

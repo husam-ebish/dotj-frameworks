@@ -1,0 +1,7 @@
+# Type.FindInterfaces callback contract
+
+Batch 2434: 651 native/Java calls compare 3906 result/error/trace groups across 31 selected receiver types, seven filter modes and three criteria identities. Callback ordering, canonical Type identity, criteria reference identity and filtered results match native behavior. Signature types bypass filter validation and throw their restricted operation error. The explicit source and class inventories add TypeFilter; there are now 100 main Java sources.
+
+651 pinned native calls and 651 Java facade calls pass 3906 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR lacks FindInterfaces and TypeFilter. The candidate adds both and updates exact source, declaration and class inventories; fresh packaging, API and retained reflection checks are required; the full 449-check canonical gate remains required before merge.
+
+Selected available interface inventories only; complete generic/numeric/string interface inventories, CLR delegate ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify FindInterfaces filter reentrancy, changing criteria, repeated calls, result-array identity and snapshot isolation for selected owned interface inventories.
