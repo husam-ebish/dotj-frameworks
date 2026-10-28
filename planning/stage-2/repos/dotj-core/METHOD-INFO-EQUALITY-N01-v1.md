@@ -1,0 +1,7 @@
+# Selected interface MethodInfo equality
+
+Batch 2418: 5400 native/Java API calls compare 11400 exact identity/equality/hash-relation groups for sixty descriptors from five mapped interfaces, six lookup routes and repeated queries, against all descriptor peers plus unrelated object/Type/null. Lookups return shared immutable descriptors per interface/method; caller result arrays remain separate. Numeric hash values are not claimed portable.
+
+5400 pinned native calls and 5400 Java facade calls pass 11400 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR allocates distinct descriptors for equivalent lookups; the candidate canonicalizes the five supported interface descriptors in a concurrent cache. Fresh packaged/API/retained checks are required; the full 433-check canonical gate remains required before merge.
+
+Five mapped interface methods only; captured/inherited/overloaded/generic method descriptors, general reflection caching, numeric hash parity, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Match selected MethodInfo parameter/return-parameter identity and defensive array copies across repeated queries and cached interface descriptors.

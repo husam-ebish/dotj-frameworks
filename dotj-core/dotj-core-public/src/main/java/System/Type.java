@@ -83,6 +83,8 @@ public abstract class Type extends MemberInfo {
             return result;
         }
     };
+    private static final ConcurrentHashMap<List<Object>, MethodInfo> interfaceMethodMembers = new ConcurrentHashMap<>();
+
     private static final ConcurrentHashMap<List<Object>, Type> arrayShapes = new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<Type, Type> byReferences = new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<Type, Type> pointers = new ConcurrentHashMap<>();
@@ -1903,7 +1905,7 @@ public abstract class Type extends MemberInfo {
         }
         String interfaceMethod = this.selectedInterfaceMethodName();
         if (interfaceMethod != null && interfaceMethod.equals(name)) {
-            return new MemberInfo[] {new DefaultMethodMember(interfaceMethod, this)};
+            return new MemberInfo[] {selectedMethodMember(interfaceMethod, this)};
         }
         if (interfaceMethod != null) {
             return new MemberInfo[0];
@@ -1936,7 +1938,7 @@ public abstract class Type extends MemberInfo {
         String interfaceMethod = this.selectedInterfaceMethodName();
         if (interfaceMethod != null) {
             if (name.equals(interfaceMethod) || ignoreCase && name.equalsIgnoreCase(interfaceMethod)) {
-                return new MemberInfo[] {new DefaultMethodMember(interfaceMethod, this)};
+                return new MemberInfo[] {selectedMethodMember(interfaceMethod, this)};
             }
             return new MemberInfo[0];
         }
@@ -1966,7 +1968,7 @@ public abstract class Type extends MemberInfo {
     public MemberInfo[] GetMembers() {
         String interfaceMethod = this.selectedInterfaceMethodName();
         if (interfaceMethod != null) {
-            return new MemberInfo[] {new DefaultMethodMember(interfaceMethod, this)};
+            return new MemberInfo[] {selectedMethodMember(interfaceMethod, this)};
         }
         throw new UnsupportedOperationException("Member enumeration is not mapped for this candidate type");
     }
@@ -1978,7 +1980,7 @@ public abstract class Type extends MemberInfo {
         String interfaceMethod = this.selectedInterfaceMethodName();
         if (interfaceMethod != null) {
             if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Instance)) {
-                return new MemberInfo[] {new DefaultMethodMember(interfaceMethod, this)};
+                return new MemberInfo[] {selectedMethodMember(interfaceMethod, this)};
             }
             return new MemberInfo[0];
         }
@@ -1992,7 +1994,7 @@ public abstract class Type extends MemberInfo {
         String interfaceMethod = this.selectedInterfaceMethodName();
         if (interfaceMethod != null) {
             if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Instance)) {
-                return new MethodInfo[] {new DefaultMethodMember(interfaceMethod, this)};
+                return new MethodInfo[] {selectedMethodMember(interfaceMethod, this)};
             }
             return new MethodInfo[0];
         }
@@ -2009,7 +2011,7 @@ public abstract class Type extends MemberInfo {
         }
         String interfaceMethod = this.selectedInterfaceMethodName();
         if (interfaceMethod != null) {
-            return name.equals(interfaceMethod) ? new DefaultMethodMember(interfaceMethod, this) : null;
+            return name.equals(interfaceMethod) ? selectedMethodMember(interfaceMethod, this) : null;
         }
         throw new UnsupportedOperationException("Method lookup is not mapped for this candidate type");
     }
@@ -2027,7 +2029,7 @@ public abstract class Type extends MemberInfo {
                     && (name.equals(interfaceMethod)
                     || flags.has(BindingFlags.IgnoreCase)
                             && name.equalsIgnoreCase(interfaceMethod))) {
-                return new DefaultMethodMember(interfaceMethod, this);
+                return selectedMethodMember(interfaceMethod, this);
             }
             return null;
         }
@@ -2061,7 +2063,7 @@ public abstract class Type extends MemberInfo {
                         fromJavaClass(IFormatProvider.class)})
                 || this.definition == IFormatProvider.class
                     && Arrays.equals(types, new Type[] {fromJavaClass(Type.class)});
-        return matches ? new DefaultMethodMember(interfaceMethod, this) : null;
+        return matches ? selectedMethodMember(interfaceMethod, this) : null;
     }
 
     public MethodInfo GetMethod(String name, BindingFlags flags, Type[] types) {
@@ -2078,6 +2080,11 @@ public abstract class Type extends MemberInfo {
         }
         MethodInfo named = this.GetMethod(name, flags);
         return named == null ? null : this.GetMethod(named.get_Name(), types);
+    }
+
+    private static MethodInfo selectedMethodMember(String name, Type owner) {
+        return interfaceMethodMembers.computeIfAbsent(List.of(owner, name),
+                ignored -> new DefaultMethodMember(name, owner));
     }
 
     private String selectedInterfaceMethodName() {
