@@ -1,0 +1,7 @@
+# Exception serialization virtual boundaries
+
+Batch 2405: 486 native/Java attempts across null/empty/raw source, help and message seeds, three Source modes, two context flags and null-info/two repeated captures compare 4374 exact groups. Overridden Message, Data, HelpLink and StackTrace getters are never invoked; Source resolves before entries, caches nonnull values and retries null values. Throwing Source leaves zero entries. 162 backing-field controls prove nullable inputs remain null.
+
+486 pinned native calls and 486 Java facade calls pass 4374 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR invokes HelpLink/StackTrace getters and resolves Source after writing entries; the candidate uses direct stored fields and resolves Source first. Fresh packaged/API/retained checks are required; the full 420-check canonical gate remains required before merge.
+
+Selected unthrown serialization and getter spies only; getter side-effect mutation/reentrancy, thrown/remote stack payloads, formatter restoration, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify Source callbacks that mutate Source and HelpLink while returning null/text or throwing, including repeated serialization and failure recovery.
