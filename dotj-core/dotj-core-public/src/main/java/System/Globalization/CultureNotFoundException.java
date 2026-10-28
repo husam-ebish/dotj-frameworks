@@ -3,6 +3,9 @@
 package System.Globalization;
 
 import System.ArgumentException;
+import System.Type;
+import System.Runtime.Serialization.SerializationInfo;
+import System.Runtime.Serialization.StreamingContext;
 import System.Exception;
 import System.InvalidOperationException;
 
@@ -49,6 +52,13 @@ public class CultureNotFoundException extends ArgumentException {
         super(message == null ? DEFAULT_MESSAGE : message, paramName, innerException);
         this.invalidCultureName = invalidCultureName;
         this.invalidCultureId = invalidCultureId;
+    }
+
+    @Override
+    public void GetObjectData(SerializationInfo info, StreamingContext context) {
+        super.GetObjectData(info, context);
+        info.AddValue("InvalidCultureId", this.invalidCultureId, Type.GetType("System.Nullable`1[System.Int32]"));
+        info.AddValue("InvalidCultureName", this.invalidCultureName, Type.GetType("System.String"));
     }
 
     public String get_InvalidCultureName() {

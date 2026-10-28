@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "571f93b07b85c8006e216f2bf1f74df7a4ec6afcc77c174430cdc4423d517527",
+  "javaCandidateEvidenceSha256": "1e1b6f872d1b5f65dee72c979aabf73f012fb8093b0b3115c4875f888382ea64",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 26,
+  "nameLevelMissingMethodCount": 25,
   "nameLevelMissingPublicGetterCount": 14,
   "types": [
     {
@@ -13393,6 +13393,7 @@
         "public System.Globalization.CultureNotFoundException(java.lang.String, java.lang.String, System.Exception);",
         "public System.Globalization.CultureNotFoundException(java.lang.String, int, System.Exception);",
         "public System.Globalization.CultureNotFoundException(java.lang.String, int, java.lang.String);",
+        "public void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext);",
         "public java.lang.String get_InvalidCultureName();",
         "public java.lang.Integer get_InvalidCultureId();",
         "public java.lang.String get_Message();"
@@ -13402,13 +13403,12 @@
           "GetObjectData": 1
         },
         "javaCandidateDeclaredMethodOverloads": {
+          "GetObjectData": 1,
           "get_InvalidCultureId": 1,
           "get_InvalidCultureName": 1,
           "get_Message": 1
         },
-        "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "GetObjectData"
-        ],
+        "upstreamMethodNamesAbsentFromJavaDeclarations": [],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }
