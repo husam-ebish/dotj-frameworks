@@ -65,6 +65,7 @@ import System.Globalization.CultureNotFoundException;
 
 /** Bounded candidate for closed generic identity; not a complete System.Type surface. */
 public abstract class Type extends MemberInfo {
+    private static final Type[] EMPTY_INTERFACE_TYPES = new Type[0];
     private static final String CORELIB_IDENTITY = "System.Private.CoreLib, Version=10.0.0.0, "
             + "Culture=neutral, PublicKeyToken=7cec85d7bea7798e";
     private static final ClassValue<ConcurrentHashMap<List<Type>, Type>> canonical =
@@ -2209,8 +2210,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
-        if (!get_HasElementType() && selectedTextProtocolType()) return new Type[0];
-        if (this.definition == ICloneable.class) return new Type[0];
+        if (!get_HasElementType() && selectedTextProtocolType()) return EMPTY_INTERFACE_TYPES;
+        if (this.definition == ICloneable.class) return EMPTY_INTERFACE_TYPES;
         if (this.definition == NumberFormatInfo.class) {
             return new Type[] {fromJavaClass(IFormatProvider.class), fromJavaClass(ICloneable.class)};
         }
@@ -2274,7 +2275,7 @@ public abstract class Type extends MemberInfo {
             return new Type[] {fromJavaClass(IEnumerator.class)};
         }
         if (this.definition == IEnumerable.class || this.definition == DictionaryEntry.class) {
-            return new Type[0];
+            return EMPTY_INTERFACE_TYPES;
         }
         if (Exception.class.isAssignableFrom(this.definition)) {
             return new Type[] {fromJavaClass(ISerializable.class)};
@@ -2314,7 +2315,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == IComparable.class || this.definition == IFormattable.class || this.definition == IFormatProvider.class
                 || this.definition == ISerializable.class || this.definition == IEnumerator.class
                 || this.definition == IFormatterConverter.class) {
-            return new Type[0];
+            return EMPTY_INTERFACE_TYPES;
         }
         if (this.definition == ISpanFormattable.class) {
             return new Type[] {fromJavaClass(IFormattable.class)};
