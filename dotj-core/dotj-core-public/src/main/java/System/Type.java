@@ -567,6 +567,8 @@ public abstract class Type extends MemberInfo {
                     fromJavaClass(GenericParameterAttributes.class);
             case "System.Reflection.ParameterAttributes" -> fromJavaClass(ParameterAttributes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
+            case "System.Nullable`1" -> fromJavaClass(java.util.Optional.class);
+            case "System.Nullable`1[System.Int32]" -> fromJavaClass(java.util.Optional.class).MakeGenericType(new Type[] {fromJavaClass(Int32.class)});
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
             case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
             case "System.Collections.Generic.Dictionary`2+Entry" ->
@@ -949,6 +951,9 @@ public abstract class Type extends MemberInfo {
                 throw new NullPointerException("typeArguments[" + index + "]");
             }
         }
+        if (this.definition == java.util.Optional.class && typeArguments[0] != fromJavaClass(Int32.class)) {
+            throw new NotSupportedException("Only the selected Nullable<Int32> metadata construction is available.");
+        }
         List<Type> key = List.copyOf(Arrays.asList(typeArguments.clone()));
         return canonical.get(this.definition).computeIfAbsent(key, arguments -> new ResolvedType(this.definition, arguments));
     }
@@ -1039,6 +1044,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition.isArray()) {
             return this.GetElementType().get_Name() + "[]";
         }
+        if (this.definition == java.util.Optional.class) return "Nullable`1";
         if (this.definition == String.class) return "String";
         if (this.definition == Boolean.class) return "Boolean";
         if (this.definition == Character.class) return "Char";
@@ -1128,6 +1134,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == Void.class
                 || this.definition == Int32.class
+                || this.definition == java.util.Optional.class
                 || this.definition == Object.class || this.definition == Number.class
                 || this.definition == java.lang.reflect.Array.class || this.definition == Enum.class) {
             return "System";
@@ -1150,6 +1157,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type get_BaseType() {
+        if (this.definition == java.util.Optional.class && this.parameterIndex < 0) return fromJavaClass(Number.class);
         if (this.get_IsByRef() || this.get_IsPointer()) {
             return null;
         }
@@ -1206,7 +1214,7 @@ public abstract class Type extends MemberInfo {
 
     public boolean get_IsValueType() {
         return this.parameterIndex < 0
-                && (this.definition == Int32.class || this.definition == Void.class
+                && (this.definition == java.util.Optional.class || this.definition == Int32.class || this.definition == Void.class
                         || this.definition == Boolean.class
                         || this.definition == Character.class
                         || this.definition == Short.class
@@ -1286,7 +1294,7 @@ public abstract class Type extends MemberInfo {
         if (this.get_IsArray()) {
             return true;
         }
-        return this.definition == Object.class || this.definition == java.lang.reflect.Array.class
+        return this.definition == java.util.Optional.class || this.definition == Object.class || this.definition == java.lang.reflect.Array.class
                 || this.definition == Number.class
                 || this.definition == Enum.class || this.definition == String.class
                 || this.definition == DBNull.class || this.get_IsPrimitive() || this.get_IsEnum()
