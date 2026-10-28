@@ -1,0 +1,7 @@
+# ArgumentNullException inherited serialization metadata
+
+Batch 2400: 456 base/ArgumentNull payloads across public constructors, two contexts and pre/post Message observation plus four null-info controls compare 17908 exact metadata/error groups. The inherited ArgumentException override supplies ParamName; no new native override or product source is invented. Sixty-four nullable argument controls preserve input identity.
+
+460 pinned native calls and 460 Java facade calls pass 17908 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The product JAR is byte-identical to the preceding ArgumentException serialization candidate. Parent-source binding verifies the inherited ParamName implementation; its fresh packaged/API/retained evidence remains applicable; the full 415-check canonical gate remains required before merge.
+
+Selected unthrown constructor payloads only; formatter restoration, custom subclass policies, thrown/remote stacks, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify ArgumentOutOfRangeException ActualValue serialization with declared Object type and raw-message timing, avoiding formatting callbacks during unobserved payload capture.
