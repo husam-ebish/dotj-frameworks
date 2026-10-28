@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "4af01978c78e86586a5e72e96ac4d01cbecdd3db98f7ae10b728bc1ab6df911b",
+  "candidateJarSha256": "a1a25ea77f20eafcde5fc00029c213543a276be20d1240a457ccbfdab920fa23",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -626,6 +626,8 @@
         "public boolean get_IsNestedAssembly();",
         "public boolean get_IsNestedPrivate();",
         "public boolean get_IsNestedFamily();",
+        "public boolean get_IsNestedFamANDAssem();",
+        "public boolean get_IsNestedFamORAssem();",
         "public boolean get_ContainsGenericParameters();",
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",

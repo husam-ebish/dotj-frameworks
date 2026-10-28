@@ -1,0 +1,7 @@
+# Combined-family nested type visibility
+
+Batch 2433: 396 native/Java calls compare 1980 exact groups across 198 available runtime, element, constructed generic, generic-parameter and signature descriptors. Available owned descriptors have neither CLR combined-family visibility; signature descriptors preserve the native NotSupportedException from metadata attributes. Exact declaration audits include both getters. Arbitrary imported CLR nested visibility metadata is outside this candidate.
+
+396 pinned native calls and 396 Java facade calls pass 1980 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR lacks both public getters. The candidate adds selected runtime behavior and restricted signature dispatch; fresh packaging, API and retained reflection checks are required; the full 448-check canonical gate remains required before merge.
+
+Available owned descriptors only; no arbitrary CLR nested family metadata or full public API qualification. Acceptance remains open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement Type.FindInterfaces with a Java TypeFilter callback projection and qualify filter validation, callback ordering, identity and error propagation against available owned interfaces.
