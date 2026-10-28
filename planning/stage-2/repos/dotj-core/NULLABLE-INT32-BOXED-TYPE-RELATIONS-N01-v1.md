@@ -1,0 +1,7 @@
+# Nullable Int32 boxed type relations
+
+Batch 2413: 1140 native comparisons and 1160 Java calls cover assignability, subclass and boxed-instance relations across twenty primitive/nullable/value/object metadata shapes and sixteen actual carriers. Both raw and owned Java Int32 forms satisfy the selected closed Nullable<Int32> instance predicate; null and unrelated carriers remain false.
+
+1140 pinned native calls and 1160 Java facade calls pass 1160 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR tests the Optional backend class instead of its nullable underlying carrier; the candidate recognizes boxed Int32 through the canonical underlying type. Fresh packaged/API/retained checks are required; the full 428-check canonical gate remains required before merge.
+
+Selected nullable Int32/primitive metadata and carrier relations only; broader nullable operations, generic constraints/construction, reflection member surfaces, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Match selected Nullable<Int32> Type.GetType name/assembly identity round trips and ignore-case lookup without claiming general nullable generic construction.
