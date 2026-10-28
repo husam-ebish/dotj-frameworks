@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "interfaces": [
+    {
+      "type": "System.IDisposable",
+      "method": "Dispose",
+      "parameters": []
+    },
+    {
+      "type": "System.ICloneable",
+      "method": "Clone",
+      "parameters": []
+    },
+    {
+      "type": "System.IComparable",
+      "method": "CompareTo",
+      "parameters": [
+        "System.Object"
+      ]
+    },
+    {
+      "type": "System.IFormattable",
+      "method": "ToString",
+      "parameters": [
+        "System.String",
+        "System.IFormatProvider"
+      ]
+    },
+    {
+      "type": "System.IFormatProvider",
+      "method": "GetFormat",
+      "parameters": [
+        "System.Type"
+      ]
+    }
+  ],
+  "routes": [
+    "name",
+    "flags",
+    "types",
+    "flags-types",
+    "methods",
+    "ignore-case"
+  ],
+  "passes": 2,
+  "qualification": "SELECTED_FIVE_INTERFACE_PARAMETERINFO_RETURN_IDENTITY_MEMBER_LINKS_AND_DEFENSIVE_ARRAY_COPIES_ONLY; ACCEPTANCE_OPEN",
+  "fields": [
+    "parameterCount",
+    "arraysSame",
+    "parameterIdentitiesStable",
+    "defensiveCopy",
+    "membersSame",
+    "returnSame",
+    "returnMemberSame",
+    "returnPosition",
+    "returnName",
+    "parameterMetadata"
+  ]
+}

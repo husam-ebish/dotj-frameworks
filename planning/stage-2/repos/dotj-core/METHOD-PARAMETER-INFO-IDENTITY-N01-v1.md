@@ -1,0 +1,7 @@
+# Selected method parameter descriptor identity
+
+Batch 2419: 360 native/Java API calls compare 600 exact parameter/return identity, metadata, member-link and array-copy groups across sixty interface method lookups. Parameter and return descriptors are stable for repeated queries; nonempty parameter arrays are copied and zero-length arrays are shared. Lazy descriptor publication is synchronized and volatile.
+
+360 pinned native calls and 360 Java facade calls pass 600 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding JAR creates new parameter/return descriptors on every query; the candidate retains immutable descriptors and clones nonempty caller arrays. Fresh packaged/API/retained checks are required; the full 434-check canonical gate remains required before merge.
+
+Five selected interface methods only; captured/inherited/generic parameter metadata, arbitrary custom attributes, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Match selected default property MemberInfo identity/equality/hash and defensive result arrays across String, generic List contexts and supported empty-default types.

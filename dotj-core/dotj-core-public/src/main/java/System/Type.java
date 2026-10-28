@@ -2552,6 +2552,9 @@ public abstract class Type extends MemberInfo {
     }
 
     private static final class DefaultMethodMember extends MethodInfo {
+        private static final ParameterInfo[] EMPTY_PARAMETERS = new ParameterInfo[0];
+        private volatile ParameterInfo[] parameters;
+        private volatile ParameterInfo returnParameter;
         private final String name;
         private final Type owner;
         private final java.lang.reflect.Method captured;
@@ -2746,12 +2749,37 @@ public abstract class Type extends MemberInfo {
 
         @Override
         public ParameterInfo get_ReturnParameter() {
-            return new DefaultParameterInfo(this.name.equals("ToString") ? "" : null,
-                    this.get_ReturnType(), -1, this);
+            ParameterInfo value = this.returnParameter;
+            if (value == null) {
+                synchronized (this) {
+                    value = this.returnParameter;
+                    if (value == null) {
+                        value = new DefaultParameterInfo(this.name.equals("ToString") ? "" : null,
+                                this.get_ReturnType(), -1, this);
+                        this.returnParameter = value;
+                    }
+                }
+            }
+            return value;
         }
 
         @Override
         public ParameterInfo[] GetParameters() {
+            ParameterInfo[] values = this.parameters;
+            if (values == null) {
+                synchronized (this) {
+                    values = this.parameters;
+                    if (values == null) {
+                        values = this.createParameters();
+                        if (values.length == 0) values = EMPTY_PARAMETERS;
+                        this.parameters = values;
+                    }
+                }
+            }
+            return values.length == 0 ? values : values.clone();
+        }
+
+        private ParameterInfo[] createParameters() {
             if (this.captured != null) {
                 java.lang.reflect.Parameter[] parameters = this.captured.getParameters();
                 ParameterInfo[] result = new ParameterInfo[parameters.length];
