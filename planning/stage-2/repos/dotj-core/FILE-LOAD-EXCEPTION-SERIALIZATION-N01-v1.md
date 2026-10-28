@@ -1,0 +1,7 @@
+# FileLoadException serialization metadata
+
+Batch 2397: 1128 base/FileLoad payloads across two contexts and pre/post Message observation plus four null-info controls pass 47824 exact entry-name/type/value/count and error groups. Nullable message, filename and inner constructor cases include 160 preserved null-input controls. Cached display messages and unobserved raw nulls remain distinct.
+
+1132 pinned native calls and 1132 Java facade calls pass 47824 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. FileLoadException exposes its own raw/cached message through the protected serialization projection and appends typed filename/fusion entries after the base payload. Contexts do not change selected output. Fresh packaged/API and relevant serialization/exception regressions are required; the full 412-check canonical gate remains required before merge.
+
+Selected unthrown SerializationInfo payloads only; formatter restoration, runtime binding logs, thrown/remote stacks, CLR ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify TypeLoadException raw-message timing and native class/assembly/message-argument/resource serialization entries, retaining declared getters and missing-name behavior.
