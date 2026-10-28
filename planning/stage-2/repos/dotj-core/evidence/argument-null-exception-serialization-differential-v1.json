@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "casesPassed": 17908,
+  "nativeCalls": 460,
+  "javaFacadeCalls": 460,
+  "nativeNullArgumentControls": 64,
+  "limitation": "selected unthrown SerializationInfo payloads; no formatter restoration/binding logs/stack or CLR ABI qualification",
+  "planSha256": "5750986ea9b57eff5841ee758cc1192996df8a0f0b4c0241c18240632c7bd766",
+  "oracleEvidence": "argument-null-exception-serialization-contract-v10.0.12.json",
+  "oracleSha256": "faafb3ce009dccea110d3f7214c74ad24a701aff5bb6e07dd26ff4e62c318dc6",
+  "consumerSourceSha256": "6328f4c64836d7114bcea1bf28c4551f9d748bc52637d9c865bfcdfbadf7d808",
+  "candidateJarSha256": "6546ce08e9b0c29e8aaad2070af265d9c52d1ecb7954dcc0a48208e2dc6a2cce",
+  "qualification": "SELECTED_ARGUMENTNULLEXCEPTION_INHERITED_PARAMNAME_RAW_MESSAGE_AND_TYPED_NULL_SERIALIZATIONINFO_FIELDS_ONLY; FORMATTER_RESTORATION_STACK_ABI_AND_ACCEPTANCE_OPEN"
+}
