@@ -269,13 +269,33 @@
         }
       ],
       "fullCanonicalGateRequired": 474
+    },
+    {
+      "batch": 2460,
+      "path": "tools/oracle/dotj-core/verify-readonly-static-field-write-validation.py",
+      "originalSha256": "0bd20efff22b046cd6839bc8ab80f29d58c58f841c4cfc2e6511bd629f708e0b",
+      "sha256": "e1d064d72d46607bc107a2ec1dc190ad2043fedd285b8c0cc38e89803b1a6f7a",
+      "sourceBaselineCommit": "72d38c75bd118a4a5ac1623173c892e1a3a32566",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 475
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2459,
-  "newPreparedVerifiersMigrated": 13,
-  "currentAndNewVerifiersMigrated": 201,
-  "futurePreparedVerifiersRemaining": 41,
+  "appliedThroughBatch": 2460,
+  "newPreparedVerifiersMigrated": 14,
+  "currentAndNewVerifiersMigrated": 202,
+  "futurePreparedVerifiersRemaining": 40,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
