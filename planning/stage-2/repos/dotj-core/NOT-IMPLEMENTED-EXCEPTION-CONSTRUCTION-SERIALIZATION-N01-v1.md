@@ -1,0 +1,11 @@
+# NotImplementedException constructors and inherited serialization
+
+Batch 2469: 2810 pinned native/Java requests compare 14050 exact aggregate groups across thirteen constructor cases, null/empty/text Source and HelpLink, optional Data/inner references, HResult changes, context flags and message observation. Null constructor messages become the default text before serialization. Ordered typed entries retain original data/inner references and raw message state; two null-info guards match exactly.
+
+2810 pinned native calls and 2810 Java facade calls pass 14050 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The candidate expands the existing default-constructor projection with native-backed text and text/inner constructors. Exact snapshot packaging, API and retained reflection checks are required; the full 484-check canonical gate remains required before merge.
+
+Three selected constructors and bounded inherited serialization states only; deserialization, arbitrary subclasses, complete exception ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify and implement modified Type member/method/field lookup null validation, overload dispatch and filtered-inventory guards across owned nonliteral signatures.
+
+## Follow-on verifier hashing
+
+The current new verifier uses the already qualified shared256 KiB hash helper. Exact original/proposed SHA-256, inverse-byte and independent-AST proofs preserve every other expression and the archive pin. The exact deployed verifier passes isolated CLI/import checks before the normal packaged preview and full canonical gate. Every archive byte is still hashed on each invocation; no digest cache, skipped checks, extra batch or acceptance credit. After this batch,31 prepared verifier migrations remain through2500. Cumulative provenance is recorded in oracle-streaming-hash-follow-on-validation-v1.json; the current entry remains pending its required full gate until the batch report records PASS.
