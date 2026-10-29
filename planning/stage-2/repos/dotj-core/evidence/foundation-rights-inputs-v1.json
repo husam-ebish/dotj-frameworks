@@ -2,12 +2,20 @@
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR only; technical inputs for a licensing decision, not clearance",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "2ba8c8380b15468a9bf8f2350073d73cf6e96a025e1c39b9ebb1382c6d48548f",
+  "jarSha256": "05a9be3e5039a08c37ad85ffcaf992964a0cf5106fbbed8151f9b3eb491f16fb",
   "selectedProductLicense": "MIT",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
-  "productSourceCount": 105,
+  "productSourceCount": 107,
   "productSources": [
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/ApplicationException.java",
+      "sha256": "6f986927960ca98f9052fadfbd52bd8b525730a20f3fd063ce67357f9efd2c1c",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentException.java",
       "sha256": "ff869d654415326641954779f59d716ff1d041419c6ec688def98c5e1662a9fb",
@@ -521,6 +529,14 @@
       "headerNamesDotNetFoundation": false
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/TargetException.java",
+      "sha256": "de6952cc8c3619ab0a8d0d02db479b19167544d149f343f4bf68afbf5829c09f",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/TypeFilter.java",
       "sha256": "02c31eba8a65e7d5c96b2ace400590ac96e43a3d1c10719d5c2c9af852c7de4e",
       "classCount": 1,
@@ -770,8 +786,8 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "c4462e228e7b5cae56805544b59025c83221018e3d019f5ed686492edc89a0c4",
-      "classCount": 16,
+      "sha256": "965718ef5762f596273b3432505ffd4b2e7a7c89e3c02fe824a1d4fe2a66090b",
+      "classCount": 17,
       "headerHasSpdxIdentifier": true,
       "headerHasCopyrightNotice": false,
       "headerNamesDotNetFoundation": false
