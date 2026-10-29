@@ -89,13 +89,33 @@
         }
       ],
       "fullCanonicalGateRequired": 465
+    },
+    {
+      "batch": 2451,
+      "path": "tools/oracle/dotj-core/verify-target-exception-inherited-serialization.py",
+      "originalSha256": "96b4d0641371475b488e3299ac707b67d8e284defbc37829bc5dc9415d488fb0",
+      "sha256": "7d3250cdb6466aba302a9aa5f96ebb4662bc134917af9847890b02ebf5992008",
+      "sourceBaselineCommit": "9d136c6ce5d80bcd013b768b45b3a7d8d9e48a1c",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 466
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2450,
-  "newPreparedVerifiersMigrated": 4,
-  "currentAndNewVerifiersMigrated": 192,
-  "futurePreparedVerifiersRemaining": 50,
+  "appliedThroughBatch": 2451,
+  "newPreparedVerifiersMigrated": 5,
+  "currentAndNewVerifiersMigrated": 193,
+  "futurePreparedVerifiersRemaining": 49,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
