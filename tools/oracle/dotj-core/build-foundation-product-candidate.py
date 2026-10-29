@@ -236,6 +236,7 @@ EXPECTED_CLASSES = [
     "System/Type$DefaultFieldMember.class",
     "System/Type$EnumValueFieldMember.class",
     "System/Type$IntegerValueFieldMember.class",
+    "System/Type$PrimitiveValueFieldMember.class",
     "System/Type$DefaultPropertyMember.class",
     "System/Type$GenericParameterType.class",
     "System/Type$PointerType.class",
