@@ -1,0 +1,7 @@
+# Metadata-definition member lookup
+
+Batch 2438: 228 native/Java calls compare 1368 exact result/error/reference groups across five owned interface receivers, seven signature receivers and nineteen method/property/type/null member inputs. Five successful method lookups preserve native descriptor identity. Wrong owners report exact ArgumentException messages and member parameter names; null member validation precedes restricted signature GetMembers dispatch.
+
+228 pinned native calls and 228 Java facade calls pass 1368 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding candidate lacks this public lookup method. The candidate applies the native base algorithm over mapped members and updates its exact declaration audit; fresh packaging, API and retained reflection checks are required; the full 453-check canonical gate remains required before merge.
+
+Selected owned interface method inventories only; default properties, other receivers, inheritance-wide lookup and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify metadata-definition lookup of String.Chars and generic List.Item across available constructed generic owners, preserving receiver-specific descriptor identity.

@@ -2195,6 +2195,15 @@ public abstract class Type extends MemberInfo {
                 || this.definition == DecoderFallbackBuffer.class;
     }
 
+    public MemberInfo GetMemberWithSameMetadataDefinitionAs(MemberInfo member) {
+        if (member == null) throw new ArgumentNullException("member");
+        BindingFlags all = BindingFlags.Public.or(BindingFlags.NonPublic).or(BindingFlags.Static).or(BindingFlags.Instance);
+        for (MemberInfo candidate : this.GetMembers(all)) {
+            if (candidate.HasSameMetadataDefinitionAs(member)) return candidate;
+        }
+        throw new ArgumentException("A MemberInfo that matches '" + member.get_Name() + "' could not be found.", "member");
+    }
+
     public MemberInfo[] FindMembers(MemberTypes memberType, BindingFlags flags, MemberFilter filter, Object filterCriteria) {
         if (memberType == null) throw new NullPointerException("memberType");
         if (flags == null) throw new NullPointerException("flags");
