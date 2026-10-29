@@ -2223,6 +2223,16 @@ public abstract class Type extends MemberInfo {
 
     public FieldInfo[] GetFields(BindingFlags flags) {
         if (flags == null) throw new NullPointerException("flags");
+        if (this.definition == FieldAttributes.class && !this.get_HasElementType()) {
+            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Instance)) {
+                throw new UnsupportedOperationException("Enum instance field inventory is not mapped for this candidate profile");
+            }
+            if (!flags.has(BindingFlags.Public) || !flags.has(BindingFlags.Static)) return EMPTY_FIELDS;
+            String[] names = new String[] {"FieldAccessMask", "PrivateScope", "Private", "FamANDAssem", "Assembly", "Family", "FamORAssem", "Public", "Static", "InitOnly", "Literal", "NotSerialized", "SpecialName", "PinvokeImpl", "RTSpecialName", "HasFieldMarshal", "HasDefault", "HasFieldRVA", "ReservedMask"};
+            FieldInfo[] result = new FieldInfo[names.length];
+            for (int i = 0; i < names.length; i++) result[i] = this.selectedLiteralField(names[i]);
+            return result;
+        }
         if (this.selectedIntegerFields()) {
             if (!flags.has(BindingFlags.Public) || !flags.has(BindingFlags.Static)) return EMPTY_FIELDS;
             return new FieldInfo[] {this.selectedLiteralField("MaxValue"), this.selectedLiteralField("MinValue")};
@@ -2238,6 +2248,18 @@ public abstract class Type extends MemberInfo {
     public FieldInfo GetField(String name, BindingFlags flags) {
         if (name == null) throw new ArgumentNullException("name");
         if (flags == null) throw new NullPointerException("flags");
+        if (this.definition == FieldAttributes.class && !this.get_HasElementType()) {
+            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Static)) {
+                for (FieldAttributes value : FieldAttributes.values()) {
+                    if (name.equals(value.get_Name()) || flags.has(BindingFlags.IgnoreCase) && name.equalsIgnoreCase(value.get_Name())) return this.selectedLiteralField(value.get_Name());
+                }
+            }
+            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Instance)
+                    && (name.equals("value__") || flags.has(BindingFlags.IgnoreCase) && name.equalsIgnoreCase("value__"))) {
+                throw new UnsupportedOperationException("Enum instance field lookup is not mapped for this candidate profile");
+            }
+            return null;
+        }
         for (FieldInfo field : this.GetFields(flags)) {
             if (name.equals(field.get_Name()) || flags.has(BindingFlags.IgnoreCase) && name.equalsIgnoreCase(field.get_Name())) return field;
         }
@@ -3046,9 +3068,16 @@ public abstract class Type extends MemberInfo {
             if (other == null) throw new ArgumentNullException("other");
             return other instanceof DefaultFieldMember field && this.name.equals(field.name) && this.owner.HasSameMetadataDefinitionAs(field.owner);
         }
-        @Override public Object GetValue(Object target) { return this.GetRawConstantValue(); }
+        private int enumConstant() {
+            for (FieldAttributes value : FieldAttributes.values()) if (value.get_Name().equals(this.name)) return value.get_Value();
+            throw new UnsupportedOperationException("Enum field constant is not mapped");
+        }
+        @Override public Object GetValue(Object target) {
+            return this.owner.definition == FieldAttributes.class ? FieldAttributes.FromInt32(this.enumConstant()) : this.GetRawConstantValue();
+        }
         @Override public void SetValue(Object target, Object value) { throw new FieldAccessException("Cannot set a constant field."); }
         @Override public Object GetRawConstantValue() {
+            if (this.owner.definition == FieldAttributes.class) return new Int32(this.enumConstant());
             boolean max = this.name.equals("MaxValue");
             if (this.owner.definition == Int32.class) return new Int32(max ? Integer.MAX_VALUE : Integer.MIN_VALUE);
             if (this.owner.definition == Byte.class) return new Byte(max ? 255 : 0);
@@ -3056,7 +3085,7 @@ public abstract class Type extends MemberInfo {
             if (this.owner.definition == UInt16.class) return new UInt16(max ? 65535 : 0);
             return new UInt32(max ? 4294967295L : 0L);
         }
-        @Override public String ToString() { return this.owner.get_Name() + " " + this.name; }
+        @Override public String ToString() { return (this.owner.definition == FieldAttributes.class ? this.owner.get_FullName() : this.owner.get_Name()) + " " + this.name; }
     }
 
     private static final class DefaultPropertyMember extends MemberInfo {

@@ -1,0 +1,11 @@
+# FieldAttributes static literal field inventory
+
+Batch 2449: 433 native/Java requests compare 2598 exact aggregate groups over nineteen literal fields. Static inventories retain metadata declaration order; named lookup honors selected flags/case/null validation. GetValue produces a fresh typed enum carrier, while GetRawConstantValue returns Int32. Field metadata and ToString match native declarations, and all fifty-seven selected writes retain FieldAccessException and unchanged enum values. FromInt32 now returns fresh named carriers to preserve boxed value identity.
+
+433 pinned native calls and 433 Java facade calls pass 2598 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding candidate has no enum literal inventory. The candidate adds selected static/named literal discovery and fresh enum boxes; fresh packaging, API and retained reflection checks are required; the full 464-check canonical gate remains required before merge.
+
+Public static FieldAttributes literals only; the instance value__ field, instance/default enum inventories, general fields, nonliteral writes and acceptance remain explicitly unmapped/open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify FieldAttributes value__ field metadata and read-target validation, including exact TargetException behavior; keep nonliteral writes outside the read profile.
+
+## Follow-on verifier hashing
+
+The current new verifier uses the already qualified shared256 KiB hash helper. Exact original/proposed SHA-256, inverse-byte and independent-AST proofs preserve every other expression and the archive pin. The exact deployed verifier passes isolated CLI/import checks before the normal packaged preview and full canonical gate. Every archive byte is still hashed on each invocation; no digest cache, skipped checks, extra batch or acceptance credit. After this batch,51 prepared verifier migrations remain through2500. Cumulative provenance is recorded in oracle-streaming-hash-follow-on-validation-v1.json; the current entry remains pending its required full gate until the batch report records PASS.
