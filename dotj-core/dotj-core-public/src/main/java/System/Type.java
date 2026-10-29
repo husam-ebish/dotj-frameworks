@@ -2316,6 +2316,10 @@ public abstract class Type extends MemberInfo {
 
     public MemberInfo GetMemberWithSameMetadataDefinitionAs(MemberInfo member) {
         if (member == null) throw new ArgumentNullException("member");
+        if (!this.get_IsSignatureType() && member instanceof PrimitiveStaticFieldMember field) {
+            if (this.Equals(field.owner)) return this.selectedPrimitiveStaticField(field.name);
+            throw new ArgumentException("A MemberInfo that matches '" + member.get_Name() + "' could not be found.", "member");
+        }
         if (!this.get_IsSignatureType() && member instanceof PrimitiveValueFieldMember field) {
             if (this.Equals(field.owner)) return this.selectedPrimitiveValueField();
             throw new ArgumentException("A MemberInfo that matches '" + member.get_Name() + "' could not be found.", "member");
