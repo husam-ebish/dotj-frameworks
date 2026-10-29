@@ -429,13 +429,33 @@
         }
       ],
       "fullCanonicalGateRequired": 482
+    },
+    {
+      "batch": 2468,
+      "path": "tools/oracle/dotj-core/verify-modified-field-type-relations.py",
+      "originalSha256": "924828ec0f63ee434d2bbe398ef333f51042949286e7962841d521c619cab782",
+      "sha256": "d06e70ae61da271c6eb37b222e46fbe49c66d22af78e33c4743aa1b9e0f56ba5",
+      "sourceBaselineCommit": "d1346063558cfa08f60860a25728daeb878ab75a",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 483
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2467,
-  "newPreparedVerifiersMigrated": 21,
-  "currentAndNewVerifiersMigrated": 209,
-  "futurePreparedVerifiersRemaining": 33,
+  "appliedThroughBatch": 2468,
+  "newPreparedVerifiersMigrated": 22,
+  "currentAndNewVerifiersMigrated": 210,
+  "futurePreparedVerifiersRemaining": 32,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
