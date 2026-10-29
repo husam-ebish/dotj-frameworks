@@ -249,13 +249,33 @@
         }
       ],
       "fullCanonicalGateRequired": 473
+    },
+    {
+      "batch": 2459,
+      "path": "tools/oracle/dotj-core/verify-primitive-public-static-field-inventory.py",
+      "originalSha256": "d6f00e3cbcba0783955b0acb5fe0cd518ec33d7bbfa264fcc60f6bfcd6d96593",
+      "sha256": "01b13f84423da718a8a073102cd9790f97faeaddfc487c417404978d494f975d",
+      "sourceBaselineCommit": "3a62a51f0d022e5c7091fb91cd61f5df054950b7",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 474
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2458,
-  "newPreparedVerifiersMigrated": 12,
-  "currentAndNewVerifiersMigrated": 200,
-  "futurePreparedVerifiersRemaining": 42,
+  "appliedThroughBatch": 2459,
+  "newPreparedVerifiersMigrated": 13,
+  "currentAndNewVerifiersMigrated": 201,
+  "futurePreparedVerifiersRemaining": 41,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
