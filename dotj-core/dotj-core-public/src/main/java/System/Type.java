@@ -3105,7 +3105,7 @@ public abstract class Type extends MemberInfo {
             if (target instanceof Integer value) return new Int32(value);
             if (target instanceof Byte value) return new Byte(value.get_Value());
             if (target instanceof SByte value) return new SByte(value.get_Value());
-            if (target instanceof java.lang.Byte value) return new SByte(value);
+            if (target instanceof java.lang.Byte value) return new Byte(java.lang.Byte.toUnsignedInt(value));
             if (target instanceof UInt16 value) return new UInt16(value.get_Value());
             if (target instanceof UInt32 value) return new UInt32(value.get_Value());
             throw new UnsupportedOperationException("Integer field carrier is not mapped");
