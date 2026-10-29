@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "cases": 11,
+  "fixture": "D:\\AI\\Implementation\\dotj Frameworks\\verification\\export-guard-batch-2445\\fixture-20261029-100646",
+  "wrapper": "C:\\source\\repos\\dotj Frameworks\\tools\\oracle\\dotj-core\\run-isolated-foundation-gate.ps1",
+  "wrapperSha256": "5d4a1f5265e78df619749cfa145a9914a0aa4a399738741f666ba749ad800025",
+  "originalWrapperSha256": null,
+  "results": [
+    {
+      "name": "benchmark_batched_clean8",
+      "route": "batched",
+      "blocked": false,
+      "message": null,
+      "seconds": 0.4820406
+    },
+    {
+      "name": "clean_two_chunks",
+      "route": "batched",
+      "blocked": false,
+      "message": null,
+      "seconds": 0.9509654
+    },
+    {
+      "name": "dirty_second_chunk",
+      "route": "batched",
+      "blocked": true,
+      "message": "Refusing to overwrite modified evidence:  M planning/stage-2/repos/dotj-core/evidence/clean-23.json",
+      "seconds": 0.8812656
+    },
+    {
+      "name": "staged_selected",
+      "route": "batched",
+      "blocked": true,
+      "message": "Refusing to overwrite modified evidence: M  planning/stage-2/repos/dotj-core/evidence/clean-00.json",
+      "seconds": 0.49173849999999997
+    },
+    {
+      "name": "untracked_selected",
+      "route": "batched",
+      "blocked": true,
+      "message": "Refusing to overwrite modified evidence: ?? \"planning/stage-2/repos/dotj-core/evidence/new untracked.json\"",
+      "seconds": 0.8787389999999999
+    },
+    {
+      "name": "dirty_outside_selection",
+      "route": "batched",
+      "blocked": false,
+      "message": null,
+      "seconds": 0.8873726
+    },
+    {
+      "name": "unicode_and_space",
+      "route": "batched",
+      "blocked": true,
+      "message": "Refusing to overwrite modified evidence:  M \"planning/stage-2/repos/dotj-core/evidence/name with space.json\";  M \"planning/stage-2/repos/dotj-core/evidence/na\\303\\257ve-\\303\\237.json\"",
+      "seconds": 0.5036984
+    },
+    {
+      "name": "literal_bracket_batched",
+      "route": "batched",
+      "blocked": true,
+      "message": "Refusing to overwrite modified evidence:  M planning/stage-2/repos/dotj-core/evidence/brackets[1].json",
+      "seconds": 0.5069615
+    },
+    {
+      "name": "renamed_destination",
+      "route": "batched",
+      "blocked": true,
+      "message": "Refusing to overwrite modified evidence: A  \"planning/stage-2/repos/dotj-core/evidence/renamed with space.json\"",
+      "seconds": 0.508155
+    },
+    {
+      "name": "git_failure_closed",
+      "route": "batched",
+      "blocked": true,
+      "message": "Cannot check evidence destinations; evidence not exported.",
+      "seconds": 0.4809983
+    },
+    {
+      "name": "empty_selection",
+      "route": "batched",
+      "blocked": false,
+      "message": null,
+      "seconds": 0.0193433
+    }
+  ],
+  "benchmark": {
+    "originalEightPathSeconds": null,
+    "batchedEightPathSeconds": 0.4820406,
+    "qualification": "One light fixture sample per route; not a full-gate speedup measurement"
+  },
+  "limitations": [
+    "No full gate run",
+    "Literal path interpretation is explicit; bracket-name refusal was equivalent in the tested Git version",
+    "Caller checks and destination copying remain in the wrapper; the tested block is the actual extracted status guard"
+  ],
+  "scope": "Validation export overwrite guard only; no product/task/framework qualification or extra numbered batch",
+  "acceptedImplementationTaskCredit": 0,
+  "inputs": [
+    {
+      "path": "tools/oracle/dotj-core/run-isolated-foundation-gate.ps1",
+      "sha256": "5d4a1f5265e78df619749cfa145a9914a0aa4a399738741f666ba749ad800025"
+    },
+    {
+      "path": "tools/oracle/dotj-core/verify-evidence-export-guard.py",
+      "sha256": "33429af8f2c94cd4c9b4aa3b5a670ce60f2f8c035acb2581eba249e3184a20de"
+    },
+    {
+      "path": "tools/oracle/dotj-core/probe-export-guard.ps1",
+      "sha256": "1e70a7403b85e9eb90aa17f3fca0240cbcca1984bc980eb7e6957d79296dad52"
+    }
+  ],
+  "change": "Check selected evidence destinations in chunks of16 using literal pathspecs; refuse dirty destinations and fail closed on Git errors",
+  "fullGateSpeedupMeasured": false,
+  "precedingBenchmark": "Agent fixture: eight clean paths7.4582372s original vs0.6161438s batched; guard-only sample, not whole gate",
+  "fullCanonicalGateRequired": "Batch2445 must still pass all460 foundation checks and successful evidence export before merge"
+}

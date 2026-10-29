@@ -109,9 +109,15 @@ try {
     [IO.File]::WriteAllText((Join-Path $runRoot 'isolated-validation.json'), ($record | ConvertTo-Json -Depth 8) + "`n", (New-Object Text.UTF8Encoding($false)))
     if ($ExportEvidence) {
         if ((& git -C $repository rev-parse HEAD).Trim() -ne $revision) { throw 'Source HEAD changed during validation; evidence not exported.' }
-        foreach ($relative in $changed) {
-            $destination = Join-Path $repository $relative
-            if (@(& git -C $repository status --porcelain -- $relative).Count -ne 0) { throw "Refusing to overwrite modified evidence: $relative" }
+        # Keep native command lines bounded while checking every selected destination.
+        # Literal pathspecs preserve spaces, Unicode and bracket characters in evidence names.
+        $guardChunkSize = 16
+        for ($offset = 0; $offset -lt $changed.Count; $offset += $guardChunkSize) {
+            $last = [Math]::Min($offset + $guardChunkSize - 1, $changed.Count - 1)
+            $chunk = @($changed[$offset..$last])
+            $dirty = @(& git --no-optional-locks --literal-pathspecs -C $repository status --porcelain -- @chunk)
+            if ($LASTEXITCODE -ne 0) { throw 'Cannot check evidence destinations; evidence not exported.' }
+            if ($dirty.Count -ne 0) { throw "Refusing to overwrite modified evidence: $($dirty -join '; ')" }
         }
         foreach ($relative in $changed) { Copy-Item -LiteralPath (Join-Path $worktree $relative) -Destination (Join-Path $repository $relative) }
         $record.evidenceExported = $true

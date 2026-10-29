@@ -9,6 +9,10 @@ import System.IFormattable;
 import System.IFormatProvider;
 import System.IComparable;
 import System.Int32;
+import System.Byte;
+import System.SByte;
+import System.UInt16;
+import System.UInt32;
 import System.IConvertible;
 import System.ISpanFormattable;
 import System.Span;
@@ -129,11 +133,24 @@ public final class FieldAttributes implements IFormattable, IComparable, IConver
     @Override public DateTime ToDateTime(IFormatProvider provider) { throw new InvalidCastException("Invalid cast from 'Enum' to 'DateTime'."); }
     @Override public Object ToType(Type targetType, IFormatProvider provider) {
         if (targetType == null) throw new ArgumentNullException("targetType");
-        if (targetType == Type.GetType("System.Reflection.FieldAttributes")
-                || targetType == Type.GetType("System.Object") || targetType == Type.GetType("System.Enum")) return this;
-        if (targetType == Type.GetType("System.String")) return ToString(provider);
+        if (targetType == Type.GetType("System.Reflection.FieldAttributes") || targetType == Type.GetType("System.Object") || targetType == Type.GetType("System.Enum")) return this;
+        if (targetType == Type.GetType("System.String")) return this.ToString(provider);
+        if (targetType == Type.GetType("System.Boolean")) return this.ToBoolean(provider);
+        if (targetType == Type.GetType("System.Char")) return this.ToChar(provider);
+        if (targetType == Type.GetType("System.SByte")) return new SByte(this.ToSByte(provider));
+        if (targetType == Type.GetType("System.Byte")) return new Byte(this.ToByte(provider));
+        if (targetType == Type.GetType("System.Int16")) return this.ToInt16(provider);
+        if (targetType == Type.GetType("System.UInt16")) return new UInt16(this.ToUInt16(provider));
+        if (targetType == Type.GetType("System.Int32")) return new Int32(this.ToInt32(provider));
+        if (targetType == Type.GetType("System.UInt32")) return new UInt32(this.ToUInt32(provider));
+        if (targetType == Type.GetType("System.Int64")) return this.ToInt64(provider);
+        if (targetType == Type.GetType("System.UInt64")) return this.ToUInt64(provider);
+        if (targetType == Type.GetType("System.Single")) return this.ToSingle(provider);
+        if (targetType == Type.GetType("System.Double")) return this.ToDouble(provider);
+        if (targetType == Type.GetType("System.Decimal")) return this.ToDecimal(provider);
         if (targetType == Type.GetType("System.DateTime")) return this.ToDateTime(provider);
-        return new Int32(this.value).ToType(targetType, provider);
+        if (targetType == Type.GetType("System.DBNull")) throw new InvalidCastException("Object cannot be cast to DBNull.");
+        throw new InvalidCastException("Invalid cast from 'System.Reflection.FieldAttributes' to '" + targetType.get_FullName() + "'.");
     }
     @Override public boolean TryFormat(char[] destination, int[] written, String format, IFormatProvider provider) {
         String text = ToString(format, provider);
