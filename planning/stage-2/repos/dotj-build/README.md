@@ -4,12 +4,13 @@
 
 Create a Java build graph engine with evaluation, task execution and incremental-build capabilities.
 
-**Written plan coverage: complete for the capability groups below. Source audit: sampled; exhaustive API/test/dependency closure remains open. Implementation: not started.**
+**Written plan coverage: complete for the capability groups below. Source audit: sampled; exhaustive API/test/dependency closure remains open. A non-exported [internal evaluation candidate](../../../../dotj-build/evaluation-candidate/README.md) is merged with existing 43-case evidence; public product qualification remains open.**
 
 | Document | Purpose |
 |---|---|
 | [PINNED-UPSTREAM](PINNED-UPSTREAM.md) | Source identity, revision and limitations |
 | [MODULE-AND-API-INVENTORY](MODULE-AND-API-INVENTORY.md) | Observed source structure and candidate declarations |
+| [COMPILED-LIFECYCLE-INVENTORY](COMPILED-LIFECYCLE-INVENTORY.md) | Bounded installed metadata, twelve source-anchor matches and explicit profile/dependency gaps |
 | [FEATURE-COMPATIBILITY-MATRIX](FEATURE-COMPATIBILITY-MATRIX.md) | Retained behavior and Java adaptations |
 | [DEPENDENCIES-AND-LICENSES](DEPENDENCIES-AND-LICENSES.md) | Proposed dependencies, observed references and rights gates |
 | [JAVA-ARCHITECTURE](JAVA-ARCHITECTURE.md) | Module boundaries, contracts, ownership and examples |

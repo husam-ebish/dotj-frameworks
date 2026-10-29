@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 1,
+  "scope": "Twelve source anchors plus complete declared constructor/GetPropertyValue/LoadProject/UnloadProject/Dispose families and two properties; metadata only",
+  "historicalAnalysisReference": "dotnet/msbuild@6348d0c087aeec18c323b01a2c77da089ddafea0",
+  "implementationReference": "dotnet/msbuild@b44cdcec4c79c50c67560876707d57d4f635fa3b",
+  "sourceBuildDistinction": "Installed SDK aggregate e34a38d2ae1fc26406a317517196e55c68ff83ab is attributed to component b44 by retained official manifest; src tree agrees, eng/global.json differ. No standalone source build or binary reproduction claim.",
+  "anchors": [
+    {
+      "declaration": "public Project(string projectFile)",
+      "line": 388,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.String)",
+      "kind": "method",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public Project(string projectFile, IDictionary<string, string> globalProperties, string toolsVersion)",
+      "line": 401,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.String,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String)",
+      "kind": "method",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public Project(string projectFile, IDictionary<string, string> globalProperties, string toolsVersion, ProjectCollection projectCollection)",
+      "line": 418,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.String,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,Microsoft.Build.Evaluation.ProjectCollection)",
+      "kind": "method",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public string GetPropertyValue(string name)",
+      "line": 1153,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::GetPropertyValue(System.String)",
+      "kind": "method",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public class ProjectCollection : IToolsetProvider, IBuildComponent, IDisposable",
+      "line": 85,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection",
+      "kind": "type",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public ProjectCollection()",
+      "line": 218,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::.ctor()",
+      "kind": "method",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public ProjectCollection(IDictionary<string, string> globalProperties)",
+      "line": 240,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::.ctor(System.Collections.Generic.IDictionary`2[System.String,System.String])",
+      "kind": "method",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public static ProjectCollection GlobalProjectCollection",
+      "line": 460,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::GlobalProjectCollection",
+      "kind": "property",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public IDictionary<string, string> GlobalProperties",
+      "line": 595,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::GlobalProperties",
+      "kind": "property",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public Project LoadProject(string fileName)",
+      "line": 1201,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::LoadProject(System.String)",
+      "kind": "method",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public void UnloadProject(Project project)",
+      "line": 1424,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::UnloadProject(Microsoft.Build.Evaluation.Project)",
+      "kind": "method",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    },
+    {
+      "declaration": "public void Dispose()",
+      "line": 1582,
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::Dispose()",
+      "kind": "method",
+      "status": "MATCHED_INSTALLED_PROFILE"
+    }
+  ],
+  "expectedFamilies": {
+    "Microsoft.Build.Evaluation.Project::.ctor": 25,
+    "Microsoft.Build.Evaluation.Project::.cctor": 1,
+    "Microsoft.Build.Evaluation.Project::GetPropertyValue": 1,
+    "Microsoft.Build.Evaluation.ProjectCollection::.ctor": 8,
+    "Microsoft.Build.Evaluation.ProjectCollection::LoadProject": 6,
+    "Microsoft.Build.Evaluation.ProjectCollection::UnloadProject": 2,
+    "Microsoft.Build.Evaluation.ProjectCollection::Dispose": 2
+  },
+  "gaps": [
+    "Only installed Windows SDK 10.0.401 / MSBuild 18.9.11 profile is observed; historical analysis commit has no paired compiled inventory.",
+    "NET source branch on Project and FEATURE_SYSTEM_CONFIGURATION/FEATURE_REGISTRY_TOOLSETS/FEATURE_WIN32_REGISTRY on ProjectCollection are retained as source conditions; no alternate target/configuration metadata or full preprocessing/generated-input reconstruction.",
+    "Direct signature/base/interface type identities are recorded, including internal-only contracts. This is not recursive public member/dependency closure or a Java/core representation decision.",
+    "InvalidProjectFileException is source-documented and separately metadata-resolved; CLR method signatures do not declare throws. Other IO/argument/operation exceptions and behavioral/null/ownership/disposal/cache semantics remain open.",
+    "No public .j facade, exact Java compiled API comparison, paired usage examples, E01/E02/E03/N01 or product/task acceptance closure."
+  ],
+  "overloadSourceNavigation": [
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.ObjectModelRemoting.ProjectLink)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666574,
+      "line": 115,
+      "declaration": "internal Project(ProjectCollection projectCollection, ProjectLink link)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor()",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666575,
+      "line": 129,
+      "declaration": "public Project()",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(Microsoft.Build.Evaluation.NewProjectFileOptions)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666576,
+      "line": 139,
+      "declaration": "public Project(NewProjectFileOptions newProjectFileOptions)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(Microsoft.Build.Evaluation.ProjectCollection)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666577,
+      "line": 149,
+      "declaration": "public Project(ProjectCollection projectCollection)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.NewProjectFileOptions)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666578,
+      "line": 159,
+      "declaration": "public Project(ProjectCollection projectCollection, NewProjectFileOptions newProjectFileOptions)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,Microsoft.Build.Evaluation.ProjectCollection)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666579,
+      "line": 172,
+      "declaration": "public Project(IDictionary<string, string> globalProperties, string toolsVersion, ProjectCollection projectCollection)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.NewProjectFileOptions)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666580,
+      "line": 186,
+      "declaration": "public Project(IDictionary<string, string> globalProperties, string toolsVersion, ProjectCollection projectCollection, NewProjectFileOptions newProjectFileOptions)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(Microsoft.Build.Construction.ProjectRootElement)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666581,
+      "line": 199,
+      "declaration": "public Project(ProjectRootElement xml)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(Microsoft.Build.Construction.ProjectRootElement,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666582,
+      "line": 214,
+      "declaration": "public Project(ProjectRootElement xml, IDictionary<string, string> globalProperties, string toolsVersion)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(Microsoft.Build.Construction.ProjectRootElement,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,Microsoft.Build.Evaluation.ProjectCollection)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666583,
+      "line": 230,
+      "declaration": "public Project(ProjectRootElement xml, IDictionary<string, string> globalProperties, string toolsVersion, ProjectCollection projectCollection)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(Microsoft.Build.Construction.ProjectRootElement,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.ProjectLoadSettings)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666584,
+      "line": 247,
+      "declaration": "public Project(ProjectRootElement xml, IDictionary<string, string> globalProperties, string toolsVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(Microsoft.Build.Construction.ProjectRootElement,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,System.String,Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.ProjectLoadSettings)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666585,
+      "line": 265,
+      "declaration": "public Project(ProjectRootElement xml, IDictionary<string, string> globalProperties, string toolsVersion, string subToolsetVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(Microsoft.Build.Construction.ProjectRootElement,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,System.String,Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.ProjectLoadSettings,Microsoft.Build.Evaluation.Context.EvaluationContext,Microsoft.Build.FileSystem.IDirectoryCacheFactory,System.Boolean)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666586,
+      "line": 270,
+      "declaration": "private Project(ProjectRootElement xml, IDictionary<string, string> globalProperties, string toolsVersion, string subToolsetVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings,\n            EvaluationContext evaluationContext, IDirectoryCacheFactory directoryCacheFactory, bool interactive)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.Xml.XmlReader)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666587,
+      "line": 293,
+      "declaration": "public Project(XmlReader xmlReader)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.Xml.XmlReader,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666588,
+      "line": 308,
+      "declaration": "public Project(XmlReader xmlReader, IDictionary<string, string> globalProperties, string toolsVersion)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.Xml.XmlReader,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,Microsoft.Build.Evaluation.ProjectCollection)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666589,
+      "line": 324,
+      "declaration": "public Project(XmlReader xmlReader, IDictionary<string, string> globalProperties, string toolsVersion, ProjectCollection projectCollection)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.Xml.XmlReader,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.ProjectLoadSettings)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666590,
+      "line": 341,
+      "declaration": "public Project(XmlReader xmlReader, IDictionary<string, string> globalProperties, string toolsVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.Xml.XmlReader,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,System.String,Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.ProjectLoadSettings)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666591,
+      "line": 359,
+      "declaration": "public Project(XmlReader xmlReader, IDictionary<string, string> globalProperties, string toolsVersion, string subToolsetVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.Xml.XmlReader,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,System.String,Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.ProjectLoadSettings,Microsoft.Build.Evaluation.Context.EvaluationContext,Microsoft.Build.FileSystem.IDirectoryCacheFactory,System.Boolean)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666592,
+      "line": 364,
+      "declaration": "private Project(XmlReader xmlReader, IDictionary<string, string> globalProperties, string toolsVersion, string subToolsetVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings,\n            EvaluationContext evaluationContext, IDirectoryCacheFactory directoryCacheFactory, bool interactive)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.String)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666593,
+      "line": 388,
+      "declaration": "public Project(string projectFile)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.String,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666594,
+      "line": 401,
+      "declaration": "public Project(string projectFile, IDictionary<string, string> globalProperties, string toolsVersion)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.String,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,Microsoft.Build.Evaluation.ProjectCollection)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666595,
+      "line": 418,
+      "declaration": "public Project(string projectFile, IDictionary<string, string> globalProperties, string toolsVersion, ProjectCollection projectCollection)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.String,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.ProjectLoadSettings)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666596,
+      "line": 436,
+      "declaration": "public Project(string projectFile, IDictionary<string, string> globalProperties, string toolsVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.String,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,System.String,Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.ProjectLoadSettings)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666597,
+      "line": 455,
+      "declaration": "public Project(string projectFile, IDictionary<string, string> globalProperties, string toolsVersion, string subToolsetVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.ctor(System.String,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String,System.String,Microsoft.Build.Evaluation.ProjectCollection,Microsoft.Build.Evaluation.ProjectLoadSettings,Microsoft.Build.Evaluation.Context.EvaluationContext,Microsoft.Build.FileSystem.IDirectoryCacheFactory,System.Boolean)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666598,
+      "line": 460,
+      "declaration": "private Project(string projectFile, IDictionary<string, string> globalProperties, string toolsVersion, string subToolsetVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings,\n            EvaluationContext evaluationContext, IDirectoryCacheFactory directoryCacheFactory, bool interactive)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::GetPropertyValue(System.String)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666656,
+      "line": 1153,
+      "declaration": "public string GetPropertyValue(string name)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.Project::.cctor()",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "metadataToken": 100666706,
+      "status": "NO_SOURCE_DECLARATION_MATCH",
+      "gap": "Compiler-generated type initializer has no explicit constructor declaration"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::.ctor()",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666471,
+      "line": 218,
+      "declaration": "public ProjectCollection()",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::.ctor(Microsoft.Build.Evaluation.ToolsetDefinitionLocations)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666472,
+      "line": 229,
+      "declaration": "public ProjectCollection(ToolsetDefinitionLocations toolsetLocations)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::.ctor(System.Collections.Generic.IDictionary`2[System.String,System.String])",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666473,
+      "line": 240,
+      "declaration": "public ProjectCollection(IDictionary<string, string> globalProperties)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::.ctor(System.Collections.Generic.IDictionary`2[System.String,System.String],System.Collections.Generic.IEnumerable`1[Microsoft.Build.Framework.ILogger],Microsoft.Build.Evaluation.ToolsetDefinitionLocations)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666474,
+      "line": 253,
+      "declaration": "public ProjectCollection(IDictionary<string, string> globalProperties, IEnumerable<ILogger> loggers, ToolsetDefinitionLocations toolsetDefinitionLocations)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::.ctor(System.Collections.Generic.IDictionary`2[System.String,System.String],System.Collections.Generic.IEnumerable`1[Microsoft.Build.Framework.ILogger],System.Collections.Generic.IEnumerable`1[Microsoft.Build.Logging.ForwardingLoggerRecord],Microsoft.Build.Evaluation.ToolsetDefinitionLocations,System.Int32,System.Boolean)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666475,
+      "line": 271,
+      "declaration": "public ProjectCollection(IDictionary<string, string> globalProperties, IEnumerable<ILogger> loggers, IEnumerable<ForwardingLoggerRecord> remoteLoggers, ToolsetDefinitionLocations toolsetDefinitionLocations, int maxNodeCount, bool onlyLogCriticalEvents)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::.ctor(System.Collections.Generic.IDictionary`2[System.String,System.String],System.Collections.Generic.IEnumerable`1[Microsoft.Build.Framework.ILogger],System.Collections.Generic.IEnumerable`1[Microsoft.Build.Logging.ForwardingLoggerRecord],Microsoft.Build.Evaluation.ToolsetDefinitionLocations,System.Int32,System.Boolean,System.Boolean)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666476,
+      "line": 290,
+      "declaration": "public ProjectCollection(IDictionary<string, string> globalProperties, IEnumerable<ILogger> loggers, IEnumerable<ForwardingLoggerRecord> remoteLoggers, ToolsetDefinitionLocations toolsetDefinitionLocations, int maxNodeCount, bool onlyLogCriticalEvents, bool loadProjectsReadOnly)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::.ctor(System.Collections.Generic.IDictionary`2[System.String,System.String],System.Collections.Generic.IEnumerable`1[Microsoft.Build.Framework.ILogger],System.Collections.Generic.IEnumerable`1[Microsoft.Build.Logging.ForwardingLoggerRecord],Microsoft.Build.Evaluation.ToolsetDefinitionLocations,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666477,
+      "line": 314,
+      "declaration": "public ProjectCollection(IDictionary<string, string> globalProperties, IEnumerable<ILogger> loggers, IEnumerable<ForwardingLoggerRecord> remoteLoggers, ToolsetDefinitionLocations toolsetDefinitionLocations, int maxNodeCount, bool onlyLogCriticalEvents, bool loadProjectsReadOnly, bool useAsynchronousLogging, bool reuseProjectRootElementCache)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::.ctor(System.Collections.Generic.IDictionary`2[System.String,System.String],System.Collections.Generic.IEnumerable`1[Microsoft.Build.Framework.ILogger],System.Collections.Generic.IEnumerable`1[Microsoft.Build.Logging.ForwardingLoggerRecord],Microsoft.Build.Evaluation.ToolsetDefinitionLocations,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666478,
+      "line": 336,
+      "declaration": "public ProjectCollection(IDictionary<string, string> globalProperties, IEnumerable<ILogger> loggers, IEnumerable<ForwardingLoggerRecord> remoteLoggers, ToolsetDefinitionLocations toolsetDefinitionLocations, int maxNodeCount, bool onlyLogCriticalEvents, bool loadProjectsReadOnly, bool useAsynchronousLogging, bool reuseProjectRootElementCache, bool enableTargetOutputLogging)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::LoadProject(System.String)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666533,
+      "line": 1201,
+      "declaration": "public Project LoadProject(string fileName)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::LoadProject(System.String,System.String)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666534,
+      "line": 1213,
+      "declaration": "public Project LoadProject(string fileName, string toolsVersion)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::LoadProject(System.String,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666535,
+      "line": 1226,
+      "declaration": "public Project LoadProject(string fileName, IDictionary<string, string> globalProperties, string toolsVersion)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::LoadProject(System.Xml.XmlReader)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666536,
+      "line": 1312,
+      "declaration": "public Project LoadProject(XmlReader xmlReader)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::LoadProject(System.Xml.XmlReader,System.String)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666537,
+      "line": 1324,
+      "declaration": "public Project LoadProject(XmlReader xmlReader, string toolsVersion)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::LoadProject(System.Xml.XmlReader,System.Collections.Generic.IDictionary`2[System.String,System.String],System.String)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666538,
+      "line": 1337,
+      "declaration": "public Project LoadProject(XmlReader xmlReader, IDictionary<string, string> globalProperties, string toolsVersion)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::UnloadProject(Microsoft.Build.Evaluation.Project)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666543,
+      "line": 1424,
+      "declaration": "public void UnloadProject(Project project)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::UnloadProject(Microsoft.Build.Construction.ProjectRootElement)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666544,
+      "line": 1464,
+      "declaration": "public void UnloadProject(ProjectRootElement projectRootElement)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::Dispose()",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666549,
+      "line": 1582,
+      "declaration": "public void Dispose()",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    },
+    {
+      "compiledIdentity": "Microsoft.Build.Evaluation.ProjectCollection::Dispose(System.Boolean)",
+      "source": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "metadataToken": 100666556,
+      "line": 1716,
+      "declaration": "protected virtual void Dispose(bool disposing)",
+      "status": "NAME_AND_PARAMETER_CORRELATION_NOT_PDB_PROOF"
+    }
+  ]
+}

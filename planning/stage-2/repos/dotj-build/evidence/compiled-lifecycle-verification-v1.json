@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "capture-1",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\capture-lifecycle.py",
+        "--out",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\capture-1"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1",
+      "exitCode": 0,
+      "verification": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\capture-1\\verification.json",
+      "stdoutSha256": "aae3b673037f3c34974c6034a107ad345e7690fa4ba43868c3f2932c68ac71eb",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS_SELECTED_METADATA_ONLY",
+      "readerLaunchCount": 1,
+      "error": null,
+      "expectedErrorFragment": null
+    },
+    {
+      "name": "capture-2",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\capture-lifecycle.py",
+        "--out",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\capture-2"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1",
+      "exitCode": 0,
+      "verification": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\capture-2\\verification.json",
+      "stdoutSha256": "aae3b673037f3c34974c6034a107ad345e7690fa4ba43868c3f2932c68ac71eb",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS_SELECTED_METADATA_ONLY",
+      "readerLaunchCount": 1,
+      "error": null,
+      "expectedErrorFragment": null
+    },
+    {
+      "name": "corrupt-source-contract",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\corrupt-source-contract-repo\\tools\\oracle\\dotj-build\\capture-lifecycle.py",
+        "--out",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\corrupt-source-contract"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1",
+      "exitCode": 1,
+      "verification": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\corrupt-source-contract\\verification.json",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "0dff1027a131b5ef3c89102b72297c2bdba95fbb0f0e206afeb9c7da8f46e875",
+      "status": "REFUSED",
+      "readerLaunchCount": 0,
+      "error": "Locked input mismatch: dotj-build/evaluation-candidate/prerequisites.json",
+      "expectedErrorFragment": "Locked input mismatch: dotj-build/evaluation-candidate/prerequisites.json"
+    },
+    {
+      "name": "missing-raw-evidence",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\missing-raw-evidence-repo\\tools\\oracle\\dotj-build\\capture-lifecycle.py",
+        "--out",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\missing-raw-evidence"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1",
+      "exitCode": 1,
+      "verification": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\missing-raw-evidence\\verification.json",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "282d50cf8e1238f5285410de086b8a504156769ce9fa764c3e06b997f78330c9",
+      "status": "REFUSED",
+      "readerLaunchCount": 0,
+      "error": "[WinError 2] The system cannot find the file specified: 'D:\\\\AI\\\\Implementation\\\\dotj Frameworks\\\\validation\\\\dotj-build-lifecycle-m1-checks-v1\\\\missing-raw-evidence-repo\\\\planning\\\\stage-2\\\\repos\\\\dotj-build\\\\evidence\\\\compiled-lifecycle-raw-v1.json'",
+      "expectedErrorFragment": "compiled-lifecycle-raw-v1.json"
+    },
+    {
+      "name": "corrupt-producer",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\corrupt-producer-repo\\tools\\oracle\\dotj-build\\capture-lifecycle.py",
+        "--out",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\corrupt-producer"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1",
+      "exitCode": 1,
+      "verification": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\corrupt-producer\\verification.json",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "855e485c3c95ad9837a5b3845eb9074115ffcb859eb8069f5d516dca428a8d05",
+      "status": "REFUSED",
+      "readerLaunchCount": 0,
+      "error": "Locked input mismatch: tools/oracle/dotj-build/read-lifecycle.ps1",
+      "expectedErrorFragment": "Locked input mismatch: tools/oracle/dotj-build/read-lifecycle.ps1"
+    },
+    {
+      "name": "mismatched-assembly-hash",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\mismatched-assembly-hash-repo\\tools\\oracle\\dotj-build\\capture-lifecycle.py",
+        "--out",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\mismatched-assembly-hash"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1",
+      "exitCode": 1,
+      "verification": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\mismatched-assembly-hash\\verification.json",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "4c3b14aa8d0471f5c34eef4edce349fd9bd7561020714ee3a64d6a761e98a3d0",
+      "status": "REFUSED",
+      "readerLaunchCount": 0,
+      "error": "Locked input mismatch: toolchains/dotnet/sdk/10.0.401/Microsoft.Build.dll",
+      "expectedErrorFragment": "Locked input mismatch: toolchains/dotnet/sdk/10.0.401/Microsoft.Build.dll"
+    },
+    {
+      "name": "missing-assembly-input",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\missing-assembly-input-repo\\tools\\oracle\\dotj-build\\capture-lifecycle.py",
+        "--out",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\missing-assembly-input"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1",
+      "exitCode": 1,
+      "verification": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-lifecycle-m1-checks-v1\\missing-assembly-input\\verification.json",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "edd391011eb7352b257b515fd047f350f78d7c344b7615fea5c80b44dec7d880",
+      "status": "REFUSED",
+      "readerLaunchCount": 0,
+      "error": "[WinError 2] The system cannot find the file specified: 'D:\\\\AI\\\\Implementation\\\\dotj Frameworks\\\\validation\\\\dotj-build-lifecycle-m1-checks-v1\\\\absent-native-image.dll'",
+      "expectedErrorFragment": "absent-native-image.dll"
+    },
+    {
+      "name": "missing-compiled-anchor",
+      "status": "REFUSED",
+      "error": "Missing compiled anchor: Microsoft.Build.Evaluation.Project::GetPropertyValue(System.String)"
+    }
+  ],
+  "productQualification": false,
+  "reproducibleMetadataSha256": "3187a8e9de73bd701c4d9389ae24e86fb193a942ce7110ae700e4cb938f6ea1f",
+  "metadataCaptures": 2,
+  "integrityRefusals": 5,
+  "mappingRefusals": 1,
+  "matchedAnchors": 12,
+  "methodCount": 45,
+  "propertyCount": 2,
+  "directContractCount": 24
+}

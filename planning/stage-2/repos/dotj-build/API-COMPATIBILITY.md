@@ -16,6 +16,13 @@ The [naming ledger](evidence/naming-ledger.json) retains 155 lexical production 
 
 ## N01 tasks
 
+The [selected compiled lifecycle inventory](COMPILED-LIFECYCLE-INVENTORY.md)
+adds installed SDK 10.0.401 / MSBuild 18.9.11 metadata evidence for the twelve
+Project/ProjectCollection prerequisite anchors and their overload families.
+Its component pin is retained separately from the historical analysis revision
+above. This is bounded E02/N01 evidence; it does not close these tasks, qualify a
+public facade, or establish the Java/core representation and lifecycle semantics.
+
 1. `DJ-005-N01-T1`: Extract the complete semantic upstream public surface for the selected slice, preserving exact namespace/type/member spelling, casing, overloads, generic arity, parameter identities and property/event metadata.
 1. `DJ-005-N01-T2`: Map each symbol and concept to a faithful Java representation; move invented helper vocabulary behind the public facade; record Java language/JVM conflicts without silently renaming or changing behavior.
 1. `DJ-005-N01-T3`: Add automated case-sensitive public API comparison and concept-behavior fixtures, including I prefixes, Async suffixes, enum values, configuration/markup names and generated members.

@@ -14,6 +14,12 @@
 
 ## Extraction method and remaining closure
 
+The historical lexical counts above remain unchanged. The separate
+[compiled lifecycle inventory](COMPILED-LIFECYCLE-INVENTORY.md) now supplies
+actual installed metadata for selected Project/ProjectCollection families,
+with locked sources and explicit generated/profile/dependency gaps. It does
+not turn the historical lexical sample into a complete semantic census.
+
 The tree supplies path identity. Project suffixes identify structural module candidates. Public/protected lines and test-like methods are extracted lexically from sampled files; multiline declarations, conditional compilation, generated code, extension methods, overload relationships and fixture parameter expansion require compiler-aware extraction. E02 must evaluate every target framework/configuration, generated source and conditional reference. Unassigned members remain retained scope, never implicitly removed.
 
 ## Observed project/module ledger
