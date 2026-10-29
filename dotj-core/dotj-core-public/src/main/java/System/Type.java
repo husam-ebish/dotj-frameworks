@@ -1752,6 +1752,11 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean IsAssignableFrom(Type candidate) {
+        if (candidate instanceof ModifiedFieldType modified) return this.IsAssignableFrom(modified.underlying);
+        if (candidate != null && candidate.selectedPrimitiveBackingFields()
+                && (this.definition == IComparable.class || this.definition == IConvertible.class
+                    || candidate.definition != Boolean.class && (this.definition == IFormattable.class
+                        || this.definition == ISpanFormattable.class || this.definition == IUtf8SpanFormattable.class))) return true;
         if (candidate != null && candidate.get_IsSignatureType()) return false;
         if (this.definition == java.util.Optional.class && this.arguments.size() == 1
                 && candidate == this.arguments.get(0)) return true;
@@ -1799,7 +1804,7 @@ public abstract class Type extends MemberInfo {
         if (candidate.definition == NormalizationForm.class && (this.definition == IFormattable.class || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == ISpanFormattable.class)) return true;
         if (candidate.definition == DigitShapes.class && (this.definition == IFormattable.class || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == ISpanFormattable.class)) return true;
         if (candidate.definition == MidpointRounding.class && (this.definition == IFormattable.class || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == ISpanFormattable.class)) return true;
-        if (this.definition == IComparable.class && candidate.definition == String.class) {
+        if ((this.definition == IComparable.class || this.definition == ICloneable.class) && candidate.definition == String.class) {
             return true;
         }
         if (this.definition == IComparable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || (candidate.definition == MemberTypes.class || candidate.definition == FieldAttributes.class) || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == Byte.class || candidate.definition == SByte.class || candidate.definition == UInt16.class || candidate.definition == UInt32.class)) {
@@ -2834,6 +2839,7 @@ public abstract class Type extends MemberInfo {
 
     @Override
     public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
+        if (other instanceof ModifiedFieldType) return false;
         if (other == null) throw new ArgumentNullException("other");
         if (this == other) return true;
         if (!(other instanceof Type type) || type.get_IsSignatureType()) return false;
@@ -3196,8 +3202,9 @@ public abstract class Type extends MemberInfo {
         @Override public boolean Equals(Object other) { throw unsupported(); }
         @Override public int GetHashCode() { throw unsupported(); }
         @Override public String ToString() { return this.underlying.ToString(); }
-        @Override public boolean IsAssignableFrom(Type other) { return other == this || this.underlying.IsAssignableFrom(other == null ? null : other.get_UnderlyingSystemType()); }
+        @Override public boolean IsAssignableFrom(Type other) { if (other == this) return true; if (other instanceof ModifiedFieldType || other != null && other.get_IsSignatureType()) throw unsupported(); return this.underlying.IsAssignableFrom(other); }
         @Override public boolean IsInstanceOfType(Object value) { return this.underlying.IsInstanceOfType(value); }
+        @Override public boolean IsEquivalentTo(Type other) { if (other == this) return true; if (other instanceof ModifiedFieldType || other != null && other.get_IsSignatureType()) throw unsupported(); return false; }
         @Override public boolean IsSubclassOf(Type parent) { if (parent == this) return false; throw unsupported(); }
         @Override public Type[] GetGenericArguments() { throw new NotSupportedException("Derived classes must provide an implementation."); }
         @Override public Type GetGenericTypeDefinition() { throw new InvalidOperationException("This operation is only valid on generic types."); }
