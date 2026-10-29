@@ -72,6 +72,7 @@ public abstract class Type extends MemberInfo {
     private static final FieldInfo[] EMPTY_FIELDS = new FieldInfo[0];
     private static final ConcurrentHashMap<List<Object>, FieldInfo> literalFields = new ConcurrentHashMap<>();
     private static final Type[] EMPTY_INTERFACE_TYPES = new Type[0];
+    private static final Type[] EMPTY_FIELD_MODIFIERS = new Type[0];
     private static final String CORELIB_IDENTITY = "System.Private.CoreLib, Version=10.0.0.0, "
             + "Culture=neutral, PublicKeyToken=7cec85d7bea7798e";
     private static final ClassValue<ConcurrentHashMap<List<Type>, Type>> canonical =
@@ -3118,6 +3119,11 @@ public abstract class Type extends MemberInfo {
         private final String name;
         private PrimitiveStaticFieldMember(Type owner, String name) { this.owner = owner; this.name = name; }
         private boolean readonlyString() { return this.owner.definition == Boolean.class; }
+        @Override public boolean get_IsSecurityCritical() { return true; }
+        @Override public boolean get_IsSecuritySafeCritical() { return false; }
+        @Override public boolean get_IsSecurityTransparent() { return false; }
+        @Override public Type[] GetOptionalCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
+        @Override public Type[] GetRequiredCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
         @Override public String get_Name() { return this.name; }
         @Override public Type get_DeclaringType() { return this.owner; }
         @Override public Type get_ReflectedType() { return this.owner; }
@@ -3164,6 +3170,11 @@ public abstract class Type extends MemberInfo {
     private static final class PrimitiveValueFieldMember extends FieldInfo {
         private final Type owner;
         private PrimitiveValueFieldMember(Type owner) { this.owner = owner; }
+        @Override public boolean get_IsSecurityCritical() { return true; }
+        @Override public boolean get_IsSecuritySafeCritical() { return false; }
+        @Override public boolean get_IsSecurityTransparent() { return false; }
+        @Override public Type[] GetOptionalCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
+        @Override public Type[] GetRequiredCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
         @Override public String get_Name() { return "m_value"; }
         @Override public Type get_DeclaringType() { return this.owner; }
         @Override public Type get_ReflectedType() { return this.owner; }
@@ -3196,6 +3207,11 @@ public abstract class Type extends MemberInfo {
     private static final class IntegerValueFieldMember extends FieldInfo {
         private final Type owner;
         private IntegerValueFieldMember(Type owner) { this.owner = owner; }
+        @Override public boolean get_IsSecurityCritical() { return true; }
+        @Override public boolean get_IsSecuritySafeCritical() { return false; }
+        @Override public boolean get_IsSecurityTransparent() { return false; }
+        @Override public Type[] GetOptionalCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
+        @Override public Type[] GetRequiredCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
         @Override public String get_Name() { return "m_value"; }
         @Override public Type get_DeclaringType() { return this.owner; }
         @Override public Type get_ReflectedType() { return this.owner; }
@@ -3229,6 +3245,11 @@ public abstract class Type extends MemberInfo {
     private static final class EnumValueFieldMember extends FieldInfo {
         private final Type owner;
         private EnumValueFieldMember(Type owner) { this.owner = owner; }
+        @Override public boolean get_IsSecurityCritical() { return true; }
+        @Override public boolean get_IsSecuritySafeCritical() { return false; }
+        @Override public boolean get_IsSecurityTransparent() { return false; }
+        @Override public Type[] GetOptionalCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
+        @Override public Type[] GetRequiredCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
         @Override public String get_Name() { return "value__"; }
         @Override public Type get_DeclaringType() { return this.owner; }
         @Override public Type get_ReflectedType() { return this.owner; }
@@ -3255,6 +3276,11 @@ public abstract class Type extends MemberInfo {
         private final Type owner;
         private final String name;
         private DefaultFieldMember(Type owner, String name) { this.owner = owner; this.name = name; }
+        @Override public boolean get_IsSecurityCritical() { return true; }
+        @Override public boolean get_IsSecuritySafeCritical() { return false; }
+        @Override public boolean get_IsSecurityTransparent() { return false; }
+        @Override public Type[] GetOptionalCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
+        @Override public Type[] GetRequiredCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
         @Override public String get_Name() { return this.name; }
         @Override public Type get_DeclaringType() { return this.owner; }
         @Override public Type get_ReflectedType() { return this.owner; }

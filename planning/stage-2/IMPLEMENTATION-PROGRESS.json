@@ -2476,13 +2476,14 @@
     "Batch-2459",
     "Batch-2460",
     "Batch-2461",
-    "Batch-2462"
+    "Batch-2462",
+    "Batch-2463"
   ],
   "overall": {
     "frameworkCount": 66,
     "frameworksFullyImplementedAndQualified": 0,
-    "frameworksWithImplementationInProgress": 1,
-    "frameworksWithNoImplementationStarted": 65,
+    "frameworksWithImplementationInProgress": 2,
+    "frameworksWithNoImplementationStarted": 64,
     "blockedFrameworkCount": 0,
     "completedImplementationTaskCount": 0,
     "totalBaselinedImplementationTaskCount": 1092,
@@ -2669,7 +2670,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2462",
+      "lastUpdatedBatch": "Batch-2463",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -3484,17 +3485,17 @@
           "classification": "SDK integration implementation"
         }
       ],
-      "taskStatus": "NOT STARTED",
+      "taskStatus": "IN PROGRESS",
       "completedImplementationTaskCount": 0,
       "totalBaselinedImplementationTaskCount": 25,
       "implementedPercent": 0.0,
       "remainingPercent": 100.0,
       "completionEvidence": [],
       "outstandingPreparationAndQualificationGates": {
-        "E01": "NOT STARTED",
-        "E02": "NOT STARTED",
-        "E03": "NOT STARTED",
-        "N01": "NOT STARTED",
+        "E01": "IN PROGRESS",
+        "E02": "IN PROGRESS",
+        "E03": "IN PROGRESS",
+        "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
       "lastUpdatedBatch": null,
@@ -3526,6 +3527,14 @@
         "SDK-I03-T3",
         "SDK-I03-T4",
         "SDK-I03-T5"
+      ],
+      "preparationEvidence": [
+        {
+          "path": "dotj-build/evaluation-candidate/evidence/baseline-lock.json",
+          "featureMerge": "b872dce7ebd1e39aa626605f3bfd098a023caeb5",
+          "scope": "Bounded non-exported internal candidate; public acceptance remains open",
+          "acceptedTaskCredit": 0
+        }
       ]
     },
     {
@@ -12280,19 +12289,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2463",
+    "id": "Batch-2464",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Implement and qualify security classification and empty custom-modifier arrays for all currently owned runtime field descriptors, including array identity and metadata preservation.",
+    "outcome": "Extend Type.FindMembers for selected field-only member-kind requests over owned primitive and enum inventories, with native flag, callback order, criteria and descriptor identity checks.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2462,
+    "completedBatches": 2463,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12301,8 +12310,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 461,
-    "remainingBatches": 38,
+    "completedBatches": 462,
+    "remainingBatches": 37,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },
