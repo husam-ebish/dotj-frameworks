@@ -189,13 +189,33 @@
         }
       ],
       "fullCanonicalGateRequired": 470
+    },
+    {
+      "batch": 2456,
+      "path": "tools/oracle/dotj-core/verify-integer-private-field-read-target-domains.py",
+      "originalSha256": "3faf961cb4aec32199a5f5dfe005327325a582887b0d2b37bf5c7bbfd71260eb",
+      "sha256": "43f175d1866e38f203acacc610a40dc2de1689a66368781ebee114c3dcfc0bf3",
+      "sourceBaselineCommit": "b9d56576561f3659f651709c152b43ba5f0c4d04",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 471
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2455,
-  "newPreparedVerifiersMigrated": 9,
-  "currentAndNewVerifiersMigrated": 197,
-  "futurePreparedVerifiersRemaining": 45,
+  "appliedThroughBatch": 2456,
+  "newPreparedVerifiersMigrated": 10,
+  "currentAndNewVerifiersMigrated": 198,
+  "futurePreparedVerifiersRemaining": 44,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
