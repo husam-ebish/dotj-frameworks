@@ -1,0 +1,7 @@
+# Filter callback exception identity and abort behavior
+
+Batch 2437: 960 native/Java calls compare 8640 exact result/error/call-count/last-argument/reference groups. Emitted native filter spies throw a stored InvalidOperationException at selected callback positions, retain the last member/type and criteria, and return controlled booleans otherwise. All 78 callback failures preserve the original exception object; empty inventories and signature dispatch make no callback. Member-kind and binding-flag controls suppress callbacks as native behavior requires.
+
+960 pinned native calls and 960 Java facade calls pass 8640 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The product JAR is byte-identical to the preceding qualified filter candidate. Fresh packaging, API and retained reflection checks are required; the full 452-check canonical gate remains required before merge.
+
+Selected available interface/member inventories and emitted filter spies only; complete inventories, CLR delegate ABI and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify Type.GetMemberWithSameMetadataDefinitionAs for selected owned interface methods, wrong-owner members and signature receiver validation.
