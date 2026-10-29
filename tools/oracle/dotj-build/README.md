@@ -42,3 +42,24 @@ with the generated type initializer and profile/closure gaps explicitly retained
 See the [bounded inventory](../../../planning/stage-2/repos/dotj-build/COMPILED-LIFECYCLE-INVENTORY.md).
 No public facade, core substitute contract, task acceptance or product credit
 is provided by this inventory. The existing internal candidate is unchanged.
+
+## Explicit-import native observations
+
+`capture-imports.py --out <new-D-directory>` compiles the owned development-only
+CaptureImports.cs directly against the local pinned net10.0 reference pack and
+SDK assemblies, then evaluates the immutable nine-case corpus under three
+separately labeled load profiles. It preserves 128 MiB native heap / two CPUs,
+the existing free-memory floors, 30-second command deadlines, D: temp/home/cache
+paths and roll-forward disabled. No project Build, target/task execution,
+restore, SDK fixture resolver or network call is used. The C# host has synchronous
+logging and unloads/disposes a fresh collection after each success or failure.
+
+`verify-imports.py <first-verification.json> <second-verification.json> --bridge
+<checked-in-tsv> --out <new-D-json>` checks retained log hashes, compares all
+ordered observations using the planned fixture-root-only substitution and
+reconstructs the candidate comparison bridge. It retains native positions,
+messages, null diagnostic codes, exceptions and cleanup. See the candidate's
+[bounded import contract](../../../dotj-build/evaluation-candidate/IMPORT-BEHAVIOR.md)
+for the supported observables and remaining gaps. The native SDK, Roslyn compiler,
+reference pack and .NET runtime are development-only; they are not JAR runtime
+dependencies. All new helper source is owned; no upstream implementation is copied.

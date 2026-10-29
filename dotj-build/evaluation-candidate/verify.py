@@ -8,6 +8,7 @@ import datetime
 import hashlib
 import json
 import os
+import runpy
 from pathlib import Path
 import shutil
 import subprocess
@@ -45,12 +46,35 @@ def main():
     for item in lock['fixtures']:
         if sha(BASE/item['path']) != item['sha256']:
             raise RuntimeError('Fixture mismatch: '+item['path'])
+    import_lock_path = BASE/'evidence/import-observation-lock-v1.json'
+    import_lock = json.loads(import_lock_path.read_text())
+    repo = BASE.parents[1]
+    def verify_import_inputs():
+        for item in import_lock['inputs']:
+            anchor = root if item['base']=='root' else repo
+            path = (anchor/item['path']).resolve(strict=True)
+            if not path.is_relative_to(anchor) or sha(path) != item['sha256']:
+                raise RuntimeError('Import observation integrity mismatch: '+item['path'])
+        plan = json.loads((BASE/'evidence/import-plan-v1.json').read_text())
+        if {p.relative_to(BASE/'import-fixtures').as_posix() for p in (BASE/'import-fixtures').rglob('*') if p.is_file()} != {i['path'] for i in plan['fixtures']}:
+            raise RuntimeError('Unexpected import fixture inventory')
+        for item in plan['fixtures']:
+            if sha(BASE/'import-fixtures'/item['path']) != item['sha256']:
+                raise RuntimeError('Import fixture mismatch: '+item['path'])
+    verify_import_inputs()
+    comparison_tool = repo/'tools/oracle/dotj-build/verify-imports.py'
+    observations = json.loads((BASE/'evidence/native-import-observations-v1.json').read_text())
+    expected_bridge = runpy.run_path(str(comparison_tool))['comparison_bridge'](observations['captures'])
+    if (BASE/'evidence/native-import-comparison-v1.tsv').read_text(encoding='utf-8') != expected_bridge:
+        raise RuntimeError('Import bridge does not reproduce native observations')
     output.mkdir(parents=True)
     for directory in ['classes', 'test-classes', 'fixtures', 'outputs', 'logs', 'tmp', 'home']:
         (output/directory).mkdir()
     record = {'schemaVersion':1, 'status':'PREPARED', 'scope':'Internal packaged evaluation candidate',
               'productQualification':False, 'acceptedTasksAdded':0,
               'baselineLockSha256':sha(BASE/'evidence/baseline-lock.json'),
+              'importObservationLockSha256':sha(import_lock_path),
+              'importComparisonVerifierSha256':sha(comparison_tool),
               'verifiedReferenceInputs':len(lock['inputs']), 'commands':[], 'resources':[],
               'sourceHashes':{p.relative_to(BASE).as_posix():sha(p)
                               for folder in ['src','tests']
@@ -132,7 +156,9 @@ def main():
     record['normalization'] = {'file':'BE19-no-target-execution/main.proj', 'occurrences':1,
                                'beforeSha256':sha(BASE/'fixtures/BE19-no-target-execution/main.proj'),
                                'afterSha256':sha(sentinel_project), 'propertyValues':'none'}
-    fixture_hashes = {p:sha(p) for p in (output/'fixtures').rglob('*') if p.is_file()}
+    shutil.copytree(BASE/'import-fixtures', output/'import-fixtures')
+    shutil.copyfile(BASE/'evidence/native-import-comparison-v1.tsv', output/'native-import-comparison.tsv')
+    fixture_hashes = {p:sha(p) for folder in ['fixtures','import-fixtures'] for p in (output/folder).rglob('*') if p.is_file()}
     compile_vm = ['-J'+option for option in vm]
     candidate = output/'dotj-build-evaluation-candidate.jar'
     tests = output/'evaluation-contract-tests.jar'
@@ -148,9 +174,10 @@ def main():
         '--limit-modules','java.base,java.xml,'+MODULE, '--module-path',str(candidate),
         '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.ProjectEvaluationComponentTest',
         str(output/'fixtures/native-comparison.tsv'),str(output/'fixtures'),str(output/'outputs'),
-        str(original_root/'BE19-no-target-execution/must-not-exist.txt'),str(candidate)])
+        str(original_root/'BE19-no-target-execution/must-not-exist.txt'),str(candidate),
+        str(output/'native-import-comparison.tsv'),str(output/'import-fixtures')])
     rows = (output/'outputs/case-results.tsv').read_text(encoding='utf-8').splitlines()
-    if len(rows) != 43 or any(sha(path) != expected for path, expected in fixture_hashes.items()):
+    if len(rows) != 52 or any(sha(path) != expected for path, expected in fixture_hashes.items()):
         raise RuntimeError('Incomplete case results or modified runtime fixtures')
     for item in lock['fixtures']:
         if sha(BASE/item['path']) != item['sha256']:
@@ -158,8 +185,22 @@ def main():
     for item in lock['inputs']:
         if sha(root/item['path']) != item['sha256']:
             raise RuntimeError('Reference input changed during evaluation: '+item['path'])
+    verify_import_inputs()
+    if list(output.rglob('must-not-exist.txt')):
+        raise RuntimeError('Task marker unexpectedly created')
+    predecessors = json.loads((BASE/'evidence/predecessor-dispositions-v1.json').read_text())
+    for case in predecessors['cases']:
+        for item in case.get('files',[]):
+            path = output/'outputs/negative-inputs'/case['id'].removeprefix('NEG-')/item['path']
+            if sha(path) != item['sha256']:
+                raise RuntimeError('Predecessor refusal input changed: '+case['id'])
+    ids = [line.split('\t',1)[0] for line in rows]
+    if len(set(ids)) != 52 or any(case['id'] not in ids for case in predecessors['cases']):
+        raise RuntimeError('Predecessor case silently missing/duplicated')
     record.update(status='PASS_INTERNAL_PACKAGED_CONTRACT', nativeComparisons=20,
-                  profileRejections=23, totalCases=43, fixturesUnchanged=True,
+                  profileRejections=22, priorDuplicateNowNativeSupported=1, newImportMatrixCases=9,
+                  supportedImportComparisons=5, explicitNewCycleGaps=3, nativeMissingImportComparison=1,
+                  totalCases=52, fixturesUnchanged=True, taskMarkersAbsent=True, predecessorCasesAccounted=43,
                   runtimeModules=['java.base','java.xml'],
                   candidateJar={'path':str(candidate),'sha256':sha(candidate)},
                   testsJar={'path':str(tests),'sha256':sha(tests)},

@@ -28,7 +28,7 @@ materialized bytes it reads. No source/binary download or rebaseline occurs.
 ## Supported input and behavior
 
 Only namespace-free, SDK-less `Project` XML under an explicit existing sandbox
-is eligible. The project plus at most 15 imports may be read; each file is at
+is eligible. The project plus at most 15 distinct imports may be read; each file is at
 most 65,536 bytes. Inputs are controlled immutable fixtures, not a concurrent
 hostile-filesystem sandbox. Existing ancestors and resolved files must remain
 inside the declared sandbox. Filesystem races and a general MSBuild filesystem
@@ -38,7 +38,7 @@ security boundary are not qualified.
 |---|---|
 | Properties | Explicit ASCII identifiers, ASCII case-insensitive lookup, source-order assignment and one-pass expansion of values already assigned. Forward/undefined references become empty. Stored values remain escaped until retrieval. |
 | Globals | Explicit caller-supplied values precede assignments. A global cannot be overwritten except for one explicitly named root `TreatAsLocalProperty` property. No ambient environment or toolset prelude is imported. |
-| Imports | Literal relative slash paths; depth-first source order; nested paths resolve relative to the defining file. A false condition skips the read; a true missing import yields private failure code `MSB4019` with owner/missing paths. |
+| Imports | Literal relative slash paths; depth-first first-import order; repeated acyclic resolved files are ignored after the first evaluation and recorded as private `MSB4011` code/owner/target notices. Nested paths resolve relative to the defining file. A false condition skips the read; a true missing import yields private failure code `MSB4019` with owner/missing paths. |
 | Conditions | Empty condition, lowercase literal `true`/`false`, single-quoted alphabetic/empty ASCII string equality, and selected literal `Exists('relative/path')`. ASCII folding is explicit. Numeric/version/boolean-alias coercion, Unicode comparisons and general operators refuse. |
 | Escapes | One-pass `%25`, `%3B`, `%24`, case-insensitive hex. Other percent escapes refuse when evaluated/retrieved; full MSBuild escaping is not implemented. |
 | XML | JDK DOM with DTD/entity/external DTD/schema access disabled, no namespace or XInclude processing. Unsupported structural elements/attributes and static property functions refuse, including in skipped groups. |
@@ -60,11 +60,11 @@ including in skipped imports and import groups. Absolute/URI/backslash paths
 and outside-sandbox imports are rejected when the import is evaluated; false
 import or import-group conditions skip those path checks and the import read.
 SDK attributes/resolvers and implicit imports, ItemGroup/items/metadata/globs,
-property functions, duplicate imports, cycles, reserved `MSBuild*` properties,
+property functions, cycles, reserved `MSBuild*` properties,
 non-ASCII property names/comparison and unqualified condition coercions refuse.
 Cycles currently produce `IMPORT_CYCLE_UNQUALIFIED`, **not a
-source-compatible chain diagnostic**. Duplicate-import refusal does not emulate
-native once-only import policy. The private missing-import failure does not
+source-compatible chain diagnostic**. Acyclic duplicate imports now use the captured once-only policy; native warning
+source locations, previous-import context and text remain unimplemented. The private missing-import failure does not
 implement `InvalidProjectFileException`, native text, source lines or HResult.
 
 The independent ordinal-comparison prototype is not imported. The central
@@ -95,8 +95,8 @@ The native tranche was independently captured through evaluation-only
 
 | Requirement | Actual evidence | Remaining gap |
 |---|---|---|
-| F01-01 deterministic imports/expansion | Existing bounded 20-case Windows oracle replay | Full properties/items/conditions/environment and platform contract |
-| F01-02 cycles report chains | Explicit unsupported cycle refusal | Source-compatible chain/error policy and native fixtures |
+| F01-01 deterministic imports/expansion | Existing bounded 20-case replay plus the same-input acyclic import matrix | Full properties/items/conditions/environment and platform contract |
+| F01-02 cycles report chains | Three distinct cycle inputs captured under three native load profiles; candidate explicitly refuses cycles | Source-compatible chain/error policy; native warning/ignore or pair diagnostics do not qualify full chains |
 | F01-03 Windows/Linux globs | Item/glob refusal | Entire item/glob and Linux/case matrix |
 | F01-04 no task execution | Native and candidate marker absent; packaged code has no execution engine | Full eligible public evaluation profile and forbidden-feature coverage |
 | E01 | Immutable reports/source/tool/runtime hashes retained | Release/profile/rights/notice/build-input eligibility closure |
@@ -104,7 +104,17 @@ The native tranche was independently captured through evaluation-only
 | N01 / NF01–NF03 | No replacement API exported; explicit source-signature gaps retained | Compiler-derived public mapping, exact API diff and paired compiled C#/.j examples |
 
 No WP01 task, package, NF case, numbered batch or release acceptance is claimed.
-The next concrete scope is compiler/metadata-derived mapping of the bounded
-`Project`/`ProjectCollection` lifecycle and its actually consumed core contracts,
-then one independently reviewed public slice. New semantic coverage needs real
+The selected compiled lifecycle mapping is now retained separately in planning.
+The next behavior scope is a separately specified cycle policy and diagnostic
+chain contract, grounded in the distinct observed load profiles; public dependency
+representation, eligibility and lifecycle work still precede public promotion. New semantic coverage needs real
 native captures; the predecessor observations do not authorize guessed behavior.
+
+## Explicit-import extension v1
+
+[IMPORT-BEHAVIOR.md](IMPORT-BEHAVIOR.md) is the bounded extension contract and
+per-observable disposition. Its immutable nine-case corpus and two native runs
+retain all three load profiles, ordered diagnostics, original source positions,
+null codes, failures and unload/disposal observations. Only acyclic once-only
+properties/import order and private notice code/owner/target order are compared
+as supported behavior. No public logger, diagnostic or load-settings API is added.
