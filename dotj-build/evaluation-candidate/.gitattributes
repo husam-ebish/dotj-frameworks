@@ -12,3 +12,5 @@ evidence/predecessor-dispositions-v1.json -text whitespace=cr-at-eol
 evidence/native-import-comparison-v1.tsv whitespace=-blank-at-eol,cr-at-eol
 location-fixtures/** -text whitespace=cr-at-eol
 evidence/location-* -text whitespace=cr-at-eol
+# Hash-bound owned cycle transport must retain identical bytes on checkout.
+evidence/cycle-comparison-v1.tsv text eol=lf

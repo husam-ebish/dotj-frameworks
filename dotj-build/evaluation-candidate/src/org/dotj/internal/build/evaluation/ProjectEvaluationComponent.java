@@ -30,8 +30,10 @@ final class ProjectEvaluationComponent {
     }
     private record WarningPosition(int line, int column, int endLine, int endColumn) { }
     private record ImportSite(Path owner, int line, int column) { }
+    // Historical private notice name. Root self-imports have no previous import site;
+    // rootContext is the observed root path, not a fabricated cycle-chain API.
     public record DuplicateImport(String referenceCode, Path owner, Path importedProject,
-                                  WarningPosition current, ImportSite previous) { }
+                                  WarningPosition current, ImportSite previous, Path rootContext) { }
     public record Result(Map<String, String> escapedProperties, List<Path> evaluatedFiles, List<DuplicateImport> duplicateImports) {
         public Result { escapedProperties = Map.copyOf(escapedProperties); evaluatedFiles = List.copyOf(evaluatedFiles); duplicateImports = List.copyOf(duplicateImports); }
         public String property(String name) { return unescape(escapedProperties.getOrDefault(key(name), "")); }
@@ -79,7 +81,6 @@ final class ProjectEvaluationComponent {
         final Set<String> globalNames = new HashSet<>();
         final Set<String> localOverrides = new HashSet<>();
         final LinkedHashSet<Path> seen = new LinkedHashSet<>();
-        final Set<Path> active = new HashSet<>();
         final List<Path> files = new ArrayList<>();
         final List<DuplicateImport> duplicates = new ArrayList<>();
         final Map<Element,ImportSite> sourceSites = new IdentityHashMap<>();
@@ -112,22 +113,19 @@ final class ProjectEvaluationComponent {
         void read(Path input, boolean main) throws IOException {
             Path file = inside(input);
             if (!Files.exists(file)) throw new EvaluationFailure(file, file);
-            if (active.contains(file)) throw reject("IMPORT_CYCLE_UNQUALIFIED", "Cycle semantics remain outside selected profile");
             if (!seen.add(file)) return;
             if (seen.size() > 16 || Files.size(file) > 65536) throw reject("INPUT_BOUND", "Bounded profile import/file size exceeded");
-            active.add(file); files.add(file);
-            try {
-                Document document = parse(file); Element root = document.getDocumentElement();
-                if (!root.getTagName().equals("Project") || root.getNamespaceURI() != null)
-                    throw reject("PROJECT_ROOT", "Only plain namespace-free Project supported");
-                attrs(root, Set.of("DefaultTargets","InitialTargets","TreatAsLocalProperty"));
-                validateStructure(root);
-                if (root.hasAttribute("TreatAsLocalProperty")) {
-                    if (!main) throw reject("IMPORTED_LOCAL_OVERRIDE", "Imported TreatAsLocalProperty scope not qualified");
-                    localOverrides.add(key(root.getAttribute("TreatAsLocalProperty")));
-                }
-                children(root, file);
-            } finally { active.remove(file); }
+            files.add(file);
+            Document document = parse(file); Element root = document.getDocumentElement();
+            if (!root.getTagName().equals("Project") || root.getNamespaceURI() != null)
+                throw reject("PROJECT_ROOT", "Only plain namespace-free Project supported");
+            attrs(root, Set.of("DefaultTargets","InitialTargets","TreatAsLocalProperty"));
+            validateStructure(root);
+            if (root.hasAttribute("TreatAsLocalProperty")) {
+                if (!main) throw reject("IMPORTED_LOCAL_OVERRIDE", "Imported TreatAsLocalProperty scope not qualified");
+                localOverrides.add(key(root.getAttribute("TreatAsLocalProperty")));
+            }
+            children(root, file);
         }
         Document parse(Path file) throws IOException {
             try {
@@ -239,13 +237,15 @@ final class ProjectEvaluationComponent {
             Path path=relative(owner,element.getAttribute("Project"));
             if(!Files.exists(path))throw new EvaluationFailure(owner,path);
             // Conditions and sandbox resolution happen before once-only identity checks.
-            // Active ancestors still go through read() and retain the explicit cycle refusal.
-            if (seen.contains(path) && !active.contains(path)) {
-                ImportSite current = sourceSites.get(element), previous = firstImports.get(path);
-                if (current == null || previous == null) throw reject("XML_SOURCE_INDEX", "Missing import source identity");
+            // Default warns/ignores root re-imports before its duplicate-import check;
+            // non-root active ancestors follow the ordinary once-only duplicate policy.
+            if (seen.contains(path)) {
+                boolean rootImport = path.equals(files.getFirst());
+                ImportSite current = sourceSites.get(element), previous = rootImport ? null : firstImports.get(path);
+                if (current == null || (!rootImport && previous == null)) throw reject("XML_SOURCE_INDEX", "Missing import source identity");
                 // Actual selected native warnings report 0/0 for unavailable end coordinates.
-                duplicates.add(new DuplicateImport("MSB4011", owner, path,
-                    new WarningPosition(current.line(),current.column(),0,0),previous));
+                duplicates.add(new DuplicateImport(rootImport ? "MSB4210" : "MSB4011", owner, path,
+                    new WarningPosition(current.line(),current.column(),0,0),previous,rootImport ? path : null));
                 return;
             }
             firstImports.putIfAbsent(path,sourceSites.get(element));

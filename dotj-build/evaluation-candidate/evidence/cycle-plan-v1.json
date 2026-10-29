@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "beforeImplementation": true,
+  "profile": "Default",
+  "cases": [
+    "BI03-two-file-cycle",
+    "BI07-prior-cycle",
+    "BI08-nonroot-cycle"
+  ],
+  "nativeRecapture": false,
+  "reason": "Exact selected bytes and all required fields already captured in location-observations-v1.json",
+  "sources": [
+    {
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Evaluator.cs",
+      "lines": "2146-2230",
+      "sha256": "be9173e280c73e654129d396364f4373fdcafabbf21235b058aa399084a3d9a3"
+    }
+  ],
+  "matched": [
+    "P/Q",
+    "once-only evaluated file order",
+    "notice code/owner/target/order",
+    "current line/column/endLine/endColumn",
+    "root-path context with absent previous site",
+    "same-Default first-import owner/line/column for non-root cycle",
+    "success/cleanup/task-marker absence retained"
+  ],
+  "notQualified": [
+    "non-Default load flags",
+    "full cycle-chain API",
+    "full localized messages",
+    "public diagnostic/exception/logger ABI",
+    "F01-02/task/product acceptance"
+  ]
+}

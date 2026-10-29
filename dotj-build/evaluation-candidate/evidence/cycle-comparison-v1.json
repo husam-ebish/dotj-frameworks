@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_RETAINED_NATIVE_DEFAULT_CYCLES",
+  "nativeRecaptureRequired": false,
+  "reason": "All three exact selected immutable inputs already have same-Default success, order, diagnostic coordinates/context and cleanup observations",
+  "sourceObservation": {
+    "path": "dotj-build/evaluation-candidate/evidence/location-observations-v1.json",
+    "sha256": "9972778232702ed5f48892ed18e06e76a9f66cb89a6b76dc8f08d745b9d2ec7e"
+  },
+  "normalization": "Existing exact fixture-root prefix only; no new native normalization",
+  "contextRepresentation": "Private native-derived root-path versus previous-import-site envelope; no native full cycle-chain API is asserted",
+  "comparisons": [
+    {
+      "id": "BI03-two-file-cycle",
+      "properties": {
+        "P": "root;one",
+        "Q": ""
+      },
+      "files": [
+        "main.proj",
+        "one.props"
+      ],
+      "notices": [
+        {
+          "code": "MSB4210",
+          "owner": "one.props",
+          "target": "main.proj",
+          "current": {
+            "line": 1,
+            "column": 56,
+            "endLine": 0,
+            "endColumn": 0
+          },
+          "previous": null,
+          "rootContext": "main.proj"
+        }
+      ]
+    },
+    {
+      "id": "BI07-prior-cycle",
+      "properties": {
+        "P": "",
+        "Q": ""
+      },
+      "files": [
+        "main.proj",
+        "one.props"
+      ],
+      "notices": [
+        {
+          "code": "MSB4210",
+          "owner": "one.props",
+          "target": "main.proj",
+          "current": {
+            "line": 1,
+            "column": 10,
+            "endLine": 0,
+            "endColumn": 0
+          },
+          "previous": null,
+          "rootContext": "main.proj"
+        }
+      ]
+    },
+    {
+      "id": "BI08-nonroot-cycle",
+      "properties": {
+        "P": "root;one;two",
+        "Q": ""
+      },
+      "files": [
+        "main.proj",
+        "one.props",
+        "two.props"
+      ],
+      "notices": [
+        {
+          "code": "MSB4011",
+          "owner": "two.props",
+          "target": "one.props",
+          "current": {
+            "line": 1,
+            "column": 56,
+            "endLine": 0,
+            "endColumn": 0
+          },
+          "previous": {
+            "owner": "main.proj",
+            "line": 1,
+            "column": 75
+          },
+          "rootContext": null
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "control": "null-native-code",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "missing-current-end",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "negative-current-line",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "missing-root-context",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "mismatched-root-context",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "mismatched-previous-context",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "failed-cleanup",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "task-marker-present",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "root-with-invented-previous",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "root-without-root-context",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "root-with-mismatched-root-path",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "nonroot-without-previous",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "nonroot-with-root-context",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "mismatched-current-envelope",
+      "disposition": "REFUSED"
+    },
+    {
+      "control": "nondefault-profile",
+      "disposition": "REFUSED"
+    }
+  ]
+}

@@ -38,7 +38,7 @@ security boundary are not qualified.
 |---|---|
 | Properties | Explicit ASCII identifiers, ASCII case-insensitive lookup, source-order assignment and one-pass expansion of values already assigned. Forward/undefined references become empty. Stored values remain escaped until retrieval. |
 | Globals | Explicit caller-supplied values precede assignments. A global cannot be overwritten except for one explicitly named root `TreatAsLocalProperty` property. No ambient environment or toolset prelude is imported. |
-| Imports | Literal relative slash paths; depth-first first-import order; repeated acyclic resolved files are ignored after the first evaluation and recorded as private `MSB4011` code/owner/target notices. Nested paths resolve relative to the defining file. A false condition skips the read; a true missing import yields private failure code `MSB4019` with owner/missing paths. |
+| Imports | Literal relative slash paths; depth-first first-import order; each file evaluates once. Under the selected Default policy, repeats including non-root active ancestors emit private `MSB4011` notices with first-import context; root re-imports emit `MSB4210` with root-path context and no previous import site. Nested paths resolve relative to the defining file. A false condition skips the read; a true missing import yields private failure code `MSB4019` with owner/missing paths. |
 | Conditions | Empty condition, lowercase literal `true`/`false`, single-quoted alphabetic/empty ASCII string equality, and selected literal `Exists('relative/path')`. ASCII folding is explicit. Numeric/version/boolean-alias coercion, Unicode comparisons and general operators refuse. |
 | Escapes | One-pass `%25`, `%3B`, `%24`, case-insensitive hex. Other percent escapes refuse when evaluated/retrieved; full MSBuild escaping is not implemented. |
 | XML | JDK DOM with DTD/entity/external DTD/schema access disabled, no namespace or XInclude processing. Unsupported structural elements/attributes and static property functions refuse, including in skipped groups. |
@@ -60,12 +60,14 @@ including in skipped imports and import groups. Absolute/URI/backslash paths
 and outside-sandbox imports are rejected when the import is evaluated; false
 import or import-group conditions skip those path checks and the import read.
 SDK attributes/resolvers and implicit imports, ItemGroup/items/metadata/globs,
-property functions, cycles, reserved `MSBuild*` properties,
+property functions, reserved `MSBuild*` properties,
 non-ASCII property names/comparison and unqualified condition coercions refuse.
-Cycles currently produce `IMPORT_CYCLE_UNQUALIFIED`, **not a
-source-compatible chain diagnostic**. Acyclic duplicate imports now use the captured once-only policy; native warning
+The selected Default root/non-root cycles use the captured warning/ignore policy,
+**not a source-compatible full cycle-chain diagnostic**. Duplicate imports use the captured once-only policy; native warning
 current source locations and directly observed first-import context are now compared by the bounded [source-location extension](IMPORT-LOCATIONS.md); full text remains unimplemented. The private missing-import failure does not
 implement `InvalidProjectFileException`, native text, source lines or HResult.
+Non-Default load settings have no implementation or selector API and remain
+unsupported.
 
 The independent ordinal-comparison prototype is not imported. The central
 research index explicitly leaves full Unicode equivalence unqualified and the
@@ -96,7 +98,7 @@ The native tranche was independently captured through evaluation-only
 | Requirement | Actual evidence | Remaining gap |
 |---|---|---|
 | F01-01 deterministic imports/expansion | Existing bounded 20-case replay plus the same-input acyclic import matrix | Full properties/items/conditions/environment and platform contract |
-| F01-02 cycles report chains | Three distinct cycle inputs captured under three native load profiles; candidate explicitly refuses cycles | Source-compatible chain/error policy; native warning/ignore or pair diagnostics do not qualify full chains |
+| F01-02 cycles report chains | Three distinct cycle inputs captured under three native load profiles; selected Default warning/ignore, ordering and current/root/previous context now compare | Full cycle-chain contract, other load profiles and public representation; Default warnings do not qualify full chains |
 | F01-03 Windows/Linux globs | Item/glob refusal | Entire item/glob and Linux/case matrix |
 | F01-04 no task execution | Native and candidate marker absent; packaged code has no execution engine | Full eligible public evaluation profile and forbidden-feature coverage |
 | E01 | Immutable reports/source/tool/runtime hashes retained | Release/profile/rights/notice/build-input eligibility closure |
@@ -105,7 +107,7 @@ The native tranche was independently captured through evaluation-only
 
 No WP01 task, package, NF case, numbered batch or release acceptance is claimed.
 The selected compiled lifecycle mapping is now retained separately in planning.
-The next behavior scope is a separately specified cycle policy and diagnostic
+The next behavior scope is a separately specified non-Default cycle policy and full diagnostic
 chain contract, grounded in the distinct observed load profiles; public dependency
 representation, eligibility and lifecycle work still precede public promotion. New semantic coverage needs real
 native captures; the predecessor observations do not authorize guessed behavior.
@@ -125,3 +127,12 @@ as supported behavior. No public logger, diagnostic or load-settings API is adde
 and previous-context gaps only for its selected internal Default-profile fields.
 All 52 predecessor inputs/dispositions and 27 historical native observations
 remain intact; cycle/public/message acceptance remains open.
+
+## Selected Default import cycles v1
+
+[IMPORT-DEFAULT-CYCLES.md](IMPORT-DEFAULT-CYCLES.md) supersedes the earlier
+explicit cycle refusals only for its bounded internal Default behavior. All 52
+legacy IDs and ten location comparisons remain; the three selected cycle inputs
+also compare native notice coordinates and honest root/previous context absence.
+Historical producer/observation bytes remain unchanged. Record/reject profiles,
+full chains/messages/public ABI and task acceptance remain open.
