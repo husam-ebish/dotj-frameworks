@@ -1,0 +1,1 @@
+<Project DefaultTargets="Never"><PropertyGroup><P>root</P></PropertyGroup><Import Project="one.props"/><Import Project="./one.props"/><Import Project="nested/../one.props"/><Target Name="Never"><WriteLinesToFile File="must-not-exist.txt" Lines="executed" Overwrite="true"/></Target></Project>

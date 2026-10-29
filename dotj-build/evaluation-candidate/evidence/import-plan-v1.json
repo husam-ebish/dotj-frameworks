@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "designedIdsNotUpstreamTests": true,
+  "normalization": {
+    "paths": "Replace exact copied fixture-root prefix with <fixtures> only in path/location/message fields; backslash separators retained",
+    "propertyValues": "none",
+    "diagnostics": "Codes, locations, order and text retained; fixture-root substitution only",
+    "envelope": "No normalization in raw captures; runtime/import profile/failure/cleanup retained"
+  },
+  "cases": [
+    "BI01-repeat",
+    "BI02-diamond",
+    "BI03-two-file-cycle",
+    "BI04-relative-alias",
+    "BI05-false-then-true",
+    "BI06-prior-duplicate",
+    "BI07-prior-cycle",
+    "BI08-nonroot-cycle",
+    "BI09-missing"
+  ],
+  "profiles": [
+    "Default",
+    "RecordDuplicateButNotCircularImports",
+    "RejectCircularImports"
+  ],
+  "fixtures": [
+    {
+      "path": "BI01-repeat/main.proj",
+      "sha256": "e8fe3c51a65117c312c3ea61ada043edbd7bf3f3709bc69d23cb5c54a6ac9c76"
+    },
+    {
+      "path": "BI01-repeat/one.props",
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "BI02-diamond/left.props",
+      "sha256": "51d473fd808cb097982a719bb42ff22664da25f3b2c0e6ec98251ee254ac0dd2"
+    },
+    {
+      "path": "BI02-diamond/main.proj",
+      "sha256": "02e61c3f9f295638614671a85ba31009302cdddf512784919880207d2ded91a2"
+    },
+    {
+      "path": "BI02-diamond/right.props",
+      "sha256": "a7f659a6290781cec2ce1e020af289bc477dae847201c5f626876dd42a0632ab"
+    },
+    {
+      "path": "BI02-diamond/shared.props",
+      "sha256": "c2033b30d598e9072dc20a62cb57ef81bf555db7fe72ec330ad693477c88f74d"
+    },
+    {
+      "path": "BI03-two-file-cycle/main.proj",
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "BI03-two-file-cycle/one.props",
+      "sha256": "6afacb3743fcd0a3cdc69b348551cc6bf9f93e1e23dda0cfb4a035246e4cf007"
+    },
+    {
+      "path": "BI04-relative-alias/main.proj",
+      "sha256": "3000ce63c9c97941971bd15f259549fe90876726756f0c5f8a7197a30345e3bc"
+    },
+    {
+      "path": "BI04-relative-alias/nested/.keep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "BI04-relative-alias/one.props",
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "BI05-false-then-true/main.proj",
+      "sha256": "d374ce7b9013bd6534455d7144437e338e4738c27dc6b98f3dc6251197dc139c"
+    },
+    {
+      "path": "BI05-false-then-true/one.props",
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "BI06-prior-duplicate/main.proj",
+      "sha256": "0df55474fc2b6718b58a46d1051c1d24856af41514528af2e905bfef461e4aae"
+    },
+    {
+      "path": "BI06-prior-duplicate/one.props",
+      "sha256": "4fd24be83f7dd636f6e2e8f456dfa559f1ca9c7346e1d10a5358db346b1300b9"
+    },
+    {
+      "path": "BI07-prior-cycle/main.proj",
+      "sha256": "6513c38151f8a3b55c78b8fa2a52699b15b523e47a1f390323e0bc0c2d9b1d76"
+    },
+    {
+      "path": "BI07-prior-cycle/one.props",
+      "sha256": "2d36d87cf0b8da5df89e41461e993d2aba79369ec06782e7253a19ed4bdb9a75"
+    },
+    {
+      "path": "BI08-nonroot-cycle/main.proj",
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "BI08-nonroot-cycle/one.props",
+      "sha256": "f64f5b46ad69ae9b22c84512975fac3784220cc552f723646c6061f25982e752"
+    },
+    {
+      "path": "BI08-nonroot-cycle/two.props",
+      "sha256": "160d13a321d0618cd3626a8f5d963cf5d8cb7abc78351fccabba05e623e77f4f"
+    },
+    {
+      "path": "BI09-missing/main.proj",
+      "sha256": "afa41ca13e9dd5e2d864acf265e9336d0ba0a8347f2590a8ef4a27e204c2ed6f"
+    }
+  ]
+}

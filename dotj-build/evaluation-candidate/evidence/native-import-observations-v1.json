@@ -1,0 +1,1247 @@
+{
+  "status": "PASS_TWO_NATIVE_IMPORT_RUNS",
+  "normalization": "Exact fixture-root prefix only in owner/project/file/message fields; properties, diagnostics order/codes/locations, failures and cleanup unchanged",
+  "inputs": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\verification.json",
+      "sha256": "85be5d4a32df7312a61c7b48a8102cd08f6b3d5f328d57d895acf44244677c86"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\verification.json",
+      "sha256": "dc915f168a8fa955ad68e4be95217bfcfa33b9a94f3a739b87b135c645f6c929"
+    }
+  ],
+  "observationsPerRun": 27,
+  "captures": [
+    {
+      "runtime": ".NET 10.0.12",
+      "msbuildAssembly": "Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "profile": "Default",
+      "rows": [
+        {
+          "id": "BI01-repeat",
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one;between",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI01-repeat\\main.proj",
+                "project": "<fixtures>\\BI01-repeat\\one.props",
+                "line": 1,
+                "column": 75
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI01-repeat\\main.proj",
+              "line": 1,
+              "column": 154,
+              "message": "\"<fixtures>\\BI01-repeat\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI01-repeat\\main.proj (1,75)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI02-diamond",
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;left;shared;right",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI02-diamond\\main.proj",
+                "project": "<fixtures>\\BI02-diamond\\left.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "<fixtures>\\BI02-diamond\\left.props",
+                "project": "<fixtures>\\BI02-diamond\\shared.props",
+                "line": 1,
+                "column": 57
+              },
+              {
+                "owner": "<fixtures>\\BI02-diamond\\main.proj",
+                "project": "<fixtures>\\BI02-diamond\\right.props",
+                "line": 1,
+                "column": 105
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI02-diamond\\right.props",
+              "line": 1,
+              "column": 58,
+              "message": "\"<fixtures>\\BI02-diamond\\shared.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI02-diamond\\left.props (1,57)\". This is most likely a build authoring error. This subsequent import will be ignored. [<fixtures>\\BI02-diamond\\main.proj]"
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI03-two-file-cycle",
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI03-two-file-cycle\\main.proj",
+                "project": "<fixtures>\\BI03-two-file-cycle\\one.props",
+                "line": 1,
+                "column": 75
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4210",
+              "file": "<fixtures>\\BI03-two-file-cycle\\one.props",
+              "line": 1,
+              "column": 56,
+              "message": "\"<fixtures>\\BI03-two-file-cycle\\main.proj\" is attempting to import itself, directly or indirectly. This is most likely a build authoring error. The import will be ignored."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI04-relative-alias",
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI04-relative-alias\\main.proj",
+                "project": "<fixtures>\\BI04-relative-alias\\one.props",
+                "line": 1,
+                "column": 75
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI04-relative-alias\\main.proj",
+              "line": 1,
+              "column": 104,
+              "message": "\"<fixtures>\\BI04-relative-alias\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI04-relative-alias\\main.proj (1,75)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            },
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI04-relative-alias\\main.proj",
+              "line": 1,
+              "column": 135,
+              "message": "\"<fixtures>\\BI04-relative-alias\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI04-relative-alias\\main.proj (1,75)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI05-false-then-true",
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI05-false-then-true\\main.proj",
+                "project": "<fixtures>\\BI05-false-then-true\\one.props",
+                "line": 1,
+                "column": 122
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI06-prior-duplicate",
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI06-prior-duplicate\\main.proj",
+                "project": "<fixtures>\\BI06-prior-duplicate\\one.props",
+                "line": 1,
+                "column": 10
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI06-prior-duplicate\\main.proj",
+              "line": 1,
+              "column": 39,
+              "message": "\"<fixtures>\\BI06-prior-duplicate\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI06-prior-duplicate\\main.proj (1,10)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI07-prior-cycle",
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI07-prior-cycle\\main.proj",
+                "project": "<fixtures>\\BI07-prior-cycle\\one.props",
+                "line": 1,
+                "column": 10
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4210",
+              "file": "<fixtures>\\BI07-prior-cycle\\one.props",
+              "line": 1,
+              "column": 10,
+              "message": "\"<fixtures>\\BI07-prior-cycle\\main.proj\" is attempting to import itself, directly or indirectly. This is most likely a build authoring error. The import will be ignored."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI08-nonroot-cycle",
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one;two",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI08-nonroot-cycle\\main.proj",
+                "project": "<fixtures>\\BI08-nonroot-cycle\\one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "<fixtures>\\BI08-nonroot-cycle\\one.props",
+                "project": "<fixtures>\\BI08-nonroot-cycle\\two.props",
+                "line": 1,
+                "column": 56
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI08-nonroot-cycle\\two.props",
+              "line": 1,
+              "column": 56,
+              "message": "\"<fixtures>\\BI08-nonroot-cycle\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI08-nonroot-cycle\\main.proj (1,75)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI09-missing",
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4019",
+            "file": "<fixtures>\\BI09-missing\\main.proj",
+            "line": 1,
+            "column": 10,
+            "message": "The imported project \"<fixtures>\\BI09-missing\\missing.props\" was not found. Confirm that the expression in the Import declaration \"missing.props\", which evaluated to \"missing.props\", is correct, and that the file exists on disk.  <fixtures>\\BI09-missing\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4019",
+              "file": "<fixtures>\\BI09-missing\\main.proj",
+              "line": 1,
+              "column": 10,
+              "message": "The imported project \"<fixtures>\\BI09-missing\\missing.props\" was not found. Confirm that the expression in the Import declaration \"missing.props\", which evaluated to \"missing.props\", is correct, and that the file exists on disk."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        }
+      ]
+    },
+    {
+      "runtime": ".NET 10.0.12",
+      "msbuildAssembly": "Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "profile": "RecordDuplicateButNotCircularImports",
+      "rows": [
+        {
+          "id": "BI01-repeat",
+          "profile": "RecordDuplicateButNotCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one;between",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI01-repeat\\main.proj",
+                "project": "<fixtures>\\BI01-repeat\\one.props",
+                "line": 1,
+                "column": 75
+              }
+            ],
+            "duplicateImports": [
+              {
+                "owner": "<fixtures>\\BI01-repeat\\main.proj",
+                "project": "<fixtures>\\BI01-repeat\\one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "<fixtures>\\BI01-repeat\\main.proj",
+                "project": "<fixtures>\\BI01-repeat\\one.props",
+                "line": 1,
+                "column": 154
+              }
+            ],
+            "duplicateGetterFailure": null
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI01-repeat\\main.proj",
+              "line": 1,
+              "column": 154,
+              "message": "\"<fixtures>\\BI01-repeat\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI01-repeat\\main.proj (1,75)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI02-diamond",
+          "profile": "RecordDuplicateButNotCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;left;shared;right",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI02-diamond\\main.proj",
+                "project": "<fixtures>\\BI02-diamond\\left.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "<fixtures>\\BI02-diamond\\left.props",
+                "project": "<fixtures>\\BI02-diamond\\shared.props",
+                "line": 1,
+                "column": 57
+              },
+              {
+                "owner": "<fixtures>\\BI02-diamond\\main.proj",
+                "project": "<fixtures>\\BI02-diamond\\right.props",
+                "line": 1,
+                "column": 105
+              }
+            ],
+            "duplicateImports": [
+              {
+                "owner": "<fixtures>\\BI02-diamond\\main.proj",
+                "project": "<fixtures>\\BI02-diamond\\left.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "<fixtures>\\BI02-diamond\\left.props",
+                "project": "<fixtures>\\BI02-diamond\\shared.props",
+                "line": 1,
+                "column": 57
+              },
+              {
+                "owner": "<fixtures>\\BI02-diamond\\main.proj",
+                "project": "<fixtures>\\BI02-diamond\\right.props",
+                "line": 1,
+                "column": 105
+              },
+              {
+                "owner": "<fixtures>\\BI02-diamond\\right.props",
+                "project": "<fixtures>\\BI02-diamond\\shared.props",
+                "line": 1,
+                "column": 58
+              }
+            ],
+            "duplicateGetterFailure": null
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI02-diamond\\right.props",
+              "line": 1,
+              "column": 58,
+              "message": "\"<fixtures>\\BI02-diamond\\shared.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI02-diamond\\left.props (1,57)\". This is most likely a build authoring error. This subsequent import will be ignored. [<fixtures>\\BI02-diamond\\main.proj]"
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI03-two-file-cycle",
+          "profile": "RecordDuplicateButNotCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI03-two-file-cycle\\main.proj",
+                "project": "<fixtures>\\BI03-two-file-cycle\\one.props",
+                "line": 1,
+                "column": 75
+              }
+            ],
+            "duplicateImports": [
+              {
+                "owner": "<fixtures>\\BI03-two-file-cycle\\main.proj",
+                "project": "<fixtures>\\BI03-two-file-cycle\\one.props",
+                "line": 1,
+                "column": 75
+              }
+            ],
+            "duplicateGetterFailure": null
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4210",
+              "file": "<fixtures>\\BI03-two-file-cycle\\one.props",
+              "line": 1,
+              "column": 56,
+              "message": "\"<fixtures>\\BI03-two-file-cycle\\main.proj\" is attempting to import itself, directly or indirectly. This is most likely a build authoring error. The import will be ignored."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI04-relative-alias",
+          "profile": "RecordDuplicateButNotCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI04-relative-alias\\main.proj",
+                "project": "<fixtures>\\BI04-relative-alias\\one.props",
+                "line": 1,
+                "column": 75
+              }
+            ],
+            "duplicateImports": [
+              {
+                "owner": "<fixtures>\\BI04-relative-alias\\main.proj",
+                "project": "<fixtures>\\BI04-relative-alias\\one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "<fixtures>\\BI04-relative-alias\\main.proj",
+                "project": "<fixtures>\\BI04-relative-alias\\one.props",
+                "line": 1,
+                "column": 104
+              },
+              {
+                "owner": "<fixtures>\\BI04-relative-alias\\main.proj",
+                "project": "<fixtures>\\BI04-relative-alias\\one.props",
+                "line": 1,
+                "column": 135
+              }
+            ],
+            "duplicateGetterFailure": null
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI04-relative-alias\\main.proj",
+              "line": 1,
+              "column": 104,
+              "message": "\"<fixtures>\\BI04-relative-alias\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI04-relative-alias\\main.proj (1,75)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            },
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI04-relative-alias\\main.proj",
+              "line": 1,
+              "column": 135,
+              "message": "\"<fixtures>\\BI04-relative-alias\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI04-relative-alias\\main.proj (1,75)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI05-false-then-true",
+          "profile": "RecordDuplicateButNotCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI05-false-then-true\\main.proj",
+                "project": "<fixtures>\\BI05-false-then-true\\one.props",
+                "line": 1,
+                "column": 122
+              }
+            ],
+            "duplicateImports": [
+              {
+                "owner": "<fixtures>\\BI05-false-then-true\\main.proj",
+                "project": "<fixtures>\\BI05-false-then-true\\one.props",
+                "line": 1,
+                "column": 122
+              }
+            ],
+            "duplicateGetterFailure": null
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI06-prior-duplicate",
+          "profile": "RecordDuplicateButNotCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI06-prior-duplicate\\main.proj",
+                "project": "<fixtures>\\BI06-prior-duplicate\\one.props",
+                "line": 1,
+                "column": 10
+              }
+            ],
+            "duplicateImports": [
+              {
+                "owner": "<fixtures>\\BI06-prior-duplicate\\main.proj",
+                "project": "<fixtures>\\BI06-prior-duplicate\\one.props",
+                "line": 1,
+                "column": 10
+              },
+              {
+                "owner": "<fixtures>\\BI06-prior-duplicate\\main.proj",
+                "project": "<fixtures>\\BI06-prior-duplicate\\one.props",
+                "line": 1,
+                "column": 39
+              }
+            ],
+            "duplicateGetterFailure": null
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI06-prior-duplicate\\main.proj",
+              "line": 1,
+              "column": 39,
+              "message": "\"<fixtures>\\BI06-prior-duplicate\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI06-prior-duplicate\\main.proj (1,10)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI07-prior-cycle",
+          "profile": "RecordDuplicateButNotCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI07-prior-cycle\\main.proj",
+                "project": "<fixtures>\\BI07-prior-cycle\\one.props",
+                "line": 1,
+                "column": 10
+              }
+            ],
+            "duplicateImports": [
+              {
+                "owner": "<fixtures>\\BI07-prior-cycle\\main.proj",
+                "project": "<fixtures>\\BI07-prior-cycle\\one.props",
+                "line": 1,
+                "column": 10
+              }
+            ],
+            "duplicateGetterFailure": null
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4210",
+              "file": "<fixtures>\\BI07-prior-cycle\\one.props",
+              "line": 1,
+              "column": 10,
+              "message": "\"<fixtures>\\BI07-prior-cycle\\main.proj\" is attempting to import itself, directly or indirectly. This is most likely a build authoring error. The import will be ignored."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI08-nonroot-cycle",
+          "profile": "RecordDuplicateButNotCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one;two",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI08-nonroot-cycle\\main.proj",
+                "project": "<fixtures>\\BI08-nonroot-cycle\\one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "<fixtures>\\BI08-nonroot-cycle\\one.props",
+                "project": "<fixtures>\\BI08-nonroot-cycle\\two.props",
+                "line": 1,
+                "column": 56
+              }
+            ],
+            "duplicateImports": [
+              {
+                "owner": "<fixtures>\\BI08-nonroot-cycle\\main.proj",
+                "project": "<fixtures>\\BI08-nonroot-cycle\\one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "<fixtures>\\BI08-nonroot-cycle\\one.props",
+                "project": "<fixtures>\\BI08-nonroot-cycle\\two.props",
+                "line": 1,
+                "column": 56
+              }
+            ],
+            "duplicateGetterFailure": null
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": null,
+              "file": "<fixtures>\\BI08-nonroot-cycle\\two.props",
+              "line": 1,
+              "column": 56,
+              "message": "Importing the file \"<fixtures>\\BI08-nonroot-cycle\\one.props\" into the file \"<fixtures>\\BI08-nonroot-cycle\\two.props\" results in a circular dependency."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI09-missing",
+          "profile": "RecordDuplicateButNotCircularImports",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4019",
+            "file": "<fixtures>\\BI09-missing\\main.proj",
+            "line": 1,
+            "column": 10,
+            "message": "The imported project \"<fixtures>\\BI09-missing\\missing.props\" was not found. Confirm that the expression in the Import declaration \"missing.props\", which evaluated to \"missing.props\", is correct, and that the file exists on disk.  <fixtures>\\BI09-missing\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4019",
+              "file": "<fixtures>\\BI09-missing\\main.proj",
+              "line": 1,
+              "column": 10,
+              "message": "The imported project \"<fixtures>\\BI09-missing\\missing.props\" was not found. Confirm that the expression in the Import declaration \"missing.props\", which evaluated to \"missing.props\", is correct, and that the file exists on disk."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        }
+      ]
+    },
+    {
+      "runtime": ".NET 10.0.12",
+      "msbuildAssembly": "Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "profile": "RejectCircularImports",
+      "rows": [
+        {
+          "id": "BI01-repeat",
+          "profile": "RejectCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one;between",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI01-repeat\\main.proj",
+                "project": "<fixtures>\\BI01-repeat\\one.props",
+                "line": 1,
+                "column": 75
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI01-repeat\\main.proj",
+              "line": 1,
+              "column": 154,
+              "message": "\"<fixtures>\\BI01-repeat\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI01-repeat\\main.proj (1,75)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI02-diamond",
+          "profile": "RejectCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;left;shared;right",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI02-diamond\\main.proj",
+                "project": "<fixtures>\\BI02-diamond\\left.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "<fixtures>\\BI02-diamond\\left.props",
+                "project": "<fixtures>\\BI02-diamond\\shared.props",
+                "line": 1,
+                "column": 57
+              },
+              {
+                "owner": "<fixtures>\\BI02-diamond\\main.proj",
+                "project": "<fixtures>\\BI02-diamond\\right.props",
+                "line": 1,
+                "column": 105
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI02-diamond\\right.props",
+              "line": 1,
+              "column": 58,
+              "message": "\"<fixtures>\\BI02-diamond\\shared.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI02-diamond\\left.props (1,57)\". This is most likely a build authoring error. This subsequent import will be ignored. [<fixtures>\\BI02-diamond\\main.proj]"
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI03-two-file-cycle",
+          "profile": "RejectCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI03-two-file-cycle\\main.proj",
+                "project": "<fixtures>\\BI03-two-file-cycle\\one.props",
+                "line": 1,
+                "column": 75
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4210",
+              "file": "<fixtures>\\BI03-two-file-cycle\\one.props",
+              "line": 1,
+              "column": 56,
+              "message": "\"<fixtures>\\BI03-two-file-cycle\\main.proj\" is attempting to import itself, directly or indirectly. This is most likely a build authoring error. The import will be ignored."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI04-relative-alias",
+          "profile": "RejectCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI04-relative-alias\\main.proj",
+                "project": "<fixtures>\\BI04-relative-alias\\one.props",
+                "line": 1,
+                "column": 75
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI04-relative-alias\\main.proj",
+              "line": 1,
+              "column": 104,
+              "message": "\"<fixtures>\\BI04-relative-alias\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI04-relative-alias\\main.proj (1,75)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            },
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI04-relative-alias\\main.proj",
+              "line": 1,
+              "column": 135,
+              "message": "\"<fixtures>\\BI04-relative-alias\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI04-relative-alias\\main.proj (1,75)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI05-false-then-true",
+          "profile": "RejectCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "root;one",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI05-false-then-true\\main.proj",
+                "project": "<fixtures>\\BI05-false-then-true\\one.props",
+                "line": 1,
+                "column": 122
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI06-prior-duplicate",
+          "profile": "RejectCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI06-prior-duplicate\\main.proj",
+                "project": "<fixtures>\\BI06-prior-duplicate\\one.props",
+                "line": 1,
+                "column": 10
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\BI06-prior-duplicate\\main.proj",
+              "line": 1,
+              "column": 39,
+              "message": "\"<fixtures>\\BI06-prior-duplicate\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\BI06-prior-duplicate\\main.proj (1,10)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI07-prior-cycle",
+          "profile": "RejectCircularImports",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BI07-prior-cycle\\main.proj",
+                "project": "<fixtures>\\BI07-prior-cycle\\one.props",
+                "line": 1,
+                "column": 10
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4210",
+              "file": "<fixtures>\\BI07-prior-cycle\\one.props",
+              "line": 1,
+              "column": 10,
+              "message": "\"<fixtures>\\BI07-prior-cycle\\main.proj\" is attempting to import itself, directly or indirectly. This is most likely a build authoring error. The import will be ignored."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI08-nonroot-cycle",
+          "profile": "RejectCircularImports",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": null,
+            "file": "<fixtures>\\BI08-nonroot-cycle\\two.props",
+            "line": 1,
+            "column": 56,
+            "message": "Importing the file \"<fixtures>\\BI08-nonroot-cycle\\one.props\" into the file \"<fixtures>\\BI08-nonroot-cycle\\two.props\" results in a circular dependency.  <fixtures>\\BI08-nonroot-cycle\\two.props",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": null,
+              "file": "<fixtures>\\BI08-nonroot-cycle\\two.props",
+              "line": 1,
+              "column": 56,
+              "message": "Importing the file \"<fixtures>\\BI08-nonroot-cycle\\one.props\" into the file \"<fixtures>\\BI08-nonroot-cycle\\two.props\" results in a circular dependency."
+            },
+            {
+              "kind": "error",
+              "code": null,
+              "file": "<fixtures>\\BI08-nonroot-cycle\\two.props",
+              "line": 1,
+              "column": 56,
+              "message": "Importing the file \"<fixtures>\\BI08-nonroot-cycle\\one.props\" into the file \"<fixtures>\\BI08-nonroot-cycle\\two.props\" results in a circular dependency."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BI09-missing",
+          "profile": "RejectCircularImports",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4019",
+            "file": "<fixtures>\\BI09-missing\\main.proj",
+            "line": 1,
+            "column": 10,
+            "message": "The imported project \"<fixtures>\\BI09-missing\\missing.props\" was not found. Confirm that the expression in the Import declaration \"missing.props\", which evaluated to \"missing.props\", is correct, and that the file exists on disk.  <fixtures>\\BI09-missing\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4019",
+              "file": "<fixtures>\\BI09-missing\\main.proj",
+              "line": 1,
+              "column": 10,
+              "message": "The imported project \"<fixtures>\\BI09-missing\\missing.props\" was not found. Confirm that the expression in the Import declaration \"missing.props\", which evaluated to \"missing.props\", is correct, and that the file exists on disk."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        }
+      ]
+    }
+  ]
+}

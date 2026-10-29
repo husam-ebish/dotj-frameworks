@@ -25,8 +25,9 @@ final class ProjectEvaluationComponent {
             referenceCode = "MSB4019"; this.project = project; missingImport = missing;
         }
     }
-    public record Result(Map<String, String> escapedProperties, List<Path> evaluatedFiles) {
-        public Result { escapedProperties = Map.copyOf(escapedProperties); evaluatedFiles = List.copyOf(evaluatedFiles); }
+    public record DuplicateImport(String referenceCode, Path owner, Path importedProject) { }
+    public record Result(Map<String, String> escapedProperties, List<Path> evaluatedFiles, List<DuplicateImport> duplicateImports) {
+        public Result { escapedProperties = Map.copyOf(escapedProperties); evaluatedFiles = List.copyOf(evaluatedFiles); duplicateImports = List.copyOf(duplicateImports); }
         public String property(String name) { return unescape(escapedProperties.getOrDefault(key(name), "")); }
     }
     private static final Pattern NAME = Pattern.compile("[A-Za-z_][A-Za-z0-9_]*");
@@ -64,7 +65,7 @@ final class ProjectEvaluationComponent {
     public static Result evaluate(Path project, Path sandbox, Map<String,String> globals) throws IOException {
         State state = new State(sandbox, globals);
         state.read(project.toAbsolutePath().normalize(), true);
-        return new Result(state.properties, state.files);
+        return new Result(state.properties, state.files, state.duplicates);
     }
     private static final class State {
         final Path sandbox;
@@ -74,6 +75,7 @@ final class ProjectEvaluationComponent {
         final LinkedHashSet<Path> seen = new LinkedHashSet<>();
         final Set<Path> active = new HashSet<>();
         final List<Path> files = new ArrayList<>();
+        final List<DuplicateImport> duplicates = new ArrayList<>();
         State(Path sandbox, Map<String,String> globals) throws IOException {
             this.sandbox = sandbox.toRealPath();
             for (var entry : globals.entrySet()) {
@@ -103,7 +105,7 @@ final class ProjectEvaluationComponent {
             Path file = inside(input);
             if (!Files.exists(file)) throw new EvaluationFailure(file, file);
             if (active.contains(file)) throw reject("IMPORT_CYCLE_UNQUALIFIED", "Cycle semantics remain outside selected profile");
-            if (!seen.add(file)) throw reject("DUPLICATE_IMPORT_UNQUALIFIED", "Repeated-import policy remains outside selected profile");
+            if (!seen.add(file)) return;
             if (seen.size() > 16 || Files.size(file) > 65536) throw reject("INPUT_BOUND", "Bounded profile import/file size exceeded");
             active.add(file); files.add(file);
             try {
@@ -225,6 +227,12 @@ final class ProjectEvaluationComponent {
             if(!condition(element.getAttribute("Condition"),owner))return;
             Path path=relative(owner,element.getAttribute("Project"));
             if(!Files.exists(path))throw new EvaluationFailure(owner,path);
+            // Conditions and sandbox resolution happen before once-only identity checks.
+            // Active ancestors still go through read() and retain the explicit cycle refusal.
+            if (seen.contains(path) && !active.contains(path)) {
+                duplicates.add(new DuplicateImport("MSB4011", owner, path));
+                return;
+            }
             read(path,false);
         }
         String expand(String value) {

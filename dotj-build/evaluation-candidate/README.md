@@ -28,14 +28,19 @@ reason; it does not lower the existing memory floors. No native MSBuild command
 is executed by this runner.
 
 The suite compares 20 existing same-input Windows native observations with the
-live candidate: 19 property pairs and one missing-import code/path. Another 23
-cases verify explicit candidate-profile refusals. The candidate is compiled
+live candidate: 19 property pairs and one missing-import code/path. The prior 23
+refusal inputs remain byte-identical: 22 still refuse, and the duplicate input
+now compares captured once-only behavior. Nine additional import cases bring
+the suite to 52 cases, including three explicit cycle gaps. See
+[IMPORT-BEHAVIOR.md](IMPORT-BEHAVIOR.md) for native profile and diagnostic limits. The candidate is compiled
 separately and loaded from its JAR; the suite checks that runtime location and
 the module's lack of exports/opens. The existing dotj-core queue is independent
 and is not needed or invoked.
 
 Runtime dependencies are JDK `java.base` and `java.xml`; the JVM runs with those
-modules plus this candidate module. Python and javac are development tools.
+modules plus this candidate module. Python and javac are development tools. The separate native capture tool uses
+the installed .NET 10.0.12 runtime, SDK 10.0.401 local toolset/reference pack and
+Roslyn compiler; these are development-only inputs and are not JAR dependencies.
 There are no third-party Java libraries or dotj-core binary dependencies.
 No product license/distribution choice is made here; the owned predecessor
 proposal is reused internally, and no upstream implementation is copied.

@@ -38,6 +38,7 @@ public final class ProjectEvaluationComponentTest {
             nativeCases++;
         }
         require(nativeCases==20,"Expected exact20 captured cases");
+        ImportBehaviorTest.run(Path.of(args[5]),Path.of(args[6]),rows);
         Path negatives=out.resolve("negative-inputs");Files.createDirectories(negatives);
         negative(negatives,"sdk","<Project Sdk=\"Dotj.NoSdk\"/>","UNSUPPORTED_ATTRIBUTE",Map.of());
         negative(negatives,"items","<Project><ItemGroup><Compile Include=\"*.java\"/></ItemGroup></Project>","UNSUPPORTED_ELEMENT",Map.of());
@@ -51,7 +52,7 @@ public final class ProjectEvaluationComponentTest {
         negative(negatives,"outside-import","<Project><Import Project=\"../outside.props\"/></Project>","IMPORT_BOUNDARY",Map.of());
         negative(negatives,"network-import","<Project><Import Project=\"https://example.invalid/file.props\"/></Project>","IMPORT_PATH_PROFILE",Map.of());
         negative(negatives,"unknown-escape","<Project><PropertyGroup><P>%41</P></PropertyGroup></Project>","ESCAPE_PROFILE",Map.of());
-        negative(negatives,"duplicate-import","<Project><Import Project=\"one.props\"/><Import Project=\"one.props\"/></Project>","DUPLICATE_IMPORT_UNQUALIFIED",Map.of("one.props","<Project/>"));
+        previousDuplicate(negatives,"duplicate-import","<Project><Import Project=\"one.props\"/><Import Project=\"one.props\"/></Project>","MSB4011",Map.of("one.props","<Project/>"),Path.of(args[6]).resolve("BI06-prior-duplicate"));
         negative(negatives,"cycle-import","<Project><Import Project=\"one.props\"/></Project>","IMPORT_CYCLE_UNQUALIFIED",Map.of("one.props","<Project><Import Project=\"main.proj\"/></Project>"));
         negative(negatives,"doctype","<!DOCTYPE Project [<!ENTITY x SYSTEM 'file:///C:/not-read'>]><Project/>","XML_PROFILE",Map.of());
         negative(negatives,"unknown-target-task","<Project><Target Name=\"T\"><Exec Command=\"never\"/></Target></Project>","TARGET_DECLARATION_PROFILE",Map.of());
@@ -67,7 +68,19 @@ public final class ProjectEvaluationComponentTest {
         require(!Files.exists(fixtureRoot.resolve("BE19-no-target-execution/must-not-exist.txt")),"Copied target sentinel executed");
         require(!Files.exists(Path.of(args[3])),"Original reference sentinel modified");
         Files.write(out.resolve("case-results.tsv"),rows,StandardCharsets.UTF_8);
-        System.out.println("PASS20 captured native evaluation cases +23 explicit profile-negative cases;0 product acceptance");
+        System.out.println("PASS 20 original native cases + 22 unchanged refusals + 1 prior duplicate now native-supported + 9 import-matrix cases; 0 product acceptance");
+    }
+    private static void previousDuplicate(Path root,String id,String xml,String code,Map<String,String> extras,Path paired) throws Exception {
+        Path directory=root.resolve(id);Files.createDirectories(directory);Path file=directory.resolve("main.proj");Files.writeString(file,xml);
+        require(Files.readString(paired.resolve("main.proj")).equals(xml),"Prior duplicate project bytes differ from native input");
+        for(var entry:extras.entrySet()) {
+            require(Files.readString(paired.resolve(entry.getKey())).equals(entry.getValue()),"Prior duplicate import bytes differ from native input");
+            Files.writeString(directory.resolve(entry.getKey()),entry.getValue());
+        }
+        Result result=evaluate(file,directory,Map.of());
+        require(result.evaluatedFiles().equals(List.of(file,directory.resolve("one.props"))) && result.property("P").isEmpty(),"Prior duplicate native once-only mismatch");
+        require(result.duplicateImports().equals(List.of(new DuplicateImport(code,file,directory.resolve("one.props")))),"Prior duplicate native notice mismatch");
+        record("NEG-"+id+"\tNOW_NATIVE_ONCE_ONLY_MATCH\t"+code);
     }
     private static void negative(Path root,String id,String xml,String expected,Map<String,String> extras) throws Exception {
         Path directory=root.resolve(id);Files.createDirectories(directory);Path file=directory.resolve("main.proj");Files.writeString(file,xml);

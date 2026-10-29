@@ -5,3 +5,8 @@
 fixtures/** -text
 .gitattributes text eol=lf
 fixtures/native-comparison.tsv whitespace=-blank-at-eol,cr-at-eol
+import-fixtures/** -text
+evidence/import*-v1.json -text whitespace=cr-at-eol
+evidence/native-import-* -text whitespace=cr-at-eol
+evidence/predecessor-dispositions-v1.json -text whitespace=cr-at-eol
+evidence/native-import-comparison-v1.tsv whitespace=-blank-at-eol,cr-at-eol
