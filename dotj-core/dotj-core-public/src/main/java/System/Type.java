@@ -2363,6 +2363,17 @@ public abstract class Type extends MemberInfo {
         if (memberType == null) throw new NullPointerException("memberType");
         if (flags == null) throw new NullPointerException("flags");
         if (this.selectedInterfaceMethodName() == null) {
+            boolean fieldOwner = this.selectedIntegerFields() || this.selectedPrimitiveBackingFields()
+                    || this.definition == FieldAttributes.class && !this.get_HasElementType();
+            if (fieldOwner && (memberType.get_Value() & 155) == 0) {
+                List<MemberInfo> fields = new java.util.ArrayList<>();
+                if (memberType.has(MemberTypes.Field)) {
+                    for (FieldInfo field : this.GetFields(flags)) {
+                        if (filter == null || filter.Invoke(field, filterCriteria)) fields.add(field);
+                    }
+                }
+                return fields.toArray(new MemberInfo[0]);
+            }
             throw new UnsupportedOperationException("Filtered member inventory is not mapped for this candidate type");
         }
         List<MemberInfo> members = new java.util.ArrayList<>();

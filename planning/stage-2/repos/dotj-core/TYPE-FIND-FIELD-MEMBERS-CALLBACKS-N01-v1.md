@@ -1,0 +1,11 @@
+# Owned field FindMembers callbacks
+
+Batch 2464: 16000 pinned native/Java requests compare 96000 exact aggregate groups across thirteen owned runtime types and three signature controls, ten field-only member masks, ten flag profiles, five callback modes and two criteria states. Field order, canonical callback descriptors, criteria identity, filtering, trace and signature receiver errors match. Requests containing other processed member kinds remain explicitly unmapped.
+
+16000 pinned native calls and 16000 Java facade calls pass 96000 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The candidate adds field-only filtered inventory dispatch while retaining interface-method and signature behavior. Exact snapshot packaging, API and retained reflection checks are required; the full 479-check canonical gate remains required before merge.
+
+Selected field-only requests over thirteen owned runtime inventories only; mixed method/property/constructor/event/nested-type inventories and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Qualify repeated FindMembers result-array identity, mutation isolation and nested callback queries across field flag profiles and signature receivers.
+
+## Follow-on verifier hashing
+
+The current new verifier uses the already qualified shared256 KiB hash helper. Exact original/proposed SHA-256, inverse-byte and independent-AST proofs preserve every other expression and the archive pin. The exact deployed verifier passes isolated CLI/import checks before the normal packaged preview and full canonical gate. Every archive byte is still hashed on each invocation; no digest cache, skipped checks, extra batch or acceptance credit. After this batch,36 prepared verifier migrations remain through2500. Cumulative provenance is recorded in oracle-streaming-hash-follow-on-validation-v1.json; the current entry remains pending its required full gate until the batch report records PASS.
