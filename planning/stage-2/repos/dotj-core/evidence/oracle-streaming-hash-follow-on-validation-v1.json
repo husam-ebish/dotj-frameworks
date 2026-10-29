@@ -389,13 +389,33 @@
         }
       ],
       "fullCanonicalGateRequired": 480
+    },
+    {
+      "batch": 2466,
+      "path": "tools/oracle/dotj-core/verify-type-find-field-filter-exception-propagation.py",
+      "originalSha256": "2e9b78c02a4fa9f940026c657ccbdfce35b0a68652606fb84cee83ec2e48cd85",
+      "sha256": "f04a0e84082cfcd40df17745462c45ce2227332538d3c6c9b29e9b86e7858f11",
+      "sourceBaselineCommit": "e1c3c4e05cb4eeda2dab9f3c747aa2aafd91c50a",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 481
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2465,
-  "newPreparedVerifiersMigrated": 19,
-  "currentAndNewVerifiersMigrated": 207,
-  "futurePreparedVerifiersRemaining": 35,
+  "appliedThroughBatch": 2466,
+  "newPreparedVerifiersMigrated": 20,
+  "currentAndNewVerifiersMigrated": 208,
+  "futurePreparedVerifiersRemaining": 34,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
