@@ -2222,6 +2222,12 @@ public abstract class Type extends MemberInfo {
                 || this.definition == SByte.class || this.definition == UInt16.class || this.definition == UInt32.class);
     }
 
+    private boolean selectedPrimitiveBackingFields() {
+        return !this.get_HasElementType() && this.parameterIndex < 0 && (this.definition == Boolean.class || this.definition == Character.class
+                || this.definition == Short.class || this.definition == Long.class || this.definition == BigInteger.class
+                || this.definition == Float.class || this.definition == Double.class);
+    }
+
     public FieldInfo[] GetFields() {
         return this.GetFields(BindingFlags.Public.or(BindingFlags.Instance).or(BindingFlags.Static));
     }
@@ -2235,6 +2241,10 @@ public abstract class Type extends MemberInfo {
             if (flags.has(BindingFlags.Instance)) result.add(this.selectedEnumValueField());
             if (flags.has(BindingFlags.Static)) for (String name : names) result.add(this.selectedLiteralField(name));
             return result.toArray(new FieldInfo[0]);
+        }
+        if (this.selectedPrimitiveBackingFields()) {
+            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Static)) throw new UnsupportedOperationException("Primitive public static field inventory is not mapped for this candidate profile");
+            return flags.has(BindingFlags.NonPublic) && flags.has(BindingFlags.Instance) ? new FieldInfo[] {this.selectedPrimitiveValueField()} : EMPTY_FIELDS;
         }
         if (this.selectedIntegerFields()) {
             List<FieldInfo> result = new java.util.ArrayList<>();
@@ -2271,6 +2281,10 @@ public abstract class Type extends MemberInfo {
             if (name.equals(field.get_Name()) || flags.has(BindingFlags.IgnoreCase) && name.equalsIgnoreCase(field.get_Name())) return field;
         }
         return null;
+    }
+
+    private FieldInfo selectedPrimitiveValueField() {
+        return literalFields.computeIfAbsent(List.of(this, "m_value"), ignored -> new PrimitiveValueFieldMember(this));
     }
 
     private FieldInfo selectedIntegerValueField() {
@@ -3078,6 +3092,38 @@ public abstract class Type extends MemberInfo {
                 MemberInfo member) {
             super(name, parameterType, position, member);
         }
+    }
+
+    private static final class PrimitiveValueFieldMember extends FieldInfo {
+        private final Type owner;
+        private PrimitiveValueFieldMember(Type owner) { this.owner = owner; }
+        @Override public String get_Name() { return "m_value"; }
+        @Override public Type get_DeclaringType() { return this.owner; }
+        @Override public Type get_ReflectedType() { return this.owner; }
+        @Override public MemberTypes get_MemberType() { return MemberTypes.Field; }
+        @Override public Type get_FieldType() { return this.owner; }
+        @Override public FieldAttributes get_Attributes() { return FieldAttributes.FromInt32(33); }
+        @Override public boolean get_IsCollectible() { return false; }
+        @Override public String ToString() { return this.owner.get_Name() + " m_value"; }
+        @Override public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
+            if (other == null) throw new ArgumentNullException("other");
+            return other instanceof PrimitiveValueFieldMember field && this.owner.HasSameMetadataDefinitionAs(field.owner);
+        }
+        @Override public Object GetRawConstantValue() { throw new InvalidOperationException("Operation is not valid due to the current state of the object."); }
+        @SuppressWarnings("removal")
+        @Override public Object GetValue(Object target) {
+            if (target == null) throw new TargetException("Non-static field requires a target.");
+            if (!this.owner.Equals(fromJavaClass(target.getClass()))) throw new ArgumentException("Field 'm_value' defined on type '" + this.owner.get_FullName() + "' is not a field on the target object which is of type '" + fieldTargetTypeName(target) + "'.");
+            if (target instanceof Boolean value) return new Boolean(value);
+            if (target instanceof Character value) return new Character(value);
+            if (target instanceof Short value) return new Short(value);
+            if (target instanceof Long value) return new Long(value);
+            if (target instanceof BigInteger value) return new BigInteger(value.toString());
+            if (target instanceof Float value) return new Float(value);
+            if (target instanceof Double value) return new Double(value);
+            throw new UnsupportedOperationException("Primitive field carrier is not mapped");
+        }
+        @Override public void SetValue(Object target, Object value) { throw new UnsupportedOperationException("Primitive instance field writes are not mapped for this candidate profile"); }
     }
 
     private static final class IntegerValueFieldMember extends FieldInfo {
