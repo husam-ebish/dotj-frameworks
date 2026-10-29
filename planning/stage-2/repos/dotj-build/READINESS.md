@@ -11,14 +11,21 @@
 | Exhaustive semantic upstream analysis | OPEN: E02/E03 closure remains required |
 | Eligible release and licensing | OPEN: E01; see repository-specific evidence |
 | Implementation eligibility | Conditional per slice; not blanket approval for every capability |
-| Implementation | NOT STARTED by this planning task |
-| Java implementation tests | NOT RUN; no implementation exists in this package |
+| Implementation | Merged non-exported [internal evaluation candidate](../../../../dotj-build/evaluation-candidate/README.md); public product implementation remains unqualified |
+| Java implementation tests | Existing candidate evidence: 20 native comparisons + 23 profile refusals (43 cases); no task/product acceptance |
+| Selected compiled lifecycle evidence | [Installed metadata inventory v1](COMPILED-LIFECYCLE-INVENTORY.md): twelve anchors and complete selected overload families; full E02/N01 closure remains OPEN |
 | Release readiness | NOT READY |
-| Applied to your Windows/Azure DevOps repository | No; this is a downloadable planning update |
+| Applied to repository | Internal candidate merged at b872dce7; bounded reference evidence retained; no qualified public product |
 
 ## What you can do next
 
-Commit the planning package and use E01-E03 plus WP-01 to begin the first selected implementation slice once its prerequisites are resolved and implementation is requested. You do not need another planning turn merely to obtain the remaining repositories: all 66 written plans are included. Native/mobile/browser and rights-dependent packages stay gated where specified. A written plan is not evidence that all upstream behavior is already audited or implemented.
+Review the bounded compiled lifecycle mapping, then resolve the selected public
+dependency/representation and lifecycle gaps alongside E01-E03/N01 before public
+promotion. The merged candidate is internal evidence for selected property/import
+behavior. Its existing 43-case evidence is reused because this inventory changes
+no candidate source, runtime or runner. No accepted task or numbered batch credit
+is added. Native/mobile/browser and rights-dependent packages remain gated where
+specified.
 
 ## Exact-name requirement
 
