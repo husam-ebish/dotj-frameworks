@@ -34,6 +34,8 @@ SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/TypeFilter.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberFilter.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/FieldInfo.java")
+SOURCES.append(PRODUCT / "src/main/java/System/MemberAccessException.java")
+SOURCES.append(PRODUCT / "src/main/java/System/FieldAccessException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/FieldAttributes.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBody.java")
@@ -196,6 +198,8 @@ EXPECTED_CLASSES = [
     "System/Reflection/TypeFilter.class",
     "System/Reflection/MemberFilter.class",
     "System/Reflection/FieldInfo.class",
+    "System/MemberAccessException.class",
+    "System/FieldAccessException.class",
     "System/Reflection/FieldAttributes.class",
     "System/Reflection/MemberTypes.class",
     "System/Reflection/MethodBase.class",

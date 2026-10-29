@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "scope": "Development verifier hashing only",
+  "helperSha256": "30ade1a25f55256b0a436dab774eecf271d771b231920c9c57d4544a5a18c426",
+  "qualifiedBaselineRun": "Batch-2446-run1",
+  "qualifiedValidationSha256": "733040d393373f7a7c7b2d2e5ac01571503fcd475303ce9e866054047c0f3500",
+  "qualifiedMigrationEvidenceSha256": "a84a70160d7420660f74ab00b32727fcbc1d2231b1bafa5cae961ba25f017fb3",
+  "baselineMasterCommit": "b0d0f555483993c256b34ba55d095334896d69e0",
+  "manifestSha256": "11b41b5943346ba1b322ed3642146226f9b8f9792ebe87f0ddc7cee234f12291",
+  "acceptedImplementationTaskCredit": 0,
+  "extraNumberedBatchCredit": 0,
+  "entries": [
+    {
+      "batch": 2447,
+      "path": "tools/oracle/dotj-core/verify-type-literal-field-write-rejection.py",
+      "originalSha256": "16d2a70aa97e664f9ec683626d032a521c1318fab6edefce619c1621e384bd31",
+      "sha256": "eec0de62f43461e8eb4f6809d8feed7a52bd632e8e9c37de97b9c50cd0b06a3a",
+      "sourceBaselineCommit": "b0d0f555483993c256b34ba55d095334896d69e0",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 462
+    }
+  ],
+  "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
+  "appliedThroughBatch": 2447,
+  "newPreparedVerifiersMigrated": 1,
+  "currentAndNewVerifiersMigrated": 189,
+  "futurePreparedVerifiersRemaining": 53,
+  "cachesArchiveDigests": false,
+  "skippedHashBytes": 0,
+  "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
+}
