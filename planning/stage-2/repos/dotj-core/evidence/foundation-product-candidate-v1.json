@@ -87,7 +87,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "e6ac691856cf1fe0a43dfea4044b525e89946c5cc7e9928df208ed2298fc1c07"
+      "sha256": "e4dff07ce0ae8d57a2ef14ce96ccb52a965e608be02b43c9a5c9bc9bf0612c4e"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/DBNull.java",
@@ -295,7 +295,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/FieldInfo.java",
-      "sha256": "9e468baef7f2572deb4af4888dda28e7cab655d94dce1d221e47ac0bceacae0e"
+      "sha256": "e100270710fec9c21b9d16ad616b28734490eeaad309487329bdfe1838db5774"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/MemberAccessException.java",
@@ -308,6 +308,10 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ApplicationException.java",
       "sha256": "6f986927960ca98f9052fadfbd52bd8b525730a20f3fd063ce67357f9efd2c1c"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/NotImplementedException.java",
+      "sha256": "79c1a295c8004d245d73b4c78971c6b2ee0c34eb871b39e1084d5ba00d5ab86c"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/TargetException.java",
@@ -431,7 +435,7 @@
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "039bcca8b2ee57cefeba495c4253e8c1e21022bf5ce6bc473dfc358ce62f4c11",
+  "jarSha256": "6b8859e0c0fc9e31c166ec7411500eb43724d43f350261f4c2718eca6be2b477",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -484,6 +488,7 @@
     "System/InvalidOperationException.class",
     "System/MemberAccessException.class",
     "System/MidpointRounding.class",
+    "System/NotImplementedException.class",
     "System/NotSupportedException.class",
     "System/NullReferenceException.class",
     "System/OutOfMemoryException.class",
@@ -562,6 +567,7 @@
     "System/Type$EnumValueFieldMember.class",
     "System/Type$GenericParameterType.class",
     "System/Type$IntegerValueFieldMember.class",
+    "System/Type$ModifiedFieldType.class",
     "System/Type$PointerType.class",
     "System/Type$PrimitiveStaticFieldMember.class",
     "System/Type$PrimitiveValueFieldMember.class",
@@ -633,6 +639,7 @@
     "System/InvalidOperationException.class": "5838cfe49bb35573697895c589342239a77e837afbddd63d33fcbf98ddc24bd6",
     "System/MemberAccessException.class": "c1c61fd9d63212349abe23d3c5288533c5e0086ffac153a2dc311e5ee2191f32",
     "System/MidpointRounding.class": "a9fafc826510f43d9f7ba98500cae6d8c127dd37a8012e36bf3d80a5dcd6cd61",
+    "System/NotImplementedException.class": "fd608f0f99ef0a97dc4d453093e2043c1668414f3a7c0df3286bbb3f5b724940",
     "System/NotSupportedException.class": "debe51d9dfcb2c98849d0f91fdcf80fd9a1b0ac7f7c22b7e922dd14f30d7f1a5",
     "System/NullReferenceException.class": "56143723bee2c925c6ff564e83fc30bafa0f870fc31a83c8d0eeaaba09bae7c1",
     "System/OutOfMemoryException.class": "5840f8bf04832dc94d16d91abd8668ecde374052ebadd6d3dd9ab228f0b1ee46",
@@ -641,7 +648,7 @@
     "System/Reflection/BindingFlags.class": "10f3355c1d7bb461b19927872f190398ac0accafab77de0c25d12db498bab7de",
     "System/Reflection/CallingConventions.class": "cb2f469cb13554516a0be9473d39e628a4097f329ba134549252a390ed2efad0",
     "System/Reflection/FieldAttributes.class": "e91234a9ae53105ed27eaec565c27ef563ec64dcc508fdf5e06e0f03f06ce087",
-    "System/Reflection/FieldInfo.class": "40c85061fc2f19b60463f156a749536f7b59d55f00877c171a44c448aea636fb",
+    "System/Reflection/FieldInfo.class": "6b97631ae4e6174390c9a8053bbf730f5f1826763420a2990fea6bf6162f4add",
     "System/Reflection/GenericParameterAttributes.class": "58c7ff46462f261f07aadd5d6a72e8eb020c97e32153fd8042eae7beb059828f",
     "System/Reflection/MemberFilter.class": "3e30cef8b63115d280de9743ea47ce979e17796f2d3cb0ae660cbc21947c15c0",
     "System/Reflection/MemberInfo.class": "454109429a7b48af458e93ecc9289c2f13398eb565b36b70c833e3d34ce9fe5c",
@@ -702,24 +709,25 @@
     "System/TimeSpan.class": "7ba310346c6886e0f736c7256230fb27631c73e233e5bbb1adcc25419e598994",
     "System/Type$1.class": "7b36aec6c039fb86189357f88eb8000319bbea4e31d69ca1a00927cc65e4dfc5",
     "System/Type$2.class": "2fe506ae6b81061726bcccc429bf694ce7afd26881271a6f01906bb8f1fe5957",
-    "System/Type$ArrayType.class": "0a4ef903edda08a126b4b013483332aa50fb0c7a4eb0f099b035d890966d978e",
-    "System/Type$ByRefType.class": "6a50ae19b0bcbcd436397b99a14911a4f26dca6291f16ad9df45dff70c81b9f5",
-    "System/Type$DefaultFieldMember.class": "c05790c7a160d42e90bf1d9e055d224345dcf8629df4234bba504016d83f3518",
-    "System/Type$DefaultMethodMember.class": "e8bcb68fed4f1230fad6f99ee586905f8ec125050523aacd972330fc57292a95",
-    "System/Type$DefaultParameterInfo.class": "7bccfc9de4312e06923d46b2dd2b26a50150650eaec151d2fce1e7e6d873d0f2",
-    "System/Type$DefaultPropertyMember.class": "2cca93fc540740b1457b8c216fc46ead4c6002c805e9c36284c88f6853bc4bdc",
-    "System/Type$EnumValueFieldMember.class": "14585f033f7849287d90716e927da2b09342053d4a9dae50937924c530b4e2be",
-    "System/Type$GenericParameterType.class": "13e7e32b82b6bd3ab8200a566316c17d781716b2d41e68b39424789bffe06724",
-    "System/Type$IntegerValueFieldMember.class": "aa3b7fad1eb15914d6e3272f5f538920674116bc6d6dffeae93e33c4a2e97516",
-    "System/Type$PointerType.class": "9c75b36f05bb50dd3644f905f99eac7d242e475b1dc5bbbe4ae9703f9de7a847",
-    "System/Type$PrimitiveStaticFieldMember.class": "5ef560b7215e8292a2151a7945b4d23183dc1d6ba477d4affe8e95d087b33421",
-    "System/Type$PrimitiveValueFieldMember.class": "10097831e0fb2629bdc6efe4eeb091edc97afbc0e8278182d95fc3c3b748e05a",
-    "System/Type$ResolvedType.class": "5c3e9501783414e9455704424286737c8f8e8c74d7570adc3cf5bd9ae764bd64",
-    "System/Type$SignatureConstructedType.class": "4be2adea81cf715e57c2799fa687ac852fb4403deabed74adf0f47479e7f4779",
-    "System/Type$SignatureElementType.class": "d731be4642bfe97e572b8f12124d2167e9652cd1d02cabb72eb56b8abe69a00b",
-    "System/Type$SignatureMethodParameter.class": "9fb9ad946b233198a66349db2962bcfe744300796f712f5c8c7e6d608767b39d",
-    "System/Type$SignatureType.class": "004eabd953dca5a9370459aac12dafd2776695461015d757d380c31041f8b6a3",
-    "System/Type.class": "8787110b9c17713f71bda2d4e036748e9e48a9ec4ae9dd3cdde7578c4efc5652",
+    "System/Type$ArrayType.class": "8494632992f53ca1dfe3f123a03c5f5847be5f234eca5ba4c5c34ef7a9df339c",
+    "System/Type$ByRefType.class": "5b45296d53fcf2ddb3a42149533bebd7bdc05fef8042c7b45a49efc3db9de736",
+    "System/Type$DefaultFieldMember.class": "55438fee6bdf5d58ddef90b13ae6efe47c7a167573db1048eb902ae247936588",
+    "System/Type$DefaultMethodMember.class": "a43da9d4b9242b4488c363e46bea6118e4dfb430f730a9bcd46756e73244e8aa",
+    "System/Type$DefaultParameterInfo.class": "a410ef958cd59cc09595aa6ef354159cd2b688191badf99028282af2a21ad12c",
+    "System/Type$DefaultPropertyMember.class": "c30afefeb0ad67950dc1189bf4a0661353a98c5d39d52b42992a9ff99231df80",
+    "System/Type$EnumValueFieldMember.class": "94ab56c88ab085f6bedcabf5a89c017b78acdc388d291aed29278a7555b0a604",
+    "System/Type$GenericParameterType.class": "0bd0c911e50b6e7fdfde6910c94799609b9ac3e75e63a2b2fc6d9b6b331f6a3a",
+    "System/Type$IntegerValueFieldMember.class": "437f56efad4b1df544ae442f65c48e0c4d79de4387d76b13d8b6819186b85094",
+    "System/Type$ModifiedFieldType.class": "508f76e397a454692139a7ef613d0ee9aaa89ec26184cead2f8297718f86ffa6",
+    "System/Type$PointerType.class": "f1188240e5fa557801e2e5a4a522c54438dd852b86699b59719eb6c8095fa5d0",
+    "System/Type$PrimitiveStaticFieldMember.class": "ca7f6e3b66e0d3481728b41a5bd9737844b42074df9288864b9b76609ab21752",
+    "System/Type$PrimitiveValueFieldMember.class": "7074e2efd27b861c0329f8048b5de65d3489dcfcb1aaec0976e24b2e70868570",
+    "System/Type$ResolvedType.class": "4cac13dba75e52ec792955088564ae4d8cde7723fc35f44ff12185ad2bf13b20",
+    "System/Type$SignatureConstructedType.class": "c137b81a61a7f720fb4891267acd63b5cf30a06ac38cbce5ce13005f6cb337f8",
+    "System/Type$SignatureElementType.class": "ce293c4d1f4126d4cb7d632aae8df3694efeb94d3880f5dc682adafdcdcae2fc",
+    "System/Type$SignatureMethodParameter.class": "8aab17bd3cf93b9111a2f8246af7e60cbde0a319b4f3f37cc34db6f01e4df495",
+    "System/Type$SignatureType.class": "4ba9753f1026ffece757d5fcd31960e23c25dec9e6a43e6afe7b1bc089b1fbf1",
+    "System/Type.class": "85d8e7628a05bc891106a5fb48126e7ecd711724dd237b3f49af8713049498b3",
     "System/TypeCode.class": "5f6956717c868ad4b0c4eb615505de94484bd689c0ee71825a7769f7b94d2c6e",
     "System/TypeLoadException.class": "a243d9dea7573b0543d6cbae4f0941bbeef0f65743aae683ca573d7aa7b6afbd",
     "System/UInt16.class": "7562ff0dbd63a16f906ae582a8d2183b8c2826f5a479efe2ac262cca2349b070",

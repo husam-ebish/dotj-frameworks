@@ -573,6 +573,7 @@ public abstract class Type extends MemberInfo {
             case "System.ApplicationException" -> fromJavaClass(ApplicationException.class);
             case "System.Reflection.TargetException" -> fromJavaClass(TargetException.class);
             case "System.SystemException" -> fromJavaClass(SystemException.class);
+            case "System.NotImplementedException" -> fromJavaClass(NotImplementedException.class);
             case "System.ArgumentException" -> fromJavaClass(ArgumentException.class);
             case "System.ArgumentNullException" -> fromJavaClass(ArgumentNullException.class);
             case "System.ArgumentOutOfRangeException" -> fromJavaClass(ArgumentOutOfRangeException.class);
@@ -777,6 +778,7 @@ public abstract class Type extends MemberInfo {
             case "system.applicationexception" -> ignoreCase ? fromJavaClass(ApplicationException.class) : null;
             case "system.reflection.targetexception" -> ignoreCase ? fromJavaClass(TargetException.class) : null;
             case "system.systemexception" -> ignoreCase ? fromJavaClass(SystemException.class) : null;
+            case "system.notimplementedexception" -> ignoreCase ? fromJavaClass(NotImplementedException.class) : null;
             case "system.argumentexception" -> ignoreCase ? fromJavaClass(ArgumentException.class) : null;
             case "system.argumentnullexception" -> ignoreCase ? fromJavaClass(ArgumentNullException.class) : null;
             case "system.argumentoutofrangeexception" -> ignoreCase
@@ -2843,7 +2845,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean Equals(Type other) {
-        return this == other;
+        return this == other || other instanceof ModifiedFieldType modified && this == modified.underlying;
     }
 
     private static final class DefaultMethodMember extends MethodInfo {
@@ -3125,6 +3127,111 @@ public abstract class Type extends MemberInfo {
         }
     }
 
+    private static final class ModifiedFieldType extends Type {
+        private final Type underlying;
+        private ModifiedFieldType(Type type) { super(type.definition, type.arguments, type.parameterIndex); this.underlying = type; }
+        private NotSupportedException unsupported() { return new NotSupportedException("Modified types do not support this member. Use the UnderlyingSystemType property to call this member."); }
+        @Override public boolean get_IsSignatureType() { return this.underlying.get_IsSignatureType(); }
+        @Override public boolean get_IsGenericParameter() { return this.underlying.get_IsGenericParameter(); }
+        @Override public boolean get_IsGenericTypeParameter() { return this.underlying.get_IsGenericTypeParameter(); }
+        @Override public boolean get_IsGenericMethodParameter() { return this.underlying.get_IsGenericMethodParameter(); }
+        @Override public boolean get_ContainsGenericParameters() { return this.underlying.get_ContainsGenericParameters(); }
+        @Override public boolean get_IsGenericType() { return this.underlying.get_IsGenericType(); }
+        @Override public boolean get_IsGenericTypeDefinition() { return this.underlying.get_IsGenericTypeDefinition(); }
+        @Override public boolean get_IsConstructedGenericType() { return this.underlying.get_IsConstructedGenericType(); }
+        @Override public boolean get_IsTypeDefinition() { return this.underlying.get_IsTypeDefinition(); }
+        @Override public boolean get_HasElementType() { return this.underlying.get_HasElementType(); }
+        @Override public boolean get_IsArray() { return this.underlying.get_IsArray(); }
+        @Override public boolean get_IsSZArray() { return this.underlying.get_IsSZArray(); }
+        @Override public boolean get_IsVariableBoundArray() { return this.underlying.get_IsVariableBoundArray(); }
+        @Override public boolean get_IsPointer() { return this.underlying.get_IsPointer(); }
+        @Override public boolean get_IsByRef() { return this.underlying.get_IsByRef(); }
+        @Override public boolean get_IsByRefLike() { return this.underlying.get_IsByRefLike(); }
+        @Override public boolean get_IsFunctionPointer() { return this.underlying.get_IsFunctionPointer(); }
+        @Override public boolean get_IsUnmanagedFunctionPointer() { return this.underlying.get_IsUnmanagedFunctionPointer(); }
+        @Override public boolean get_IsCollectible() { return this.underlying.get_IsCollectible(); }
+        @Override public boolean get_IsEnum() { return this.underlying.get_IsEnum(); }
+        @Override public boolean get_IsValueType() { return this.underlying.get_IsValueType(); }
+        @Override public boolean get_IsPrimitive() { return this.underlying.get_IsPrimitive(); }
+        @Override public boolean get_IsClass() { return this.underlying.get_IsClass(); }
+        @Override public boolean get_IsInterface() { return this.underlying.get_IsInterface(); }
+        @Override public boolean get_IsAbstract() { return this.underlying.get_IsAbstract(); }
+        @Override public boolean get_IsSealed() { return true; }
+        @Override public boolean get_IsPublic() { return this.underlying.get_IsPublic(); }
+        @Override public boolean get_IsNotPublic() { return this.underlying.get_IsNotPublic(); }
+        @Override public boolean get_IsNested() { throw unsupported(); }
+        @Override public boolean get_IsNestedPublic() { return this.underlying.get_IsNestedPublic(); }
+        @Override public boolean get_IsNestedPrivate() { return this.underlying.get_IsNestedPrivate(); }
+        @Override public boolean get_IsNestedAssembly() { return this.underlying.get_IsNestedAssembly(); }
+        @Override public boolean get_IsNestedFamily() { return this.underlying.get_IsNestedFamily(); }
+        @Override public boolean get_IsVisible() { throw unsupported(); }
+        @Override public boolean get_IsSerializable() { return true; }
+        @Override public boolean get_IsSpecialName() { return this.underlying.get_IsSpecialName(); }
+        @Override public boolean get_IsAnsiClass() { return this.underlying.get_IsAnsiClass(); }
+        @Override public boolean get_IsUnicodeClass() { return this.underlying.get_IsUnicodeClass(); }
+        @Override public boolean get_IsAutoClass() { return this.underlying.get_IsAutoClass(); }
+        @Override public boolean get_IsAutoLayout() { return this.underlying.definition == String.class; }
+        @Override public boolean get_IsLayoutSequential() { return this.underlying.definition != String.class; }
+        @Override public boolean get_IsExplicitLayout() { return this.underlying.get_IsExplicitLayout(); }
+        @Override public boolean get_IsImport() { return this.underlying.get_IsImport(); }
+        @Override public boolean get_IsCOMObject() { return this.underlying.get_IsCOMObject(); }
+        @Override public boolean get_IsContextful() { return this.underlying.get_IsContextful(); }
+        @Override public boolean get_IsMarshalByRef() { return this.underlying.get_IsMarshalByRef(); }
+        @Override public boolean get_IsSecurityCritical() { return this.underlying.get_IsSecurityCritical(); }
+        @Override public boolean get_IsSecuritySafeCritical() { return this.underlying.get_IsSecuritySafeCritical(); }
+        @Override public boolean get_IsSecurityTransparent() { return this.underlying.get_IsSecurityTransparent(); }
+        @Override public String get_Name() { return this.underlying.get_Name(); }
+        @Override public String get_Namespace() { return this.underlying.get_Namespace(); }
+        @Override public String get_FullName() { return this.underlying.get_FullName(); }
+        @Override public String get_AssemblyQualifiedName() { return this.underlying.get_AssemblyQualifiedName(); }
+        @Override public int get_GenericParameterPosition() { throw new InvalidOperationException("Method may only be called on a Type for which Type.IsGenericParameter is true."); }
+        @Override public Type get_BaseType() { throw unsupported(); }
+        @Override public Type get_DeclaringType() { throw unsupported(); }
+        @Override public Type get_ReflectedType() { throw unsupported(); }
+        @Override public Type get_UnderlyingSystemType() { return this.underlying; }
+        @Override public MemberTypes get_MemberType() { return this.underlying.get_MemberType(); }
+        @Override public GenericParameterAttributes get_GenericParameterAttributes() { throw new InvalidOperationException("Method may only be called on a Type for which Type.IsGenericParameter is true."); }
+        @Override public Type[] get_GenericTypeArguments() { return this.underlying.get_GenericTypeArguments(); }
+        @Override public boolean Equals(Type other) { throw unsupported(); }
+        @Override public boolean Equals(Object other) { throw unsupported(); }
+        @Override public int GetHashCode() { throw unsupported(); }
+        @Override public String ToString() { return this.underlying.ToString(); }
+        @Override public boolean IsAssignableFrom(Type other) { return other == this || this.underlying.IsAssignableFrom(other == null ? null : other.get_UnderlyingSystemType()); }
+        @Override public boolean IsInstanceOfType(Object value) { return this.underlying.IsInstanceOfType(value); }
+        @Override public boolean IsSubclassOf(Type parent) { if (parent == this) return false; throw unsupported(); }
+        @Override public Type[] GetGenericArguments() { throw new NotSupportedException("Derived classes must provide an implementation."); }
+        @Override public Type GetGenericTypeDefinition() { throw new InvalidOperationException("This operation is only valid on generic types."); }
+        @Override public int GetArrayRank() { throw new ArgumentException("Must be an array type."); }
+        @Override public Type GetElementType() { return this.underlying.GetElementType(); }
+        @Override public Type[] GetGenericParameterConstraints() { throw new InvalidOperationException("Method may only be called on a Type for which Type.IsGenericParameter is true."); }
+        @Override public Type GetFunctionPointerReturnType() { throw new InvalidOperationException("Method may only be called on a Type for which Type.IsFunctionPointer is true."); }
+        @Override public Type[] GetFunctionPointerParameterTypes() { throw new InvalidOperationException("Method may only be called on a Type for which Type.IsFunctionPointer is true."); }
+        @Override public Type[] GetFunctionPointerCallingConventions() { throw new InvalidOperationException("Method may only be called on a Type for which Type.IsFunctionPointer is true."); }
+        @Override public Type[] GetInterfaces() { throw unsupported(); }
+        @Override public Type[] GetOptionalCustomModifiers() { return new Type[0]; }
+        @Override public Type[] GetRequiredCustomModifiers() { return new Type[0]; }
+        @Override public MemberInfo[] GetDefaultMembers() { throw new NotImplementedException(); }
+        @Override public boolean HasSameMetadataDefinitionAs(MemberInfo other) { throw new NotImplementedException(); }
+        @Override public Type MakeGenericType(Type[] arguments) { throw new NotSupportedException("Derived classes must provide an implementation."); }
+        @Override public Type MakeArrayType() { throw new NotSupportedException(); }
+        @Override public Type MakeArrayType(int rank) { throw new NotSupportedException(); }
+        @Override public Type MakeByRefType() { throw new NotSupportedException(); }
+        @Override public Type MakePointerType() { throw new NotSupportedException(); }
+        @Override public MethodInfo[] GetMethods(BindingFlags flags) { throw unsupported(); }
+        @Override public MemberInfo[] GetMembers(BindingFlags flags) { throw unsupported(); }
+        @Override public MethodInfo GetMethod(String name) { if (name == null) throw new ArgumentNullException("name"); throw unsupported(); }
+        @Override public MethodInfo GetMethod(String name, BindingFlags flags) { if (name == null) throw new ArgumentNullException("name"); throw unsupported(); }
+        @Override public MemberInfo[] GetMember(String name) { throw unsupported(); }
+        @Override public MemberInfo[] GetMember(String name, BindingFlags flags) { throw unsupported(); }
+        @Override public Type GetNestedType(String name) { throw unsupported(); }
+        @Override public Type GetNestedType(String name, BindingFlags flags) { throw unsupported(); }
+        @Override public Type GetInterface(String name) { throw unsupported(); }
+        @Override public Type GetInterface(String name, boolean ignoreCase) { throw unsupported(); }
+        @Override public FieldInfo[] GetFields(BindingFlags flags) { throw unsupported(); }
+        @Override public FieldInfo GetField(String name, BindingFlags flags) { throw unsupported(); }
+        @Override public MemberInfo GetMemberWithSameMetadataDefinitionAs(MemberInfo member) { throw unsupported(); }
+    }
+
     private static final class PrimitiveStaticFieldMember extends FieldInfo {
         private final Type owner;
         private final String name;
@@ -3135,6 +3242,7 @@ public abstract class Type extends MemberInfo {
         @Override public boolean get_IsSecurityTransparent() { return false; }
         @Override public Type[] GetOptionalCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
         @Override public Type[] GetRequiredCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
+        @Override public Type GetModifiedFieldType() { if (this.get_IsLiteral()) throw new NotSupportedException(); return new ModifiedFieldType(this.get_FieldType()); }
         @Override public String get_Name() { return this.name; }
         @Override public Type get_DeclaringType() { return this.owner; }
         @Override public Type get_ReflectedType() { return this.owner; }
@@ -3186,6 +3294,7 @@ public abstract class Type extends MemberInfo {
         @Override public boolean get_IsSecurityTransparent() { return false; }
         @Override public Type[] GetOptionalCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
         @Override public Type[] GetRequiredCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
+        @Override public Type GetModifiedFieldType() { return new ModifiedFieldType(this.get_FieldType()); }
         @Override public String get_Name() { return "m_value"; }
         @Override public Type get_DeclaringType() { return this.owner; }
         @Override public Type get_ReflectedType() { return this.owner; }
@@ -3223,6 +3332,7 @@ public abstract class Type extends MemberInfo {
         @Override public boolean get_IsSecurityTransparent() { return false; }
         @Override public Type[] GetOptionalCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
         @Override public Type[] GetRequiredCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
+        @Override public Type GetModifiedFieldType() { return new ModifiedFieldType(this.get_FieldType()); }
         @Override public String get_Name() { return "m_value"; }
         @Override public Type get_DeclaringType() { return this.owner; }
         @Override public Type get_ReflectedType() { return this.owner; }
@@ -3261,6 +3371,7 @@ public abstract class Type extends MemberInfo {
         @Override public boolean get_IsSecurityTransparent() { return false; }
         @Override public Type[] GetOptionalCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
         @Override public Type[] GetRequiredCustomModifiers() { return this.get_IsLiteral() ? EMPTY_FIELD_MODIFIERS : new Type[0]; }
+        @Override public Type GetModifiedFieldType() { return new ModifiedFieldType(this.get_FieldType()); }
         @Override public String get_Name() { return "value__"; }
         @Override public Type get_DeclaringType() { return this.owner; }
         @Override public Type get_ReflectedType() { return this.owner; }

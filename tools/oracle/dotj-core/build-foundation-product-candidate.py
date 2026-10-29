@@ -37,6 +37,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Reflection/FieldInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/MemberAccessException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/FieldAccessException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/ApplicationException.java")
+SOURCES.append(PRODUCT / "src/main/java/System/NotImplementedException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/TargetException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/FieldAttributes.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
@@ -226,6 +227,7 @@ EXPECTED_CLASSES = [
     "System/SByte.class",
     "System/Span.class",
     "System/SystemException.class",
+    "System/NotImplementedException.class",
     "System/TimeSpan.class",
     "System/Type$1.class",
     "System/Type$2.class",
@@ -238,6 +240,7 @@ EXPECTED_CLASSES = [
     "System/Type$IntegerValueFieldMember.class",
     "System/Type$PrimitiveValueFieldMember.class",
     "System/Type$PrimitiveStaticFieldMember.class",
+    "System/Type$ModifiedFieldType.class",
     "System/Type$DefaultPropertyMember.class",
     "System/Type$GenericParameterType.class",
     "System/Type$PointerType.class",

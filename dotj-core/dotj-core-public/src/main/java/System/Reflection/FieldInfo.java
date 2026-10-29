@@ -3,6 +3,7 @@
 package System.Reflection;
 
 import System.Type;
+import System.NotSupportedException;
 
 /** Selected field metadata and constant-read projection; field writes remain open. */
 public abstract class FieldInfo extends MemberInfo {
@@ -12,6 +13,7 @@ public abstract class FieldInfo extends MemberInfo {
     public abstract Object GetValue(Object target);
     public abstract void SetValue(Object target, Object value);
     public abstract Object GetRawConstantValue();
+    public Type GetModifiedFieldType() { throw new NotSupportedException(); }
     public abstract boolean get_IsSecurityCritical();
     public abstract boolean get_IsSecuritySafeCritical();
     public abstract boolean get_IsSecurityTransparent();
