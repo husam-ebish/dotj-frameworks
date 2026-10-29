@@ -109,13 +109,33 @@
         }
       ],
       "fullCanonicalGateRequired": 466
+    },
+    {
+      "batch": 2452,
+      "path": "tools/oracle/dotj-core/verify-enum-instance-field-metadata-identity.py",
+      "originalSha256": "04bbd3317f1e27e23ae0fff5acc41adcaf2e41005ca65d6b4fff08d0ca59b5ed",
+      "sha256": "f79ed242e01f5b30deaac9b6b3a3fbabdc4badaf87913689a0eef87e048280b4",
+      "sourceBaselineCommit": "e1b23abb3c05a0095e246f66bf85cba79106cdf4",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 467
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2451,
-  "newPreparedVerifiersMigrated": 5,
-  "currentAndNewVerifiersMigrated": 193,
-  "futurePreparedVerifiersRemaining": 49,
+  "appliedThroughBatch": 2452,
+  "newPreparedVerifiersMigrated": 6,
+  "currentAndNewVerifiersMigrated": 194,
+  "futurePreparedVerifiersRemaining": 48,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
