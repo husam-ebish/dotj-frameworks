@@ -36,6 +36,8 @@ SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberFilter.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/FieldInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/MemberAccessException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/FieldAccessException.java")
+SOURCES.append(PRODUCT / "src/main/java/System/ApplicationException.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/TargetException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/FieldAttributes.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBody.java")
@@ -200,6 +202,8 @@ EXPECTED_CLASSES = [
     "System/Reflection/FieldInfo.class",
     "System/MemberAccessException.class",
     "System/FieldAccessException.class",
+    "System/ApplicationException.class",
+    "System/Reflection/TargetException.class",
     "System/Reflection/FieldAttributes.class",
     "System/Reflection/MemberTypes.class",
     "System/Reflection/MethodBase.class",
@@ -230,6 +234,7 @@ EXPECTED_CLASSES = [
     "System/Type$DefaultMethodMember.class",
     "System/Type$DefaultParameterInfo.class",
     "System/Type$DefaultFieldMember.class",
+    "System/Type$EnumValueFieldMember.class",
     "System/Type$DefaultPropertyMember.class",
     "System/Type$GenericParameterType.class",
     "System/Type$PointerType.class",

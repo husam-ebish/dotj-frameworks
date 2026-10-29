@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "Built dotj-core foundation candidate JAR, not a release",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "2ba8c8380b15468a9bf8f2350073d73cf6e96a025e1c39b9ebb1382c6d48548f",
+  "jarSha256": "05a9be3e5039a08c37ad85ffcaf992964a0cf5106fbbed8151f9b3eb491f16fb",
   "sourceToClasses": {
     "dotj-core/dotj-core-public/src/main/java/System/IDisposable.java": [
       "System/IDisposable.class"
@@ -23,7 +23,8 @@
       "System/Type$SignatureElementType.class",
       "System/Type$SignatureType.class",
       "System/Type$SignatureConstructedType.class",
-      "System/Type$DefaultFieldMember.class"
+      "System/Type$DefaultFieldMember.class",
+      "System/Type$EnumValueFieldMember.class"
     ],
     "dotj-core/dotj-core-public/src/main/java/System/Exception.java": [
       "System/Exception.class"
@@ -354,6 +355,12 @@
     ],
     "dotj-core/dotj-core-public/src/main/java/System/MemberAccessException.java": [
       "System/MemberAccessException.class"
+    ],
+    "dotj-core/dotj-core-public/src/main/java/System/ApplicationException.java": [
+      "System/ApplicationException.class"
+    ],
+    "dotj-core/dotj-core-public/src/main/java/System/Reflection/TargetException.java": [
+      "System/Reflection/TargetException.class"
     ]
   },
   "manifestEntry": "META-INF/MANIFEST.MF",

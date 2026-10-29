@@ -5,6 +5,7 @@ package System;
 import System.Reflection.TypeFilter;
 import System.Reflection.MemberFilter;
 import System.Reflection.FieldInfo;
+import System.Reflection.TargetException;
 import System.Reflection.FieldAttributes;
 
 import java.util.Arrays;
@@ -568,6 +569,8 @@ public abstract class Type extends MemberInfo {
             case "System.Exception" -> fromJavaClass(Exception.class);
             case "System.MemberAccessException" -> fromJavaClass(MemberAccessException.class);
             case "System.FieldAccessException" -> fromJavaClass(FieldAccessException.class);
+            case "System.ApplicationException" -> fromJavaClass(ApplicationException.class);
+            case "System.Reflection.TargetException" -> fromJavaClass(TargetException.class);
             case "System.SystemException" -> fromJavaClass(SystemException.class);
             case "System.ArgumentException" -> fromJavaClass(ArgumentException.class);
             case "System.ArgumentNullException" -> fromJavaClass(ArgumentNullException.class);
@@ -770,6 +773,8 @@ public abstract class Type extends MemberInfo {
             case "system.exception" -> ignoreCase ? fromJavaClass(Exception.class) : null;
             case "system.memberaccessexception" -> ignoreCase ? fromJavaClass(MemberAccessException.class) : null;
             case "system.fieldaccessexception" -> ignoreCase ? fromJavaClass(FieldAccessException.class) : null;
+            case "system.applicationexception" -> ignoreCase ? fromJavaClass(ApplicationException.class) : null;
+            case "system.reflection.targetexception" -> ignoreCase ? fromJavaClass(TargetException.class) : null;
             case "system.systemexception" -> ignoreCase ? fromJavaClass(SystemException.class) : null;
             case "system.argumentexception" -> ignoreCase ? fromJavaClass(ArgumentException.class) : null;
             case "system.argumentnullexception" -> ignoreCase ? fromJavaClass(ArgumentNullException.class) : null;
@@ -2224,14 +2229,12 @@ public abstract class Type extends MemberInfo {
     public FieldInfo[] GetFields(BindingFlags flags) {
         if (flags == null) throw new NullPointerException("flags");
         if (this.definition == FieldAttributes.class && !this.get_HasElementType()) {
-            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Instance)) {
-                throw new UnsupportedOperationException("Enum instance field inventory is not mapped for this candidate profile");
-            }
-            if (!flags.has(BindingFlags.Public) || !flags.has(BindingFlags.Static)) return EMPTY_FIELDS;
+            if (!flags.has(BindingFlags.Public) || !flags.has(BindingFlags.Instance) && !flags.has(BindingFlags.Static)) return EMPTY_FIELDS;
             String[] names = new String[] {"FieldAccessMask", "PrivateScope", "Private", "FamANDAssem", "Assembly", "Family", "FamORAssem", "Public", "Static", "InitOnly", "Literal", "NotSerialized", "SpecialName", "PinvokeImpl", "RTSpecialName", "HasFieldMarshal", "HasDefault", "HasFieldRVA", "ReservedMask"};
-            FieldInfo[] result = new FieldInfo[names.length];
-            for (int i = 0; i < names.length; i++) result[i] = this.selectedLiteralField(names[i]);
-            return result;
+            List<FieldInfo> result = new java.util.ArrayList<>();
+            if (flags.has(BindingFlags.Instance)) result.add(this.selectedEnumValueField());
+            if (flags.has(BindingFlags.Static)) for (String name : names) result.add(this.selectedLiteralField(name));
+            return result.toArray(new FieldInfo[0]);
         }
         if (this.selectedIntegerFields()) {
             if (!flags.has(BindingFlags.Public) || !flags.has(BindingFlags.Static)) return EMPTY_FIELDS;
@@ -2256,7 +2259,7 @@ public abstract class Type extends MemberInfo {
             }
             if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Instance)
                     && (name.equals("value__") || flags.has(BindingFlags.IgnoreCase) && name.equalsIgnoreCase("value__"))) {
-                throw new UnsupportedOperationException("Enum instance field lookup is not mapped for this candidate profile");
+                return this.selectedEnumValueField();
             }
             return null;
         }
@@ -2264,6 +2267,10 @@ public abstract class Type extends MemberInfo {
             if (name.equals(field.get_Name()) || flags.has(BindingFlags.IgnoreCase) && name.equalsIgnoreCase(field.get_Name())) return field;
         }
         return null;
+    }
+
+    private FieldInfo selectedEnumValueField() {
+        return literalFields.computeIfAbsent(List.of(this, "value__"), ignored -> new EnumValueFieldMember(this));
     }
 
     private FieldInfo selectedLiteralField(String name) {
@@ -3051,6 +3058,32 @@ public abstract class Type extends MemberInfo {
                 MemberInfo member) {
             super(name, parameterType, position, member);
         }
+    }
+
+    private static final class EnumValueFieldMember extends FieldInfo {
+        private final Type owner;
+        private EnumValueFieldMember(Type owner) { this.owner = owner; }
+        @Override public String get_Name() { return "value__"; }
+        @Override public Type get_DeclaringType() { return this.owner; }
+        @Override public Type get_ReflectedType() { return this.owner; }
+        @Override public MemberTypes get_MemberType() { return MemberTypes.Field; }
+        @Override public Type get_FieldType() { return Type.GetType("System.Int32"); }
+        @Override public FieldAttributes get_Attributes() { return FieldAttributes.FromInt32(1542); }
+        @Override public boolean get_IsCollectible() { return false; }
+        @Override public String ToString() { return "Int32 value__"; }
+        @Override public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
+            if (other == null) throw new ArgumentNullException("other");
+            return other instanceof EnumValueFieldMember field && this.owner.HasSameMetadataDefinitionAs(field.owner);
+        }
+        @Override public Object GetRawConstantValue() { throw new InvalidOperationException("Operation is not valid due to the current state of the object."); }
+        @Override public Object GetValue(Object target) {
+            if (target == null) throw new TargetException("Non-static field requires a target.");
+            if (target instanceof FieldAttributes value) return new Int32(value.get_Value());
+            String name = target instanceof Integer || target instanceof Int32 ? "System.Int32"
+                    : target instanceof String ? "System.String" : target.getClass() == Object.class ? "System.Object" : target.getClass().getName();
+            throw new ArgumentException("Field 'value__' defined on type 'System.Reflection.FieldAttributes' is not a field on the target object which is of type '" + name + "'.");
+        }
+        @Override public void SetValue(Object target, Object value) { throw new UnsupportedOperationException("Enum instance field writes are not mapped for this candidate profile"); }
     }
 
     private static final class DefaultFieldMember extends FieldInfo {
