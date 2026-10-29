@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "status": "PUBLIC_PRODUCT_PROMOTION_BLOCKED",
+  "implementationReference": "dotnet/msbuild@b44cdcec4c79c50c67560876707d57d4f635fa3b",
+  "historicalAnalysisReference": "dotnet/msbuild@6348d0c087aeec18c323b01a2c77da089ddafea0",
+  "signatureEvidence": "Source declarations only; not a compiler-derived semantic inventory or approved Java representation",
+  "proposedPublicProfile": [
+    {
+      "identity": "Microsoft.Build.Evaluation.Project",
+      "source": "src/Build/Definition/Project.cs",
+      "members": [
+        {"declaration": "public Project(string projectFile)", "line": 388},
+        {"declaration": "public Project(string projectFile, IDictionary<string, string> globalProperties, string toolsVersion)", "line": 401},
+        {"declaration": "public Project(string projectFile, IDictionary<string, string> globalProperties, string toolsVersion, ProjectCollection projectCollection)", "line": 418},
+        {"declaration": "public string GetPropertyValue(string name)", "line": 1153}
+      ],
+      "open": [
+        "Compiler-derived namespaces/overloads/conditional metadata and full selected dependency closure",
+        "Exact System.String / IDictionary representation and null/error/ownership semantics",
+        "Global ProjectCollection membership and already-loaded project identity",
+        "Environment/toolset/reserved properties and InvalidProjectFileException ABI"
+      ]
+    },
+    {
+      "identity": "Microsoft.Build.Evaluation.ProjectCollection",
+      "source": "src/Build/Definition/ProjectCollection.cs",
+      "members": [
+        {"declaration": "public class ProjectCollection : IToolsetProvider, IBuildComponent, IDisposable", "line": 85},
+        {"declaration": "public ProjectCollection()", "line": 218},
+        {"declaration": "public ProjectCollection(IDictionary<string, string> globalProperties)", "line": 240},
+        {"declaration": "public static ProjectCollection GlobalProjectCollection", "line": 460},
+        {"declaration": "public IDictionary<string, string> GlobalProperties", "line": 595},
+        {"declaration": "public Project LoadProject(string fileName)", "line": 1201},
+        {"declaration": "public void UnloadProject(Project project)", "line": 1424},
+        {"declaration": "public void Dispose()", "line": 1582}
+      ],
+      "open": [
+        "Collection/cache/toolset/event/logger lifecycle and effective constructor dependencies",
+        "Owned versus borrowed ProjectRootElement/XmlReader and unload/disposal behavior",
+        "Exact IDisposable and public collection contracts consumed by a chosen profile"
+      ]
+    }
+  ],
+  "eligibility": {
+    "E01": "OPEN: source/release/profile/rights/notice/build-input eligibility; pinned installed binary is an alternative oracle, not proof of matching standalone source build",
+    "E02": "OPEN: semantic/generated/conditional public and dependency inventory for chosen public slice",
+    "E03": "PARTIAL EVIDENCE ONLY: 20 designed native Windows captures; reviewed full public fixture contract remains open",
+    "N01": "OPEN: compiler-derived names, exact compiled API diff, language-gap ledger and paired compiled C#/.j examples",
+    "sharedCore": "Identify only genuinely consumed public string/collections/XML/exception/ownership contracts; internal candidate has no core binary dependency"
+  },
+  "publicJavaExports": [],
+  "publicJavaOpens": [],
+  "publicCompatibilityClaims": [],
+  "acceptedTasksAdded": 0
+}
