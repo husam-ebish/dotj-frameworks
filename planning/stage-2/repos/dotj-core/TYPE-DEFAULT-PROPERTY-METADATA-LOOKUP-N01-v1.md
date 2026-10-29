@@ -1,0 +1,7 @@
+# Default property metadata-definition lookup
+
+Batch 2439: 216 native/Java calls compare 1296 exact result/error/reference groups across String, ten List generic owner variants and seven wrong-owner/shape/signature controls. A List.Item from a different constructed owner maps to the receiver-specific descriptor with the same metadata definition. String.Chars and List.Item remain distinct; wrong owners preserve exact member errors, and signature/null validation remains native.
+
+216 pinned native calls and 216 Java facade calls pass 1296 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding candidate cannot enumerate these property inventories for metadata lookup. The candidate uses existing canonical default-property descriptors and exact metadata matching; fresh packaging, API and retained reflection checks are required; the full 454-check canonical gate remains required before merge.
+
+Selected String.Chars and List.Item descriptors only; general properties, inheritance-wide property lookup and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify native TypeInfo member-kind rejection in metadata-definition lookup across available runtime, generic and signature receiver shapes.

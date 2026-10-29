@@ -2197,6 +2197,14 @@ public abstract class Type extends MemberInfo {
 
     public MemberInfo GetMemberWithSameMetadataDefinitionAs(MemberInfo member) {
         if (member == null) throw new ArgumentNullException("member");
+        if (!this.get_IsSignatureType() && member instanceof DefaultPropertyMember) {
+            if (!this.get_HasElementType() && (this.definition == String.class || this.definition == java.util.List.class)) {
+                for (MemberInfo candidate : this.GetDefaultMembers()) {
+                    if (candidate.HasSameMetadataDefinitionAs(member)) return candidate;
+                }
+            }
+            throw new ArgumentException("A MemberInfo that matches '" + member.get_Name() + "' could not be found.", "member");
+        }
         BindingFlags all = BindingFlags.Public.or(BindingFlags.NonPublic).or(BindingFlags.Static).or(BindingFlags.Instance);
         for (MemberInfo candidate : this.GetMembers(all)) {
             if (candidate.HasSameMetadataDefinitionAs(member)) return candidate;
