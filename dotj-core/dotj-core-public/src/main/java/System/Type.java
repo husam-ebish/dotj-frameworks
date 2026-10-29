@@ -2243,8 +2243,15 @@ public abstract class Type extends MemberInfo {
             return result.toArray(new FieldInfo[0]);
         }
         if (this.selectedPrimitiveBackingFields()) {
-            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Static)) throw new UnsupportedOperationException("Primitive public static field inventory is not mapped for this candidate profile");
-            return flags.has(BindingFlags.NonPublic) && flags.has(BindingFlags.Instance) ? new FieldInfo[] {this.selectedPrimitiveValueField()} : EMPTY_FIELDS;
+            List<FieldInfo> result = new java.util.ArrayList<>();
+            if (flags.has(BindingFlags.NonPublic) && flags.has(BindingFlags.Instance)) result.add(this.selectedPrimitiveValueField());
+            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Static)) {
+                String[] names = this.definition == Boolean.class ? new String[] {"TrueString", "FalseString"}
+                        : this.definition == Float.class || this.definition == Double.class ? new String[] {"MinValue", "MaxValue", "Epsilon", "NegativeInfinity", "PositiveInfinity", "NaN", "NegativeZero", "E", "Pi", "Tau"}
+                        : new String[] {"MaxValue", "MinValue"};
+                for (String name : names) result.add(this.selectedPrimitiveStaticField(name));
+            }
+            return result.isEmpty() ? EMPTY_FIELDS : result.toArray(new FieldInfo[0]);
         }
         if (this.selectedIntegerFields()) {
             List<FieldInfo> result = new java.util.ArrayList<>();
@@ -2281,6 +2288,10 @@ public abstract class Type extends MemberInfo {
             if (name.equals(field.get_Name()) || flags.has(BindingFlags.IgnoreCase) && name.equalsIgnoreCase(field.get_Name())) return field;
         }
         return null;
+    }
+
+    private FieldInfo selectedPrimitiveStaticField(String name) {
+        return literalFields.computeIfAbsent(List.of(this, name), ignored -> new PrimitiveStaticFieldMember(this, name));
     }
 
     private FieldInfo selectedPrimitiveValueField() {
@@ -3095,6 +3106,53 @@ public abstract class Type extends MemberInfo {
         private DefaultParameterInfo(String name, Type parameterType, int position,
                 MemberInfo member) {
             super(name, parameterType, position, member);
+        }
+    }
+
+    private static final class PrimitiveStaticFieldMember extends FieldInfo {
+        private final Type owner;
+        private final String name;
+        private PrimitiveStaticFieldMember(Type owner, String name) { this.owner = owner; this.name = name; }
+        private boolean readonlyString() { return this.owner.definition == Boolean.class; }
+        @Override public String get_Name() { return this.name; }
+        @Override public Type get_DeclaringType() { return this.owner; }
+        @Override public Type get_ReflectedType() { return this.owner; }
+        @Override public MemberTypes get_MemberType() { return MemberTypes.Field; }
+        @Override public Type get_FieldType() { return this.readonlyString() ? Type.GetType("System.String") : this.owner; }
+        @Override public FieldAttributes get_Attributes() { return FieldAttributes.FromInt32(this.readonlyString() ? 54 : 32854); }
+        @Override public boolean get_IsCollectible() { return false; }
+        @Override public String ToString() { return (this.readonlyString() ? "System.String" : this.owner.get_Name()) + " " + this.name; }
+        @Override public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
+            if (other == null) throw new ArgumentNullException("other");
+            return other instanceof PrimitiveStaticFieldMember field && this.name.equals(field.name) && this.owner.HasSameMetadataDefinitionAs(field.owner);
+        }
+        private Object constant() {
+            if (this.readonlyString()) return this.name.equals("TrueString") ? "True" : "False";
+            if (this.owner.definition == Character.class) return Character.valueOf(this.name.equals("MaxValue") ? Character.MAX_VALUE : Character.MIN_VALUE);
+            if (this.owner.definition == Short.class) return Short.valueOf(this.name.equals("MaxValue") ? Short.MAX_VALUE : Short.MIN_VALUE);
+            if (this.owner.definition == Long.class) return Long.valueOf(this.name.equals("MaxValue") ? Long.MAX_VALUE : Long.MIN_VALUE);
+            if (this.owner.definition == BigInteger.class) return this.name.equals("MaxValue") ? new BigInteger("18446744073709551615") : BigInteger.ZERO;
+            if (this.owner.definition == Float.class) return Float.valueOf(switch(this.name) {
+                case "MinValue" -> -Float.MAX_VALUE; case "MaxValue" -> Float.MAX_VALUE; case "Epsilon" -> Float.MIN_VALUE;
+                case "NegativeInfinity" -> Float.NEGATIVE_INFINITY; case "PositiveInfinity" -> Float.POSITIVE_INFINITY;
+                case "NaN" -> Float.intBitsToFloat(0xffc00000); case "NegativeZero" -> -0.0f; case "E" -> (float) Math.E;
+                case "Pi" -> (float) Math.PI; case "Tau" -> (float) (2.0 * Math.PI); default -> throw new UnsupportedOperationException("Unknown floating field");
+            });
+            return Double.valueOf(switch(this.name) {
+                case "MinValue" -> -Double.MAX_VALUE; case "MaxValue" -> Double.MAX_VALUE; case "Epsilon" -> Double.MIN_VALUE;
+                case "NegativeInfinity" -> Double.NEGATIVE_INFINITY; case "PositiveInfinity" -> Double.POSITIVE_INFINITY;
+                case "NaN" -> Double.longBitsToDouble(0xfff8000000000000L); case "NegativeZero" -> -0.0d; case "E" -> Math.E;
+                case "Pi" -> Math.PI; case "Tau" -> 2.0 * Math.PI; default -> throw new UnsupportedOperationException("Unknown floating field");
+            });
+        }
+        @Override public Object GetValue(Object target) { return this.constant(); }
+        @Override public Object GetRawConstantValue() {
+            if (this.readonlyString()) throw new InvalidOperationException("Operation is not valid due to the current state of the object.");
+            return this.constant();
+        }
+        @Override public void SetValue(Object target, Object value) {
+            if (this.readonlyString()) throw new FieldAccessException("Cannot set initonly static field '" + this.name + "' after type 'System.Boolean' is initialized.");
+            throw new FieldAccessException("Cannot set a constant field.");
         }
     }
 
