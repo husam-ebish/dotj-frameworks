@@ -187,7 +187,7 @@
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "9f1ca6406bba32bb207228d75123464e220f5149796bd8a98480285204e30c37",
+  "sourceSha256": "c7eeac6118e7f8e13c013e9ccd59688b8432f4082252cdf71d7db896001f6a22",
   "idisposableSourceSha256": "03e7907bdd9aeb3d00e1c58a793446bea5baaf7174e544ba505a220e898da140",
   "icomparableSourceSha256": "6bcbfe9ce519dce4068cb4531bb3dbc3f044b4c9925d011016405e66b2cccc95",
   "iformattableSourceSha256": "5f594291b15b45d4f82e4dfb54a96a6dfdcef3e25fcb5ffcb1ad38eca791fd97",
@@ -275,6 +275,14 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MemberFilter.java",
       "sha256": "bd7e4904e33da101e80d0b98ad7811577e61840bb5a2f5fa27d71e42d812af54"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/FieldInfo.java",
+      "sha256": "4eb27a04dc05e0a83a35d18813aee265af0d7730daf73af2a29f109c0a32a04c"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/FieldAttributes.java",
+      "sha256": "81c70f31c836fe18e58bcac0dd60a975491be888f8de5f12ca74da9782e159ab"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodBase.java",
@@ -659,6 +667,10 @@
     "public System.Reflection.MemberInfo[] GetDefaultMembers();",
     "public System.Type[] GetOptionalCustomModifiers();",
     "public System.Type[] GetRequiredCustomModifiers();",
+    "public System.Reflection.FieldInfo[] GetFields();",
+    "public System.Reflection.FieldInfo[] GetFields(System.Reflection.BindingFlags);",
+    "public System.Reflection.FieldInfo GetField(java.lang.String);",
+    "public System.Reflection.FieldInfo GetField(java.lang.String, System.Reflection.BindingFlags);",
     "public System.Reflection.MemberInfo GetMemberWithSameMetadataDefinitionAs(System.Reflection.MemberInfo);",
     "public System.Reflection.MemberInfo[] FindMembers(System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, java.lang.Object);",
     "public System.Type[] FindInterfaces(System.Reflection.TypeFilter, java.lang.Object);",

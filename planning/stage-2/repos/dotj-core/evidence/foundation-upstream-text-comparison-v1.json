@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 101 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 103 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "f3917c9c85b9827be7e0fd3bf269dcb8727133941cd65754c255325abb50aac4",
+  "jarSha256": "58066882c18dcffc0686fe368d922e1e7faa2e6decee3a72352f13b27b2242a5",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -613,6 +613,30 @@
       "sharedIdentifierShingleSamples": []
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Reflection/FieldAttributes.java",
+      "productSha256": "81c70f31c836fe18e58bcac0dd60a975491be888f8de5f12ca74da9782e159ab",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Reflection/FieldAttributes.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Reflection/FieldAttributes.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "f90d2ff401b98a84ca88e49dde66a49470eba56570bc3b9445137af39c650703",
+      "productIdentifierCount": 954,
+      "upstreamIdentifierCount": 213,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Reflection/FieldInfo.java",
+      "productSha256": "4eb27a04dc05e0a83a35d18813aee265af0d7730daf73af2a29f109c0a32a04c",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Reflection/FieldInfo.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Reflection/FieldInfo.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "f650167153863c3a3da073c72ee34b2b15eb9e47e086647db9a665a54a0d8170",
+      "productIdentifierCount": 146,
+      "upstreamIdentifierCount": 360,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Reflection/GenericParameterAttributes.java",
       "productSha256": "10a3d86a137aa50505488a2bcd1b488ff793e8d6b2433f614d17ef45bf3ceab0",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Reflection/GenericParameterAttributes.cs",
@@ -1103,12 +1127,12 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "9f1ca6406bba32bb207228d75123464e220f5149796bd8a98480285204e30c37",
+      "productSha256": "c7eeac6118e7f8e13c013e9ccd59688b8432f4082252cdf71d7db896001f6a22",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
-      "productIdentifierCount": 14536,
+      "productIdentifierCount": 15030,
       "upstreamIdentifierCount": 3542,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
