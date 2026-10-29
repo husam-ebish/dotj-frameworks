@@ -449,13 +449,33 @@
         }
       ],
       "fullCanonicalGateRequired": 483
+    },
+    {
+      "batch": 2469,
+      "path": "tools/oracle/dotj-core/verify-not-implemented-exception-construction-serialization.py",
+      "originalSha256": "3045cdcc3385e2c85dc4935f22e2bc067bbc24fad557f0c04d487b01ff84c6d1",
+      "sha256": "f08aba9b3059f24b584b185bf62ea0c6b57307ee11a4b063579d8997f1096c5e",
+      "sourceBaselineCommit": "05627f540f88a7812070bb3c7c58f8559312eaad",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 484
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2468,
-  "newPreparedVerifiersMigrated": 22,
-  "currentAndNewVerifiersMigrated": 210,
-  "futurePreparedVerifiersRemaining": 32,
+  "appliedThroughBatch": 2469,
+  "newPreparedVerifiersMigrated": 23,
+  "currentAndNewVerifiersMigrated": 211,
+  "futurePreparedVerifiersRemaining": 31,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
