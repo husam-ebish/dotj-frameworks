@@ -1,6 +1,11 @@
 """Verify provider-free selected UTF-8/UTF-16/UTF-16/UTF-16 lookups against pinned native observations."""
 import argparse, hashlib, json, re, subprocess, zipfile
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3]; EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 def csv(values): return ','.join(map(str,values))
 def units(value): return 'null' if value is None else csv(int.from_bytes(value.encode('utf-16-le',errors='surrogatepass')[i:i+2],'little') for i in range(0,len(value.encode('utf-16-le',errors='surrogatepass')),2))
@@ -8,7 +13,7 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text())['jarPath']
  path=EVIDENCE/'utf8-encoding-lookups-contract-v10.0.12.json';j=json.loads(path.read_text(encoding='utf-8'));assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-utf8-encoding-lookups-contract.ps1').read_bytes()).hexdigest();assert len(j['rows'])==j['requestCount']*26
- adjacency=EVIDENCE/'utf8-encoding-lookups-source-adjacency-v10.0.12.json';adj=json.loads(adjacency.read_text());archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()==adj['sourceArchiveSha256']
+ adjacency=EVIDENCE/'utf8-encoding-lookups-source-adjacency-v10.0.12.json';adj=json.loads(adjacency.read_text());archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)==adj['sourceArchiveSha256']
  assert j['providerIsolation']['providerCountDuringCapture']==0 and j['providerIsolation']['defaultCodePage']==65001 and j['providerIsolation']['scope']=='THIS_DISPOSABLE_ORACLE_PROCESS_ONLY'
  require_names={row['request']['name'] for row in j['rows'] if row['request']['kind']=='name'};assert {'\ud800','\u0130utf-8','UTF\u20138'}.issubset(require_names)
  with zipfile.ZipFile(archive) as z:

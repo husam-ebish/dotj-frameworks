@@ -1,6 +1,11 @@
 """Verify selected managed Int32 spans and Decimal bit-copy operations against pinned native spans."""
 import argparse,hashlib,json,subprocess,zipfile
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 def csv(values):return '~' if values is None else ','.join(map(str,values))
 def outcome(result):
@@ -13,7 +18,7 @@ def main():
  assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678' and j['culture']=='Invariant'
  assert j['oracleSha256']==hashlib.sha256(producer.read_bytes()).hexdigest() and j['planSha256']==hashlib.sha256(planPath.read_bytes()).hexdigest()
  assert len(plan['bits'])==34 and plan['lengths']==[-1,0,1,2,3,4,5,6,8] and plan['offsets']==[0,2] and plan['suffix']==3
- archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115'
+ archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115'
  with zipfile.ZipFile(archive) as z:assert hashlib.sha256(z.read('runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Decimal.cs')).hexdigest()=='89e04b0d528419a4e594f332aae1bdf7ccf249ecfb5e4cc9e562ab4234a878bb'
  expected={(i,length,offset,route) for i in range(34) for length in plan['lengths'] for offset in plan['offsets'] for route in ['get','try','try-alias'] if not(length<0 and(offset!=0 or route=='try-alias'))};seen=set();vectors=['B\t'+str(i)+'\t'+csv(bits) for i,bits in enumerate(plan['bits'])]
  for row in j['rows']:

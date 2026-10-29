@@ -1,6 +1,11 @@
 """Compare represented CultureNotFoundException constructor messages and invalid-culture fields."""
 import argparse,hashlib,json,subprocess,zipfile,xml.etree.ElementTree as ET
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 MESSAGES=[None,[],[65,66],[65,0,66],[55296,56320],[55296],[56320],[26085,26412]];PARAMETERS=[None,[],[120],[0],[39],[55296],[56320],[13,10,122]];IDS=[-2147483648,-1,0,1,127,1024,1033,65535,65536,2147483647];DEFAULT=list(map(ord,'Culture is not supported.'));NULLREF=list(map(ord,'Object reference not set to an instance of an object.'))
 def csv(v):return '~' if v is None else ','.join(map(str,v))
@@ -8,7 +13,7 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text())['jarPath']
  path=EVIDENCE/'culture-not-found-exception-message-fields-contract-v10.0.12.json';j=json.loads(path.read_text());assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678' and j['culture']=='Invariant';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-culture-not-found-exception-message-fields-contract.ps1').read_bytes()).hexdigest()
- archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';root='runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/';pins={'System/Globalization/CultureNotFoundException.cs':'75d211752b2f239b3f94bd6b0533995436a0f0353172e7cf8fb56ec64bed1296','System/ArgumentException.cs':'23b393789bb834fac80f4c285f7e317cf0a0b42874eedab1321366c17501016c'}
+ archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';root='runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/';pins={'System/Globalization/CultureNotFoundException.cs':'75d211752b2f239b3f94bd6b0533995436a0f0353172e7cf8fb56ec64bed1296','System/ArgumentException.cs':'23b393789bb834fac80f4c285f7e317cf0a0b42874eedab1321366c17501016c'}
  with zipfile.ZipFile(archive) as z:
   for name,digest in pins.items():assert hashlib.sha256(z.read(root+name)).hexdigest()==digest
   resource=z.read(root+'Resources/Strings.resx');values={e.attrib['name']:e.findtext('value') for e in ET.fromstring(resource).findall('data')};assert values['Argument_CultureNotSupported']==''.join(map(chr,DEFAULT)) and values['Argument_CultureInvalidIdentifier']=='{0} is an invalid culture identifier.'

@@ -1,13 +1,18 @@
 """Verify selected span index value/assignment projections against native ref indexers."""
 import argparse,hashlib,json,subprocess,zipfile
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 def csv(values):return ','.join(map(str,values))
 def main():
  p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))['jarPath']
  name='span-indexed-access';path=EVIDENCE/(name+'-contract-v10.0.12.json');j=json.loads(path.read_text(encoding='utf-8'));planPath=Path(__file__).with_name(name+'-plan-v1.json');plan=json.loads(planPath.read_text(encoding='utf-8'));assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678' and j['culture']=='Invariant';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-'+name+'-contract.ps1').read_bytes()).hexdigest() and j['planSha256']==hashlib.sha256(planPath.read_bytes()).hexdigest();assert set(plan['seeds'])=={'Char','Byte','Int32'} and plan['expectedCalls']==660
- archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115'
+ archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115'
  expected={(kind,offset,length,index,write,newValue) for kind in plan['seeds'] for offset,length in plan['views'] for index in sorted(set([-1,0,1,length-1,length,2147483647])) for write in [False,True] for newValue in (plan['writeValues'][kind] if write else [0])};seen=set();vectors=[]
  for row in j['rows']:
   key=(row['kind'],row['offset'],row['length'],row['index'],row['write'],row['newValue']);assert key in expected and key not in seen;seen.add(key);kind,offset,length,index,write,newValue=key;result=row['result'];buffer=plan['seeds'][kind].copy()

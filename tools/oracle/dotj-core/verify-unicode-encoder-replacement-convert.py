@@ -1,6 +1,11 @@
 """Compare every returned selected encoder Convert replacement case; classify bounded observations separately."""
 import argparse,base64,copy,hashlib,json,subprocess,zipfile
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 def csv(v):return '~' if v is None else ','.join(map(str,v))
 CORE='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
@@ -9,7 +14,7 @@ def validate(capture,plan):
  assert capture['qualification']=='NATIVE_ENCODER_REPLACEMENT_CONVERT_REFERENCE_WITH_EXPLICIT_BOUNDED_NO_RETURN_OBSERVATIONS_ONLY; NO_JAVA_OR_FULL_NONTERMINATION_QUALIFICATION'
  assert plan['qualification']=='SELECTED_ENCODER_REPLACEMENT_CONVERT_RETURNED_CASES_ONLY; NATIVE_NO_RETURN_OUTCOMES_AND_FINAL_PRODUCT_LIVENESS_POLICY_OPEN'
  assert plan['task']=='DJ-001-WP-05-T2' and plan['profiles']==18 and plan['casesPerProfile']==512 and plan['totalCases']==9216 and plan['acceptedImplementationTasksCredited']==0 and plan['projectBatchTotal'] is None and plan['projectBatchesRemaining'] is None and plan['nativeNoReturnRowsHaveReturnedValues'] is False and plan['javaOnlyFiniteControlsAreNativeParityEvidence'] is False
- archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()==plan['sourceArchiveSha256']=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115'
+ archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)==plan['sourceArchiveSha256']=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115'
  with zipfile.ZipFile(archive) as z:
   assert set(plan['sources'])=={'UnicodeEncoding','EncoderNLS','EncoderFallback','EncoderReplacementFallback'}
   for name,pin in plan['sources'].items():assert pin['entry'].endswith('/System/Text/'+name+'.cs') and hashlib.sha256(z.read(pin['entry'])).hexdigest()==pin['sha256']

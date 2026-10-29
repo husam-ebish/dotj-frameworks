@@ -1,13 +1,18 @@
 """Verify an explicit target-token bridge for selected native generic integer results."""
 import argparse,hashlib,json,subprocess,zipfile
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 def csv(values):return ','.join(map(str,values))
 def main():
  p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))['jarPath']
  name='decimal-generic-integer-native-conversion-bridge';path=EVIDENCE/(name+'-contract-v10.0.12.json');j=json.loads(path.read_text(encoding='utf-8'));planPath=Path(__file__).with_name(name+'-plan-v1.json');plan=json.loads(planPath.read_text(encoding='utf-8'));assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678' and j['culture']=='Invariant';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-'+name+'-contract.ps1').read_bytes()).hexdigest() and j['planSha256']==hashlib.sha256(planPath.read_bytes()).hexdigest();assert len(plan['bits'])==152 and len(plan['targets'])==9
- archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115'
+ archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115'
  with zipfile.ZipFile(archive) as z:assert hashlib.sha256(z.read('runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Decimal.cs')).hexdigest()=='89e04b0d528419a4e594f332aae1bdf7ccf249ecfb5e4cc9e562ab4234a878bb'
  mapping={'System.SByte':(8,False,'System.SByte'),'System.Byte':(8,True,'System.Byte'),'System.Int16':(16,False,'java.lang.Short'),'System.UInt16':(16,True,'System.UInt16'),'System.Int32':(32,False,'System.Int32'),'System.UInt32':(32,True,'System.UInt32'),'System.Int64':(64,False,'java.lang.Long'),'System.UInt64':(64,True,'java.math.BigInteger'),'System.Char':(16,True,'java.lang.Character')};assert set(plan['targets'])==set(mapping);expected={(target,i) for target in plan['targets'] for i in range(152)};seen=set();vectors=[]
  for row in j['rows']:

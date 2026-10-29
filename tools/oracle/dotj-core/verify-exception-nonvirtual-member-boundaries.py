@@ -1,6 +1,11 @@
 """Map declared native exception virtual flags and reject Java overrides of nonvirtual members."""
 import argparse,hashlib,json,subprocess,zipfile
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 OWNERS=['System.Exception','System.SystemException','System.ArithmeticException','System.DivideByZeroException','System.IndexOutOfRangeException','System.OverflowException','System.InvalidCastException','System.InvalidOperationException','System.FormatException','System.TypeLoadException','System.IO.IOException','System.Runtime.Serialization.SerializationException','System.NullReferenceException','System.ArgumentException','System.ArgumentNullException','System.ArgumentOutOfRangeException','System.Globalization.CultureNotFoundException']
 NONVIRTUAL={'get_TargetSite','get_InnerException','get_HResult','set_HResult','GetType'};VIRTUAL={'get_Message','get_Data','GetBaseException','get_HelpLink','set_HelpLink','get_Source','set_Source','GetObjectData','ToString','get_StackTrace'}
@@ -9,7 +14,7 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text())['jarPath']
  path=EVIDENCE/'exception-nonvirtual-member-boundaries-contract-v10.0.12.json';j=json.loads(path.read_text());assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-exception-nonvirtual-member-boundaries-contract.ps1').read_bytes()).hexdigest()
- archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';pins={'runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Exception.cs':'3f44c5b9eb6851301091fc65ce6dd6671e1a750f8a7f120837bc09021ecf12ab','runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/coreclr/System.Private.CoreLib/src/System/Exception.CoreCLR.cs':'6489f279eb132c1f9499c65a7d20ae7c115779c3676d2779232db10373bbe370'}
+ archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';pins={'runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Exception.cs':'3f44c5b9eb6851301091fc65ce6dd6671e1a750f8a7f120837bc09021ecf12ab','runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/coreclr/System.Private.CoreLib/src/System/Exception.CoreCLR.cs':'6489f279eb132c1f9499c65a7d20ae7c115779c3676d2779232db10373bbe370'}
  with zipfile.ZipFile(archive) as z:
   for name,digest in pins.items():assert hashlib.sha256(z.read(name)).hexdigest()==digest
  seen=set();vectors=[]
