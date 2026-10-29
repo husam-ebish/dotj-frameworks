@@ -369,13 +369,33 @@
         }
       ],
       "fullCanonicalGateRequired": 479
+    },
+    {
+      "batch": 2465,
+      "path": "tools/oracle/dotj-core/verify-type-find-field-members-reentrancy.py",
+      "originalSha256": "47d8f04d7106faba1e69adda0e19fa5c76b16292ebf3530fdf583713ebf5fb16",
+      "sha256": "6c6855ad20a48846bd601b665d292fa72c8080922dda9908c04f1dc5be2caaaf",
+      "sourceBaselineCommit": "d7c81020525750e8f20fbd818b04185e6e532779",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 480
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2464,
-  "newPreparedVerifiersMigrated": 18,
-  "currentAndNewVerifiersMigrated": 206,
-  "futurePreparedVerifiersRemaining": 36,
+  "appliedThroughBatch": 2465,
+  "newPreparedVerifiersMigrated": 19,
+  "currentAndNewVerifiersMigrated": 207,
+  "futurePreparedVerifiersRemaining": 35,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
