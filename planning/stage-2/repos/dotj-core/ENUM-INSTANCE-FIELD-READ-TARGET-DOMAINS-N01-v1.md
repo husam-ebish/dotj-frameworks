@@ -1,0 +1,11 @@
+# Enum field read target domains
+
+Batch 2453: 130 native/Java reads compare 650 exact groups across twenty-six target domains and five enum values. Primitive Java boxes and owned numeric carriers, arrays, RuntimeType, DBNull, provider and enum objects preserve native wrong-target type names; null targets retain TargetException and matching enum targets return Int32. The candidate uses canonical projected Type names with an explicit RuntimeType object projection.
+
+130 pinned native calls and 130 Java facade calls pass 650 exact result/message/holder comparisons. Native producer, complete plan, pinned CoreLib and source archive hashes are verified. The preceding candidate leaks Java primitive-wrapper and array class names in native error text. The candidate uses owned Type projection names; fresh packaging, API and retained reflection checks are required; the full 468-check canonical gate remains required before merge.
+
+Selected available target domains only; arbitrary custom/internal runtime object ABI, signature-Type object targets, instance writes and acceptance remain open. E01/E02/E03/N01/Q01 remain open. No task/framework acceptance credit. Numbered milestone 2500; total project batches unknown. JDK APIs are product dependencies; Python/.NET are validation tools. Temporary work stays on D. Next: Implement and qualify the five integer m_value private fields with native visibility/readonly metadata, target validation and boxed underlying reads; keep nonliteral writes explicitly unmapped.
+
+## Follow-on verifier hashing
+
+The current new verifier uses the already qualified shared256 KiB hash helper. Exact original/proposed SHA-256, inverse-byte and independent-AST proofs preserve every other expression and the archive pin. The exact deployed verifier passes isolated CLI/import checks before the normal packaged preview and full canonical gate. Every archive byte is still hashed on each invocation; no digest cache, skipped checks, extra batch or acceptance credit. After this batch,47 prepared verifier migrations remain through2500. Cumulative provenance is recorded in oracle-streaming-hash-follow-on-validation-v1.json; the current entry remains pending its required full gate until the batch report records PASS.

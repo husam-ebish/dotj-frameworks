@@ -3083,8 +3083,7 @@ public abstract class Type extends MemberInfo {
         @Override public Object GetValue(Object target) {
             if (target == null) throw new TargetException("Non-static field requires a target.");
             if (target instanceof FieldAttributes value) return new Int32(value.get_Value());
-            String name = target instanceof Integer || target instanceof Int32 ? "System.Int32"
-                    : target instanceof String ? "System.String" : target.getClass() == Object.class ? "System.Object" : target.getClass().getName();
+            String name = target instanceof Type ? "System.RuntimeType" : fromJavaClass(target.getClass()).get_FullName();
             throw new ArgumentException("Field 'value__' defined on type 'System.Reflection.FieldAttributes' is not a field on the target object which is of type '" + name + "'.");
         }
         @Override public void SetValue(Object target, Object value) { throw new UnsupportedOperationException("Enum instance field writes are not mapped for this candidate profile"); }

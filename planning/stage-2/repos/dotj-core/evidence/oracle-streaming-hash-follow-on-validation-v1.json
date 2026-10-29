@@ -129,13 +129,33 @@
         }
       ],
       "fullCanonicalGateRequired": 467
+    },
+    {
+      "batch": 2453,
+      "path": "tools/oracle/dotj-core/verify-enum-instance-field-read-target-domains.py",
+      "originalSha256": "df490abc8422eb830127d0aa7144ba92052bb008b22350194b4365bdd9e43666",
+      "sha256": "12aa2d927c6c11fc483dc0c4ba5a2f2a9f2f7bb47c6108ecb539d54fbbb66951",
+      "sourceBaselineCommit": "f25dceeea0666bea3e7ff170385a507f1905afa1",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 468
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2452,
-  "newPreparedVerifiersMigrated": 6,
-  "currentAndNewVerifiersMigrated": 194,
-  "futurePreparedVerifiersRemaining": 48,
+  "appliedThroughBatch": 2453,
+  "newPreparedVerifiersMigrated": 7,
+  "currentAndNewVerifiersMigrated": 195,
+  "futurePreparedVerifiersRemaining": 47,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
