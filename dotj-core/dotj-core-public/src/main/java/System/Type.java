@@ -2279,6 +2279,10 @@ public abstract class Type extends MemberInfo {
 
     public MemberInfo GetMemberWithSameMetadataDefinitionAs(MemberInfo member) {
         if (member == null) throw new ArgumentNullException("member");
+        if (!this.get_IsSignatureType() && member instanceof EnumValueFieldMember field) {
+            if (this.Equals(field.owner)) return this.selectedEnumValueField();
+            throw new ArgumentException("A MemberInfo that matches '" + member.get_Name() + "' could not be found.", "member");
+        }
         if (!this.get_IsSignatureType() && member instanceof DefaultFieldMember field) {
             if (this.Equals(field.owner)) return this.selectedLiteralField(field.name);
             throw new ArgumentException("A MemberInfo that matches '" + member.get_Name() + "' could not be found.", "member");
