@@ -2197,6 +2197,9 @@ public abstract class Type extends MemberInfo {
 
     public MemberInfo GetMemberWithSameMetadataDefinitionAs(MemberInfo member) {
         if (member == null) throw new ArgumentNullException("member");
+        if (!this.get_IsSignatureType() && member instanceof Type && member.get_MemberType().get_Value() == MemberTypes.TypeInfo.get_Value()) {
+            throw new ArgumentException("A MemberInfo that matches '" + member.get_Name() + "' could not be found.", "member");
+        }
         if (!this.get_IsSignatureType() && member instanceof DefaultPropertyMember) {
             if (!this.get_HasElementType() && (this.definition == String.class || this.definition == java.util.List.class)) {
                 for (MemberInfo candidate : this.GetDefaultMembers()) {
