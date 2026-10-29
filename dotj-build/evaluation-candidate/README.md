@@ -47,3 +47,7 @@ proposal is reused internally, and no upstream implementation is copied.
 
 See [CONTRACT.md](CONTRACT.md) for the exact supported/refused profile,
 normalization and remaining acceptance work.
+
+The [source-location extension](IMPORT-LOCATIONS.md) adds ten internal location
+comparisons after the unchanged 52-case suite. Use `--focus-locations` for the
+focused packaged comparison; the default verifier runs both.

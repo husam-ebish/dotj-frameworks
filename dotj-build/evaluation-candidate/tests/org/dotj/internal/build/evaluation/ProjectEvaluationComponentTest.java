@@ -79,7 +79,9 @@ public final class ProjectEvaluationComponentTest {
         }
         Result result=evaluate(file,directory,Map.of());
         require(result.evaluatedFiles().equals(List.of(file,directory.resolve("one.props"))) && result.property("P").isEmpty(),"Prior duplicate native once-only mismatch");
-        require(result.duplicateImports().equals(List.of(new DuplicateImport(code,file,directory.resolve("one.props")))),"Prior duplicate native notice mismatch");
+        require(result.duplicateImports().size()==1 && result.duplicateImports().getFirst().referenceCode().equals(code)
+            && result.duplicateImports().getFirst().owner().equals(file)
+            && result.duplicateImports().getFirst().importedProject().equals(directory.resolve("one.props")),"Prior duplicate native notice mismatch");
         record("NEG-"+id+"\tNOW_NATIVE_ONCE_ONLY_MATCH\t"+code);
     }
     private static void negative(Path root,String id,String xml,String expected,Map<String,String> extras) throws Exception {
