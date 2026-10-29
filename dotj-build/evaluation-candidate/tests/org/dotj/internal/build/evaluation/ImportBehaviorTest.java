@@ -22,7 +22,7 @@ final class ImportBehaviorTest {
                 require(result.evaluatedFiles().equals(expected),id+" native import order mismatch");
                 List<String> notices=result.duplicateImports().stream().map(n -> n.referenceCode()+"|"+directory.relativize(n.owner()).toString().replace('\\','/')+"|"+directory.relativize(n.importedProject()).toString().replace('\\','/')).toList();
                 require(notices.equals(decode(f[5]).lines().toList()),id+" native notice code/owner/target/order mismatch");
-                try { result.duplicateImports().add(new DuplicateImport("invalid",project,project));throw new AssertionError("Mutable notices"); }
+                try { result.duplicateImports().add(null);throw new AssertionError("Mutable notices"); }
                 catch(UnsupportedOperationException expectedImmutable) { }
                 Result fresh=evaluate(project,directory,Map.of());
                 require(fresh.equals(result),id+" per-call import/property state leaked");

@@ -30,6 +30,7 @@ def main():
     parser.add_argument('--implementation-root', type=Path,
                         default=Path(r'D:\AI\Implementation\dotj Frameworks'))
     parser.add_argument('--out', required=True, type=Path)
+    parser.add_argument('--focus-locations', action='store_true')
     options = parser.parse_args()
     root = options.implementation_root.resolve(strict=True)
     output = options.out.resolve()
@@ -67,6 +68,9 @@ def main():
     expected_bridge = runpy.run_path(str(comparison_tool))['comparison_bridge'](observations['captures'])
     if (BASE/'evidence/native-import-comparison-v1.tsv').read_text(encoding='utf-8') != expected_bridge:
         raise RuntimeError('Import bridge does not reproduce native observations')
+    location_tool = repo/'tools/oracle/dotj-build/verify-import-locations-v1.py'
+    location_api = runpy.run_path(str(location_tool))
+    location_api['verify_inputs']()
     output.mkdir(parents=True)
     for directory in ['classes', 'test-classes', 'fixtures', 'outputs', 'logs', 'tmp', 'home']:
         (output/directory).mkdir()
@@ -75,6 +79,8 @@ def main():
               'baselineLockSha256':sha(BASE/'evidence/baseline-lock.json'),
               'importObservationLockSha256':sha(import_lock_path),
               'importComparisonVerifierSha256':sha(comparison_tool),
+              'locationComparisonVerifierSha256':sha(location_tool),
+              'locationObservationLockSha256':sha(BASE/'evidence/location-observation-lock-v1.json'),
               'verifiedReferenceInputs':len(lock['inputs']), 'commands':[], 'resources':[],
               'sourceHashes':{p.relative_to(BASE).as_posix():sha(p)
                               for folder in ['src','tests']
@@ -157,6 +163,9 @@ def main():
                                'beforeSha256':sha(BASE/'fixtures/BE19-no-target-execution/main.proj'),
                                'afterSha256':sha(sentinel_project), 'propertyValues':'none'}
     shutil.copytree(BASE/'import-fixtures', output/'import-fixtures')
+    for folder in (BASE/'location-fixtures').iterdir():
+        shutil.copytree(folder, output/'import-fixtures'/folder.name)
+    shutil.copyfile(BASE/'evidence/location-comparison-v1.tsv', output/'location-comparison.tsv')
     shutil.copyfile(BASE/'evidence/native-import-comparison-v1.tsv', output/'native-import-comparison.tsv')
     fixture_hashes = {p:sha(p) for folder in ['fixtures','import-fixtures'] for p in (output/folder).rglob('*') if p.is_file()}
     compile_vm = ['-J'+option for option in vm]
@@ -170,12 +179,27 @@ def main():
         '--module-path',str(candidate),'--patch-module',MODULE+'='+str(BASE/'tests'),
         '-d',str(output/'test-classes'), *[str(p) for p in sorted((BASE/'tests').rglob('*.java'))]])
     jar(output/'test-classes', tests)
+    location_command = [str(java/'java.exe'), *vm,
+        '--limit-modules','java.base,java.xml,'+MODULE, '--module-path',str(candidate),
+        '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.ImportLocationTest',
+        str(output/'location-comparison.tsv'),str(output/'import-fixtures'),str(output/'outputs/location-results.tsv')]
+    if options.focus_locations:
+        run('packaged-locations', location_command)
+        location_api['verify_inputs']()
+        if any(sha(path) != expected for path, expected in fixture_hashes.items()) or list(output.rglob('must-not-exist.txt')):
+            raise RuntimeError('Focused location fixture/marker changed')
+        record.update(status='PASS_FOCUSED_NATIVE_LOCATIONS', locationCases=10,
+                      fixturesUnchanged=True,taskMarkersAbsent=True)
+        save()
+        print(json.dumps({'status':record['status'],'cases':10,'report':str(output/'verification.json')}))
+        return
     run('packaged-contract', [str(java/'java.exe'), *vm,
         '--limit-modules','java.base,java.xml,'+MODULE, '--module-path',str(candidate),
         '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.ProjectEvaluationComponentTest',
         str(output/'fixtures/native-comparison.tsv'),str(output/'fixtures'),str(output/'outputs'),
         str(original_root/'BE19-no-target-execution/must-not-exist.txt'),str(candidate),
         str(output/'native-import-comparison.tsv'),str(output/'import-fixtures')])
+    run('packaged-locations', location_command)
     rows = (output/'outputs/case-results.tsv').read_text(encoding='utf-8').splitlines()
     if len(rows) != 52 or any(sha(path) != expected for path, expected in fixture_hashes.items()):
         raise RuntimeError('Incomplete case results or modified runtime fixtures')
@@ -186,6 +210,7 @@ def main():
         if sha(root/item['path']) != item['sha256']:
             raise RuntimeError('Reference input changed during evaluation: '+item['path'])
     verify_import_inputs()
+    location_api['verify_inputs']()
     if list(output.rglob('must-not-exist.txt')):
         raise RuntimeError('Task marker unexpectedly created')
     predecessors = json.loads((BASE/'evidence/predecessor-dispositions-v1.json').read_text())
@@ -201,6 +226,7 @@ def main():
                   profileRejections=22, priorDuplicateNowNativeSupported=1, newImportMatrixCases=9,
                   supportedImportComparisons=5, explicitNewCycleGaps=3, nativeMissingImportComparison=1,
                   totalCases=52, fixturesUnchanged=True, taskMarkersAbsent=True, predecessorCasesAccounted=43,
+                  locationCases=10, nativeLocationNotices=10,
                   runtimeModules=['java.base','java.xml'],
                   candidateJar={'path':str(candidate),'sha256':sha(candidate)},
                   testsJar={'path':str(tests),'sha256':sha(tests)},

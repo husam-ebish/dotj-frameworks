@@ -107,3 +107,10 @@ observed distinct load profiles, resolve source location/previous-import/message
 representation, and separately close public lifecycle/core/eligibility gates.
 Item/glob/SDK/Unicode/environment/Windows-Linux and complete public ABI work remain
 unqualified. No public Project, ProjectCollection or diagnostic facade is added.
+
+## Subsequent source-location extension
+
+[IMPORT-LOCATIONS.md](IMPORT-LOCATIONS.md) closes the selected private acyclic
+current-coordinate and same-Default-profile first-import-site gaps described
+above. The v1 captures and this historical comparison scope remain preserved;
+full native messages, cycles, public ABI and acceptance remain open.

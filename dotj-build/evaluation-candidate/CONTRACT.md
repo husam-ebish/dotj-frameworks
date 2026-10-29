@@ -64,7 +64,7 @@ property functions, cycles, reserved `MSBuild*` properties,
 non-ASCII property names/comparison and unqualified condition coercions refuse.
 Cycles currently produce `IMPORT_CYCLE_UNQUALIFIED`, **not a
 source-compatible chain diagnostic**. Acyclic duplicate imports now use the captured once-only policy; native warning
-source locations, previous-import context and text remain unimplemented. The private missing-import failure does not
+current source locations and directly observed first-import context are now compared by the bounded [source-location extension](IMPORT-LOCATIONS.md); full text remains unimplemented. The private missing-import failure does not
 implement `InvalidProjectFileException`, native text, source lines or HResult.
 
 The independent ordinal-comparison prototype is not imported. The central
@@ -118,3 +118,10 @@ retain all three load profiles, ordered diagnostics, original source positions,
 null codes, failures and unload/disposal observations. Only acyclic once-only
 properties/import order and private notice code/owner/target order are compared
 as supported behavior. No public logger, diagnostic or load-settings API is added.
+
+## Acyclic import source locations v1
+
+[IMPORT-LOCATIONS.md](IMPORT-LOCATIONS.md) supersedes the original source-location
+and previous-context gaps only for its selected internal Default-profile fields.
+All 52 predecessor inputs/dispositions and 27 historical native observations
+remain intact; cycle/public/message acceptance remains open.

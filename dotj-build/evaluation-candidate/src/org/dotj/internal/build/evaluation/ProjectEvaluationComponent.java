@@ -1,6 +1,9 @@
 package org.dotj.internal.build.evaluation;
 
 import java.io.IOException;
+import java.io.ByteArrayInputStream;
+import java.nio.ByteBuffer;
+import java.nio.charset.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.regex.*;
@@ -25,7 +28,10 @@ final class ProjectEvaluationComponent {
             referenceCode = "MSB4019"; this.project = project; missingImport = missing;
         }
     }
-    public record DuplicateImport(String referenceCode, Path owner, Path importedProject) { }
+    private record WarningPosition(int line, int column, int endLine, int endColumn) { }
+    private record ImportSite(Path owner, int line, int column) { }
+    public record DuplicateImport(String referenceCode, Path owner, Path importedProject,
+                                  WarningPosition current, ImportSite previous) { }
     public record Result(Map<String, String> escapedProperties, List<Path> evaluatedFiles, List<DuplicateImport> duplicateImports) {
         public Result { escapedProperties = Map.copyOf(escapedProperties); evaluatedFiles = List.copyOf(evaluatedFiles); duplicateImports = List.copyOf(duplicateImports); }
         public String property(String name) { return unescape(escapedProperties.getOrDefault(key(name), "")); }
@@ -76,6 +82,8 @@ final class ProjectEvaluationComponent {
         final Set<Path> active = new HashSet<>();
         final List<Path> files = new ArrayList<>();
         final List<DuplicateImport> duplicates = new ArrayList<>();
+        final Map<Element,ImportSite> sourceSites = new IdentityHashMap<>();
+        final Map<Path,ImportSite> firstImports = new HashMap<>();
         State(Path sandbox, Map<String,String> globals) throws IOException {
             this.sandbox = sandbox.toRealPath();
             for (var entry : globals.entrySet()) {
@@ -135,7 +143,10 @@ final class ProjectEvaluationComponent {
                     @Override public void error(SAXParseException e) throws SAXException { throw e; }
                     @Override public void fatalError(SAXParseException e) throws SAXException { throw e; }
                 });
-                return builder.parse(file.toFile());
+                byte[] bytes = Files.readAllBytes(file);
+                Document document = builder.parse(new ByteArrayInputStream(bytes),file.toUri().toString());
+                SourceIndex.attach(document,bytes,file,sourceSites);
+                return document;
             } catch (ParserConfigurationException | SAXException exception) {
                 throw reject("XML_PROFILE", "XML syntax/DTD/entities outside controlled profile: " + exception.getMessage());
             }
@@ -230,9 +241,14 @@ final class ProjectEvaluationComponent {
             // Conditions and sandbox resolution happen before once-only identity checks.
             // Active ancestors still go through read() and retain the explicit cycle refusal.
             if (seen.contains(path) && !active.contains(path)) {
-                duplicates.add(new DuplicateImport("MSB4011", owner, path));
+                ImportSite current = sourceSites.get(element), previous = firstImports.get(path);
+                if (current == null || previous == null) throw reject("XML_SOURCE_INDEX", "Missing import source identity");
+                // Actual selected native warnings report 0/0 for unavailable end coordinates.
+                duplicates.add(new DuplicateImport("MSB4011", owner, path,
+                    new WarningPosition(current.line(),current.column(),0,0),previous));
                 return;
             }
+            firstImports.putIfAbsent(path,sourceSites.get(element));
             read(path,false);
         }
         String expand(String value) {
@@ -293,6 +309,68 @@ final class ProjectEvaluationComponent {
                 if(!elements(task).isEmpty())throw reject("TARGET_DECLARATION_PROFILE", "Nested task content unsupported");
             }
             // Intentionally no task registry, invocation, network, restore or process API.
+        }
+    }
+
+    /** Lexical positions only: the secured DOM remains the semantic/validity authority.
+     * Align every real start tag to DOM preorder so repeated tags, scalar text,
+     * comments, CDATA and quoted delimiters cannot silently select another import.
+     * Positions count UTF-16 characters, with XML CR/CRLF line normalization.
+     */
+    private static final class SourceIndex {
+        private record Start(String name, int offset) { }
+        static void attach(Document document, byte[] bytes, Path file, Map<Element,ImportSite> sites) {
+            String source;
+            try {
+                source = Charset.forName(document.getInputEncoding()).newDecoder()
+                    .onMalformedInput(CodingErrorAction.REPORT).onUnmappableCharacter(CodingErrorAction.REPORT)
+                    .decode(ByteBuffer.wrap(bytes)).toString();
+            } catch (CharacterCodingException | IllegalArgumentException error) {
+                throw reject("XML_SOURCE_INDEX", "XML source encoding cannot be indexed");
+            }
+            if (source.startsWith("\uFEFF")) source = source.substring(1);
+            source = source.replace("\r\n","\n").replace('\r','\n');
+            List<Start> starts = new ArrayList<>();
+            int cursor = 0;
+            while (cursor < source.length()) {
+                int open = source.indexOf('<',cursor);
+                if (open < 0) break;
+                if (source.startsWith("<!--",open)) { cursor = after(source,"-->",open+4); continue; }
+                if (source.startsWith("<![CDATA[",open)) { cursor = after(source,"]]>",open+9); continue; }
+                if (source.startsWith("<?",open)) { cursor = after(source,"?>",open+2); continue; }
+                if (source.startsWith("<!",open)) throw reject("XML_SOURCE_INDEX", "Unexpected XML declaration");
+                boolean closing = source.startsWith("</",open);
+                int nameStart = open+(closing ? 2 : 1), nameEnd = nameStart;
+                while (nameEnd < source.length() && !Character.isWhitespace(source.charAt(nameEnd))
+                       && source.charAt(nameEnd) != '/' && source.charAt(nameEnd) != '>') nameEnd++;
+                if (!closing) starts.add(new Start(source.substring(nameStart,nameEnd),open));
+                char quote = 0;int end = nameEnd;
+                for (;end < source.length();end++) {
+                    char c = source.charAt(end);
+                    if (quote != 0) { if (c == quote) quote = 0; }
+                    else if (c == '\'' || c == '"') quote = c;
+                    else if (c == '>') break;
+                }
+                if (end == source.length()) throw reject("XML_SOURCE_INDEX", "Unterminated XML start tag");
+                cursor = end+1;
+            }
+            NodeList elements = document.getElementsByTagName("*");
+            if (elements.getLength() != starts.size()) throw reject("XML_SOURCE_INDEX", "XML source/DOM count differs");
+            int position = 0,line = 1,column = 1;
+            for (int i=0;i<starts.size();i++) {
+                Start start = starts.get(i);Element element = (Element)elements.item(i);
+                if (!element.getTagName().equals(start.name())) throw reject("XML_SOURCE_INDEX", "XML source/DOM identity differs");
+                while (position < start.offset()) {
+                    if (source.charAt(position++) == '\n') { line++;column = 1; }
+                    else column++;
+                }
+                sites.put(element,new ImportSite(file,line,column));
+            }
+        }
+        private static int after(String source,String delimiter,int start) {
+            int end = source.indexOf(delimiter,start);
+            if (end < 0) throw reject("XML_SOURCE_INDEX", "Unterminated XML lexical section");
+            return end+delimiter.length();
         }
     }
 }

@@ -63,3 +63,14 @@ messages, null diagnostic codes, exceptions and cleanup. See the candidate's
 for the supported observables and remaining gaps. The native SDK, Roslyn compiler,
 reference pack and .NET runtime are development-only; they are not JAR runtime
 dependencies. All new helper source is owned; no upstream implementation is copied.
+
+## Import locations v1
+
+`capture-import-locations-v1.py --out <new-private-D-directory>` compiles the
+distinct `CaptureImportLocationsV1.cs` producer and captures Default-profile
+current end fields plus resolved-import context for the original nine and five
+source-format inputs. `verify-import-locations-v1.py <verification.json> --out
+<new-private-D-directory>` retains the full capture, compares all previously
+observed Default fields and derives the coordinate bridge with six refusal
+controls. Historical producers/locks remain untouched. No build/restore/task
+or network operation is introduced. See the candidate IMPORT-LOCATIONS.md.

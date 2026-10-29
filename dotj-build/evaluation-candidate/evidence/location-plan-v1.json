@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "profile": "Default",
+  "beforeImplementation": true,
+  "cases": [
+    "BI01-repeat",
+    "BI02-diamond",
+    "BI03-two-file-cycle",
+    "BI04-relative-alias",
+    "BI05-false-then-true",
+    "BI06-prior-duplicate",
+    "BI07-prior-cycle",
+    "BI08-nonroot-cycle",
+    "BI09-missing",
+    "BL01-lf-multiline",
+    "BL02-crlf-comment-unicode",
+    "BL03-cdata-quotes",
+    "BL04-bom-declaration",
+    "BL05-formatted-diamond"
+  ],
+  "profiles": [
+    "Default"
+  ],
+  "sourceFormatMatrix": {
+    "BL01-lf-multiline": [
+      "LF",
+      "indented multiline import",
+      "repeated tags"
+    ],
+    "BL02-crlf-comment-unicode": [
+      "CRLF",
+      "tab indentation",
+      "fake Import in comment",
+      "supplementary Unicode before import on same line"
+    ],
+    "BL03-cdata-quotes": [
+      "CDATA fake Import in property scalar",
+      "escaped fake markup",
+      "single quoted attribute",
+      "explicit closing Import",
+      "multiline import"
+    ],
+    "BL04-bom-declaration": [
+      "UTF8 BOM",
+      "XML declaration"
+    ],
+    "BL05-formatted-diamond": [
+      "previous owner differs from current",
+      "LF previous owner",
+      "CRLF current owner"
+    ]
+  },
+  "fixtures": [
+    {
+      "path": "BL01-lf-multiline/main.proj",
+      "sha256": "74063c9c3bbf7243f2f3f1440b03cc83127ea9b254a05ab6673a4f05556979ad"
+    },
+    {
+      "path": "BL01-lf-multiline/one.props",
+      "sha256": "b602e9ce57d9ec38381144b4dce9f9b9e258ae703a1f6700c1364fe8597fc8c1"
+    },
+    {
+      "path": "BL02-crlf-comment-unicode/main.proj",
+      "sha256": "9502352930cfee5486516e1ffc71b79d9c7dc7c47ddfe5b3b469c08cf3c024e2"
+    },
+    {
+      "path": "BL02-crlf-comment-unicode/one.props",
+      "sha256": "b602e9ce57d9ec38381144b4dce9f9b9e258ae703a1f6700c1364fe8597fc8c1"
+    },
+    {
+      "path": "BL03-cdata-quotes/main.proj",
+      "sha256": "6ede63b16eb5958fbba567d63090e78e0d52197c67186e953a522cdbb7648f6b"
+    },
+    {
+      "path": "BL03-cdata-quotes/one.props",
+      "sha256": "b602e9ce57d9ec38381144b4dce9f9b9e258ae703a1f6700c1364fe8597fc8c1"
+    },
+    {
+      "path": "BL04-bom-declaration/main.proj",
+      "sha256": "6f3608e67be2f0a36f8236b5d70961d79f814d6ce4ae538c268792b8f2e32f8d"
+    },
+    {
+      "path": "BL04-bom-declaration/one.props",
+      "sha256": "b602e9ce57d9ec38381144b4dce9f9b9e258ae703a1f6700c1364fe8597fc8c1"
+    },
+    {
+      "path": "BL05-formatted-diamond/left.props",
+      "sha256": "3457cecbb6cc269799ca1ecd7f1556da23e9ce604758225bafeb909879b8aea4"
+    },
+    {
+      "path": "BL05-formatted-diamond/main.proj",
+      "sha256": "ab07479f8d667a1fbbc4d8c31bf55c313054ef0536823c62f13510329efa5bc4"
+    },
+    {
+      "path": "BL05-formatted-diamond/one.props",
+      "sha256": "b602e9ce57d9ec38381144b4dce9f9b9e258ae703a1f6700c1364fe8597fc8c1"
+    },
+    {
+      "path": "BL05-formatted-diamond/right.props",
+      "sha256": "fe611c40d0b60e7bcb860e573e0e0fb659c8cdb25bf99910583009bfa4cd85b3"
+    }
+  ]
+}
