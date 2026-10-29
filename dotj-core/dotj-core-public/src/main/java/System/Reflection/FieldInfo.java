@@ -12,6 +12,11 @@ public abstract class FieldInfo extends MemberInfo {
     public abstract Object GetValue(Object target);
     public abstract void SetValue(Object target, Object value);
     public abstract Object GetRawConstantValue();
+    public abstract boolean get_IsSecurityCritical();
+    public abstract boolean get_IsSecuritySafeCritical();
+    public abstract boolean get_IsSecurityTransparent();
+    public abstract Type[] GetOptionalCustomModifiers();
+    public abstract Type[] GetRequiredCustomModifiers();
     private int access() { return this.get_Attributes().get_Value() & 7; }
     public boolean get_IsPublic() { return this.access() == 6; }
     public boolean get_IsPrivate() { return this.access() == 1; }
