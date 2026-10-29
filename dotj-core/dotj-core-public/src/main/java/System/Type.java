@@ -3,6 +3,7 @@
 package System;
 
 import System.Reflection.TypeFilter;
+import System.Reflection.MemberFilter;
 
 import java.util.Arrays;
 import java.util.List;
@@ -2194,6 +2195,21 @@ public abstract class Type extends MemberInfo {
                 || this.definition == DecoderFallbackBuffer.class;
     }
 
+    public MemberInfo[] FindMembers(MemberTypes memberType, BindingFlags flags, MemberFilter filter, Object filterCriteria) {
+        if (memberType == null) throw new NullPointerException("memberType");
+        if (flags == null) throw new NullPointerException("flags");
+        if (this.selectedInterfaceMethodName() == null) {
+            throw new UnsupportedOperationException("Filtered member inventory is not mapped for this candidate type");
+        }
+        List<MemberInfo> members = new java.util.ArrayList<>();
+        if (memberType.has(MemberTypes.Method)) {
+            for (MethodInfo method : this.GetMethods(flags)) {
+                if (filter == null || filter.Invoke(method, filterCriteria)) members.add(method);
+            }
+        }
+        return members.toArray(new MemberInfo[0]);
+    }
+
     public Type[] FindInterfaces(TypeFilter filter, Object filterCriteria) {
         if (filter == null) throw new ArgumentNullException("filter");
         Type[] interfaces = this.GetInterfaces();
@@ -2971,6 +2987,7 @@ public abstract class Type extends MemberInfo {
     }
 
     private static abstract class SignatureType extends Type {
+        @Override public MemberInfo[] FindMembers(MemberTypes kind, BindingFlags flags, MemberFilter filter, Object criteria) { throw unsupported(); }
         @Override public Type[] FindInterfaces(TypeFilter filter, Object criteria) { throw unsupported(); }
         @Override public boolean get_IsNestedFamANDAssem() { throw unsupported(); }
         @Override public boolean get_IsNestedFamORAssem() { throw unsupported(); }

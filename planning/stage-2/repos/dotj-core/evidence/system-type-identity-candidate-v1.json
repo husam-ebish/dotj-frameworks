@@ -187,7 +187,7 @@
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "314f874ba7d05242f5e5ebd4684b491619fcdd07bda00c2ecc78701eea02685a",
+  "sourceSha256": "79c5c6b4fdc0b46d4f4e79a935876c4227faef8802d6d8dae1bfe70af6dd7d2d",
   "idisposableSourceSha256": "03e7907bdd9aeb3d00e1c58a793446bea5baaf7174e544ba505a220e898da140",
   "icomparableSourceSha256": "6bcbfe9ce519dce4068cb4531bb3dbc3f044b4c9925d011016405e66b2cccc95",
   "iformattableSourceSha256": "5f594291b15b45d4f82e4dfb54a96a6dfdcef3e25fcb5ffcb1ad38eca791fd97",
@@ -271,6 +271,10 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/TypeFilter.java",
       "sha256": "02c31eba8a65e7d5c96b2ace400590ac96e43a3d1c10719d5c2c9af852c7de4e"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MemberFilter.java",
+      "sha256": "bd7e4904e33da101e80d0b98ad7811577e61840bb5a2f5fa27d71e42d812af54"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodBase.java",
@@ -655,6 +659,7 @@
     "public System.Reflection.MemberInfo[] GetDefaultMembers();",
     "public System.Type[] GetOptionalCustomModifiers();",
     "public System.Type[] GetRequiredCustomModifiers();",
+    "public System.Reflection.MemberInfo[] FindMembers(System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, java.lang.Object);",
     "public System.Type[] FindInterfaces(System.Reflection.TypeFilter, java.lang.Object);",
     "public System.Type[] GetInterfaces();",
     "public System.Type GetInterface(java.lang.String);",
