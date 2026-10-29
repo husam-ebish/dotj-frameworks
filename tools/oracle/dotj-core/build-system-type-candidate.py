@@ -2903,6 +2903,7 @@ def main():
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",
+        "public System.Reflection.MemberInfo GetMemberWithSameMetadataDefinitionAs(System.Reflection.MemberInfo);",
         "public System.Reflection.MemberInfo[] FindMembers(System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, java.lang.Object);",
         "public System.Type[] FindInterfaces(System.Reflection.TypeFilter, java.lang.Object);",
         "public System.Type[] GetInterfaces();",
