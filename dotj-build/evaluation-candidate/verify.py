@@ -25,12 +25,111 @@ def sha(path):
         return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
+def defer_resources(label, deadline, record, save):
+    record['resourceWaits'][-1].update(seconds=time.monotonic()-(deadline-120),
+                                      status='DEFERRED_RESOURCES')
+    record.update(status='DEFERRED_RESOURCES', deferredBefore=label)
+    save()
+    raise RuntimeError('Existing JVM resource floor not met within 120 seconds before '+label+'; no command was launched')
+
+
+def wait_for_resources(label, output, environment, record, save):
+    start = time.monotonic()
+    deadline = start+120
+    wait = {'before':label, 'limitSeconds':120, 'pollSeconds':5,
+            'seconds':0, 'status':'WAITING'}
+    record.setdefault('resourceWaits', []).append(wait)
+    while True:
+        poll_start = time.monotonic()
+        remaining = deadline-poll_start
+        if remaining <= 0:
+            break
+        reading = {'before':label, 'utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+        memory = None
+        try:
+            memory = subprocess.run(['powershell','-NoLogo','-NoProfile','-Command',
+                '$ErrorActionPreference="Stop";$m=Get-CimInstance Win32_OperatingSystem;'
+                '[pscustomobject]@{freeVirtualKiB=[uint64]$m.FreeVirtualMemory;'
+                'freePhysicalKiB=[uint64]$m.FreePhysicalMemory}|ConvertTo-Json -Compress'],
+                cwd=output, env=environment, capture_output=True, text=True,
+                timeout=min(20, remaining), check=True)
+            resources = json.loads(memory.stdout)
+            if not isinstance(resources, dict) or any(
+                    type(resources.get(key)) is not int or resources[key] < 0
+                    for key in ['freeVirtualKiB', 'freePhysicalKiB']):
+                raise ValueError('Memory query must return both nonnegative integer KiB readings')
+            reading.update(resources)
+        except (OSError, subprocess.SubprocessError, ValueError) as error:
+            reading.update(error=type(error).__name__+': '+str(error),
+                           waitSeconds=time.monotonic()-start)
+            for name in ['stdout', 'stderr']:
+                data = getattr(memory if memory is not None else error, name, None)
+                if data is not None:
+                    reading[name] = data.decode('utf-8', errors='replace') if isinstance(data, bytes) else data
+            record['resources'].append(reading)
+            wait.update(seconds=reading['waitSeconds'], status='RESOURCE_QUERY_FAILED')
+            record.update(status='RESOURCE_QUERY_FAILED', failedBefore=label)
+            save()
+            raise RuntimeError('Resource query failed before '+label+'; no command was launched') from error
+        elapsed = time.monotonic()-start
+        reading['waitSeconds'] = elapsed
+        record['resources'].append(reading)
+        wait['seconds'] = elapsed
+        ready = resources['freeVirtualKiB'] >= 16777216 and resources['freePhysicalKiB'] >= 524288
+        if ready:
+            wait['status'] = 'READY'
+        save()
+        now = time.monotonic()
+        wait['seconds'] = now-start
+        if now >= deadline:
+            break
+        if ready:
+            return deadline
+        delay = min(5-(now-poll_start), deadline-now)
+        if delay > 0:
+            time.sleep(delay)
+    defer_resources(label, deadline, record, save)
+
+
+def run_command(label, arguments, output, environment, record, save):
+    deadline = wait_for_resources(label, output, environment, record, save)
+    entry = {'label':label, 'argv':list(map(str, arguments)), 'cwd':str(output)}
+    record['commands'].append(entry)
+    save()
+    start = time.perf_counter()
+    now = time.monotonic()
+    record['resourceWaits'][-1]['seconds'] = now-(deadline-120)
+    if now >= deadline:
+        record['commands'].pop()
+        defer_resources(label, deadline, record, save)
+    try:
+        result = subprocess.run(arguments, cwd=output, env=environment,
+                                capture_output=True, timeout=120)
+    except (OSError, subprocess.TimeoutExpired) as error:
+        entry.update(error=str(error), passed=False)
+        record['status'] = 'COMMAND_FAILED'
+        save()
+        raise
+    for name, data in [('stdout',result.stdout),('stderr',result.stderr)]:
+        path = output/'logs'/(label+'.'+name)
+        path.write_bytes(data)
+        entry[name] = {'path':str(path), 'sha256':sha(path)}
+    entry.update(exitCode=result.returncode, seconds=time.perf_counter()-start,
+                 passed=result.returncode == 0)
+    save()
+    if result.returncode:
+        record.update(status='COMMAND_FAILED', failedCommand=label)
+        save()
+        raise RuntimeError(label+' failed; see '+str(output/'logs'/(label+'.stderr')))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--implementation-root', type=Path,
                         default=Path(r'D:\AI\Implementation\dotj Frameworks'))
     parser.add_argument('--out', required=True, type=Path)
     parser.add_argument('--focus-locations', action='store_true')
+    parser.add_argument('--focus-cycles', action='store_true')
     options = parser.parse_args()
     root = options.implementation_root.resolve(strict=True)
     output = options.out.resolve()
@@ -71,6 +170,9 @@ def main():
     location_tool = repo/'tools/oracle/dotj-build/verify-import-locations-v1.py'
     location_api = runpy.run_path(str(location_tool))
     location_api['verify_inputs']()
+    cycle_tool = repo/'tools/oracle/dotj-build/verify-default-cycles-v1.py'
+    cycle_api = runpy.run_path(str(cycle_tool))
+    cycle_api['verify_inputs']()
     output.mkdir(parents=True)
     for directory in ['classes', 'test-classes', 'fixtures', 'outputs', 'logs', 'tmp', 'home']:
         (output/directory).mkdir()
@@ -81,13 +183,16 @@ def main():
               'importComparisonVerifierSha256':sha(comparison_tool),
               'locationComparisonVerifierSha256':sha(location_tool),
               'locationObservationLockSha256':sha(BASE/'evidence/location-observation-lock-v1.json'),
+              'cycleComparisonVerifierSha256':sha(cycle_tool),
+              'cycleObservationLockSha256':sha(BASE/'evidence/cycle-observation-lock-v1.json'),
               'verifiedReferenceInputs':len(lock['inputs']), 'commands':[], 'resources':[],
               'sourceHashes':{p.relative_to(BASE).as_posix():sha(p)
                               for folder in ['src','tests']
                               for p in sorted((BASE/folder).rglob('*.java'))},
               'runnerSha256':sha(Path(__file__)),
               'limits':{'maxHeapMiB':128, 'processors':2, 'gc':'SerialGC', 'timeoutSeconds':120,
-                        'freeVirtualFloorKiB':16777216, 'freePhysicalFloorKiB':524288}}
+                        'freeVirtualFloorKiB':16777216, 'freePhysicalFloorKiB':524288,
+                        'resourceWaitSeconds':120, 'resourcePollSeconds':5}}
 
     def save():
         (output/'verification.json').write_text(json.dumps(record, indent=2)+'\n', encoding='utf-8')
@@ -103,41 +208,7 @@ def main():
     java = root/'toolchains/jdk-qualified/jdk-21.0.12.1+1/bin'
 
     def run(label, arguments):
-        memory = subprocess.run(['powershell','-NoLogo','-NoProfile','-Command',
-            '$m=Get-CimInstance Win32_OperatingSystem;'
-            '[pscustomobject]@{freeVirtualKiB=[uint64]$m.FreeVirtualMemory;'
-            'freePhysicalKiB=[uint64]$m.FreePhysicalMemory}|ConvertTo-Json -Compress'],
-            cwd=output, env=environment, capture_output=True, text=True, timeout=20, check=True)
-        resources = json.loads(memory.stdout)
-        resources.update(before=label, utc=datetime.datetime.now(datetime.timezone.utc).isoformat())
-        record['resources'].append(resources)
-        if resources['freeVirtualKiB'] < 16777216 or resources['freePhysicalKiB'] < 524288:
-            record.update(status='DEFERRED_RESOURCES', deferredBefore=label)
-            save()
-            raise RuntimeError('Existing JVM resource floor not met; no process was launched')
-        entry = {'label':label, 'argv':list(map(str, arguments)), 'cwd':str(output)}
-        record['commands'].append(entry)
-        save()
-        start = time.perf_counter()
-        try:
-            result = subprocess.run(arguments, cwd=output, env=environment,
-                                    capture_output=True, timeout=120)
-        except (OSError, subprocess.TimeoutExpired) as error:
-            entry.update(error=str(error), passed=False)
-            record['status'] = 'COMMAND_FAILED'
-            save()
-            raise
-        for name, data in [('stdout',result.stdout),('stderr',result.stderr)]:
-            path = output/'logs'/(label+'.'+name)
-            path.write_bytes(data)
-            entry[name] = {'path':str(path), 'sha256':sha(path)}
-        entry.update(exitCode=result.returncode, seconds=time.perf_counter()-start,
-                     passed=result.returncode == 0)
-        save()
-        if result.returncode:
-            record.update(status='COMMAND_FAILED', failedCommand=label)
-            save()
-            raise RuntimeError(label+' failed; see '+str(output/'logs'/(label+'.stderr')))
+        run_command(label, arguments, output, environment, record, save)
 
     def jar(directory, path):
         # Fixed entry order, timestamp, compression and attributes make the candidate reproducible.
@@ -166,6 +237,7 @@ def main():
     for folder in (BASE/'location-fixtures').iterdir():
         shutil.copytree(folder, output/'import-fixtures'/folder.name)
     shutil.copyfile(BASE/'evidence/location-comparison-v1.tsv', output/'location-comparison.tsv')
+    shutil.copyfile(BASE/'evidence/cycle-comparison-v1.tsv', output/'cycle-comparison.tsv')
     shutil.copyfile(BASE/'evidence/native-import-comparison-v1.tsv', output/'native-import-comparison.tsv')
     fixture_hashes = {p:sha(p) for folder in ['fixtures','import-fixtures'] for p in (output/folder).rglob('*') if p.is_file()}
     compile_vm = ['-J'+option for option in vm]
@@ -183,6 +255,20 @@ def main():
         '--limit-modules','java.base,java.xml,'+MODULE, '--module-path',str(candidate),
         '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.ImportLocationTest',
         str(output/'location-comparison.tsv'),str(output/'import-fixtures'),str(output/'outputs/location-results.tsv')]
+    cycle_command = [str(java/'java.exe'), *vm,
+        '--limit-modules','java.base,java.xml,'+MODULE, '--module-path',str(candidate),
+        '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.DefaultCycleTest',
+        str(output/'cycle-comparison.tsv'),str(output/'import-fixtures'),str(output/'outputs/cycle-results.tsv')]
+    if options.focus_cycles:
+        run('packaged-default-cycles', cycle_command)
+        cycle_api['verify_inputs']()
+        if any(sha(path) != expected for path, expected in fixture_hashes.items()) or list(output.rglob('must-not-exist.txt')):
+            raise RuntimeError('Focused cycle fixture/marker changed')
+        record.update(status='PASS_FOCUSED_NATIVE_DEFAULT_CYCLES', cycleCases=3,
+                      fixturesUnchanged=True,taskMarkersAbsent=True)
+        save()
+        print(json.dumps({'status':record['status'],'cases':3,'report':str(output/'verification.json')}))
+        return
     if options.focus_locations:
         run('packaged-locations', location_command)
         location_api['verify_inputs']()
@@ -200,6 +286,7 @@ def main():
         str(original_root/'BE19-no-target-execution/must-not-exist.txt'),str(candidate),
         str(output/'native-import-comparison.tsv'),str(output/'import-fixtures')])
     run('packaged-locations', location_command)
+    run('packaged-default-cycles', cycle_command)
     rows = (output/'outputs/case-results.tsv').read_text(encoding='utf-8').splitlines()
     if len(rows) != 52 or any(sha(path) != expected for path, expected in fixture_hashes.items()):
         raise RuntimeError('Incomplete case results or modified runtime fixtures')
@@ -211,6 +298,7 @@ def main():
             raise RuntimeError('Reference input changed during evaluation: '+item['path'])
     verify_import_inputs()
     location_api['verify_inputs']()
+    cycle_api['verify_inputs']()
     if list(output.rglob('must-not-exist.txt')):
         raise RuntimeError('Task marker unexpectedly created')
     predecessors = json.loads((BASE/'evidence/predecessor-dispositions-v1.json').read_text())
@@ -222,11 +310,24 @@ def main():
     ids = [line.split('\t',1)[0] for line in rows]
     if len(set(ids)) != 52 or any(case['id'] not in ids for case in predecessors['cases']):
         raise RuntimeError('Predecessor case silently missing/duplicated')
+    cycle_predecessors = json.loads((BASE/'evidence/cycle-predecessor-dispositions-v1.json').read_text())
+    if len(cycle_predecessors['cases']) != 52 or {c['id'] for c in cycle_predecessors['cases']} != set(ids):
+        raise RuntimeError('Cycle disposition accounting omitted a legacy case')
+    result_kinds = {line.split('\t')[0]:line.split('\t')[1] for line in rows}
+    for case in cycle_predecessors['cases']:
+        if 'expectedResultKind' in case and result_kinds[case['id']] != case['expectedResultKind']:
+            raise RuntimeError('Prior cycle disposition silently changed: '+case['id'])
+    if [line.split('\t')[0] for line in (output/'outputs/location-results.tsv').read_text().splitlines()] != [c['id'] for c in cycle_predecessors['preservedLocationComparisons']]:
+        raise RuntimeError('Prior location comparison silently missing/reordered')
+    if [line.split('\t')[0] for line in (output/'outputs/cycle-results.tsv').read_text().splitlines()] != cycle_predecessors['extraCycleContextComparisons']:
+        raise RuntimeError('Selected cycle comparison silently missing/reordered')
     record.update(status='PASS_INTERNAL_PACKAGED_CONTRACT', nativeComparisons=20,
-                  profileRejections=22, priorDuplicateNowNativeSupported=1, newImportMatrixCases=9,
-                  supportedImportComparisons=5, explicitNewCycleGaps=3, nativeMissingImportComparison=1,
+                  profileRejections=21, priorDuplicateNowNativeSupported=1, priorCycleNowNativeSupported=1, newImportMatrixCases=9,
+                  supportedImportComparisons=8, explicitNewCycleGaps=0, nativeMissingImportComparison=1,
                   totalCases=52, fixturesUnchanged=True, taskMarkersAbsent=True, predecessorCasesAccounted=43,
                   locationCases=10, nativeLocationNotices=10,
+                  cycleCases=3, nativeDefaultCycleNotices=3,
+                  totalPackagedComparisons=65, changedLegacyCycleDispositions=4,
                   runtimeModules=['java.base','java.xml'],
                   candidateJar={'path':str(candidate),'sha256':sha(candidate)},
                   testsJar={'path':str(tests),'sha256':sha(tests)},

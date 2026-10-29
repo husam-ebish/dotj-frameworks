@@ -74,3 +74,14 @@ source-format inputs. `verify-import-locations-v1.py <verification.json> --out
 observed Default fields and derives the coordinate bridge with six refusal
 controls. Historical producers/locks remain untouched. No build/restore/task
 or network operation is introduced. See the candidate IMPORT-LOCATIONS.md.
+
+## Selected Default cycles v1
+
+`verify-default-cycles-v1.py --out <new-private-D-directory>` derives the three
+selected cycle comparisons from the already retained Default location capture.
+No new native run is needed: exact inputs, success, property/import order,
+current positions, root/first-import context and cleanup were already observed.
+It preserves historical producers/locks and rejects fifteen malformed evidence
+and context controls, including invented root previous-import positions and
+absent/mismatched root or previous context. Its envelope is private comparison
+data, not a claimed native full cycle-chain API. See IMPORT-DEFAULT-CYCLES.md.

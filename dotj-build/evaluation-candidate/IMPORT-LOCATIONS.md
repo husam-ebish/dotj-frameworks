@@ -70,3 +70,11 @@ not product acceptance. Runtime dependencies remain JDK java.base/java.xml only.
 Next concrete work is a separately specified bounded cycle policy/chain contract
 against the three retained load profiles. Full message equivalence, public
 lifecycle/dependency representation and E01-E03/N01/NF gates remain open.
+
+## Subsequent selected Default cycles
+
+[IMPORT-DEFAULT-CYCLES.md](IMPORT-DEFAULT-CYCLES.md) supersedes the cycle refusal
+described above for three selected Default inputs. This v1 location comparison,
+its ten acyclic cases, fourteen retained native rows and all producers/locks
+remain unchanged. The distinct extension derives root versus previous-import
+context from those existing same-input rows without inventing root coordinates.

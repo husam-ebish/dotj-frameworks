@@ -114,3 +114,13 @@ unqualified. No public Project, ProjectCollection or diagnostic facade is added.
 current-coordinate and same-Default-profile first-import-site gaps described
 above. The v1 captures and this historical comparison scope remain preserved;
 full native messages, cycles, public ABI and acceptance remain open.
+
+## Subsequent selected Default-cycle extension
+
+The historical v1 dispositions and native captures above remain immutable.
+[IMPORT-DEFAULT-CYCLES.md](IMPORT-DEFAULT-CYCLES.md) supersedes only the three
+Default cycle refusals and the original paired NEG-cycle-import refusal.
+The v1 comparison bridge retains its historical CYCLE_REFUSAL labels; the runner
+accounts for their current supported disposition explicitly and uses a separate
+native-derived bridge for their notice coordinates and root/previous context.
+Non-Default profiles, complete chains/messages/public ABI and acceptance stay open.
