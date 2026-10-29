@@ -33,6 +33,8 @@ SOURCES += [PRODUCT / "src/main/java/System/Runtime/Serialization" / (name + ".j
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/TypeFilter.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberFilter.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/FieldInfo.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/FieldAttributes.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBody.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodInfo.java")
@@ -193,6 +195,8 @@ EXPECTED_CLASSES = [
     "System/Reflection/MemberInfo.class",
     "System/Reflection/TypeFilter.class",
     "System/Reflection/MemberFilter.class",
+    "System/Reflection/FieldInfo.class",
+    "System/Reflection/FieldAttributes.class",
     "System/Reflection/MemberTypes.class",
     "System/Reflection/MethodBase.class",
     "System/Reflection/MethodBody.class",
@@ -221,6 +225,7 @@ EXPECTED_CLASSES = [
     "System/Type$ByRefType.class",
     "System/Type$DefaultMethodMember.class",
     "System/Type$DefaultParameterInfo.class",
+    "System/Type$DefaultFieldMember.class",
     "System/Type$DefaultPropertyMember.class",
     "System/Type$GenericParameterType.class",
     "System/Type$PointerType.class",

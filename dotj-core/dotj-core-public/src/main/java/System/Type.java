@@ -4,6 +4,8 @@ package System;
 
 import System.Reflection.TypeFilter;
 import System.Reflection.MemberFilter;
+import System.Reflection.FieldInfo;
+import System.Reflection.FieldAttributes;
 
 import java.util.Arrays;
 import java.util.List;
@@ -66,6 +68,8 @@ import System.Globalization.CultureNotFoundException;
 
 /** Bounded candidate for closed generic identity; not a complete System.Type surface. */
 public abstract class Type extends MemberInfo {
+    private static final FieldInfo[] EMPTY_FIELDS = new FieldInfo[0];
+    private static final ConcurrentHashMap<List<Object>, FieldInfo> literalFields = new ConcurrentHashMap<>();
     private static final Type[] EMPTY_INTERFACE_TYPES = new Type[0];
     private static final String CORELIB_IDENTITY = "System.Private.CoreLib, Version=10.0.0.0, "
             + "Culture=neutral, PublicKeyToken=7cec85d7bea7798e";
@@ -554,6 +558,7 @@ public abstract class Type extends MemberInfo {
             case "System.Attribute" -> fromJavaClass(Attribute.class);
             case "System.Runtime.CompilerServices.NullableAttribute" ->
                     fromJavaClass(NullableAttribute.class);
+            case "System.Reflection.FieldInfo" -> fromJavaClass(FieldInfo.class);
             case "System.Reflection.MemberInfo" -> fromJavaClass(MemberInfo.class);
             case "System.Reflection.MethodBase" -> fromJavaClass(MethodBase.class);
             case "System.Reflection.MethodInfo" -> fromJavaClass(MethodInfo.class);
@@ -611,6 +616,7 @@ public abstract class Type extends MemberInfo {
             case "System.Globalization.TimeSpanStyles[]" -> fromJavaClass(TimeSpanStyles.class).MakeArrayType();
             case "System.Globalization.NumberFormatInfo" -> fromJavaClass(NumberFormatInfo.class);
             case "System.Globalization.CultureNotFoundException" -> fromJavaClass(CultureNotFoundException.class);
+            case "System.Reflection.FieldAttributes" -> fromJavaClass(FieldAttributes.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Reflection.BindingFlags" -> fromJavaClass(BindingFlags.class);
             case "System.Reflection.CallingConventions" -> fromJavaClass(CallingConventions.class);
@@ -752,6 +758,7 @@ public abstract class Type extends MemberInfo {
             case "system.attribute" -> ignoreCase ? fromJavaClass(Attribute.class) : null;
             case "system.runtime.compilerservices.nullableattribute" -> ignoreCase
                     ? fromJavaClass(NullableAttribute.class) : null;
+            case "system.reflection.fieldinfo" -> ignoreCase ? fromJavaClass(FieldInfo.class) : null;
             case "system.reflection.memberinfo" -> ignoreCase ? fromJavaClass(MemberInfo.class) : null;
             case "system.reflection.methodbase" -> ignoreCase ? fromJavaClass(MethodBase.class) : null;
             case "system.reflection.methodinfo" -> ignoreCase ? fromJavaClass(MethodInfo.class) : null;
@@ -814,6 +821,7 @@ public abstract class Type extends MemberInfo {
                     ignoreCase ? fromJavaClass(NumberFormatInfo.class) : null;
             case "system.globalization.culturenotfoundexception" -> ignoreCase
                     ? fromJavaClass(CultureNotFoundException.class) : null;
+            case "system.reflection.fieldattributes" -> ignoreCase ? fromJavaClass(FieldAttributes.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
             case "system.reflection.bindingflags" -> ignoreCase ? fromJavaClass(BindingFlags.class) : null;
             case "system.reflection.callingconventions" -> ignoreCase
@@ -1273,7 +1281,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == ValueTuple.class) {
             return fromJavaClass(Number.class);
         }
-        if (this.definition == MemberTypes.class || this.definition == BindingFlags.class
+        if ((this.definition == MemberTypes.class || this.definition == FieldAttributes.class) || this.definition == BindingFlags.class
                 || this.definition == CallingConventions.class
                 || this.definition == MethodImplAttributes.class
                 || this.definition == StreamingContextStates.class
@@ -1321,7 +1329,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == SerializationEntry.class
                         || this.definition == DictionaryEntry.class
                         || this.definition == ValueTuple.class
-                        || this.definition == MemberTypes.class
+                        || (this.definition == MemberTypes.class || this.definition == FieldAttributes.class)
                         || this.definition == BindingFlags.class
                         || this.definition == CallingConventions.class
                         || this.definition == MethodImplAttributes.class
@@ -1348,7 +1356,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == EncoderFallback.class || this.definition == DecoderFallback.class || this.definition == EncoderFallbackBuffer.class || this.definition == DecoderFallbackBuffer.class
                 || this.definition == Encoding.class || this.definition == Type.class || this.definition == Number.class
                 || this.definition == Enum.class || this.definition == java.lang.reflect.Array.class
-                || this.definition == MemberInfo.class || this.definition == MethodBase.class
+                || this.definition == FieldInfo.class || this.definition == MemberInfo.class || this.definition == MethodBase.class
                 || this.definition == MethodInfo.class
                 || this.definition == Attribute.class
                 || this.get_IsInterface();
@@ -1517,7 +1525,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsEnum() {
-        return this.definition == MemberTypes.class || this.definition == BindingFlags.class
+        return (this.definition == MemberTypes.class || this.definition == FieldAttributes.class) || this.definition == BindingFlags.class
                 || this.definition == CallingConventions.class
                 || this.definition == MethodImplAttributes.class
                 || this.definition == StreamingContextStates.class
@@ -1636,6 +1644,9 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == BindingFlags.class) {
             return BindingFlags.values();
+        }
+        if (this.definition == FieldAttributes.class) {
+            return FieldAttributes.values();
         }
         if (this.definition == MemberTypes.class) {
             return MemberTypes.values();
@@ -1777,13 +1788,13 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IComparable.class && candidate.definition == String.class) {
             return true;
         }
-        if (this.definition == IComparable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == Byte.class || candidate.definition == SByte.class || candidate.definition == UInt16.class || candidate.definition == UInt32.class)) {
+        if (this.definition == IComparable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || (candidate.definition == MemberTypes.class || candidate.definition == FieldAttributes.class) || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == Byte.class || candidate.definition == SByte.class || candidate.definition == UInt16.class || candidate.definition == UInt32.class)) {
             return true;
         }
-        if (this.definition == IFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == SByte.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == Byte.class || candidate.definition == UInt16.class || candidate.definition == UInt32.class)) {
+        if (this.definition == IFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || (candidate.definition == MemberTypes.class || candidate.definition == FieldAttributes.class) || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == SByte.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == Byte.class || candidate.definition == UInt16.class || candidate.definition == UInt32.class)) {
             return true;
         }
-        if (this.definition == IConvertible.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class)) {
+        if (this.definition == IConvertible.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || (candidate.definition == MemberTypes.class || candidate.definition == FieldAttributes.class) || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class)) {
             return true;
         }
         if (this.definition == IConvertible.class && candidate.definition == String.class) {
@@ -1810,7 +1821,7 @@ public abstract class Type extends MemberInfo {
                 && (candidate.definition == DBNull.class || Exception.class.isAssignableFrom(candidate.definition))) {
             return true;
         }
-        if (this.definition == ISpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || candidate.definition == MemberTypes.class || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == SByte.class || candidate.definition == Byte.class || candidate.definition == UInt16.class || candidate.definition == UInt32.class)) {
+        if (this.definition == ISpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == DateTimeStyles.class || candidate.definition == TimeSpanStyles.class || candidate.definition == NumberStyles.class || candidate.definition == BindingFlags.class || (candidate.definition == MemberTypes.class || candidate.definition == FieldAttributes.class) || candidate.definition == CallingConventions.class || candidate.definition == MethodImplAttributes.class || candidate.definition == StreamingContextStates.class || candidate.definition == GenericParameterAttributes.class || candidate.definition == SByte.class || candidate.definition == Byte.class || candidate.definition == UInt16.class || candidate.definition == UInt32.class)) {
             return true;
         }
         if (this.definition == IUtf8SpanFormattable.class && (candidate.definition == Int32.class || candidate.definition == SByte.class || candidate.definition == Byte.class || candidate.definition == UInt16.class || candidate.definition == UInt32.class)) {
@@ -2195,6 +2206,42 @@ public abstract class Type extends MemberInfo {
                 || this.definition == DecoderFallbackBuffer.class;
     }
 
+    private boolean selectedIntegerFields() {
+        return !this.get_HasElementType() && this.parameterIndex < 0 && (this.definition == Int32.class || this.definition == Byte.class
+                || this.definition == SByte.class || this.definition == UInt16.class || this.definition == UInt32.class);
+    }
+
+    public FieldInfo[] GetFields() {
+        return this.GetFields(BindingFlags.Public.or(BindingFlags.Instance).or(BindingFlags.Static));
+    }
+
+    public FieldInfo[] GetFields(BindingFlags flags) {
+        if (flags == null) throw new NullPointerException("flags");
+        if (this.selectedIntegerFields()) {
+            if (!flags.has(BindingFlags.Public) || !flags.has(BindingFlags.Static)) return EMPTY_FIELDS;
+            return new FieldInfo[] {this.selectedLiteralField("MaxValue"), this.selectedLiteralField("MinValue")};
+        }
+        if (this.selectedInterfaceMethodName() != null) return EMPTY_FIELDS;
+        throw new UnsupportedOperationException("Field inventory is not mapped for this candidate type");
+    }
+
+    public FieldInfo GetField(String name) {
+        return this.GetField(name, BindingFlags.Public.or(BindingFlags.Instance).or(BindingFlags.Static));
+    }
+
+    public FieldInfo GetField(String name, BindingFlags flags) {
+        if (name == null) throw new ArgumentNullException("name");
+        if (flags == null) throw new NullPointerException("flags");
+        for (FieldInfo field : this.GetFields(flags)) {
+            if (name.equals(field.get_Name()) || flags.has(BindingFlags.IgnoreCase) && name.equalsIgnoreCase(field.get_Name())) return field;
+        }
+        return null;
+    }
+
+    private FieldInfo selectedLiteralField(String name) {
+        return literalFields.computeIfAbsent(List.of(this, name), ignored -> new DefaultFieldMember(this, name));
+    }
+
     public MemberInfo GetMemberWithSameMetadataDefinitionAs(MemberInfo member) {
         if (member == null) throw new ArgumentNullException("member");
         if (!this.get_IsSignatureType() && member instanceof DefaultMethodMember method) {
@@ -2274,6 +2321,9 @@ public abstract class Type extends MemberInfo {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
         if (this.definition == BindingFlags.class) {
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
+        }
+        if (this.definition == FieldAttributes.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IFormattable.class), fromJavaClass(IConvertible.class)};
         }
         if (this.definition == MemberTypes.class) {
@@ -2445,7 +2495,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
                 || this.definition == Decimal.class || this.definition == DBNull.class
-                || this.definition == DateTime.class || this.definition == TimeSpan.class || this.definition == DateTimeStyles.class || this.definition == TimeSpanStyles.class || this.definition == NumberStyles.class || this.definition == BindingFlags.class || this.definition == MemberTypes.class || this.definition == CallingConventions.class || this.definition == MethodImplAttributes.class || this.definition == StreamingContextStates.class || this.definition == GenericParameterAttributes.class
+                || this.definition == DateTime.class || this.definition == TimeSpan.class || this.definition == DateTimeStyles.class || this.definition == TimeSpanStyles.class || this.definition == NumberStyles.class || this.definition == BindingFlags.class || (this.definition == MemberTypes.class || this.definition == FieldAttributes.class) || this.definition == CallingConventions.class || this.definition == MethodImplAttributes.class || this.definition == StreamingContextStates.class || this.definition == GenericParameterAttributes.class
                 || this.definition == Object.class || this.definition == Stopwatch.class
                 || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == IFormattable.class
                 || this.definition == IFormatProvider.class || this.definition == ISerializable.class
@@ -2971,6 +3021,33 @@ public abstract class Type extends MemberInfo {
         }
     }
 
+    private static final class DefaultFieldMember extends FieldInfo {
+        private final Type owner;
+        private final String name;
+        private DefaultFieldMember(Type owner, String name) { this.owner = owner; this.name = name; }
+        @Override public String get_Name() { return this.name; }
+        @Override public Type get_DeclaringType() { return this.owner; }
+        @Override public Type get_ReflectedType() { return this.owner; }
+        @Override public MemberTypes get_MemberType() { return MemberTypes.Field; }
+        @Override public Type get_FieldType() { return this.owner; }
+        @Override public FieldAttributes get_Attributes() { return FieldAttributes.FromInt32(32854); }
+        @Override public boolean get_IsCollectible() { return false; }
+        @Override public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
+            if (other == null) throw new ArgumentNullException("other");
+            return other instanceof DefaultFieldMember field && this.name.equals(field.name) && this.owner.HasSameMetadataDefinitionAs(field.owner);
+        }
+        @Override public Object GetValue(Object target) { return this.GetRawConstantValue(); }
+        @Override public Object GetRawConstantValue() {
+            boolean max = this.name.equals("MaxValue");
+            if (this.owner.definition == Int32.class) return new Int32(max ? Integer.MAX_VALUE : Integer.MIN_VALUE);
+            if (this.owner.definition == Byte.class) return new Byte(max ? 255 : 0);
+            if (this.owner.definition == SByte.class) return new SByte(max ? 127 : -128);
+            if (this.owner.definition == UInt16.class) return new UInt16(max ? 65535 : 0);
+            return new UInt32(max ? 4294967295L : 0L);
+        }
+        @Override public String ToString() { return this.owner.get_Name() + " " + this.name; }
+    }
+
     private static final class DefaultPropertyMember extends MemberInfo {
         @Override
         public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
@@ -3011,6 +3088,8 @@ public abstract class Type extends MemberInfo {
     }
 
     private static abstract class SignatureType extends Type {
+        @Override public FieldInfo[] GetFields(BindingFlags flags) { throw unsupported(); }
+        @Override public FieldInfo GetField(String name, BindingFlags flags) { throw unsupported(); }
         @Override public MemberInfo[] FindMembers(MemberTypes kind, BindingFlags flags, MemberFilter filter, Object criteria) { throw unsupported(); }
         @Override public Type[] FindInterfaces(TypeFilter filter, Object criteria) { throw unsupported(); }
         @Override public boolean get_IsNestedFamANDAssem() { throw unsupported(); }

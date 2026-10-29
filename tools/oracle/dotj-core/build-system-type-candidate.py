@@ -19,6 +19,8 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/TypeFilter.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberFilter.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/FieldInfo.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/FieldAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBase.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBody.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodInfo.java")
@@ -2903,6 +2905,10 @@ def main():
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",
+        "public System.Reflection.FieldInfo[] GetFields();",
+        "public System.Reflection.FieldInfo[] GetFields(System.Reflection.BindingFlags);",
+        "public System.Reflection.FieldInfo GetField(java.lang.String);",
+        "public System.Reflection.FieldInfo GetField(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo GetMemberWithSameMetadataDefinitionAs(System.Reflection.MemberInfo);",
         "public System.Reflection.MemberInfo[] FindMembers(System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, java.lang.Object);",
         "public System.Type[] FindInterfaces(System.Reflection.TypeFilter, java.lang.Object);",
