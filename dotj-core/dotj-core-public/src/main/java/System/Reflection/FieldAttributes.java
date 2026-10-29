@@ -3,6 +3,8 @@
 package System.Reflection;
 
 import System.FormatException;
+import System.InvalidCastException;
+import System.OverflowException;
 import System.IFormattable;
 import System.IFormatProvider;
 import System.IComparable;
@@ -97,7 +99,7 @@ public final class FieldAttributes implements IFormattable, IComparable, IConver
                 : format.length() == 1 ? Character.toUpperCase(format.charAt(0)) : '\0';
         if (specifier == 'D') return java.lang.Integer.toString(this.value);
         if (specifier == 'X') return String.format(java.util.Locale.ROOT, "%08X", this.value);
-        if (specifier != 'G' && specifier != 'F') throw new FormatException("Format string can be only G, F, D or X");
+        if (specifier != 'G' && specifier != 'F') throw new FormatException("Format string can be only \"G\", \"g\", \"X\", \"x\", \"F\", \"f\", \"D\" or \"d\".");
         if (this.name != null) return this.name;
         long remaining = java.lang.Integer.toUnsignedLong(this.value);
         java.util.ArrayList<String> parts = new java.util.ArrayList<>();
@@ -112,24 +114,25 @@ public final class FieldAttributes implements IFormattable, IComparable, IConver
     }
     @Override public TypeCode GetTypeCode() { return TypeCode.Int32; }
     @Override public boolean ToBoolean(IFormatProvider provider) { return new Int32(this.value).ToBoolean(provider); }
-    @Override public char ToChar(IFormatProvider provider) { return new Int32(this.value).ToChar(provider); }
-    @Override public byte ToSByte(IFormatProvider provider) { return new Int32(this.value).ToSByte(provider); }
-    @Override public short ToByte(IFormatProvider provider) { return new Int32(this.value).ToByte(provider); }
-    @Override public short ToInt16(IFormatProvider provider) { return new Int32(this.value).ToInt16(provider); }
-    @Override public int ToUInt16(IFormatProvider provider) { return new Int32(this.value).ToUInt16(provider); }
+    @Override public char ToChar(IFormatProvider provider) { if (this.value < 0 || this.value > 65535) throw new OverflowException("Value was either too large or too small for a character."); return (char) this.value; }
+    @Override public byte ToSByte(IFormatProvider provider) { if (this.value < -128 || this.value > 127) throw new OverflowException("Value was either too large or too small for a signed byte."); return (byte) this.value; }
+    @Override public short ToByte(IFormatProvider provider) { if (this.value < 0 || this.value > 255) throw new OverflowException("Value was either too large or too small for an unsigned byte."); return (short) this.value; }
+    @Override public short ToInt16(IFormatProvider provider) { if (this.value < -32768 || this.value > 32767) throw new OverflowException("Value was either too large or too small for an Int16."); return (short) this.value; }
+    @Override public int ToUInt16(IFormatProvider provider) { if (this.value < 0 || this.value > 65535) throw new OverflowException("Value was either too large or too small for a UInt16."); return this.value; }
     @Override public int ToInt32(IFormatProvider provider) { return new Int32(this.value).ToInt32(provider); }
-    @Override public long ToUInt32(IFormatProvider provider) { return new Int32(this.value).ToUInt32(provider); }
+    @Override public long ToUInt32(IFormatProvider provider) { if (this.value < 0) throw new OverflowException("Value was either too large or too small for a UInt32."); return (long) this.value; }
     @Override public long ToInt64(IFormatProvider provider) { return new Int32(this.value).ToInt64(provider); }
-    @Override public java.math.BigInteger ToUInt64(IFormatProvider provider) { return new Int32(this.value).ToUInt64(provider); }
+    @Override public java.math.BigInteger ToUInt64(IFormatProvider provider) { if (this.value < 0) throw new OverflowException("Value was either too large or too small for a UInt64."); return java.math.BigInteger.valueOf(this.value); }
     @Override public float ToSingle(IFormatProvider provider) { return new Int32(this.value).ToSingle(provider); }
     @Override public double ToDouble(IFormatProvider provider) { return new Int32(this.value).ToDouble(provider); }
     @Override public Decimal ToDecimal(IFormatProvider provider) { return new Int32(this.value).ToDecimal(provider); }
-    @Override public DateTime ToDateTime(IFormatProvider provider) { return new Int32(this.value).ToDateTime(provider); }
+    @Override public DateTime ToDateTime(IFormatProvider provider) { throw new InvalidCastException("Invalid cast from 'Enum' to 'DateTime'."); }
     @Override public Object ToType(Type targetType, IFormatProvider provider) {
         if (targetType == null) throw new ArgumentNullException("targetType");
         if (targetType == Type.GetType("System.Reflection.FieldAttributes")
                 || targetType == Type.GetType("System.Object") || targetType == Type.GetType("System.Enum")) return this;
         if (targetType == Type.GetType("System.String")) return ToString(provider);
+        if (targetType == Type.GetType("System.DateTime")) return this.ToDateTime(provider);
         return new Int32(this.value).ToType(targetType, provider);
     }
     @Override public boolean TryFormat(char[] destination, int[] written, String format, IFormatProvider provider) {
@@ -156,7 +159,8 @@ public final class FieldAttributes implements IFormattable, IComparable, IConver
     @Override public int CompareTo(Object other) {
         if (other == null) return 1;
         if (other instanceof FieldAttributes flags) return java.lang.Integer.compare(this.value, flags.value);
-        throw new ArgumentException("Object must be the same enum type");
+        String name = other instanceof Integer || other instanceof Int32 ? "System.Int32" : other.getClass().getName();
+        throw new ArgumentException("Object must be the same type as the enum. The type passed in was '" + name + "'; the enum type was 'System.Reflection.FieldAttributes'.");
     }
     public boolean Equals(Object other) { return equals(other); }
     public Int32 GetHashCode() { return new Int32(this.value); }

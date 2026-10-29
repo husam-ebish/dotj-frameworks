@@ -1664,6 +1664,7 @@ public abstract class Type extends MemberInfo {
     }
 
     private static String enumConstantName(Object constant) {
+        if (constant instanceof FieldAttributes attributes) return attributes.get_Name();
         if (constant instanceof NormalizationForm form) return form.get_Name();
         if (constant instanceof DigitShapes form) return form.get_Name();
         if (constant instanceof GenericParameterAttributes attributes) return attributes.get_Name();
@@ -1693,6 +1694,7 @@ public abstract class Type extends MemberInfo {
     }
 
     private static int enumNumericValue(Object constant) {
+        if (constant instanceof FieldAttributes attributes) return attributes.get_Value();
         if (constant instanceof NormalizationForm form) return form.get_Value();
         if (constant instanceof MidpointRounding rounding) return rounding.get_Value();
         if (constant instanceof DigitShapes form) return form.get_Value();
