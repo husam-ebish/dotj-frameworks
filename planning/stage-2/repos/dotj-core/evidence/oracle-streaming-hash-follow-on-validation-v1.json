@@ -229,13 +229,33 @@
         }
       ],
       "fullCanonicalGateRequired": 472
+    },
+    {
+      "batch": 2458,
+      "path": "tools/oracle/dotj-core/verify-primitive-private-field-metadata-identity.py",
+      "originalSha256": "30470a080b4b2ee28ea18100a844495588fad5e7d251b68d9f2400aec7f987a7",
+      "sha256": "d896aa9f1a2adcae1226fcf1d0cf6dc59c25303a160b9bcaef20aec3edd05c38",
+      "sourceBaselineCommit": "202dcedf342e9e1da3181027ae52cfc8e2084ae0",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 473
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2457,
-  "newPreparedVerifiersMigrated": 11,
-  "currentAndNewVerifiersMigrated": 199,
-  "futurePreparedVerifiersRemaining": 43,
+  "appliedThroughBatch": 2458,
+  "newPreparedVerifiersMigrated": 12,
+  "currentAndNewVerifiersMigrated": 200,
+  "futurePreparedVerifiersRemaining": 42,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
