@@ -3130,19 +3130,20 @@ public abstract class Type extends MemberInfo {
             if (other == null) throw new ArgumentNullException("other");
             return other instanceof PrimitiveStaticFieldMember field && this.name.equals(field.name) && this.owner.HasSameMetadataDefinitionAs(field.owner);
         }
+        @SuppressWarnings("removal")
         private Object constant() {
             if (this.readonlyString()) return this.name.equals("TrueString") ? "True" : "False";
-            if (this.owner.definition == Character.class) return Character.valueOf(this.name.equals("MaxValue") ? Character.MAX_VALUE : Character.MIN_VALUE);
-            if (this.owner.definition == Short.class) return Short.valueOf(this.name.equals("MaxValue") ? Short.MAX_VALUE : Short.MIN_VALUE);
-            if (this.owner.definition == Long.class) return Long.valueOf(this.name.equals("MaxValue") ? Long.MAX_VALUE : Long.MIN_VALUE);
-            if (this.owner.definition == BigInteger.class) return this.name.equals("MaxValue") ? new BigInteger("18446744073709551615") : BigInteger.ZERO;
-            if (this.owner.definition == Float.class) return Float.valueOf(switch(this.name) {
+            if (this.owner.definition == Character.class) return new Character(this.name.equals("MaxValue") ? Character.MAX_VALUE : Character.MIN_VALUE);
+            if (this.owner.definition == Short.class) return new Short(this.name.equals("MaxValue") ? Short.MAX_VALUE : Short.MIN_VALUE);
+            if (this.owner.definition == Long.class) return new Long(this.name.equals("MaxValue") ? Long.MAX_VALUE : Long.MIN_VALUE);
+            if (this.owner.definition == BigInteger.class) return this.name.equals("MaxValue") ? new BigInteger("18446744073709551615") : new BigInteger("0");
+            if (this.owner.definition == Float.class) return new Float(switch(this.name) {
                 case "MinValue" -> -Float.MAX_VALUE; case "MaxValue" -> Float.MAX_VALUE; case "Epsilon" -> Float.MIN_VALUE;
                 case "NegativeInfinity" -> Float.NEGATIVE_INFINITY; case "PositiveInfinity" -> Float.POSITIVE_INFINITY;
                 case "NaN" -> Float.intBitsToFloat(0xffc00000); case "NegativeZero" -> -0.0f; case "E" -> (float) Math.E;
                 case "Pi" -> (float) Math.PI; case "Tau" -> (float) (2.0 * Math.PI); default -> throw new UnsupportedOperationException("Unknown floating field");
             });
-            return Double.valueOf(switch(this.name) {
+            return new Double(switch(this.name) {
                 case "MinValue" -> -Double.MAX_VALUE; case "MaxValue" -> Double.MAX_VALUE; case "Epsilon" -> Double.MIN_VALUE;
                 case "NegativeInfinity" -> Double.NEGATIVE_INFINITY; case "PositiveInfinity" -> Double.POSITIVE_INFINITY;
                 case "NaN" -> Double.longBitsToDouble(0xfff8000000000000L); case "NegativeZero" -> -0.0d; case "E" -> Math.E;
