@@ -4,6 +4,11 @@ This check does not qualify a Java UnicodeEncoding implementation.
 """
 import argparse,copy,hashlib,json,os,zipfile
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3]
 EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 CORE='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
@@ -101,7 +106,7 @@ def main():
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))['jarPath']
  fixture=EVIDENCE/'unicode-encoding-plan-contract-v10.0.12.json';plan_path=EVIDENCE/'unicode-encoding-implementation-plan-v1.json';j=json.loads(fixture.read_text(encoding='utf-8'));plan=json.loads(plan_path.read_text(encoding='utf-8'))
  archive_manifest=json.loads((EVIDENCE/'source-archive-v10.0.12.json').read_text(encoding='utf-8'));assert archive_manifest['archive']['sha256']==ARCHIVE
- assert hashlib.sha256(a.source_archive.read_bytes()).hexdigest()==ARCHIVE
+ assert sha256_file(a.source_archive)==ARCHIVE
  with zipfile.ZipFile(a.source_archive) as z:source=z.read(ENTRY)
  producer=Path(__file__).with_name('capture-unicode-encoding-plan-contract.ps1').read_bytes();count=validate(j,plan,producer,source);negative=controls(j,plan,producer,source)
  with zipfile.ZipFile(a.jar) as z:present='System/Text/UnicodeEncoding.class' in z.namelist()

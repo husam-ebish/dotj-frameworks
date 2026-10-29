@@ -1,6 +1,11 @@
 """Compare the represented NullReferenceException constructor messages and cause identities."""
 import argparse,hashlib,json,subprocess,zipfile,xml.etree.ElementTree as ET
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 MESSAGES=[None,[],[65,66],[65,0,66],[55296,56320],[55296],[56320],[26085,26412]]
 DEFAULT=list(map(ord,'Object reference not set to an instance of an object.'))
@@ -10,7 +15,7 @@ def main():
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text())['jarPath']
  path=EVIDENCE/'foundation-exception-message-defaults-contract-v10.0.12.json';j=json.loads(path.read_text());assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678' and j['culture']=='Invariant';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-foundation-exception-message-defaults-contract.ps1').read_bytes()).hexdigest()
  planPath=EVIDENCE/'foundation-exception-message-defaults-plan-v1.json';plan=json.loads(planPath.read_text());owners=['System.Exception','System.SystemException','System.ArithmeticException','System.DivideByZeroException','System.IndexOutOfRangeException','System.OverflowException','System.InvalidCastException','System.InvalidOperationException','System.FormatException','System.TypeLoadException','System.IO.IOException','System.Runtime.Serialization.SerializationException','System.NullReferenceException'];assert set(plan['owners'])==set(owners) and set(plan['defaults'])==set(owners);assert set(plan['explicitNullUsesDynamicType'])=={'System.Exception','System.SystemException','System.IO.IOException'};assert plan['task']=='DJ-001-WP-01-T1' and plan['totalCases']==429 and plan['acceptedImplementationTasksCredited']==0 and plan['projectBatchTotal'] is None and plan['projectBatchesRemaining'] is None
- archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';root='runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/';assert set(plan['sourcePins'])=={owner.replace('.','/')+'.cs' for owner in owners}
+ archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';root='runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/';assert set(plan['sourcePins'])=={owner.replace('.','/')+'.cs' for owner in owners}
  with zipfile.ZipFile(archive) as z:
   for name,digest in plan['sourcePins'].items():assert hashlib.sha256(z.read(root+name)).hexdigest()==digest
   resource=z.read(plan['resourceEntry']);assert hashlib.sha256(resource).hexdigest()==plan['resourceSha256'];values={e.attrib['name']:e.findtext('value') for e in ET.fromstring(resource).findall('data')};assert values[plan['dynamicMessageResourceKey']]=="Exception of type '{0}' was thrown."

@@ -1,6 +1,11 @@
 """Pin custom stateful Decoder dispatch, method calls and post-failure recovery."""
 import argparse,hashlib,json,subprocess,zipfile
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 def csv(v):return ','.join(map(str,v))
 def main():
@@ -14,7 +19,7 @@ def main():
    for step in row['steps']:
     steps+=1;checks+=3+int(step['after'] is not None);action=step['action'];r=step['result'];lines.append('\t'.join([str(session),str(index),action['operation'],csv(action['units']),str(int(action['flush'])),str(action['capacity']),str(int(r['ok'])),str(r.get('count',int(r.get('boolean',False)))),r.get('exception',''),str(r.get('hResult',0)),r.get('paramName') or '~',str(step['factoryCalls']),csv(step['bufferCalls']),str(int(step['after'] is not None)),csv(step['after'] or [])]))
  assert session==308 and steps==1496 and checks==5236
- adjacency=json.loads((EVIDENCE/'custom-stateful-decoder-source-adjacency-v10.0.12.json').read_text(encoding='utf-8'));archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()==adjacency['sourceArchiveSha256']=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';assert len(adjacency['upstreamFiles'])==8 and adjacency['noticeApplicabilityDecision']=='REVIEW_REQUIRED'
+ adjacency=json.loads((EVIDENCE/'custom-stateful-decoder-source-adjacency-v10.0.12.json').read_text(encoding='utf-8'));archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)==adjacency['sourceArchiveSha256']=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';assert len(adjacency['upstreamFiles'])==8 and adjacency['noticeApplicabilityDecision']=='REVIEW_REQUIRED'
  with zipfile.ZipFile(archive) as z:
   for item in adjacency['upstreamFiles']:assert hashlib.sha256(z.read(item['archiveMember'])).hexdigest()==item['sha256']
  work=Path('D:/AI/Implementation/dotj Frameworks/verification/custom-stateful-decoder');work.mkdir(exist_ok=True);vectors=work/'vectors.tsv';vectors.write_text('\n'.join(lines)+'\n',encoding='ascii');profiles=work/'profiles.tsv';profiles.write_text('\n'.join(configs)+'\n',encoding='ascii')

@@ -1,6 +1,11 @@
 """Compare represented derived argument-exception messages and selected actual-value identities."""
 import argparse,hashlib,json,subprocess,zipfile,xml.etree.ElementTree as ET
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 MESSAGES=[None,[],[65,66],[65,0,66],[55296,56320],[55296],[56320],[26085,26412]];PARAMETERS=[None,[],[120],[0],[39],[55296],[56320],[13,10,122]]
 ACTUALS=[dict(kind='null',number=None,units=None),dict(kind='int',number=-1,units=None),dict(kind='int',number=0,units=None),dict(kind='int',number=2147483647,units=None),dict(kind='string',number=None,units=[]),dict(kind='string',number=None,units=[65,0,66]),dict(kind='string',number=None,units=[55296])]
@@ -11,7 +16,7 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text())['jarPath']
  path=EVIDENCE/'derived-argument-exception-message-values-contract-v10.0.12.json';j=json.loads(path.read_text());assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678' and j['culture']=='Invariant';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-derived-argument-exception-message-values-contract.ps1').read_bytes()).hexdigest()
- archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';root='runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/';pins={'System/ArgumentNullException.cs':'a4a74455bc2c18eb52a6b603db8013218e38cc8e6905af787044e66b471af19a','System/ArgumentOutOfRangeException.cs':'c391bf2fc83e6f08fd94350b045de99252a7915b37fa0adc045be0abe3dfbc97','System/ArgumentException.cs':'23b393789bb834fac80f4c285f7e317cf0a0b42874eedab1321366c17501016c','System/Exception.cs':'3f44c5b9eb6851301091fc65ce6dd6671e1a750f8a7f120837bc09021ecf12ab'}
+ archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';root='runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/';pins={'System/ArgumentNullException.cs':'a4a74455bc2c18eb52a6b603db8013218e38cc8e6905af787044e66b471af19a','System/ArgumentOutOfRangeException.cs':'c391bf2fc83e6f08fd94350b045de99252a7915b37fa0adc045be0abe3dfbc97','System/ArgumentException.cs':'23b393789bb834fac80f4c285f7e317cf0a0b42874eedab1321366c17501016c','System/Exception.cs':'3f44c5b9eb6851301091fc65ce6dd6671e1a750f8a7f120837bc09021ecf12ab'}
  with zipfile.ZipFile(archive) as z:
   for name,digest in pins.items():assert hashlib.sha256(z.read(root+name)).hexdigest()==digest
   resource=z.read(root+'Resources/Strings.resx');values={e.attrib['name']:e.findtext('value') for e in ET.fromstring(resource).findall('data')};assert values['ArgumentNull_Generic']==DEFAULTS['ArgumentNull'] and values['Arg_ArgumentOutOfRangeException']==DEFAULTS['ArgumentOutOfRange'];assert values['Arg_ParamName_Name']=="(Parameter '{0}')" and values['ArgumentOutOfRange_ActualValue']=='Actual value was {0}.'

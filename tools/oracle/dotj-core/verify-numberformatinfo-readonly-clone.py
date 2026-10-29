@@ -1,6 +1,11 @@
 """Compare represented read-only/clone API, validation precedence and snapshot isolation."""
 import argparse,hashlib,json,subprocess,zipfile,collections,xml.etree.ElementTree as ET
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 def csv(v):return '~' if v is None else ','.join(map(str,v))
 def encoded(spec,value):return '~' if value is None else str(value) if spec['kind']=='int' else csv(value)
@@ -11,7 +16,7 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text())['jarPath']
  path=EVIDENCE/'numberformatinfo-readonly-clone-contract-v10.0.12.json';j=json.loads(path.read_text());assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678' and j['culture']=='Invariant';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-numberformatinfo-readonly-clone-contract.ps1').read_bytes()).hexdigest();planPath=Path(__file__).with_name('numberformatinfo-readonly-clone-plan-v1.json');assert j['planSha256']==hashlib.sha256(planPath.read_bytes()).hexdigest();plan=json.loads(planPath.read_text());props=plan['properties'];names=[s['name'] for s in props];assert len(props)==len(set(names))==22 and plan['setterCases']==870 and plan['cloneCases']==22
- archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';root='runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/'
+ archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';root='runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/'
  with zipfile.ZipFile(archive) as z:
   assert hashlib.sha256(z.read(root+'System/Globalization/NumberFormatInfo.cs')).hexdigest()=='fd3c0ea9e8a880122bde525501a81e31db55e8a060cbbf9717cf51cbb17fb57a';resource=z.read(root+'Resources/Strings.resx');resources={x.attrib['name']:x.findtext('value') for x in ET.fromstring(resource).findall('data')};assert resources['InvalidOperation_ReadOnly']=='Instance is read-only.'
  seed={s['name']:s['seed'] for s in props}

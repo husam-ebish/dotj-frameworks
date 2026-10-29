@@ -1,6 +1,11 @@
 """Compare Exception.ToString for unthrown families and synthetic virtual text controls."""
 import argparse,hashlib,json,subprocess,zipfile,xml.etree.ElementTree as ET
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 MESSAGES=[None,[],[65,66],[65,0,66],[55296,56320],[55296],[56320],[26085,26412]];STACKS=[None,[],[102,114,97,109,101],[102,49,13,10,102,50]]
 OWNERS=['System.Exception','System.SystemException','System.ArithmeticException','System.DivideByZeroException','System.IndexOutOfRangeException','System.OverflowException','System.InvalidCastException','System.InvalidOperationException','System.FormatException','System.TypeLoadException','System.IO.IOException','System.Runtime.Serialization.SerializationException','System.NullReferenceException','System.ArgumentException','System.ArgumentNullException','System.ArgumentOutOfRangeException','System.Globalization.CultureNotFoundException']
@@ -9,7 +14,7 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('--jar',type=Path);a=p.parse_args()
  if a.jar is None:a.jar=ROOT/json.loads((EVIDENCE/'foundation-product-candidate-v1.json').read_text())['jarPath']
  path=EVIDENCE/'foundation-exception-text-formatting-contract-v10.0.12.json';j=json.loads(path.read_text());assert j['runtimeVersion']=='10.0.12' and j['coreLibSha256']=='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678' and j['culture']=='Invariant';assert j['oracleSha256']==hashlib.sha256(Path(__file__).with_name('capture-foundation-exception-text-formatting-contract.ps1').read_bytes()).hexdigest()
- archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert hashlib.sha256(archive.read_bytes()).hexdigest()=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';root='runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/'
+ archive=Path('D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip');assert sha256_file(archive)=='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115';root='runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/'
  with zipfile.ZipFile(archive) as z:
   assert hashlib.sha256(z.read(root+'System/Exception.cs')).hexdigest()=='3f44c5b9eb6851301091fc65ce6dd6671e1a750f8a7f120837bc09021ecf12ab';resource=z.read(root+'Resources/Strings.resx');values={e.attrib['name']:e.findtext('value') for e in ET.fromstring(resource).findall('data')};assert values['Exception_EndOfInnerExceptionStack']=='--- End of inner exception stack trace ---'
  expected={('family',owner,m,-1,recipe,-1,False) for owner in OWNERS for m in range(8) for recipe in range(6)}|{('virtual','OracleTextException',m,s,recipe,-1,False) for m in range(8) for s in range(4) for recipe in range(6)}|{('innerText','OracleTextException',-1,-1,-1,t,t==-1) for t in range(-1,8)};seen=set();vectors=[];groups=0;failures=0

@@ -1,6 +1,11 @@
 """Review pinned native Unicode encoder Convert arrays; does not qualify Java Convert."""
 import argparse,copy,hashlib,json,zipfile
 from pathlib import Path
+import importlib.util
+_hash_spec = importlib.util.spec_from_file_location("dotj_oracle_file_hashes", Path(__file__).with_name("oracle_file_hashes.py"))
+_hash_module = importlib.util.module_from_spec(_hash_spec)
+_hash_spec.loader.exec_module(_hash_module)
+sha256_file = _hash_module.sha256_file
 ROOT=Path(__file__).resolve().parents[3];EVIDENCE=ROOT/'planning/stage-2/repos/dotj-core/evidence'
 CORE='1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
 ARCHIVE='ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115'
@@ -9,7 +14,7 @@ def validate(j,p,producer,archive):
  assert j['oracleSha256']==hashlib.sha256(producer).hexdigest()
  assert p['qualification']=='NATIVE_ARRAY_CONVERT_REFERENCE_AND_IMPLEMENTATION_PLAN_ONLY' and p['acceptedImplementationTasksCredited']==0 and p['javaImplementationQualified'] is False
  assert p['task']=='DJ-001-WP-05-T2' and p['projectBatchTotal'] is None and p['projectBatchesRemaining'] is None
- assert p['sourceArchiveSha256']==ARCHIVE and hashlib.sha256(archive.read_bytes()).hexdigest()==ARCHIVE
+ assert p['sourceArchiveSha256']==ARCHIVE and sha256_file(archive)==ARCHIVE
  with zipfile.ZipFile(archive) as z:
   assert set(p['sources'])=={'UnicodeEncoding','EncoderNLS','EncoderFallback'}
   for pin in p['sources'].values():assert hashlib.sha256(z.read(pin['entry'])).hexdigest()==pin['sha256']
