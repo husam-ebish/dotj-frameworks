@@ -2237,8 +2237,12 @@ public abstract class Type extends MemberInfo {
             return result.toArray(new FieldInfo[0]);
         }
         if (this.selectedIntegerFields()) {
-            if (!flags.has(BindingFlags.Public) || !flags.has(BindingFlags.Static)) return EMPTY_FIELDS;
-            return new FieldInfo[] {this.selectedLiteralField("MaxValue"), this.selectedLiteralField("MinValue")};
+            List<FieldInfo> result = new java.util.ArrayList<>();
+            if (flags.has(BindingFlags.NonPublic) && flags.has(BindingFlags.Instance)) result.add(this.selectedIntegerValueField());
+            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Static)) {
+                result.add(this.selectedLiteralField("MaxValue")); result.add(this.selectedLiteralField("MinValue"));
+            }
+            return result.isEmpty() ? EMPTY_FIELDS : result.toArray(new FieldInfo[0]);
         }
         if (this.selectedInterfaceMethodName() != null) return EMPTY_FIELDS;
         throw new UnsupportedOperationException("Field inventory is not mapped for this candidate type");
@@ -2267,6 +2271,14 @@ public abstract class Type extends MemberInfo {
             if (name.equals(field.get_Name()) || flags.has(BindingFlags.IgnoreCase) && name.equalsIgnoreCase(field.get_Name())) return field;
         }
         return null;
+    }
+
+    private FieldInfo selectedIntegerValueField() {
+        return literalFields.computeIfAbsent(List.of(this, "m_value"), ignored -> new IntegerValueFieldMember(this));
+    }
+
+    private static String fieldTargetTypeName(Object target) {
+        return target instanceof Type ? "System.RuntimeType" : fromJavaClass(target.getClass()).get_FullName();
     }
 
     private FieldInfo selectedEnumValueField() {
@@ -3064,6 +3076,39 @@ public abstract class Type extends MemberInfo {
         }
     }
 
+    private static final class IntegerValueFieldMember extends FieldInfo {
+        private final Type owner;
+        private IntegerValueFieldMember(Type owner) { this.owner = owner; }
+        @Override public String get_Name() { return "m_value"; }
+        @Override public Type get_DeclaringType() { return this.owner; }
+        @Override public Type get_ReflectedType() { return this.owner; }
+        @Override public MemberTypes get_MemberType() { return MemberTypes.Field; }
+        @Override public Type get_FieldType() { return this.owner; }
+        @Override public FieldAttributes get_Attributes() { return FieldAttributes.FromInt32(33); }
+        @Override public boolean get_IsCollectible() { return false; }
+        @Override public String ToString() { return this.owner.get_Name() + " m_value"; }
+        @Override public boolean HasSameMetadataDefinitionAs(MemberInfo other) {
+            if (other == null) throw new ArgumentNullException("other");
+            return other instanceof IntegerValueFieldMember field && this.owner.HasSameMetadataDefinitionAs(field.owner);
+        }
+        @Override public Object GetRawConstantValue() { throw new InvalidOperationException("Operation is not valid due to the current state of the object."); }
+        @Override public Object GetValue(Object target) {
+            if (target == null) throw new TargetException("Non-static field requires a target.");
+            if (!this.owner.Equals(fromJavaClass(target.getClass()))) {
+                throw new ArgumentException("Field 'm_value' defined on type '" + this.owner.get_FullName() + "' is not a field on the target object which is of type '" + fieldTargetTypeName(target) + "'.");
+            }
+            if (target instanceof Int32 value) return new Int32(value.get_Value());
+            if (target instanceof Integer value) return new Int32(value);
+            if (target instanceof Byte value) return new Byte(value.get_Value());
+            if (target instanceof SByte value) return new SByte(value.get_Value());
+            if (target instanceof java.lang.Byte value) return new SByte(value);
+            if (target instanceof UInt16 value) return new UInt16(value.get_Value());
+            if (target instanceof UInt32 value) return new UInt32(value.get_Value());
+            throw new UnsupportedOperationException("Integer field carrier is not mapped");
+        }
+        @Override public void SetValue(Object target, Object value) { throw new UnsupportedOperationException("Integer instance field writes are not mapped for this candidate profile"); }
+    }
+
     private static final class EnumValueFieldMember extends FieldInfo {
         private final Type owner;
         private EnumValueFieldMember(Type owner) { this.owner = owner; }
@@ -3083,7 +3128,7 @@ public abstract class Type extends MemberInfo {
         @Override public Object GetValue(Object target) {
             if (target == null) throw new TargetException("Non-static field requires a target.");
             if (target instanceof FieldAttributes value) return new Int32(value.get_Value());
-            String name = target instanceof Type ? "System.RuntimeType" : fromJavaClass(target.getClass()).get_FullName();
+            String name = fieldTargetTypeName(target);
             throw new ArgumentException("Field 'value__' defined on type 'System.Reflection.FieldAttributes' is not a field on the target object which is of type '" + name + "'.");
         }
         @Override public void SetValue(Object target, Object value) { throw new UnsupportedOperationException("Enum instance field writes are not mapped for this candidate profile"); }
