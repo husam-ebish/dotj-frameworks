@@ -10,6 +10,7 @@ public abstract class FieldInfo extends MemberInfo {
     public abstract Type get_FieldType();
     public abstract FieldAttributes get_Attributes();
     public abstract Object GetValue(Object target);
+    public abstract void SetValue(Object target, Object value);
     public abstract Object GetRawConstantValue();
     private int access() { return this.get_Attributes().get_Value() & 7; }
     public boolean get_IsPublic() { return this.access() == 6; }

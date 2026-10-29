@@ -566,6 +566,8 @@ public abstract class Type extends MemberInfo {
             case "System.Reflection.ParameterInfo" -> fromJavaClass(ParameterInfo.class);
             case "System.Void" -> fromJavaClass(Void.class);
             case "System.Exception" -> fromJavaClass(Exception.class);
+            case "System.MemberAccessException" -> fromJavaClass(MemberAccessException.class);
+            case "System.FieldAccessException" -> fromJavaClass(FieldAccessException.class);
             case "System.SystemException" -> fromJavaClass(SystemException.class);
             case "System.ArgumentException" -> fromJavaClass(ArgumentException.class);
             case "System.ArgumentNullException" -> fromJavaClass(ArgumentNullException.class);
@@ -766,6 +768,8 @@ public abstract class Type extends MemberInfo {
             case "system.reflection.parameterinfo" -> ignoreCase ? fromJavaClass(ParameterInfo.class) : null;
             case "system.void" -> ignoreCase ? fromJavaClass(Void.class) : null;
             case "system.exception" -> ignoreCase ? fromJavaClass(Exception.class) : null;
+            case "system.memberaccessexception" -> ignoreCase ? fromJavaClass(MemberAccessException.class) : null;
+            case "system.fieldaccessexception" -> ignoreCase ? fromJavaClass(FieldAccessException.class) : null;
             case "system.systemexception" -> ignoreCase ? fromJavaClass(SystemException.class) : null;
             case "system.argumentexception" -> ignoreCase ? fromJavaClass(ArgumentException.class) : null;
             case "system.argumentnullexception" -> ignoreCase ? fromJavaClass(ArgumentNullException.class) : null;
@@ -3043,6 +3047,7 @@ public abstract class Type extends MemberInfo {
             return other instanceof DefaultFieldMember field && this.name.equals(field.name) && this.owner.HasSameMetadataDefinitionAs(field.owner);
         }
         @Override public Object GetValue(Object target) { return this.GetRawConstantValue(); }
+        @Override public void SetValue(Object target, Object value) { throw new FieldAccessException("Cannot set a constant field."); }
         @Override public Object GetRawConstantValue() {
             boolean max = this.name.equals("MaxValue");
             if (this.owner.definition == Int32.class) return new Int32(max ? Integer.MAX_VALUE : Integer.MIN_VALUE);
