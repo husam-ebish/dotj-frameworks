@@ -1,0 +1,1380 @@
+{
+  "schemaVersion": 1,
+  "scope": "Internal bounded evaluation contract; no public API or task acceptance",
+  "historicalAnalysisCommit": "6348d0c087aeec18c323b01a2c77da089ddafea0",
+  "implementationReferenceCommit": "b44cdcec4c79c50c67560876707d57d4f635fa3b",
+  "referenceRootTree": "3ffd98251b9d775b41982e28202f0febcb28666c",
+  "toolchain": "Microsoft JDK 21.0.12.1+1; Python 3.13.9; original native SDK 10.0.401 / runtime 10.0.12",
+  "inputs": [
+    {
+      "path": "agents/validation-performance/build-frontier-research/build-frontier-research.json",
+      "sha256": "f5d128648ace1d9ba8ad71316c59bdfde9ea827e2394e782d740dfc485a16ca9"
+    },
+    {
+      "path": "agents/validation-performance/build-frontier-research/official-msbuild-component-identity.json",
+      "sha256": "68eb187185b62b922f8084bbc4d3d644b5d5791a85329f69caa9ed753adb945d"
+    },
+    {
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/evidence/reference-acquisition-report.json",
+      "sha256": "eeeea47c1228b59b28b06e433aad737c2503ee6b12f3b87a920384471d19fadb"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/build-evaluation-reference-report.json",
+      "sha256": "60806c4a5266b529a86ccb38d4e1280795e838ffe5ab1f24c3aca5e82009caab"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-proposal/build-evaluation-proposal-report.json",
+      "sha256": "06d0eb2f7d963ea0e2dbf604d023b5ec9b5e9424e9947a12dda0741e4e10997a"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/native-evaluation-results.json",
+      "sha256": "19dfe8b4e05dcbfc0086424648ad2612d559baef268fa8c2f48a0965a45c908f"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/case-plan.json",
+      "sha256": "910978e6e37b38179f165b40d563d34d6e4093f69fb0b94c6496f543c16c679b"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/evaluator-source-map.json",
+      "sha256": "7b88854f6571ffdd64d490e1fd02a60e0ad731714a406ed317fe8109be43d5c9"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/condition-source-supplement.json",
+      "sha256": "d8e45b5ebb75b859fc7aa6498e6e1a163d044bfc412e1d148a161d0c902e86b1"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-proposal/inputs/input-provenance.json",
+      "sha256": "1d37a249f9c89c796e19e8fb5352b1911d53a58bdc722a8d472798599000e029"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-proposal/inputs/native-comparison.tsv",
+      "sha256": "878016cbaa4f63dae1584cde605089b490080d310276c6473890d2a7ac941f3b"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-proposal/proposed/org/dotj/experimental/buildevaluation/ProjectEvaluationComponent.java",
+      "sha256": "866ab3d58202ac5827db29ae9161c85a8327e1ce044c353e76bad7fc16001c65"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-proposal/tests/ProjectEvaluationComponentTest.java",
+      "sha256": "9782d6d0ebd90645a30b354878c65b61d9c66cae1571b8941f088fa71241dfaf"
+    },
+    {
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/MSBuild/XMake.cs",
+      "sha256": "17975a2c5c4b4e69bf96525980e7f9306ec37d0bedc0b18988ede07ed457566f"
+    },
+    {
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/MSBuild/CommandLine/CommandLineSwitches.cs",
+      "sha256": "922fa4642e2d08c2fc5e28a24245e1cbc232c5695523450ad20385453dd480bc"
+    },
+    {
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Evaluator.cs",
+      "sha256": "be9173e280c73e654129d396364f4373fdcafabbf21235b058aa399084a3d9a3"
+    },
+    {
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/ConditionEvaluator.cs",
+      "sha256": "5ed6af27c735988e413c9d2972f80603b0177581f5e48a0df7652cf00ee28d7c"
+    },
+    {
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Expander.cs",
+      "sha256": "e15343dd5421c959b8939b71e69497e4ed7bb2ce7966bdfa5dd4abd2bdf08b31"
+    },
+    {
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build.UnitTests/Evaluation/Evaluator_Tests.cs",
+      "sha256": "40ad8ba13d74bb2d9f17555cf433f388afb987dbc03c95e930d5013255d16beb"
+    },
+    {
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "sha256": "81f807974a5fe4c27f5b7de350d981f8413cc3d35d72ae0fde31ebe0d542ea50"
+    },
+    {
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "sha256": "2f17ef69eb4ae718d0abeb38bd81d153964c8c89eef2b7e20c1fefd1b2ab2214"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE01.stdout",
+      "sha256": "137d2771c8c2c154f010337df0ef8293423d33f9c320e8e9b157df923a2c8bc4"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE01.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE01.host-trace.txt",
+      "sha256": "33087e155cba4fd53657b7c5684a0f6074c0f39f16409de84a3724d41945c573"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE02.stdout",
+      "sha256": "0a30d56db456ea44697ec2fae632d9f45086bae64fd6f9801880591e704cdc1e"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE02.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE02.host-trace.txt",
+      "sha256": "189502d001b3e9e70b5535399d7fba869120bd52edb2ebb328c31a3660f7d65d"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE03.stdout",
+      "sha256": "7ab9a76e3b6bf925f6dca331e877c01c8a17b0b6fb98b122da84df8e27bf2197"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE03.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE03.host-trace.txt",
+      "sha256": "e0a0b7e8957d720effe3c9a4be7a43673680a99948c433a75082cde048842212"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE04.stdout",
+      "sha256": "300c10345539196fa9181021d5d1c10d3fffe1b32354b912e61f41639063eec2"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE04.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE04.host-trace.txt",
+      "sha256": "387704e9ce4c13e31fbd7185da324e221531e6b2dc81500c4b2444f8459571a8"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE05.stdout",
+      "sha256": "0a30d56db456ea44697ec2fae632d9f45086bae64fd6f9801880591e704cdc1e"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE05.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE05.host-trace.txt",
+      "sha256": "5efd937b4bead81ea9268c264fc794687fa6210485ef418e1ce0e5196b5a975d"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE06.stdout",
+      "sha256": "8c187c1e0e4c5fd6c67206450aac1d452aa498e32d8fc5a4ce9a7e0618e51932"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE06.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE06.host-trace.txt",
+      "sha256": "0126ef8bba1cf09001488c51fba4536f3c1215776281adb8d51fa3a7c6a1a59b"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE07.stdout",
+      "sha256": "984a0e761377af3552816362b8b522baf4386de45011d3ed8ff05e12ebfced21"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE07.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE07.host-trace.txt",
+      "sha256": "ed963f883333820d2ffda2cbe0e885959c38b7177b789e7884aeb58808d29e69"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE08.stdout",
+      "sha256": "275e0cf78f7c7fc5ecf6ba7d2a05a37a589ac49ea668f3976036165abf069980"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE08.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE08.host-trace.txt",
+      "sha256": "16e5509075d48ea7219ea579fe9d1c5c3b02d85eaf4c64f8686fa0e84ce7a9c3"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE09.stdout",
+      "sha256": "5e66603adb78bfb23b202df334f065057791263521b976a42ab219f25c9758ba"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE09.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE09.host-trace.txt",
+      "sha256": "e6ac21f347680cf50d244c01a139650e22541a3bcee266fad947d9eedfaab88d"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE10.stdout",
+      "sha256": "dab173663760b693c8788a3c456574a66285f473b96051ae457d6466f4836c5b"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE10.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE10.host-trace.txt",
+      "sha256": "ab39e7b6bf92c005289f94ee0a063eb97ea427a4fa65c9ef6ba3c38a7ee5f637"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE11.stdout",
+      "sha256": "33902d9510a0264ab4c69050a215722d7c370a167d451f358b9839432fa4c736"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE11.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE11.host-trace.txt",
+      "sha256": "f0fd76f0064558760e58c876fec59ef8c8ba6536f9f235503dc9badebc789bb6"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE12.stdout",
+      "sha256": "dc15106561d289e5509b6481675836ea26196700d2bf1566d284945f9416b4fa"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE12.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE12.host-trace.txt",
+      "sha256": "5a7e4b2fc82f5d1c6a44ce4ca23efb0094c1767bd8f5547833d640ff1a64442b"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE13.stdout",
+      "sha256": "c24c6281540456f79bfdc98d6c31d25e213c96e9edd399a5171b00a504aab26b"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE13.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE13.host-trace.txt",
+      "sha256": "2db9e7bdde8b2e8f937ca661df2bd46d908e2e51f8c87736b0205a66e8910adb"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE14.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE14.stderr",
+      "sha256": "b9318f2ecf21fde4b165669494e38dd5ad05c4048ebd34b03bb56bc48d98c3a2"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE14.host-trace.txt",
+      "sha256": "8789593d9a1a9c4e408595bc77c8d760949c609794b58c76ff32adc4a3f635af"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE15.stdout",
+      "sha256": "8d2cffbe4938dd509d40d0e60541f1fe27046aaaba1b232ba038b6a3a884010c"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE15.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE15.host-trace.txt",
+      "sha256": "05fc456bd462e9f5f37027b6f11ccc3e019723f6ec5c58f5d2c8c966f471db51"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE16.stdout",
+      "sha256": "deb718f4262d56c54bef4746320672e1ac11449f44032ac4795161c492dfd497"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE16.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE16.host-trace.txt",
+      "sha256": "ec1fb10f2e0684c6687e067f807529d6fd178c1760f106f7dd0e9e3f1625b308"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE17.stdout",
+      "sha256": "9018af9bbd55508e59bd640bfe5e835eea26c75bc4384ebf7e0430554378136f"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE17.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE17.host-trace.txt",
+      "sha256": "d01a313850ab1080cf3dfe2e7783d5e8710b4ac3aae41de14dcae048dc88b405"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE18.stdout",
+      "sha256": "ca8b5b936fa7f73c63f661e84f87092a337ceda6062e960034232a6d5716f215"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE18.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE18.host-trace.txt",
+      "sha256": "22ac53cf37196a57077f6a0d67e990310ca96b51bd96335eaf5a0af3c8ecd130"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE19.stdout",
+      "sha256": "94080dcc27652a14c310419cc4edd9eb2002944e43fa67fe5fe5c483aa2de20d"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE19.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE19.host-trace.txt",
+      "sha256": "ab864743e9f303229f21e4be8ee62294e300df37354588c30900172825f6eb9c"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE20.stdout",
+      "sha256": "72e73a030e326003af419a5ed3e669f2c0afb9016c999c0a61daad8c0a278224"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE20.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/logs/BE20.host-trace.txt",
+      "sha256": "b9da9c0fcec103ad155ec51524026c88ca07aee756152ba428cf3ead6d4e4817"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE01-literal/main.proj",
+      "sha256": "e869d5e18a828dd9ccc6fb1ce7763d8ee10988cfc4c8c8fd639060ad52f1cdee"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE02-reassignment/main.proj",
+      "sha256": "86ad48c07952d032df3fd4e2079364567dc219fe1c2b0d0192d06bcaf5e47bbe"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE03-forward-reference/main.proj",
+      "sha256": "cf540d2dd94af8ddbc58fd93a67865f378cc139e2166ebe5e4f959907b62b463"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE04-self-reference/main.proj",
+      "sha256": "59a115a23fe99a30c1ff299c30e7c1c19d0bec7897d1e4d51d1a051f30a24538"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE05-case-and-path-\u03bb/main.proj",
+      "sha256": "ece1f7e77cffa1119f5613cd265719ff6bdadf15ed7f15540dbedfcbadedf24b"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE06-undefined-empty/main.proj",
+      "sha256": "7678dcf9ec9577fd7498c1003bbb9f552780d6abce12b6e701442ee2cb265f2f"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE07-property-condition-true/main.proj",
+      "sha256": "1bcb5c447666f1e38291964f62f4352c3cc0813c263a4385e336079edcac4245"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE08-property-condition-false/main.proj",
+      "sha256": "8919f88d7755d6c1c0b513b130cbf0cbd68e1b36d810f191b1fd1c3b743d6fc1"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE09-group-condition/main.proj",
+      "sha256": "c14ae0cb0c80a16852174036db2fbe8bba06b77d6b7ca2a8b35357994d290b53"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE10-condition-string-case/main.proj",
+      "sha256": "e3ca77b3f1acbe0ae82afd00e7899555de754374fd89df32c38ecb1f686c10ad"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE11-import-order/main.proj",
+      "sha256": "7cacc28a81ea905d8c31f80dec527550553f730777df9638f581f0a6949e0041"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE11-import-order/middle.props",
+      "sha256": "032c270c56462041850364a4b3b32a666f56d0f64954bbcf86fd7e0ee326d969"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE12-nested-relative-import/main.proj",
+      "sha256": "58dfbf8eacb8681d270801dbdcf1d2891f2f6bc08acff50a5eda706220e3c8dc"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE12-nested-relative-import/nested/one.props",
+      "sha256": "01750733dacbeede5e9c841bb52a390d5de0c4e7eea53aa89fcf8fc34e462f81"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE12-nested-relative-import/nested/sub/two.props",
+      "sha256": "7ffe7b3b0a6cb7efb0296401f9462410a2d2b6d747bde045dd8dc96f2a0837d5"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE13-false-missing-import/main.proj",
+      "sha256": "a99b47e534e72193e0c8347b2629057691a1909192656eed0d6d39f819a583ba"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE14-true-missing-import/main.proj",
+      "sha256": "e0792354b018cd0a8be267d4e60c5e2a1ad2cc5959a72861675dd388fd8c52c8"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE15-global-precedence/main.proj",
+      "sha256": "cbc88cd1bfb5da2a7ee8c2d475db48c6bd4990a4686b9fafd227280831785458"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE16-treat-as-local/main.proj",
+      "sha256": "2ed70257cc5ffadcf9469ddad614559db58a800321af0f02414c0690012c7bac"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE17-controlled-exists/main.proj",
+      "sha256": "855e09c901492e49ceab6c2b9e9156bf30866a620476719e16dc9f5e5563ad9c"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE17-controlled-exists/present.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE18-percent-escape/main.proj",
+      "sha256": "b8741657e58c014968cf1d10308991fb0403d2839da0c3c0a533ec55d815eea2"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE19-no-target-execution/main.proj",
+      "sha256": "e7ae59d0e56da92283e45ca41eca9d5d3032e9dbd4c56cc3cee01e409950f5db"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/fixtures/BE20-false-import-group/main.proj",
+      "sha256": "e18697be845596a2683f578fb5771c681e1a08d32ac80adc7f89d051a015c7bf"
+    },
+    {
+      "path": "toolchains/jdk-qualified/jdk-21.0.12.1+1/bin/java.exe",
+      "sha256": "1f41cc782de7ddd8824376568f9011413d710cf225047906106d2a01a0e3f7a9"
+    },
+    {
+      "path": "toolchains/jdk-qualified/jdk-21.0.12.1+1/bin/javac.exe",
+      "sha256": "00ff52b49ba8cb2de4718fade93f411549d704eb869641eaa69986608a452a26"
+    },
+    {
+      "path": "toolchains/dotnet/dotnet.exe",
+      "sha256": "21a46f1e5235cf4e844b9de5429f0e198b9c97a41f0503a66442f1d639ca3ee6"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/capture-evaluation.py",
+      "sha256": "7c3af2ecd51d361c0af1e6fab0d13c960442c4be441cca486f156f8a9484d025"
+    },
+    {
+      "path": "toolchains/dotnet/shared/Microsoft.NETCore.App/10.0.12/System.Private.CoreLib.dll",
+      "sha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678"
+    },
+    {
+      "path": "toolchains/dotnet/sdk/10.0.401/MSBuild.dll",
+      "sha256": "22f7b95c5cc1e7287a9d561a0e88719c4d545c5f3892e3e6501051f5abcbe147"
+    },
+    {
+      "path": "toolchains/dotnet/sdk/10.0.401/Microsoft.Build.dll",
+      "sha256": "96896c3c1e0843ea5c4cc03baac8df3a61587e3742599b6b29f99dbd25595eff"
+    },
+    {
+      "path": "toolchains/dotnet/sdk/10.0.401/Microsoft.Build.Framework.dll",
+      "sha256": "58a2da163e77baa35719982597f92384d8ae442479070df97b4747b1093f5a2f"
+    },
+    {
+      "path": "toolchains/dotnet/sdk/10.0.401/Microsoft.Build.Utilities.Core.dll",
+      "sha256": "bf9859eb77890d80e6944263dacd8a390d86cf377107b8dec93dd618db40e33d"
+    },
+    {
+      "path": "toolchains/dotnet/sdk/10.0.401/Microsoft.Build.Tasks.Core.dll",
+      "sha256": "9ce219849f8be4138f073fc4ebf6a8839a89af5aeb1448066e6d26129697f8bf"
+    },
+    {
+      "path": "toolchains/dotnet/sdk/10.0.401/MSBuild.deps.json",
+      "sha256": "621084fd13a3a6bfab914b94f34f7d5a0833ccc9746f5b2c60b99e79cc9b1a08"
+    },
+    {
+      "path": "toolchains/dotnet/sdk/10.0.401/MSBuild.runtimeconfig.json",
+      "sha256": "c65e4823708bb8473a9933653e8f7b3114b6820aadcca88edf3fea57c7c033c7"
+    },
+    {
+      "path": "toolchains/dotnet/sdk/10.0.401/Microsoft.NETCoreSdk.BundledMSBuildInformation.props",
+      "sha256": "75883f80c6dfec79a354b10a2b61ce9f7fb099d7cb54f89ac7194e5aad5279d4"
+    },
+    {
+      "path": "toolchains/dotnet/sdk/10.0.401/.version",
+      "sha256": "2fb67d624fe41f09794f1ba366d396639b6fc65bd8b5c7d2581a0aecef96517d"
+    },
+    {
+      "path": "agents/validation-performance/build-frontier-research/sdk-entry-provenance.json",
+      "sha256": "5fce05731517e7e6c5a0b3447f8ea5e8514b5ab794299b3ae19b2a1d1f28c5d5"
+    },
+    {
+      "path": "agents/validation-performance/build-evaluation-reference/runtimeconfig/evaluation.runtimeconfig.json",
+      "sha256": "e82f69dded52be026aa40cfc66c8879be51f274f6f6c5a323822789dc582cf51"
+    },
+    {
+      "path": "toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/modules",
+      "sha256": "fdf9a1bbdbd24fabad4c5f53815ad13a2e6f9de48c982c2ce7b8c272b2d7552d"
+    },
+    {
+      "path": "toolchains/jdk-qualified/jdk-21.0.12.1+1/release",
+      "sha256": "25d8eccb6c159180584389bdc8f0c821dccf5f60dd6efd599f764f8216a1260b"
+    },
+    {
+      "path": "toolchains/python-3.13.9/python.exe",
+      "sha256": "08a64dc73ac3e3776b49f0097c6306bdb9c8f7990a037065213324d328467bf5"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "fixtures/BE01-literal/main.proj",
+      "sha256": "e869d5e18a828dd9ccc6fb1ce7763d8ee10988cfc4c8c8fd639060ad52f1cdee"
+    },
+    {
+      "path": "fixtures/BE02-reassignment/main.proj",
+      "sha256": "86ad48c07952d032df3fd4e2079364567dc219fe1c2b0d0192d06bcaf5e47bbe"
+    },
+    {
+      "path": "fixtures/BE03-forward-reference/main.proj",
+      "sha256": "cf540d2dd94af8ddbc58fd93a67865f378cc139e2166ebe5e4f959907b62b463"
+    },
+    {
+      "path": "fixtures/BE04-self-reference/main.proj",
+      "sha256": "59a115a23fe99a30c1ff299c30e7c1c19d0bec7897d1e4d51d1a051f30a24538"
+    },
+    {
+      "path": "fixtures/BE05-case-and-path-\u03bb/main.proj",
+      "sha256": "ece1f7e77cffa1119f5613cd265719ff6bdadf15ed7f15540dbedfcbadedf24b"
+    },
+    {
+      "path": "fixtures/BE06-undefined-empty/main.proj",
+      "sha256": "7678dcf9ec9577fd7498c1003bbb9f552780d6abce12b6e701442ee2cb265f2f"
+    },
+    {
+      "path": "fixtures/BE07-property-condition-true/main.proj",
+      "sha256": "1bcb5c447666f1e38291964f62f4352c3cc0813c263a4385e336079edcac4245"
+    },
+    {
+      "path": "fixtures/BE08-property-condition-false/main.proj",
+      "sha256": "8919f88d7755d6c1c0b513b130cbf0cbd68e1b36d810f191b1fd1c3b743d6fc1"
+    },
+    {
+      "path": "fixtures/BE09-group-condition/main.proj",
+      "sha256": "c14ae0cb0c80a16852174036db2fbe8bba06b77d6b7ca2a8b35357994d290b53"
+    },
+    {
+      "path": "fixtures/BE10-condition-string-case/main.proj",
+      "sha256": "e3ca77b3f1acbe0ae82afd00e7899555de754374fd89df32c38ecb1f686c10ad"
+    },
+    {
+      "path": "fixtures/BE11-import-order/main.proj",
+      "sha256": "7cacc28a81ea905d8c31f80dec527550553f730777df9638f581f0a6949e0041"
+    },
+    {
+      "path": "fixtures/BE11-import-order/middle.props",
+      "sha256": "032c270c56462041850364a4b3b32a666f56d0f64954bbcf86fd7e0ee326d969"
+    },
+    {
+      "path": "fixtures/BE12-nested-relative-import/main.proj",
+      "sha256": "58dfbf8eacb8681d270801dbdcf1d2891f2f6bc08acff50a5eda706220e3c8dc"
+    },
+    {
+      "path": "fixtures/BE12-nested-relative-import/nested/one.props",
+      "sha256": "01750733dacbeede5e9c841bb52a390d5de0c4e7eea53aa89fcf8fc34e462f81"
+    },
+    {
+      "path": "fixtures/BE12-nested-relative-import/nested/sub/two.props",
+      "sha256": "7ffe7b3b0a6cb7efb0296401f9462410a2d2b6d747bde045dd8dc96f2a0837d5"
+    },
+    {
+      "path": "fixtures/BE13-false-missing-import/main.proj",
+      "sha256": "a99b47e534e72193e0c8347b2629057691a1909192656eed0d6d39f819a583ba"
+    },
+    {
+      "path": "fixtures/BE14-true-missing-import/main.proj",
+      "sha256": "e0792354b018cd0a8be267d4e60c5e2a1ad2cc5959a72861675dd388fd8c52c8"
+    },
+    {
+      "path": "fixtures/BE15-global-precedence/main.proj",
+      "sha256": "cbc88cd1bfb5da2a7ee8c2d475db48c6bd4990a4686b9fafd227280831785458"
+    },
+    {
+      "path": "fixtures/BE16-treat-as-local/main.proj",
+      "sha256": "2ed70257cc5ffadcf9469ddad614559db58a800321af0f02414c0690012c7bac"
+    },
+    {
+      "path": "fixtures/BE17-controlled-exists/main.proj",
+      "sha256": "855e09c901492e49ceab6c2b9e9156bf30866a620476719e16dc9f5e5563ad9c"
+    },
+    {
+      "path": "fixtures/BE17-controlled-exists/present.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fixtures/BE18-percent-escape/main.proj",
+      "sha256": "b8741657e58c014968cf1d10308991fb0403d2839da0c3c0a533ec55d815eea2"
+    },
+    {
+      "path": "fixtures/BE19-no-target-execution/main.proj",
+      "sha256": "e7ae59d0e56da92283e45ca41eca9d5d3032e9dbd4c56cc3cee01e409950f5db"
+    },
+    {
+      "path": "fixtures/BE20-false-import-group/main.proj",
+      "sha256": "e18697be845596a2683f578fb5771c681e1a08d32ac80adc7f89d051a015c7bf"
+    },
+    {
+      "path": "fixtures/native-comparison.tsv",
+      "sha256": "878016cbaa4f63dae1584cde605089b490080d310276c6473890d2a7ac941f3b"
+    }
+  ],
+  "referenceCases": [
+    {
+      "id": "BE01",
+      "name": "literal",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE01-literal\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE01-literal",
+      "exitCode": 0,
+      "seconds": 10.237511599960271,
+      "observedProperties": {
+        "DotjProbeP": "alpha",
+        "DotjProbeQ": "beta",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE01.stdout",
+      "stdoutSha256": "137d2771c8c2c154f010337df0ef8293423d33f9c320e8e9b157df923a2c8bc4",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE01.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE01.host-trace.txt",
+      "hostTraceSha256": "33087e155cba4fd53657b7c5684a0f6074c0f39f16409de84a3724d41945c573"
+    },
+    {
+      "id": "BE02",
+      "name": "reassignment",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE02-reassignment\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE02-reassignment",
+      "exitCode": 0,
+      "seconds": 10.144028400012758,
+      "observedProperties": {
+        "DotjProbeP": "second",
+        "DotjProbeQ": "second",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE02.stdout",
+      "stdoutSha256": "0a30d56db456ea44697ec2fae632d9f45086bae64fd6f9801880591e704cdc1e",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE02.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE02.host-trace.txt",
+      "hostTraceSha256": "189502d001b3e9e70b5535399d7fba869120bd52edb2ebb328c31a3660f7d65d"
+    },
+    {
+      "id": "BE03",
+      "name": "forward-reference",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE03-forward-reference\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE03-forward-reference",
+      "exitCode": 0,
+      "seconds": 9.127877899969462,
+      "observedProperties": {
+        "DotjProbeP": "later",
+        "DotjProbeQ": "",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE03.stdout",
+      "stdoutSha256": "7ab9a76e3b6bf925f6dca331e877c01c8a17b0b6fb98b122da84df8e27bf2197",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE03.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE03.host-trace.txt",
+      "hostTraceSha256": "e0a0b7e8957d720effe3c9a4be7a43673680a99948c433a75082cde048842212"
+    },
+    {
+      "id": "BE04",
+      "name": "self-reference",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE04-self-reference\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE04-self-reference",
+      "exitCode": 0,
+      "seconds": 9.861945700016804,
+      "observedProperties": {
+        "DotjProbeP": "ab",
+        "DotjProbeQ": "abc",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE04.stdout",
+      "stdoutSha256": "300c10345539196fa9181021d5d1c10d3fffe1b32354b912e61f41639063eec2",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE04.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE04.host-trace.txt",
+      "hostTraceSha256": "387704e9ce4c13e31fbd7185da324e221531e6b2dc81500c4b2444f8459571a8"
+    },
+    {
+      "id": "BE05",
+      "name": "case-and-path-\u03bb",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE05-case-and-path-\u03bb\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE05-case-and-path-\u03bb",
+      "exitCode": 0,
+      "seconds": 9.4505234999815,
+      "observedProperties": {
+        "DotjProbeP": "second",
+        "DotjProbeQ": "second",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE05.stdout",
+      "stdoutSha256": "0a30d56db456ea44697ec2fae632d9f45086bae64fd6f9801880591e704cdc1e",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE05.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE05.host-trace.txt",
+      "hostTraceSha256": "5efd937b4bead81ea9268c264fc794687fa6210485ef418e1ce0e5196b5a975d"
+    },
+    {
+      "id": "BE06",
+      "name": "undefined-empty",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE06-undefined-empty\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE06-undefined-empty",
+      "exitCode": 0,
+      "seconds": 7.913744099962059,
+      "observedProperties": {
+        "DotjProbeP": "",
+        "DotjProbeQ": "",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE06.stdout",
+      "stdoutSha256": "8c187c1e0e4c5fd6c67206450aac1d452aa498e32d8fc5a4ce9a7e0618e51932",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE06.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE06.host-trace.txt",
+      "hostTraceSha256": "0126ef8bba1cf09001488c51fba4536f3c1215776281adb8d51fa3a7c6a1a59b"
+    },
+    {
+      "id": "BE07",
+      "name": "property-condition-true",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE07-property-condition-true\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE07-property-condition-true",
+      "exitCode": 0,
+      "seconds": 8.723637600021902,
+      "observedProperties": {
+        "DotjProbeP": "yes",
+        "DotjProbeQ": "seen",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE07.stdout",
+      "stdoutSha256": "984a0e761377af3552816362b8b522baf4386de45011d3ed8ff05e12ebfced21",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE07.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE07.host-trace.txt",
+      "hostTraceSha256": "ed963f883333820d2ffda2cbe0e885959c38b7177b789e7884aeb58808d29e69"
+    },
+    {
+      "id": "BE08",
+      "name": "property-condition-false",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE08-property-condition-false\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE08-property-condition-false",
+      "exitCode": 0,
+      "seconds": 8.57777159998659,
+      "observedProperties": {
+        "DotjProbeP": "base",
+        "DotjProbeQ": "seen",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE08.stdout",
+      "stdoutSha256": "275e0cf78f7c7fc5ecf6ba7d2a05a37a589ac49ea668f3976036165abf069980",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE08.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE08.host-trace.txt",
+      "hostTraceSha256": "16e5509075d48ea7219ea579fe9d1c5c3b02d85eaf4c64f8686fa0e84ce7a9c3"
+    },
+    {
+      "id": "BE09",
+      "name": "group-condition",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE09-group-condition\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE09-group-condition",
+      "exitCode": 0,
+      "seconds": 9.076877199986484,
+      "observedProperties": {
+        "DotjProbeP": "base",
+        "DotjProbeQ": "chosen",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE09.stdout",
+      "stdoutSha256": "5e66603adb78bfb23b202df334f065057791263521b976a42ab219f25c9758ba",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE09.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE09.host-trace.txt",
+      "hostTraceSha256": "e6ac21f347680cf50d244c01a139650e22541a3bcee266fad947d9eedfaab88d"
+    },
+    {
+      "id": "BE10",
+      "name": "condition-string-case",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE10-condition-string-case\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE10-condition-string-case",
+      "exitCode": 0,
+      "seconds": 8.851747899956536,
+      "observedProperties": {
+        "DotjProbeP": "chosen",
+        "DotjProbeQ": "tail",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE10.stdout",
+      "stdoutSha256": "dab173663760b693c8788a3c456574a66285f473b96051ae457d6466f4836c5b",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE10.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE10.host-trace.txt",
+      "hostTraceSha256": "ab39e7b6bf92c005289f94ee0a063eb97ea427a4fa65c9ef6ba3c38a7ee5f637"
+    },
+    {
+      "id": "BE11",
+      "name": "import-order",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE11-import-order\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE11-import-order",
+      "exitCode": 0,
+      "seconds": 8.346650800027419,
+      "observedProperties": {
+        "DotjProbeP": "after",
+        "DotjProbeQ": "imported",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE11.stdout",
+      "stdoutSha256": "33902d9510a0264ab4c69050a215722d7c370a167d451f358b9839432fa4c736",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE11.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE11.host-trace.txt",
+      "hostTraceSha256": "f0fd76f0064558760e58c876fec59ef8c8ba6536f9f235503dc9badebc789bb6"
+    },
+    {
+      "id": "BE12",
+      "name": "nested-relative-import",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE12-nested-relative-import\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE12-nested-relative-import",
+      "exitCode": 0,
+      "seconds": 8.632053299981635,
+      "observedProperties": {
+        "DotjProbeP": "ABC",
+        "DotjProbeQ": "ABCD",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE12.stdout",
+      "stdoutSha256": "dc15106561d289e5509b6481675836ea26196700d2bf1566d284945f9416b4fa",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE12.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE12.host-trace.txt",
+      "hostTraceSha256": "5a7e4b2fc82f5d1c6a44ce4ca23efb0094c1767bd8f5547833d640ff1a64442b"
+    },
+    {
+      "id": "BE13",
+      "name": "false-missing-import",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE13-false-missing-import\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE13-false-missing-import",
+      "exitCode": 0,
+      "seconds": 8.91296180000063,
+      "observedProperties": {
+        "DotjProbeP": "safe",
+        "DotjProbeQ": "",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE13.stdout",
+      "stdoutSha256": "c24c6281540456f79bfdc98d6c31d25e213c96e9edd399a5171b00a504aab26b",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE13.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE13.host-trace.txt",
+      "hostTraceSha256": "2db9e7bdde8b2e8f937ca661df2bd46d908e2e51f8c87736b0205a66e8910adb"
+    },
+    {
+      "id": "BE14",
+      "name": "true-missing-import",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE14-true-missing-import\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE14-true-missing-import",
+      "exitCode": 1,
+      "seconds": 9.611261699988972,
+      "observedProperties": null,
+      "errorCodes": [
+        "MSB4019"
+      ],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE14.stdout",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE14.stderr",
+      "stderrSha256": "b9318f2ecf21fde4b165669494e38dd5ad05c4048ebd34b03bb56bc48d98c3a2",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE14.host-trace.txt",
+      "hostTraceSha256": "8789593d9a1a9c4e408595bc77c8d760949c609794b58c76ff32adc4a3f635af"
+    },
+    {
+      "id": "BE15",
+      "name": "global-precedence",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE15-global-precedence\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion",
+        "-property:DotjProbeP=global"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE15-global-precedence",
+      "exitCode": 0,
+      "seconds": 10.18602219998138,
+      "observedProperties": {
+        "DotjProbeP": "global",
+        "DotjProbeQ": "global",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE15.stdout",
+      "stdoutSha256": "8d2cffbe4938dd509d40d0e60541f1fe27046aaaba1b232ba038b6a3a884010c",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE15.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE15.host-trace.txt",
+      "hostTraceSha256": "05fc456bd462e9f5f37027b6f11ccc3e019723f6ec5c58f5d2c8c966f471db51"
+    },
+    {
+      "id": "BE16",
+      "name": "treat-as-local",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE16-treat-as-local\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion",
+        "-property:DotjProbeP=global"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE16-treat-as-local",
+      "exitCode": 0,
+      "seconds": 8.26028759998735,
+      "observedProperties": {
+        "DotjProbeP": "local",
+        "DotjProbeQ": "local",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE16.stdout",
+      "stdoutSha256": "deb718f4262d56c54bef4746320672e1ac11449f44032ac4795161c492dfd497",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE16.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE16.host-trace.txt",
+      "hostTraceSha256": "ec1fb10f2e0684c6687e067f807529d6fd178c1760f106f7dd0e9e3f1625b308"
+    },
+    {
+      "id": "BE17",
+      "name": "controlled-exists",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE17-controlled-exists\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE17-controlled-exists",
+      "exitCode": 0,
+      "seconds": 11.320483199961018,
+      "observedProperties": {
+        "DotjProbeP": "exists",
+        "DotjProbeQ": "safe",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE17.stdout",
+      "stdoutSha256": "9018af9bbd55508e59bd640bfe5e835eea26c75bc4384ebf7e0430554378136f",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE17.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE17.host-trace.txt",
+      "hostTraceSha256": "d01a313850ab1080cf3dfe2e7783d5e8710b4ac3aae41de14dcae048dc88b405"
+    },
+    {
+      "id": "BE18",
+      "name": "percent-escape",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE18-percent-escape\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE18-percent-escape",
+      "exitCode": 0,
+      "seconds": 10.351786100014579,
+      "observedProperties": {
+        "DotjProbeP": "a;b$c",
+        "DotjProbeQ": "literal%",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE18.stdout",
+      "stdoutSha256": "ca8b5b936fa7f73c63f661e84f87092a337ceda6062e960034232a6d5716f215",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE18.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE18.host-trace.txt",
+      "hostTraceSha256": "22ac53cf37196a57077f6a0d67e990310ca96b51bd96335eaf5a0af3c8ecd130"
+    },
+    {
+      "id": "BE19",
+      "name": "no-target-execution",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE19-no-target-execution\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE19-no-target-execution",
+      "exitCode": 0,
+      "seconds": 9.281385999987833,
+      "observedProperties": {
+        "DotjProbeP": "evaluated",
+        "DotjProbeQ": "safe",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE19.stdout",
+      "stdoutSha256": "94080dcc27652a14c310419cc4edd9eb2002944e43fa67fe5fe5c483aa2de20d",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE19.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE19.host-trace.txt",
+      "hostTraceSha256": "ab864743e9f303229f21e4be8ee62294e300df37354588c30900172825f6eb9c"
+    },
+    {
+      "id": "BE20",
+      "name": "false-import-group",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+        "exec",
+        "--runtimeconfig",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\runtimeconfig\\evaluation.runtimeconfig.json",
+        "--depsfile",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.deps.json",
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE20-false-import-group\\main.proj",
+        "-noAutoResponse",
+        "-nodeReuse:false",
+        "-nologo",
+        "-verbosity:quiet",
+        "-getProperty:DotjProbeP,DotjProbeQ,MSBuildRuntimeType,MSBuildVersion"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE20-false-import-group",
+      "exitCode": 0,
+      "seconds": 9.736175799975172,
+      "observedProperties": {
+        "DotjProbeP": "group-skipped",
+        "DotjProbeQ": "tail",
+        "MSBuildRuntimeType": "Core",
+        "MSBuildVersion": "18.9.11"
+      },
+      "errorCodes": [],
+      "outputParseError": null,
+      "matchesSourceHypothesis": true,
+      "sentinelAbsent": true,
+      "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE20.stdout",
+      "stdoutSha256": "72e73a030e326003af419a5ed3e669f2c0afb9016c999c0a61daad8c0a278224",
+      "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE20.stderr",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hostTracePath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\logs\\BE20.host-trace.txt",
+      "hostTraceSha256": "b9da9c0fcec103ad155ec51524026c88ca07aee756152ba428cf3ead6d4e4817"
+    }
+  ],
+  "normalization": {
+    "propertyValues": "none",
+    "BE19": "Replace exactly one original fixture-root prefix with private runtime fixture-root prefix",
+    "MSB4019": "Compare code and missing path relative to fixture root; not message/line/exception ABI",
+    "excludedProducerProperties": [
+      "MSBuildRuntimeType",
+      "MSBuildVersion"
+    ]
+  },
+  "acceptedTasksAdded": 0,
+  "productQualification": false
+}
