@@ -59,7 +59,7 @@ public final class FieldAttributes implements IFormattable, IComparable, IConver
     }
 
     public static FieldAttributes FromInt32(int value) {
-        for (FieldAttributes candidate : named) if (candidate.value == value) return candidate;
+        for (FieldAttributes candidate : named) if (candidate.value == value) return new FieldAttributes(candidate.name, value);
         return new FieldAttributes(null, value);
     }
 
