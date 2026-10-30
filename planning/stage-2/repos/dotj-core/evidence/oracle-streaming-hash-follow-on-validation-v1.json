@@ -889,13 +889,33 @@
         }
       ],
       "fullCanonicalGateRequired": 505
+    },
+    {
+      "batch": 2491,
+      "path": "tools/oracle/dotj-core/verify-normalization-form-field-metadata-identity.py",
+      "originalSha256": "9dfe7823b393decd8c3061b9c77c490889abf2a3add3c80d0504ba2e2a2b7fd8",
+      "sha256": "8278b65ac4cb61aab8b0e81a2cfda47d979676aa2d22f95d85e199bc2c9f2be8",
+      "sourceBaselineCommit": "e9f97eb328709b72726b2462feca96753764f743",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 506
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2490,
-  "newPreparedVerifiersMigrated": 44,
-  "currentAndNewVerifiersMigrated": 232,
-  "futurePreparedVerifiersRemaining": 10,
+  "appliedThroughBatch": 2491,
+  "newPreparedVerifiersMigrated": 45,
+  "currentAndNewVerifiersMigrated": 233,
+  "futurePreparedVerifiersRemaining": 9,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
