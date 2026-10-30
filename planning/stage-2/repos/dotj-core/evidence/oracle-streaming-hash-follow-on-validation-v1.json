@@ -789,13 +789,33 @@
         }
       ],
       "fullCanonicalGateRequired": 500
+    },
+    {
+      "batch": 2486,
+      "path": "tools/oracle/dotj-core/verify-calling-conventions-field-inventory.py",
+      "originalSha256": "a1f6836a4e628f47add8c132d9bc5aa86251a45869708c9c2f789bfce4c92254",
+      "sha256": "ce2c6716b7901f3895f39bbeb76d6e1b31417c31713dc337ac1dbdb76e332a86",
+      "sourceBaselineCommit": "9f6b28655adf5bafa3be747b7d618badbc1b9c24",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 501
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2485,
-  "newPreparedVerifiersMigrated": 39,
-  "currentAndNewVerifiersMigrated": 227,
-  "futurePreparedVerifiersRemaining": 15,
+  "appliedThroughBatch": 2486,
+  "newPreparedVerifiersMigrated": 40,
+  "currentAndNewVerifiersMigrated": 228,
+  "futurePreparedVerifiersRemaining": 14,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
