@@ -609,13 +609,33 @@
         }
       ],
       "fullCanonicalGateRequired": 491
+    },
+    {
+      "batch": 2477,
+      "path": "tools/oracle/dotj-core/verify-member-types-and-shaped-field-filters.py",
+      "originalSha256": "f8bb13fbf77e1ee8389a65da641af6e7654b26672b192db04a3020e5dcdd8bbb",
+      "sha256": "520861277dfda2ebd1d350c69349ccde12afa212e4efcdec4357f2dfaf3d9fb8",
+      "sourceBaselineCommit": "a6d211e92e29596e74737b5558530d8aa1eacb57",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 492
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2476,
-  "newPreparedVerifiersMigrated": 30,
-  "currentAndNewVerifiersMigrated": 218,
-  "futurePreparedVerifiersRemaining": 24,
+  "appliedThroughBatch": 2477,
+  "newPreparedVerifiersMigrated": 31,
+  "currentAndNewVerifiersMigrated": 219,
+  "futurePreparedVerifiersRemaining": 23,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
