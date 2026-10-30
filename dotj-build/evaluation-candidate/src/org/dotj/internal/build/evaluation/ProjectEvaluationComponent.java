@@ -19,23 +19,47 @@ final class ProjectEvaluationComponent {
         public final String code;
         ProfileRejected(String code, String message) { super(message); this.code = code; }
     }
+    enum ImportProfile { DEFAULT, RECORD_DUPLICATES, REJECT_CIRCULAR }
+    enum DiagnosticKind { WARNING, ERROR }
+    enum ContextKind { ROOT, PREVIOUS, CIRCULAR, MISSING }
+    enum FailureReason { MISSING_IMPORT, CIRCULAR_IMPORT }
     public static final class EvaluationFailure extends IOException {
+        public final FailureReason reason;
         public final String referenceCode;
         public final Path project;
+        public final Path importedProject;
         public final Path missingImport;
+        public final WarningPosition current;
+        public final List<DuplicateImport> diagnostics;
         EvaluationFailure(Path project, Path missing) {
-            super("Declared local import does not exist: " + missing);
-            referenceCode = "MSB4019"; this.project = project; missingImport = missing;
+            this(FailureReason.MISSING_IMPORT, "MSB4019", project, missing,
+                 new WarningPosition(0,0,0,0), List.of());
+        }
+        EvaluationFailure(FailureReason reason, String code, Path project, Path imported,
+                          WarningPosition current, List<DuplicateImport> diagnostics) {
+            super((reason == FailureReason.MISSING_IMPORT ? "Declared local import does not exist: " : "Circular local import: ") + imported);
+            this.reason = reason; referenceCode = code; this.project = project; importedProject = imported;
+            missingImport = reason == FailureReason.MISSING_IMPORT ? imported : null;
+            this.current = current; this.diagnostics = List.copyOf(diagnostics);
         }
     }
     private record WarningPosition(int line, int column, int endLine, int endColumn) { }
     private record ImportSite(Path owner, int line, int column) { }
-    // Historical private notice name. Root self-imports have no previous import site;
-    // rootContext is the observed root path, not a fabricated cycle-chain API.
+    record ImportEdge(Path owner, Path target, int line, int column) { }
+    // Historical private notice name. Circular contexts carry only owner/target/current;
+    // rootContext is a root path, and neither context invents previous sites or chains.
     public record DuplicateImport(String referenceCode, Path owner, Path importedProject,
-                                  WarningPosition current, ImportSite previous, Path rootContext) { }
-    public record Result(Map<String, String> escapedProperties, List<Path> evaluatedFiles, List<DuplicateImport> duplicateImports) {
-        public Result { escapedProperties = Map.copyOf(escapedProperties); evaluatedFiles = List.copyOf(evaluatedFiles); duplicateImports = List.copyOf(duplicateImports); }
+                                  WarningPosition current, ImportSite previous, Path rootContext,
+                                  DiagnosticKind kind, ContextKind contextKind) { }
+    public record Result(Map<String, String> escapedProperties, List<Path> evaluatedFiles,
+                         List<DuplicateImport> duplicateImports, List<ImportEdge> imports,
+                         List<ImportEdge> importsIncludingDuplicates) {
+        public Result {
+            escapedProperties = Map.copyOf(escapedProperties); evaluatedFiles = List.copyOf(evaluatedFiles);
+            duplicateImports = List.copyOf(duplicateImports); imports = List.copyOf(imports);
+            // Null explicitly means unavailable for this profile; an available empty list stays empty.
+            if (importsIncludingDuplicates != null) importsIncludingDuplicates = List.copyOf(importsIncludingDuplicates);
+        }
         public String property(String name) { return unescape(escapedProperties.getOrDefault(key(name), "")); }
     }
     private static final Pattern NAME = Pattern.compile("[A-Za-z_][A-Za-z0-9_]*");
@@ -71,12 +95,20 @@ final class ProjectEvaluationComponent {
         return result.toString();
     }
     public static Result evaluate(Path project, Path sandbox, Map<String,String> globals) throws IOException {
-        State state = new State(sandbox, globals);
+        return evaluate(project, sandbox, globals, ImportProfile.DEFAULT);
+    }
+    static Result evaluate(Path project, Path sandbox, Map<String,String> globals, ImportProfile profile) throws IOException {
+        if (profile == null) throw reject("IMPORT_PROFILE", "An explicit supported import profile is required");
+        State state = new State(sandbox, globals, profile);
         state.read(project.toAbsolutePath().normalize(), true);
-        return new Result(state.properties, state.files, state.duplicates);
+        return new Result(state.properties, state.files, state.duplicates, state.imports,
+                          profile == ImportProfile.RECORD_DUPLICATES ? state.recordedImports : null);
     }
     private static final class State {
         final Path sandbox;
+        final ImportProfile profile;
+        final List<ImportEdge> imports = new ArrayList<>();
+        final List<ImportEdge> recordedImports = new ArrayList<>();
         final LinkedHashMap<String,String> properties = new LinkedHashMap<>();
         final Set<String> globalNames = new HashSet<>();
         final Set<String> localOverrides = new HashSet<>();
@@ -85,7 +117,8 @@ final class ProjectEvaluationComponent {
         final List<DuplicateImport> duplicates = new ArrayList<>();
         final Map<Element,ImportSite> sourceSites = new IdentityHashMap<>();
         final Map<Path,ImportSite> firstImports = new HashMap<>();
-        State(Path sandbox, Map<String,String> globals) throws IOException {
+        State(Path sandbox, Map<String,String> globals, ImportProfile profile) throws IOException {
+            this.profile = profile;
             this.sandbox = sandbox.toRealPath();
             for (var entry : globals.entrySet()) {
                 String name = key(entry.getKey());
@@ -235,21 +268,54 @@ final class ProjectEvaluationComponent {
             if(!elements(element).isEmpty()) throw reject("IMPORT_CHILD", "Import children not supported");
             if(!condition(element.getAttribute("Condition"),owner))return;
             Path path=relative(owner,element.getAttribute("Project"));
-            if(!Files.exists(path))throw new EvaluationFailure(owner,path);
-            // Conditions and sandbox resolution happen before once-only identity checks.
-            // Default warns/ignores root re-imports before its duplicate-import check;
-            // non-root active ancestors follow the ordinary once-only duplicate policy.
-            if (seen.contains(path)) {
-                boolean rootImport = path.equals(files.getFirst());
-                ImportSite current = sourceSites.get(element), previous = rootImport ? null : firstImports.get(path);
-                if (current == null || (!rootImport && previous == null)) throw reject("XML_SOURCE_INDEX", "Missing import source identity");
-                // Actual selected native warnings report 0/0 for unavailable end coordinates.
-                duplicates.add(new DuplicateImport(rootImport ? "MSB4210" : "MSB4011", owner, path,
-                    new WarningPosition(current.line(),current.column(),0,0),previous,rootImport ? path : null));
+            ImportSite current = sourceSites.get(element);
+            if (current == null) throw reject("XML_SOURCE_INDEX", "Missing import source identity");
+            // All selected same-profile native end fields were observed as 0/0.
+            WarningPosition position = new WarningPosition(current.line(),current.column(),0,0);
+            if (!Files.exists(path)) {
+                duplicates.add(new DuplicateImport("MSB4019",owner,path,position,null,null,
+                    DiagnosticKind.ERROR,ContextKind.MISSING));
+                throw new EvaluationFailure(FailureReason.MISSING_IMPORT,"MSB4019",owner,path,position,duplicates);
+            }
+            // Root self-import precedes both flagged policies in the pinned evaluator.
+            if (path.equals(files.getFirst())) {
+                duplicates.add(new DuplicateImport("MSB4210",owner,path,position,null,path,
+                    DiagnosticKind.WARNING,ContextKind.ROOT));
                 return;
             }
-            firstImports.putIfAbsent(path,sourceSites.get(element));
+            if (profile != ImportProfile.DEFAULT && introducesCircularity(path,owner)) {
+                duplicates.add(new DuplicateImport(null,owner,path,position,null,null,
+                    DiagnosticKind.WARNING,ContextKind.CIRCULAR));
+                if (profile == ImportProfile.REJECT_CIRCULAR) {
+                    duplicates.add(new DuplicateImport(null,owner,path,position,null,null,
+                        DiagnosticKind.ERROR,ContextKind.CIRCULAR));
+                    throw new EvaluationFailure(FailureReason.CIRCULAR_IMPORT,null,owner,path,position,duplicates);
+                }
+                return;
+            }
+            ImportEdge edge = new ImportEdge(owner,path,current.line(),current.column());
+            if (seen.contains(path)) {
+                ImportSite previous = firstImports.get(path);
+                if (previous == null) throw reject("XML_SOURCE_INDEX", "Missing previous import source identity");
+                duplicates.add(new DuplicateImport("MSB4011",owner,path,position,previous,null,
+                    DiagnosticKind.WARNING,ContextKind.PREVIOUS));
+                if (profile == ImportProfile.RECORD_DUPLICATES) recordedImports.add(edge);
+                return;
+            }
+            firstImports.put(path,current);
+            imports.add(edge);
+            if (profile == ImportProfile.RECORD_DUPLICATES) recordedImports.add(edge);
             read(path,false);
+        }
+        boolean introducesCircularity(Path target, Path owner) {
+            // Walk first-import containing-project ancestry, as the pinned evaluator does.
+            // A completed shared import is not an ancestor merely because it was seen.
+            for (Path ancestor = owner; ancestor != null;) {
+                if (target.equals(ancestor)) return true;
+                ImportSite first = firstImports.get(ancestor);
+                ancestor = first == null ? null : first.owner();
+            }
+            return false;
         }
         String expand(String value) {
             verifyScalar(value);StringBuilder result=new StringBuilder();int cursor=0;
