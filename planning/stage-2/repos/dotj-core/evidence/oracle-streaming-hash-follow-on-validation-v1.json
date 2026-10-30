@@ -929,13 +929,33 @@
         }
       ],
       "fullCanonicalGateRequired": 507
+    },
+    {
+      "batch": 2493,
+      "path": "tools/oracle/dotj-core/verify-digit-shapes-field-metadata-identity.py",
+      "originalSha256": "17a2954788ab4c0a8bf63c95a6dbe13b20cc03ccad7c284663848ab84fa6a0e1",
+      "sha256": "f96a40e2d9b751a3a87092cb400a40b5911f28c58948947a4a6d121b991d72e5",
+      "sourceBaselineCommit": "2c0b743d78cad5a28d7526ffadb5b2498c19d368",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 508
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2492,
-  "newPreparedVerifiersMigrated": 46,
-  "currentAndNewVerifiersMigrated": 234,
-  "futurePreparedVerifiersRemaining": 8,
+  "appliedThroughBatch": 2493,
+  "newPreparedVerifiersMigrated": 47,
+  "currentAndNewVerifiersMigrated": 235,
+  "futurePreparedVerifiersRemaining": 7,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
