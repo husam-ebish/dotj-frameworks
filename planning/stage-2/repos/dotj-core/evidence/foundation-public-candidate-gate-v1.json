@@ -13,7 +13,7 @@
         "bind-foundation-file-map.py"
       ],
       "workers": 1,
-      "elapsedSeconds": 137.359
+      "elapsedSeconds": 113.352
     },
     {
       "name": "independent",
@@ -481,10 +481,11 @@
         "verify-binding-flags-and-shaped-field-filters.py",
         "verify-member-types-field-inventory.py",
         "verify-member-types-field-metadata-identity.py",
+        "verify-member-types-and-shaped-field-filters.py",
         "verify-enum-receiver.py"
       ],
       "workers": 1,
-      "elapsedSeconds": 2988.529
+      "elapsedSeconds": 2557.257
     },
     {
       "name": "live",
@@ -495,7 +496,7 @@
         "verify-datetime-timeonly-offset.py"
       ],
       "workers": 1,
-      "elapsedSeconds": 62.996
+      "elapsedSeconds": 59.762
     },
     {
       "name": "audits",
@@ -519,7 +520,7 @@
         "verify-differential-oracle-provenance.py"
       ],
       "workers": 1,
-      "elapsedSeconds": 316.731
+      "elapsedSeconds": 277.813
     }
   ],
   "checks": [
@@ -996,6 +997,7 @@
     "verify-binding-flags-and-shaped-field-filters.py",
     "verify-member-types-field-inventory.py",
     "verify-member-types-field-metadata-identity.py",
+    "verify-member-types-and-shaped-field-filters.py",
     "verify-enum-receiver.py",
     "verify-idisposable-file-map.py",
     "verify-idisposable-distribution.py",
@@ -1679,6 +1681,8 @@
     "member-types-field-inventory-differential-v1.json": "d8885806c0f5ea8fce48b5b44c4a78b2a49e39964062855d9d5f4a6158753ad3",
     "member-types-field-metadata-identity-contract-v10.0.12.json": "5d0761d316a3b1e7f094ee64f738d837fc8ca7363dbfed873d305be7d8b6d447",
     "member-types-field-metadata-identity-differential-v1.json": "03fc0063f1abf02aae4643789518d15f116a813058ad8bc66ea774e466fbbdaa",
+    "member-types-and-shaped-field-filters-contract-v10.0.12.json": "2b0c58aa09d57f100a6c61a2b45aa4addda23fd46da6b1c2e99d4f1ec11fa78f",
+    "member-types-and-shaped-field-filters-differential-v1.json": "8d8946e370f8a661a9eb4d85d4663401493c6760a06ab08a98e1f871844fae04",
     "unicode-encoder-replacement-convert-plan-v1.json": "2ab0842751c411ca8f7713c8d3452b12edc74bf267a5f1dd4e41f78b4e7d7cd4",
     "unicode-replacement-edge-plan-v1.json": "16eb6e617edceaa36efe709e1125b9eac1f331d5be758a3d3608c938f7437c5f",
     "unicode-decoder-convert-plan-v1.json": "998e84b0b87ef3bce1e0320e9b9166d8f42bdb1cded79c9d08be93cb56f91d45",
@@ -1725,8 +1729,8 @@
     "timespan-general-format-differential-v1.json": "2ceb0fee8ad538526c5f4bd2e70dedbf7ca9a9fb0d83a9962318e2544e4371be",
     "timespan-array-exact-contract-v10.0.12.json": "fd9743ed9473520403c5b17be0e6dcb8f8407942ac6f3c36d690609ed10ba440",
     "timespan-array-exact-differential-v1.json": "1cd466583efd4e5d5201e12dca325f1d2a046b2accbed314d3f5fe7b216eccf0",
-    "datetime-clock-contract-v10.0.12.json": "945dd70c0f7b56a7cb81fa3e0e28baacdfacbbcd5ee4592a73ffffa17bcf38f4",
-    "clock-envelope-contract-v10.0.12.json": "040ede6dd9875a0bf5f3b1106dae9884b857065d075cd4bca309c20393510ac3",
+    "datetime-clock-contract-v10.0.12.json": "01d7ffa65276f809fac5f4e91a2eec519a8df18ec080835f799e70f3dd633bbe",
+    "clock-envelope-contract-v10.0.12.json": "1dba5a06256e0c3ab11b74e0db35b89090beeda8fa424d34fc3bb2542c27497d",
     "datetime-dst-contract-v10.0.12.json": "e0e704cfa1d81d20bf414ebe696f7046164f562c6cc1ba9d3da2c5ae1fc9eea8",
     "datetime-dst-differential-v1.json": "123bf11b29f189c00c4a0cd357b076bb911646a482a5f4d5cb1305fb834397e3",
     "datetime-filetime-contract-v10.0.12.json": "0da7282cbf221f73ab9649e648909fc02630e16c5cc93690c3f2df1ff93547c1",
@@ -1735,8 +1739,8 @@
     "datetime-binary-differential-v1.json": "d708c2c348a7688727cd93fd26d35a4526c93703e2a049b63692fba8a37439f2",
     "datetime-saturation-contract-v10.0.12.json": "9f85347b1a2af1e065b30df906c40e9bfac1aff2d0161bfd445d9c45c51d5a81",
     "datetime-saturation-differential-v1.json": "4cded588c92f58a704dc5063ead0ef6494c20bbc0fdd3be221dc3e746231516d",
-    "stopwatch-contract-v10.0.12.json": "0c0e6207c0bbb3d81c1efe762a36346c686115ef888d4e290608aeb246f3e276",
-    "stopwatch-differential-v1.json": "2d00fbf019dbec6a539082daaaca8e0e41a9e77ba9810fc8c63b42a2b36d606e",
+    "stopwatch-contract-v10.0.12.json": "b5dcd0e4cf5d928541ddba9117993599eaa63fd4762fab5e56379fd93ea36b46",
+    "stopwatch-differential-v1.json": "b588b9f25c2d165138f5291d6b0fb1dac83a103c97a79d24a026ad6cb15fea34",
     "stopwatch-type-contract-v10.0.12.json": "e6bbfbc7e97a79f8f32374f34ebc2b65e0812b38ce1c5167b63003fab92b44ca",
     "stopwatch-type-differential-v1.json": "1f402d8826d6416d4e37dccb8fd9846a971394dff7dfc3029ec6a274857f06b6",
     "array-shape-contract-v10.0.12.json": "d7587c83fb2dcfbc7597a9c6303f680d5852173b5d1cd5e88d26c319a411f276",
@@ -1748,8 +1752,8 @@
     "enum-receiver-contract-v10.0.12.json": "bc781cca84ff560a5ddc67dab975cb2b17a65badb34d7d1637728db6265fb7d6",
     "enum-receiver-differential-v1.json": "b718627f0f1bb70eeb186215b3c55f89172cc085948e0662fd866c03212d0850",
     "decimal-target-conversion-contract-v10.0.12.json": "feee1fbf0a8fbab4fe43bd8e3fd60816a6dc66f1f5d012279ce75e61d650e0c8",
-    "datetime-timeonly-offset-contract-v10.0.12.json": "1d5c939805ca621de3afe88383b20332f1717db03f8b8320cda18938643e52cc",
-    "datetime-timeonly-offset-differential-v1.json": "1f648ef2776544b546247897613dd4a49479914f4a78b3a650b3419dcaec5317",
+    "datetime-timeonly-offset-contract-v10.0.12.json": "068376bfae92cc84696f64ba3de58c61eeb3e831aa9f077872ca7104e1525e05",
+    "datetime-timeonly-offset-differential-v1.json": "2644ecb4d05127f322f9d862fd549811185ef8f0ef6136b031c8e03b3df94c1c",
     "uint32-utf8-contract-v10.0.12.json": "af1106138e804b6d58949abca56530583e6fbc7ec1e308ba17288b874c5216ce",
     "uint32-utf8-differential-v1.json": "4611192e2a2780f739af280faf2f382a7db2b4e8f82c462c4ba41964573efca9",
     "uint32-span-contract-v10.0.12.json": "08bb9664b9e6947f902cb35181da84ff74ec963e0735d0cebeca78fe71f51111",
@@ -1945,7 +1949,7 @@
     "foundation-notice-review-queue-v1.json": "9e5b0f3807d4ca6b5189bc4e07215b5c9f5d909dade23e98bbc4ee4d1d06978f",
     "throw-site-upstream-adjacency-v1.json": "191e95acbdffdec1097add4b8de2bf9be024b24fc227032b87661f0ec941da79",
     "foundation-e01-review-packet-v1.json": "742292bf53029ee5956bce58de74ba2384f7974144a791f5501135f3852c9fd9",
-    "differential-oracle-provenance-v1.json": "f559a74a2a26480387f7cf0749371220707ec76d99a51f464c28e1630c87ff5a"
+    "differential-oracle-provenance-v1.json": "662a73901ab08add2c570d298f285122cf35a1520a5c47a4ac9937b8eab44005"
   },
   "productLicense": "MIT",
   "openE01DecisionCount": 3,
