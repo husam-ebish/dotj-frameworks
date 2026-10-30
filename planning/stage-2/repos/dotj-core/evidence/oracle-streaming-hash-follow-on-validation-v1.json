@@ -589,13 +589,33 @@
         }
       ],
       "fullCanonicalGateRequired": 490
+    },
+    {
+      "batch": 2476,
+      "path": "tools/oracle/dotj-core/verify-member-types-field-metadata-identity.py",
+      "originalSha256": "d4785463de7ef645363af27d67f25254826fc51e7a16bd3712209f5ea916a0db",
+      "sha256": "606056a031321d9a9cbbde669e68be7e1499d3e57346da0f334a4070abd8d4eb",
+      "sourceBaselineCommit": "323bf85b816981fe51652c890dc75320103e02ef",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 491
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2475,
-  "newPreparedVerifiersMigrated": 29,
-  "currentAndNewVerifiersMigrated": 217,
-  "futurePreparedVerifiersRemaining": 25,
+  "appliedThroughBatch": 2476,
+  "newPreparedVerifiersMigrated": 30,
+  "currentAndNewVerifiersMigrated": 218,
+  "futurePreparedVerifiersRemaining": 24,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
