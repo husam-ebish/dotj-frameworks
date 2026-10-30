@@ -29,7 +29,7 @@ public final class TimeSpanStyles implements IFormattable, IComparable, IConvert
     }
 
     public static TimeSpanStyles FromInt32(int value) {
-        return value == 0 ? None : value == 1 ? AssumeNegative : new TimeSpanStyles(value);
+        return new TimeSpanStyles(value);
     }
 
     public int get_Value() {
