@@ -43,7 +43,7 @@ public final class CallingConventions implements IFormattable, IComparable, ICon
     }
 
     public static CallingConventions FromInt32(int value) {
-        for (CallingConventions candidate : named) if (candidate.value == value) return candidate;
+        for (CallingConventions candidate : named) if (candidate.value == value) return new CallingConventions(candidate.name, value);
         return new CallingConventions(null, value);
     }
 
