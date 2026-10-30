@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "scope": "Separate interpretation/observer-role clarification only; no retained metadata row changed, inflated or replaced",
+  "retainedTotals": {
+    "callables": 47,
+    "properties": 2,
+    "directIdentities": 24
+  },
+  "metadataEvidence": {
+    "path": "planning/stage-2/repos/dotj-build/evidence/compiled-lifecycle-raw-v1.json",
+    "sha256": "3187a8e9de73bd701c4d9389ae24e86fb193a942ce7110ae700e4cb938f6ea1f"
+  },
+  "roles": [
+    {
+      "fullName": "System.Object",
+      "role": "Public base identity consumed by selected Project/ProjectCollection type contracts",
+      "reason": "Retained raw types[].baseType records already name System.Object. The original finite ledger profile inclusion describes the selected file action vocabulary; exclusion there is not permission to omit inherited exact-root compatibility.",
+      "source": "compiled-lifecycle-raw-v1.json: types[].baseType/directContracts",
+      "representation": "BLOCKED; shared-core root identity and recursive virtual/member closure unresolved",
+      "existingRetainedIdentity": "System.Object, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e"
+    },
+    {
+      "fullName": "System.Void",
+      "role": "Public return contract consumed by selected UnloadProject(Project) and Dispose() methods",
+      "reason": "Retained method return metadata already names System.Void; exact .j lowering is an independent obligation even though no explicit Void input action is invoked.",
+      "source": "compiled-lifecycle-raw-v1.json: ProjectCollection UnloadProject/Dispose return records/directContracts",
+      "representation": "BLOCKED; native void observations serialized as producer-private explicit JSON null do not establish a public Java/core Void representation",
+      "existingRetainedIdentity": "System.Void, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e"
+    },
+    {
+      "fullName": "System.Boolean",
+      "role": "Producer-private ReferenceEquals/result flags; retained Boolean metadata also exists in excluded overloads/protected Dispose(bool)",
+      "reason": "Observer booleans distinguish reference identity and output schemas; they do not promote a new public Boolean-returning API or qualify excluded overloads.",
+      "source": "CaptureLifecycleBehaviorV1.cs private Observe/ReferenceEquals calls; retained directContracts",
+      "representation": "BLOCKED exact public CLR/.j identity; typed JSON Boolean is only evidence transport",
+      "existingRetainedIdentity": "System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e"
+    },
+    {
+      "fullName": "System.Int32",
+      "role": "Producer-private HRESULT/file-coordinate transport; retained Int32 metadata also exists in excluded collection constructors",
+      "reason": "Captured HRESULT and coordinates are observation fields, not newly promoted members or a public replacement exception API.",
+      "source": "CaptureLifecycleBehaviorV1.cs private exception serialization; retained directContracts",
+      "representation": "BLOCKED exact public CLR/.j identity; typed JSON integer is only evidence transport",
+      "existingRetainedIdentity": "System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e"
+    }
+  ],
+  "nativeOutcomes": "UNOBSERVED",
+  "publicPromotion": "BLOCKED",
+  "acceptedTasksAdded": 0
+}

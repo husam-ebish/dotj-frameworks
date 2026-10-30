@@ -1,0 +1,480 @@
+{
+  "schemaVersion": 1,
+  "scenarioOrigin": "Independent designed oracle scenarios; not upstream test IDs",
+  "expectedOutcomes": "UNOBSERVED",
+  "normalization": {
+    "only": "Replace exact declared fixture-root substring in string values with <FIXTURE_ROOT>; no other changes"
+  },
+  "scenarios": [
+    {
+      "id": "LCB01",
+      "actions": [
+        {
+          "id": "collection",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "load1",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "load2",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "same",
+          "valueKind": "bool",
+          "cleanup": false
+        },
+        {
+          "id": "read",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "constructor",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "unload1",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "unloadConstructor",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "dispose",
+          "valueKind": "null",
+          "cleanup": true
+        }
+      ]
+    },
+    {
+      "id": "LCB02",
+      "actions": [
+        {
+          "id": "collection",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "callerBefore1",
+          "valueKind": "dictionary",
+          "cleanup": false
+        },
+        {
+          "id": "load1",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "callerAfter1",
+          "valueKind": "dictionary",
+          "cleanup": false
+        },
+        {
+          "id": "callerBefore2",
+          "valueKind": "dictionary",
+          "cleanup": false
+        },
+        {
+          "id": "loadEquivalent",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "callerAfter2",
+          "valueKind": "dictionary",
+          "cleanup": false
+        },
+        {
+          "id": "sameEquivalent",
+          "valueKind": "bool",
+          "cleanup": false
+        },
+        {
+          "id": "callerBefore3",
+          "valueKind": "dictionary",
+          "cleanup": false
+        },
+        {
+          "id": "loadDifferent",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "callerAfter3",
+          "valueKind": "dictionary",
+          "cleanup": false
+        },
+        {
+          "id": "sameDifferent",
+          "valueKind": "bool",
+          "cleanup": false
+        },
+        {
+          "id": "readFirst",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "readDifferent",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "readCollectionDefault",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "unload1",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "unloadDifferent",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "dispose",
+          "valueKind": "null",
+          "cleanup": true
+        }
+      ]
+    },
+    {
+      "id": "LCB03",
+      "actions": [
+        {
+          "id": "collection",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "snapshot",
+          "valueKind": "dictionary",
+          "cleanup": false
+        },
+        {
+          "id": "mutateCaller",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "snapshotAfterCallerMutation",
+          "valueKind": "dictionary",
+          "cleanup": false
+        },
+        {
+          "id": "load",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "read",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "mutateSnapshot",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "snapshotAfterAttempt",
+          "valueKind": "dictionary",
+          "cleanup": false
+        },
+        {
+          "id": "unload",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "dispose",
+          "valueKind": "null",
+          "cleanup": true
+        }
+      ]
+    },
+    {
+      "id": "LCB04",
+      "actions": [
+        {
+          "id": "collection1",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "collection2",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "load1",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "load2",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "same",
+          "valueKind": "bool",
+          "cleanup": false
+        },
+        {
+          "id": "read1",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "read2",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "unload1",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "readOther",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "unload2",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "dispose1",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "dispose2",
+          "valueKind": "null",
+          "cleanup": true
+        }
+      ]
+    },
+    {
+      "id": "LCB05",
+      "actions": [
+        {
+          "id": "collection",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "load",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "unload",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "readAfterUnload",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "secondUnload",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "reload",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "sameReload",
+          "valueKind": "bool",
+          "cleanup": false
+        },
+        {
+          "id": "readReload",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "unloadReload",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "dispose",
+          "valueKind": "null",
+          "cleanup": true
+        }
+      ]
+    },
+    {
+      "id": "LCB06",
+      "actions": [
+        {
+          "id": "collection",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "missing",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "malformed",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "loadValid",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "reloadValid",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "sameRecovery",
+          "valueKind": "bool",
+          "cleanup": false
+        },
+        {
+          "id": "readRecovery",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "unloadValid",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "dispose",
+          "valueKind": "null",
+          "cleanup": true
+        }
+      ]
+    },
+    {
+      "id": "LCB07",
+      "actions": [
+        {
+          "id": "collection",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "load",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "dispose1",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "dispose2",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "retainedRead",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "reload",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "sameReload",
+          "valueKind": "bool",
+          "cleanup": false
+        },
+        {
+          "id": "unloadRetained",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "unloadReload",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "disposeFinally",
+          "valueKind": "null",
+          "cleanup": true
+        }
+      ]
+    },
+    {
+      "id": "LCB08",
+      "actions": [
+        {
+          "id": "implicitConstructor",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "globalCollection",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "globalLoad",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "sameGlobal",
+          "valueKind": "bool",
+          "cleanup": false
+        },
+        {
+          "id": "repeatConstructor",
+          "valueKind": "null",
+          "cleanup": false
+        },
+        {
+          "id": "read",
+          "valueKind": "string",
+          "cleanup": false
+        },
+        {
+          "id": "unloadOwned",
+          "valueKind": "null",
+          "cleanup": true
+        },
+        {
+          "id": "unloadOtherOwned",
+          "valueKind": "null",
+          "cleanup": true
+        }
+      ]
+    }
+  ]
+}

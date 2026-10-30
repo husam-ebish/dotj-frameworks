@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "success": {
+    "required": [
+      "id",
+      "cleanup",
+      "success",
+      "value"
+    ],
+    "success": "boolean true",
+    "value": "exact JSON type per plan, including explicit null"
+  },
+  "failure": {
+    "required": [
+      "id",
+      "cleanup",
+      "success",
+      "exception"
+    ],
+    "success": "boolean false",
+    "exception": {
+      "required": [
+        "type",
+        "hresult",
+        "message",
+        "diagnostic"
+      ],
+      "type": "string",
+      "hresult": "int (bool forbidden)",
+      "message": "string",
+      "diagnostic": "null OR exact InvalidProjectFileException fields code/file strings or null and line/column/endLine/endColumn int"
+    }
+  },
+  "omission": "Absent is distinct from explicit null; extra fields refused",
+  "comparison": "Type-strict ordered JSON before fixture-root-only normalization",
+  "nativeExpected": "UNOBSERVED"
+}

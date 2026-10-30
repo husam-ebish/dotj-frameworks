@@ -20,8 +20,16 @@ The [selected compiled lifecycle inventory](COMPILED-LIFECYCLE-INVENTORY.md)
 adds installed SDK 10.0.401 / MSBuild 18.9.11 metadata evidence for the twelve
 Project/ProjectCollection prerequisite anchors and their overload families.
 Its component pin is retained separately from the historical analysis revision
-above. This is bounded E02/N01 evidence; it does not close these tasks, qualify a
-public facade, or establish the Java/core representation and lifecycle semantics.
+above. The separate [lifecycle/representation qualification](LIFECYCLE-REPRESENTATION-QUALIFICATION.md)
+retains all 45 method/constructor records plus two separate accessors, two property
+descriptors and 24 direct identities. Every row has an explicit profile disposition
+and BLOCKED exact representation; nonpublic/internal records remain nonpublic.
+Eight independently designed file-based scenarios agree across two fresh native
+passes under the pinned installed profile. This establishes that finite reference
+contract, while broader lifecycle/configuration coverage, recursive dependency
+closure, actual Java/core/.j representations and the full N01 tasks remain OPEN.
+No public facade, paired compiled .j examples, task acceptance or numbered credit
+is supplied by this prerequisite evidence.
 
 1. `DJ-005-N01-T1`: Extract the complete semantic upstream public surface for the selected slice, preserving exact namespace/type/member spelling, casing, overloads, generic arity, parameter identities and property/event metadata.
 1. `DJ-005-N01-T2`: Map each symbol and concept to a faithful Java representation; move invented helper vocabulary behind the public facade; record Java language/JVM conflicts without silently renaming or changing behavior.

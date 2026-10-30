@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "profile": "SDK10.0.401/MSBuild18.9.11/.NET10.0.12 Default file lifecycle only",
+  "runtimeConfig": {
+    "runtimeOptions": {
+      "tfm": "net10.0",
+      "framework": {
+        "name": "Microsoft.NETCore.App",
+        "version": "10.0.12"
+      },
+      "rollForward": "Disable"
+    }
+  },
+  "compilerReferences": [
+    "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Runtime.dll",
+    "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Console.dll",
+    "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Collections.dll",
+    "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Linq.dll",
+    "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Text.Json.dll",
+    "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Runtime.InteropServices.dll",
+    "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Memory.dll",
+    "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.IO.FileSystem.dll",
+    "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Runtime.Extensions.dll",
+    "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Xml.ReaderWriter.dll",
+    "toolchains/dotnet/sdk/10.0.401/Microsoft.Build.dll",
+    "toolchains/dotnet/sdk/10.0.401/Microsoft.Build.Framework.dll"
+  ],
+  "inputs": [
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/dotnet.exe",
+      "sha256": "21a46f1e5235cf4e844b9de5429f0e198b9c97a41f0503a66442f1d639ca3ee6"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/sdk/10.0.401/Roslyn/bincore/csc.dll",
+      "sha256": "89c788f615634094cc441593d167d9fba9a9f049a5d1ddea87d4fde222d6f42c"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/sdk/10.0.401/MSBuild.deps.json",
+      "sha256": "621084fd13a3a6bfab914b94f34f7d5a0833ccc9746f5b2c60b99e79cc9b1a08"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/shared/Microsoft.NETCore.App/10.0.12/System.Private.CoreLib.dll",
+      "sha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678"
+    },
+    {
+      "base": "root",
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/Project.cs",
+      "sha256": "81f807974a5fe4c27f5b7de350d981f8413cc3d35d72ae0fde31ebe0d542ea50"
+    },
+    {
+      "base": "root",
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Definition/ProjectCollection.cs",
+      "sha256": "2f17ef69eb4ae718d0abeb38bd81d153964c8c89eef2b7e20c1fefd1b2ab2214"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Runtime.dll",
+      "sha256": "10ceaa9b398f512b46def6fd16fb5374c82ac03a7495859adbaaa70868fe70aa"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Console.dll",
+      "sha256": "783e5ea6d049218ec30316598654e031415f0d1ec6ce6932c2d1a9cbd97a77e0"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Collections.dll",
+      "sha256": "130fcdd915c3ff8d8279fefd9a198b784d37693f4c1e96d1f2cff3edc96b638d"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Linq.dll",
+      "sha256": "9cb73d57c035503bdc70fdc422dee5bf4f9de97b812cd0dcb379d652c6f91205"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Text.Json.dll",
+      "sha256": "4133a8597a10eeb99d56a962ff581db9fd3ac85506ee3a20a2d23119c73a4346"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Runtime.InteropServices.dll",
+      "sha256": "8ced47e6a2a717c459c3fa13f76a521b35917e123a9b1ee7ed1b5de13db80709"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Memory.dll",
+      "sha256": "d7e674a1feff0546c9932b0fcffa9d055976736342a4b1904f1f27894f3c0ed6"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.IO.FileSystem.dll",
+      "sha256": "c251f33b29382c47b773d907463edd9fe978a06e39efd5670ef3b3b1d4f8c2b7"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Runtime.Extensions.dll",
+      "sha256": "3d7b517d4fd89ee58c53e0f642cc9be42e7a8669b51a85e861dafe118067cbfd"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/sdk/10.0.401/Microsoft.Build.dll",
+      "sha256": "96896c3c1e0843ea5c4cc03baac8df3a61587e3742599b6b29f99dbd25595eff"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/sdk/10.0.401/Microsoft.Build.Framework.dll",
+      "sha256": "58a2da163e77baa35719982597f92384d8ae442479070df97b4747b1093f5a2f"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/lifecycle-behavior-v1/CaptureLifecycleBehaviorV1.cs",
+      "sha256": "63d48beea3a42811a872f887ae4581c97787eeaba292337de158025470c24f63"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/lifecycle-behavior-v1/capture.py",
+      "sha256": "aaf3911adbadc5da130648ef3b3da9f05b3a1c3ca7c52519410371173859012d"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/lifecycle-behavior-v1/fixtures/manifest-v1.json",
+      "sha256": "221b84560a7469046347f5150ce55841cdcb675a9689007904e09352ea8906ec"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/lifecycle-behavior-v1/fixtures/valid.proj",
+      "sha256": "b1d48f1a4f728272d42bdbb2f841fc515b666797eb4187fb1b727f613f6b17ac"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/lifecycle-behavior-v1/fixtures/malformed.proj",
+      "sha256": "54d074073eeafbe07dfec9a9c63d77642edb47097bd64ad58ffececa8363d14e"
+    },
+    {
+      "base": "repo",
+      "path": "planning/stage-2/repos/dotj-build/evidence/lifecycle-behavior-plan-v1.json",
+      "sha256": "f3b6010765822c3491ca18c0639b146adb127b55de58daba89075c6365157e44"
+    },
+    {
+      "base": "repo",
+      "path": "planning/stage-2/repos/dotj-build/evidence/lifecycle-behavior-schema-v1.json",
+      "sha256": "558fd3dd4b33267dce2760a656949b026f10d98124c52d96b508806d126cb4d9"
+    },
+    {
+      "base": "repo",
+      "path": "planning/stage-2/repos/dotj-build/evidence/compiled-lifecycle-raw-v1.json",
+      "sha256": "3187a8e9de73bd701c4d9389ae24e86fb193a942ce7110ae700e4cb938f6ea1f"
+    },
+    {
+      "base": "repo",
+      "path": "planning/stage-2/repos/dotj-build/evidence/compiled-lifecycle-mapping-v1.json",
+      "sha256": "9a2653865bee48021374f1529ab6460557dbfb8a2f04c2284d21083b05d7e45c"
+    },
+    {
+      "base": "repo",
+      "path": "planning/stage-2/repos/dotj-build/evidence/compiled-lifecycle-lock-v1.json",
+      "sha256": "32c20f0cded3d78d27150db65f4643244d775f7f2acccde7ba62cc6ba31f60a5"
+    },
+    {
+      "base": "repo",
+      "path": "planning/stage-2/repos/dotj-build/evidence/compiled-lifecycle-verification-v1.json",
+      "sha256": "0eedc82dffe082988df268964fc17176eb6546738be35a778b86ea8f4373582a"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/dotnet/packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0/System.Xml.ReaderWriter.dll",
+      "sha256": "942964d32f72ba10288593f212e3a52c4811b65ca4d5f1a3979c92d2d526aa4c"
+    },
+    {
+      "base": "repo",
+      "path": "dotj-build/evaluation-candidate/verify.py",
+      "sha256": "06f2801799fce596a4154080d5f44b69fde82c19871103ed4af26f74261c0dce"
+    }
+  ],
+  "assemblyPaths": {
+    "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+    "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+    "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll"
+  },
+  "eligibility": "Installed oracle provenance only; rights/release/standalone source build OPEN",
+  "resourceGuardReuse": {
+    "source": "dotj-build/evaluation-candidate/verify.py",
+    "sourceSha256": "06f2801799fce596a4154080d5f44b69fde82c19871103ed4af26f74261c0dce",
+    "functions": [
+      "wait_for_resources",
+      "defer_resources"
+    ],
+    "eligibilitySeconds": 120,
+    "queryCapSeconds": 20,
+    "targetPollSeconds": 5,
+    "physicalFloorKiB": 524288,
+    "virtualFloorKiB": 16777216,
+    "nativeExecutionSeconds": 30,
+    "cooperativeCaptureSeconds": 540,
+    "nativeCleanupReserveSeconds": 35,
+    "phaseAggregateCeilingSeconds": 600,
+    "historicalSourceUnchanged": true
+  }
+}
