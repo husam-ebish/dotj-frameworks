@@ -669,13 +669,33 @@
         }
       ],
       "fullCanonicalGateRequired": 494
+    },
+    {
+      "batch": 2480,
+      "path": "tools/oracle/dotj-core/verify-datetime-styles-field-inventory.py",
+      "originalSha256": "0f54372185504a5beb171474a4bd6a954d4bbbced53859c769907fd2e2aac4d4",
+      "sha256": "9d9fb73f85d4169ec2350a051620b83f551f1eadf2b94c731a256e8d0dee85de",
+      "sourceBaselineCommit": "d417f069d4ee6754bda11f7f1739037cef697452",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 495
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2479,
-  "newPreparedVerifiersMigrated": 33,
-  "currentAndNewVerifiersMigrated": 221,
-  "futurePreparedVerifiersRemaining": 21,
+  "appliedThroughBatch": 2480,
+  "newPreparedVerifiersMigrated": 34,
+  "currentAndNewVerifiersMigrated": 222,
+  "futurePreparedVerifiersRemaining": 20,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
