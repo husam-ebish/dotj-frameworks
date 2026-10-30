@@ -32,7 +32,7 @@ public final class DigitShapes implements IFormattable, IConvertible, IComparabl
     private final int value;
     private DigitShapes(int value) { this.value = value; }
     public static DigitShapes FromInt32(int value) {
-        return switch (value) { case 0 -> Context; case 1 -> None; case 2 -> NativeNational; default -> new DigitShapes(value); };
+        return new DigitShapes(value);
     }
     public int get_Value() { return this.value; }
     public String get_Name() { return switch (this.value) { case 0 -> "Context"; case 1 -> "None"; case 2 -> "NativeNational"; default -> Integer.toString(this.value); }; }

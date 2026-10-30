@@ -909,13 +909,33 @@
         }
       ],
       "fullCanonicalGateRequired": 506
+    },
+    {
+      "batch": 2492,
+      "path": "tools/oracle/dotj-core/verify-digit-shapes-field-inventory.py",
+      "originalSha256": "319f170c26b535047b8304a2e6e775d3f88a618ae20d18265fa066f806b233f6",
+      "sha256": "dee45d4264d9562fa2f07853d0e817a315219e899571fab83a8f7fb7e990d51c",
+      "sourceBaselineCommit": "fa5bbee3465471f25bac0213ac6d8a6ddc17092e",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 507
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2491,
-  "newPreparedVerifiersMigrated": 45,
-  "currentAndNewVerifiersMigrated": 233,
-  "futurePreparedVerifiersRemaining": 9,
+  "appliedThroughBatch": 2492,
+  "newPreparedVerifiersMigrated": 46,
+  "currentAndNewVerifiersMigrated": 234,
+  "futurePreparedVerifiersRemaining": 8,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
