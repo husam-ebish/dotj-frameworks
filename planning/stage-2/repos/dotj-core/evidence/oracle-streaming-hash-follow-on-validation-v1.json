@@ -1009,13 +1009,33 @@
         }
       ],
       "fullCanonicalGateRequired": 511
+    },
+    {
+      "batch": 2497,
+      "path": "tools/oracle/dotj-core/verify-owned-enum-modified-field-metadata.py",
+      "originalSha256": "17b37c57475cbbb4a510e363e9e77bd459864d0bb4b283e425a23b572a0b3cb9",
+      "sha256": "b8a78093022055abf53399533078275ea8b0c2482a64fc34cfca3cb312784e27",
+      "sourceBaselineCommit": "8720219bb4170f1bf41617a5fa6d823f78df010b",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 512
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2496,
-  "newPreparedVerifiersMigrated": 50,
-  "currentAndNewVerifiersMigrated": 238,
-  "futurePreparedVerifiersRemaining": 4,
+  "appliedThroughBatch": 2497,
+  "newPreparedVerifiersMigrated": 51,
+  "currentAndNewVerifiersMigrated": 239,
+  "futurePreparedVerifiersRemaining": 3,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
