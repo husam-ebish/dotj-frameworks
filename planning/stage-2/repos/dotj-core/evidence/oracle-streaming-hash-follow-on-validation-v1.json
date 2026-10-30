@@ -809,13 +809,33 @@
         }
       ],
       "fullCanonicalGateRequired": 501
+    },
+    {
+      "batch": 2487,
+      "path": "tools/oracle/dotj-core/verify-calling-conventions-field-metadata-identity.py",
+      "originalSha256": "5e74e403959aae7bd976fef7877dee336e4b9f5baaf732bbca26fec1fa9855ec",
+      "sha256": "82032080832368a7db54b1539c8dece9dfadd8d800228e87cef1104c8655e543",
+      "sourceBaselineCommit": "24143135543f97c50e4974755b3f5512c79c2d9b",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 502
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2486,
-  "newPreparedVerifiersMigrated": 40,
-  "currentAndNewVerifiersMigrated": 228,
-  "futurePreparedVerifiersRemaining": 14,
+  "appliedThroughBatch": 2487,
+  "newPreparedVerifiersMigrated": 41,
+  "currentAndNewVerifiersMigrated": 229,
+  "futurePreparedVerifiersRemaining": 13,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
