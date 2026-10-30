@@ -949,13 +949,33 @@
         }
       ],
       "fullCanonicalGateRequired": 508
+    },
+    {
+      "batch": 2494,
+      "path": "tools/oracle/dotj-core/verify-streaming-context-states-field-inventory.py",
+      "originalSha256": "120837c070348556383c84bacdb983c35ba461db6a457a957b8e3a721d8d1762",
+      "sha256": "9a30fc9bac76e4e6833d75c3153e0376be3166c7d1c0315acc85a2720c968b69",
+      "sourceBaselineCommit": "f435a53994c93caf46268678133264081b2067c1",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 509
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2493,
-  "newPreparedVerifiersMigrated": 47,
-  "currentAndNewVerifiersMigrated": 235,
-  "futurePreparedVerifiersRemaining": 7,
+  "appliedThroughBatch": 2494,
+  "newPreparedVerifiersMigrated": 48,
+  "currentAndNewVerifiersMigrated": 236,
+  "futurePreparedVerifiersRemaining": 6,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
