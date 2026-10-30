@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_NATIVE_IMPORT_PATH_WHITESPACE_COMPARISON",
+  "raw": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-path-whitespace-native-v2\\verification.json",
+    "sha256": "b303586f6246e3de7819eaf941c8696e88087d49bd5c139c53391bccf92cd080"
+  },
+  "normalization": "Exact fixture-root prefix only in path/message fields",
+  "captures": [
+    {
+      "runtime": ".NET 10.0.12",
+      "msbuildAssembly": "Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "profile": "Default",
+      "whiteSpaceCodePoints": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        32,
+        133,
+        160,
+        5760,
+        8192,
+        8193,
+        8194,
+        8195,
+        8196,
+        8197,
+        8198,
+        8199,
+        8200,
+        8201,
+        8202,
+        8232,
+        8233,
+        8239,
+        8287,
+        12288
+      ],
+      "rows": [
+        {
+          "id": "BW01-ascii-whitespace-only",
+          "globals": {
+            "ImportName": " \t\r\n"
+          },
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4020",
+            "file": "<fixtures>\\BW01-ascii-whitespace-only\\main.proj",
+            "line": 2,
+            "column": 3,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid.  <fixtures>\\BW01-ascii-whitespace-only\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4020",
+              "file": "<fixtures>\\BW01-ascii-whitespace-only\\main.proj",
+              "line": 2,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BW02-ascii-padded-path",
+          "globals": {
+            "ImportName": " \t\r\none.props \t\r\n"
+          },
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "selected",
+              "Q": " \t\r\none.props \t\r\n"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BW02-ascii-padded-path\\main.proj",
+                "project": "<fixtures>\\BW02-ascii-padded-path\\one.props",
+                "line": 2,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BW03-nbsp-whitespace-only",
+          "globals": {
+            "ImportName": "\u00a0"
+          },
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4020",
+            "file": "<fixtures>\\BW03-nbsp-whitespace-only\\main.proj",
+            "line": 2,
+            "column": 3,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid.  <fixtures>\\BW03-nbsp-whitespace-only\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4020",
+              "file": "<fixtures>\\BW03-nbsp-whitespace-only\\main.proj",
+              "line": 2,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BW04-nbsp-padded-path",
+          "globals": {
+            "ImportName": "\u00a0one.props\u00a0"
+          },
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "selected",
+              "Q": "\u00a0one.props\u00a0"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BW04-nbsp-padded-path\\main.proj",
+                "project": "<fixtures>\\BW04-nbsp-padded-path\\one.props",
+                "line": 2,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        }
+      ]
+    },
+    {
+      "runtime": ".NET 10.0.12",
+      "msbuildAssembly": "Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "profile": "Default",
+      "whiteSpaceCodePoints": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        32,
+        133,
+        160,
+        5760,
+        8192,
+        8193,
+        8194,
+        8195,
+        8196,
+        8197,
+        8198,
+        8199,
+        8200,
+        8201,
+        8202,
+        8232,
+        8233,
+        8239,
+        8287,
+        12288
+      ],
+      "rows": [
+        {
+          "id": "BW01-ascii-whitespace-only",
+          "globals": {
+            "ImportName": " \t\r\n"
+          },
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4020",
+            "file": "<fixtures>\\BW01-ascii-whitespace-only\\main.proj",
+            "line": 2,
+            "column": 3,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid.  <fixtures>\\BW01-ascii-whitespace-only\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4020",
+              "file": "<fixtures>\\BW01-ascii-whitespace-only\\main.proj",
+              "line": 2,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BW02-ascii-padded-path",
+          "globals": {
+            "ImportName": " \t\r\none.props \t\r\n"
+          },
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "selected",
+              "Q": " \t\r\none.props \t\r\n"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BW02-ascii-padded-path\\main.proj",
+                "project": "<fixtures>\\BW02-ascii-padded-path\\one.props",
+                "line": 2,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BW03-nbsp-whitespace-only",
+          "globals": {
+            "ImportName": "\u00a0"
+          },
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4020",
+            "file": "<fixtures>\\BW03-nbsp-whitespace-only\\main.proj",
+            "line": 2,
+            "column": 3,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid.  <fixtures>\\BW03-nbsp-whitespace-only\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4020",
+              "file": "<fixtures>\\BW03-nbsp-whitespace-only\\main.proj",
+              "line": 2,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "BW04-nbsp-padded-path",
+          "globals": {
+            "ImportName": "\u00a0one.props\u00a0"
+          },
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "selected",
+              "Q": "\u00a0one.props\u00a0"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\BW04-nbsp-padded-path\\main.proj",
+                "project": "<fixtures>\\BW04-nbsp-padded-path\\one.props",
+                "line": 2,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        }
+      ]
+    }
+  ]
+}

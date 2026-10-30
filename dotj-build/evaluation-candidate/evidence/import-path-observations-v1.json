@@ -1,0 +1,627 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_NATIVE_IMPORT_PATH_COMPARISON",
+  "raw": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-native-v1\\verification.json",
+    "sha256": "d6e2ae7be867529378e49fe7fbf5b2009e8929dc3def19eddbd3b9ab38384d74"
+  },
+  "normalization": "Exact fixture-root prefix only in path/message fields",
+  "captures": [
+    {
+      "runtime": ".NET 10.0.12",
+      "msbuildAssembly": "Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "profile": "Default",
+      "rows": [
+        {
+          "id": "NEG-dynamic-import",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "one.props",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\NEG-dynamic-import\\main.proj",
+                "project": "<fixtures>\\NEG-dynamic-import\\one.props",
+                "line": 1,
+                "column": 57
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "condition-before-path",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "selected",
+              "Q": "condition"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\condition-before-path\\main.proj",
+                "project": "<fixtures>\\condition-before-path\\one.props",
+                "line": 6,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "defined-empty-expands-empty",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4020",
+            "file": "<fixtures>\\defined-empty-expands-empty\\main.proj",
+            "line": 3,
+            "column": 3,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid.  <fixtures>\\defined-empty-expands-empty\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4020",
+              "file": "<fixtures>\\defined-empty-expands-empty\\main.proj",
+              "line": 3,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "encounter-order-concatenation",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "onetwo",
+              "Q": "firstsecond"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\encounter-order-concatenation\\main.proj",
+                "project": "<fixtures>\\encounter-order-concatenation\\one.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "<fixtures>\\encounter-order-concatenation\\main.proj",
+                "project": "<fixtures>\\encounter-order-concatenation\\two.props",
+                "line": 5,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "expanded-missing-file",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4019",
+            "file": "<fixtures>\\expanded-missing-file\\main.proj",
+            "line": 3,
+            "column": 3,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The imported project \"<fixtures>\\expanded-missing-file\\missing.props\" was not found. Confirm that the expression in the Import declaration \"$(ImportName)\", which evaluated to \"missing.props\", is correct, and that the file exists on disk.  <fixtures>\\expanded-missing-file\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4019",
+              "file": "<fixtures>\\expanded-missing-file\\main.proj",
+              "line": 3,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "The imported project \"<fixtures>\\expanded-missing-file\\missing.props\" was not found. Confirm that the expression in the Import declaration \"$(ImportName)\", which evaluated to \"missing.props\", is correct, and that the file exists on disk."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "immutable-global-import-name",
+          "globals": {
+            "ImportName": "one.props"
+          },
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "once",
+              "Q": "one.props"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\immutable-global-import-name\\main.proj",
+                "project": "<fixtures>\\immutable-global-import-name\\one.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\immutable-global-import-name\\main.proj",
+              "line": 4,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "\"<fixtures>\\immutable-global-import-name\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\immutable-global-import-name\\main.proj (3,3)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "nested-owner-relative",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "owner",
+              "Q": "sub"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\nested-owner-relative\\main.proj",
+                "project": "<fixtures>\\nested-owner-relative\\sub\\one.props",
+                "line": 2,
+                "column": 3
+              },
+              {
+                "owner": "<fixtures>\\nested-owner-relative\\sub\\one.props",
+                "project": "<fixtures>\\nested-owner-relative\\sub\\two.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "undefined-expands-empty",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4020",
+            "file": "<fixtures>\\undefined-expands-empty\\main.proj",
+            "line": 2,
+            "column": 3,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid.  <fixtures>\\undefined-expands-empty\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4020",
+              "file": "<fixtures>\\undefined-expands-empty\\main.proj",
+              "line": 2,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        }
+      ]
+    },
+    {
+      "runtime": ".NET 10.0.12",
+      "msbuildAssembly": "Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "profile": "Default",
+      "rows": [
+        {
+          "id": "NEG-dynamic-import",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "one.props",
+              "Q": ""
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\NEG-dynamic-import\\main.proj",
+                "project": "<fixtures>\\NEG-dynamic-import\\one.props",
+                "line": 1,
+                "column": 57
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "condition-before-path",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "selected",
+              "Q": "condition"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\condition-before-path\\main.proj",
+                "project": "<fixtures>\\condition-before-path\\one.props",
+                "line": 6,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "defined-empty-expands-empty",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4020",
+            "file": "<fixtures>\\defined-empty-expands-empty\\main.proj",
+            "line": 3,
+            "column": 3,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid.  <fixtures>\\defined-empty-expands-empty\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4020",
+              "file": "<fixtures>\\defined-empty-expands-empty\\main.proj",
+              "line": 3,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "encounter-order-concatenation",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "onetwo",
+              "Q": "firstsecond"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\encounter-order-concatenation\\main.proj",
+                "project": "<fixtures>\\encounter-order-concatenation\\one.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "<fixtures>\\encounter-order-concatenation\\main.proj",
+                "project": "<fixtures>\\encounter-order-concatenation\\two.props",
+                "line": 5,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "expanded-missing-file",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4019",
+            "file": "<fixtures>\\expanded-missing-file\\main.proj",
+            "line": 3,
+            "column": 3,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The imported project \"<fixtures>\\expanded-missing-file\\missing.props\" was not found. Confirm that the expression in the Import declaration \"$(ImportName)\", which evaluated to \"missing.props\", is correct, and that the file exists on disk.  <fixtures>\\expanded-missing-file\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4019",
+              "file": "<fixtures>\\expanded-missing-file\\main.proj",
+              "line": 3,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "The imported project \"<fixtures>\\expanded-missing-file\\missing.props\" was not found. Confirm that the expression in the Import declaration \"$(ImportName)\", which evaluated to \"missing.props\", is correct, and that the file exists on disk."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "immutable-global-import-name",
+          "globals": {
+            "ImportName": "one.props"
+          },
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "once",
+              "Q": "one.props"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\immutable-global-import-name\\main.proj",
+                "project": "<fixtures>\\immutable-global-import-name\\one.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [
+            {
+              "kind": "warning",
+              "code": "MSB4011",
+              "file": "<fixtures>\\immutable-global-import-name\\main.proj",
+              "line": 4,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "\"<fixtures>\\immutable-global-import-name\\one.props\" cannot be imported again. It was already imported at \"<fixtures>\\immutable-global-import-name\\main.proj (3,3)\". This is most likely a build authoring error. This subsequent import will be ignored. "
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "nested-owner-relative",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": true,
+            "properties": {
+              "P": "owner",
+              "Q": "sub"
+            },
+            "imports": [
+              {
+                "owner": "<fixtures>\\nested-owner-relative\\main.proj",
+                "project": "<fixtures>\\nested-owner-relative\\sub\\one.props",
+                "line": 2,
+                "column": 3
+              },
+              {
+                "owner": "<fixtures>\\nested-owner-relative\\sub\\one.props",
+                "project": "<fixtures>\\nested-owner-relative\\sub\\two.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "duplicateImports": null,
+            "duplicateGetterFailure": {
+              "type": "System.InvalidOperationException",
+              "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+            }
+          },
+          "diagnostics": [],
+          "cleanup": {
+            "before": 0,
+            "loaded": 1,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        },
+        {
+          "id": "undefined-expands-empty",
+          "globals": {},
+          "profile": "Default",
+          "evaluation": {
+            "success": false,
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "code": "MSB4020",
+            "file": "<fixtures>\\undefined-expands-empty\\main.proj",
+            "line": 2,
+            "column": 3,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid.  <fixtures>\\undefined-expands-empty\\main.proj",
+            "hresult": -2146233088
+          },
+          "diagnostics": [
+            {
+              "kind": "error",
+              "code": "MSB4020",
+              "file": "<fixtures>\\undefined-expands-empty\\main.proj",
+              "line": 2,
+              "column": 3,
+              "endLine": 0,
+              "endColumn": 0,
+              "message": "The value \"\" of the \"Project\" attribute in element <Import> is invalid."
+            }
+          ],
+          "cleanup": {
+            "before": 0,
+            "loaded": 0,
+            "afterUnload": 0,
+            "disposed": true
+          },
+          "taskMarkerAbsent": true
+        }
+      ]
+    }
+  ]
+}

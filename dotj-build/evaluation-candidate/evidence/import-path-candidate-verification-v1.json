@@ -1,0 +1,512 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_INTERNAL_PACKAGED_CONTRACT",
+  "scope": "Internal packaged evaluation candidate",
+  "productQualification": false,
+  "acceptedTasksAdded": 0,
+  "baselineLockSha256": "b987700d242964fd1c4e0b5c24c075eca8910a72c1737b71c4ac1d6ac16ef29f",
+  "importObservationLockSha256": "d9406eabc5596ccf93beacd2d6d0ef965b9d8601e0daec7c21499ec70544fedf",
+  "importComparisonVerifierSha256": "6822eaacdf41f58595dc899fdf0779848e338522e4b48915d8624932c6978fec",
+  "locationComparisonVerifierSha256": "573e81f69acdf62a410e2097894269170f51b61d06e054ff60cc1bd86865ef71",
+  "locationObservationLockSha256": "5904fe7fc0e5f9b1d6dfee39d67aeaa3a1f3a12ad9e8eba25c5beb5080bc857c",
+  "cycleComparisonVerifierSha256": "bd7c27758bdbb5d7ac5524aa62d28d6f6e18f9a17048e7e3be9209a4266b499f",
+  "cycleObservationLockSha256": "6ba5c577febd4759414696e52e67f5610f8609d045a8f0851435e7893567b2b8",
+  "verifiedReferenceInputs": 124,
+  "commands": [
+    {
+      "label": "compile-candidate",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\javac.exe",
+        "-J-Xms16m",
+        "-J-Xmx128m",
+        "-J-XX:+UseSerialGC",
+        "-J-XX:ActiveProcessorCount=2",
+        "-J-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\tmp",
+        "-J-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\home",
+        "-J-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs",
+        "-J-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\hs_err_pid%p.log",
+        "--release",
+        "21",
+        "-encoding",
+        "UTF-8",
+        "-d",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\classes",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\src\\module-info.java",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\src\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponent.java"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1",
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\compile-candidate.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\compile-candidate.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 4.337662099977024,
+      "passed": true
+    },
+    {
+      "label": "compile-tests",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\javac.exe",
+        "-J-Xms16m",
+        "-J-Xmx128m",
+        "-J-XX:+UseSerialGC",
+        "-J-XX:ActiveProcessorCount=2",
+        "-J-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\tmp",
+        "-J-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\home",
+        "-J-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs",
+        "-J-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\hs_err_pid%p.log",
+        "--release",
+        "21",
+        "-encoding",
+        "UTF-8",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests",
+        "-d",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\test-classes",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\DefaultCycleTest.java",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ImportBehaviorTest.java",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ImportLocationTest.java",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ImportPathExpansionTest.java",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ImportProfileTest.java",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponentTest.java"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1",
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\compile-tests.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\compile-tests.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 1.3260771000059322,
+      "passed": true
+    },
+    {
+      "label": "packaged-contract",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\evaluation-contract-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponentTest",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\fixtures\\native-comparison.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\outputs",
+        "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\build-evaluation-reference\\fixtures\\BE19-no-target-execution\\must-not-exist.txt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\dotj-build-evaluation-candidate.jar",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\native-import-comparison.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\import-fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\import-path-fixtures"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1",
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\packaged-contract.stdout",
+        "sha256": "cd87bf69f91588536778d499c146bbf72e72bb311fb5ba2233e06637e023fdb0"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\packaged-contract.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 1.8459599999478087,
+      "passed": true
+    },
+    {
+      "label": "packaged-locations",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\evaluation-contract-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ImportLocationTest",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\location-comparison.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\import-fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\outputs\\location-results.tsv"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1",
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\packaged-locations.stdout",
+        "sha256": "693e8262763b7ef8f1c61445a959fffb3ebf848c0b10dde1aff981a3caadd1af"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\packaged-locations.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 1.4016995000420138,
+      "passed": true
+    },
+    {
+      "label": "packaged-default-cycles",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\evaluation-contract-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.DefaultCycleTest",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\cycle-comparison.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\import-fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\outputs\\cycle-results.tsv"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1",
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\packaged-default-cycles.stdout",
+        "sha256": "9dbd9512fac6ffc6ce0e7266c0d48738d390d4a5fdda6bc61e3b74771bb5823d"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\packaged-default-cycles.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 8.304919100017287,
+      "passed": true
+    },
+    {
+      "label": "packaged-import-profiles",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\evaluation-contract-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ImportProfileTest",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\profile-comparison.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\import-fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\outputs\\profile-results.tsv"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1",
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\packaged-import-profiles.stdout",
+        "sha256": "c45b1ca3958c57b6c6210207a49fe6e19045a08c032dfa1a82df2e064806da18"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\packaged-import-profiles.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 18.383827400044538,
+      "passed": true
+    },
+    {
+      "label": "packaged-import-paths",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\evaluation-contract-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ImportPathExpansionTest",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\import-path-comparison.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\import-path-fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\outputs\\import-path-results.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\outputs\\path-restrictions"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1",
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\packaged-import-paths.stdout",
+        "sha256": "59929ee54e845f5720b5801dd1d8a3f3d9f2bcf687584c486dbd8e0db18df0ee"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\logs\\packaged-import-paths.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 44.399095700006,
+      "passed": true
+    }
+  ],
+  "resources": [
+    {
+      "before": "compile-candidate",
+      "utc": "2026-10-30T01:43:14.897952+00:00",
+      "freeVirtualKiB": 21052420,
+      "freePhysicalKiB": 587792,
+      "waitSeconds": 4.320338999968953
+    },
+    {
+      "before": "compile-tests",
+      "utc": "2026-10-30T01:43:23.663124+00:00",
+      "freeVirtualKiB": 21032968,
+      "freePhysicalKiB": 664576,
+      "waitSeconds": 3.6923162000020966
+    },
+    {
+      "before": "packaged-contract",
+      "utc": "2026-10-30T01:43:28.733321+00:00",
+      "freeVirtualKiB": 20779184,
+      "freePhysicalKiB": 441820,
+      "waitSeconds": 3.7993725000414997
+    },
+    {
+      "before": "packaged-contract",
+      "utc": "2026-10-30T01:43:33.733700+00:00",
+      "freeVirtualKiB": 20853384,
+      "freePhysicalKiB": 576988,
+      "waitSeconds": 7.864316100021824
+    },
+    {
+      "before": "packaged-locations",
+      "utc": "2026-10-30T01:43:38.450894+00:00",
+      "freeVirtualKiB": 20756516,
+      "freePhysicalKiB": 462728,
+      "waitSeconds": 3.304022099939175
+    },
+    {
+      "before": "packaged-locations",
+      "utc": "2026-10-30T01:43:43.451397+00:00",
+      "freeVirtualKiB": 20976936,
+      "freePhysicalKiB": 569228,
+      "waitSeconds": 9.938137699966319
+    },
+    {
+      "before": "packaged-default-cycles",
+      "utc": "2026-10-30T01:43:49.798191+00:00",
+      "freeVirtualKiB": 20659552,
+      "freePhysicalKiB": 282388,
+      "waitSeconds": 3.566285999957472
+    },
+    {
+      "before": "packaged-default-cycles",
+      "utc": "2026-10-30T01:43:54.798436+00:00",
+      "freeVirtualKiB": 20764692,
+      "freePhysicalKiB": 538324,
+      "waitSeconds": 7.708716599969193
+    },
+    {
+      "before": "packaged-import-profiles",
+      "utc": "2026-10-30T01:44:05.822621+00:00",
+      "freeVirtualKiB": 20766056,
+      "freePhysicalKiB": 463980,
+      "waitSeconds": 3.841037299949676
+    },
+    {
+      "before": "packaged-import-profiles",
+      "utc": "2026-10-30T01:44:10.822745+00:00",
+      "freeVirtualKiB": 20586812,
+      "freePhysicalKiB": 353692,
+      "waitSeconds": 8.370785999926738
+    },
+    {
+      "before": "packaged-import-profiles",
+      "utc": "2026-10-30T01:44:15.822971+00:00",
+      "freeVirtualKiB": 20955032,
+      "freePhysicalKiB": 459524,
+      "waitSeconds": 13.114450699998997
+    },
+    {
+      "before": "packaged-import-profiles",
+      "utc": "2026-10-30T01:44:20.823309+00:00",
+      "freeVirtualKiB": 20681248,
+      "freePhysicalKiB": 421556,
+      "waitSeconds": 19.007409499958158
+    },
+    {
+      "before": "packaged-import-profiles",
+      "utc": "2026-10-30T01:44:25.823649+00:00",
+      "freeVirtualKiB": 20657568,
+      "freePhysicalKiB": 439572,
+      "waitSeconds": 22.89614149997942
+    },
+    {
+      "before": "packaged-import-profiles",
+      "utc": "2026-10-30T01:44:30.823994+00:00",
+      "freeVirtualKiB": 20786356,
+      "freePhysicalKiB": 579196,
+      "waitSeconds": 28.658304999931715
+    },
+    {
+      "before": "packaged-import-paths",
+      "utc": "2026-10-30T01:44:52.971130+00:00",
+      "freeVirtualKiB": 20455348,
+      "freePhysicalKiB": 524900,
+      "waitSeconds": 3.5699850999517366
+    }
+  ],
+  "sourceHashes": {
+    "src/module-info.java": "4aff79a07ae0f450a31172d78d4a519e405a7372ee4a693b867c4b49a24ed321",
+    "src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java": "fe8e532e2e9df57a3d85f63ca6ff95b02e69e96879737f09b9c54b69ac91e4cb",
+    "tests/org/dotj/internal/build/evaluation/DefaultCycleTest.java": "42cee651ac4d8961e96840e5ddf14dea9eae71413ec8962ab8304d70ee8951c2",
+    "tests/org/dotj/internal/build/evaluation/ImportBehaviorTest.java": "ad3bb373537c2d1b60734a3b33d2b41a8c8665bb42dec0144651a513fab2aef8",
+    "tests/org/dotj/internal/build/evaluation/ImportLocationTest.java": "56dfe09c1021abd579988ee55ef78a2fa98f498f5ef185c66e85463aec4747f3",
+    "tests/org/dotj/internal/build/evaluation/ImportPathExpansionTest.java": "94541cb226a60a2d61f2232884c9e0ce2df9233efaa7b0625724d5665e8b92e6",
+    "tests/org/dotj/internal/build/evaluation/ImportProfileTest.java": "c7108dddb8e03d1d89b56549577fc22422de05043ce3e91672db472b8a17fee4",
+    "tests/org/dotj/internal/build/evaluation/ProjectEvaluationComponentTest.java": "f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f"
+  },
+  "profileObservationLockSha256": "59426d11216012fbc917e6925424e9814a90c173ebb2cee1e984e6db90a3c0d5",
+  "profileComparisonVerifierSha256": "c2ab14dd0f870f2cbe54ec3f1d8890863ad604d7704f72d6899d46cf7cae2bbe",
+  "runnerSha256": "ad13530d834f1ab40d333d3a387734e770c0c8a7b22bf245ecc9a29ac89a93a0",
+  "limits": {
+    "maxHeapMiB": 128,
+    "processors": 2,
+    "gc": "SerialGC",
+    "timeoutSeconds": 120,
+    "freeVirtualFloorKiB": 16777216,
+    "freePhysicalFloorKiB": 524288,
+    "resourceWaitSeconds": 120,
+    "resourcePollSeconds": 5
+  },
+  "normalization": {
+    "file": "BE19-no-target-execution/main.proj",
+    "occurrences": 1,
+    "beforeSha256": "e7ae59d0e56da92283e45ca41eca9d5d3032e9dbd4c56cc3cee01e409950f5db",
+    "afterSha256": "715c3d230b8fda1967a68d2d68ec8e57edfbbc0186799d690aeaa1ae0fd548ea",
+    "propertyValues": "none"
+  },
+  "resourceWaits": [
+    {
+      "before": "compile-candidate",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 4.324621699983254,
+      "status": "READY"
+    },
+    {
+      "before": "compile-tests",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 3.699624100001529,
+      "status": "READY"
+    },
+    {
+      "before": "packaged-contract",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 7.869033399969339,
+      "status": "READY"
+    },
+    {
+      "before": "packaged-locations",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 9.942876399960369,
+      "status": "READY"
+    },
+    {
+      "before": "packaged-default-cycles",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 7.717074999934994,
+      "status": "READY"
+    },
+    {
+      "before": "packaged-import-profiles",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 28.759979599970393,
+      "status": "READY"
+    },
+    {
+      "before": "packaged-import-paths",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 6.933955200016499,
+      "status": "READY"
+    }
+  ],
+  "importPathCases": 8,
+  "newUniqueImportPathCases": 7,
+  "reclassifiedExistingId": "NEG-dynamic-import",
+  "priorStableIds": 83,
+  "fullUniqueComparisons": 90,
+  "nativeComparisons": 20,
+  "profileRejections": 20,
+  "priorDuplicateNowNativeSupported": 1,
+  "priorCycleNowNativeSupported": 1,
+  "newImportMatrixCases": 9,
+  "supportedImportComparisons": 8,
+  "explicitNewCycleGaps": 0,
+  "nativeMissingImportComparison": 1,
+  "totalCases": 52,
+  "fixturesUnchanged": true,
+  "taskMarkersAbsent": true,
+  "predecessorCasesAccounted": 43,
+  "locationCases": 10,
+  "nativeLocationNotices": 10,
+  "cycleCases": 3,
+  "nativeDefaultCycleNotices": 3,
+  "totalPackagedComparisons": 90,
+  "retainedPackagedComparisons": 83,
+  "unchangedPriorComparisonOutcomes": 82,
+  "changedLegacyImportPathDispositions": 1,
+  "profileCases": 18,
+  "historicalCycleDispositionTransitions": 4,
+  "runtimeModules": [
+    "java.base",
+    "java.xml"
+  ],
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\dotj-build-evaluation-candidate.jar",
+    "sha256": "9dc762fdbe5b371394584ce2efcdfafa61bcbe9476232eb76e453d36540fdd9d"
+  },
+  "testsJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-candidate-full-green-v1\\evaluation-contract-tests.jar",
+    "sha256": "0c75ddb5aa5f6b07ac5276c4b86d55ff069d55abd337c65d1027bf01cd50ce30"
+  },
+  "resultsSha256": "a4a1efa18ae58d5009f7750cbe664ccaaa954fa3f352648f67aefd268cbfcfd5"
+}

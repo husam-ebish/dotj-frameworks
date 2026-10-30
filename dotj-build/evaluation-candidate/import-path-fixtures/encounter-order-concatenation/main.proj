@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup><ImportName>one</ImportName></PropertyGroup>
+  <Import Project="$(importname).props"/>
+  <PropertyGroup><ImportName>two</ImportName></PropertyGroup>
+  <Import Project="$(IMPORTNAME).props"/>
+</Project>

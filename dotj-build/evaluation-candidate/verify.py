@@ -131,6 +131,8 @@ def main():
     parser.add_argument('--focus-locations', action='store_true')
     parser.add_argument('--focus-cycles', action='store_true')
     parser.add_argument('--focus-profiles', action='store_true')
+    parser.add_argument('--focus-import-paths', action='store_true')
+    parser.add_argument('--focus-import-path-whitespace', action='store_true')
     options = parser.parse_args()
     root = options.implementation_root.resolve(strict=True)
     output = options.out.resolve()
@@ -177,6 +179,13 @@ def main():
     profile_tool = repo/'tools/oracle/dotj-build/verify-import-profiles-v1.py'
     profile_api = runpy.run_path(str(profile_tool))
     profile_api['verify_inputs']()
+    path_tool = repo/'tools/oracle/dotj-build/verify-import-paths-v1.py'
+    path_api = runpy.run_path(str(path_tool))
+    path_api['verify_inputs']()
+    whitespace_base = BASE/'import-path-whitespace-v1'
+    whitespace_tool = repo/'tools/oracle/dotj-build/import-path-whitespace-v1/verify.py'
+    whitespace_api = runpy.run_path(str(whitespace_tool))
+    whitespace_data = whitespace_api['verify_inputs']()
     output.mkdir(parents=True)
     for directory in ['classes', 'test-classes', 'fixtures', 'outputs', 'logs', 'tmp', 'home']:
         (output/directory).mkdir()
@@ -195,6 +204,9 @@ def main():
                               for p in sorted((BASE/folder).rglob('*.java'))},
               'profileObservationLockSha256':sha(BASE/'evidence/profile-observation-lock-v1.json'),
               'profileComparisonVerifierSha256':sha(profile_tool),
+              'whitespaceVerifierSha256':sha(whitespace_tool),
+              'whitespaceInputLockSha256':sha(whitespace_base/'evidence/input-lock.json'),
+              'whitespaceObservationLockSha256':sha(whitespace_base/'evidence/observation-lock.json'),
               'runnerSha256':sha(Path(__file__)),
               'limits':{'maxHeapMiB':128, 'processors':2, 'gc':'SerialGC', 'timeoutSeconds':120,
                         'freeVirtualFloorKiB':16777216, 'freePhysicalFloorKiB':524288,
@@ -246,7 +258,11 @@ def main():
     shutil.copyfile(BASE/'evidence/cycle-comparison-v1.tsv', output/'cycle-comparison.tsv')
     shutil.copyfile(BASE/'evidence/native-import-comparison-v1.tsv', output/'native-import-comparison.tsv')
     shutil.copyfile(BASE/'evidence/profile-comparison-v1.tsv', output/'profile-comparison.tsv')
-    fixture_hashes = {p:sha(p) for folder in ['fixtures','import-fixtures'] for p in (output/folder).rglob('*') if p.is_file()}
+    shutil.copytree(BASE/'import-path-fixtures', output/'import-path-fixtures')
+    shutil.copyfile(BASE/'evidence/import-path-comparison-v1.tsv', output/'import-path-comparison.tsv')
+    shutil.copytree(whitespace_base/'fixtures',output/'import-path-whitespace-fixtures')
+    shutil.copyfile(whitespace_base/'evidence/comparison.tsv',output/'whitespace-comparison.tsv')
+    fixture_hashes = {p:sha(p) for folder in ['fixtures','import-fixtures','import-path-fixtures','import-path-whitespace-fixtures'] for p in (output/folder).rglob('*') if p.is_file()}
     compile_vm = ['-J'+option for option in vm]
     candidate = output/'dotj-build-evaluation-candidate.jar'
     tests = output/'evaluation-contract-tests.jar'
@@ -270,6 +286,35 @@ def main():
         '--limit-modules','java.base,java.xml,'+MODULE, '--module-path',str(candidate),
         '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.ImportProfileTest',
         str(output/'profile-comparison.tsv'),str(output/'import-fixtures'),str(output/'outputs/profile-results.tsv')]
+    path_command = [str(java/'java.exe'), *vm,
+        '--limit-modules','java.base,java.xml,'+MODULE, '--module-path',str(candidate),
+        '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.ImportPathExpansionTest',
+        str(output/'import-path-comparison.tsv'),str(output/'import-path-fixtures'),str(output/'outputs/import-path-results.tsv'),str(output/'outputs/path-restrictions')]
+    whitespace_command = [str(java/'java.exe'), *vm,
+        '--limit-modules','java.base,java.xml,'+MODULE, '--module-path',str(candidate),
+        '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.ImportPathWhitespaceTest',
+        str(output/'whitespace-comparison.tsv'),str(output/'import-path-whitespace-fixtures'),str(output/'outputs/whitespace-results.tsv'),str(output/'outputs/whitespace-controls')]
+    if options.focus_import_path_whitespace:
+        run('packaged-import-path-whitespace', whitespace_command)
+        whitespace_api['verify_inputs']()
+        if any(sha(path) != expected for path, expected in fixture_hashes.items()) or list(output.rglob('must-not-exist.txt')):
+            raise RuntimeError('Focused whitespace fixture/marker changed')
+        record.update(status='PASS_FOCUSED_NATIVE_IMPORT_PATH_WHITESPACE',whitespaceCases=4,
+                      nativeWhitespaceCodeUnits=len(whitespace_data['captures'][0]['whiteSpaceCodePoints']),
+                      fixturesUnchanged=True,taskMarkersAbsent=True)
+        save()
+        print(json.dumps({'status':record['status'],'cases':4,'report':str(output/'verification.json')}))
+        return
+    if options.focus_import_paths:
+        run('packaged-import-paths', path_command)
+        path_api['verify_inputs']()
+        if any(sha(path) != expected for path, expected in fixture_hashes.items()) or list(output.rglob('must-not-exist.txt')):
+            raise RuntimeError('Focused import-path fixture/marker changed')
+        record.update(status='PASS_FOCUSED_NATIVE_IMPORT_PATHS', importPathCases=8,
+                      fixturesUnchanged=True,taskMarkersAbsent=True)
+        save()
+        print(json.dumps({'status':record['status'],'cases':8,'report':str(output/'verification.json')}))
+        return
     if options.focus_profiles:
         run('packaged-import-profiles', profile_command)
         profile_api['verify_inputs']()
@@ -305,10 +350,14 @@ def main():
         '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.ProjectEvaluationComponentTest',
         str(output/'fixtures/native-comparison.tsv'),str(output/'fixtures'),str(output/'outputs'),
         str(original_root/'BE19-no-target-execution/must-not-exist.txt'),str(candidate),
-        str(output/'native-import-comparison.tsv'),str(output/'import-fixtures')])
+        str(output/'native-import-comparison.tsv'),str(output/'import-fixtures'),str(output/'import-path-fixtures')])
     run('packaged-locations', location_command)
     run('packaged-default-cycles', cycle_command)
     run('packaged-import-profiles', profile_command)
+    run('packaged-import-paths', path_command)
+    run('packaged-import-path-whitespace', whitespace_command)
+    whitespace_api['verify_inputs']()
+    path_api['verify_inputs']()
     profile_api['verify_inputs']()
     profile_rows = (output/'outputs/profile-results.tsv').read_text().splitlines()
     if len(profile_rows)!=18 or len(set(profile_rows))!=18:raise RuntimeError('Incomplete profile comparisons')
@@ -346,19 +395,52 @@ def main():
         raise RuntimeError('Prior location comparison silently missing/reordered')
     if [line.split('\t')[0] for line in (output/'outputs/cycle-results.tsv').read_text().splitlines()] != cycle_predecessors['extraCycleContextComparisons']:
         raise RuntimeError('Selected cycle comparison silently missing/reordered')
-    record.update(status='PASS_INTERNAL_PACKAGED_CONTRACT', nativeComparisons=20,
-                  profileRejections=21, priorDuplicateNowNativeSupported=1, priorCycleNowNativeSupported=1, newImportMatrixCases=9,
+    path_rows = (output/'outputs/import-path-results.tsv').read_text().splitlines()
+    prior_rows = rows + (output/'outputs/location-results.tsv').read_text().splitlines() + (output/'outputs/cycle-results.tsv').read_text().splitlines() + profile_rows
+    if len(path_rows)!=8 or len(prior_rows)!=83:raise RuntimeError('Incomplete import-path/legacy comparisons')
+    legacy = next(line for line in rows if line.startswith('NEG-dynamic-import\t'))
+    if legacy != next(line for line in path_rows if line.startswith('NEG-dynamic-import\t')):raise RuntimeError('Legacy transition overlap differs')
+    dispositions=json.loads((BASE/'evidence/import-path-predecessor-dispositions-v1.json').read_text())
+    for item in dispositions['inputs']:
+        if sha(root/item['path'])!=item['sha256']:raise RuntimeError('Historical predecessor result drift')
+    def comparison_key(line):
+        fields=line.split('\t')
+        observable = ('locations' if fields[1]=='NATIVE_DEFAULT_CURRENT_AND_PREVIOUS_LOCATIONS' else
+                      'cycle-context' if fields[1]=='NATIVE_DEFAULT_CYCLE_PROPERTIES_ORDER_CURRENT_CONTEXT' else
+                      fields[1] if fields[1] in ['RecordDuplicateButNotCircularImports','RejectCircularImports'] else 'Default')
+        return (fields[0],observable)
+    actual={comparison_key(line):line for line in prior_rows}
+    expected={comparison_key(line):line for line in dispositions['rows']}
+    if len(actual)!=83 or set(actual)!=set(expected):raise RuntimeError('Prior83 stable IDs/profile keys changed')
+    changed=[key for key in expected if actual[key]!=expected[key]]
+    transition=dispositions['allowedTransitions']['NEG-dynamic-import']
+    if changed!=[('NEG-dynamic-import','Default')] or expected[changed[0]]!=transition['before'] or actual[changed[0]]!=transition['after']:
+        raise RuntimeError('Expected exactly the native-backed legacy disposition transition')
+    unique_rows = prior_rows + [line for line in path_rows if not line.startswith('NEG-dynamic-import\t')]
+    if len({comparison_key(line) for line in unique_rows})!=90:raise RuntimeError('Duplicate unique comparison key')
+    if len(unique_rows)!=90:raise RuntimeError('Unique accounting must be83+7, not83+8')
+    whitespace_rows=(output/'outputs/whitespace-results.tsv').read_text(encoding='utf-8').splitlines()
+    previous90=json.loads((whitespace_base/'evidence/predecessor90.json').read_text(encoding='utf-8'))
+    if sha(Path(previous90['source']['path']))!=previous90['source']['sha256'] or unique_rows!=previous90['rows']:
+        raise RuntimeError('FR-18-01 changed an existing90 comparison outcome')
+    if len(whitespace_rows)!=4 or len({comparison_key(line) for line in unique_rows+whitespace_rows})!=94:
+        raise RuntimeError('Whitespace extension must add exactly four new unique comparisons')
+    unique_rows += whitespace_rows
+    (output/'outputs/all-comparisons.tsv').write_text('\n'.join(unique_rows)+'\n',encoding='utf-8')
+    record.update(importPathCases=8,newUniqueImportPathCases=7,reclassifiedExistingId='NEG-dynamic-import',priorStableIds=90,fullUniqueComparisons=94,whitespaceCases=4,whitespacePriorDispositionChanges=0,nativeWhitespaceCodeUnits=len(whitespace_data['captures'][0]['whiteSpaceCodePoints']))
+    record.update(status='PASS_INTERNAL_PACKAGED_CONTRACT' , nativeComparisons=20,
+                  profileRejections=20, priorDuplicateNowNativeSupported=1, priorCycleNowNativeSupported=1, newImportMatrixCases=9,
                   supportedImportComparisons=8, explicitNewCycleGaps=0, nativeMissingImportComparison=1,
                   totalCases=52, fixturesUnchanged=True, taskMarkersAbsent=True, predecessorCasesAccounted=43,
                   locationCases=10, nativeLocationNotices=10,
                   cycleCases=3, nativeDefaultCycleNotices=3,
-                  totalPackagedComparisons=83, retainedPackagedComparisons=65, profileCases=18, changedLegacyCycleDispositions=4,
+                  totalPackagedComparisons=94, retainedPackagedComparisons=90, unchangedPriorComparisonOutcomes=90, changedLegacyImportPathDispositions=0, historicalPropertyPathDispositionTransition=1, profileCases=18, historicalCycleDispositionTransitions=4,
                   runtimeModules=['java.base','java.xml'],
                   candidateJar={'path':str(candidate),'sha256':sha(candidate)},
                   testsJar={'path':str(tests),'sha256':sha(tests)},
                   resultsSha256=sha(output/'outputs/case-results.tsv'))
     save()
-    print(json.dumps({'status':record['status'], 'cases':len(rows), 'report':str(output/'verification.json')}))
+    print(json.dumps({'status':record['status'], 'cases':len(unique_rows), 'report':str(output/'verification.json')}))
 
 
 if __name__ == '__main__':

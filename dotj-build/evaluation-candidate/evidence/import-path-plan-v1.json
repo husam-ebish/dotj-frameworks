@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "profiles": [
+    "Default"
+  ],
+  "cases": [
+    {
+      "id": "NEG-dynamic-import",
+      "globals": {}
+    },
+    {
+      "id": "condition-before-path",
+      "globals": {}
+    },
+    {
+      "id": "defined-empty-expands-empty",
+      "globals": {}
+    },
+    {
+      "id": "encounter-order-concatenation",
+      "globals": {}
+    },
+    {
+      "id": "expanded-missing-file",
+      "globals": {}
+    },
+    {
+      "id": "immutable-global-import-name",
+      "globals": {
+        "ImportName": "one.props"
+      }
+    },
+    {
+      "id": "nested-owner-relative",
+      "globals": {}
+    },
+    {
+      "id": "undefined-expands-empty",
+      "globals": {}
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "condition-before-path/main.proj",
+      "bytes": 386,
+      "sha256": "3c6668cfcf8e218c4f73afb333e8b49be867d2e298621431ad0a7b4c82fd4830"
+    },
+    {
+      "path": "condition-before-path/one.props",
+      "bytes": 81,
+      "sha256": "7e94ef78dd171ecd5c9abc0eee7f92dc876f5233014beb64a81f81b562276e4f"
+    },
+    {
+      "path": "defined-empty-expands-empty/main.proj",
+      "bytes": 116,
+      "sha256": "d3ec8771768707dd58decf2a7baf4d3c8648eb92bc3639ca7617c5c80fd5c0f7"
+    },
+    {
+      "path": "encounter-order-concatenation/main.proj",
+      "bytes": 229,
+      "sha256": "62d2d127614bfc97c6765f14b31ea5fbb06cb23ae39cd6241d1907d24c562805"
+    },
+    {
+      "path": "encounter-order-concatenation/one.props",
+      "bytes": 80,
+      "sha256": "020ab31f54ec4deaf8964e1170540cf4fbfde5a07297c6ceca7fcd92608ef157"
+    },
+    {
+      "path": "encounter-order-concatenation/two.props",
+      "bytes": 81,
+      "sha256": "15593c5ad1570e5e85b1e17553196f672503ee718113923c1ccad227cf19db44"
+    },
+    {
+      "path": "expanded-missing-file/main.proj",
+      "bytes": 129,
+      "sha256": "691141e1b04d00a6bc21235fc026246d8f46e1019e3f180629dce46479e3b3ea"
+    },
+    {
+      "path": "immutable-global-import-name/main.proj",
+      "bytes": 217,
+      "sha256": "dce042b9c0c34abb224d66ba93786c697c6f5bf8ee5662ddaf8d0b263ec00fbc"
+    },
+    {
+      "path": "immutable-global-import-name/one.props",
+      "bytes": 101,
+      "sha256": "7c03e77f8d250f46acf086217081b7f930242581155d9267acc599483916fe93"
+    },
+    {
+      "path": "immutable-global-import-name/wrong.props",
+      "bytes": 74,
+      "sha256": "2b5abd82b4acfeef179f9dcd199e5b43efa818911b4a59c654237c07d4c0ce8e"
+    },
+    {
+      "path": "NEG-dynamic-import/main.proj",
+      "bytes": 90,
+      "sha256": "752761ce6eedf56cb4042798dd8175f46f88a67f2dac8d26786b304af57c2e3e"
+    },
+    {
+      "path": "NEG-dynamic-import/one.props",
+      "bytes": 10,
+      "sha256": "4fd24be83f7dd636f6e2e8f456dfa559f1ca9c7346e1d10a5358db346b1300b9"
+    },
+    {
+      "path": "nested-owner-relative/main.proj",
+      "bytes": 57,
+      "sha256": "93574909e88a9a00734b6dcf0bf8aa7b4ce1938488fe29a241c2fa1197cda3dc"
+    },
+    {
+      "path": "nested-owner-relative/sub/one.props",
+      "bytes": 107,
+      "sha256": "8540489ac6d12d4f96071caef73e1afad72af587e77fea93b86e91f7b72a1945"
+    },
+    {
+      "path": "nested-owner-relative/sub/two.props",
+      "bytes": 72,
+      "sha256": "ede72190ab3b8db3b8cbe92fabfa4384e58e46490f541785a5e98927f32e89a1"
+    },
+    {
+      "path": "nested-owner-relative/two.props",
+      "bytes": 73,
+      "sha256": "fb330a49bec63f245577b0e425f07da371741c79a8df98d688beaeae6f2a7191"
+    },
+    {
+      "path": "undefined-expands-empty/main.proj",
+      "bytes": 56,
+      "sha256": "ae476039668fa6cf3861fd272133bd87982f7ed189407a7a091414e7b63ecede"
+    }
+  ],
+  "uniqueAccounting": {
+    "prior": 83,
+    "reclassified": "NEG-dynamic-import",
+    "new": 7,
+    "focused": 8,
+    "fullUnique": 90
+  },
+  "qualification": "Default-only; no task acceptance"
+}

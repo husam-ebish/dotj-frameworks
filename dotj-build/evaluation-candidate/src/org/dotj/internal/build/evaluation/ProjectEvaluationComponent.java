@@ -21,8 +21,8 @@ final class ProjectEvaluationComponent {
     }
     enum ImportProfile { DEFAULT, RECORD_DUPLICATES, REJECT_CIRCULAR }
     enum DiagnosticKind { WARNING, ERROR }
-    enum ContextKind { ROOT, PREVIOUS, CIRCULAR, MISSING }
-    enum FailureReason { MISSING_IMPORT, CIRCULAR_IMPORT }
+    enum ContextKind { ROOT, PREVIOUS, CIRCULAR, MISSING, INVALID }
+    enum FailureReason { MISSING_IMPORT, CIRCULAR_IMPORT, INVALID_IMPORT_EXPRESSION }
     public static final class EvaluationFailure extends IOException {
         public final FailureReason reason;
         public final String referenceCode;
@@ -37,7 +37,11 @@ final class ProjectEvaluationComponent {
         }
         EvaluationFailure(FailureReason reason, String code, Path project, Path imported,
                           WarningPosition current, List<DuplicateImport> diagnostics) {
-            super((reason == FailureReason.MISSING_IMPORT ? "Declared local import does not exist: " : "Circular local import: ") + imported);
+            super(switch(reason) {
+                case MISSING_IMPORT -> "Declared local import does not exist: " + imported;
+                case CIRCULAR_IMPORT -> "Circular local import: " + imported;
+                case INVALID_IMPORT_EXPRESSION -> "Evaluated Import Project expression is empty";
+            });
             this.reason = reason; referenceCode = code; this.project = project; importedProject = imported;
             missingImport = reason == FailureReason.MISSING_IMPORT ? imported : null;
             this.current = current; this.diagnostics = List.copyOf(diagnostics);
@@ -140,7 +144,7 @@ final class ProjectEvaluationComponent {
         Path relative(Path owner, String input) throws IOException {
             if (input.isEmpty() || input.indexOf(':') >= 0 || input.indexOf('\\') >= 0 || input.startsWith("/"))
                 throw reject("IMPORT_PATH_PROFILE", "Only nonempty relative slash paths supported");
-            if (input.chars().anyMatch(c -> "*?;$%".indexOf(c) >= 0)) throw reject("IMPORT_PATH_PROFILE", "Lists/globs/escaped/dynamic imports not supported");
+            if (input.chars().anyMatch(c -> "*?;$%".indexOf(c) >= 0)) throw reject("IMPORT_PATH_PROFILE", "Lists/globs/escaped or residual-dollar import paths not supported");
             return inside(owner.getParent().resolve(input));
         }
         void read(Path input, boolean main) throws IOException {
@@ -230,8 +234,20 @@ final class ProjectEvaluationComponent {
             attrs(element, Set.of("Project", "Condition"));
             if (!elements(element).isEmpty()) throw reject("IMPORT_CHILD", "Import children unsupported");
             String path = element.getAttribute("Project");
-            if (path.isEmpty() || path.chars().anyMatch(c -> "*?;$%".indexOf(c)>=0))
-                throw reject("IMPORT_PATH_PROFILE", "Missing/dynamic/list/glob import outside profile");
+            if (path.isEmpty() || path.indexOf(':') >= 0 || path.indexOf('\\') >= 0 || path.startsWith("/"))
+                throw reject("IMPORT_PATH_PROFILE", "Only nonempty relative slash expressions supported");
+            // Grammar only: no property reads, expansion or filesystem probes while parsing.
+            for (int cursor=0;cursor<path.length();) {
+                char c=path.charAt(cursor);
+                if(c=='$' && path.startsWith("$(",cursor)) {
+                    int end=path.indexOf(')',cursor+2);
+                    if(end<0)throw reject("PROPERTY_REFERENCE", "Unclosed import property reference");
+                    key(path.substring(cursor+2,end));cursor=end+1;
+                } else {
+                    if("*?;$%".indexOf(c)>=0)throw reject("IMPORT_PATH_PROFILE", "Import list/glob/escaped/dollar syntax outside profile");
+                    cursor++;
+                }
+            }
         }
         void children(Element parent, Path owner) throws IOException {
             for (Element child : elements(parent)) {
@@ -263,15 +279,37 @@ final class ProjectEvaluationComponent {
                 String value=expand(property.getTextContent());unescape(value);properties.put(name,value);
             }
         }
+        private static boolean importWhiteSpace(char c) {
+            // Exact .NET 10.0.12 Char.IsWhiteSpace BMP set, captured for FR-18-01.
+            // Java trim/strip/isBlank differ (notably NBSP, NEL and U+001C).
+            return c >= 0x0009 && c <= 0x000d || c >= 0x2000 && c <= 0x200a || switch(c) {
+                case 0x0020, 0x0085, 0x00a0, 0x1680, 0x2028, 0x2029, 0x202f, 0x205f, 0x3000 -> true;
+                default -> false;
+            };
+        }
+        private static String trimImportWhiteSpace(String value) {
+            int start=0,end=value.length();
+            while(start<end && importWhiteSpace(value.charAt(start)))start++;
+            while(start<end && importWhiteSpace(value.charAt(end-1)))end--;
+            return value.substring(start,end);
+        }
         void importFile(Element element, Path owner) throws IOException {
             attrs(element,Set.of("Project","Condition"));
             if(!elements(element).isEmpty()) throw reject("IMPORT_CHILD", "Import children not supported");
             if(!condition(element.getAttribute("Condition"),owner))return;
-            Path path=relative(owner,element.getAttribute("Project"));
             ImportSite current = sourceSites.get(element);
             if (current == null) throw reject("XML_SOURCE_INDEX", "Missing import source identity");
             // All selected same-profile native end fields were observed as 0/0.
             WarningPosition position = new WarningPosition(current.line(),current.column(),0,0);
+            String expanded = trimImportWhiteSpace(expand(element.getAttribute("Project")));
+            if (expanded.isEmpty()) {
+                // Undefined, empty and whitespace-only references were observed as MSB4020.
+                // There is no imported target and no missing-file identity for this failure.
+                duplicates.add(new DuplicateImport("MSB4020",owner,null,position,null,null,
+                    DiagnosticKind.ERROR,ContextKind.INVALID));
+                throw new EvaluationFailure(FailureReason.INVALID_IMPORT_EXPRESSION,"MSB4020",owner,null,position,duplicates);
+            }
+            Path path=relative(owner,expanded);
             if (!Files.exists(path)) {
                 duplicates.add(new DuplicateImport("MSB4019",owner,path,position,null,null,
                     DiagnosticKind.ERROR,ContextKind.MISSING));

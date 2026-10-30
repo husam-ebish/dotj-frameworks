@@ -56,7 +56,7 @@ public final class ProjectEvaluationComponentTest {
         previousImport(negatives,"cycle-import","<Project><Import Project=\"one.props\"/></Project>","MSB4210",Map.of("one.props","<Project><Import Project=\"main.proj\"/></Project>"),Path.of(args[6]).resolve("BI07-prior-cycle"));
         negative(negatives,"doctype","<!DOCTYPE Project [<!ENTITY x SYSTEM 'file:///C:/not-read'>]><Project/>","XML_PROFILE",Map.of());
         negative(negatives,"unknown-target-task","<Project><Target Name=\"T\"><Exec Command=\"never\"/></Target></Project>","TARGET_DECLARATION_PROFILE",Map.of());
-        negative(negatives,"dynamic-import","<Project><PropertyGroup><P>one.props</P></PropertyGroup><Import Project=\"$(P)\"/></Project>","IMPORT_PATH_PROFILE",Map.of("one.props","<Project/>"));
+        previousDynamicImport(negatives,Path.of(args[7]).resolve("NEG-dynamic-import"));
         negative(negatives,"false-hidden-function","<Project><PropertyGroup Condition=\"false\"><P>$([System.Environment]::GetEnvironmentVariable('HOME'))</P></PropertyGroup></Project>","PROPERTY_FUNCTION",Map.of());
         negative(negatives,"reserved-property","<Project><PropertyGroup><P>$(MSBuildThisFileDirectory)</P></PropertyGroup></Project>","RESERVED_PROPERTY_UNQUALIFIED",Map.of());
         // Removing static condition validation would silently accept these unsupported documents.
@@ -68,7 +68,15 @@ public final class ProjectEvaluationComponentTest {
         require(!Files.exists(fixtureRoot.resolve("BE19-no-target-execution/must-not-exist.txt")),"Copied target sentinel executed");
         require(!Files.exists(Path.of(args[3])),"Original reference sentinel modified");
         Files.write(out.resolve("case-results.tsv"),rows,StandardCharsets.UTF_8);
-        System.out.println("PASS 20 original native cases + 21 unchanged refusals + prior duplicate/cycle now native-supported + 9 import-matrix cases; 0 product acceptance");
+        System.out.println("PASS 20 original native cases + 20 unchanged refusals + one native import-path transition + prior duplicate/cycle now native-supported + 9 import-matrix cases; 0 product acceptance");
+    }
+    private static void previousDynamicImport(Path root,Path paired) throws Exception {
+        Path directory=root.resolve("dynamic-import");Files.createDirectories(directory);
+        for(String name:List.of("main.proj","one.props"))Files.copy(paired.resolve(name),directory.resolve(name));
+        Result result=evaluate(directory.resolve("main.proj"),directory,Map.of());
+        require(result.property("P").equals("one.props")&&result.property("Q").isEmpty()&&result.imports().size()==1&&result.duplicateImports().isEmpty(),"Exact legacy import path transition differs from native");
+        require(result.imports().getFirst().owner().equals(directory.resolve("main.proj"))&&result.imports().getFirst().target().equals(directory.resolve("one.props")),"Legacy import identity changed");
+        record("NEG-dynamic-import\tNATIVE_IMPORT_PATH_MATCH\tSUCCESS");
     }
     private static void previousImport(Path root,String id,String xml,String code,Map<String,String> extras,Path paired) throws Exception {
         Path directory=root.resolve(id);Files.createDirectories(directory);Path file=directory.resolve("main.proj");Files.writeString(file,xml);
