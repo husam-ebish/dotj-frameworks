@@ -35,7 +35,7 @@ public final class DateTimeStyles implements IFormattable, IComparable, IConvert
     private final String name;
     private DateTimeStyles(int value, String name) { this.value = value; this.name = name; }
     public static DateTimeStyles FromInt32(int value) {
-        for (DateTimeStyles candidate : named) if (candidate.value == value) return candidate;
+        for (DateTimeStyles candidate : named) if (candidate.value == value) return new DateTimeStyles(value, candidate.name);
         return new DateTimeStyles(value, null);
     }
     public int get_Value() { return this.value; }
