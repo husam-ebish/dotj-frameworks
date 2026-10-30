@@ -1130,7 +1130,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] get_GenericTypeArguments() {
-        return this.arguments.toArray(Type[]::new);
+        return this.arguments.isEmpty() ? EMPTY_FIELD_MODIFIERS : this.arguments.toArray(Type[]::new);
     }
 
     protected final String nameCore() {
