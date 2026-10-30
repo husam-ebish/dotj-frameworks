@@ -33,7 +33,7 @@ public final class NormalizationForm implements IFormattable, IConvertible, ICom
     private final int value;
     private NormalizationForm(int value) { this.value = value; }
     public static NormalizationForm FromInt32(int value) {
-        return switch (value) { case 1 -> FormC; case 2 -> FormD; case 5 -> FormKC; case 6 -> FormKD; default -> new NormalizationForm(value); };
+        return new NormalizationForm(value);
     }
     public int get_Value() { return this.value; }
     public String get_Name() { return switch (this.value) { case 1 -> "FormC"; case 2 -> "FormD"; case 5 -> "FormKC"; case 6 -> "FormKD"; default -> Integer.toString(this.value); }; }

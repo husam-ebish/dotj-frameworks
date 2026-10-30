@@ -869,13 +869,33 @@
         }
       ],
       "fullCanonicalGateRequired": 504
+    },
+    {
+      "batch": 2490,
+      "path": "tools/oracle/dotj-core/verify-normalization-form-field-inventory.py",
+      "originalSha256": "7dc15722e552f2a1b38d4d7b88aa049f0406ff36c63ca8d2eba69fd0905f0706",
+      "sha256": "12e9d40b1e9d368a26d023a5346058559768a2c951bf52c9f0e31670d94bb873",
+      "sourceBaselineCommit": "23c8f5f83df46348a644e6b11d014f5fbf92bd32",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 505
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2489,
-  "newPreparedVerifiersMigrated": 43,
-  "currentAndNewVerifiersMigrated": 231,
-  "futurePreparedVerifiersRemaining": 11,
+  "appliedThroughBatch": 2490,
+  "newPreparedVerifiersMigrated": 44,
+  "currentAndNewVerifiersMigrated": 232,
+  "futurePreparedVerifiersRemaining": 10,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
