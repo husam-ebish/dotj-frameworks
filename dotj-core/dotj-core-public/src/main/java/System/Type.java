@@ -3226,6 +3226,22 @@ public abstract class Type extends MemberInfo {
         @Override public Type MakePointerType() { throw new NotSupportedException(); }
         @Override public MethodInfo[] GetMethods(BindingFlags flags) { throw unsupported(); }
         @Override public MemberInfo[] GetMembers(BindingFlags flags) { throw unsupported(); }
+        @Override public MethodInfo GetMethod(String name, Type[] types) {
+            if (name == null) throw new ArgumentNullException("name");
+            if (types == null) throw new ArgumentNullException("types");
+            for (Type type : types) if (type == null) throw new ArgumentNullException("types");
+            throw unsupported();
+        }
+        @Override public MethodInfo GetMethod(String name, BindingFlags flags, Type[] types) {
+            return this.GetMethod(name, types);
+        }
+        @Override public MemberInfo[] GetMembers() { throw unsupported(); }
+        @Override public MemberInfo[] GetMember(String name, MemberTypes kinds, BindingFlags flags) { throw unsupported(); }
+        @Override public FieldInfo GetField(String name) { throw unsupported(); }
+        @Override public MemberInfo[] FindMembers(MemberTypes kinds, BindingFlags flags, MemberFilter filter, Object criteria) {
+            if ((kinds.get_Value() & 159) != 0) throw unsupported();
+            return new MemberInfo[0];
+        }
         @Override public MethodInfo GetMethod(String name) { if (name == null) throw new ArgumentNullException("name"); throw unsupported(); }
         @Override public MethodInfo GetMethod(String name, BindingFlags flags) { if (name == null) throw new ArgumentNullException("name"); throw unsupported(); }
         @Override public MemberInfo[] GetMember(String name) { throw unsupported(); }
