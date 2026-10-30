@@ -1,0 +1,705 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_BOUNDED_EVIDENCE",
+  "publicPromotion": "BLOCKED",
+  "acceptedTasksAdded": 0,
+  "numberedBatchCredit": 0,
+  "coverage": {
+    "callables": 47,
+    "properties": 2,
+    "identities": 24
+  },
+  "ledgerSha256": "73d93c9320416a479663d67cfa061dcee8014cbe8790f7d58eb208d6d784f2b7",
+  "inputLockSha256": "1bbf88a7b75cf8f31c53b84dcce8df5652be27cd8703b0714ebdc556549a13b7",
+  "nativeScenarios": 8,
+  "nativeProcesses": 16,
+  "captures": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task19-native-v3-pass1\\capture.json",
+      "sha256": "a5030c7a5e56ac63184e7ec1218e6e285e1a51ea291b0fb06b71712aeb4b7a93"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task19-native-v3-pass2\\capture.json",
+      "sha256": "dbdde209a1bb8b53dc7825623711221085ba7254a46a5e14b52d361d56aa688a"
+    }
+  ],
+  "observationLock": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\planning\\stage-2\\repos\\dotj-build\\evidence\\lifecycle-behavior-observations-v1.json",
+    "sha256": "a36da26c1af46d663e551905d48dccde378ccf476de4b164f99dc8468ec139a3"
+  },
+  "observations": [
+    {
+      "schemaVersion": 1,
+      "id": "LCB01",
+      "runtime": ".NET 10.0.12",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "actions": [
+        {
+          "id": "collection",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "load1",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "load2",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "same",
+          "cleanup": false,
+          "success": true,
+          "value": true
+        },
+        {
+          "id": "read",
+          "cleanup": false,
+          "success": true,
+          "value": "file-default"
+        },
+        {
+          "id": "constructor",
+          "cleanup": false,
+          "success": false,
+          "exception": {
+            "type": "System.InvalidOperationException",
+            "hresult": -2146233079,
+            "message": "An equivalent project (a project with the same global properties and tools version) is already present in the project collection, with the path \"<FIXTURE_ROOT>\\valid.proj\". To load an equivalent into this project collection, unload this project first.",
+            "diagnostic": null
+          }
+        },
+        {
+          "id": "unload1",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "unloadConstructor",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "dispose",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "LCB02",
+      "runtime": ".NET 10.0.12",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "actions": [
+        {
+          "id": "collection",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "callerBefore1",
+          "cleanup": false,
+          "success": true,
+          "value": {
+            "P": "caller-original"
+          }
+        },
+        {
+          "id": "load1",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "callerAfter1",
+          "cleanup": false,
+          "success": true,
+          "value": {
+            "P": "caller-original"
+          }
+        },
+        {
+          "id": "callerBefore2",
+          "cleanup": false,
+          "success": true,
+          "value": {
+            "P": "caller-original"
+          }
+        },
+        {
+          "id": "loadEquivalent",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "callerAfter2",
+          "cleanup": false,
+          "success": true,
+          "value": {
+            "P": "caller-original"
+          }
+        },
+        {
+          "id": "sameEquivalent",
+          "cleanup": false,
+          "success": true,
+          "value": true
+        },
+        {
+          "id": "callerBefore3",
+          "cleanup": false,
+          "success": true,
+          "value": {
+            "P": "caller-different"
+          }
+        },
+        {
+          "id": "loadDifferent",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "callerAfter3",
+          "cleanup": false,
+          "success": true,
+          "value": {
+            "P": "caller-different"
+          }
+        },
+        {
+          "id": "sameDifferent",
+          "cleanup": false,
+          "success": true,
+          "value": false
+        },
+        {
+          "id": "readFirst",
+          "cleanup": false,
+          "success": true,
+          "value": "caller-original"
+        },
+        {
+          "id": "readDifferent",
+          "cleanup": false,
+          "success": true,
+          "value": "caller-different"
+        },
+        {
+          "id": "readCollectionDefault",
+          "cleanup": false,
+          "success": true,
+          "value": "collection-only"
+        },
+        {
+          "id": "unload1",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "unloadDifferent",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "dispose",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "LCB03",
+      "runtime": ".NET 10.0.12",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "actions": [
+        {
+          "id": "collection",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "snapshot",
+          "cleanup": false,
+          "success": true,
+          "value": {
+            "P": "caller-original"
+          }
+        },
+        {
+          "id": "mutateCaller",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "snapshotAfterCallerMutation",
+          "cleanup": false,
+          "success": true,
+          "value": {
+            "P": "caller-original"
+          }
+        },
+        {
+          "id": "load",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "read",
+          "cleanup": false,
+          "success": true,
+          "value": "caller-original"
+        },
+        {
+          "id": "mutateSnapshot",
+          "cleanup": false,
+          "success": false,
+          "exception": {
+            "type": "System.NotSupportedException",
+            "hresult": -2146233067,
+            "message": "Collection is read-only.",
+            "diagnostic": null
+          }
+        },
+        {
+          "id": "snapshotAfterAttempt",
+          "cleanup": false,
+          "success": true,
+          "value": {
+            "P": "caller-original"
+          }
+        },
+        {
+          "id": "unload",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "dispose",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "LCB04",
+      "runtime": ".NET 10.0.12",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "actions": [
+        {
+          "id": "collection1",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "collection2",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "load1",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "load2",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "same",
+          "cleanup": false,
+          "success": true,
+          "value": false
+        },
+        {
+          "id": "read1",
+          "cleanup": false,
+          "success": true,
+          "value": "first"
+        },
+        {
+          "id": "read2",
+          "cleanup": false,
+          "success": true,
+          "value": "second"
+        },
+        {
+          "id": "unload1",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "readOther",
+          "cleanup": false,
+          "success": true,
+          "value": "second"
+        },
+        {
+          "id": "unload2",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "dispose1",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "dispose2",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "LCB05",
+      "runtime": ".NET 10.0.12",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "actions": [
+        {
+          "id": "collection",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "load",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "unload",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "readAfterUnload",
+          "cleanup": false,
+          "success": true,
+          "value": "file-default"
+        },
+        {
+          "id": "secondUnload",
+          "cleanup": false,
+          "success": false,
+          "exception": {
+            "type": "System.InvalidOperationException",
+            "hresult": -2146233079,
+            "message": "The project provided was not loaded in the collection.",
+            "diagnostic": null
+          }
+        },
+        {
+          "id": "reload",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "sameReload",
+          "cleanup": false,
+          "success": true,
+          "value": false
+        },
+        {
+          "id": "readReload",
+          "cleanup": false,
+          "success": true,
+          "value": "file-default"
+        },
+        {
+          "id": "unloadReload",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "dispose",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "LCB06",
+      "runtime": ".NET 10.0.12",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "actions": [
+        {
+          "id": "collection",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "missing",
+          "cleanup": false,
+          "success": false,
+          "exception": {
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "hresult": -2146233088,
+            "message": "The project file could not be loaded. Could not find file '<FIXTURE_ROOT>\\missing.proj'.  <FIXTURE_ROOT>\\missing.proj",
+            "diagnostic": {
+              "code": "MSB4025",
+              "file": "<FIXTURE_ROOT>\\missing.proj",
+              "line": 0,
+              "column": 0,
+              "endLine": 0,
+              "endColumn": 0
+            }
+          }
+        },
+        {
+          "id": "malformed",
+          "cleanup": false,
+          "success": false,
+          "exception": {
+            "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+            "hresult": -2146233088,
+            "message": "The project file could not be loaded. The 'PropertyGroup' start tag on line 1 position 11 does not match the end tag of 'Project'. Line 1, position 27.  <FIXTURE_ROOT>\\malformed.proj",
+            "diagnostic": {
+              "code": "MSB4025",
+              "file": "<FIXTURE_ROOT>\\malformed.proj",
+              "line": 1,
+              "column": 27,
+              "endLine": 0,
+              "endColumn": 0
+            }
+          }
+        },
+        {
+          "id": "loadValid",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "reloadValid",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "sameRecovery",
+          "cleanup": false,
+          "success": true,
+          "value": true
+        },
+        {
+          "id": "readRecovery",
+          "cleanup": false,
+          "success": true,
+          "value": "file-default"
+        },
+        {
+          "id": "unloadValid",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "dispose",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "LCB07",
+      "runtime": ".NET 10.0.12",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "actions": [
+        {
+          "id": "collection",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "load",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "dispose1",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "dispose2",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "retainedRead",
+          "cleanup": false,
+          "success": true,
+          "value": "file-default"
+        },
+        {
+          "id": "reload",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "sameReload",
+          "cleanup": false,
+          "success": true,
+          "value": true
+        },
+        {
+          "id": "unloadRetained",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "unloadReload",
+          "cleanup": true,
+          "success": false,
+          "exception": {
+            "type": "System.InvalidOperationException",
+            "hresult": -2146233079,
+            "message": "The project provided was not loaded in the collection.",
+            "diagnostic": null
+          }
+        },
+        {
+          "id": "disposeFinally",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "LCB08",
+      "runtime": ".NET 10.0.12",
+      "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+      "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+      "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+      "actions": [
+        {
+          "id": "implicitConstructor",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "globalCollection",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "globalLoad",
+          "cleanup": false,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "sameGlobal",
+          "cleanup": false,
+          "success": true,
+          "value": true
+        },
+        {
+          "id": "repeatConstructor",
+          "cleanup": false,
+          "success": false,
+          "exception": {
+            "type": "System.InvalidOperationException",
+            "hresult": -2146233079,
+            "message": "An equivalent project (a project with the same global properties and tools version) is already present in the project collection, with the path \"<FIXTURE_ROOT>\\valid.proj\". To load an equivalent into this project collection, unload this project first.",
+            "diagnostic": null
+          }
+        },
+        {
+          "id": "read",
+          "cleanup": false,
+          "success": true,
+          "value": "file-default"
+        },
+        {
+          "id": "unloadOwned",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        },
+        {
+          "id": "unloadOtherOwned",
+          "cleanup": true,
+          "success": true,
+          "value": null
+        }
+      ]
+    }
+  ],
+  "openGates": [
+    "E01 rights/release/profile",
+    "E02 recursive and conditional public dependency closure",
+    "N01-T1 full inventory",
+    "N01-T2 exact shared-core/language representation",
+    "N01-T3 paired compiled C#/.j examples and public surface",
+    "N01-T4 concept conformance",
+    "Windows/Linux profile coverage",
+    "All 25 build tasks remain unaccepted"
+  ]
+}
