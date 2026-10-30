@@ -54,7 +54,7 @@ public final class StreamingContextStates implements IFormattable, IComparable, 
 
     public static StreamingContextStates FromInt32(int value) {
         if (value == 0) return unnamedZero;
-        for (StreamingContextStates candidate : named) if (candidate.value == value) return candidate;
+        for (StreamingContextStates candidate : named) if (candidate.value == value) return new StreamingContextStates(candidate.name, value);
         return new StreamingContextStates(null, value);
     }
 
