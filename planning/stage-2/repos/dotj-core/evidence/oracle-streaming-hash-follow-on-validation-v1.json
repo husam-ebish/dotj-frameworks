@@ -549,13 +549,33 @@
         }
       ],
       "fullCanonicalGateRequired": 488
+    },
+    {
+      "batch": 2474,
+      "path": "tools/oracle/dotj-core/verify-binding-flags-and-shaped-field-filters.py",
+      "originalSha256": "ae282ee08fc3a644e9918d6d4dd5ba129437303da0490856ffa783da011a4bac",
+      "sha256": "28072b4b28b67e0c3b8917e0fd3be8bbedcccf899fceda302d65925738171498",
+      "sourceBaselineCommit": "dc0a232f0a2eb300b8e3061f53a8244363e703af",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 489
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2473,
-  "newPreparedVerifiersMigrated": 27,
-  "currentAndNewVerifiersMigrated": 215,
-  "futurePreparedVerifiersRemaining": 27,
+  "appliedThroughBatch": 2474,
+  "newPreparedVerifiersMigrated": 28,
+  "currentAndNewVerifiersMigrated": 216,
+  "futurePreparedVerifiersRemaining": 26,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
