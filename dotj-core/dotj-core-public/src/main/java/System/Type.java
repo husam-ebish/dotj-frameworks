@@ -2243,9 +2243,9 @@ public abstract class Type extends MemberInfo {
     public FieldInfo[] GetFields(BindingFlags flags) {
         if (flags == null) throw new NullPointerException("flags");
         if (this.get_HasElementType()) return EMPTY_FIELDS;
-        if ((this.definition == FieldAttributes.class || this.definition == BindingFlags.class || this.definition == MemberTypes.class) && !this.get_HasElementType()) {
+        if ((this.definition == NumberStyles.class || this.definition == FieldAttributes.class || this.definition == BindingFlags.class || this.definition == MemberTypes.class) && !this.get_HasElementType()) {
             if (!flags.has(BindingFlags.Public) || !flags.has(BindingFlags.Instance) && !flags.has(BindingFlags.Static)) return EMPTY_FIELDS;
-            String[] names = this.definition == MemberTypes.class ? new String[] {"Constructor", "Event", "Field", "Method", "Property", "TypeInfo", "Custom", "NestedType", "All"} : this.definition == BindingFlags.class ? new String[] {"Default", "IgnoreCase", "DeclaredOnly", "Instance", "Static", "Public", "NonPublic", "FlattenHierarchy", "InvokeMethod", "CreateInstance", "GetField", "SetField", "GetProperty", "SetProperty", "PutDispProperty", "PutRefDispProperty", "ExactBinding", "SuppressChangeType", "OptionalParamBinding", "IgnoreReturn", "DoNotWrapExceptions"} : new String[] {"FieldAccessMask", "PrivateScope", "Private", "FamANDAssem", "Assembly", "Family", "FamORAssem", "Public", "Static", "InitOnly", "Literal", "NotSerialized", "SpecialName", "PinvokeImpl", "RTSpecialName", "HasFieldMarshal", "HasDefault", "HasFieldRVA", "ReservedMask"};
+            String[] names = this.definition == NumberStyles.class ? new String[] {"None", "AllowLeadingWhite", "AllowTrailingWhite", "AllowLeadingSign", "AllowTrailingSign", "AllowParentheses", "AllowDecimalPoint", "AllowThousands", "AllowExponent", "AllowCurrencySymbol", "AllowHexSpecifier", "AllowBinarySpecifier", "Integer", "HexNumber", "BinaryNumber", "Number", "Float", "Currency", "Any"} : this.definition == MemberTypes.class ? new String[] {"Constructor", "Event", "Field", "Method", "Property", "TypeInfo", "Custom", "NestedType", "All"} : this.definition == BindingFlags.class ? new String[] {"Default", "IgnoreCase", "DeclaredOnly", "Instance", "Static", "Public", "NonPublic", "FlattenHierarchy", "InvokeMethod", "CreateInstance", "GetField", "SetField", "GetProperty", "SetProperty", "PutDispProperty", "PutRefDispProperty", "ExactBinding", "SuppressChangeType", "OptionalParamBinding", "IgnoreReturn", "DoNotWrapExceptions"} : new String[] {"FieldAccessMask", "PrivateScope", "Private", "FamANDAssem", "Assembly", "Family", "FamORAssem", "Public", "Static", "InitOnly", "Literal", "NotSerialized", "SpecialName", "PinvokeImpl", "RTSpecialName", "HasFieldMarshal", "HasDefault", "HasFieldRVA", "ReservedMask"};
             List<FieldInfo> result = new java.util.ArrayList<>();
             if (flags.has(BindingFlags.Instance)) result.add(this.selectedEnumValueField());
             if (flags.has(BindingFlags.Static)) for (String name : names) result.add(this.selectedLiteralField(name));
@@ -2372,7 +2372,7 @@ public abstract class Type extends MemberInfo {
         if (flags == null) throw new NullPointerException("flags");
         if (this.selectedInterfaceMethodName() == null) {
             boolean fieldOwner = this.selectedIntegerFields() || this.selectedPrimitiveBackingFields()
-                    || (this.definition == FieldAttributes.class || this.definition == BindingFlags.class || this.definition == MemberTypes.class) && !this.get_HasElementType()
+                    || (this.definition == NumberStyles.class || this.definition == FieldAttributes.class || this.definition == BindingFlags.class || this.definition == MemberTypes.class) && !this.get_HasElementType()
                     || this.get_HasElementType();
             if (fieldOwner && (memberType.get_Value() & 155) == 0) {
                 List<MemberInfo> fields = new java.util.ArrayList<>();
@@ -3412,6 +3412,7 @@ public abstract class Type extends MemberInfo {
         @Override public Object GetRawConstantValue() { throw new InvalidOperationException("Operation is not valid due to the current state of the object."); }
         @Override public Object GetValue(Object target) {
             if (target == null) throw new TargetException("Non-static field requires a target.");
+            if (this.owner.definition == NumberStyles.class && target instanceof NumberStyles value) return new Int32(value.get_Value());
             if (this.owner.definition == FieldAttributes.class && target instanceof FieldAttributes value) return new Int32(value.get_Value());
             if (this.owner.definition == BindingFlags.class && target instanceof BindingFlags value) return new Int32(value.get_Value());
             if (this.owner.definition == MemberTypes.class && target instanceof MemberTypes value) return new Int32(value.get_Value());
@@ -3442,19 +3443,21 @@ public abstract class Type extends MemberInfo {
             return other instanceof DefaultFieldMember field && this.name.equals(field.name) && this.owner.HasSameMetadataDefinitionAs(field.owner);
         }
         private int enumConstant() {
+            if (this.owner.definition == NumberStyles.class) { for (NumberStyles value : NumberStyles.values()) if (value.get_Name().equals(this.name)) return value.get_Value(); }
             if (this.owner.definition == MemberTypes.class) { for (MemberTypes value : MemberTypes.values()) if (value.get_Name().equals(this.name)) return value.get_Value(); }
             if (this.owner.definition == BindingFlags.class) { for (BindingFlags value : BindingFlags.values()) if (value.get_Name().equals(this.name)) return value.get_Value(); }
             for (FieldAttributes value : FieldAttributes.values()) if (value.get_Name().equals(this.name)) return value.get_Value();
             throw new UnsupportedOperationException("Enum field constant is not mapped");
         }
         @Override public Object GetValue(Object target) {
+            if (this.owner.definition == NumberStyles.class) return NumberStyles.FromInt32(this.enumConstant());
             if (this.owner.definition == MemberTypes.class) return MemberTypes.FromInt32(this.enumConstant());
             if (this.owner.definition == BindingFlags.class) return BindingFlags.FromInt32(this.enumConstant());
             return this.owner.definition == FieldAttributes.class ? FieldAttributes.FromInt32(this.enumConstant()) : this.GetRawConstantValue();
         }
         @Override public void SetValue(Object target, Object value) { throw new FieldAccessException("Cannot set a constant field."); }
         @Override public Object GetRawConstantValue() {
-            if (this.owner.definition == FieldAttributes.class || this.owner.definition == BindingFlags.class || this.owner.definition == MemberTypes.class) return new Int32(this.enumConstant());
+            if (this.owner.definition == NumberStyles.class || this.owner.definition == FieldAttributes.class || this.owner.definition == BindingFlags.class || this.owner.definition == MemberTypes.class) return new Int32(this.enumConstant());
             boolean max = this.name.equals("MaxValue");
             if (this.owner.definition == Int32.class) return new Int32(max ? Integer.MAX_VALUE : Integer.MIN_VALUE);
             if (this.owner.definition == Byte.class) return new Byte(max ? 255 : 0);
@@ -3462,7 +3465,7 @@ public abstract class Type extends MemberInfo {
             if (this.owner.definition == UInt16.class) return new UInt16(max ? 65535 : 0);
             return new UInt32(max ? 4294967295L : 0L);
         }
-        @Override public String ToString() { return ((this.owner.definition == FieldAttributes.class || this.owner.definition == BindingFlags.class || this.owner.definition == MemberTypes.class) ? this.owner.get_FullName() : this.owner.get_Name()) + " " + this.name; }
+        @Override public String ToString() { return ((this.owner.definition == NumberStyles.class || this.owner.definition == FieldAttributes.class || this.owner.definition == BindingFlags.class || this.owner.definition == MemberTypes.class) ? this.owner.get_FullName() : this.owner.get_Name()) + " " + this.name; }
     }
 
     private static final class DefaultPropertyMember extends MemberInfo {

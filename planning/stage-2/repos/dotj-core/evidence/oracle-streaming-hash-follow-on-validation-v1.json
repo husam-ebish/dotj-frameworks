@@ -629,13 +629,33 @@
         }
       ],
       "fullCanonicalGateRequired": 492
+    },
+    {
+      "batch": 2478,
+      "path": "tools/oracle/dotj-core/verify-number-styles-field-inventory.py",
+      "originalSha256": "36126fdfb4f1780dad0d924310b06c2954060f2b1645c62ae2db8e7a3590a0b3",
+      "sha256": "5826493beecd0f5a487e469a0b549bed1b57a1728942735bf623e2595dd9dd60",
+      "sourceBaselineCommit": "79b57d9dffaeae3bcc9f2c993f395ce0f624534c",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 493
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2477,
-  "newPreparedVerifiersMigrated": 31,
-  "currentAndNewVerifiersMigrated": 219,
-  "futurePreparedVerifiersRemaining": 23,
+  "appliedThroughBatch": 2478,
+  "newPreparedVerifiersMigrated": 32,
+  "currentAndNewVerifiersMigrated": 220,
+  "futurePreparedVerifiersRemaining": 22,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"

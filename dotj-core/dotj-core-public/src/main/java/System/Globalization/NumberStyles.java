@@ -54,7 +54,7 @@ public final class NumberStyles implements IFormattable, IComparable, IConvertib
     }
 
     public static NumberStyles FromInt32(int value) {
-        for (NumberStyles candidate : named) if (candidate.value == value) return candidate;
+        for (NumberStyles candidate : named) if (candidate.value == value) return new NumberStyles(value, candidate.name);
         return new NumberStyles(value, null);
     }
 
