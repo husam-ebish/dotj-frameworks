@@ -43,7 +43,7 @@ public final class MemberTypes implements IFormattable, IComparable, IConvertibl
     }
 
     public static MemberTypes FromInt32(int value) {
-        for (MemberTypes candidate : named) if (candidate.value == value) return candidate;
+        for (MemberTypes candidate : named) if (candidate.value == value) return new MemberTypes(candidate.name, value);
         return new MemberTypes(null, value);
     }
 
