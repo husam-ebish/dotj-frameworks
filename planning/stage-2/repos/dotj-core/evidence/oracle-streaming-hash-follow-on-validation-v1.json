@@ -749,13 +749,33 @@
         }
       ],
       "fullCanonicalGateRequired": 498
+    },
+    {
+      "batch": 2484,
+      "path": "tools/oracle/dotj-core/verify-method-impl-attributes-field-inventory.py",
+      "originalSha256": "5c9666e0db9a8f0d2d73f8671b4c99a3309fbfef82d35b769ba9d9707bb93d90",
+      "sha256": "aa8ccd5a2268fc5ac370aa585dd4ee937c6903e50ad13bd65545c83e1a48ddd9",
+      "sourceBaselineCommit": "2be03e92a26da83b2fa0a89b4eb53e6d4ab57d7f",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 499
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2483,
-  "newPreparedVerifiersMigrated": 37,
-  "currentAndNewVerifiersMigrated": 225,
-  "futurePreparedVerifiersRemaining": 17,
+  "appliedThroughBatch": 2484,
+  "newPreparedVerifiersMigrated": 38,
+  "currentAndNewVerifiersMigrated": 226,
+  "futurePreparedVerifiersRemaining": 16,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"

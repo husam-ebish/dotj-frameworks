@@ -58,7 +58,7 @@ public final class MethodImplAttributes implements IFormattable, IComparable, IC
     }
 
     public static MethodImplAttributes FromInt32(int value) {
-        for (MethodImplAttributes candidate : named) if (candidate.value == value) return candidate;
+        for (MethodImplAttributes candidate : named) if (candidate.value == value) return new MethodImplAttributes(candidate.name, value);
         return new MethodImplAttributes(null, value);
     }
 
