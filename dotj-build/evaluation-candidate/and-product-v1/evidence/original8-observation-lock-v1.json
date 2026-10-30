@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "status": "PAIRED_NATIVE_AND_EVIDENCE",
+  "inputLockSha256": "2cc91f4d5875858b634bd3142c411facddaf43f84bb253c1f8bf6802a4e609ff",
+  "checkpointSha256": "b1db50c0104df14e1fd8a427337638cffe251be3b7f2c88aa611ba39872c8919",
+  "captures": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-native-pass1\\capture.json",
+      "sha256": "1f8aa6e7af579aef448c6c2f76011c37e35ebd21bd189b1c30419e480225413a"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-native-pass2\\capture.json",
+      "sha256": "6b9ed8f733df62290572587764b17fcfbebd8cd08cf99f2d30c1466295b22842"
+    }
+  ],
+  "normalizedPayload": {
+    "runtime": ".NET 10.0.12",
+    "msbuildAssembly": "Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+    "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+    "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+    "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+    "profile": "Default",
+    "rows": [
+      {
+        "id": "BA01-literal-truth-table",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "tt",
+            "Q": "base"
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "BA02-balanced-nesting",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "nested",
+            "Q": "base"
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "BA03-token-case-and-boundaries",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "mixed",
+            "Q": "quoted"
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "BA04-lazy-right-exists",
+        "globals": {
+          "EmptyPath": ""
+        },
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "base",
+            "Q": "tail"
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "BA05-owner-relative-exists",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "",
+            "Q": ""
+          },
+          "imports": [
+            {
+              "owner": "<FIXTURE_ROOT>\\BA05-owner-relative-exists\\main.proj",
+              "project": "<FIXTURE_ROOT>\\BA05-owner-relative-exists\\sub\\entry.props",
+              "line": 2,
+              "column": 3
+            }
+          ],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "BA06-encounter-time-properties",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "first",
+            "Q": "second"
+          },
+          "imports": [
+            {
+              "owner": "<FIXTURE_ROOT>\\BA06-encounter-time-properties\\main.proj",
+              "project": "<FIXTURE_ROOT>\\BA06-encounter-time-properties\\change.props",
+              "line": 3,
+              "column": 3
+            }
+          ],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "BA07-import-groups-and-no-task-execution",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "one",
+            "Q": "two"
+          },
+          "imports": [
+            {
+              "owner": "<FIXTURE_ROOT>\\BA07-import-groups-and-no-task-execution\\main.proj",
+              "project": "<FIXTURE_ROOT>\\BA07-import-groups-and-no-task-execution\\a.props",
+              "line": 4,
+              "column": 5
+            },
+            {
+              "owner": "<FIXTURE_ROOT>\\BA07-import-groups-and-no-task-execution\\main.proj",
+              "project": "<FIXTURE_ROOT>\\BA07-import-groups-and-no-task-execution\\b.props",
+              "line": 7,
+              "column": 3
+            }
+          ],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "BA08-malformed-right-side-parsed",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "success": false,
+          "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+          "code": "MSB4092",
+          "file": "<FIXTURE_ROOT>\\BA08-malformed-right-side-parsed\\main.proj",
+          "line": 2,
+          "column": 18,
+          "endLine": 0,
+          "endColumn": 0,
+          "message": "An unexpected token \"\" was found at character position 16 in condition \"false And (true\".  <FIXTURE_ROOT>\\BA08-malformed-right-side-parsed\\main.proj",
+          "hresult": -2146233088
+        },
+        "diagnostics": [
+          {
+            "kind": "error",
+            "code": "MSB4092",
+            "file": "<FIXTURE_ROOT>\\BA08-malformed-right-side-parsed\\main.proj",
+            "line": 2,
+            "column": 18,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "An unexpected token \"\" was found at character position 16 in condition \"false And (true\"."
+          }
+        ],
+        "cleanup": {
+          "before": 0,
+          "loaded": 0,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      }
+    ]
+  },
+  "classification": {
+    "successfulNativeComparisons": 7,
+    "successfulIds": [
+      "BA01-literal-truth-table",
+      "BA02-balanced-nesting",
+      "BA03-token-case-and-boundaries",
+      "BA04-lazy-right-exists",
+      "BA05-owner-relative-exists",
+      "BA06-encounter-time-properties",
+      "BA07-import-groups-and-no-task-execution"
+    ],
+    "malformedEvidence": [
+      {
+        "id": "BA08-malformed-right-side-parsed",
+        "nativeSuccess": false,
+        "privateCandidateDisposition": "PROFILE_REFUSAL_REQUIRED",
+        "exactExceptionParity": false
+      }
+    ],
+    "candidateComparisonsPerformed": 0,
+    "acceptedTasksAdded": 0,
+    "numberedBatchCredit": 0
+  },
+  "candidateState": "NOT_RUN"
+}

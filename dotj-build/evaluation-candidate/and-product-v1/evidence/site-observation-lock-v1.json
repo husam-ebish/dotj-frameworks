@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "status": "PAIRED_EXISTS_SITES_NATIVE_EVIDENCE",
+  "inputLockSha256": "0e6597ed73c395ebb37b9f458c88158e6bf036a0817e0c5fd024fc1f5778e230",
+  "checkpointSha256": "a7d1a96afb06bc84c4566cc98d0fa10260a654ec13db3c947aab61f83208085b",
+  "originalObservationLockSha256": "20cc87dafc10e30162c8d4284c1ce417f2094d0d6c2e7cd53829c51c3055b15d",
+  "captures": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-exists-sites-native-pass1\\capture.json",
+      "sha256": "02e2f299af7805d1406559beb8da27391865fa1e78dc867d45dd693ec6d3fa75"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-exists-sites-native-pass2\\capture.json",
+      "sha256": "6b7b12f98ae00aa938b26aa2c775818dc25facd826f972c0ad380a243176768f"
+    }
+  ],
+  "normalizedPayload": {
+    "runtime": ".NET 10.0.12",
+    "msbuildAssembly": "Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+    "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+    "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+    "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+    "profile": "Default",
+    "rows": [
+      {
+        "id": "BA09-root-marker-atom-and-sites",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "StartPropertyPlainProbePropertyAndProbe",
+            "Q": "Start"
+          },
+          "imports": [
+            {
+              "owner": "<FIXTURE_ROOT>\\BA09-root-marker-atom-and-sites\\main.proj",
+              "project": "<FIXTURE_ROOT>\\BA09-root-marker-atom-and-sites\\sub\\entry.props",
+              "line": 3,
+              "column": 3
+            }
+          ],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "BA10-owner-marker-atom-and-sites",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "StartPropertyGroupPlainProbePropertyGroupAndProbe",
+            "Q": "StartImportPlainProbeImportAndProbeImportGroupPlainProbeImportGroupAndProbe"
+          },
+          "imports": [
+            {
+              "owner": "<FIXTURE_ROOT>\\BA10-owner-marker-atom-and-sites\\main.proj",
+              "project": "<FIXTURE_ROOT>\\BA10-owner-marker-atom-and-sites\\sub\\entry.props",
+              "line": 3,
+              "column": 3
+            },
+            {
+              "owner": "<FIXTURE_ROOT>\\BA10-owner-marker-atom-and-sites\\sub\\entry.props",
+              "project": "<FIXTURE_ROOT>\\BA10-owner-marker-atom-and-sites\\sub\\importplainprobe.props",
+              "line": 10,
+              "column": 3
+            },
+            {
+              "owner": "<FIXTURE_ROOT>\\BA10-owner-marker-atom-and-sites\\sub\\entry.props",
+              "project": "<FIXTURE_ROOT>\\BA10-owner-marker-atom-and-sites\\sub\\importandprobe.props",
+              "line": 11,
+              "column": 3
+            },
+            {
+              "owner": "<FIXTURE_ROOT>\\BA10-owner-marker-atom-and-sites\\sub\\entry.props",
+              "project": "<FIXTURE_ROOT>\\BA10-owner-marker-atom-and-sites\\sub\\importgroupplainprobe.props",
+              "line": 14,
+              "column": 51
+            },
+            {
+              "owner": "<FIXTURE_ROOT>\\BA10-owner-marker-atom-and-sites\\sub\\entry.props",
+              "project": "<FIXTURE_ROOT>\\BA10-owner-marker-atom-and-sites\\sub\\importgroupandprobe.props",
+              "line": 15,
+              "column": 60
+            }
+          ],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      }
+    ]
+  },
+  "markerFacts": [
+    {
+      "role": "BA09-root-marker-atom-and-sites:root:probe.marker",
+      "exists": true,
+      "sha256": "3c0087069ee311dadb3fd8a9c991106c452dcd42cfe711fa97a27f9ea69d7863"
+    },
+    {
+      "role": "BA09-root-marker-atom-and-sites:root:cwd-only.marker",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "role": "BA09-root-marker-atom-and-sites:owner:probe.marker",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "role": "BA09-root-marker-atom-and-sites:owner:cwd-only.marker",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "role": "BA10-owner-marker-atom-and-sites:root:probe.marker",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "role": "BA10-owner-marker-atom-and-sites:root:cwd-only.marker",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "role": "BA10-owner-marker-atom-and-sites:owner:probe.marker",
+      "exists": true,
+      "sha256": "3c0087069ee311dadb3fd8a9c991106c452dcd42cfe711fa97a27f9ea69d7863"
+    },
+    {
+      "role": "BA10-owner-marker-atom-and-sites:owner:cwd-only.marker",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "role": "process-cwd:probe.marker",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "role": "process-cwd:cwd-only.marker",
+      "exists": true,
+      "sha256": "4f6f1a87120c4a4e96d97bcf8dca4a04a0f8d302040f90b74157c766c0e035e6"
+    }
+  ],
+  "candidateComparisons": 0,
+  "acceptedTasksAdded": 0,
+  "numberedBatchCredit": 0
+}

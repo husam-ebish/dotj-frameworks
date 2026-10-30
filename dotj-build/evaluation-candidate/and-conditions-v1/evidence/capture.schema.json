@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Owned And native capture envelope; verify.py enforces detailed typed producer payload and external hashes",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "runId",
+    "status",
+    "fixtureRoot",
+    "inputLockSha256",
+    "commands",
+    "payload",
+    "copiedInputs"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "status": {
+      "const": "PASS_NATIVE_AND_CAPTURE"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "fixtureRoot": {
+      "type": "string"
+    },
+    "inputLockSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "commands": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "payload": {
+      "type": "object"
+    },
+    "copiedInputs": {
+      "type": "array"
+    }
+  }
+}

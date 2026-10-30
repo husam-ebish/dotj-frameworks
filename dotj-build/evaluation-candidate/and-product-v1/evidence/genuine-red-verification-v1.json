@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_GENUINE_PACKAGED_CONDITION_PROFILE_RED",
+  "mode": "red",
+  "sourceSha256": "769badca94312c434e819ee9c246c26de1a84f87f541fe431110aa2b7241d706",
+  "testSha256": "41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a",
+  "oldNativePin": "20cc87dafc10e30162c8d4284c1ce417f2094d0d6c2e7cd53829c51c3055b15d",
+  "siteNativePin": "dfa6016703f18edd32ff3842a5a9e335100b649b7ffd3a130b5750996b0bf4be",
+  "commands": [
+    {
+      "label": "packaged-and-red",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-v1\\packaged94\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-v1\\packaged94\\evaluation-contract-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.AndConditionTest",
+        "red",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\native-and-bridge.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\and-fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\and-results.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\controls",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-v1\\packaged94\\dotj-build-evaluation-candidate.jar"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\unrelated-cwd",
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\unrelated-cwd\\logs\\packaged-and-red.stdout",
+        "sha256": "0a51f233e0625722bb3fbf6569a9c9e92d0b414f410c7ae453a1352a76ff81ab"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\unrelated-cwd\\logs\\packaged-and-red.stderr",
+        "sha256": "63e546072da080ba53a5fd2db339b26c0e934f1a87390b8f79019d6b27f2dba2"
+      },
+      "exitCode": 1,
+      "seconds": 0.38185600005090237,
+      "passed": false
+    }
+  ],
+  "resources": [
+    {
+      "before": "packaged-and-red",
+      "utc": "2026-10-30T09:38:21.436747+00:00",
+      "freeVirtualKiB": 19395008,
+      "freePhysicalKiB": 679572,
+      "waitSeconds": 2.7111294000642374
+    }
+  ],
+  "acceptedTasksAdded": 0,
+  "numberedBatchCredit": 0,
+  "bridge": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\native-and-bridge.tsv",
+    "sha256": "1f828c2e2f4c1d16ddac3cd94ce9027c21e769a877c054796f196ebe79002ad3"
+  },
+  "packagingReuse": {
+    "receipt": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-v1\\packaged94\\verification.json",
+      "sha256": "1cdb1e69ba4f354db494b0718f5ba898fbdffaae38fa3f9840e115c2867ec236"
+    },
+    "artifactHashes": {
+      "candidateJar": "06ad513b3ce99de18cd7e3810b9676369efee94b864133bda6e94df69316c5da",
+      "testsJar": "e34da96edd6d800ff5d6b00e345c2815f0989282010478528b1edbc647616fbb"
+    },
+    "newCompilerOrPackagingJvmProcesses": 0
+  },
+  "runnerReceipt": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-v1\\packaged94\\verification.json",
+    "sha256": "1cdb1e69ba4f354db494b0718f5ba898fbdffaae38fa3f9840e115c2867ec236"
+  },
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-v1\\packaged94\\dotj-build-evaluation-candidate.jar",
+    "sha256": "06ad513b3ce99de18cd7e3810b9676369efee94b864133bda6e94df69316c5da"
+  },
+  "testsJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-v1\\packaged94\\evaluation-contract-tests.jar",
+    "sha256": "e34da96edd6d800ff5d6b00e345c2815f0989282010478528b1edbc647616fbb"
+  },
+  "resourceWaits": [
+    {
+      "before": "packaged-and-red",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 2.7169186000246555,
+      "status": "READY"
+    }
+  ],
+  "failedCommand": "packaged-and-red",
+  "probeCommand": {
+    "label": "packaged-and-red",
+    "argv": [
+      "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+      "-Xms16m",
+      "-Xmx128m",
+      "-XX:+UseSerialGC",
+      "-XX:ActiveProcessorCount=2",
+      "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\tmp",
+      "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\home",
+      "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\logs",
+      "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\logs\\hs_err_pid%p.log",
+      "--limit-modules",
+      "java.base,java.xml,org.dotj.build.evaluation.candidate",
+      "--module-path",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-v1\\packaged94\\dotj-build-evaluation-candidate.jar",
+      "--patch-module",
+      "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-v1\\packaged94\\evaluation-contract-tests.jar",
+      "-m",
+      "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.AndConditionTest",
+      "red",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\native-and-bridge.tsv",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\and-fixtures",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\and-results.tsv",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\controls",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-v1\\packaged94\\dotj-build-evaluation-candidate.jar"
+    ],
+    "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\unrelated-cwd",
+    "stdout": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\unrelated-cwd\\logs\\packaged-and-red.stdout",
+      "sha256": "0a51f233e0625722bb3fbf6569a9c9e92d0b414f410c7ae453a1352a76ff81ab"
+    },
+    "stderr": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\unrelated-cwd\\logs\\packaged-and-red.stderr",
+      "sha256": "63e546072da080ba53a5fd2db339b26c0e934f1a87390b8f79019d6b27f2dba2"
+    },
+    "exitCode": 1,
+    "seconds": 0.38185600005090237,
+    "passed": false
+  },
+  "behavioralFailure": "BA01 CONDITION_PROFILE",
+  "preservedOriginalSource": true
+}

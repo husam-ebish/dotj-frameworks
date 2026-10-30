@@ -110,6 +110,7 @@ final class ProjectEvaluationComponent {
     }
     private static final class State {
         final Path sandbox;
+        Path rootProject;
         final ImportProfile profile;
         final List<ImportEdge> imports = new ArrayList<>();
         final List<ImportEdge> recordedImports = new ArrayList<>();
@@ -150,6 +151,7 @@ final class ProjectEvaluationComponent {
         void read(Path input, boolean main) throws IOException {
             Path file = inside(input);
             if (!Files.exists(file)) throw new EvaluationFailure(file, file);
+            if (main) rootProject = file;
             if (!seen.add(file)) return;
             if (seen.size() > 16 || Files.size(file) > 65536) throw reject("INPUT_BOUND", "Bounded profile import/file size exceeded");
             files.add(file);
@@ -274,7 +276,9 @@ final class ProjectEvaluationComponent {
             for (Element property : elements(group)) {
                 String name=key(property.getTagName()); attrs(property,Set.of("Condition"));
                 if (globalNames.contains(name) && !localOverrides.contains(name)) continue;
-                if (!condition(property.getAttribute("Condition"),owner)) continue;
+                // Individual property conditions use the main project directory. Group/import
+                // conditions and Import Project resolution retain their defining-file owner.
+                if (!condition(property.getAttribute("Condition"),rootProject)) continue;
                 if (property.getElementsByTagName("*").getLength()!=0) throw reject("PROPERTY_XML", "Nested property XML not supported");
                 String value=expand(property.getTextContent());unescape(value);properties.put(name,value);
             }
@@ -366,8 +370,88 @@ final class ProjectEvaluationComponent {
             }
             return result.toString();
         }
+        private static final int CONDITION_GROUP_LIMIT = 64;
+        private static final int CONDITION_NODE_LIMIT = 256;
+        private interface ConditionExpression { }
+        private record ConditionAtom(String raw) implements ConditionExpression { }
+        private record ConditionAnd(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
+        private final class ConditionParser {
+            final String raw;
+            int cursor, depth, nodes;
+            ConditionParser(String raw) {
+                this.raw=raw;
+                // Validate reference/escape spelling without expanding a value or probing a path.
+                conditionTemplate(raw);
+            }
+            void space() { while(cursor<raw.length() && raw.charAt(cursor)<=0x20)cursor++; }
+            boolean word(char c) { return c>='A'&&c<='Z'||c>='a'&&c<='z'||c>='0'&&c<='9'||c=='_'; }
+            boolean and() {
+                if(cursor+3>raw.length() || cursor>0&&word(raw.charAt(cursor-1)))return false;
+                char a=raw.charAt(cursor),n=raw.charAt(cursor+1),d=raw.charAt(cursor+2);
+                return (a=='a'||a=='A')&&(n=='n'||n=='N')&&(d=='d'||d=='D') &&
+                       (cursor+3==raw.length()||!word(raw.charAt(cursor+3)));
+            }
+            void node() {
+                if(nodes>=CONDITION_NODE_LIMIT)throw reject("CONDITION_BOUND","Private condition AST node limit exceeded");
+                nodes++;
+            }
+            ConditionExpression parse() {
+                ConditionExpression result=conjunction();space();
+                if(cursor!=raw.length())throw reject("CONDITION_PROFILE","Trailing condition syntax outside selected profile");
+                return result;
+            }
+            ConditionExpression conjunction() {
+                ConditionExpression result=primary();space();
+                while(and()) {
+                    cursor+=3;
+                    ConditionExpression right=primary();
+                    node();result=new ConditionAnd(result,right);space();
+                }
+                return result;
+            }
+            ConditionExpression primary() {
+                space();
+                if(cursor>=raw.length())throw reject("CONDITION_PROFILE","Missing condition operand");
+                if(raw.charAt(cursor)=='(') {
+                    if(depth>=CONDITION_GROUP_LIMIT)throw reject("CONDITION_BOUND","Private condition grouping depth exceeded");
+                    depth++;cursor++;
+                    ConditionExpression result=conjunction();space();
+                    if(cursor>=raw.length()||raw.charAt(cursor)!=')')throw reject("CONDITION_PROFILE","Unbalanced condition group");
+                    cursor++;depth--;return result;
+                }
+                int start=cursor;
+                if(raw.startsWith("true",cursor) && (cursor+4==raw.length()||!word(raw.charAt(cursor+4))))cursor+=4;
+                else if(raw.startsWith("false",cursor) && (cursor+5==raw.length()||!word(raw.charAt(cursor+5))))cursor+=5;
+                else {
+                    // Whole quoted atoms keep And, parentheses and property references scalar.
+                    Matcher exists=EXISTS.matcher(raw).region(cursor,raw.length());
+                    Matcher eq=EQUALITY.matcher(raw).region(cursor,raw.length());
+                    if(exists.lookingAt())cursor=exists.end();
+                    else if(eq.lookingAt())cursor=eq.end();
+                    else throw reject("CONDITION_PROFILE","Condition atom outside selected profile");
+                }
+                String atom=raw.substring(start,cursor);validateAtom(atom);
+                node();return new ConditionAtom(atom);
+            }
+        }
         boolean condition(String raw, Path owner) throws IOException {
             if(raw.isEmpty())return true;
+            ConditionExpression expression=new ConditionParser(raw).parse();
+            Deque<ConditionExpression> pending=new ArrayDeque<>();pending.push(expression);
+            int steps=0;
+            while(!pending.isEmpty()) {
+                if(steps++>=CONDITION_NODE_LIMIT)throw reject("CONDITION_BOUND","Private condition evaluation bound exceeded");
+                ConditionExpression next=pending.pop();
+                if(next instanceof ConditionAtom atom) {
+                    if(!conditionAtom(atom.raw(),owner))return false;
+                } else {
+                    ConditionAnd and=(ConditionAnd)next;
+                    pending.push(and.right());pending.push(and.left());
+                }
+            }
+            return true;
+        }
+        boolean conditionAtom(String raw, Path owner) throws IOException {
             String value=unescape(expand(raw)).trim();
             if(value.equals("true"))return true;if(value.equals("false"))return false;
             Matcher exists=EXISTS.matcher(value);
@@ -378,8 +462,9 @@ final class ProjectEvaluationComponent {
         }
         void validateCondition(String raw) {
             if (raw.isEmpty()) return;
-            // Validate syntax without reading properties or probing files. Expansion still occurs
-            // at the original evaluation point; skipped groups cannot conceal unknown syntax.
+            new ConditionParser(raw).parse();
+        }
+        String conditionTemplate(String raw) {
             Matcher references = REFERENCE.matcher(raw);
             StringBuilder template = new StringBuilder();
             while (references.find()) {
@@ -388,7 +473,10 @@ final class ProjectEvaluationComponent {
             }
             references.appendTail(template);
             if (template.indexOf("$(") >= 0) throw reject("PROPERTY_REFERENCE", "Unclosed property reference");
-            String value = unescape(template.toString()).trim();
+            return unescape(template.toString()).trim();
+        }
+        void validateAtom(String raw) {
+            String value = conditionTemplate(raw);
             if (value.equals("true") || value.equals("false") || EXISTS.matcher(value).matches()) return;
             Matcher equality = EQUALITY.matcher(value);
             if (!equality.matches()) throw reject("CONDITION_PROFILE", "Condition syntax outside selected profile");

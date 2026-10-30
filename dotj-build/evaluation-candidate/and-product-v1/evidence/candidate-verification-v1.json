@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_PACKAGED_AND_EXTENSION",
+  "mode": "green",
+  "sourceSha256": "16dc0c10c4ac043ffc7a97d44f0a458e723e2f79e3e8a74b4d82842ae21c031f",
+  "testSha256": "41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a",
+  "waveCheckpoint": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task-24-product-green-checkpoint-v1.json",
+    "sha256": "c796a5b83275e9aac6ad11dfee0d09a8306e9a62e52c1aa4a044debad65b734a"
+  },
+  "oldNativePin": "20cc87dafc10e30162c8d4284c1ce417f2094d0d6c2e7cd53829c51c3055b15d",
+  "siteNativePin": "dfa6016703f18edd32ff3842a5a9e335100b649b7ffd3a130b5750996b0bf4be",
+  "commands": [
+    {
+      "label": "unchanged-runner-packaging",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\verify.py",
+        "--out",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94"
+      ],
+      "outerTimeoutSeconds": 600,
+      "processId": 95612,
+      "exitCode": 0,
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\logs\\runner.stdout",
+        "sha256": "ac8460068c125689186be2881b34da51e91fa6e403a8c1c7db50dfa00d6dd671"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\logs\\runner.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "packaged-and-green",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\evaluation-contract-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.AndConditionTest",
+        "green",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\native-and-bridge.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\and-fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\and-results.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\controls",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\dotj-build-evaluation-candidate.jar"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\unrelated-cwd",
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\unrelated-cwd\\logs\\packaged-and-green.stdout",
+        "sha256": "d11e676075e47981f0c5c84c23f1b1083c5b17eda032b31a190ae5e5c6a540fb"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\unrelated-cwd\\logs\\packaged-and-green.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 0.7266681999899447,
+      "passed": true
+    }
+  ],
+  "resources": [
+    {
+      "before": "packaged-and-green",
+      "utc": "2026-10-30T09:52:01.520421+00:00",
+      "freeVirtualKiB": 19157444,
+      "freePhysicalKiB": 1962388,
+      "waitSeconds": 3.3735935000004247
+    }
+  ],
+  "acceptedTasksAdded": 0,
+  "numberedBatchCredit": 0,
+  "bridge": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\native-and-bridge.tsv",
+    "sha256": "1f828c2e2f4c1d16ddac3cd94ce9027c21e769a877c054796f196ebe79002ad3"
+  },
+  "runnerReceipt": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\verification.json",
+    "sha256": "48ca30fa092970002ba8cbe17d3d6da7e4af48874b0d5170bb5fc9ea62e54d53"
+  },
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\dotj-build-evaluation-candidate.jar",
+    "sha256": "6a6a27ad7711bc0cadf605334acbda1b00ff289eb6b96f64fdf38de5e656e72a"
+  },
+  "testsJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\evaluation-contract-tests.jar",
+    "sha256": "e34da96edd6d800ff5d6b00e345c2815f0989282010478528b1edbc647616fbb"
+  },
+  "all94Results": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\outputs\\all-comparisons.tsv",
+    "sha256": "0fb1ed965e9cfbe37a81ca9b4bc2ea7cc8693952d2de64e028ce8449fa0e6ec3"
+  },
+  "resourceWaits": [
+    {
+      "before": "packaged-and-green",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 3.3770547000458464,
+      "status": "READY"
+    }
+  ],
+  "probeCommand": {
+    "label": "packaged-and-green",
+    "argv": [
+      "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+      "-Xms16m",
+      "-Xmx128m",
+      "-XX:+UseSerialGC",
+      "-XX:ActiveProcessorCount=2",
+      "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\tmp",
+      "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\home",
+      "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\logs",
+      "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\logs\\hs_err_pid%p.log",
+      "--limit-modules",
+      "java.base,java.xml,org.dotj.build.evaluation.candidate",
+      "--module-path",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\dotj-build-evaluation-candidate.jar",
+      "--patch-module",
+      "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\evaluation-contract-tests.jar",
+      "-m",
+      "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.AndConditionTest",
+      "green",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\native-and-bridge.tsv",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\and-fixtures",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\and-results.tsv",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\controls",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\dotj-build-evaluation-candidate.jar"
+    ],
+    "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\unrelated-cwd",
+    "stdout": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\unrelated-cwd\\logs\\packaged-and-green.stdout",
+      "sha256": "d11e676075e47981f0c5c84c23f1b1083c5b17eda032b31a190ae5e5c6a540fb"
+    },
+    "stderr": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\unrelated-cwd\\logs\\packaged-and-green.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "exitCode": 0,
+    "seconds": 0.7266681999899447,
+    "passed": true
+  },
+  "probeResults": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\and-results.tsv",
+    "sha256": "f2962e70bb9bed6de980b01f95dc4efb9e91a618791bbe417a38b826a5c02f4d"
+  },
+  "preserved94": 94,
+  "nativeSuccessCases": 9,
+  "malformedPrivateBoundary": 1,
+  "privateControlRows": 24,
+  "moduleExports": [],
+  "moduleOpens": [],
+  "candidateLock": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+    "sha256": "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+  }
+}

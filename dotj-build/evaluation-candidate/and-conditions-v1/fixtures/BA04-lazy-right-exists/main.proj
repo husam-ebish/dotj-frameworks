@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup><P>base</P><Q>tail</Q></PropertyGroup>
+  <PropertyGroup><P Condition="false And Exists('$(EmptyPath)')">bad</P></PropertyGroup>
+  <Import Project="missing.props" Condition="false And Exists('$(EmptyPath)')" />
+</Project>

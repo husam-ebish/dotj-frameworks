@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup><P Condition="Exists('probe.marker')">$(P)PropertyPlainProbe</P></PropertyGroup>
+  <PropertyGroup><P Condition="true And Exists('probe.marker')">$(P)PropertyAndProbe</P></PropertyGroup>
+  <PropertyGroup><P Condition="Exists('cwd-only.marker')">$(P)PropertyPlainCwd</P></PropertyGroup>
+  <PropertyGroup><P Condition="true And Exists('cwd-only.marker')">$(P)PropertyAndCwd</P></PropertyGroup>
+  <PropertyGroup Condition="Exists('probe.marker')"><P>$(P)PropertyGroupPlainProbe</P></PropertyGroup>
+  <PropertyGroup Condition="true And Exists('probe.marker')"><P>$(P)PropertyGroupAndProbe</P></PropertyGroup>
+  <PropertyGroup Condition="Exists('cwd-only.marker')"><P>$(P)PropertyGroupPlainCwd</P></PropertyGroup>
+  <PropertyGroup Condition="true And Exists('cwd-only.marker')"><P>$(P)PropertyGroupAndCwd</P></PropertyGroup>
+  <Import Project="importplainprobe.props" Condition="Exists('probe.marker')" />
+  <Import Project="importandprobe.props" Condition="true And Exists('probe.marker')" />
+  <Import Project="importplaincwd.props" Condition="Exists('cwd-only.marker')" />
+  <Import Project="importandcwd.props" Condition="true And Exists('cwd-only.marker')" />
+  <ImportGroup Condition="Exists('probe.marker')"><Import Project="importgroupplainprobe.props" /></ImportGroup>
+  <ImportGroup Condition="true And Exists('probe.marker')"><Import Project="importgroupandprobe.props" /></ImportGroup>
+  <ImportGroup Condition="Exists('cwd-only.marker')"><Import Project="importgroupplaincwd.props" /></ImportGroup>
+  <ImportGroup Condition="true And Exists('cwd-only.marker')"><Import Project="importgroupandcwd.props" /></ImportGroup>
+</Project>
