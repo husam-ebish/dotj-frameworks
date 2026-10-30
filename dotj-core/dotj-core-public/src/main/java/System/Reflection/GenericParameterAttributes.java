@@ -34,7 +34,7 @@ public final class GenericParameterAttributes implements IFormattable, IComparab
     private final int value;
     private GenericParameterAttributes(String name, int value) { this.name = name; this.value = value; }
     public static GenericParameterAttributes FromInt32(int value) {
-        for (GenericParameterAttributes candidate : named) if (candidate.value == value) return candidate;
+        for (GenericParameterAttributes candidate : named) if (candidate.value == value) return new GenericParameterAttributes(candidate.name, value);
         return new GenericParameterAttributes(null, value);
     }
     public int get_Value() { return this.value; }
