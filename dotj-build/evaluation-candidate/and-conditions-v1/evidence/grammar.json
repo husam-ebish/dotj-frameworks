@@ -1,0 +1,28 @@
+{
+  "condition": "conjunction",
+  "conjunction": "primary (AND primary)*",
+  "primary": "existing-atom | ( conjunction )",
+  "andToken": "ASCII case-insensitive whole token outside quoted values/property references",
+  "atoms": "Existing lowercase Boolean literal, selected quoted ASCII alphabetic/empty equality, existing Exists literal/property-expanded path",
+  "emptyAttribute": true,
+  "emptyGroup": "refuse",
+  "fullConsumption": true,
+  "privateLimits": {
+    "simultaneousGroupingDepth": 64,
+    "astNodesIncludingAtomsAndAnd": 256,
+    "parenthesesAddNodes": false,
+    "enforce": "Before allocation/descent; iterative bounded conjunction evaluation"
+  },
+  "validation": "Parse and validate all raw branches without property reads or filesystem probes, including skipped groups. Expand only lazily evaluated scalar operands; expansion cannot inject grammar.",
+  "unsupported": [
+    "Or",
+    "!=",
+    "unary !",
+    "relational/numeric/version/bool alias/Unicode coercion",
+    "property functions",
+    "items",
+    "metadata",
+    "SDK imports"
+  ],
+  "limitsAreNativeClaims": false
+}

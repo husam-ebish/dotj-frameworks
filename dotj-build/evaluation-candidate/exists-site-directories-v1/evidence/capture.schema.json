@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Separate two-case site-directory supplement; checker.py enforces strict metadata/payload/marker shape",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "status",
+    "runId",
+    "fixtureRoot",
+    "workingDirectory",
+    "markerPlacement",
+    "inputLockSha256",
+    "checkpointSha256",
+    "commands",
+    "payload"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "status": {
+      "const": "PASS_NATIVE_EXISTS_SITES_CAPTURE"
+    },
+    "commands": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "description": "One unchanged qualified generic binary process with two fresh collections, no C# compiler. Actual P/Q outcomes remain unobserved until root grants two fresh captures."
+}

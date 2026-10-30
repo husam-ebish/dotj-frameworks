@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup><P>base</P><Q>base</Q></PropertyGroup>
+  <PropertyGroup Condition="true And true"><P>tt</P></PropertyGroup>
+  <PropertyGroup><P Condition="true And false">bad</P><Q Condition="false And true">bad</Q><Q Condition="false And false">bad</Q></PropertyGroup>
+</Project>

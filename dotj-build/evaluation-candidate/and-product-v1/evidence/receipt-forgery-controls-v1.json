@@ -1,0 +1,470 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_ACTUAL_CLI_RECEIPT_CONTROLS",
+  "actualReceipt": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\verification.json",
+    "sha256": "3a39a02ae4fc41688bb73f9207a03548eb9fe0ba7a4127d54b5b33a23d3593e6"
+  },
+  "candidateLock": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+    "sha256": "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+  },
+  "checker": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+    "sha256": "9d6b6936d244018e034a53213f3fc40ad2170605ee616a5e670b531d4acef411"
+  },
+  "positive": 1,
+  "negative": 15,
+  "actualJVMInvocations": 0,
+  "results": [
+    {
+      "id": "actual-positive",
+      "expectedAccepted": true,
+      "exitCode": 0,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\actual-positive.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\actual-positive.json",
+        "sha256": "3a39a02ae4fc41688bb73f9207a03548eb9fe0ba7a4127d54b5b33a23d3593e6"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\actual-positive.stdout",
+        "sha256": "768845b3a66ab2003c3ffdb9f1a73f7f2b57b5579c70fec127c889b5543b620a"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\actual-positive.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "id": "schema-bool",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\schema-bool.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\schema-bool.json",
+        "sha256": "30577ceba86c0593138cdec627a859ef136f5a25a4cd5eb4eb31e9cf5b45d7f2"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\schema-bool.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\schema-bool.stderr",
+        "sha256": "89e3c624e04dd5282ae103e09fde64bbdb59794be7a2059ca4315888735f5526"
+      }
+    },
+    {
+      "id": "wrong-source",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-source.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-source.json",
+        "sha256": "243da920e01d516538f789d3cb2a38da81e9970518f41d54e08be35d253d58c4"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-source.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-source.stderr",
+        "sha256": "6dcb85734f47f47c96b5866239c27e85e1bda19c46268d63444bce9f33a848d8"
+      }
+    },
+    {
+      "id": "wrong-test",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-test.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-test.json",
+        "sha256": "b1b83dc13d98752ab0601e9d4187a7dae4e82766a4b5ae35362a59ac9a40b7fb"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-test.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-test.stderr",
+        "sha256": "6dcb85734f47f47c96b5866239c27e85e1bda19c46268d63444bce9f33a848d8"
+      }
+    },
+    {
+      "id": "wrong-jar",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-jar.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-jar.json",
+        "sha256": "e49e200fe7e8a63400233d405ebe27df6b81ef0569d1c7af41fb1f4ddec773fa"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-jar.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-jar.stderr",
+        "sha256": "43644a29cef88d0b4ca2ccfb3d533c058bae50d6d1d63cdf96c291440e6e559f"
+      }
+    },
+    {
+      "id": "wrong-tests-jar",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-tests-jar.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-tests-jar.json",
+        "sha256": "2c942e7f1a2f21b38a208af3d24e64b6eae7de466f2cb7d00b42b49eb30c7f32"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-tests-jar.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-tests-jar.stderr",
+        "sha256": "43644a29cef88d0b4ca2ccfb3d533c058bae50d6d1d63cdf96c291440e6e559f"
+      }
+    },
+    {
+      "id": "count-bool",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\count-bool.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\count-bool.json",
+        "sha256": "71be9e7327abd03ffc8807e9debefac70cd728c5ba008c79344a6e63214f2bba"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\count-bool.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\count-bool.stderr",
+        "sha256": "0e9b8bce6de75c9c0ffa0a86417e9f51aba541bf4a38acdcc0269589ebddbd78"
+      }
+    },
+    {
+      "id": "count-native-float",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\count-native-float.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\count-native-float.json",
+        "sha256": "9133d4ccd3c6947d31045a7bd3c5c9b41ab29f5c7745a16ace8c770d12f11249"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\count-native-float.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\count-native-float.stderr",
+        "sha256": "0e9b8bce6de75c9c0ffa0a86417e9f51aba541bf4a38acdcc0269589ebddbd78"
+      }
+    },
+    {
+      "id": "wrong-native-pin",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-native-pin.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-native-pin.json",
+        "sha256": "339564d4d3cd8658d426a2df11fa872750099306bfd1833ed49990dfa44da880"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-native-pin.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-native-pin.stderr",
+        "sha256": "0553b0c90c86edd549dc2052e4f9bcf3c38acad847ba580dd12191ee88d34a63"
+      }
+    },
+    {
+      "id": "module-exposure",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\module-exposure.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\module-exposure.json",
+        "sha256": "2a6bb53d58ed315b8fb0264e8a630b30218cd131be34f2db9354afeeb5c3eb33"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\module-exposure.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\module-exposure.stderr",
+        "sha256": "d60b045ca0495858d74ed04f85342008547a2f31631f50093f9707be4c00a0db"
+      }
+    },
+    {
+      "id": "exit-bool",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\exit-bool.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\exit-bool.json",
+        "sha256": "0a6594eaed4c1db77c9bdaa31e2d22301176e4e03def71cd569489f1a0340755"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\exit-bool.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\exit-bool.stderr",
+        "sha256": "a8868765b10e08857cd466376fa32aeef1c430aaf89c604c829fa74f2d12c3e4"
+      }
+    },
+    {
+      "id": "changed-command",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\changed-command.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\changed-command.json",
+        "sha256": "7736f80c1e1f9ea38d4c3f064de42075be1058387f424611b7d8c090c2c186b3"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\changed-command.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\changed-command.stderr",
+        "sha256": "d284ce7990839d472a520cd052f582b616a25f48030d0e611de524960139d4d5"
+      }
+    },
+    {
+      "id": "wrong-stdout-hash",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-stdout-hash.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-stdout-hash.json",
+        "sha256": "652842473931a288d70e0496b95bb829f5baabb8f5e45f5032fdfb26c0191e97"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-stdout-hash.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-stdout-hash.stderr",
+        "sha256": "d284ce7990839d472a520cd052f582b616a25f48030d0e611de524960139d4d5"
+      }
+    },
+    {
+      "id": "wrong-results-descriptor",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-results-descriptor.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-results-descriptor.json",
+        "sha256": "32cf568eac35cdbce982c90c8cce0cf80ec68b3979c9b7e257d6ce1d0335d402"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-results-descriptor.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-results-descriptor.stderr",
+        "sha256": "dc41199700c5ff8fdde8ad032c4d7c123f30c4919b08d5565e0930f7ba7add77"
+      }
+    },
+    {
+      "id": "wrong-wave-provenance",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-wave-provenance.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "ad09d820d5711ed38218cd1bcad73a6400e76eb22cbb166ea6481bb60ba18745"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-wave-provenance.json",
+        "sha256": "7b02f9f93f73dc0641851b0522675859e2072473f6468561f7842ee578a6fe37"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-wave-provenance.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-wave-provenance.stderr",
+        "sha256": "9893cd328e670a83208db364eb728a7ea2fcc337c473c34416239331832ccfab"
+      }
+    },
+    {
+      "id": "wrong-external-pin",
+      "expectedAccepted": false,
+      "exitCode": 1,
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\tools\\oracle\\dotj-build\\and-product-v1\\verify.py",
+        "--check-receipt",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-external-pin.json",
+        "--candidate-lock",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\candidate-lock.json",
+        "--candidate-lock-sha256",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-external-pin.json",
+        "sha256": "3a39a02ae4fc41688bb73f9207a03548eb9fe0ba7a4127d54b5b33a23d3593e6"
+      },
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-external-pin.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-final-receipt-controls-v1\\wrong-external-pin.stderr",
+        "sha256": "de4a72ba17548a2c1b2a64f2bfc413aaccfcd7aa0bdb06624163d35d82cb840c"
+      }
+    }
+  ],
+  "scope": "Receipt claims for other metadata are not universal-schema validation; actual result rows separately establish BA08 boundary1/private controls24."
+}

@@ -1,0 +1,4 @@
+<Project>
+  <PropertyGroup><P Condition="true And Exists('sibling.props')">present</P></PropertyGroup>
+  <Import Project="sibling.props" Condition="'$(P)' == 'present' And true" />
+</Project>

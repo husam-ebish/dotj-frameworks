@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup><Gate>alpha</Gate><P Condition="'$(Gate)' == 'alpha' And true">first</P></PropertyGroup>
+  <Import Project="change.props" />
+  <PropertyGroup><Q Condition="'$(Gate)' == 'beta' And true">second</Q></PropertyGroup>
+</Project>

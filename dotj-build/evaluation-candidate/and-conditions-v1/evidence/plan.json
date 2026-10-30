@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 1,
+  "status": "STATIC_PREPARATION_NATIVE_UNOBSERVED",
+  "profiles": [
+    "Default"
+  ],
+  "cases": [
+    {
+      "id": "BA01-literal-truth-table",
+      "globals": {},
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      },
+      "comparisonDisposition": "PENDING_ACTUAL_SUPPORTED_NATIVE_OBSERVATION"
+    },
+    {
+      "id": "BA02-balanced-nesting",
+      "globals": {},
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      },
+      "comparisonDisposition": "PENDING_ACTUAL_SUPPORTED_NATIVE_OBSERVATION"
+    },
+    {
+      "id": "BA03-token-case-and-boundaries",
+      "globals": {},
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      },
+      "comparisonDisposition": "PENDING_ACTUAL_SUPPORTED_NATIVE_OBSERVATION"
+    },
+    {
+      "id": "BA04-lazy-right-exists",
+      "globals": {
+        "EmptyPath": ""
+      },
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      },
+      "comparisonDisposition": "PENDING_ACTUAL_SUPPORTED_NATIVE_OBSERVATION"
+    },
+    {
+      "id": "BA05-owner-relative-exists",
+      "globals": {},
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      },
+      "comparisonDisposition": "PENDING_ACTUAL_SUPPORTED_NATIVE_OBSERVATION"
+    },
+    {
+      "id": "BA06-encounter-time-properties",
+      "globals": {},
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      },
+      "comparisonDisposition": "PENDING_ACTUAL_SUPPORTED_NATIVE_OBSERVATION"
+    },
+    {
+      "id": "BA07-import-groups-and-no-task-execution",
+      "globals": {},
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      },
+      "comparisonDisposition": "PENDING_ACTUAL_SUPPORTED_NATIVE_OBSERVATION"
+    },
+    {
+      "id": "BA08-malformed-right-side-parsed",
+      "globals": {},
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      },
+      "comparisonDisposition": "MALFORMED_NATIVE_EVIDENCE_PRIVATE_REFUSAL_SEPARATE"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "BA01-literal-truth-table/main.proj",
+      "bytes": 292,
+      "sha256": "b66d28e76cf12e41c1b1c03113021cf38a7fbbc7259a35204162b9bdb44605bd"
+    },
+    {
+      "path": "BA02-balanced-nesting/main.proj",
+      "bytes": 277,
+      "sha256": "cdf9d0490f8d73c3e2e4a8d504c64b130e28f75db34574d4c4617c06c1cc08a2"
+    },
+    {
+      "path": "BA03-token-case-and-boundaries/main.proj",
+      "bytes": 258,
+      "sha256": "ea0fc7a6a959ed23a4f43c003218de840f3f4ac318030dcf236ce5f5e63fea6e"
+    },
+    {
+      "path": "BA04-lazy-right-exists/main.proj",
+      "bytes": 248,
+      "sha256": "5b01f0acb1ac094843136c3c7ec060d421eb794a4bfc666236212d6ad12ec7fc"
+    },
+    {
+      "path": "BA05-owner-relative-exists/main.proj",
+      "bytes": 60,
+      "sha256": "a78d5206eae6ec1cb58484e5d54317007bc853f911b3e50a653e01fb11a1afc3"
+    },
+    {
+      "path": "BA05-owner-relative-exists/sub/entry.props",
+      "bytes": 192,
+      "sha256": "eecc27fb58324d11b0e94c28b0ae486f5a69404b96bf27427f17e33ed47e9f9c"
+    },
+    {
+      "path": "BA05-owner-relative-exists/sub/sibling.props",
+      "bytes": 65,
+      "sha256": "79e8950142f8f1e162c56d41b0a06504d1b59a81a21d4b685b527b7a3e1ff755"
+    },
+    {
+      "path": "BA06-encounter-time-properties/change.props",
+      "bytes": 68,
+      "sha256": "50002364e7fc1cf83f1f2ec63a71701e2f75370c8d7cdc2fd0dfa974f15e9182"
+    },
+    {
+      "path": "BA06-encounter-time-properties/main.proj",
+      "bytes": 251,
+      "sha256": "4667a3580728a8a85fe23f40e6e5ef810bc25c8293b477aabd9c2211205172e8"
+    },
+    {
+      "path": "BA07-import-groups-and-no-task-execution/a.props",
+      "bytes": 61,
+      "sha256": "2117ab457fb38695d41caa1cdd8cd1c3f55e334c56ccaf7660baa9b7fba34868"
+    },
+    {
+      "path": "BA07-import-groups-and-no-task-execution/b.props",
+      "bytes": 61,
+      "sha256": "285f98ce0e599b3fbdaf55aad4974f2ae983e4af3f28df561db2de5d9b3fd3f6"
+    },
+    {
+      "path": "BA07-import-groups-and-no-task-execution/main.proj",
+      "bytes": 507,
+      "sha256": "e91e8eee89884c8f52b20a1ba2dd6a1085a9f0a135b62d7236193945ae3818ac"
+    },
+    {
+      "path": "BA08-malformed-right-side-parsed/main.proj",
+      "bytes": 93,
+      "sha256": "acbc47b9bcd7e9684c9fc85b130aed708d1f995f9bf28e94973568b0b7323cda"
+    }
+  ],
+  "designedScenarios": [
+    {
+      "id": "BA01-literal-truth-table",
+      "actions": [
+        "Create main.proj with P=base,Q=base.",
+        "Conditionally assign P=tt under true And true; attempt P=bad under true And false; attempt Q=bad under false And true and false And false.",
+        "Evaluate Default Project, read P/Q, ordered imports and diagnostics, unload all and dispose."
+      ],
+      "observe": [
+        "All four conjunction truth combinations through final P/Q",
+        "No import/diagnostic/task side effects"
+      ],
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      }
+    },
+    {
+      "id": "BA02-balanced-nesting",
+      "actions": [
+        "Create main.proj with P=base,Q=base.",
+        "Assign P=nested under (('Alpha' == 'alpha') And (true And ('beta' == 'BETA'))).",
+        "Attempt Q=bad under ((true And false) And true); read P/Q and cleanup."
+      ],
+      "observe": [
+        "Balanced nested grouping",
+        "Existing alphabetic case-insensitive equality inside conjunction"
+      ],
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      }
+    },
+    {
+      "id": "BA03-token-case-and-boundaries",
+      "actions": [
+        "Create main.proj with P=base,Q=base.",
+        "Assign P=mixed under true aNd true with XML whitespace between tokens.",
+        "Assign Q=quoted under ('candy' == 'CANDY') AnD ('And' == 'and'); evaluate and cleanup."
+      ],
+      "observe": [
+        "And token ASCII case behavior",
+        "Word containing and and quoted And remain scalar operands"
+      ],
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      }
+    },
+    {
+      "id": "BA04-lazy-right-exists",
+      "actions": [
+        "Create main.proj with P=base,Q=tail and explicit global EmptyPath=''.",
+        "Attempt P=bad under false And Exists('$(EmptyPath)').",
+        "Add Import Project=missing.props under the same condition; evaluate P/Q/imports/diagnostics and cleanup. No missing.props is created."
+      ],
+      "observe": [
+        "False left operand skips right Exists evaluation and conditional import",
+        "Native result alone does not prove no filesystem probe; combine retained native result with pinned AndExpressionNode source and a candidate-specific evaluated-empty-path refusal control"
+      ],
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      }
+    },
+    {
+      "id": "BA05-owner-relative-exists",
+      "actions": [
+        "Create main.proj importing sub/entry.props; do not create root sibling.props.",
+        "Create sub/sibling.props assigning Q=sibling.",
+        "In sub/entry.props assign P=present under true And Exists('sibling.props'), then import sibling.props under '$(P)' == 'present' And true.",
+        "Evaluate from an unrelated private working directory; read P/Q and ordered owner/target edges; cleanup."
+      ],
+      "observe": [
+        "Exists resolves at condition's defining file",
+        "Nested import result/order uses existing bounded path behavior"
+      ],
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      }
+    },
+    {
+      "id": "BA06-encounter-time-properties",
+      "actions": [
+        "Create main.proj setting Gate=alpha; assign P=first under '$(Gate)' == 'alpha' And true.",
+        "Import change.props assigning Gate=beta.",
+        "Assign Q=second under '$(Gate)' == 'beta' And true; evaluate P/Q/order and cleanup."
+      ],
+      "observe": [
+        "Atom property expansion follows encounter-time state",
+        "Parsed condition shape does not cache prior expanded values"
+      ],
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      }
+    },
+    {
+      "id": "BA07-import-groups-and-no-task-execution",
+      "actions": [
+        "Create main.proj with Gate=alpha, DefaultTargets=T and InitialTargets=T.",
+        "Use ImportGroup Condition=\"'$(Gate)' == 'alpha' And true\" containing a.props under true And true and absent.props under false And true; a.props sets P=one.",
+        "Import b.props under true And ('$(P)' == 'one'); b.props sets Q=two.",
+        "Retain inert Target T with Error and WriteLinesToFile pointing only to case-local must-not-exist.txt. Evaluate only; read P/Q/import order/diagnostics; assert marker absent and cleanup."
+      ],
+      "observe": [
+        "Compound conditions at ImportGroup and Import sites",
+        "Missing false-guarded import never loaded",
+        "Evaluation does not run declared targets/tasks"
+      ],
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      }
+    },
+    {
+      "id": "BA08-malformed-right-side-parsed",
+      "actions": [
+        "Create main.proj containing an evaluated PropertyGroup Condition='false And (true' with unmatched closing syntax.",
+        "Evaluate Default Project using the existing typed InvalidProjectFileException capture path.",
+        "Retain actual success/failure, diagnostic code/location/message/HResult and cleanup rather than assigning any guessed MSB code."
+      ],
+      "observe": [
+        "Syntax parsing of right subtree precedes Boolean short-circuiting",
+        "Malformed input remains explicit candidate profile refusal; native exception ABI/message parity is outside this slice"
+      ],
+      "nativeOutcome": {
+        "status": "UNOBSERVED"
+      }
+    }
+  ],
+  "sourceMapping": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\Conditionals\\AndExpressionNode.cs",
+      "sha256": "c9c6e255684ead96145aa0e12784cc9b5cb4bac0a61cfdb07c248faf3c9e7749",
+      "symbols": [
+        {
+          "name": "AndExpressionNode",
+          "navigationLines": [
+            14
+          ]
+        },
+        {
+          "name": "BoolEvaluate",
+          "navigationLines": [
+            19,
+            21,
+            38
+          ]
+        }
+      ],
+      "cases": [
+        "BA01-literal-truth-table",
+        "BA02-balanced-nesting",
+        "BA03-token-case-and-boundaries",
+        "BA04-lazy-right-exists",
+        "BA05-owner-relative-exists",
+        "BA06-encounter-time-properties",
+        "BA07-import-groups-and-no-task-execution",
+        "BA08-malformed-right-side-parsed"
+      ],
+      "execution": "NOT_RUN; navigation is source evidence, BA IDs are owned designs"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\Conditionals\\Parser.cs",
+      "sha256": "37257c7da59755bfc3795177da20e5a7ee88ae0ce5f58abdec94719eb4af65d9",
+      "symbols": [
+        {
+          "name": "Parse",
+          "navigationLines": [
+            17,
+            35,
+            36,
+            43,
+            46
+          ]
+        },
+        {
+          "name": "Expr",
+          "navigationLines": [
+            36,
+            52,
+            96,
+            98,
+            113
+          ]
+        },
+        {
+          "name": "Term",
+          "navigationLines": [
+            129,
+            161,
+            175,
+            186,
+            191
+          ]
+        },
+        {
+          "name": "Factor",
+          "navigationLines": [
+            221,
+            233,
+            270,
+            317
+          ]
+        }
+      ],
+      "cases": [
+        "BA01-literal-truth-table",
+        "BA02-balanced-nesting",
+        "BA03-token-case-and-boundaries",
+        "BA04-lazy-right-exists",
+        "BA05-owner-relative-exists",
+        "BA06-encounter-time-properties",
+        "BA07-import-groups-and-no-task-execution",
+        "BA08-malformed-right-side-parsed"
+      ],
+      "execution": "NOT_RUN; navigation is source evidence, BA IDs are owned designs"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\Conditionals\\Scanner.cs",
+      "sha256": "7a094db4dda1b40c4f8c444cef1ab037ea9ee88010f015d91fa2b2a062eda323",
+      "symbols": [
+        {
+          "name": "Scanner",
+          "navigationLines": [
+            15,
+            18,
+            26,
+            59
+          ]
+        }
+      ],
+      "cases": [
+        "BA03-token-case-and-boundaries",
+        "BA08-malformed-right-side-parsed"
+      ],
+      "execution": "NOT_RUN; navigation is source evidence, BA IDs are owned designs"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\ConditionEvaluator.cs",
+      "sha256": "5ed6af27c735988e413c9d2972f80603b0177581f5e48a0df7652cf00ee28d7c",
+      "symbols": [
+        {
+          "name": "EvaluateCondition",
+          "navigationLines": [
+            180,
+            193,
+            213
+          ]
+        }
+      ],
+      "cases": [
+        "BA04-lazy-right-exists",
+        "BA05-owner-relative-exists",
+        "BA06-encounter-time-properties"
+      ],
+      "execution": "NOT_RUN; navigation is source evidence, BA IDs are owned designs"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build.UnitTests\\Parser_Tests.cs",
+      "sha256": "d582520f4c27e14b5f6946cc5e8372439184a6dc4245b16b7774451d17a43d82",
+      "symbols": [
+        {
+          "name": "SimpleParseTest",
+          "navigationLines": [
+            26,
+            28
+          ]
+        },
+        {
+          "name": "ComplexParseTest",
+          "navigationLines": [
+            75,
+            77
+          ]
+        },
+        {
+          "name": "FunctionCallParseTest",
+          "navigationLines": [
+            120,
+            122,
+            136,
+            235
+          ]
+        },
+        {
+          "name": "NegativeTests",
+          "navigationLines": [
+            314,
+            316
+          ]
+        },
+        {
+          "name": "VerifyNoWarningForOrder",
+          "navigationLines": [
+            483
+          ]
+        }
+      ],
+      "cases": [
+        "BA01-literal-truth-table",
+        "BA02-balanced-nesting",
+        "BA03-token-case-and-boundaries",
+        "BA04-lazy-right-exists",
+        "BA05-owner-relative-exists",
+        "BA06-encounter-time-properties",
+        "BA07-import-groups-and-no-task-execution",
+        "BA08-malformed-right-side-parsed"
+      ],
+      "execution": "NOT_RUN; navigation is source evidence, BA IDs are owned designs"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build.UnitTests\\Scanner_Tests.cs",
+      "sha256": "97d0d2e6d6ae6f2bb699fa43dece436557d06422f5c944633de9d0d80e45e397",
+      "symbols": [
+        {
+          "name": "PropsStringsAndBooleanSingleTokenTests",
+          "navigationLines": [
+            241
+          ]
+        },
+        {
+          "name": "WhitespaceTests",
+          "navigationLines": [
+            490
+          ]
+        },
+        {
+          "name": "NegativeTests",
+          "navigationLines": [
+            560
+          ]
+        }
+      ],
+      "cases": [
+        "BA03-token-case-and-boundaries",
+        "BA08-malformed-right-side-parsed"
+      ],
+      "execution": "NOT_RUN; navigation is source evidence, BA IDs are owned designs"
+    }
+  ],
+  "grammarFile": "grammar.json",
+  "capture": "One process containing eight fresh collections per pass; two separately root-scheduled captures. BA08 failure details must be observed, never guessed.",
+  "normalization": "Raw typed stdout binding first. Only declared PATH fields: import owner/project; diagnostic file/message; failure file/message; duplicateGetterFailure.message. Exact fixture-root substitution; P/Q/globals untouched.",
+  "candidateSourceLocks": "Separate final candidate lock after Java changes; native lock excludes evaluator/JAR.",
+  "credit": {
+    "acceptedTasksAdded": 0,
+    "numberedBatchCredit": 0,
+    "publicPromotion": "BLOCKED"
+  }
+}

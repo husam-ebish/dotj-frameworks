@@ -1,0 +1,9 @@
+<Project DefaultTargets="T" InitialTargets="T">
+  <PropertyGroup><Gate>alpha</Gate></PropertyGroup>
+  <ImportGroup Condition="'$(Gate)' == 'alpha' And true">
+    <Import Project="a.props" Condition="true And true" />
+    <Import Project="absent.props" Condition="false And true" />
+  </ImportGroup>
+  <Import Project="b.props" Condition="true And ('$(P)' == 'one')" />
+  <Target Name="T"><Error Text="Tasks must remain inert" /><WriteLinesToFile File="must-not-exist.txt" Lines="bad" /></Target>
+</Project>

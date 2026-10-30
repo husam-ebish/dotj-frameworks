@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup><P>base</P><Q>base</Q></PropertyGroup>
+  <PropertyGroup Condition="(('Alpha' == 'alpha') And (true And ('beta' == 'BETA')))"><P>nested</P></PropertyGroup>
+  <PropertyGroup><Q Condition="((true And false) And true)">bad</Q></PropertyGroup>
+</Project>

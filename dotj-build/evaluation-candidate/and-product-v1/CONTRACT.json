@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "status": "PRIVATE_IMPLEMENTATION_REVIEW_READY",
+  "scope": "Selected bounded raw parenthesized And conditions over existing atoms in the internal evaluation candidate",
+  "grammar": {
+    "expression": "atom | (expression) | expression And expression",
+    "atoms": [
+      "existing lowercase true/false literals",
+      "existing quoted string equality (==)",
+      "existing Exists atom"
+    ],
+    "andToken": "ASCII case-insensitive whole token outside quotes/property references",
+    "order": "left-to-right lazy atom evaluation; all raw branches parsed and validated before value lookup or filesystem probes",
+    "expansion": "At atom encounter only; expanded properties remain scalar and cannot introduce grammar",
+    "privateLimits": {
+      "simultaneousGroupingDepth": 64,
+      "astNodesAtomPlusAnd": 256,
+      "groupsCountAsNodes": false,
+      "enforcement": "Before descent/node allocation; iterative bounded conjunction evaluation"
+    }
+  },
+  "conditionSites": {
+    "individualProperty": "main/root project directory",
+    "PropertyGroup": "defining-file owner directory",
+    "Import": "defining-file owner directory",
+    "ImportGroup": "defining-file owner directory",
+    "importProjectPathResolution": "Unchanged defining-file owner path resolution, independent of condition directory"
+  },
+  "unsupportedBoundaries": [
+    "Or",
+    "inequality (!=)",
+    "unary boolean syntax",
+    "new coercions",
+    "property functions",
+    "Unicode comparison expansion",
+    "unbounded grammar"
+  ],
+  "nativeEvidence": {
+    "designedScenarioIds": 10,
+    "freshCollectionsPerScenarioSet": 2,
+    "successfulNativeComparisons": 9,
+    "malformedNativeEvidence": {
+      "id": "BA08-malformed-right-side-parsed",
+      "exceptionType": "InvalidProjectFileException",
+      "errorCode": "MSB4092",
+      "line": 2,
+      "column": 18,
+      "candidateBoundary": "Private CONDITION_PROFILE refusal; no exact .NET exception ABI/message parity claim"
+    },
+    "originalObservationSha256": "20cc87dafc10e30162c8d4284c1ce417f2094d0d6c2e7cd53829c51c3055b15d",
+    "supplementObservationSha256": "dfa6016703f18edd32ff3842a5a9e335100b649b7ffd3a130b5750996b0bf4be",
+    "BA05": "Actual P/Q empty; original universal owner-relative hypothesis rejected",
+    "BA09": {
+      "P": "StartPropertyPlainProbePropertyAndProbe",
+      "Q": "Start",
+      "imports": 1
+    },
+    "BA10": {
+      "P": "StartPropertyGroupPlainProbePropertyGroupAndProbe",
+      "Q": "StartImportPlainProbeImportAndProbeImportGroupPlainProbeImportGroupAndProbe",
+      "imports": 5
+    },
+    "cwdMarker": "No CWD tokens; both plain and And at all four sites distinguished by root-only/owner-only markers and separate unrelated CWD marker",
+    "normalization": "Typed raw stdout binding first; only declared PATH fields normalized, never P/Q/globals"
+  },
+  "verification": {
+    "genuinePackagedRED": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-red-probe-v2\\verification.json",
+      "sha256": "23d9b5ea617e80dcec9e6fa143ce5d7c73f1fceba132eadc1f50e8e43b277167"
+    },
+    "freshPackagedGREEN": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\verification.json",
+      "sha256": "3a39a02ae4fc41688bb73f9207a03548eb9fe0ba7a4127d54b5b33a23d3593e6"
+    },
+    "preservedPriorUniqueComparisons": 94,
+    "nativeSuccessComparisonIds": 9,
+    "privateNativeMalformedBoundaryIds": 1,
+    "privateControlRows": 24,
+    "newProbeRows": 34,
+    "countsAreSeparateCategories": true,
+    "oldRunnerCommandsPassed": 8,
+    "productPythonControlsFresh": 18,
+    "receiptCLIControls": {
+      "positive": 1,
+      "negative": 15,
+      "actualJVMInvocations": 0
+    },
+    "moduleExports": [],
+    "moduleOpens": [],
+    "sourceBeforeSha256": "769badca94312c434e819ee9c246c26de1a84f87f541fe431110aa2b7241d706",
+    "sourceAfterSha256": "16dc0c10c4ac043ffc7a97d44f0a458e723e2f79e3e8a74b4d82842ae21c031f",
+    "actualCandidateJar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\dotj-build-evaluation-candidate.jar",
+      "sha256": "6a6a27ad7711bc0cadf605334acbda1b00ff289eb6b96f64fdf38de5e656e72a"
+    },
+    "actualTestsJar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-candidate-green-v1\\packaged94\\evaluation-contract-tests.jar",
+      "sha256": "e34da96edd6d800ff5d6b00e345c2815f0989282010478528b1edbc647616fbb"
+    }
+  },
+  "deferredMinor": [
+    {
+      "id": "T24-M01",
+      "summary": "Receipt CLI validates actual result rows/raw command evidence and selected typed metadata, but does not universally reject changes to non-authoritative informational summary fields such as malformedPrivateBoundary/privateControlRows. Actual34 rows and stdout establish1/24. Independent task/final reviewers to triage."
+    }
+  ],
+  "acceptance": {
+    "acceptedTasksAdded": 0,
+    "numberedBatchCredit": 0,
+    "buildAcceptedTasks": 0,
+    "buildTaskTarget": 25,
+    "overallAcceptedTasks": 0,
+    "overallTaskTarget": 1092,
+    "publicAPI": "BLOCKED",
+    "openGates": [
+      "full WP01T1",
+      "E01",
+      "E02",
+      "E03",
+      "N01",
+      "Linux",
+      "globs",
+      "full cycle chains",
+      "items",
+      "public API",
+      "rights",
+      "real .j acceptance",
+      "independent task review",
+      "independent final branch review",
+      "current-master verification"
+    ]
+  },
+  "reproducibility": "Native locks pin actual native inputs only; candidate source/JAR and both native pins are separately bound by candidate-lock-v1.json. Immutable failed infrastructure attempts, successful original packaging, RED snapshots, V2/V3 snapshots and captures remain under D validation."
+}
