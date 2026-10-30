@@ -2242,6 +2242,7 @@ public abstract class Type extends MemberInfo {
 
     public FieldInfo[] GetFields(BindingFlags flags) {
         if (flags == null) throw new NullPointerException("flags");
+        if (this.get_HasElementType()) return EMPTY_FIELDS;
         if ((this.definition == FieldAttributes.class || this.definition == BindingFlags.class) && !this.get_HasElementType()) {
             if (!flags.has(BindingFlags.Public) || !flags.has(BindingFlags.Instance) && !flags.has(BindingFlags.Static)) return EMPTY_FIELDS;
             String[] names = this.definition == BindingFlags.class ? new String[] {"Default", "IgnoreCase", "DeclaredOnly", "Instance", "Static", "Public", "NonPublic", "FlattenHierarchy", "InvokeMethod", "CreateInstance", "GetField", "SetField", "GetProperty", "SetProperty", "PutDispProperty", "PutRefDispProperty", "ExactBinding", "SuppressChangeType", "OptionalParamBinding", "IgnoreReturn", "DoNotWrapExceptions"} : new String[] {"FieldAccessMask", "PrivateScope", "Private", "FamANDAssem", "Assembly", "Family", "FamORAssem", "Public", "Static", "InitOnly", "Literal", "NotSerialized", "SpecialName", "PinvokeImpl", "RTSpecialName", "HasFieldMarshal", "HasDefault", "HasFieldRVA", "ReservedMask"};
@@ -2371,7 +2372,8 @@ public abstract class Type extends MemberInfo {
         if (flags == null) throw new NullPointerException("flags");
         if (this.selectedInterfaceMethodName() == null) {
             boolean fieldOwner = this.selectedIntegerFields() || this.selectedPrimitiveBackingFields()
-                    || this.definition == FieldAttributes.class && !this.get_HasElementType();
+                    || (this.definition == FieldAttributes.class || this.definition == BindingFlags.class) && !this.get_HasElementType()
+                    || this.get_HasElementType();
             if (fieldOwner && (memberType.get_Value() & 155) == 0) {
                 List<MemberInfo> fields = new java.util.ArrayList<>();
                 if (memberType.has(MemberTypes.Field)) {
