@@ -59,7 +59,7 @@ public final class BindingFlags implements IFormattable, IComparable, IConvertib
     }
 
     public static BindingFlags FromInt32(int value) {
-        for (BindingFlags candidate : named) if (candidate.value == value) return candidate;
+        for (BindingFlags candidate : named) if (candidate.value == value) return new BindingFlags(candidate.name, value);
         return new BindingFlags(null, value);
     }
 

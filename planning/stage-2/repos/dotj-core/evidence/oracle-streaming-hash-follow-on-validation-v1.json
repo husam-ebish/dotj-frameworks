@@ -509,13 +509,33 @@
         }
       ],
       "fullCanonicalGateRequired": 486
+    },
+    {
+      "batch": 2472,
+      "path": "tools/oracle/dotj-core/verify-binding-flags-field-inventory.py",
+      "originalSha256": "7ed592554908a338ff09e0a0f003daa00c6fb7a994831fac2bd5da324680f356",
+      "sha256": "f77d7e0f8feee84dfd3e255c0e7d6fcb2a02ce2a87f46841b4e365973dfa1cbe",
+      "sourceBaselineCommit": "58e03d14a43f6268a80f91f06d72e29303d27436",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 487
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2471,
-  "newPreparedVerifiersMigrated": 25,
-  "currentAndNewVerifiersMigrated": 213,
-  "futurePreparedVerifiersRemaining": 29,
+  "appliedThroughBatch": 2472,
+  "newPreparedVerifiersMigrated": 26,
+  "currentAndNewVerifiersMigrated": 214,
+  "futurePreparedVerifiersRemaining": 28,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
