@@ -969,13 +969,33 @@
         }
       ],
       "fullCanonicalGateRequired": 509
+    },
+    {
+      "batch": 2495,
+      "path": "tools/oracle/dotj-core/verify-streaming-context-states-field-metadata-identity.py",
+      "originalSha256": "a256f8ab1c1e159bab1e6b3ae78bb1b290cdefade95e7482f1235ac44086ceba",
+      "sha256": "3462f8a48fca7f1f25e8782528a6a8e69c9835b4001f3463601deb2ef58b1101",
+      "sourceBaselineCommit": "cfb751e83f1213ae66b32ccb29d06935ee75d8d4",
+      "exactInverseBytes": true,
+      "independentAstProof": true,
+      "imports": [
+        {
+          "mode": "cli-help",
+          "passed": true
+        },
+        {
+          "mode": "private-import",
+          "passed": true
+        }
+      ],
+      "fullCanonicalGateRequired": 510
     }
   ],
   "status": "PASS_STATIC_PROOF_AND_IMPORTS; FULL_CURRENT_GATE_REQUIRED",
-  "appliedThroughBatch": 2494,
-  "newPreparedVerifiersMigrated": 48,
-  "currentAndNewVerifiersMigrated": 236,
-  "futurePreparedVerifiersRemaining": 6,
+  "appliedThroughBatch": 2495,
+  "newPreparedVerifiersMigrated": 49,
+  "currentAndNewVerifiersMigrated": 237,
+  "futurePreparedVerifiersRemaining": 5,
   "cachesArchiveDigests": false,
   "skippedHashBytes": 0,
   "expectedSourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
