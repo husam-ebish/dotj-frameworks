@@ -64,10 +64,10 @@ property functions, reserved `MSBuild*` properties,
 non-ASCII property names/comparison and unqualified condition coercions refuse.
 The selected Default root/non-root cycles use the captured warning/ignore policy,
 **not a source-compatible full cycle-chain diagnostic**. Duplicate imports use the captured once-only policy; native warning
-current source locations and directly observed first-import context are now compared by the bounded [source-location extension](IMPORT-LOCATIONS.md); full text remains unimplemented. The private missing-import failure does not
-implement `InvalidProjectFileException`, native text, source lines or HResult.
-Non-Default load settings have no implementation or selector API and remain
-unsupported.
+current source locations and directly observed first-import context are now compared by the bounded [source-location extension](IMPORT-LOCATIONS.md); full text remains unimplemented. The private import failure does not
+implement `InvalidProjectFileException`, native text or HResult. The bounded
+[internal profile extension](IMPORT-PROFILES.md) adds the two individually observed
+record/reject settings; combined flags and a public selector remain unqualified.
 
 The independent ordinal-comparison prototype is not imported. The central
 research index explicitly leaves full Unicode equivalence unqualified and the
@@ -107,8 +107,8 @@ The native tranche was independently captured through evaluation-only
 
 No WP01 task, package, NF case, numbered batch or release acceptance is claimed.
 The selected compiled lifecycle mapping is now retained separately in planning.
-The next behavior scope is a separately specified non-Default cycle policy and full diagnostic
-chain contract, grounded in the distinct observed load profiles; public dependency
+The remaining behavior scope includes the full diagnostic
+chain contract and additional load settings; public dependency
 representation, eligibility and lifecycle work still precede public promotion. New semantic coverage needs real
 native captures; the predecessor observations do not authorize guessed behavior.
 
@@ -134,5 +134,19 @@ remain intact; cycle/public/message acceptance remains open.
 explicit cycle refusals only for its bounded internal Default behavior. All 52
 legacy IDs and ten location comparisons remain; the three selected cycle inputs
 also compare native notice coordinates and honest root/previous context absence.
-Historical producer/observation bytes remain unchanged. Record/reject profiles,
-full chains/messages/public ABI and task acceptance remain open.
+Historical producer/observation bytes remain unchanged. The bounded record/reject
+profile gap is superseded below; full chains/messages/public ABI and task acceptance
+remain open.
+
+
+## Selected individual import profiles v1
+
+[IMPORT-PROFILES.md](IMPORT-PROFILES.md) adds package-private record/reject
+selection on the original nine inputs. Eighteen new same-profile native captures
+supply diagnostic and failure ends without borrowing Default coordinates, while
+preserving every pre-existing native field. Immutable import edges, nullable
+record-list availability, ordered warning/error snapshots and typed missing vs
+circular failures are compared. Root imports keep their earlier precedence;
+completed shared imports remain ordinary duplicates. All 65 retained packaged
+comparisons and their IDs remain, plus 18 selected profile comparisons. No
+public .NET facade, full cycle chain, combined flags or acceptance credit is added.

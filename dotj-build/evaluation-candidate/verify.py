@@ -130,6 +130,7 @@ def main():
     parser.add_argument('--out', required=True, type=Path)
     parser.add_argument('--focus-locations', action='store_true')
     parser.add_argument('--focus-cycles', action='store_true')
+    parser.add_argument('--focus-profiles', action='store_true')
     options = parser.parse_args()
     root = options.implementation_root.resolve(strict=True)
     output = options.out.resolve()
@@ -173,6 +174,9 @@ def main():
     cycle_tool = repo/'tools/oracle/dotj-build/verify-default-cycles-v1.py'
     cycle_api = runpy.run_path(str(cycle_tool))
     cycle_api['verify_inputs']()
+    profile_tool = repo/'tools/oracle/dotj-build/verify-import-profiles-v1.py'
+    profile_api = runpy.run_path(str(profile_tool))
+    profile_api['verify_inputs']()
     output.mkdir(parents=True)
     for directory in ['classes', 'test-classes', 'fixtures', 'outputs', 'logs', 'tmp', 'home']:
         (output/directory).mkdir()
@@ -189,6 +193,8 @@ def main():
               'sourceHashes':{p.relative_to(BASE).as_posix():sha(p)
                               for folder in ['src','tests']
                               for p in sorted((BASE/folder).rglob('*.java'))},
+              'profileObservationLockSha256':sha(BASE/'evidence/profile-observation-lock-v1.json'),
+              'profileComparisonVerifierSha256':sha(profile_tool),
               'runnerSha256':sha(Path(__file__)),
               'limits':{'maxHeapMiB':128, 'processors':2, 'gc':'SerialGC', 'timeoutSeconds':120,
                         'freeVirtualFloorKiB':16777216, 'freePhysicalFloorKiB':524288,
@@ -239,6 +245,7 @@ def main():
     shutil.copyfile(BASE/'evidence/location-comparison-v1.tsv', output/'location-comparison.tsv')
     shutil.copyfile(BASE/'evidence/cycle-comparison-v1.tsv', output/'cycle-comparison.tsv')
     shutil.copyfile(BASE/'evidence/native-import-comparison-v1.tsv', output/'native-import-comparison.tsv')
+    shutil.copyfile(BASE/'evidence/profile-comparison-v1.tsv', output/'profile-comparison.tsv')
     fixture_hashes = {p:sha(p) for folder in ['fixtures','import-fixtures'] for p in (output/folder).rglob('*') if p.is_file()}
     compile_vm = ['-J'+option for option in vm]
     candidate = output/'dotj-build-evaluation-candidate.jar'
@@ -259,6 +266,20 @@ def main():
         '--limit-modules','java.base,java.xml,'+MODULE, '--module-path',str(candidate),
         '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.DefaultCycleTest',
         str(output/'cycle-comparison.tsv'),str(output/'import-fixtures'),str(output/'outputs/cycle-results.tsv')]
+    profile_command = [str(java/'java.exe'), *vm,
+        '--limit-modules','java.base,java.xml,'+MODULE, '--module-path',str(candidate),
+        '--patch-module',MODULE+'='+str(tests), '-m',MODULE+'/'+PACKAGE+'.ImportProfileTest',
+        str(output/'profile-comparison.tsv'),str(output/'import-fixtures'),str(output/'outputs/profile-results.tsv')]
+    if options.focus_profiles:
+        run('packaged-import-profiles', profile_command)
+        profile_api['verify_inputs']()
+        if any(sha(path) != expected for path, expected in fixture_hashes.items()) or list(output.rglob('must-not-exist.txt')):
+            raise RuntimeError('Focused profile fixture/marker changed')
+        record.update(status='PASS_FOCUSED_NATIVE_IMPORT_PROFILES', profileCases=18,
+                      fixturesUnchanged=True,taskMarkersAbsent=True)
+        save()
+        print(json.dumps({'status':record['status'],'cases':18,'report':str(output/'verification.json')}))
+        return
     if options.focus_cycles:
         run('packaged-default-cycles', cycle_command)
         cycle_api['verify_inputs']()
@@ -287,6 +308,10 @@ def main():
         str(output/'native-import-comparison.tsv'),str(output/'import-fixtures')])
     run('packaged-locations', location_command)
     run('packaged-default-cycles', cycle_command)
+    run('packaged-import-profiles', profile_command)
+    profile_api['verify_inputs']()
+    profile_rows = (output/'outputs/profile-results.tsv').read_text().splitlines()
+    if len(profile_rows)!=18 or len(set(profile_rows))!=18:raise RuntimeError('Incomplete profile comparisons')
     rows = (output/'outputs/case-results.tsv').read_text(encoding='utf-8').splitlines()
     if len(rows) != 52 or any(sha(path) != expected for path, expected in fixture_hashes.items()):
         raise RuntimeError('Incomplete case results or modified runtime fixtures')
@@ -327,7 +352,7 @@ def main():
                   totalCases=52, fixturesUnchanged=True, taskMarkersAbsent=True, predecessorCasesAccounted=43,
                   locationCases=10, nativeLocationNotices=10,
                   cycleCases=3, nativeDefaultCycleNotices=3,
-                  totalPackagedComparisons=65, changedLegacyCycleDispositions=4,
+                  totalPackagedComparisons=83, retainedPackagedComparisons=65, profileCases=18, changedLegacyCycleDispositions=4,
                   runtimeModules=['java.base','java.xml'],
                   candidateJar={'path':str(candidate),'sha256':sha(candidate)},
                   testsJar={'path':str(tests),'sha256':sha(tests)},
