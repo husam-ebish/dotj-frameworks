@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup><ImportName>wrong.props</ImportName></PropertyGroup>
+  <Import Project="$(ImportName)"/>
+  <Import Project="$(IMPORTNAME)"/>
+  <PropertyGroup><Q>$(ImportName)</Q></PropertyGroup>
+</Project>

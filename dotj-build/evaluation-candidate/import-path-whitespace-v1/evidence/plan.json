@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "finding": "FR-18-01",
+  "profiles": [
+    "Default"
+  ],
+  "cases": [
+    {
+      "id": "BW01-ascii-whitespace-only",
+      "globals": {
+        "ImportName": " \t\r\n"
+      }
+    },
+    {
+      "id": "BW02-ascii-padded-path",
+      "globals": {
+        "ImportName": " \t\r\none.props \t\r\n"
+      }
+    },
+    {
+      "id": "BW03-nbsp-whitespace-only",
+      "globals": {
+        "ImportName": "\u00a0"
+      }
+    },
+    {
+      "id": "BW04-nbsp-padded-path",
+      "globals": {
+        "ImportName": "\u00a0one.props\u00a0"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "BW01-ascii-whitespace-only/main.proj",
+      "bytes": 111,
+      "sha256": "8caaa18ac22590a8f823250f3ef002a80725a4392d216527d8711452a4221a57"
+    },
+    {
+      "path": "BW02-ascii-padded-path/main.proj",
+      "bytes": 111,
+      "sha256": "8caaa18ac22590a8f823250f3ef002a80725a4392d216527d8711452a4221a57"
+    },
+    {
+      "path": "BW02-ascii-padded-path/one.props",
+      "bytes": 65,
+      "sha256": "7f65bf4e520249c91a44c2e3ede09cced2ee8fa2b725967db517d236a2427420"
+    },
+    {
+      "path": "BW03-nbsp-whitespace-only/main.proj",
+      "bytes": 111,
+      "sha256": "8caaa18ac22590a8f823250f3ef002a80725a4392d216527d8711452a4221a57"
+    },
+    {
+      "path": "BW04-nbsp-padded-path/main.proj",
+      "bytes": 111,
+      "sha256": "8caaa18ac22590a8f823250f3ef002a80725a4392d216527d8711452a4221a57"
+    },
+    {
+      "path": "BW04-nbsp-padded-path/one.props",
+      "bytes": 65,
+      "sha256": "7f65bf4e520249c91a44c2e3ede09cced2ee8fa2b725967db517d236a2427420"
+    }
+  ],
+  "whitespaceClassification": "Native System.Char.IsWhiteSpace for all BMP code units, separate header observable; no extra project case credit",
+  "accounting": {
+    "prior": 90,
+    "priorDispositionChanges": 0,
+    "newProjectCases": 4,
+    "fullUniqueComparisons": 94,
+    "nativePasses": 2
+  },
+  "qualification": "Default-only, zero task/batch credit"
+}

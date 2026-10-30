@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup><Bad>*.props</Bad><Next>one.props</Next><Gate>yesword</Gate></PropertyGroup>
+  <Import Project="$(Undefined)" Condition="false"/>
+  <Import Project="$(Bad)" Condition="false"/>
+  <ImportGroup Condition="false"><Import Project="$(Undefined)"/><Import Project="$(Bad)"/></ImportGroup>
+  <Import Project="$(Next)" Condition="'$(Gate)' == 'YESWORD'"/>
+</Project>

@@ -38,7 +38,7 @@ security boundary are not qualified.
 |---|---|
 | Properties | Explicit ASCII identifiers, ASCII case-insensitive lookup, source-order assignment and one-pass expansion of values already assigned. Forward/undefined references become empty. Stored values remain escaped until retrieval. |
 | Globals | Explicit caller-supplied values precede assignments. A global cannot be overwritten except for one explicitly named root `TreatAsLocalProperty` property. No ambient environment or toolset prelude is imported. |
-| Imports | Literal relative slash paths; depth-first first-import order; each file evaluates once. Under the selected Default policy, repeats including non-root active ancestors emit private `MSB4011` notices with first-import context; root re-imports emit `MSB4210` with root-path context and no previous import site. Nested paths resolve relative to the defining file. A false condition skips the read; a true missing import yields private failure code `MSB4019` with owner/missing paths. |
+| Imports | Literal relative slash paths and bounded property-expanded single explicit paths (see IMPORT-PATH-EXPANSION.md); depth-first first-import order; each file evaluates once. Under the selected Default policy, repeats including non-root active ancestors emit private `MSB4011` notices with first-import context; root re-imports emit `MSB4210` with root-path context and no previous import site. Nested paths resolve relative to the defining file. A false condition skips the read; a true missing import yields private failure code `MSB4019` with owner/missing paths. |
 | Conditions | Empty condition, lowercase literal `true`/`false`, single-quoted alphabetic/empty ASCII string equality, and selected literal `Exists('relative/path')`. ASCII folding is explicit. Numeric/version/boolean-alias coercion, Unicode comparisons and general operators refuse. |
 | Escapes | One-pass `%25`, `%3B`, `%24`, case-insensitive hex. Other percent escapes refuse when evaluated/retrieved; full MSBuild escaping is not implemented. |
 | XML | JDK DOM with DTD/entity/external DTD/schema access disabled, no namespace or XInclude processing. Unsupported structural elements/attributes and static property functions refuse, including in skipped groups. |
@@ -55,10 +55,13 @@ are refused before evaluation.
 
 ## Refusals and qualification limits
 
-Missing/empty, dynamic, list and glob import-path syntax is rejected statically,
-including in skipped imports and import groups. Absolute/URI/backslash paths
-and outside-sandbox imports are rejected when the import is evaluated; false
-import or import-group conditions skip those path checks and the import read.
+Literal-empty, malformed dynamic, list and glob import-path syntax is rejected
+statically, including skipped imports/groups. Well-formed ASCII property
+references expand once after true conditions. Raw absolute/URI/backslash syntax
+refuses statically; such syntax introduced by property values and outside-sandbox
+paths refuses when evaluated. False conditions skip expansion, value validation
+and target reads. Evaluated empty expansion has the observed MSB4020 failure
+with no target; see IMPORT-PATH-EXPANSION.md for this Default-only qualification.
 SDK attributes/resolvers and implicit imports, ItemGroup/items/metadata/globs,
 property functions, reserved `MSBuild*` properties,
 non-ASCII property names/comparison and unqualified condition coercions refuse.
@@ -150,3 +153,25 @@ circular failures are compared. Root imports keep their earlier precedence;
 completed shared imports remain ordinary duplicates. All 65 retained packaged
 comparisons and their IDs remain, plus 18 selected profile comparisons. No
 public .NET facade, full cycle chain, combined flags or acceptance credit is added.
+
+
+## Property-expanded single explicit paths v1
+
+[IMPORT-PATH-EXPANSION.md](IMPORT-PATH-EXPANSION.md) defines the eight native-backed
+Default cases, observed empty-expression failures, strict expression/value limits
+and the exact legacy disposition transition. All83 prior comparison obligations
+remain; NEG-dynamic-import changes disposition after identical-byte capture,
+while seven new unique cases bring the full unique count to90. Historical evidence
+is preserved. No public ABI, combined-profile or task acceptance is implied.
+
+
+## Whitespace in a single expanded import path
+
+[import-path-whitespace-v1/CONTRACT.md](import-path-whitespace-v1/CONTRACT.md)
+qualifies FR-18-01 with four additional Default cases and a separately captured
+BMP whitespace classifier. Only the selected path is trimmed with the native
+whitespace definition; whitespace-only values fail before selecting a target and
+properties retain their original padding. The original90 comparison outcomes
+must remain unchanged; the extended full suite requires94 unique comparisons. Every v1
+producer/corpus/evidence artifact stays intact. Acceptance and public ABI gates
+remain open.
