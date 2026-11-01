@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "contract": "PUBLIC-TASK-N01-v2",
-  "status": "HEADER_FIX_QUALIFIED_PENDING_SCOPED_REVIEW_AND_FULL_CANONICAL_GATE2",
+  "status": "PASS_BOUNDED_PUBLIC_TASK_FINAL_GATE_JAR",
   "baseRevision": "da13d13afc2fb2d5c5659722ec934f085e2f7da7",
   "candidateJar": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-completion-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2512-gate2\\source\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
     "sha256": "e943fe761896fcee0e204d3d03ebc8b4c27fbdcac944c402d81e33f6891ec31e",
     "sizeBytes": 828615
   },
@@ -682,7 +682,7 @@
       "sha256": "e3e414276c0ce891426a932a08216b5290621ebe3fb2e65da2d836e95605cbf6"
     }
   ],
-  "canonicalBinding": "Actual canonical product-builder main and binder refreshed artifact/map; ordered late audits passed. Full canonical gate1 FAILED; full gate2 pending root scoped review and execution.",
+  "canonicalBinding": "Full isolated foundation gate2 passed515checks/136sources on source revision b9cb1a91a33629ae8569e60705d9404d92b08b5d; final gateJAR Task697/Java49/delegate34/cancellation48/ValueTask135 and8CodeSource bindings passed. ThreeE01decisionsOPEN; no release/framework/task acceptance.",
   "nativeExecutionsDuringImplementation": 0,
   "canonicalChecksExecutedDuringImplementation": 0,
   "acceptanceCredit": 0,
@@ -760,5 +760,64 @@
     "frozenGuardControls": "69 retained; tools unchanged, not rerun",
     "e01OpenDecisions": 3,
     "acceptanceCredit": 0
+  },
+  "canonicalQualification": {
+    "status": "PASS_FINAL_GATE_JAR_SELECTED_TASK_PROFILE_AND_REGRESSIONS",
+    "sourceRevision": "b9cb1a91a33629ae8569e60705d9404d92b08b5d",
+    "gateChecksExecuted": 515,
+    "productSources": 136,
+    "classCount": 181,
+    "candidateJar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2512-gate2\\source\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+      "sha256": "e943fe761896fcee0e204d3d03ebc8b4c27fbdcac944c402d81e33f6891ec31e",
+      "sizeBytes": 828615
+    },
+    "fullGateBinding": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2512-root-full-gate2-verification-v1.json",
+      "sha256": "ba2d16671aac7abb4b35305f4d89026fe38afe10071c91565aac8946ed40d91a",
+      "sizeBytes": 3883
+    },
+    "finalReceipts": {
+      "task": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2512-final-task-pair-v1\\receipt.json",
+        "sha256": "c472590bd31b1397ffb4a62d49513fe3e34f32ed3f9a8f57bd8a3d2c18fa2f3d",
+        "sizeBytes": 41103
+      },
+      "boundary": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2512-final-java-boundaries-v1\\receipt.json",
+        "sha256": "7ffbbae1aac50bad57078e346d3e649eb50fe9f98965021b00dd292050bf752c",
+        "sizeBytes": 10843
+      },
+      "public": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2512-final-public-regressions-v1\\receipt.json",
+        "sha256": "be642aeb79bacedef10878ecb3aa367256086d40496c66705497fb48dafce2b1",
+        "sizeBytes": 61921
+      }
+    },
+    "taskScenarioRows": 61,
+    "taskMatchedNativeScalars": 697,
+    "javaBoundaryChecks": 49,
+    "publicRegressionObservations": {
+      "delegate-action-v1": 34,
+      "public-cancellation-v1": 48,
+      "public-valuetask-v1": 135
+    },
+    "jarCodeSourceTypes": 8,
+    "successfulHeavyCommands": 11,
+    "extraNativeCaptures": 0,
+    "openE01DecisionCount": 3,
+    "releaseQualified": false,
+    "acceptanceCredit": 0,
+    "next": "Record bounded batch outcome, final whole-branch review, authorized merge/push with remote verification.",
+    "qualificationRecord": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2512-final-artifact-qualification-v1.json",
+      "sha256": "ed91704b78275828be095089dda1cae24af027f925d136a5c2519d3a45204e41",
+      "sizeBytes": 2126
+    }
+  },
+  "canonicalSourceNewlines": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2512-root-full-gate2-verification-v1.json",
+    "sha256": "ba2d16671aac7abb4b35305f4d89026fe38afe10071c91565aac8946ed40d91a",
+    "sizeBytes": 3883
   }
 }
