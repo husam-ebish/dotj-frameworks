@@ -2518,7 +2518,8 @@
     "Batch-2501",
     "Batch-2502",
     "Batch-2503",
-    "Batch-2504"
+    "Batch-2504",
+    "Batch-2505"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2711,7 +2712,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2504",
+      "lastUpdatedBatch": "Batch-2505",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12330,19 +12331,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2505",
+    "id": "Batch-2506",
     "framework": "dotj-core",
     "planTaskIds": [
-      "DJ-001-N01-T2"
+      "DJ-005-WP-01-T1"
     ],
-    "outcome": "Define the public class-backed System.Action and delegate representation that blocks ValueTask and cancellation callbacks.",
+    "outcome": "Add the MSB4130 mixed And/Or warning to the dotj-build evaluation candidate for DJ-005-WP-01-T1.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2504,
+    "completedBatches": 2505,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
