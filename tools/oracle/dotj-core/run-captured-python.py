@@ -20,8 +20,7 @@ def main():
                 sys.stdout.buffer.write(line);sys.stdout.buffer.flush()
             code=child.wait()
             # A child that dies without a traceback must still leave its exit code.
-            if code:log.write(f'CHILD_EXIT {code} {code&0xFFFFFFFF:#x}
-'.encode('ascii'));log.flush()
+            if code:log.write(('CHILD_EXIT %d %#x'%(code,code&0xFFFFFFFF)).encode('ascii')+bytes([10]));log.flush()
             return code
 
 
