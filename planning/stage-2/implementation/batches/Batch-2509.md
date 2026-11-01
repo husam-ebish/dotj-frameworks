@@ -20,15 +20,17 @@
 | Open acceptance items | 1686 |
 | Qualified frameworks | 0/66; 2 in progress and 64 not started |
 | Git workflow | Feature branch; merge to master after verification, then push master and feature. Actual merge and push results are reported after execution. |
-| Next concrete task | Batch-2510: Implement bounded Or and mixed And/Or precedence with explicit predecessor transitions and packaged regression qualification. |
+| Next concrete task | Batch-2510: Qualify current And/Or behavior with one versioned packaged runner covering the same JAR, 94 legacy comparisons, 35 condition cases and existing And consumers. |
 
 | Work group | Batches done / selected | Remaining |
 |---|---:|---:|
 | Exceptions, nullable, serialization, methods, fields, enums and integration (2392–2500) | 109/109 | 0 in that bounded group |
-| Public foundation scopes recorded in 2501–2509 | 9/9 | Further Task/context/ownership scopes not yet batch-baselined |
-| Build condition composition | And feature merged; Or reference pair qualified | Or implementation and packaged qualification pending |
+| Continuation scopes recorded in 2501–2509 (core and build) | 9/9 | Further Task/context/ownership scopes not yet batch-baselined |
+| Build condition composition | And/Or and four mixed-operator warnings already merged in 2503–2506 | Unified same-JAR qualification pending in 2510 |
 | Whole project | 2509 completed batches | Unknown; acceptance counts above are not batch counts |
 
 The Java candidate uses JDK APIs and has no third-party Java runtime library dependency. Python and pinned .NET SDK 10.0.401/runtime 10.0.12 are development/reference-validation tools. No new dependency download was required. The broader dependency graph and public .j installer/feed remain open plans. MIT is selected; three E01 decisions remain open.
 
 All new builds, temporary files, downloads, caches and logs stay under `D:\AI\Implementation\dotj Frameworks`. RooFlow is unavailable; the installed subagent-driven-development and agency-agents-orchestrator workflow was used with at most two active AI agents.
+
+Next-scope correction during Batch-2510 reconciliation: Batches 2503–2506 already implemented Or and mixed-operator warnings. The next task qualifies those current features together against the packaged JAR; it does not implement them again. Batch-2509 validation and merge/push evidence are unchanged.
