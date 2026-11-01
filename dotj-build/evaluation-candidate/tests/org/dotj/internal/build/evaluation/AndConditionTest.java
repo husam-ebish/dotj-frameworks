@@ -20,14 +20,14 @@ final class AndConditionTest {
     static void controls(Path root,List<String> rows) throws Exception {
         Files.createDirectories(root);
         int n=0;
-        for(String expression:List.of("false And (true","true And","()","true And ()","true)","true And true trailing","trueAnd true","true Andfalse","true Or false","true And !false"))
+        for(String expression:List.of("false And (true","true And","()","true And ()","true)","true And true trailing","trueAnd true","true Andfalse","true Orfalse","true And !false"))
             refused(root,"AC-SYNTAX-"+(++n),expression,"CONDITION_PROFILE",rows);
         for(String operand:List.of("1","1.0","true","on"))
             refused(root,"AC-COERCION-"+(++n),"false And ('"+operand+"' == '"+operand+"')","CONDITION_COERCION",rows);
         refused(root,"AC-UNICODE","false And ('ä' == 'ä')","UNICODE_COMPARISON",rows);
         refused(root,"AC-FUNCTION","false And Exists('$([System.IO.File]::ReadAllText(x))')","PROPERTY_FUNCTION",rows);
         Path p=root.resolve("main.proj");
-        for(String inner:List.of("false And (true","true And ()","true Or false")) {
+        for(String inner:List.of("false And (true","true And ()","true Or ()")) {
             Files.writeString(p,"<Project><PropertyGroup Condition=\"false\"><P Condition=\""+inner+"\">bad</P></PropertyGroup></Project>");
             try {evaluate(p,root,Map.of());throw new AssertionError("Skipped malformed property accepted");}
             catch(ProfileRejected e){require(e.code.equals("CONDITION_PROFILE"),"Skipped property wrong refusal");}

@@ -47,7 +47,7 @@ public final class ProjectEvaluationComponentTest {
         negative(negatives,"unicode-comparison","<Project><PropertyGroup Condition=\"'\u03bb' == '\u039b'\"><P>value</P></PropertyGroup></Project>","UNICODE_COMPARISON",Map.of());
         negative(negatives,"numeric-comparison","<Project><PropertyGroup Condition=\"'1' == '1.0'\"><P>value</P></PropertyGroup></Project>","CONDITION_COERCION",Map.of());
         negative(negatives,"bool-coercion","<Project><PropertyGroup Condition=\"'true' == 'on'\"><P>value</P></PropertyGroup></Project>","CONDITION_COERCION",Map.of());
-        negative(negatives,"or-operator","<Project><PropertyGroup Condition=\"true Or false\"><P>value</P></PropertyGroup></Project>","CONDITION_PROFILE",Map.of());
+        negative(negatives,"or-operator","<Project><PropertyGroup Condition=\"true Or ()\"><P>value</P></PropertyGroup></Project>","CONDITION_PROFILE",Map.of());
         negative(negatives,"glob-import","<Project><Import Project=\"*.props\"/></Project>","IMPORT_PATH_PROFILE",Map.of());
         negative(negatives,"outside-import","<Project><Import Project=\"../outside.props\"/></Project>","IMPORT_BOUNDARY",Map.of());
         negative(negatives,"network-import","<Project><Import Project=\"https://example.invalid/file.props\"/></Project>","IMPORT_PATH_PROFILE",Map.of());
@@ -60,8 +60,8 @@ public final class ProjectEvaluationComponentTest {
         negative(negatives,"false-hidden-function","<Project><PropertyGroup Condition=\"false\"><P>$([System.Environment]::GetEnvironmentVariable('HOME'))</P></PropertyGroup></Project>","PROPERTY_FUNCTION",Map.of());
         negative(negatives,"reserved-property","<Project><PropertyGroup><P>$(MSBuildThisFileDirectory)</P></PropertyGroup></Project>","RESERVED_PROPERTY_UNQUALIFIED",Map.of());
         // Removing static condition validation would silently accept these unsupported documents.
-        negative(negatives,"skipped-unknown-condition","<Project><PropertyGroup Condition=\"false\"><P Condition=\"true Or false\">value</P></PropertyGroup></Project>","CONDITION_PROFILE",Map.of());
-        negative(negatives,"skipped-unknown-import-condition","<Project><ImportGroup Condition=\"false\"><Import Project=\"missing.props\" Condition=\"true Or false\"/></ImportGroup></Project>","CONDITION_PROFILE",Map.of());
+        negative(negatives,"skipped-unknown-condition","<Project><PropertyGroup Condition=\"false\"><P Condition=\"true Or ()\">value</P></PropertyGroup></Project>","CONDITION_PROFILE",Map.of());
+        negative(negatives,"skipped-unknown-import-condition","<Project><ImportGroup Condition=\"false\"><Import Project=\"missing.props\" Condition=\"true Or ()\"/></ImportGroup></Project>","CONDITION_PROFILE",Map.of());
         negative(negatives,"skipped-unicode-condition","<Project><PropertyGroup Condition=\"false\"><P Condition=\"'λ' == 'Λ'\">value</P></PropertyGroup></Project>","UNICODE_COMPARISON",Map.of());
         negative(negatives,"skipped-function-condition","<Project><PropertyGroup Condition=\"false\"><P Condition=\"'$(P.ToUpper())' == 'X'\">value</P></PropertyGroup></Project>","ASCII_PROPERTY_NAME",Map.of());
         // No file-creation/process/task mechanism exists in evaluator. Confirm both sentinels remain absent.

@@ -376,7 +376,15 @@ def main():
     if list(output.rglob('must-not-exist.txt')):
         raise RuntimeError('Task marker unexpectedly created')
     predecessors = json.loads((BASE/'evidence/predecessor-dispositions-v1.json').read_text())
+    # Logic-v2 supports these three documents, so their refusal rows now use a malformed Or input.
+    # The exact old documents are compared with native results by condition-logic-v2.
+    transitions = json.loads((BASE/'condition-logic-v2/evidence/predecessor-transitions.json').read_text(encoding='utf-8'))
+    transitioned = {item['oldRow'] for item in transitions['transitions'] if item.get('oldRow','').startswith('NEG-')}
+    if transitioned != {'NEG-or-operator','NEG-skipped-unknown-condition','NEG-skipped-unknown-import-condition'}:
+        raise RuntimeError('Logic-v2 transition set changed')
     for case in predecessors['cases']:
+        if case['id'] in transitioned:
+            continue
         for item in case.get('files',[]):
             path = output/'outputs/negative-inputs'/case['id'].removeprefix('NEG-')/item['path']
             if sha(path) != item['sha256']:

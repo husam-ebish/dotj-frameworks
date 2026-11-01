@@ -375,6 +375,7 @@ final class ProjectEvaluationComponent {
         private interface ConditionExpression { }
         private record ConditionAtom(String raw) implements ConditionExpression { }
         private record ConditionAnd(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
+        private record ConditionOr(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
         private final class ConditionParser {
             final String raw;
             int cursor, depth, nodes;
@@ -385,24 +386,37 @@ final class ProjectEvaluationComponent {
             }
             void space() { while(cursor<raw.length() && raw.charAt(cursor)<=0x20)cursor++; }
             boolean word(char c) { return c>='A'&&c<='Z'||c>='a'&&c<='z'||c>='0'&&c<='9'||c=='_'; }
-            boolean and() {
-                if(cursor+3>raw.length() || cursor>0&&word(raw.charAt(cursor-1)))return false;
-                char a=raw.charAt(cursor),n=raw.charAt(cursor+1),d=raw.charAt(cursor+2);
-                return (a=='a'||a=='A')&&(n=='n'||n=='N')&&(d=='d'||d=='D') &&
-                       (cursor+3==raw.length()||!word(raw.charAt(cursor+3)));
+            boolean keyword(String lower) {
+                int end=cursor+lower.length();
+                if(end>raw.length() || cursor>0&&word(raw.charAt(cursor-1)))return false;
+                for(int i=0;i<lower.length();i++) {
+                    char c=raw.charAt(cursor+i);
+                    if(c!=lower.charAt(i)&&c!=Character.toUpperCase(lower.charAt(i)))return false;
+                }
+                return end==raw.length()||!word(raw.charAt(end));
             }
             void node() {
                 if(nodes>=CONDITION_NODE_LIMIT)throw reject("CONDITION_BOUND","Private condition AST node limit exceeded");
                 nodes++;
             }
             ConditionExpression parse() {
-                ConditionExpression result=conjunction();space();
+                ConditionExpression result=disjunction();space();
                 if(cursor!=raw.length())throw reject("CONDITION_PROFILE","Trailing condition syntax outside selected profile");
+                return result;
+            }
+            // And binds tighter than Or; both associate left and short-circuit.
+            ConditionExpression disjunction() {
+                ConditionExpression result=conjunction();space();
+                while(keyword("or")) {
+                    cursor+=2;
+                    ConditionExpression right=conjunction();
+                    node();result=new ConditionOr(result,right);space();
+                }
                 return result;
             }
             ConditionExpression conjunction() {
                 ConditionExpression result=primary();space();
-                while(and()) {
+                while(keyword("and")) {
                     cursor+=3;
                     ConditionExpression right=primary();
                     node();result=new ConditionAnd(result,right);space();
@@ -415,7 +429,7 @@ final class ProjectEvaluationComponent {
                 if(raw.charAt(cursor)=='(') {
                     if(depth>=CONDITION_GROUP_LIMIT)throw reject("CONDITION_BOUND","Private condition grouping depth exceeded");
                     depth++;cursor++;
-                    ConditionExpression result=conjunction();space();
+                    ConditionExpression result=disjunction();space();
                     if(cursor>=raw.length()||raw.charAt(cursor)!=')')throw reject("CONDITION_PROFILE","Unbalanced condition group");
                     cursor++;depth--;return result;
                 }
@@ -436,20 +450,16 @@ final class ProjectEvaluationComponent {
         }
         boolean condition(String raw, Path owner) throws IOException {
             if(raw.isEmpty())return true;
-            ConditionExpression expression=new ConditionParser(raw).parse();
-            Deque<ConditionExpression> pending=new ArrayDeque<>();pending.push(expression);
-            int steps=0;
-            while(!pending.isEmpty()) {
-                if(steps++>=CONDITION_NODE_LIMIT)throw reject("CONDITION_BOUND","Private condition evaluation bound exceeded");
-                ConditionExpression next=pending.pop();
-                if(next instanceof ConditionAtom atom) {
-                    if(!conditionAtom(atom.raw(),owner))return false;
-                } else {
-                    ConditionAnd and=(ConditionAnd)next;
-                    pending.push(and.right());pending.push(and.left());
-                }
-            }
-            return true;
+            return evaluateCondition(new ConditionParser(raw).parse(),owner,new int[1]);
+        }
+        // Parsing limits the node count, which also bounds this recursion.
+        private boolean evaluateCondition(ConditionExpression expression, Path owner, int[] steps) throws IOException {
+            if(steps[0]++>=CONDITION_NODE_LIMIT)throw reject("CONDITION_BOUND","Private condition evaluation bound exceeded");
+            if(expression instanceof ConditionAnd and)
+                return evaluateCondition(and.left(),owner,steps) && evaluateCondition(and.right(),owner,steps);
+            if(expression instanceof ConditionOr or)
+                return evaluateCondition(or.left(),owner,steps) || evaluateCondition(or.right(),owner,steps);
+            return conditionAtom(((ConditionAtom)expression).raw(),owner);
         }
         boolean conditionAtom(String raw, Path owner) throws IOException {
             String value=unescape(expand(raw)).trim();

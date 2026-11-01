@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_CONDITION_LOGIC_V2_COMPARISON",
+  "runId": "Batch-2503-compare2",
+  "captureSha256": "20074a9377a9da75642bf93a1e2d5d5e6a59526b02aa784b9214126a8810f5fc",
+  "cases": 35,
+  "counts": {
+    "MATCHED_EVALUATION": 26,
+    "DECLARED_PROFILE_REFUSAL": 4,
+    "MATCHED_REFUSAL_OF_NATIVE_FAILURE": 5
+  },
+  "gaps": [
+    "MSB4130 warnings are not emitted by the candidate",
+    "Native failure text and positions are not compared"
+  ],
+  "acceptanceCredit": 0,
+  "results": [
+    {
+      "id": "CL01-truth-table",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL01-left-chains",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL02-precedence-1",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": [
+        "MSB4130"
+      ]
+    },
+    {
+      "id": "CL02-precedence-2",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": [
+        "MSB4130"
+      ]
+    },
+    {
+      "id": "CL02-precedence-3",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL02-precedence-4",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL03-nested",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": [
+        "MSB4130"
+      ]
+    },
+    {
+      "id": "CL04-lazy-exists-1",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL04-lazy-exists-2",
+      "status": "DECLARED_PROFILE_REFUSAL",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL04-lazy-exists-3",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL04-lazy-exists-4",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL05-source-order",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL05-scalar-1",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL05-scalar-2",
+      "status": "DECLARED_PROFILE_REFUSAL",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL05-scalar-3",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL05-scalar-4",
+      "status": "DECLARED_PROFILE_REFUSAL",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL06-property",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL06-propertygroup",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL06-import",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL06-importgroup",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL07-operator-case",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL07-quoted-reference-boundaries",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL08-malformed-1",
+      "status": "MATCHED_REFUSAL_OF_NATIVE_FAILURE",
+      "nativeWarnings": [
+        "MSB4092"
+      ]
+    },
+    {
+      "id": "CL08-malformed-2",
+      "status": "MATCHED_REFUSAL_OF_NATIVE_FAILURE",
+      "nativeWarnings": [
+        "MSB4092"
+      ]
+    },
+    {
+      "id": "CL08-malformed-3",
+      "status": "MATCHED_REFUSAL_OF_NATIVE_FAILURE",
+      "nativeWarnings": [
+        "MSB4092"
+      ]
+    },
+    {
+      "id": "CL08-malformed-4",
+      "status": "MATCHED_REFUSAL_OF_NATIVE_FAILURE",
+      "nativeWarnings": [
+        "MSB4092"
+      ]
+    },
+    {
+      "id": "CL08-malformed-5",
+      "status": "MATCHED_REFUSAL_OF_NATIVE_FAILURE",
+      "nativeWarnings": [
+        "MSB4092"
+      ]
+    },
+    {
+      "id": "CL08-skipped-malformed",
+      "status": "DECLARED_PROFILE_REFUSAL",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL09-legacy-or-operator",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL09-legacy-skipped-unknown-condition",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL09-legacy-skipped-unknown-import-condition",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL09-and-transition-1",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL09-and-transition-2",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL09-and-transition-3",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": []
+    },
+    {
+      "id": "CL10-imports-globals-inert-targets",
+      "status": "MATCHED_EVALUATION",
+      "nativeWarnings": [
+        "MSB4130"
+      ]
+    }
+  ]
+}

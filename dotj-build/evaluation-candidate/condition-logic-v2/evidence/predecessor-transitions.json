@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "transitions": [
+    {
+      "caseId": "CL09-legacy-or-operator",
+      "oldRow": "NEG-or-operator",
+      "oldOutcome": "PROFILE_REJECT/CONDITION_PROFILE",
+      "newOutcome": "UNOBSERVED",
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponentTest.java",
+          "sha256": "f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f\\ProjectEvaluationComponentTest.java"
+        },
+        "line": 50,
+        "literal": "\"<Project><PropertyGroup Condition=\\\"true Or false\\\"><P>value</P></PropertyGroup></Project>\""
+      },
+      "fixtureSha256": "ea150785c18078417d34fbad33e5e8dff3b81b7fbc15c86b2798a3667ee291bf"
+    },
+    {
+      "caseId": "CL09-legacy-skipped-unknown-condition",
+      "oldRow": "NEG-skipped-unknown-condition",
+      "oldOutcome": "PROFILE_REJECT/CONDITION_PROFILE",
+      "newOutcome": "UNOBSERVED",
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponentTest.java",
+          "sha256": "f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f\\ProjectEvaluationComponentTest.java"
+        },
+        "line": 63,
+        "literal": "\"<Project><PropertyGroup Condition=\\\"false\\\"><P Condition=\\\"true Or false\\\">value</P></PropertyGroup></Project>\""
+      },
+      "fixtureSha256": "94963928880550f661dd18ad36f54a82b3ad1d01e1f1712dd6295273de8fceda"
+    },
+    {
+      "caseId": "CL09-legacy-skipped-unknown-import-condition",
+      "oldRow": "NEG-skipped-unknown-import-condition",
+      "oldOutcome": "PROFILE_REJECT/CONDITION_PROFILE",
+      "newOutcome": "UNOBSERVED",
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponentTest.java",
+          "sha256": "f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f\\ProjectEvaluationComponentTest.java"
+        },
+        "line": 64,
+        "literal": "\"<Project><ImportGroup Condition=\\\"false\\\"><Import Project=\\\"missing.props\\\" Condition=\\\"true Or false\\\"/></ImportGroup></Project>\""
+      },
+      "fixtureSha256": "3e5d43fa4b15bd6878dd4364d733ac2138a1324b80b9e32cfa511eda71236cf3"
+    },
+    {
+      "caseId": "CL09-and-transition-1",
+      "oldRowOrSubcase": "AC-SYNTAX-9",
+      "oldOutcome": "PRIVATE_CONTROL/CONDITION_PROFILE",
+      "newOutcome": "UNOBSERVED",
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\AndConditionTest.java",
+          "sha256": "41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a\\AndConditionTest.java"
+        },
+        "lines": "14-38",
+        "recipe": "write(root,expression,\"<P>bad</P>\")",
+        "expression": "true Or false"
+      },
+      "fixtureSha256": "432796668bd26afd5fb2e6b34970ed480fe1e4a1d6ecc6c5ab40f8d12a46e1ba"
+    },
+    {
+      "caseId": "CL09-and-transition-2",
+      "oldRowOrSubcase": "AC-SKIPPED-BRANCHES/property/true-Or-false",
+      "oldOutcome": "PRIVATE_CONTROL/CONDITION_PROFILE",
+      "newOutcome": "UNOBSERVED",
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\AndConditionTest.java",
+          "sha256": "41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a\\AndConditionTest.java"
+        },
+        "lines": "14-38",
+        "recipe": "Files.writeString(p, skipped property construction)",
+        "expression": "true Or false"
+      },
+      "fixtureSha256": "bef6d1536a797502f595c477f4f83573c3ce5ba745165f3dad051d913ca624ef"
+    },
+    {
+      "caseId": "CL09-and-transition-3",
+      "oldRowOrSubcase": "AC-SKIPPED-BRANCHES/import/true-Or-false",
+      "oldOutcome": "PRIVATE_CONTROL/CONDITION_PROFILE",
+      "newOutcome": "UNOBSERVED",
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\AndConditionTest.java",
+          "sha256": "41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a\\AndConditionTest.java"
+        },
+        "lines": "14-38",
+        "recipe": "Files.writeString(p, skipped import construction)",
+        "expression": "true Or false"
+      },
+      "fixtureSha256": "3e5d43fa4b15bd6878dd4364d733ac2138a1324b80b9e32cfa511eda71236cf3"
+    }
+  ],
+  "legacyRows": {
+    "total": 94,
+    "unchanged": 91,
+    "transitions": 3
+  },
+  "andControlMigration": "AC-SYNTAX-9 and exactly two Or skipped subprobes transition; four malformed And subdocuments remain refusals. Old24 aggregate label must never be claimed unchanged.",
+  "futurePrivateControls": [
+    "group64 accepted/group65 and10000 refused",
+    "255 atom+operator nodes accepted/257 andoversized flat mixed chains refused",
+    "malformed And and Or parsed despite lazy/outer skips",
+    "evaluated scalar injection/numeric/Unicode/functions refused; skipped runtime scalar unexpanded",
+    "global caller snapshots immutable; repeated evaluation stable; module exports/opens empty"
+  ],
+  "sourceCopies": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponentTest.java",
+      "sha256": "f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f",
+      "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f\\ProjectEvaluationComponentTest.java"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\AndConditionTest.java",
+      "sha256": "41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a",
+      "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a\\AndConditionTest.java"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\src\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponent.java",
+      "sha256": "16dc0c10c4ac043ffc7a97d44f0a458e723e2f79e3e8a74b4d82842ae21c031f",
+      "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\16dc0c10c4ac043ffc7a97d44f0a458e723e2f79e3e8a74b4d82842ae21c031f\\ProjectEvaluationComponent.java"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+<Project><Import Project="root-hit.props" Condition="Exists('root-only.txt') Or false"/><Import Project="owner-hit.props" Condition="Exists('owner-only.txt') Or false"/></Project>
