@@ -392,6 +392,19 @@ SOURCES += [PRODUCT / "src/main/java/System" / (name + ".java") for name in ("De
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/delegates/ActionBody.java")
 SOURCES += [PRODUCT / "src/main/java/System" / (name + ".java") for name in ("AggregateException", "ObjectDisposedException", "OperationCanceledException")]
 SOURCES += [PRODUCT / "src/main/java/System/Threading" / (name + ".java") for name in ("CancellationToken", "CancellationTokenRegistration", "CancellationTokenSource")]
+SOURCES.append(PRODUCT / "src/main/java/System/Action_1.java")
+SOURCES.append(PRODUCT / "src/main/java/System/IAsyncDisposable.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Threading/Tasks/ValueTask.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Threading/Tasks/Sources/IValueTaskSource.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Threading/Tasks/Sources/ValueTaskSourceStatus.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/ValueTaskAwaiter.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/INotifyCompletion.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/ICriticalNotifyCompletion.java")
+SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/async/ValueTaskBridge.java")
+SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/delegates/ActionBody1.java")
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Action_1.class", "System/IAsyncDisposable.class", "System/Threading/Tasks/ValueTask.class", "System/Threading/Tasks/Sources/IValueTaskSource.class", "System/Threading/Tasks/Sources/ValueTaskSourceStatus.class", "System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.class", "System/Runtime/CompilerServices/ValueTaskAwaiter.class", "System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable.class", "System/Runtime/CompilerServices/INotifyCompletion.class", "System/Runtime/CompilerServices/ICriticalNotifyCompletion.class", "org/dotj/internal/async/ValueTaskBridge.class", "org/dotj/internal/delegates/ActionBody1.class", "System/Threading/Tasks/ValueTask$1.class", "System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable$ConfiguredValueTaskAwaiter.class", "org/dotj/internal/async/ValueTaskBridge$Access.class"])
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/AggregateException.class", "System/ObjectDisposedException.class", "System/OperationCanceledException.class", "System/Threading/CancellationToken.class", "System/Threading/CancellationTokenRegistration.class", "System/Threading/CancellationTokenSource.class"])
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Action.class", "System/Delegate.class", "System/MulticastDelegate.class", "org/dotj/internal/delegates/ActionBody.class"])
 
