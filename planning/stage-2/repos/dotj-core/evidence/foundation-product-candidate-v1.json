@@ -472,10 +472,58 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationTokenSource.java",
       "sha256": "02d25e9501976d88fa58a0f49643f411d09139a44810657cc4af0b18f51307ba"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Action_1.java",
+      "sha256": "f8c64316777637cbaabb478e91a0f12a0b594d6e71e5f66817ad34f1a58fbb85"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/IAsyncDisposable.java",
+      "sha256": "d34d11905fa23228dee8fdcf8d3a5eaeef6d35e408c04152fb525b0460fa9c02"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/ValueTask.java",
+      "sha256": "7489d8936226f16e8d5bdc4e3f711aaadeca2ceb2d132eecacfd366494f60a14"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Sources/IValueTaskSource.java",
+      "sha256": "8f48e5786d8b2712d428ff9f9a62e0bff4cece1f29ae1f3b09a9ae60e99746e9"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Sources/ValueTaskSourceStatus.java",
+      "sha256": "d8a293ad6d011f8f370cb3ea3692d2d0e0db1d98f475aa766e2029926ff99261"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.java",
+      "sha256": "71ff5a317839186f9dd7f6d59abd9b882ffa4d4256524b4701a0b026a3081a91"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/ValueTaskAwaiter.java",
+      "sha256": "a1f6adb9b30016435e915cb15925e1756fbe31df20da4189d7ad7adf521522a8"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable.java",
+      "sha256": "c7f5a85c96aecf16042610caae9571e646b94eed291c8b9224a119392748c858"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/INotifyCompletion.java",
+      "sha256": "c750cb10caba984b88b4a35b6c56b4ee34fdcec6f5ad1f45df9995f74d0f940b"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/ICriticalNotifyCompletion.java",
+      "sha256": "b45b481ef4171f7dc5b476da26f5130f74461417267437a07c2ffd795f905b03"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/async/ValueTaskBridge.java",
+      "sha256": "847298cbb7816bdd886be510519fc992fa53801e8b2beecff0e6cb1cb4a3c8ad"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/delegates/ActionBody1.java",
+      "sha256": "73326b82677ebe079db3ab655488852c034d7626c68ebb42fe8a3cfd384557f0"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "f13802c2b463cb0bc33d80e9be7ba23b7fd3ccde3cdeb7347676aed538757bce",
+  "jarSha256": "331ffb8eb566d64542a24a45e92d78f60cb063d405abd3904d40b379c8d7c774",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -483,6 +531,7 @@
     "META-INF/MANIFEST.MF",
     "META-INF/LICENSE",
     "System/Action.class",
+    "System/Action_1.class",
     "System/AggregateException.class",
     "System/ApplicationException.class",
     "System/ArgumentException.class",
@@ -514,6 +563,7 @@
     "System/Globalization/NumberFormatInfo.class",
     "System/Globalization/NumberStyles.class",
     "System/Globalization/TimeSpanStyles.class",
+    "System/IAsyncDisposable.class",
     "System/ICloneable.class",
     "System/IComparable.class",
     "System/IConvertible.class",
@@ -556,7 +606,12 @@
     "System/Reflection/ParameterInfo.class",
     "System/Reflection/TargetException.class",
     "System/Reflection/TypeFilter.class",
+    "System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable$ConfiguredValueTaskAwaiter.class",
+    "System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable.class",
+    "System/Runtime/CompilerServices/ICriticalNotifyCompletion.class",
+    "System/Runtime/CompilerServices/INotifyCompletion.class",
     "System/Runtime/CompilerServices/NullableAttribute.class",
+    "System/Runtime/CompilerServices/ValueTaskAwaiter.class",
     "System/Runtime/Serialization/FormatterConverter$1.class",
     "System/Runtime/Serialization/FormatterConverter.class",
     "System/Runtime/Serialization/IFormatterConverter.class",
@@ -604,6 +659,11 @@
     "System/Threading/CancellationToken.class",
     "System/Threading/CancellationTokenRegistration.class",
     "System/Threading/CancellationTokenSource.class",
+    "System/Threading/Tasks/Sources/IValueTaskSource.class",
+    "System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.class",
+    "System/Threading/Tasks/Sources/ValueTaskSourceStatus.class",
+    "System/Threading/Tasks/ValueTask$1.class",
+    "System/Threading/Tasks/ValueTask.class",
     "System/TimeSpan.class",
     "System/Type$1.class",
     "System/Type$2.class",
@@ -631,12 +691,15 @@
     "System/UInt16.class",
     "System/UInt32.class",
     "System/ValueTuple.class",
+    "org/dotj/internal/async/ValueTaskBridge$Access.class",
+    "org/dotj/internal/async/ValueTaskBridge.class",
     "org/dotj/internal/collections/ExceptionDataDictionary$CollectionView.class",
     "org/dotj/internal/collections/ExceptionDataDictionary$EntryEnumerator.class",
     "org/dotj/internal/collections/ExceptionDataDictionary$Node.class",
     "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class",
     "org/dotj/internal/collections/ExceptionDataDictionary.class",
     "org/dotj/internal/delegates/ActionBody.class",
+    "org/dotj/internal/delegates/ActionBody1.class",
     "org/dotj/internal/text/MarvinStringHash.class",
     "org/dotj/internal/text/Utf8Codec$Failure.class",
     "org/dotj/internal/text/Utf8Codec.class",
@@ -644,6 +707,7 @@
   ],
   "classSha256": {
     "System/Action.class": "2a0b8da1e940dfcb23dce4a728c3906f3fa6e05296ba715d5afb4e1e7feda41a",
+    "System/Action_1.class": "c03a4fac0b21069e138216573f3ef2985a15a6faa55b91662cc342c5fdaaf4cd",
     "System/AggregateException.class": "e6209a070a733fdc38c9394ddf537f21a4e862d71b28965b4af3044d712735dd",
     "System/ApplicationException.class": "4b83a59086c4d5377358324c1cc9327c947dd673bc3dc0da20b9f443a036919e",
     "System/ArgumentException.class": "ea0ce656b3d6c80727b34edbd90cef4605f4dedaabceefb4b71fe1931f8807fe",
@@ -675,6 +739,7 @@
     "System/Globalization/NumberFormatInfo.class": "f803493e4270279f552c280196d029bef3473cb37016ec577ca30f6e40338ce0",
     "System/Globalization/NumberStyles.class": "20f6635205fa8873e97eaae94210c8c8269287c9d489f7634e36b8f26de0c159",
     "System/Globalization/TimeSpanStyles.class": "51e604b4c85094b507e10cb2edf7f0a09e1ca725e65eae0037a766cc928747ce",
+    "System/IAsyncDisposable.class": "0f3fd6bfdaca5d5a622a4f68e93ea083d658f247475703e26f90f473166ea043",
     "System/ICloneable.class": "e0db2c8af6c7f0d43c35fc3d47a83d97d99691cf26006f2f98e6adee33acc3f6",
     "System/IComparable.class": "a3790e8568a32d4ea4d40c4c2f3bd2e3198cbf07ddcd8f25d994f716c62de227",
     "System/IConvertible.class": "8e3639c71f8a42a3194756d1721afaa40293957e868cfe74c6da7f71264acce2",
@@ -717,7 +782,12 @@
     "System/Reflection/ParameterInfo.class": "b0d535aae3aafd56d27d9913e0db18aaa4df6678f6930dee214325837614bd43",
     "System/Reflection/TargetException.class": "bdc15fd6a8313a111b7d6754699cb969423235374e5c8f9fd4d1f5b27a23db36",
     "System/Reflection/TypeFilter.class": "1dd02935a626dbdbd44fc70a1b612babcb6a98575a034e3c5ee4595a87349ae6",
+    "System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable$ConfiguredValueTaskAwaiter.class": "d7966bbd61d91fe48ad85b7cc5b25b8d288d3e7a309aaf7a26b506f67c00f85c",
+    "System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable.class": "887fc19a6d427f2b525a52ad6fff713560a476e9a1c737d02dbc50588fc8efd3",
+    "System/Runtime/CompilerServices/ICriticalNotifyCompletion.class": "c0bc91b99f1cae0d6777a195d21722cff30088e08167c4467b87d1f5858e56db",
+    "System/Runtime/CompilerServices/INotifyCompletion.class": "01b78ba87b5405d322f64b2405eb5740f833d629994b298fd2d71c6cf033ccf0",
     "System/Runtime/CompilerServices/NullableAttribute.class": "db633f041fc982a6390f164bae5a22ab82001027707a11511c1254a48ddb1a2f",
+    "System/Runtime/CompilerServices/ValueTaskAwaiter.class": "48c24ef6a4616e815c7a3c4e650c94b12b24e3e20991f9049472d1e58fe2a92c",
     "System/Runtime/Serialization/FormatterConverter$1.class": "3b272f5abf54ad0b86c6a387d7b73f0b0bc4f93744b18b8f81d5b8ffadbac21f",
     "System/Runtime/Serialization/FormatterConverter.class": "3ad66877feb2b9a119cfd54749cc9179546cfbf7171250f0e8b104fcee2032c7",
     "System/Runtime/Serialization/IFormatterConverter.class": "95d0fd6f1f1d80ba2dd3f28241a16289be1087968213259ce220e1f5573f6209",
@@ -765,6 +835,11 @@
     "System/Threading/CancellationToken.class": "5370f6071710d5518dd1f927e4e105895d5a0c3fca9a1fa2acbcd4ae808ecaa7",
     "System/Threading/CancellationTokenRegistration.class": "c169233598f93d44972f09d38578371016e336e1342fb0016535aee543fa8e5d",
     "System/Threading/CancellationTokenSource.class": "65e32c4d3fddbdf335a71bc6193951c469f48f12ad99fa2c129ccc2b95a90776",
+    "System/Threading/Tasks/Sources/IValueTaskSource.class": "5f63202635af281eb75cb6cf0cf2059b9e7d8f2aa3c5b844526329bc805e0e46",
+    "System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.class": "e2d712a2b08707eb25f0d29bac95348c1424deb9c36f35ad389eba92a6e56b93",
+    "System/Threading/Tasks/Sources/ValueTaskSourceStatus.class": "e0890353694ab48d759f635379407f0cc424c5a1dc6798d0f8f5b524d2235000",
+    "System/Threading/Tasks/ValueTask$1.class": "4ded6304bf12e46881135ecf71c838b048180157d257be22bc85c88fb96c48e7",
+    "System/Threading/Tasks/ValueTask.class": "650647ac6fe2ed3336a42634478c166ea781aaed57a233c1942c38fe8163dd53",
     "System/TimeSpan.class": "7ba310346c6886e0f736c7256230fb27631c73e233e5bbb1adcc25419e598994",
     "System/Type$1.class": "7b36aec6c039fb86189357f88eb8000319bbea4e31d69ca1a00927cc65e4dfc5",
     "System/Type$2.class": "2fe506ae6b81061726bcccc429bf694ce7afd26881271a6f01906bb8f1fe5957",
@@ -792,12 +867,15 @@
     "System/UInt16.class": "7562ff0dbd63a16f906ae582a8d2183b8c2826f5a479efe2ac262cca2349b070",
     "System/UInt32.class": "128bd0cf0514ad0c452f9e6a8c0376e0f333f3045dddfed417ce7a2ad7437f9a",
     "System/ValueTuple.class": "32e19505191f3c5b53deeca9968f47744a58597c57cdd37a148863a9c20db49c",
+    "org/dotj/internal/async/ValueTaskBridge$Access.class": "2de595af76c815cbd688b8cd3cdc1e2992bcc0306389cbedb3727cad4999f020",
+    "org/dotj/internal/async/ValueTaskBridge.class": "c4072167ba62db6eb01d7aff7cc5e22e9d92ffa55d44f5be61bcfb1edde3d92d",
     "org/dotj/internal/collections/ExceptionDataDictionary$CollectionView.class": "38e2dae9612e959ab504a2b64ddbe83ee733b4466086662988f5c6503c9d5f66",
     "org/dotj/internal/collections/ExceptionDataDictionary$EntryEnumerator.class": "ef849ade5cf5ff6824e6f26150431fbad8cd05448fca554f70d40ddc738373da",
     "org/dotj/internal/collections/ExceptionDataDictionary$Node.class": "c19f259f2711878aa82135b89ea24f8f6d1d117dc7d20396520ab01140395525",
     "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class": "e940b4ec7f2f9abe8b5956f8d7790d6c78489cbb276eea4f64a0f1667663e740",
     "org/dotj/internal/collections/ExceptionDataDictionary.class": "c4b49b400e4d69e806771790eb77750acea90b41503bf09421e12f9b519db1f9",
     "org/dotj/internal/delegates/ActionBody.class": "cccb21aab12db633efb8f81f8bb73d98b49892b0e359ca78e4b72c821eb5fa54",
+    "org/dotj/internal/delegates/ActionBody1.class": "c59838eb454cb415f591468f4547c0b77ddb5b986167aecb8846d1906711bf39",
     "org/dotj/internal/text/MarvinStringHash.class": "0d20605f0397766c60dd64f198fc6329d6a1f433261f002a488bb9490fb7e523",
     "org/dotj/internal/text/Utf8Codec$Failure.class": "900ae378c9ba8a7ea00ab14abfcd3f39a078aca68ac129eaac8be7deffb74ba4",
     "org/dotj/internal/text/Utf8Codec.class": "4762214fd23835db24fbb4fc60ffd6957c403097510afe13482fbb292983b1ea",
