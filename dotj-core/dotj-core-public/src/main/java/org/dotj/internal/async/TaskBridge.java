@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+
 package org.dotj.internal.async;
 
 import System.Action;

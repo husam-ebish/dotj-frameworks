@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR only; technical inputs for a licensing decision, not clearance",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "11a470a1e9210815981f57deba1712caa354c389e34573e2b448b74c38519e70",
+  "jarSha256": "e943fe761896fcee0e204d3d03ebc8b4c27fbdcac944c402d81e33f6891ec31e",
   "selectedProductLicense": "MIT",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
-  "productSourceCount": 130,
+  "productSourceCount": 136,
   "productSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Action.java",
@@ -649,6 +649,14 @@
       "headerNamesDotNetFoundation": false
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/TaskAwaiter.java",
+      "sha256": "cd77937da80e448dd4facef94018a1fb4d710b790d34aa4fe7b82e9417ce3c76",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/ValueTaskAwaiter.java",
       "sha256": "a1f6adb9b30016435e915cb15925e1756fbe31df20da4189d7ad7adf521522a8",
       "classCount": 1,
@@ -929,6 +937,38 @@
       "headerNamesDotNetFoundation": false
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Task.java",
+      "sha256": "6d6d75fa4233cb5b5bdaac95d8e6e9edcd8444d296b4227cd26b4a1d3b7b8849",
+      "classCount": 2,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskCanceledException.java",
+      "sha256": "7d531d02fbe7e7afbb54cc4b072ad4e967776937f19ad7c0cacbb7a84b147a5f",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskCompletionSource.java",
+      "sha256": "3e92bb1fab5c47c1f5404dcaebdc6622c501c8611a0ca76940879096daa0290d",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskStatus.java",
+      "sha256": "11d7492ff71bc91b6ed4f87ac5a5d58ced836098d3a79c4df101b8cffdbda742",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/ValueTask.java",
       "sha256": "664174dd665dbe3379c686d9b153b1acbc3391e4a01a08347ce966730401ce24",
       "classCount": 2,
@@ -987,6 +1027,14 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ValueTuple.java",
       "sha256": "a2462af97310e91f4eadd9c769cda5ec6b04a0854c5fb6749cc7459605f326c5",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/async/TaskBridge.java",
+      "sha256": "e3e414276c0ce891426a932a08216b5290621ebe3fb2e65da2d836e95605cbf6",
       "classCount": 1,
       "headerHasSpdxIdentifier": true,
       "headerHasCopyrightNotice": false,

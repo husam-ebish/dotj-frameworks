@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "11a470a1e9210815981f57deba1712caa354c389e34573e2b448b74c38519e70",
+  "jarSha256": "e943fe761896fcee0e204d3d03ebc8b4c27fbdcac944c402d81e33f6891ec31e",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 130,
-  "directNameMatchedCount": 112,
-  "directNameMissingCount": 18,
+  "sourceCount": 136,
+  "directNameMatchedCount": 116,
+  "directNameMissingCount": 20,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
     "dotj-core/dotj-core-public/src/main/java/System/Delegate.java",
@@ -1409,6 +1409,23 @@
       "supplementalAdjacencyEvidence": null
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/TaskAwaiter.java",
+      "productSha256": "cd77937da80e448dd4facef94018a1fb4d710b790d34aa4fe7b82e9417ce3c76",
+      "classEntries": [
+        "System/Runtime/CompilerServices/TaskAwaiter.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "9dc1e0a1bf3d35fde447453b821b3b36b86308d8",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/TaskAwaiter.cs",
+      "upstreamSha256": "24276f05a960c41c7b074713aa84cb01cae4672f89e225b6dcd2fe9b297a3a39",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/ValueTaskAwaiter.java",
       "productSha256": "a1f6adb9b30016435e915cb15925e1756fbe31df20da4189d7ad7adf521522a8",
       "classEntries": [
@@ -2040,6 +2057,75 @@
       "supplementalAdjacencyEvidence": null
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Task.java",
+      "productSha256": "6d6d75fa4233cb5b5bdaac95d8e6e9edcd8444d296b4227cd26b4a1d3b7b8849",
+      "classEntries": [
+        "System/Threading/Tasks/Task.class",
+        "System/Threading/Tasks/Task$1.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "9dc1e0a1bf3d35fde447453b821b3b36b86308d8",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "upstreamSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskCanceledException.java",
+      "productSha256": "7d531d02fbe7e7afbb54cc4b072ad4e967776937f19ad7c0cacbb7a84b147a5f",
+      "classEntries": [
+        "System/Threading/Tasks/TaskCanceledException.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "9dc1e0a1bf3d35fde447453b821b3b36b86308d8",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCanceledException.cs",
+      "upstreamSha256": "aa4c4341e6202943b5fcee0ff76e6183ba2c260b1bccfa65cf42957b88849328",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskCompletionSource.java",
+      "productSha256": "3e92bb1fab5c47c1f5404dcaebdc6622c501c8611a0ca76940879096daa0290d",
+      "classEntries": [
+        "System/Threading/Tasks/TaskCompletionSource.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "9dc1e0a1bf3d35fde447453b821b3b36b86308d8",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource.cs",
+      "upstreamSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskStatus.java",
+      "productSha256": "11d7492ff71bc91b6ed4f87ac5a5d58ced836098d3a79c4df101b8cffdbda742",
+      "classEntries": [
+        "System/Threading/Tasks/TaskStatus.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "9dc1e0a1bf3d35fde447453b821b3b36b86308d8",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskStatus.cs",
+      "upstreamSha256": null,
+      "sharedIdentifierShinglesOfLength12": null,
+      "lexicalReviewStatus": "DIRECT_PATH_MISSING",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/ValueTask.java",
       "productSha256": "664174dd665dbe3379c686d9b153b1acbc3391e4a01a08347ce966730401ce24",
       "classEntries": [
@@ -2213,6 +2299,23 @@
       "upstreamSha256": "4839c8498234ecd3451b7d1983fdb3add0c28837522180641eacaa0fd0ea11d7",
       "sharedIdentifierShinglesOfLength12": 0,
       "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/async/TaskBridge.java",
+      "productSha256": "e3e414276c0ce891426a932a08216b5290621ebe3fb2e65da2d836e95605cbf6",
+      "classEntries": [
+        "org/dotj/internal/async/TaskBridge.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "9dc1e0a1bf3d35fde447453b821b3b36b86308d8",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/org/dotj/internal/async/TaskBridge.cs",
+      "upstreamSha256": null,
+      "sharedIdentifierShinglesOfLength12": null,
+      "lexicalReviewStatus": "DIRECT_PATH_MISSING",
       "sharedIdentifierShingleSamples": [],
       "noticeApplicabilityDecision": "REVIEW_REQUIRED",
       "supplementalAdjacencyEvidence": null

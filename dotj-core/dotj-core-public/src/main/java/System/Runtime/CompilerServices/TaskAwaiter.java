@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+
 package System.Runtime.CompilerServices;
 
 import System.Action;

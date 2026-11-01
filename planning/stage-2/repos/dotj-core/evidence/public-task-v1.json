@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "contract": "PUBLIC-TASK-N01-v2",
-  "status": "TARGETED_JAR_QUALIFIED_PENDING_TASK_REVIEW_AND_CANONICAL_GATE",
+  "status": "HEADER_FIX_QUALIFIED_PENDING_SCOPED_REVIEW_AND_FULL_CANONICAL_GATE2",
   "baseRevision": "da13d13afc2fb2d5c5659722ec934f085e2f7da7",
   "candidateJar": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2512-task-implementation-v1\\build1\\dotj-core-foundation-v1.jar",
-    "sha256": "6cfe51d88deb0bdcf51a257b4a980eefea6b0791e32e5e516f4f7aab1696bf45",
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-completion-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+    "sha256": "e943fe761896fcee0e204d3d03ebc8b4c27fbdcac944c402d81e33f6891ec31e",
     "sizeBytes": 828615
   },
   "productSourceCount": 136,
@@ -659,30 +659,30 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Task.java",
-      "sha256": "ba33a1c496b97d2ecc4fec069e0f65c5c14e29012d276f7a6761fe63b938ca91"
+      "sha256": "6d6d75fa4233cb5b5bdaac95d8e6e9edcd8444d296b4227cd26b4a1d3b7b8849"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskCompletionSource.java",
-      "sha256": "92fbe5333ca97abf8dc0c2b5936aa1f6954e4225e311ceea9e752157de95c5bc"
+      "sha256": "3e92bb1fab5c47c1f5404dcaebdc6622c501c8611a0ca76940879096daa0290d"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskStatus.java",
-      "sha256": "aa73f43e44937dbb5cba838819d0db0db519ec873a0c8424f6f3c7112f4b7d91"
+      "sha256": "11d7492ff71bc91b6ed4f87ac5a5d58ced836098d3a79c4df101b8cffdbda742"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskCanceledException.java",
-      "sha256": "83ced7f9f46993b6465a32805dbc04efa463ecd8ce4fc93831f5541f95bc4912"
+      "sha256": "7d531d02fbe7e7afbb54cc4b072ad4e967776937f19ad7c0cacbb7a84b147a5f"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/TaskAwaiter.java",
-      "sha256": "efbc30958314e98f1a2ccb2183a457fdf367eb907ed489f024ea186d4256b829"
+      "sha256": "cd77937da80e448dd4facef94018a1fb4d710b790d34aa4fe7b82e9417ce3c76"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/async/TaskBridge.java",
-      "sha256": "bcb1fa08af43a7d25bb03de5e91fd9d524efd34c254debdc4a2b53ecd552bfbe"
+      "sha256": "e3e414276c0ce891426a932a08216b5290621ebe3fb2e65da2d836e95605cbf6"
     }
   ],
-  "canonicalBinding": "sourceToClasses extended; historical foundation artifact hash/evidence retained until actual root canonical gate/export/binder",
+  "canonicalBinding": "Actual canonical product-builder main and binder refreshed artifact/map; ordered late audits passed. Full canonical gate1 FAILED; full gate2 pending root scoped review and execution.",
   "nativeExecutionsDuringImplementation": 0,
   "canonicalChecksExecutedDuringImplementation": 0,
   "acceptanceCredit": 0,
@@ -696,5 +696,69 @@
     "Task-backed ValueTask",
     "CancelAsync",
     "CLR process-fatal handler policy"
-  ]
+  ],
+  "retainedCandidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2512-task-implementation-v1\\fix-round1\\artifacts\\dotj-core-foundation-v1.jar",
+    "sha256": "e943fe761896fcee0e204d3d03ebc8b4c27fbdcac944c402d81e33f6891ec31e",
+    "sizeBytes": 828615
+  },
+  "fixRound1": {
+    "baseRevision": "9dc1e0a1bf3d35fde447453b821b3b36b86308d8",
+    "change": "Exactly one blank line after MIT SPDX header in each of six new Java sources; no behavior change",
+    "rootCause": "Existing audit-foundation-rights-inputs.py:38 requires SPDX line followed by a blank line; all six new sources omitted it.",
+    "evidence": {
+      "buildBindingRightsProvenance": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2512-task-implementation-v1\\fix-round1\\build-covering1\\receipt.json",
+        "sha256": "c91fc8f9fd4beca65a7e1b96dfb843ed5628236d2c092952c545078207aeb571",
+        "sizeBytes": 59331
+      },
+      "remainingLateAudits": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2512-task-implementation-v1\\fix-round1\\audits-covering1\\receipt.json",
+        "sha256": "a59c637420cc17fd43de76c3fa5e9d8c53febad39669290aad4544e9330b7ace",
+        "sizeBytes": 62301
+      },
+      "paired697": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2512-task-implementation-v1\\fix-round1\\compare1\\receipt.json",
+        "sha256": "3f6fdcde95049b165f36dbaf5e3113437cb60c953664512e10a1ba823e36a3d7",
+        "sizeBytes": 41843
+      },
+      "javaBoundary49": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2512-task-implementation-v1\\fix-round1\\boundary1\\receipt.json",
+        "sha256": "4dfd9f5c8585ba6e0d7ad54782c9e459291468b38e9ffcc2e96fd99adbe5a113",
+        "sizeBytes": 11362
+      },
+      "preservationAndPinnedSources": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2512-task-implementation-v1\\fix-round1\\preservation-proof.json",
+        "sha256": "61c0dc6aa0c89b47dbdd2ae103df3c0330cb5bd04581d45d863207f5cf1c873c",
+        "sizeBytes": 13302
+      },
+      "failedGate1Controller": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\history\\batch2512-task-implementation-round0\\batch2512-gate1-controller.json",
+        "sha256": "edd7ac3c8dd8e927f96333f6d980c44590c67e0d5cf11ce3dfcef3236047d679",
+        "sizeBytes": 672
+      },
+      "failedGate1Log": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2512-gate1\\foundation-gate.log",
+        "sha256": "333861a1c038cfb9039a81835392114816a8da3a27f2165afd2a786ad258d15a",
+        "sizeBytes": 81417
+      },
+      "priorImplementationReport": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\history\\batch2512-task-implementation-round0\\batch2512-task-implementation-report.json",
+        "sha256": "aa962d7746d59840a168bdc342ce4125605c1a8503cc7c7b845942934ebf6879",
+        "sizeBytes": 91120
+      }
+    },
+    "candidateJar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-completion-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+      "sha256": "e943fe761896fcee0e204d3d03ebc8b4c27fbdcac944c402d81e33f6891ec31e",
+      "sizeBytes": 828615
+    },
+    "oldSourcesPreserved": 130,
+    "oldClassesPreserved": 174,
+    "pairedScalarObservations": 697,
+    "javaBoundaryChecks": 49,
+    "frozenGuardControls": "69 retained; tools unchanged, not rerun",
+    "e01OpenDecisions": 3,
+    "acceptanceCredit": 0
+  }
 }
