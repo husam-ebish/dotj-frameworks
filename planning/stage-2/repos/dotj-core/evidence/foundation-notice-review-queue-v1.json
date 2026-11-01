@@ -1,19 +1,37 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "fc7c2a41fe330d3b12b236c1cfa8bd96a3e9d34074b5d47c9a2e5e225a5f9ea4",
+  "jarSha256": "b6ae6cd74f018d71bdd2c94bd67bc8a6c761e05e8b18df18bf422c09a22af0d7",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 108,
-  "directNameMatchedCount": 97,
-  "directNameMissingCount": 11,
+  "sourceCount": 112,
+  "directNameMatchedCount": 100,
+  "directNameMissingCount": 12,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
+    "dotj-core/dotj-core-public/src/main/java/System/Delegate.java",
     "dotj-core/dotj-core-public/src/main/java/System/Text/Decoder.java",
     "dotj-core/dotj-core-public/src/main/java/System/Text/Encoder.java",
     "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java"
   ],
   "rows": [
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Action.java",
+      "productSha256": "13834efa1aa616b582ea120a4d51e02f2584ba18e7603c3cea8167dac5117093",
+      "classEntries": [
+        "System/Action.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "3438db243afe4b022836281843cca3c73964344c",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Action.cs",
+      "upstreamSha256": "4814c761246b013306000bb4d3b188f8060922e9cb6342f16e17507cf1eff791",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/ApplicationException.java",
       "productSha256": "6f986927960ca98f9052fadfbd52bd8b525730a20f3fd063ce67357f9efd2c1c",
@@ -338,6 +356,34 @@
       "sharedIdentifierShinglesOfLength12": 0,
       "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
       "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Delegate.java",
+      "productSha256": "28ac1b0d06426ef8904e4592995dcdba53829413a345b8b4279571f8158130ed",
+      "classEntries": [
+        "System/Delegate.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "3438db243afe4b022836281843cca3c73964344c",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Delegate.cs",
+      "upstreamSha256": "4ed47ee39832865e2e9f2279e248ea23b26f24c42d9e190d133aa20b5d57f1e6",
+      "sharedIdentifierShinglesOfLength12": 10,
+      "lexicalReviewStatus": "OVERLAP_REVIEW_REQUIRED",
+      "sharedIdentifierShingleSamples": [
+        "Delegate Remove Delegate source Delegate value if source null return null if",
+        "Delegate source Delegate value if source null return null if value null",
+        "Delegate value if source null return null if value null return source",
+        "Remove Delegate source Delegate value if source null return null if value",
+        "public static Delegate Remove Delegate source Delegate value if source null return",
+        "return source RemoveImpl value public static Delegate RemoveAll Delegate source Delegate value",
+        "source Delegate value if source null return null if value null return",
+        "source RemoveImpl value public static Delegate RemoveAll Delegate source Delegate value Delegate",
+        "static Delegate Remove Delegate source Delegate value if source null return null",
+        "value if source null return null if value null return source if"
+      ],
       "noticeApplicabilityDecision": "REVIEW_REQUIRED",
       "supplementalAdjacencyEvidence": null
     },
@@ -811,6 +857,23 @@
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/MidpointRounding.cs",
       "upstreamSha256": "11e2dd41172d6593ff43669453efce9acffbec295b6d3f47ecb6a005f386ac76",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/MulticastDelegate.java",
+      "productSha256": "589bfa10e12bd546f4eae07a408ca4e6250733dcffbf73578ca2876ccc56ac94",
+      "classEntries": [
+        "System/MulticastDelegate.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "3438db243afe4b022836281843cca3c73964344c",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/MulticastDelegate.cs",
+      "upstreamSha256": "b23ee340f1f735b730976edb0a6cca9fa09bf73336b3128f5b67476e5340a288",
       "sharedIdentifierShinglesOfLength12": 0,
       "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
       "sharedIdentifierShingleSamples": [],
@@ -1894,6 +1957,23 @@
       "localIntroductionCommit": "b474e96a165c9ba76a155eea8734f3f63a9d4c22",
       "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/org/dotj/internal/collections/ExceptionDataDictionary.cs",
+      "upstreamSha256": null,
+      "sharedIdentifierShinglesOfLength12": null,
+      "lexicalReviewStatus": "DIRECT_PATH_MISSING",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/delegates/ActionBody.java",
+      "productSha256": "cb014c3c3d0e160e5504b2d54354f5fe83135cb677541e6fea20fe4a8ef29593",
+      "classEntries": [
+        "org/dotj/internal/delegates/ActionBody.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "3438db243afe4b022836281843cca3c73964344c",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/org/dotj/internal/delegates/ActionBody.cs",
       "upstreamSha256": null,
       "sharedIdentifierShinglesOfLength12": null,
       "lexicalReviewStatus": "DIRECT_PATH_MISSING",
