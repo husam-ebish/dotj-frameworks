@@ -29,7 +29,7 @@ registration.Dispose();
 
 ## Limits
 
-- `CancelAsync` waits for a public `Task`, which does not exist yet.
+- The selected public nongeneric `Task` prerequisite now exists; `CancelAsync` and its callback-completion integration remain unimplemented.
 - `WaitHandle`, `Register` state overloads, `UnsafeRegister` and `ExecutionContext` capture are not provided.
 - `F02-04` therefore remains internal only, and `Cancel` catches only `System.Exception` callback failures.
 - No acceptance credit is granted.

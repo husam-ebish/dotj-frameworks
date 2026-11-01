@@ -520,10 +520,34 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/delegates/ActionBody1.java",
       "sha256": "73326b82677ebe079db3ab655488852c034d7626c68ebb42fe8a3cfd384557f0"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Task.java",
+      "sha256": "4c2907e1ad18d7491e9c078b2d4ee47b4e15cc281be20ebbbf121566ae899b04"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskCompletionSource.java",
+      "sha256": "fe60bb7dab305fde2ee9a4de51dd1ecb17af66a249301d4641fd361df4bb37fc"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskStatus.java",
+      "sha256": "2995cfd0862a901cd713a84987ea8d70538dccf424f8b926c5c92e0ab44d9050"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskCanceledException.java",
+      "sha256": "b8045eaa60a192cdb588a1c573e502fa4b040062b7b4bb76823bc3d4101de0db"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/TaskAwaiter.java",
+      "sha256": "83dbee3fd2206ad4539e73cb3ce1af5fb83cac693ad119c8f188dff36a5e3fad"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/async/TaskBridge.java",
+      "sha256": "ccd1c3183c0c520c9d1628cec6c1605c4d98b3714d57dc9e87968ea35b325beb"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "11a470a1e9210815981f57deba1712caa354c389e34573e2b448b74c38519e70",
+  "jarSha256": "e943fe761896fcee0e204d3d03ebc8b4c27fbdcac944c402d81e33f6891ec31e",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -611,6 +635,7 @@
     "System/Runtime/CompilerServices/ICriticalNotifyCompletion.class",
     "System/Runtime/CompilerServices/INotifyCompletion.class",
     "System/Runtime/CompilerServices/NullableAttribute.class",
+    "System/Runtime/CompilerServices/TaskAwaiter.class",
     "System/Runtime/CompilerServices/ValueTaskAwaiter.class",
     "System/Runtime/Serialization/FormatterConverter$1.class",
     "System/Runtime/Serialization/FormatterConverter.class",
@@ -662,6 +687,11 @@
     "System/Threading/Tasks/Sources/IValueTaskSource.class",
     "System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.class",
     "System/Threading/Tasks/Sources/ValueTaskSourceStatus.class",
+    "System/Threading/Tasks/Task$1.class",
+    "System/Threading/Tasks/Task.class",
+    "System/Threading/Tasks/TaskCanceledException.class",
+    "System/Threading/Tasks/TaskCompletionSource.class",
+    "System/Threading/Tasks/TaskStatus.class",
     "System/Threading/Tasks/ValueTask$1.class",
     "System/Threading/Tasks/ValueTask.class",
     "System/TimeSpan.class",
@@ -691,6 +721,7 @@
     "System/UInt16.class",
     "System/UInt32.class",
     "System/ValueTuple.class",
+    "org/dotj/internal/async/TaskBridge.class",
     "org/dotj/internal/async/ValueTaskBridge$Access.class",
     "org/dotj/internal/async/ValueTaskBridge.class",
     "org/dotj/internal/collections/ExceptionDataDictionary$CollectionView.class",
@@ -787,6 +818,7 @@
     "System/Runtime/CompilerServices/ICriticalNotifyCompletion.class": "c0bc91b99f1cae0d6777a195d21722cff30088e08167c4467b87d1f5858e56db",
     "System/Runtime/CompilerServices/INotifyCompletion.class": "01b78ba87b5405d322f64b2405eb5740f833d629994b298fd2d71c6cf033ccf0",
     "System/Runtime/CompilerServices/NullableAttribute.class": "db633f041fc982a6390f164bae5a22ab82001027707a11511c1254a48ddb1a2f",
+    "System/Runtime/CompilerServices/TaskAwaiter.class": "59862aaa4ef6a737f467e29cb78b0a7b4f0fdc67f96e15b03ea3d11eefc50062",
     "System/Runtime/CompilerServices/ValueTaskAwaiter.class": "48c24ef6a4616e815c7a3c4e650c94b12b24e3e20991f9049472d1e58fe2a92c",
     "System/Runtime/Serialization/FormatterConverter$1.class": "3b272f5abf54ad0b86c6a387d7b73f0b0bc4f93744b18b8f81d5b8ffadbac21f",
     "System/Runtime/Serialization/FormatterConverter.class": "3ad66877feb2b9a119cfd54749cc9179546cfbf7171250f0e8b104fcee2032c7",
@@ -838,6 +870,11 @@
     "System/Threading/Tasks/Sources/IValueTaskSource.class": "5f63202635af281eb75cb6cf0cf2059b9e7d8f2aa3c5b844526329bc805e0e46",
     "System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.class": "e2d712a2b08707eb25f0d29bac95348c1424deb9c36f35ad389eba92a6e56b93",
     "System/Threading/Tasks/Sources/ValueTaskSourceStatus.class": "e0890353694ab48d759f635379407f0cc424c5a1dc6798d0f8f5b524d2235000",
+    "System/Threading/Tasks/Task$1.class": "92628ab3bc285d205ea270e786a22f5982dc2129c7e02af252ef6a2458990c2d",
+    "System/Threading/Tasks/Task.class": "a31399deffafd74cd335cea7dbe257ff84a0c5d5b4ba4a3d2bb28803c1146894",
+    "System/Threading/Tasks/TaskCanceledException.class": "60cb86ab029b59bdb02239658e5c128b18bcd268e34234d0802a75adb39a01ec",
+    "System/Threading/Tasks/TaskCompletionSource.class": "1d1e1a9a39af376b35223b6b913e257cd208061c1f274a92b96934b08ff685a3",
+    "System/Threading/Tasks/TaskStatus.class": "4307d26ae040926c61047857c26a3f255fe5fc3c3e356448d87f0a2594c2f90e",
     "System/Threading/Tasks/ValueTask$1.class": "f0cd3c6259712a974f0842a2f4670a0a495306b9c6eca274df2bb69c56c6227f",
     "System/Threading/Tasks/ValueTask.class": "66156b8c9c3f0898e85b8ab71ec38214ad57ad6c827ad15323131454878c345d",
     "System/TimeSpan.class": "7ba310346c6886e0f736c7256230fb27631c73e233e5bbb1adcc25419e598994",
@@ -867,6 +904,7 @@
     "System/UInt16.class": "7562ff0dbd63a16f906ae582a8d2183b8c2826f5a479efe2ac262cca2349b070",
     "System/UInt32.class": "128bd0cf0514ad0c452f9e6a8c0376e0f333f3045dddfed417ce7a2ad7437f9a",
     "System/ValueTuple.class": "32e19505191f3c5b53deeca9968f47744a58597c57cdd37a148863a9c20db49c",
+    "org/dotj/internal/async/TaskBridge.class": "30c29ff265cc0b7f5244abcc1db0d8bf7bc106fcfdcbb41fabda7cbbce9eabe5",
     "org/dotj/internal/async/ValueTaskBridge$Access.class": "2de595af76c815cbd688b8cd3cdc1e2992bcc0306389cbedb3727cad4999f020",
     "org/dotj/internal/async/ValueTaskBridge.class": "c4072167ba62db6eb01d7aff7cc5e22e9d92ffa55d44f5be61bcfb1edde3d92d",
     "org/dotj/internal/collections/ExceptionDataDictionary$CollectionView.class": "38e2dae9612e959ab504a2b64ddbe83ee733b4466086662988f5c6503c9d5f66",

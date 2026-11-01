@@ -408,6 +408,17 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Action_1.class", "System/I
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/AggregateException.class", "System/ObjectDisposedException.class", "System/OperationCanceledException.class", "System/Threading/CancellationToken.class", "System/Threading/CancellationTokenRegistration.class", "System/Threading/CancellationTokenSource.class"])
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Action.class", "System/Delegate.class", "System/MulticastDelegate.class", "org/dotj/internal/delegates/ActionBody.class"])
 
+SOURCES += [PRODUCT / "src/main/java" / (name + ".java") for name in (
+    "System/Threading/Tasks/Task", "System/Threading/Tasks/TaskCompletionSource",
+    "System/Threading/Tasks/TaskStatus", "System/Threading/Tasks/TaskCanceledException",
+    "System/Runtime/CompilerServices/TaskAwaiter", "org/dotj/internal/async/TaskBridge")]
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + [
+    "System/Threading/Tasks/Task.class", "System/Threading/Tasks/Task$1.class",
+    "System/Threading/Tasks/TaskCompletionSource.class", "System/Threading/Tasks/TaskStatus.class",
+    "System/Threading/Tasks/TaskCanceledException.class", "System/Runtime/CompilerServices/TaskAwaiter.class",
+    "org/dotj/internal/async/TaskBridge.class"])
+
+
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))

@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "contract": "PUBLIC-TASK-N01-v1",
+  "status": "STATIC_PREPARATION_UNOBSERVED",
+  "selectedPlan": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2512-core-task-plan.json",
+    "sha256": "d79ff26636c4fa05c27b52eabe0202a2fe9304999aa1578176a30fb5e704ee9f",
+    "sizeBytes": 39088
+  },
+  "rootRuling": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2512-root-scope-ruling-v1.json",
+    "sha256": "d48fa63b5d4a8150b26b002785043f96f1d4265b806b02931b98a77328caa6f4",
+    "sizeBytes": 1829
+  },
+  "base": "da13d13afc2fb2d5c5659722ec934f085e2f7da7",
+  "fixture": {
+    "nativeSha256": "bdf5a8ccdf37d479e9dd99cfa1619798fa41cb42192fd87f2204f53c846a9f27",
+    "javaSha256": "3218ea1165ec9205eba6e3d30f73d37214b63cafb9380c0ecc8a99d8b0926df3",
+    "schemaSha256": "24ac6d6856b47ad8b7306e02ccbb174a9e325ac89c2e1984145c2d5f2123129f",
+    "scenarioRows": 61,
+    "scalarObservations": 697
+  },
+  "groups": [
+    {
+      "id": "PT01",
+      "cases": "default TCS, two distinct producers, repeated get_Task, CompletedTask",
+      "dimensions": "identity relation booleans, raw status, predicates, Exception null, awaiter IsCompleted/GetResult success",
+      "plannedScenarioRows": 3
+    },
+    {
+      "id": "PT02",
+      "cases": "all three first terminal states crossed with all three subsequent Try completion kinds; Set duplicates for each first state",
+      "dimensions": "exact one success, remaining false, final status/payload unchanged, duplicate Set exception class/HRESULT/message; null fault validation precedence after each terminal state",
+      "plannedScenarioRows": 22
+    },
+    {
+      "id": "PT03",
+      "cases": "single ordinary exception, OperationCanceledException with real token, nested AggregateException",
+      "dimensions": "fault7 not cancel6; AggregateException inner count/order/identity/no flatten, awaiter original exception identity/type/message/HRESULT, repeated GetResult stable; Exception null before completion",
+      "plannedScenarioRows": 3
+    },
+    {
+      "id": "PT04",
+      "cases": "default token, unsignaled real token, signaled token, disposed-source token; nullable TaskCanceledException(null)",
+      "dimensions": "cancel6/Exception null, TCE type/message/HRESULT/Task reference/token equality, original token source not canceled by task completion; null-TCE Task and None token",
+      "plannedScenarioRows": 5
+    },
+    {
+      "id": "PT05",
+      "cases": "OnCompleted and UnsafeOnCompleted on pending then success/fault/cancel; each also registered after terminal completion",
+      "dimensions": "exactly once, state/payload visible inside callback; controlled single-pending inline relation; late callback different thread than registering thread; null continuation rejected on both paths before and after completion",
+      "plannedScenarioRows": 20
+    },
+    {
+      "id": "PT06",
+      "cases": "two pending normal callbacks plus duplicate same Action, reentrant callback registering late callback; first callback deliberately held by handshake while second runs",
+      "dimensions": "no loss/dedup/deadlock; additional callback can run while first blocked, no FIFO assumption, first eligible inline/additional queued relation under controlled native profile",
+      "plannedScenarioRows": 3
+    },
+    {
+      "id": "PT07",
+      "cases": "pending direct GetResult on dedicated worker released by each terminal completion",
+      "dimensions": "worker entered and not complete before producer release, eventual success/original fault/TCE; no sleep-based correctness proof; bounded joins and finally release every barrier",
+      "plannedScenarioRows": 3
+    },
+    {
+      "id": "PT08",
+      "cases": "32 bounded register-versus-complete races and 32 success/fault/cancel completion races",
+      "dimensions": "per-iteration derived invariants only: every registration exactly once, exactly one winner, all attempts observe final state, winner payload coherent; do not compare nondeterministic winning kind, thread ID, timing or callback order across runtimes",
+      "plannedScenarioRows": 2
+    }
+  ],
+  "publicApi": {
+    "System.Threading.Tasks.Task": {
+      "native": [
+        "static Task CompletedTask { get; }",
+        "TaskStatus Status { get; }",
+        "bool IsCompleted { get; }",
+        "bool IsCompletedSuccessfully { get; }",
+        "bool IsFaulted { get; }",
+        "bool IsCanceled { get; }",
+        "AggregateException? Exception { get; }",
+        "TaskAwaiter GetAwaiter()"
+      ],
+      "java": "Same namespaces/casing; properties become get_*. No selected public Task constructor. Creation is owned by TCS and private CompletedTask factory. Do not add public completion/setter helpers or fake Task.Run/Wait/Dispose implementations."
+    },
+    "System.Threading.Tasks.TaskCompletionSource": {
+      "native": [
+        "TaskCompletionSource()",
+        "Task Task { get; }",
+        "void SetResult()",
+        "bool TrySetResult()",
+        "void SetException(System.Exception exception)",
+        "bool TrySetException(System.Exception exception)",
+        "void SetCanceled()",
+        "void SetCanceled(CancellationToken cancellationToken)",
+        "bool TrySetCanceled()",
+        "bool TrySetCanceled(CancellationToken cancellationToken)"
+      ],
+      "java": "Same names; get_Task returns same owned instance. Exception means System.Exception, not arbitrary java.lang.Throwable. Default constructor only."
+    },
+    "System.Runtime.CompilerServices.TaskAwaiter": {
+      "native": [
+        "bool IsCompleted { get; }",
+        "void GetResult()",
+        "void OnCompleted(System.Action continuation)",
+        "void UnsafeOnCompleted(System.Action continuation)"
+      ],
+      "interfaces": [
+        "existing ICriticalNotifyCompletion",
+        "existing INotifyCompletion inherited"
+      ],
+      "java": "Follow class-backed ValueTask awaiter and existing System.Action convention. Native constructor is internal; any necessary Java public constructor is explicitly a representation helper outside selected native API. Do not introduce java.lang.Runnable as the public .NET continuation type."
+    },
+    "System.Threading.Tasks.TaskStatus": {
+      "native": "enum TaskStatus { Created=0, WaitingForActivation=1, WaitingToRun=2, Running=3, WaitingForChildrenToComplete=4, RanToCompletion=5, Canceled=6, Faulted=7 }",
+      "java": "Use existing raw Int32 carrier convention, constants/Equals/$raw/hashCode; raw values are data, never interpreted as permission to create unsupported states."
+    },
+    "System.Threading.Tasks.TaskCanceledException": {
+      "native": [
+        "TaskCanceledException(Task? task)",
+        "Task? Task { get; }"
+      ],
+      "base": "existing System.OperationCanceledException",
+      "java": "Selected constructor accepts null task, retains exact task reference, copies its cancellation token, sets native default message via base; inherited HRESULT is COR_E_OPERATIONCANCELED. Other native constructors and serialization are not required by this slice."
+    }
+  },
+  "sourceAnchors": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\Task.cs",
+      "relativePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "sha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "anchors": [
+        "27-69 TaskStatus ordinal constants 0..7",
+        "316-345 promise initialization and option boundary",
+        "1248-1305 Exception and Status",
+        "1375-1408 completion predicates and loser publication wait",
+        "1470 CompletedTask",
+        "2440-2443 GetAwaiter",
+        "2484-2550 registration and late queue",
+        "3336-3440 terminal atomic reservation/payload publication",
+        "3442-3595 continuation sentinel, first inline and later queued"
+      ]
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\TaskCompletionSource.cs",
+      "relativePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource.cs",
+      "sha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "anchors": [
+        "33-37 class and default constructor",
+        "89-93 Task identity",
+        "104-163 single exception validation and completion",
+        "243-275 result completion",
+        "289-352 cancellation completion",
+        "other constructors, enumerable and SetFromTask deliberately deferred"
+      ]
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\libraries\\System.Private.CoreLib\\src\\System\\Runtime\\CompilerServices\\TaskAwaiter.cs",
+      "relativePath": "src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/TaskAwaiter.cs",
+      "sha256": "24276f05a960c41c7b074713aa84cb01cae4672f89e225b6dcd2fe9b297a3a39",
+      "anchors": [
+        "20-78 TaskAwaiter and completion callbacks",
+        "90-123 pending GetResult waits",
+        "125-163 cancellation and first-fault rethrow",
+        "174-198 continuation null validation"
+      ]
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\TaskCanceledException.cs",
+      "relativePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCanceledException.cs",
+      "sha256": "aa4c4341e6202943b5fcee0ff76e6183ba2c260b1bccfa65cf42957b88849328",
+      "anchors": [
+        "24-28 base type and task field",
+        "72-76 nullable Task constructor and token",
+        "98 Task property"
+      ]
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\TaskContinuation.cs",
+      "relativePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskContinuation.cs",
+      "sha256": "21c12b75b72d0ed3579a2533dad7d6ecc6997b19ffd5a7daf7a3bba1c381f53a",
+      "anchors": [
+        "604-618 default-context inlining eligibility",
+        "727-752 continuation execution and asynchronous exception dispatch"
+      ]
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\libraries\\System.Private.CoreLib\\src\\Resources\\Strings.resx",
+      "relativePath": "src/libraries/System.Private.CoreLib/src/Resources/Strings.resx",
+      "sha256": "1d109264f46cab42c410771f08d213d61676b747827aa42d72c2d2306f5decd9",
+      "anchors": [
+        "3599 TaskCanceledException_ctor_DefaultMessage",
+        "3629 TaskT_TransitionToFinal_AlreadyCompleted"
+      ]
+    }
+  ],
+  "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "scalarRevision": {
+    "before": 689,
+    "after": 697,
+    "rowsBefore": 61,
+    "rowsAfter": 61,
+    "rootApproved": true,
+    "reason": "Two explicit TrySetCanceled overload winning/payload fields in each existing PT04 cancellation row; no new scenario row."
+  },
+  "boundaries": [
+    "No complete Task API/interface/reflection parity: IAsyncResult/IDisposable, computational constructors, Start, Task.Run, Factory, ContinueWith, Wait/WaitAll/WaitAny/WaitAsync/Delay/WhenAll/WhenAny, Id/AsyncState and disposal omitted rather than faked.",
+    "No TaskCreationOptions or RunContinuationsAsynchronously constructor in this slice; default pending continuation behavior and late queueing are real source-backed selected behavior.",
+    "No SynchronizationContext, custom TaskScheduler, ExecutionContext/AsyncLocal capture, debugger/ETW, thread-pool fairness/stack-growth/finalizer unobserved-fault events, or CLR process-fatal callback policy equivalence.",
+    "No generic Task/TCS, compiler async builders, Java struct default/copy representation, generic arity lowering or source API closure. Java public awaiter constructor/internal bridge is a documented representation helper.",
+    "No exception-list overload ordering, SetFromTask copying, static FromException/FromCanceled factories, configured awaiters, ValueTask.AsTask/Preserve/new ValueTask(Task), CancellationTokenSource.CancelAsync, registration async disposal or WaitHandle.",
+    "Java null CancellationToken has no native value-type equivalent; document as out-of-profile representation input and do not present any invented normalization/exception as observed .NET behavior.",
+    "Race matrix establishes bounded observations, not formal proof or exhaustive native concurrency parity. Queue scheduling and callback order remain nondeterministic; no timing throughput guarantees.",
+    "Task Exception wrapper identity and CompletedTask reference identity are implementation details; only selected relation observations may be reported."
+  ],
+  "executionStatus": {
+    "nativeCaptures": 0,
+    "compilerRuns": 0,
+    "javaRuns": 0,
+    "acceptedScenarios": 0
+  },
+  "javaOnlyBoundaryControlsPlanned": [
+    {
+      "id": "JAVA-INTERRUPT",
+      "phase": "post-RED implementation",
+      "steps": [
+        "Dedicated worker calls pending GetResult; establish WAITING using bounded handshake/state inspection.",
+        "Interrupt owned worker, prove it has not returned, then complete producer in finally.",
+        "Bounded join; successful GetResult and restored interrupt flag must both hold."
+      ],
+      "nativeEquivalentClaim": false
+    },
+    {
+      "id": "JAVA-BRIDGE",
+      "phase": "post-RED implementation",
+      "steps": [
+        "Fresh JVM first operation constructs TCS, obtains Task awaiter and registers/completes; no prior ValueTask bridge warmup.",
+        "Inspect six-source API and compiled public signatures for no public System completion mutation and no replaceable/global task registry."
+      ],
+      "nativeEquivalentClaim": false
+    },
+    {
+      "id": "JAVA-CALLBACK-FAILURE",
+      "phase": "post-RED implementation",
+      "steps": [
+        "Install temporary default uncaught-exception handler retaining exact exception and signaling bounded gate.",
+        "Register a throwing callback plus a normally-returning callback, complete Task; SetResult must return normally.",
+        "Observe exact failure via uncaught handler, remaining callback once, successful task state; restore handler and release gates in finally.",
+        "Use an isolated Java-only fixture; do not execute fatal callback on CLR."
+      ],
+      "nativeEquivalentClaim": false
+    }
+  ],
+  "wireSchema": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-completion-v1\\tools\\oracle\\dotj-core\\public-task-v1\\schema.json",
+    "sha256": "24ac6d6856b47ad8b7306e02ccbb174a9e325ac89c2e1984145c2d5f2123129f",
+    "sizeBytes": 23860
+  },
+  "acceptanceCredit": 0
+}
