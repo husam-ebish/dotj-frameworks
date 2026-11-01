@@ -87,8 +87,10 @@ for row in rows:
         root = Path(fixture_root) / identity
         imports = "|".join(str(Path(e["owner"]).relative_to(root)) + ">" + str(Path(e["project"]).relative_to(root))
                            + f"@{e['line']}:{e['column']}" for e in native["imports"])
-        expected = [native["properties"]["P"], native["properties"]["Q"], imports]
-        observed = [text(actual[1]), text(actual[2]), text(actual[3])]
+        warnings = "|".join(f"{d['code']}:{Path(d['file']).relative_to(root)}@{d['line']}:{d['column']}:"
+                            + d["message"].split('"')[1] for d in row["diagnostics"])
+        expected = [native["properties"]["P"], native["properties"]["Q"], imports, warnings]
+        observed = [text(actual[1]), text(actual[2]), text(actual[3]), text(actual[4])]
         if expected != observed:
             mismatches.append(f"{identity}: {expected} != {observed}")
     results.append({"id": identity, "status": status, "nativeWarnings": [d["code"] for d in row["diagnostics"]]})
@@ -101,6 +103,6 @@ if mismatches:
 OUTPUT.write_text(json.dumps({
     "schemaVersion": 1, "status": "PASS_CONDITION_LOGIC_V2_COMPARISON", "runId": sys.argv[1],
     "captureSha256": hashlib.sha256(raw).hexdigest(), "cases": len(results), "counts": counts,
-    "gaps": ["MSB4130 warnings are not emitted by the candidate", "Native failure text and positions are not compared"],
+    "gaps": ["Native failure text and positions are not compared", "Warning message text beyond the condition is not compared"],
     "acceptanceCredit": 0, "results": results}, indent=2) + "\n", encoding="utf-8", newline="\n")
 print(json.dumps({"cases": len(results), "counts": counts}))
