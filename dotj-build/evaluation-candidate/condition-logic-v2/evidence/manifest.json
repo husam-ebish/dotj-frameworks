@@ -1,0 +1,1130 @@
+{
+  "schemaVersion": 1,
+  "status": "NATIVE_OUTCOMES_UNOBSERVED",
+  "cases": [
+    {
+      "id": "CL01-truth-table",
+      "group": "CL01",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false Or false",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "false Or true",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "true Or false",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "true Or true",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL01-left-chains",
+      "group": "CL01",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false Or false Or true",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "true Or false Or false",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL02-precedence-1",
+      "group": "CL02",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": true,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Or false And false",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL02-precedence-2",
+      "group": "CL02",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": true,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false And true Or true",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL02-precedence-3",
+      "group": "CL02",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "(true Or false) And false",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL02-precedence-4",
+      "group": "CL02",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false And (true Or true)",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL03-nested",
+      "group": "CL03",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": true,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "((false Or true) And (true Or false))",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "(false And true Or true) And true",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL04-lazy-exists-1",
+      "group": "CL04",
+      "globals": {
+        "EmptyPath": ""
+      },
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Or Exists('$(EmptyPath)')",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL04-lazy-exists-2",
+      "group": "CL04",
+      "globals": {
+        "EmptyPath": ""
+      },
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "PRIVATE_EVALUATED_EMPTY_PATH_REFUSAL",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false Or Exists('$(EmptyPath)')",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL04-lazy-exists-3",
+      "group": "CL04",
+      "globals": {
+        "EmptyPath": ""
+      },
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Or Exists('missing.txt')",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL04-lazy-exists-4",
+      "group": "CL04",
+      "globals": {
+        "EmptyPath": ""
+      },
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false Or Exists('missing.txt')",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL05-source-order",
+      "group": "CL05",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "'$(Gate)' == 'alpha' Or false",
+          "element": "P"
+        },
+        {
+          "file": "main.proj",
+          "condition": "false Or '$(Gate)' == 'beta'",
+          "element": "Q"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL05-scalar-1",
+      "group": "CL05",
+      "globals": {
+        "Value": "1.0"
+      },
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Or ('$(Value)' == 'alpha')",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL05-scalar-2",
+      "group": "CL05",
+      "globals": {
+        "Value": "1.0"
+      },
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "PRIVATE_EVALUATED_SCALAR_REFUSAL",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false Or ('$(Value)' == 'alpha')",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL05-scalar-3",
+      "group": "CL05",
+      "globals": {
+        "Value": "alpha' Or 'beta"
+      },
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Or ('$(Value)' == 'alpha')",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL05-scalar-4",
+      "group": "CL05",
+      "globals": {
+        "Value": "alpha' Or 'beta"
+      },
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "PRIVATE_EVALUATED_SCALAR_REFUSAL",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false Or ('$(Value)' == 'alpha')",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL06-property",
+      "group": "CL06",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "sub/owner.props",
+          "condition": "Exists('root-only.txt') Or false",
+          "element": "P"
+        },
+        {
+          "file": "sub/owner.props",
+          "condition": "Exists('owner-only.txt') Or false",
+          "element": "Q"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL06-propertygroup",
+      "group": "CL06",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "sub/owner.props",
+          "condition": "Exists('root-only.txt') Or false",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "sub/owner.props",
+          "condition": "Exists('owner-only.txt') Or false",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL06-import",
+      "group": "CL06",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "sub/owner.props",
+          "condition": "Exists('root-only.txt') Or false",
+          "element": "Import"
+        },
+        {
+          "file": "sub/owner.props",
+          "condition": "Exists('owner-only.txt') Or false",
+          "element": "Import"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL06-importgroup",
+      "group": "CL06",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "sub/owner.props",
+          "condition": "Exists('root-only.txt') Or false",
+          "element": "ImportGroup"
+        },
+        {
+          "file": "sub/owner.props",
+          "condition": "Exists('owner-only.txt') Or false",
+          "element": "ImportGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL07-operator-case",
+      "group": "CL07",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false Or true",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "false or true",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "false OR true",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "false oR true",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL07-quoted-reference-boundaries",
+      "group": "CL07",
+      "globals": {
+        "Orchard": "Orchard"
+      },
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "'$(Orchard)' == 'orchard' Or ('Or' == 'or')",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL08-malformed-1",
+      "group": "CL08",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "PRIVATE_CONDITION_PROFILE_REFUSAL",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "trueOr false",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL08-malformed-2",
+      "group": "CL08",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "PRIVATE_CONDITION_PROFILE_REFUSAL",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Orfalse",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL08-malformed-3",
+      "group": "CL08",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "PRIVATE_CONDITION_PROFILE_REFUSAL",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Or ()",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL08-malformed-4",
+      "group": "CL08",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "PRIVATE_CONDITION_PROFILE_REFUSAL",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Or (false",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL08-malformed-5",
+      "group": "CL08",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "PRIVATE_CONDITION_PROFILE_REFUSAL",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Or false trailing",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL08-skipped-malformed",
+      "group": "CL08",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "PRIVATE_CONDITION_PROFILE_REFUSAL",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "true Or ()",
+          "element": "P"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    },
+    {
+      "id": "CL09-legacy-or-operator",
+      "group": "CL09",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Or false",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponentTest.java",
+          "sha256": "f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f\\ProjectEvaluationComponentTest.java"
+        },
+        "line": 50,
+        "literal": "\"<Project><PropertyGroup Condition=\\\"true Or false\\\"><P>value</P></PropertyGroup></Project>\""
+      }
+    },
+    {
+      "id": "CL09-legacy-skipped-unknown-condition",
+      "group": "CL09",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "true Or false",
+          "element": "P"
+        }
+      ],
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponentTest.java",
+          "sha256": "f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f\\ProjectEvaluationComponentTest.java"
+        },
+        "line": 63,
+        "literal": "\"<Project><PropertyGroup Condition=\\\"false\\\"><P Condition=\\\"true Or false\\\">value</P></PropertyGroup></Project>\""
+      }
+    },
+    {
+      "id": "CL09-legacy-skipped-unknown-import-condition",
+      "group": "CL09",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false",
+          "element": "ImportGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "true Or false",
+          "element": "Import"
+        }
+      ],
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponentTest.java",
+          "sha256": "f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\f956dc84e42d80fa1eaa8f3f5b98c2ffaa94d9a69d7ae8df87dc0f9c3ca2507f\\ProjectEvaluationComponentTest.java"
+        },
+        "line": 64,
+        "literal": "\"<Project><ImportGroup Condition=\\\"false\\\"><Import Project=\\\"missing.props\\\" Condition=\\\"true Or false\\\"/></ImportGroup></Project>\""
+      }
+    },
+    {
+      "id": "CL09-and-transition-1",
+      "group": "CL09",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "true Or false",
+          "element": "PropertyGroup"
+        }
+      ],
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\AndConditionTest.java",
+          "sha256": "41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a\\AndConditionTest.java"
+        },
+        "lines": "14-38",
+        "recipe": "write(root,expression,\"<P>bad</P>\")",
+        "expression": "true Or false"
+      }
+    },
+    {
+      "id": "CL09-and-transition-2",
+      "group": "CL09",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false",
+          "element": "PropertyGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "true Or false",
+          "element": "P"
+        }
+      ],
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\AndConditionTest.java",
+          "sha256": "41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a\\AndConditionTest.java"
+        },
+        "lines": "14-38",
+        "recipe": "Files.writeString(p, skipped property construction)",
+        "expression": "true Or false"
+      }
+    },
+    {
+      "id": "CL09-and-transition-3",
+      "group": "CL09",
+      "globals": {},
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": false,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false",
+          "element": "ImportGroup"
+        },
+        {
+          "file": "main.proj",
+          "condition": "true Or false",
+          "element": "Import"
+        }
+      ],
+      "source": {
+        "kind": "exact-predecessor-java-construction",
+        "source": {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-evaluation-candidate\\dotj-build\\evaluation-candidate\\tests\\org\\dotj\\internal\\build\\evaluation\\AndConditionTest.java",
+          "sha256": "41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a",
+          "copy": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\source-copies\\41f6e620f97b40bfbbc2bac84693a411dad377ce44c8540d5a3916eb1628fd0a\\AndConditionTest.java"
+        },
+        "lines": "14-38",
+        "recipe": "Files.writeString(p, skipped import construction)",
+        "expression": "true Or false"
+      }
+    },
+    {
+      "id": "CL10-imports-globals-inert-targets",
+      "group": "CL10",
+      "globals": {
+        "P": "global"
+      },
+      "nativeOutcome": "UNOBSERVED",
+      "conditionWarningCandidate": true,
+      "privateDisposition": "BOUNDED_SEMANTICS_PENDING_NATIVE",
+      "subcases": [
+        {
+          "file": "main.proj",
+          "condition": "false Or true",
+          "element": "Import"
+        },
+        {
+          "file": "main.proj",
+          "condition": "true And false Or false",
+          "element": "Import"
+        },
+        {
+          "file": "main.proj",
+          "condition": "false Or true",
+          "element": "ImportGroup"
+        }
+      ],
+      "source": {
+        "kind": "owned-designed-fixture",
+        "constructor": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-logic-v2-native-preparation-20261030\\prepare.py"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "CL01-left-chains/main.proj",
+      "sha256": "9bfb85ebb22cc6d5e75c23af4f9633db0513f67ea8323b372e3f86aace6e9ca0",
+      "bytes": 175
+    },
+    {
+      "path": "CL01-truth-table/main.proj",
+      "sha256": "9197e1c5b032df7ed549a7f3e59de03863a8bac706e2be7791bb787e52cedcea",
+      "bytes": 295
+    },
+    {
+      "path": "CL02-precedence-1/main.proj",
+      "sha256": "970508546f692f35891bd7d0cc8f2a965ca9b335f8e15d5d0ddf17aa8a8fa3fb",
+      "bytes": 101
+    },
+    {
+      "path": "CL02-precedence-2/main.proj",
+      "sha256": "d2e0549a59f3a4edd4c016686b84e532bac7b98dbe213ca024e1f60b327bf950",
+      "bytes": 100
+    },
+    {
+      "path": "CL02-precedence-3/main.proj",
+      "sha256": "347963c15e98886d737cd6c35214b9cb77dcdc9acfed1f0751d0e16a437187b5",
+      "bytes": 103
+    },
+    {
+      "path": "CL02-precedence-4/main.proj",
+      "sha256": "eb48b954f86c66778108b5d416d7c2370ba12c1def7f27426c6f2b1dbb04b811",
+      "bytes": 102
+    },
+    {
+      "path": "CL03-nested/main.proj",
+      "sha256": "1a179d477066ae096aa4cf382751fbcab8144d2d685536234f9950e7a251f97f",
+      "bytes": 207
+    },
+    {
+      "path": "CL04-lazy-exists-1/main.proj",
+      "sha256": "d4059135c98aa12e6de2d0043a2fc36980ba8dd6aaf3bede64f9ff0524b355f6",
+      "bytes": 108
+    },
+    {
+      "path": "CL04-lazy-exists-2/main.proj",
+      "sha256": "37e7c43f2276ef91122868b9406ff4539dd78d4b3b8d7b207f6b7c93f3674a39",
+      "bytes": 109
+    },
+    {
+      "path": "CL04-lazy-exists-3/main.proj",
+      "sha256": "5a99038fe92d68261d70520f57b96e5174d23d752fa2e9a1b21079310bfaf84e",
+      "bytes": 107
+    },
+    {
+      "path": "CL04-lazy-exists-4/main.proj",
+      "sha256": "a10e6f818081469fe06f1ffa5ebe146ac776c0abdd98d85e4c7ac69163fb4d4c",
+      "bytes": 108
+    },
+    {
+      "path": "CL05-scalar-1/main.proj",
+      "sha256": "1231e48c42c76068e927e26ebbb5da2eaaa667478360c2e2c15331fbd9387cac",
+      "bytes": 109
+    },
+    {
+      "path": "CL05-scalar-2/main.proj",
+      "sha256": "26f861d679a7c15875e158c1f88948364950485d47b44312cc604e3effd3a095",
+      "bytes": 110
+    },
+    {
+      "path": "CL05-scalar-3/main.proj",
+      "sha256": "1231e48c42c76068e927e26ebbb5da2eaaa667478360c2e2c15331fbd9387cac",
+      "bytes": 109
+    },
+    {
+      "path": "CL05-scalar-4/main.proj",
+      "sha256": "26f861d679a7c15875e158c1f88948364950485d47b44312cc604e3effd3a095",
+      "bytes": 110
+    },
+    {
+      "path": "CL05-source-order/main.proj",
+      "sha256": "691b370e1c1dca9c0627681070dc086bd0d66c9af5defb6e156f3dd022191452",
+      "bytes": 193
+    },
+    {
+      "path": "CL06-import/main.proj",
+      "sha256": "6e9ca8d334a68c4dbf30d3ef7927affdbf7b5ab16fa37a5d2928d63a0705a8f5",
+      "bytes": 54
+    },
+    {
+      "path": "CL06-import/root-only.txt",
+      "sha256": "30dd3d9cb1a18940c1ee4f6c3a8ecb77a9ec71a02e4719f34655c4ab52b7d1d9",
+      "bytes": 12
+    },
+    {
+      "path": "CL06-import/sub/owner-hit.props",
+      "sha256": "cc0beb532338ef1082f9577e08392eb4664f0933c57845c4980ea8086e5f005b",
+      "bytes": 62
+    },
+    {
+      "path": "CL06-import/sub/owner-only.txt",
+      "sha256": "3ddccba6eaf742b410fbc357c96ce345cb515f220e960b0c51cac3adbd7657e2",
+      "bytes": 13
+    },
+    {
+      "path": "CL06-import/sub/owner.props",
+      "sha256": "5ffef7d9f6a4ad745a2a8b37180eccada3580cda205f5fb7350c334b1dfe835b",
+      "bytes": 179
+    },
+    {
+      "path": "CL06-import/sub/root-hit.props",
+      "sha256": "cceda6c1d629d0e663ca82c9e320daa6b301cd9150e65703d87075418ed76a2a",
+      "bytes": 61
+    },
+    {
+      "path": "CL06-importgroup/main.proj",
+      "sha256": "6e9ca8d334a68c4dbf30d3ef7927affdbf7b5ab16fa37a5d2928d63a0705a8f5",
+      "bytes": 54
+    },
+    {
+      "path": "CL06-importgroup/root-only.txt",
+      "sha256": "30dd3d9cb1a18940c1ee4f6c3a8ecb77a9ec71a02e4719f34655c4ab52b7d1d9",
+      "bytes": 12
+    },
+    {
+      "path": "CL06-importgroup/sub/owner-hit.props",
+      "sha256": "cc0beb532338ef1082f9577e08392eb4664f0933c57845c4980ea8086e5f005b",
+      "bytes": 62
+    },
+    {
+      "path": "CL06-importgroup/sub/owner-only.txt",
+      "sha256": "3ddccba6eaf742b410fbc357c96ce345cb515f220e960b0c51cac3adbd7657e2",
+      "bytes": 13
+    },
+    {
+      "path": "CL06-importgroup/sub/owner.props",
+      "sha256": "58c91d4e3fe4dabb4b5f1e84f3a5e2b4ce9434324396d9d2c9de3c6e912b7305",
+      "bytes": 233
+    },
+    {
+      "path": "CL06-importgroup/sub/root-hit.props",
+      "sha256": "cceda6c1d629d0e663ca82c9e320daa6b301cd9150e65703d87075418ed76a2a",
+      "bytes": 61
+    },
+    {
+      "path": "CL06-property/main.proj",
+      "sha256": "6e9ca8d334a68c4dbf30d3ef7927affdbf7b5ab16fa37a5d2928d63a0705a8f5",
+      "bytes": 54
+    },
+    {
+      "path": "CL06-property/root-only.txt",
+      "sha256": "30dd3d9cb1a18940c1ee4f6c3a8ecb77a9ec71a02e4719f34655c4ab52b7d1d9",
+      "bytes": 12
+    },
+    {
+      "path": "CL06-property/sub/owner-hit.props",
+      "sha256": "cc0beb532338ef1082f9577e08392eb4664f0933c57845c4980ea8086e5f005b",
+      "bytes": 62
+    },
+    {
+      "path": "CL06-property/sub/owner-only.txt",
+      "sha256": "3ddccba6eaf742b410fbc357c96ce345cb515f220e960b0c51cac3adbd7657e2",
+      "bytes": 13
+    },
+    {
+      "path": "CL06-property/sub/owner.props",
+      "sha256": "3e734a8966a7319ba00c885fa523ff57eae518e3f9de3640de0116508e873146",
+      "bytes": 164
+    },
+    {
+      "path": "CL06-property/sub/root-hit.props",
+      "sha256": "cceda6c1d629d0e663ca82c9e320daa6b301cd9150e65703d87075418ed76a2a",
+      "bytes": 61
+    },
+    {
+      "path": "CL06-propertygroup/main.proj",
+      "sha256": "6e9ca8d334a68c4dbf30d3ef7927affdbf7b5ab16fa37a5d2928d63a0705a8f5",
+      "bytes": 54
+    },
+    {
+      "path": "CL06-propertygroup/root-only.txt",
+      "sha256": "30dd3d9cb1a18940c1ee4f6c3a8ecb77a9ec71a02e4719f34655c4ab52b7d1d9",
+      "bytes": 12
+    },
+    {
+      "path": "CL06-propertygroup/sub/owner-hit.props",
+      "sha256": "cc0beb532338ef1082f9577e08392eb4664f0933c57845c4980ea8086e5f005b",
+      "bytes": 62
+    },
+    {
+      "path": "CL06-propertygroup/sub/owner-only.txt",
+      "sha256": "3ddccba6eaf742b410fbc357c96ce345cb515f220e960b0c51cac3adbd7657e2",
+      "bytes": 13
+    },
+    {
+      "path": "CL06-propertygroup/sub/owner.props",
+      "sha256": "c2bcfa3af689feb86627d1a3869273f8ae7f0eeabc99a263a6ee5a839ed6efaa",
+      "bytes": 195
+    },
+    {
+      "path": "CL06-propertygroup/sub/root-hit.props",
+      "sha256": "cceda6c1d629d0e663ca82c9e320daa6b301cd9150e65703d87075418ed76a2a",
+      "bytes": 61
+    },
+    {
+      "path": "CL07-operator-case/main.proj",
+      "sha256": "5d8f28b956ca9ffc14880e4b8eb9b0652b04b7fffa94deaa0d38e5caf5c434ad",
+      "bytes": 295
+    },
+    {
+      "path": "CL07-quoted-reference-boundaries/main.proj",
+      "sha256": "21c96c2d133aacbe7180c5a6fad3bf01eef398da9aba825ed9582d41e92c0007",
+      "bytes": 121
+    },
+    {
+      "path": "CL08-malformed-1/main.proj",
+      "sha256": "e4c770fe33cf0066bc44ec5fca5621cf1d3cabba36bd6cc6966ce36044b92218",
+      "bytes": 90
+    },
+    {
+      "path": "CL08-malformed-2/main.proj",
+      "sha256": "1aa049457ee6a9ad232e719bd51fa6dac5a68b42f88da4e5b4f2c584e715506d",
+      "bytes": 90
+    },
+    {
+      "path": "CL08-malformed-3/main.proj",
+      "sha256": "d668d2fe0b3b13ca9d6271289130c23a3bd59c76bcaf9b1eaadb2f55a6e21706",
+      "bytes": 88
+    },
+    {
+      "path": "CL08-malformed-4/main.proj",
+      "sha256": "16c496e061294bf3d66fdef6e9a529c6a53ed2b9111f6a031ebae61821d575e5",
+      "bytes": 92
+    },
+    {
+      "path": "CL08-malformed-5/main.proj",
+      "sha256": "3d81e226b370fd88b1cc7b0964f498ef8fe5201f4ee2644be324e72504a58f37",
+      "bytes": 100
+    },
+    {
+      "path": "CL08-skipped-malformed/main.proj",
+      "sha256": "897637fdfdbed5cd28c5483d7076298818bb72f492293b65f7bceee16c000ecf",
+      "bytes": 101
+    },
+    {
+      "path": "CL09-and-transition-1/main.proj",
+      "sha256": "432796668bd26afd5fb2e6b34970ed480fe1e4a1d6ecc6c5ab40f8d12a46e1ba",
+      "bytes": 86
+    },
+    {
+      "path": "CL09-and-transition-2/main.proj",
+      "sha256": "bef6d1536a797502f595c477f4f83573c3ce5ba745165f3dad051d913ca624ef",
+      "bytes": 104
+    },
+    {
+      "path": "CL09-and-transition-3/main.proj",
+      "sha256": "3e5d43fa4b15bd6878dd4364d733ac2138a1324b80b9e32cfa511eda71236cf3",
+      "bytes": 123
+    },
+    {
+      "path": "CL09-legacy-or-operator/main.proj",
+      "sha256": "ea150785c18078417d34fbad33e5e8dff3b81b7fbc15c86b2798a3667ee291bf",
+      "bytes": 88
+    },
+    {
+      "path": "CL09-legacy-skipped-unknown-condition/main.proj",
+      "sha256": "94963928880550f661dd18ad36f54a82b3ad1d01e1f1712dd6295273de8fceda",
+      "bytes": 106
+    },
+    {
+      "path": "CL09-legacy-skipped-unknown-import-condition/main.proj",
+      "sha256": "3e5d43fa4b15bd6878dd4364d733ac2138a1324b80b9e32cfa511eda71236cf3",
+      "bytes": 123
+    },
+    {
+      "path": "CL10-imports-globals-inert-targets/main.proj",
+      "sha256": "17eea6ba7457d61670b64249b3a81c1a65f233c49dffcf1e323b64b0f324da9d",
+      "bytes": 409
+    },
+    {
+      "path": "CL10-imports-globals-inert-targets/one.props",
+      "sha256": "685cf06a7dadab3322c54571aabec3db8439df44e9ad461b4322e46a6cf92768",
+      "bytes": 77
+    },
+    {
+      "path": "CL10-imports-globals-inert-targets/two.props",
+      "sha256": "51cc8ed36a8bbd346056c223db8d86937a488b2541d55ceb79702342c7c8ee01",
+      "bytes": 67
+    }
+  ],
+  "counts": {
+    "designedGroups": 10,
+    "uniqueCases": 35,
+    "nativeCollectionsPerPass": 35,
+    "fixtureFiles": 57,
+    "xmlFiles": 49,
+    "conditionAttributeSubcases": 55,
+    "exactPredecessorDocuments": 6,
+    "CL09CountedOnlyOnce": true
+  },
+  "normalization": "Only declared path fields and exact fixture-root path occurrences in diagnostics/failure messages. P/Q/globals untouched.",
+  "cwdControl": "Each capture runs from fresh output root, distinct from every case and imported owner directory. No root-only/owner-only marker in CWD.",
+  "warningGate": "At least one actual MSB4130 warning event must be captured across enumerated warning-candidate IDs; otherwise report observer gap and revise. Per-case counts remain UNOBSERVED."
+}

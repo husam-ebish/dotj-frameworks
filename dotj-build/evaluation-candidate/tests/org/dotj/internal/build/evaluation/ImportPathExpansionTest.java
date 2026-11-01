@@ -83,7 +83,7 @@ final class ImportPathExpansionTest {
             Result skipped=evaluate(write(root,"<Project><Import Project=\"$(Path)\" Condition=\"false\"/></Project>"),root,Map.of("Path",injected));
             require(skipped.imports().isEmpty(),"False evaluated value touched target");
         }
-        refuse(root,"<Project><ImportGroup Condition=\"false\"><Import Project=\"$(Path)\" Condition=\"true Or false\"/></ImportGroup></Project>",Map.of());
+        refuse(root,"<Project><ImportGroup Condition=\"false\"><Import Project=\"$(Path)\" Condition=\"true Or ()\"/></ImportGroup></Project>",Map.of());
         try(var files=Files.walk(root)){require(files.filter(Files::isRegularFile).count()==1,"Unqualified paths created files");}
     }
     static Path write(Path root,String xml) throws Exception {Path file=root.resolve("main.proj");Files.writeString(file,xml);return file;}

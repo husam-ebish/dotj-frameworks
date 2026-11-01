@@ -50,7 +50,7 @@ Source method rows below are lexical candidates from retrieved files. They are n
 
 | Fixture ID | Package | Expected observation | Evidence status |
 |---|---|---|---|
-| DJ-005-F01-01 | WP-01 | Conditional imports and property expansion are deterministic | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-005-F01-01 | WP-01 | Conditional imports and property expansion are deterministic | Bounded: 35 And/Or condition cases compared with a native MSBuild capture in Batch 2503. [Or conditions](../../../../dotj-build/evaluation-candidate/CONDITION-LOGIC-V2.md) |
 | DJ-005-F01-02 | WP-01 | import cycles report chains | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-005-F01-03 | WP-01 | glob behavior is tested for Windows/Linux case differences | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-005-F01-04 | WP-01 | evaluator never executes tasks | Designed; map actual upstream case or specify independent oracle in E03 |

@@ -1,0 +1,1 @@
+<Project><PropertyGroup><Gate>alpha</Gate><P Condition="'$(Gate)' == 'alpha' Or false">first</P><Gate>beta</Gate><Q Condition="false Or '$(Gate)' == 'beta'">second</Q></PropertyGroup></Project>
