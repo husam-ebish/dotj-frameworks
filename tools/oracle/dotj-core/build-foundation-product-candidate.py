@@ -388,6 +388,9 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Text/UnicodeEncoding$Unico
 
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/DigitShapes.java")
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Globalization/DigitShapes.class"])
+SOURCES += [PRODUCT / "src/main/java/System" / (name + ".java") for name in ("Delegate", "MulticastDelegate", "Action")]
+SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/delegates/ActionBody.java")
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Action.class", "System/Delegate.class", "System/MulticastDelegate.class", "org/dotj/internal/delegates/ActionBody.class"])
 
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
