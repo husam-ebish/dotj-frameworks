@@ -1,0 +1,9 @@
+<Project>
+<ImportGroup Condition="HasTrailingSlash('x/')">
+<Import Project="first.props" />
+<Import Project="second.props" Condition="HasTrailingSlash('$(GatePath)')" />
+</ImportGroup>
+<ImportGroup Condition="HasTrailingSlash('x')">
+<Import Project="absent.props" />
+</ImportGroup>
+</Project>

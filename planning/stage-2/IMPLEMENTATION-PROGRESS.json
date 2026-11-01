@@ -13,7 +13,7 @@
     "totalUniqueNamedTasks": 1356,
     "sdkIntegrationTasks": 60
   },
-  "currentBatch": null,
+  "currentBatch": "Batch-2513",
   "completedBatches": [
     "Batch-001",
     "Batch-002",
@@ -3547,7 +3547,15 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2511",
+      "lastUpdatedBatch": "Batch-2513",
+      "currentPartialEvidence": {
+        "path": "dotj-build/evaluation-candidate/has-trailing-slash-product-v1/CONTRACT.json",
+        "status": "PACKAGED_GREEN_PENDING_REVIEW_AND_INTEGRATION",
+        "scope": "Private HasTrailingSlash; same-JAR predicate38/94/And/condition35/cache8 with private controls",
+        "acceptedTaskCredit": 0,
+        "selectedGroupIntegrated": 0,
+        "selectedGroupTotal": 1
+      },
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12343,9 +12351,9 @@
     "planTaskIds": [
       "DJ-005-WP-01-T1"
     ],
-    "outcome": "Prepare paired native references and implement bounded HasTrailingSlash scalar predicates across the four private evaluator condition sites, preserving all existing packaged regressions.",
+    "outcome": "HasTrailingSlash implementation and all selected same-JAR checks are GREEN; independent review and actual integration are pending. No task acceptance credit.",
     "requiresContinue": false,
-    "basis": "Source-backed unnumbered task39 plan reviewed; fresh master/source reconciliation is required before branch work."
+    "basis": "38 frozen native cases and genuine baseline behavioral RED; one product JAR qualified against all selected current/predecessor groups. Completed batch count remains 2512 until integration."
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",

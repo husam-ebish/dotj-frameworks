@@ -1,0 +1,6 @@
+<Project>
+<PropertyGroup>
+<P Condition="HasTrailingSlash('x/') Or false And Exists('absent.marker')">precedence</P>
+<Q Condition="(HasTrailingSlash('x') Or 'x' == 'x') And Exists('present.marker')">grouped</Q>
+</PropertyGroup>
+</Project>

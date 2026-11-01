@@ -1,0 +1,49 @@
+{
+  "status": "SOURCE_ONLY_NOT_NATIVE_OBSERVATIONS",
+  "anchors": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\Conditionals\\FunctionCallExpressionNode.cs",
+      "lines": "73-90;115-147",
+      "finding": "arity; scalar expansion; lexical final separator",
+      "sha256": "511ccfa7231ba8c091dc85194029c7676435b50d6399fa03b80556af244608d4"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\Expander.cs",
+      "lines": "319-355",
+      "finding": "metadata/property expansion, Windows path adjustment then raw semicolon tokenization before item construction",
+      "sha256": "e15343dd5421c959b8939b71e69497e4ed7bb2ce7966bdfa5dd4abd2bdf08b31"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\SemiColonTokenizer.cs",
+      "lines": "16-25;146-166",
+      "finding": "Char.IsWhiteSpace trim and empty token discard",
+      "sha256": "17bbdcc0d31bd04ca839fd8914820c4f51e7de6d9da20ca11b881c2cfb19e067"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Instance\\ProjectItemInstance.cs",
+      "lines": "924-936",
+      "finding": "ItemSpec unescapes escaped include",
+      "sha256": "37a5a8e74117153a09f8669a2d6a734b152dc1088ef742e5a86181530279cd04"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Framework\\EscapingUtilities.cs",
+      "lines": "100-173",
+      "finding": "valid %XX decode once; malformed percent preserved; no recursion",
+      "sha256": "ea38278217bb89c4ccddac7f31cc9e285be5efdbe1dc3971e6692521de38006b"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Framework\\FileUtilities.cs",
+      "lines": "766-786",
+      "finding": "MaybeAdjustFilePath immediately returns original value on Windows",
+      "sha256": "a667fb521e462e4c5a064045d5f11bc7bb391c810518729fbebbebf3ae5579fd"
+    }
+  ],
+  "rootRuling": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task43-batch2513-fidelity-ruling-v1.json",
+    "sha256": "dc3835e13fd54175ea4286b399e7cc8a963e81abb41699cddc36629d1f8d7fca"
+  },
+  "rootCountApproval": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task45-batch2513-case-count-approval-v1.json",
+    "sha256": "b5d9aaad2798dae2542df9f16d779948c2803b50e6d6e58554f182ad45c69069"
+  }
+}

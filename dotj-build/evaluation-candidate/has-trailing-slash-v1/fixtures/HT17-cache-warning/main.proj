@@ -1,0 +1,12 @@
+<Project>
+<PropertyGroup>
+<P Condition="HasTrailingSlash('$(WarningPath)') Or false And true">root</P>
+</PropertyGroup>
+<Import Project="child.props" Condition="HasTrailingSlash('$(WarningPath)') Or false And true" />
+<PropertyGroup>
+<Q Condition="HasTrailingSlash('$(WarningPath)')  Or false And true">$(Q)-spaced</Q>
+</PropertyGroup>
+<PropertyGroup>
+<Q Condition="hastrailingslash('$(WarningPath)') Or false And true">$(Q)-case</Q>
+</PropertyGroup>
+</Project>

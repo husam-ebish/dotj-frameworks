@@ -1,0 +1,7 @@
+<Project>
+<PropertyGroup>
+<P Condition="HasTrailingSlash('https://example.invalid/no-such-folder/')">uri</P>
+<Q Condition="HasTrailingSlash('Z:\no-such-folder\')">drive</Q>
+<P Condition="HasTrailingSlash('https://example.invalid/no-such-folder')">bad</P>
+</PropertyGroup>
+</Project>

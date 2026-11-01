@@ -1,0 +1,6 @@
+<Project>
+<PropertyGroup>
+<P Condition="false And HasTrailingSlash('$(Value)')">bad</P>
+<Q Condition="true Or HasTrailingSlash('$(Value)')">lazy</Q>
+</PropertyGroup>
+</Project>

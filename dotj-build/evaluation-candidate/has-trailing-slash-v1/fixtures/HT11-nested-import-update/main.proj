@@ -1,0 +1,7 @@
+<Project>
+<Import Project="nested/update.props" />
+<Import Project="nested/leaf.props" Condition="HasTrailingSlash('$(Later)')" />
+<PropertyGroup>
+<Q Condition="HasTrailingSlash('$(Later)')">$(Q)-parent</Q>
+</PropertyGroup>
+</Project>

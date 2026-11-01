@@ -1,0 +1,8 @@
+<Project>
+<PropertyGroup>
+<P>no-post-trim</P>
+<P Condition="HasTrailingSlash('a/%20')">bad-space</P>
+<P Condition="HasTrailingSlash('a/%09')">bad-tab</P>
+<Q Condition="HasTrailingSlash('a%20/')">interior-space</Q>
+</PropertyGroup>
+</Project>

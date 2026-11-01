@@ -1,0 +1,4 @@
+<Project>
+<Import Project="child.props" Condition="HasTrailingSlash('missing/')" />
+<Import Project="absent.props" Condition="HasTrailingSlash('missing')" />
+</Project>

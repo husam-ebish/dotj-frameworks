@@ -1,0 +1,8 @@
+<Project>
+<PropertyGroup>
+<P Condition="HasTrailingSlash('a%ZZ/')">invalid-preserved</P>
+<Q Condition="HasTrailingSlash('a%/')">short-preserved</Q>
+<P Condition="HasTrailingSlash('a%2')">bad</P>
+<Q Condition="HasTrailingSlash('a%2F')">$(Q)-upper</Q>
+</PropertyGroup>
+</Project>

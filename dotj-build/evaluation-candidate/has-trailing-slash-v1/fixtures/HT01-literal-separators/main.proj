@@ -1,0 +1,11 @@
+<Project>
+<PropertyGroup>
+<P Condition="HasTrailingSlash('absent/folder/')">forward</P>
+<Q Condition="HasTrailingSlash('absent\folder\')">back</Q>
+<P Condition="HasTrailingSlash('folder')">bad</P>
+<Q Condition="HasTrailingSlash('')">bad</Q>
+<P Condition="HasTrailingSlash('/')">$(P)-slash-only</P>
+<Q Condition="HasTrailingSlash('\')">$(Q)-back-only</Q>
+<P Condition="HasTrailingSlash('../missing/')">$(P)-dot</P>
+</PropertyGroup>
+</Project>

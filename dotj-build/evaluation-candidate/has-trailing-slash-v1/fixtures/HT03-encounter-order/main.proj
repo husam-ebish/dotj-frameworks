@@ -1,0 +1,12 @@
+<Project>
+<PropertyGroup>
+<PathValue>folder</PathValue>
+<P Condition="HasTrailingSlash('$(PathValue)')">bad</P>
+<PathValue>folder/</PathValue>
+<P Condition="HasTrailingSlash('$(PathValue)')">slash</P>
+<PathValue>folder\</PathValue>
+<Q Condition="HasTrailingSlash('$(PathValue)')">back</Q>
+<PathValue>folder</PathValue>
+<Q Condition="HasTrailingSlash('$(PathValue)')">bad</Q>
+</PropertyGroup>
+</Project>
