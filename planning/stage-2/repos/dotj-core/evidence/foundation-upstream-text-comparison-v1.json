@@ -1,11 +1,23 @@
 {
   "schemaVersion": 1,
-  "scope": "All 108 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 112 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "fc7c2a41fe330d3b12b236c1cfa8bd96a3e9d34074b5d47c9a2e5e225a5f9ea4",
+  "jarSha256": "b6ae6cd74f018d71bdd2c94bd67bc8a6c761e05e8b18df18bf422c09a22af0d7",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Action.java",
+      "productSha256": "13834efa1aa616b582ea120a4d51e02f2584ba18e7603c3cea8167dac5117093",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Action.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Action.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "4814c761246b013306000bb4d3b188f8060922e9cb6342f16e17507cf1eff791",
+      "productIdentifierCount": 81,
+      "upstreamIdentifierCount": 1481,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/ApplicationException.java",
       "productSha256": "6f986927960ca98f9052fadfbd52bd8b525730a20f3fd063ce67357f9efd2c1c",
@@ -234,6 +246,29 @@
       "upstreamIdentifierCount": 7134,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Delegate.java",
+      "productSha256": "28ac1b0d06426ef8904e4592995dcdba53829413a345b8b4279571f8158130ed",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Delegate.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Delegate.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "4ed47ee39832865e2e9f2279e248ea23b26f24c42d9e190d133aa20b5d57f1e6",
+      "productIdentifierCount": 169,
+      "upstreamIdentifierCount": 911,
+      "sharedIdentifierShinglesOfLength12": 10,
+      "sharedIdentifierShingleSamples": [
+        "Delegate Remove Delegate source Delegate value if source null return null if",
+        "Delegate source Delegate value if source null return null if value null",
+        "Delegate value if source null return null if value null return source",
+        "Remove Delegate source Delegate value if source null return null if value",
+        "public static Delegate Remove Delegate source Delegate value if source null return",
+        "return source RemoveImpl value public static Delegate RemoveAll Delegate source Delegate value",
+        "source Delegate value if source null return null if value null return",
+        "source RemoveImpl value public static Delegate RemoveAll Delegate source Delegate value Delegate",
+        "static Delegate Remove Delegate source Delegate value if source null return null",
+        "value if source null return null if value null return source if"
+      ]
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Diagnostics/Stopwatch.java",
@@ -561,6 +596,18 @@
       "upstreamSha256": "11e2dd41172d6593ff43669453efce9acffbec295b6d3f47ecb6a005f386ac76",
       "productIdentifierCount": 888,
       "upstreamIdentifierCount": 32,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/MulticastDelegate.java",
+      "productSha256": "589bfa10e12bd546f4eae07a408ca4e6250733dcffbf73578ca2876ccc56ac94",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/MulticastDelegate.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/MulticastDelegate.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "b23ee340f1f735b730976edb0a6cca9fa09bf73336b3128f5b67476e5340a288",
+      "productIdentifierCount": 275,
+      "upstreamIdentifierCount": 239,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
     },
@@ -1260,6 +1307,13 @@
       "productSha256": "67570fda1e44863b6b3bf39885f63004597b994c93278d8fc8e4c5414d376f42",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/org/dotj/internal/collections/ExceptionDataDictionary.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/org/dotj/internal/collections/ExceptionDataDictionary.cs",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/delegates/ActionBody.java",
+      "productSha256": "cb014c3c3d0e160e5504b2d54354f5fe83135cb677541e6fea20fe4a8ef29593",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/org/dotj/internal/delegates/ActionBody.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/org/dotj/internal/delegates/ActionBody.cs",
       "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"
     },
     {

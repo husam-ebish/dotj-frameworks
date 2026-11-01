@@ -432,16 +432,33 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Globalization/DigitShapes.java",
       "sha256": "137185c76e189cfe0a99d055b372382ad62c9fb67b48061b274b5312c3e403cf"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Delegate.java",
+      "sha256": "28ac1b0d06426ef8904e4592995dcdba53829413a345b8b4279571f8158130ed"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/MulticastDelegate.java",
+      "sha256": "589bfa10e12bd546f4eae07a408ca4e6250733dcffbf73578ca2876ccc56ac94"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Action.java",
+      "sha256": "13834efa1aa616b582ea120a4d51e02f2584ba18e7603c3cea8167dac5117093"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/delegates/ActionBody.java",
+      "sha256": "cb014c3c3d0e160e5504b2d54354f5fe83135cb677541e6fea20fe4a8ef29593"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "fc7c2a41fe330d3b12b236c1cfa8bd96a3e9d34074b5d47c9a2e5e225a5f9ea4",
+  "jarSha256": "b6ae6cd74f018d71bdd2c94bd67bc8a6c761e05e8b18df18bf422c09a22af0d7",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
   "jarEntries": [
     "META-INF/MANIFEST.MF",
     "META-INF/LICENSE",
+    "System/Action.class",
     "System/ApplicationException.class",
     "System/ArgumentException.class",
     "System/ArgumentNullException.class",
@@ -460,6 +477,7 @@
     "System/DateTimeKind.class",
     "System/DayOfWeek.class",
     "System/Decimal.class",
+    "System/Delegate.class",
     "System/Diagnostics/Stopwatch.class",
     "System/DivideByZeroException.class",
     "System/Exception.class",
@@ -488,6 +506,7 @@
     "System/InvalidOperationException.class",
     "System/MemberAccessException.class",
     "System/MidpointRounding.class",
+    "System/MulticastDelegate.class",
     "System/NotImplementedException.class",
     "System/NotSupportedException.class",
     "System/NullReferenceException.class",
@@ -587,12 +606,14 @@
     "org/dotj/internal/collections/ExceptionDataDictionary$Node.class",
     "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class",
     "org/dotj/internal/collections/ExceptionDataDictionary.class",
+    "org/dotj/internal/delegates/ActionBody.class",
     "org/dotj/internal/text/MarvinStringHash.class",
     "org/dotj/internal/text/Utf8Codec$Failure.class",
     "org/dotj/internal/text/Utf8Codec.class",
     "org/dotj/internal/throwing/ThrowSite.class"
   ],
   "classSha256": {
+    "System/Action.class": "2a0b8da1e940dfcb23dce4a728c3906f3fa6e05296ba715d5afb4e1e7feda41a",
     "System/ApplicationException.class": "4b83a59086c4d5377358324c1cc9327c947dd673bc3dc0da20b9f443a036919e",
     "System/ArgumentException.class": "ea0ce656b3d6c80727b34edbd90cef4605f4dedaabceefb4b71fe1931f8807fe",
     "System/ArgumentNullException.class": "2cd366ad265e9c29443994d6b7c02c8a023f80acdf361b3a811604bb77312687",
@@ -611,6 +632,7 @@
     "System/DateTimeKind.class": "6b7a23c35b26d67cd58b537eca7efb903fd8eb8f8df44adee6513dcdfd585e66",
     "System/DayOfWeek.class": "67e16a318de4c03727ca5fcf27b380d843ae7d2ccf266418375a55c959684f35",
     "System/Decimal.class": "1335a935bb8bd02377697fd46f24c0b39ba2b69dc6bf6c67a8555f93b2db5034",
+    "System/Delegate.class": "d51b1c82f5c00b03a2910ce82f2bd323b054cc402463e39dff18302440d723ce",
     "System/Diagnostics/Stopwatch.class": "7d3e1ee9c40f548d36dd5576c54094a9a32d6efc8398d13cca28b1d4ccff81df",
     "System/DivideByZeroException.class": "d7a0711f6a02f7aeecc12c02c4d7624a6603a26c0b87dd9ff337ada791493ca0",
     "System/Exception.class": "1b6c0f89c7db9f01de078ee5a88da4444879ed4b131fce9c0f84d7f7f0da14fd",
@@ -639,6 +661,7 @@
     "System/InvalidOperationException.class": "5838cfe49bb35573697895c589342239a77e837afbddd63d33fcbf98ddc24bd6",
     "System/MemberAccessException.class": "c1c61fd9d63212349abe23d3c5288533c5e0086ffac153a2dc311e5ee2191f32",
     "System/MidpointRounding.class": "a9fafc826510f43d9f7ba98500cae6d8c127dd37a8012e36bf3d80a5dcd6cd61",
+    "System/MulticastDelegate.class": "ecf4c7a36499be4424d409838b19dcae10bba01f1e4ee96ac22234ba5e1a9ad6",
     "System/NotImplementedException.class": "ccb3dc3e9496962c28c80c4153374dad80d119416f60f736866f25a121d313b6",
     "System/NotSupportedException.class": "debe51d9dfcb2c98849d0f91fdcf80fd9a1b0ac7f7c22b7e922dd14f30d7f1a5",
     "System/NullReferenceException.class": "56143723bee2c925c6ff564e83fc30bafa0f870fc31a83c8d0eeaaba09bae7c1",
@@ -738,6 +761,7 @@
     "org/dotj/internal/collections/ExceptionDataDictionary$Node.class": "c19f259f2711878aa82135b89ea24f8f6d1d117dc7d20396520ab01140395525",
     "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class": "e940b4ec7f2f9abe8b5956f8d7790d6c78489cbb276eea4f64a0f1667663e740",
     "org/dotj/internal/collections/ExceptionDataDictionary.class": "c4b49b400e4d69e806771790eb77750acea90b41503bf09421e12f9b519db1f9",
+    "org/dotj/internal/delegates/ActionBody.class": "cccb21aab12db633efb8f81f8bb73d98b49892b0e359ca78e4b72c821eb5fa54",
     "org/dotj/internal/text/MarvinStringHash.class": "0d20605f0397766c60dd64f198fc6329d6a1f433261f002a488bb9490fb7e523",
     "org/dotj/internal/text/Utf8Codec$Failure.class": "900ae378c9ba8a7ea00ab14abfcd3f39a078aca68ac129eaac8be7deffb74ba4",
     "org/dotj/internal/text/Utf8Codec.class": "4762214fd23835db24fbb4fc60ffd6957c403097510afe13482fbb292983b1ea",

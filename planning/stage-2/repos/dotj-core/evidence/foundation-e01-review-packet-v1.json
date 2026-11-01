@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "scope": "Current built dotj-core foundation candidate only; no release decision",
-  "candidateJarSha256": "fc7c2a41fe330d3b12b236c1cfa8bd96a3e9d34074b5d47c9a2e5e225a5f9ea4",
+  "candidateJarSha256": "b6ae6cd74f018d71bdd2c94bd67bc8a6c761e05e8b18df18bf422c09a22af0d7",
   "candidateJarEvidence": "foundation-product-candidate-v1.json",
   "referenceProfile": {
     "release": "10.0.12",
@@ -22,16 +22,17 @@
     "sourceFile": "dotj-core/LICENSE",
     "sourceSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
     "jarEntry": "META-INF/LICENSE",
-    "javaSourcesWithIdentifier": 108
+    "javaSourcesWithIdentifier": 112
   },
   "boundedSourceScreen": {
-    "productSources": 108,
-    "directNameMatchedPinnedFiles": 97,
-    "missingDirectNamePath": 11,
+    "productSources": 112,
+    "directNameMatchedPinnedFiles": 100,
+    "missingDirectNamePath": 12,
     "throwSiteAdjacentFilesCompared": 2,
     "reviewQueueEvidence": "foundation-notice-review-queue-v1.json",
     "lexicalOverlapReviewRequiredPaths": [
       "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
+      "dotj-core/dotj-core-public/src/main/java/System/Delegate.java",
       "dotj-core/dotj-core-public/src/main/java/System/Text/Decoder.java",
       "dotj-core/dotj-core-public/src/main/java/System/Text/Encoder.java",
       "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java"
@@ -47,7 +48,7 @@
       "id": "SOURCE_AND_NOTICE_APPLICABILITY",
       "status": "OPEN",
       "evidence": "foundation-notice-review-queue-v1.json",
-      "question": "Which pinned upstream or third-party notices, if any, apply to the 108 Java source files and compiled classes?"
+      "question": "Which pinned upstream or third-party notices, if any, apply to the 112 Java source files and compiled classes?"
     },
     {
       "id": "REFERENCE_AND_DEPENDENCY_RIGHTS",

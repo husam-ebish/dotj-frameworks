@@ -18,7 +18,10 @@ def main():
             for line in child.stdout:
                 log.write(line);log.flush()
                 sys.stdout.buffer.write(line);sys.stdout.buffer.flush()
-            return child.wait()
+            code=child.wait()
+            # A child that dies without a traceback must still leave its exit code.
+            if code:log.write(('CHILD_EXIT %d %#x'%(code,code&0xFFFFFFFF)).encode('ascii')+bytes([10]));log.flush()
+            return code
 
 
 if __name__=='__main__':raise SystemExit(main())
