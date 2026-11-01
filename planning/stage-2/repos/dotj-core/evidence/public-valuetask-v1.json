@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "status": "PASS_MATCHED_PUBLIC_VALUETASK",
-  "runId": "Batch-2509-fix-green2",
+  "runId": "Batch-2509-packaged1",
   "runtime": "10.0.12",
   "sdk": "10.0.401",
   "oracleSourceSha256": "3ef057b2ae0697b1ac97e0b6be7179e9de85538af1025869cd8734311b15da95",
@@ -21,9 +21,13 @@
     "ValueTaskBridge.java": "81f2b26fad77da2357d1acd692224326ca5bf700df59c88d99676c213d36fbaa",
     "ActionBody1.java": "3ffbbdf6426862aaffc4b1c49d6f3f6ba451f61b0028d53d3112c6fe1ca138fe"
   },
-  "candidateJar": null,
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2509-gate2\\source\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+    "sha256": "11a470a1e9210815981f57deba1712caa354c389e34573e2b448b74c38519e70",
+    "sizeBytes": 815229
+  },
   "javaSourceInventorySha256": "ce58aed49921070bac4efce84e09b04b7d1c6652adce6f5e6edcd3a989ce8fa9",
-  "qualificationMode": "selected-public-source",
+  "qualificationMode": "packaged-candidate",
   "toolchainSha256": {
     "toolchains\\dotnet\\dotnet.exe": "21a46f1e5235cf4e844b9de5429f0e198b9c97a41f0503a66442f1d639ca3ee6",
     "toolchains\\dotnet\\sdk\\10.0.401\\Roslyn\\bincore\\csc.dll": "89c788f615634094cc441593d167d9fba9a9f049a5d1ddea87d4fde222d6f42c",
