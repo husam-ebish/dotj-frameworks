@@ -1,0 +1,90 @@
+{
+  "kind": "IMMUTABLE_NATIVE_CAPTURE_CONTRACT_V1",
+  "status": "UNOBSERVED",
+  "sourcePlan": "task48-core-worktask-cancelasync-scope-plan-v1.json",
+  "publicContract": {
+    "additions": [
+      "System.Threading.Tasks.Task public static Task Run(System.Action action)",
+      "System.Threading.Tasks.Task public static Task FromException(System.Exception exception)",
+      "System.Threading.CancellationTokenSource public Task CancelAsync()"
+    ],
+    "naming": "Exact .NET names/casing/namespaces/Async suffix. Existing property get_* and System.Action representation retained. No CompletableFuture/Runnable replacement public API.",
+    "run": {
+      "null": "ArgumentNullException(\"action\") before enqueue.",
+      "execution": "Queue on private JDK daemon executor, never invoke action on submitting call; default token None and default-context selected profile. Running begins immediately before action invocation.",
+      "states": "New work task initializes WaitingToRun=2 before publication/enqueue, transitions Running=3 on worker entry, then RanToCompletion=5 or Faulted=7. No own token cancellation in selected Run(Action), so even OCE with requested external token is faulted.",
+      "faults": "Catch System.Exception as original object; Task.Exception is an outer AggregateException containing it, await throws same original. Do not catch continuation dispatch errors as action failures after terminal publication.",
+      "foreignJavaPolicy": "Recommended explicit adaptation: catch foreign java.lang.Throwable separately, fault with a System.Exception wrapper retaining original via Java cause; no claim of native equivalence. Catastrophic VM termination/allocation failure remains outside completion guarantees.",
+      "schedulingFailure": "Recommended reuse existing nonpublic rejection fallback/reporting discipline without caller-inline work; if no worker can be created, synchronous observable failure is allowed under documented catastrophic Java boundary. No returned reachable permanently pending task."
+    },
+    "fromException": {
+      "null": "ArgumentNullException(\"exception\").",
+      "state": "Returns already Faulted=7; retains supplied System.Exception identity, including OCE or nested AggregateException. Fresh Task per call; no fault flattening."
+    },
+    "completion": {
+      "terminalPredicate": "Only RanToCompletion, Canceled and Faulted are complete. WaitingForActivation/WaitingToRun/Running are incomplete. Do not use status != WaitingForActivation.",
+      "promisePreservation": "Default TCS remains WaitingForActivation; exact existing winner/null/token/awaiter/continuation semantics and 697 observations remain binding.",
+      "publication": "Under existing monitor set fault/token, detach continuations, publish volatile terminal status, notify result waiters, then dispatch outside lock. Pending consumers work for all nonterminal states.",
+      "bridge": "TaskBridge remains immutable read-only; no invented public completion mutators, global registry or reflection access."
+    },
+    "cancelAsync": {
+      "disposed": "Return Task.FromException(new ObjectDisposedException(native-shaped runtime type name, CTS disposed message)); never synchronously throw that ordinary disposal error. Disposed check precedes already-requested fast path.",
+      "firstRequest": "Under source lock atomically claim requested=false->true and stop timer before returning. Check source-owned registrations under lock. No callbacks means successful CompletedTask; otherwise enqueue one Task.Run(Action) serial drain.",
+      "repeat": "Any already-requested call returns a completed successful task immediately, including while original callback work is still held/faulting. Do not return original pending task or wait on it.",
+      "workerClaim": "Do NOT remove registrations during CancelAsync call. Worker claims/detaches source-owned registration list under source lock at drain entry, then invokes reverse order outside lock. Source Dispose before claim clears the list and prevents invocation; Dispose after claim cannot revoke worker-owned registrations.",
+      "callbackFailures": "Continue through System.Exception callback failures, collect in LIFO execution order, throw one AggregateException after drain. Work Task faults on that aggregate, so await sees callback AggregateException and Task.Exception adds one outer aggregate. OCE callback is aggregated and operation Task is not Canceled.",
+      "registrationRaces": "Existing pending/running/executingThread protocol must ensure removed callback cannot invoke, executing Dispose waits except self-Dispose, and no callback under source lock. Preserve no opposite-order nested monitor acquisition.",
+      "lateRegistration": "When requested, invoke late callback synchronously on registering thread outside lock; return empty/default CancellationTokenRegistration (None token, Unregister false) after successful invocation, including requested-and-disposed sources. If callback throws, Register throws original immediately; it is not added to initial async task.",
+      "interactions": "Keep synchronous Cancel semantics, links, timer one-shot transition, TryReset false after request, saved token identity after disposal, and callback unregister/disposal safety. CancelAsync completion covers initial worker-owned callbacks, not unrelated cancelable operations or concurrent late callbacks."
+    },
+    "disposedException": {
+      "requiredChanges": "ObjectDisposedException constructor substitutes its own generic default when message==null, before calling base. Add get_Message override returning base text unchanged for empty/null object name; otherwise base text + platform newline + Object name: '<name>'.",
+      "implementationConstraint": "Call super.get_Message without overriding getMessage recursively (Exception.get_Message already calls getMessage). Use JDK platform line separator; no new System.Environment API.",
+      "baseCtsName": "System.Threading.CancellationTokenSource",
+      "subclassBoundary": "Native GetType().FullName for arbitrary user-defined Java subclasses needs .j/runtime type-name mapping not present. Base CTS fully paired; document Java getClass().getName adaptation for subclass naming without claiming CLR reflection equivalence."
+    }
+  },
+  "comparisonPolicy": [
+    "Only compare raw status at established held-entry or terminal handoffs; do not freeze immediate post-queue status.",
+    "Compare exact selected English exception text/HRESULT/parameter/object-name with pinned Windows .NET 10.0.12; identity uses booleans, never addresses.",
+    "Thread relationship booleans are permitted only when handshakes establish submitting/registering/callback roles; never compare thread IDs.",
+    "Ordering asserts only serial callback LIFO and known multicast ordering; no continuation FIFO or executor fairness.",
+    "Races compare exactly-once/publication/result invariants, not which thread wins or return-time status.",
+    "No fixed wall-time fields; timeouts only fail/cleanup bounds. An entered intent handshake alone is not proof a waiter/Dispose actually blocked; implement explicit result handoff/order checks and label negative-at-sample assertions honestly."
+  ],
+  "exclusions": [
+    {
+      "area": "ExecutionContext and SynchronizationContext",
+      "reason": "Actual absent capture/restore infrastructure; current public Register(Action) and TaskAwaiter profile already excludes it. No arbitrary ambient Java ThreadLocal copying."
+    },
+    {
+      "area": "General schedulers, TaskCreationOptions and attached child tasks",
+      "reason": "Selected Run(Action) chooses default scheduler/token/DenyChildAttach. Public custom scheduler/options/Task constructors absent. Nested selected Run independence is included, true AttachedToParent APIs remain missing."
+    },
+    {
+      "area": "Generic Task/TCS, Run(Func<Task>)/token overloads, Wait/WhenAll/Delay, configured await and async builders",
+      "reason": "Different public contracts/type representation prerequisites; none required by selected Action work producer or CancelAsync."
+    },
+    {
+      "area": "Task-backed ValueTask conversions",
+      "reason": "Separate unimplemented integration, not required for nongeneric CancelAsync return."
+    },
+    {
+      "area": "Arbitrary Java throwables/resource exhaustion",
+      "reason": "No CLR System.Exception counterpart; explicit J05/J06 Java policy, not native observations. Catastrophic VM inability to allocate/run cannot be qualified by ordinary probes."
+    },
+    {
+      "area": "Full CLR thread pool, fairness, timing, reflection and .j compiler lowering",
+      "reason": "JDK executor adaptation and incomplete compiler/type-identity surface; held-state/public behavior can be qualified without pretending broader equivalence."
+    },
+    {
+      "area": "Disposal race full native API thread-safety",
+      "reason": "Native CTS.Dispose documented not thread-safe generally; source specifically tolerates Cancel/Register overlap. Include supported source cases, avoid inventing total ordering across arbitrary unsupported concurrent operations."
+    }
+  ],
+  "counts": {
+    "rows": 66,
+    "fields": 612
+  },
+  "mutableCurrentProductContractPinned": false
+}

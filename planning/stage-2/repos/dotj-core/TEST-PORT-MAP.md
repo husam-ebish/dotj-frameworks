@@ -85,3 +85,5 @@ Every public feature needs mapped cases or an explicit independent-oracle ration
 | DJ-001-NF03 | Unrepresentable signatures or semantics are reported as blocked/unsupported with source identity and evidence; no renamed API, JDK substitute type or changed behavior is falsely marked exact compatibility. |
 
 These additional cases enforce the owner naming decision across public signatures, generated APIs and paired examples. They are designed requirements, not executed results.
+
+Batch-2514 current F02 evidence: [computational Task/CancelAsync](PUBLIC-WORKTASK-CANCELASYNC-N01-v1.md) and [same-JAR receipts](evidence/public-worktask-cancelasync-v1.json) cover 66 designed paired rows/612 fields and eight Java-only control groups. Original Task61/697+49, delegate34, cancellation48 and ValueTask135 remain on the same candidate JAR. These are designed fixture identifiers, not claimed upstream test IDs; selected implementation coverage does not accept F02 or any WP task. Independent review, root full gate and final-artifact qualification remain pending.

@@ -1,0 +1,959 @@
+{
+  "schemaVersion": 1,
+  "status": "UNOBSERVED",
+  "wireFormat": "UTF-8 exactKey TAB b/i/s TAB canonical bool/Int32/base64 UTF-8; LF or CRLF terminators required; no field normalization",
+  "scenarioRowCount": 66,
+  "scalarCount": 612,
+  "rows": [
+    {
+      "id": "R01",
+      "fields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "param": "s",
+        "synchronousThrow": "b"
+      }
+    },
+    {
+      "id": "R02",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "heldStatus": "i",
+        "heldCompleted": "b",
+        "heldAwaiterCompleted": "b",
+        "entered": "b",
+        "calls": "i",
+        "differentFromSubmittingThread": "b"
+      }
+    },
+    {
+      "id": "R03",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      }
+    },
+    {
+      "id": "R04",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      }
+    },
+    {
+      "id": "R05",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      }
+    },
+    {
+      "id": "R06",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      }
+    },
+    {
+      "id": "R07",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "order": "s",
+        "calls": "i"
+      }
+    },
+    {
+      "id": "R08",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "order": "s",
+        "laterCalled": "b"
+      }
+    },
+    {
+      "id": "R09",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "parentDoneChildHeld": "b",
+        "childEventuallySucceeds": "b"
+      }
+    },
+    {
+      "id": "R10",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "waiterEntered": "b",
+        "waiterCompletedBeforeRelease": "b",
+        "waiterSucceeded": "b",
+        "waiterOriginalFault": "b"
+      }
+    },
+    {
+      "id": "R11",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "waiterEntered": "b",
+        "waiterCompletedBeforeRelease": "b",
+        "waiterSucceeded": "b",
+        "waiterOriginalFault": "b"
+      }
+    },
+    {
+      "id": "R12",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "payloadVisible": "b",
+        "notCalledWhileHeld": "b"
+      }
+    },
+    {
+      "id": "R13",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "payloadVisible": "b",
+        "notCalledWhileHeld": "b"
+      }
+    },
+    {
+      "id": "R14",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "payloadVisible": "b",
+        "notCalledWhileHeld": "b"
+      }
+    },
+    {
+      "id": "R15",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "payloadVisible": "b",
+        "notCalledWhileHeld": "b"
+      }
+    },
+    {
+      "id": "R16",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "onCalls": "i",
+        "unsafeCalls": "i",
+        "lateCallsQueued": "b"
+      }
+    },
+    {
+      "id": "R17",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "onCalls": "i",
+        "unsafeCalls": "i",
+        "lateCallsQueued": "b",
+        "faultVisible": "b"
+      }
+    },
+    {
+      "id": "R18",
+      "fields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "param": "s",
+        "stillIncomplete": "b"
+      }
+    },
+    {
+      "id": "R19",
+      "fields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "param": "s",
+        "stillIncomplete": "b"
+      }
+    },
+    {
+      "id": "R20",
+      "fields": {
+        "rounds": "i",
+        "allExactlyOnce": "b",
+        "allPayloadVisible": "b"
+      }
+    },
+    {
+      "id": "F01",
+      "fields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "param": "s",
+        "synchronousThrow": "b"
+      }
+    },
+    {
+      "id": "F02",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      }
+    },
+    {
+      "id": "F03",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      }
+    },
+    {
+      "id": "F04",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      }
+    },
+    {
+      "id": "F05",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "tasksDistinct": "b",
+        "bothRetainOriginal": "b"
+      }
+    },
+    {
+      "id": "F06",
+      "fields": {
+        "calls": "i",
+        "payloadVisible": "b",
+        "onCalls": "i",
+        "unsafeCalls": "i",
+        "lateQueued": "b"
+      }
+    },
+    {
+      "id": "C01",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "tokenRequestedBeforeReturn": "b"
+      }
+    },
+    {
+      "id": "C02",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "tokenRequested": "b"
+      }
+    },
+    {
+      "id": "C03",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "heldStatus": "i",
+        "heldCompleted": "b",
+        "heldAwaiterCompleted": "b",
+        "entered": "b",
+        "tokenRequestedBeforeReturn": "b",
+        "repeatCompletedWhileFirstHeld": "b",
+        "repeatSuccess": "b",
+        "firstAndRepeatDistinct": "b"
+      }
+    },
+    {
+      "id": "C04",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "callbackCalls": "i"
+      }
+    },
+    {
+      "id": "C05",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "synchronousThrow": "b",
+        "objectName": "s",
+        "savedTokenRequested": "b"
+      }
+    },
+    {
+      "id": "C06",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "synchronousThrow": "b",
+        "objectName": "s"
+      }
+    },
+    {
+      "id": "C07",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "order": "s",
+        "maxActive": "i",
+        "calls": "i"
+      }
+    },
+    {
+      "id": "C08",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "awaitAggregate": "b",
+        "outerCount": "i",
+        "innerCount": "i",
+        "originalLeaf": "b",
+        "repeatSameAggregate": "b"
+      }
+    },
+    {
+      "id": "C09",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "callbackOrder": "s",
+        "failureOrder": "s",
+        "allLeafIdentities": "b",
+        "outerCount": "i",
+        "innerCount": "i"
+      }
+    },
+    {
+      "id": "C10",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "operationFaultNotCanceled": "b",
+        "aggregateContainsOriginalOce": "b"
+      }
+    },
+    {
+      "id": "C11",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "nestedAggregatePreserved": "b",
+        "outerCount": "i",
+        "callbackAggregateCount": "i",
+        "innerIdentity": "b"
+      }
+    },
+    {
+      "id": "C12",
+      "fields": {
+        "registrationTokenNone": "b",
+        "unregisterResult": "b",
+        "lateRanBeforeRegisterReturned": "b",
+        "sameRegisteringThread": "b",
+        "firstStillIncomplete": "b"
+      }
+    },
+    {
+      "id": "C13",
+      "fields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "synchronousOriginal": "b",
+        "firstUnaffected": "b"
+      }
+    },
+    {
+      "id": "C14",
+      "fields": {
+        "registrationTokenNone": "b",
+        "unregisterResult": "b",
+        "synchronousCalls": "i",
+        "savedTokenIdentityPreserved": "b"
+      }
+    },
+    {
+      "id": "C15",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "returnedFromSelfDispose": "b",
+        "calls": "i"
+      }
+    },
+    {
+      "id": "C16",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "unregisterWon": "b",
+        "skippedCalls": "i",
+        "runningCalls": "i"
+      }
+    },
+    {
+      "id": "C17",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "disposeReturned": "b",
+        "skippedCalls": "i"
+      }
+    },
+    {
+      "id": "C18",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "disposeReturnedBeforeRelease": "b",
+        "disposeReturnedAfterRelease": "b"
+      }
+    },
+    {
+      "id": "C19",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "unregisterResult": "b",
+        "returnedWhileHeld": "b"
+      }
+    },
+    {
+      "id": "C20",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "disposeReturnedWhileHeld": "b",
+        "olderCalled": "b",
+        "savedTokenRequested": "b"
+      }
+    },
+    {
+      "id": "C21",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "innerCompleted": "b",
+        "innerSucceeded": "b",
+        "calls": "i"
+      }
+    },
+    {
+      "id": "C22",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "reentrantReturned": "b",
+        "calls": "i"
+      }
+    },
+    {
+      "id": "C23",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "syncReturnedWhileHeld": "b",
+        "calls": "i"
+      }
+    },
+    {
+      "id": "C24",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "asyncCompletedWhileSyncHeld": "b",
+        "calls": "i"
+      }
+    },
+    {
+      "id": "C25",
+      "fields": {
+        "onePendingOneCompleted": "b",
+        "callbackCalls": "i",
+        "bothEventuallySucceeded": "b"
+      }
+    },
+    {
+      "id": "C26",
+      "fields": {
+        "rounds": "i",
+        "allExactlyOnce": "b",
+        "allCompleted": "b",
+        "allTokensRequested": "b"
+      }
+    },
+    {
+      "id": "C27",
+      "fields": {
+        "rounds": "i",
+        "allExactlyOnce": "b",
+        "allCompleted": "b",
+        "allRequested": "b"
+      }
+    },
+    {
+      "id": "C28",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "childRequested": "b",
+        "parentPendingWhileChildHeld": "b",
+        "childCalls": "i"
+      }
+    },
+    {
+      "id": "C29",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "childCalls": "i",
+        "childTokenRequested": "b"
+      }
+    },
+    {
+      "id": "C30",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "callbacksExactlyOnce": "b",
+        "tryResetAfterRequest": "b"
+      }
+    },
+    {
+      "id": "C31",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "repeatCompletedWhileTimerHeld": "b",
+        "callbackCalls": "i"
+      }
+    },
+    {
+      "id": "C32",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "resetSucceeded": "b",
+        "staleCalls": "i",
+        "newCalls": "i"
+      }
+    },
+    {
+      "id": "C33",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "resetResult": "b",
+        "stillRequested": "b"
+      }
+    },
+    {
+      "id": "C34",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "onCalls": "i",
+        "unsafeCalls": "i",
+        "waiterSuccess": "b",
+        "noneCompletedBeforeRelease": "b"
+      }
+    },
+    {
+      "id": "C35",
+      "fields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "onCalls": "i",
+        "unsafeCalls": "i",
+        "waiterOriginalAggregate": "b",
+        "payloadVisible": "b"
+      }
+    },
+    {
+      "id": "C36",
+      "fields": {
+        "allFourExactlyOnce": "b",
+        "allQueued": "b",
+        "allPayloadVisible": "b"
+      }
+    },
+    {
+      "id": "C37",
+      "fields": {
+        "registrationTokenNone": "b",
+        "unregisterResult": "b",
+        "calledSynchronously": "b"
+      }
+    },
+    {
+      "id": "E01",
+      "fields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "objectName": "s"
+      }
+    },
+    {
+      "id": "E02",
+      "fields": {
+        "emptyName": "s",
+        "nullName": "s",
+        "emptyMessage": "s",
+        "nullMessage": "s"
+      }
+    },
+    {
+      "id": "E03",
+      "fields": {
+        "namedMessage": "s",
+        "unnamedMessage": "s",
+        "hresult": "i",
+        "objectName": "s"
+      }
+    }
+  ],
+  "nativeMetadata": {
+    "meta.runtime": {
+      "type": "s",
+      "allowed": [
+        "10.0.12"
+      ]
+    }
+  }
+}

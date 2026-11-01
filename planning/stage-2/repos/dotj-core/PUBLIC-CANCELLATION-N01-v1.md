@@ -29,7 +29,7 @@ registration.Dispose();
 
 ## Limits
 
-- The selected public nongeneric `Task` prerequisite now exists; `CancelAsync` and its callback-completion integration remain unimplemented.
+- The current Batch-2514 candidate implements selected `CancelAsync` and its callback-completion integration, including late empty registrations and disposed-source messages. See [the selected contract](PUBLIC-WORKTASK-CANCELASYNC-N01-v1.md); independent review, full gate and final-artifact qualification remain pending.
 - `WaitHandle`, `Register` state overloads, `UnsafeRegister` and `ExecutionContext` capture are not provided.
 - `F02-04` therefore remains internal only, and `Cancel` catches only `System.Exception` callback failures.
 - No acceptance credit is granted.
