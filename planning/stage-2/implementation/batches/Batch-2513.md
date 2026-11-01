@@ -2,7 +2,7 @@
 
 | Field | Result |
 |---|---|
-| Status | Implemented and same-JAR GREEN; independent review and actual feature integration pending |
+| Status | Implemented and same-JAR GREEN; task review approved, whole-branch review and actual feature integration pending |
 | Framework / task | dotj-build / bounded DJ-005-WP-01-T1 prerequisite; task stays IN PROGRESS |
 | Behavior | ASCII-case-insensitive single-quoted predicate at PropertyGroup, property, ImportGroup and Import conditions; immutable typed raw atom, lazy one-pass property expansion, split-before-unescape scalar conversion and trailing separator test |
 | Native fidelity | 38 unique cases across two fresh owned native processes; 32 semantic successes and 6 native failure boundaries. Literal fixture root is the only pair normalization; repeated passes are not 76 unique cases. Four semantic warnings retained. |
@@ -17,15 +17,15 @@
 | Runtime / tooling | Product uses JDK APIs only. Python and pinned .NET are development/reference tools; no native/SDK execution, download or installation occurred during implementation. Broader dependency graph and .j installer/feed remain unresolved. |
 | Qualification limits | Selected Windows private evaluator only; native exception ABI, full grammar/general functions/items/metadata, Linux, cache concurrency/eviction/live reevaluation, public facade, rights/release qualification remain open |
 | Acceptance | 0/1092 accepted implementation tasks (0.00%), 1686 open acceptance items, 0/66 qualified frameworks; 2 in progress and64 not started. Core27/build25/other1040 tasks remain; three core E01 decisions remain OPEN. |
-| Numbered batches | 2512 completed until this feature actually integrates. Old2500 milestone remaining0; whole-project planned/remaining batches UNKNOWN. Cases/control groups are not batches. |
-| Next action | Independent task/whole-branch review, then root-owned no-ff merge and immediate master/feature push. No merge/push has been performed by the implementer. |
+| Numbered batches | This branch records 2513 completed implementation batches as the integration candidate. Canonical master advances when merged; the Git/integration receipt supplies actual merge/push. Old2500 milestone remaining0; whole-project planned/remaining batches UNKNOWN. Cases/control groups are not batches. |
+| Next action | Whole-branch review, then root-owned no-ff merge and immediate master/feature push. Task review approved product HEAD `0d844eb9f`; no merge/push has been performed by the implementer. |
 | Next proposed work | Source-backed Task.Run(Action), FromException(Exception) and CancellationTokenSource.CancelAsync vertical; root design preflight `task47-core-worktask-cancelasync-design-preflight-v1.json` SHA `88d17f19...`. Unnumbered until integration, fresh reconciliation and scope review; further group/batch count UNKNOWN. |
 
 | Work group | Done / selected | Remaining |
 |---|---:|---:|
-| HasTrailingSlash integration | 0/1 integrated; implementation verified | 1 review/integration gate |
+| HasTrailingSlash selected group | 1/1 complete in this integration candidate | Whole-branch review and actual merge/push gates |
 | Current private build regression groups | All selected checks pass on one JAR | Broader build task acceptance remains open |
 | Core async / Task-backed ValueTask | Nongeneric Task prerequisite exists | Further groups UNKNOWN |
-| Whole project | 2512 numbered completions | Planned/remaining UNKNOWN; 1092 task total is not a batch total |
+| Whole project | 2513 numbered completions recorded in this integration candidate | Canonical master advances on merge; planned/remaining UNKNOWN; 1092 task total is not a batch total |
 
 See the [product contract](../../../../dotj-build/evaluation-candidate/has-trailing-slash-product-v1/CONTRACT.json) and `D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/batch2513-product-implementation-report.json` for exact source, receipt, JAR, failure-history and commit bindings. All generated assets stay under D:. No handoff Markdown was created.
