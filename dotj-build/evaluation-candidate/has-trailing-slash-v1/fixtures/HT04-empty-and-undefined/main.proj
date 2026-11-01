@@ -1,0 +1,10 @@
+<Project>
+<PropertyGroup>
+<Empty></Empty>
+<P Condition="HasTrailingSlash('')">bad</P>
+<P Condition="HasTrailingSlash('$(Undefined)')">bad</P>
+<P Condition="HasTrailingSlash('$(Empty)')">bad</P>
+<P Condition="HasTrailingSlash('null')">bad</P>
+<Q>empty-checked</Q>
+</PropertyGroup>
+</Project>

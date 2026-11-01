@@ -1,0 +1,7 @@
+<Project DefaultTargets="Never" InitialTargets="Never">
+<PropertyGroup>
+<P Condition="HasTrailingSlash('x/')">inert</P>
+</PropertyGroup>
+<Import Project="child.props" Condition="HasTrailingSlash('x/')" />
+<Target Name="Never"><WriteLinesToFile File="must-not-exist.txt" Lines="bad" /><Error Text="must never execute" /></Target>
+</Project>

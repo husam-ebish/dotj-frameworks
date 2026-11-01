@@ -1,0 +1,12 @@
+<Project>
+<PropertyGroup Condition="HasTrailingSlash('x/')">
+<P>true-group</P>
+</PropertyGroup>
+<PropertyGroup Condition="HasTrailingSlash('x')">
+<P>bad</P>
+<Q>bad</Q>
+</PropertyGroup>
+<PropertyGroup>
+<Q>after</Q>
+</PropertyGroup>
+</Project>

@@ -1,0 +1,9 @@
+<Project>
+<PropertyGroup>
+<P>once-only</P>
+<Q>once-only</Q>
+<P Condition="HasTrailingSlash('a%252f')">bad</P>
+<Q Condition="HasTrailingSlash('a%255c')">bad</Q>
+<P Condition="HasTrailingSlash('a%25/')">$(P)-percent</P>
+</PropertyGroup>
+</Project>

@@ -1,0 +1,7 @@
+<Project>
+<PropertyGroup>
+<P Condition="HasTrailingSlash('$(EscapedSlash)')">global-slash</P>
+<Q Condition="HasTrailingSlash('$(EscapedSemicolon)')">global-semicolon</Q>
+<P Condition="HasTrailingSlash('$(EscapedTwice)')">bad</P>
+</PropertyGroup>
+</Project>

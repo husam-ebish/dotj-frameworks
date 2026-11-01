@@ -1,0 +1,9 @@
+<Project>
+<PropertyGroup>
+<P Condition="HasTrailingSlash('x/')">$(P)0</P>
+<P Condition="hastrailingslash('x/')">$(P)1</P>
+<P Condition="HASTRAILINGSLASH('x/')">$(P)2</P>
+<P Condition="hAsTrAiLiNgSlAsH('x/')">$(P)3</P>
+<Q>token</Q>
+</PropertyGroup>
+</Project>

@@ -1,0 +1,6 @@
+<Project>
+<PropertyGroup>
+<P Condition="HasTrailingSlash('répertoire/路径/')">raw-unicode</P>
+<Q Condition="HasTrailingSlash('$(UnicodePath)')">global-unicode</Q>
+</PropertyGroup>
+</Project>

@@ -1,0 +1,8 @@
+<Project>
+<PropertyGroup>
+<Dir>folder</Dir>
+<Sep>\</Sep>
+<P Condition="HasTrailingSlash('prefix/$(Dir)/')">concat</P>
+<Q Condition="HasTrailingSlash('$(Dir)$(Dir)$(Sep)')">repeat</Q>
+</PropertyGroup>
+</Project>

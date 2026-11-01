@@ -1,0 +1,361 @@
+{
+  "schemaVersion": 1,
+  "status": "ROOT_APPROVED_BOUNDED_NATIVE_REFERENCE_ONLY",
+  "inputLockSha256": "297c8cfbcca86f044916bf5c024cc5ce1006db93af209fa0f36c8c32b1b114e6",
+  "checkpointSha256": "a6d6a8f58ba1f019d593c89d4c6352535c87a8fe154e348761e1b4b834538f0a",
+  "nativeFingerprint": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-condition-cache-v1\\dotj-build\\evaluation-candidate\\condition-cache-v1\\evidence\\native-fingerprint.json",
+    "sha256": "ed44fbe4b73de7b5b8882f0d8e884d2364688bc114d60e96d1fa288bd4c601d6",
+    "bytes": 80329
+  },
+  "manifest": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-condition-cache-v1\\dotj-build\\evaluation-candidate\\condition-cache-v1\\evidence\\manifest.json",
+    "sha256": "a4997ed6b8340a195697605002896ab5b2a5416a8c39d0a506f529787ed46287",
+    "bytes": 12016
+  },
+  "captures": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-cache-native-preparation-20261101\\pass1\\capture.json",
+      "sha256": "c949fa2b06fcab91117d38a54c4d2279651cf1a465380a8416d9068b86e0ccef",
+      "nativeProcessId": 10048
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-cache-native-preparation-20261101\\pass2\\capture.json",
+      "sha256": "8471730232df54dc67d3d3e1e3ac86d815b9cc19f7f8b4d5f8b9e19a80b3f25d",
+      "nativeProcessId": 16196
+    }
+  ],
+  "pairReceipt": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\validation-performance\\condition-cache-native-preparation-20261101\\pair-receipt.json",
+    "sha256": "1f00a59fe2b41612c02ebe650459c1953a4d59a59ab68dbf46340aee5c9bce83"
+  },
+  "independentEvidenceReview": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2511-native-evidence-review.json",
+    "sha256": "1ddeb25ecadac10a880ae23617fea1bb046c111a7a4505aa846c94350658a67d"
+  },
+  "normalizedPayload": {
+    "runtime": ".NET 10.0.12",
+    "msbuildAssembly": "Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+    "msbuildPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+    "frameworkPath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+    "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+    "profile": "Default",
+    "rows": [
+      {
+        "id": "cc01-repeat-alpha",
+        "globals": {
+          "Mode": "Alpha",
+          "Gate": "Open"
+        },
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "Alpha",
+            "Q": "Alpha"
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [
+          {
+            "kind": "warning",
+            "code": "MSB4130",
+            "file": "<FIXTURE_ROOT>\\cc01-repeat-alpha\\main.proj",
+            "line": 3,
+            "column": 8,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The condition \"'$(Mode)' == 'Alpha' Or '$(Mode)' == 'Beta' And '$(Gate)' == 'Open'\" may have been evaluated incorrectly in an earlier version of MSBuild. Please verify that the order of the AND and OR clauses is written as intended. To avoid this warning, add parentheses to make the evaluation order explicit."
+          }
+        ],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "cc02-repeat-gamma",
+        "globals": {
+          "Mode": "Gamma",
+          "Gate": "Open"
+        },
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "",
+            "Q": ""
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "cc03-repeat-beta",
+        "globals": {
+          "Mode": "Beta",
+          "Gate": "Open"
+        },
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "Beta",
+            "Q": "Beta"
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "cc04-root-import-sites",
+        "globals": {
+          "SiteMode": "Alpha",
+          "Gate": "Open"
+        },
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "importgroup",
+            "Q": "leaf"
+          },
+          "imports": [
+            {
+              "owner": "<FIXTURE_ROOT>\\cc04-root-import-sites\\main.proj",
+              "project": "<FIXTURE_ROOT>\\cc04-root-import-sites\\child.proj",
+              "line": 7,
+              "column": 5
+            },
+            {
+              "owner": "<FIXTURE_ROOT>\\cc04-root-import-sites\\main.proj",
+              "project": "<FIXTURE_ROOT>\\cc04-root-import-sites\\leaf.proj",
+              "line": 9,
+              "column": 3
+            }
+          ],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [
+          {
+            "kind": "warning",
+            "code": "MSB4130",
+            "file": "<FIXTURE_ROOT>\\cc04-root-import-sites\\main.proj",
+            "line": 2,
+            "column": 18,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The condition \"'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'\" may have been evaluated incorrectly in an earlier version of MSBuild. Please verify that the order of the AND and OR clauses is written as intended. To avoid this warning, add parentheses to make the evaluation order explicit."
+          }
+        ],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "cc05-whitespace",
+        "globals": {
+          "Mode": "Alpha",
+          "Gate": "Open"
+        },
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "Alpha",
+            "Q": "Alpha"
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [
+          {
+            "kind": "warning",
+            "code": "MSB4130",
+            "file": "<FIXTURE_ROOT>\\cc05-whitespace\\main.proj",
+            "line": 3,
+            "column": 8,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The condition \"'$(Mode)' == 'Alpha'  Or  '$(Mode)' == 'Beta'  And  '$(Gate)' == 'Open'\" may have been evaluated incorrectly in an earlier version of MSBuild. Please verify that the order of the AND and OR clauses is written as intended. To avoid this warning, add parentheses to make the evaluation order explicit."
+          }
+        ],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "cc06-operator-case",
+        "globals": {
+          "Mode": "Alpha",
+          "Gate": "Open"
+        },
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "Alpha",
+            "Q": "Alpha"
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [
+          {
+            "kind": "warning",
+            "code": "MSB4130",
+            "file": "<FIXTURE_ROOT>\\cc06-operator-case\\main.proj",
+            "line": 3,
+            "column": 8,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The condition \"'$(Mode)' == 'Alpha' oR '$(Mode)' == 'Beta' aNd '$(Gate)' == 'Open'\" may have been evaluated incorrectly in an earlier version of MSBuild. Please verify that the order of the AND and OR clauses is written as intended. To avoid this warning, add parentheses to make the evaluation order explicit."
+          }
+        ],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "cc07-parenthesized",
+        "globals": {
+          "Control": "Alpha",
+          "Gate": "Open"
+        },
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "control",
+            "Q": "control"
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      },
+      {
+        "id": "cc08-skipped-first",
+        "globals": {
+          "Skip": "Hold",
+          "SkipMode": "Alpha",
+          "Gate": "Open"
+        },
+        "profile": "Default",
+        "evaluation": {
+          "success": true,
+          "properties": {
+            "P": "",
+            "Q": "evaluated"
+          },
+          "imports": [],
+          "duplicateImports": null,
+          "duplicateGetterFailure": {
+            "type": "System.InvalidOperationException",
+            "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+          }
+        },
+        "diagnostics": [
+          {
+            "kind": "warning",
+            "code": "MSB4130",
+            "file": "<FIXTURE_ROOT>\\cc08-skipped-first\\main.proj",
+            "line": 6,
+            "column": 8,
+            "endLine": 0,
+            "endColumn": 0,
+            "message": "The condition \"'$(SkipMode)' == 'Alpha' Or '$(SkipMode)' == 'Beta' And '$(Gate)' == 'Open'\" may have been evaluated incorrectly in an earlier version of MSBuild. Please verify that the order of the AND and OR clauses is written as intended. To avoid this warning, add parentheses to make the evaluation order explicit."
+          }
+        ],
+        "cleanup": {
+          "before": 0,
+          "loaded": 1,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      }
+    ]
+  },
+  "warningCounts": [
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    1
+  ],
+  "caseCount": 8,
+  "warningEvents": 5,
+  "acceptedTasksAdded": 0,
+  "qualification": "Two fresh processes agree on selected Default/property-only ordered cases after fixture-root-only path substitution. Observed warning/event/value behavior; cache internals, concurrency, eviction, alternate ParserOptions and same-live-object reevaluation are not proved. No Java parity claimed."
+}

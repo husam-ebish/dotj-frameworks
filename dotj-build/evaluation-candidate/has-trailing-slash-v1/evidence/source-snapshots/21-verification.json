@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "nativeCacheRows": 8,
+  "nativeWarningEvents": 5,
+  "current94Rows": 94,
+  "andNativeSuccesses": 9,
+  "andMalformedBoundary": 1,
+  "andPrivateControls": 24,
+  "conditionEvaluations": 26,
+  "conditionNativeParseBoundaries": 5,
+  "conditionDeclaredBoundaries": 4,
+  "conditionWarningEvents": 4,
+  "privateCacheControls": 4,
+  "acceptedTasksAdded": 0,
+  "numberedBatchCredit": 0,
+  "status": "PASS_PACKAGED_CACHE_PRODUCT_V1",
+  "checkpoint": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-checkpoint-v3.json",
+    "sha256": "68a5b0bb04513ec8ba4729d76939e29cb0709c794016140afba722b280afb0c7"
+  },
+  "commands": [
+    {
+      "label": "unchanged-current94-runner",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-condition-cache-v1\\dotj-build\\evaluation-candidate\\verify.py",
+        "--out",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-condition-cache-v1",
+      "outerTimeoutSeconds": 600,
+      "processId": 37476,
+      "exitCode": 0,
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\runner.stdout",
+        "sha256": "6427d1403a9105f6b1cc63851ea2a1c7ce3d9cef263fc9e8159c6d84372c8493"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\runner.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "label": "compile-fixture-consumers",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\javac.exe",
+        "-J-Xms16m",
+        "-J-Xmx128m",
+        "-J-XX:+UseSerialGC",
+        "-J-XX:ActiveProcessorCount=2",
+        "-J-Dfile.encoding=UTF-8",
+        "-J-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "-J-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "-J-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs",
+        "-J-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\hs_err_pid%p.log",
+        "--release",
+        "21",
+        "-encoding",
+        "UTF-8",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\fixture-sources;D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\evaluation-contract-tests.jar",
+        "-sourcepath",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\empty-sourcepath",
+        "-implicit:none",
+        "-d",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\consumer-classes",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\fixture-sources\\org\\dotj\\internal\\build\\evaluation\\ConditionCachePackagedTest.java",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\fixture-sources\\org\\dotj\\internal\\build\\evaluation\\AndConditionTest.java"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd",
+      "timeoutSeconds": 120,
+      "resourceSampleUtc": "2026-11-01T19:09:12.458867+00:00",
+      "environmentOverrides": {
+        "TEMP": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "TMP": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "HOME": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "USERPROFILE": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "APPDATA": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home\\AppData\\Roaming",
+        "LOCALAPPDATA": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home\\AppData\\Local",
+        "XDG_CACHE_HOME": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "processId": 33008,
+      "launchUtc": "2026-11-01T19:09:14.201234+00:00",
+      "resourceSampleAgeSeconds": 1.730927,
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd\\logs\\compile-fixture-consumers.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd\\logs\\compile-fixture-consumers.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 0.6101736000000528,
+      "passed": true
+    },
+    {
+      "label": "packaged-cache",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Dfile.encoding=UTF-8",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\fixture-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ConditionCachePackagedTest",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache-bridge.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache-fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache-results.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\dotj-build-evaluation-candidate.jar",
+        "cache"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd",
+      "timeoutSeconds": 120,
+      "resourceSampleUtc": "2026-11-01T19:09:14.836561+00:00",
+      "environmentOverrides": {
+        "TEMP": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "TMP": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "HOME": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "USERPROFILE": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "APPDATA": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home\\AppData\\Roaming",
+        "LOCALAPPDATA": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home\\AppData\\Local",
+        "XDG_CACHE_HOME": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "processId": 7164,
+      "launchUtc": "2026-11-01T19:09:16.606134+00:00",
+      "resourceSampleAgeSeconds": 1.741863,
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd\\logs\\packaged-cache.stdout",
+        "sha256": "0e2b68ddaf12643d8c6f90b0fdcbaa51ca9646d99ff6f6e84798f72cecfbe054"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd\\logs\\packaged-cache.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 0.24911020000035933,
+      "passed": true
+    },
+    {
+      "label": "packaged-condition",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Dfile.encoding=UTF-8",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\fixture-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ConditionCachePackagedTest",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\condition-bridge.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\condition-fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\condition-results.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\dotj-build-evaluation-candidate.jar",
+        "condition"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd",
+      "timeoutSeconds": 120,
+      "resourceSampleUtc": "2026-11-01T19:09:19.380927+00:00",
+      "environmentOverrides": {
+        "TEMP": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "TMP": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "HOME": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "USERPROFILE": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "APPDATA": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home\\AppData\\Roaming",
+        "LOCALAPPDATA": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home\\AppData\\Local",
+        "XDG_CACHE_HOME": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "processId": 15880,
+      "launchUtc": "2026-11-01T19:09:21.140295+00:00",
+      "resourceSampleAgeSeconds": 1.737427,
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd\\logs\\packaged-condition.stdout",
+        "sha256": "033945ab53c4dad3da1c9226608bc8f9128aada8a161fd242bc9a30cf3fe5915"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd\\logs\\packaged-condition.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 0.3108931000006123,
+      "passed": true
+    },
+    {
+      "label": "packaged-and",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Dfile.encoding=UTF-8",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\fixture-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.AndConditionTest",
+        "green",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\and-bridge.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\and-fixtures",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\and-results.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\controls",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\dotj-build-evaluation-candidate.jar"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd",
+      "timeoutSeconds": 120,
+      "resourceSampleUtc": "2026-11-01T19:09:21.448050+00:00",
+      "environmentOverrides": {
+        "TEMP": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "TMP": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "HOME": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "USERPROFILE": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "APPDATA": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home\\AppData\\Roaming",
+        "LOCALAPPDATA": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home\\AppData\\Local",
+        "XDG_CACHE_HOME": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "processId": 11800,
+      "launchUtc": "2026-11-01T19:09:23.139747+00:00",
+      "resourceSampleAgeSeconds": 1.667789,
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd\\logs\\packaged-and.stdout",
+        "sha256": "878c6b06287ff28c7cf9ab0e8041ffcf6ff212c94a8fa00b65f9ef6d530df1da"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd\\logs\\packaged-and.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 0.3898524999995061,
+      "passed": true
+    },
+    {
+      "label": "packaged-cache-controls",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\java.exe",
+        "-Xms16m",
+        "-Xmx128m",
+        "-XX:+UseSerialGC",
+        "-XX:ActiveProcessorCount=2",
+        "-Dfile.encoding=UTF-8",
+        "-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs",
+        "-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\hs_err_pid%p.log",
+        "--limit-modules",
+        "java.base,java.xml,org.dotj.build.evaluation.candidate",
+        "--module-path",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\dotj-build-evaluation-candidate.jar",
+        "--patch-module",
+        "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\fixture-tests.jar",
+        "-m",
+        "org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ConditionCachePackagedTest",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache-bridge.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache-controls",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache-controls.tsv",
+        "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\dotj-build-evaluation-candidate.jar",
+        "controls"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd",
+      "timeoutSeconds": 120,
+      "resourceSampleUtc": "2026-11-01T19:09:23.519748+00:00",
+      "environmentOverrides": {
+        "TEMP": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "TMP": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\tmp",
+        "HOME": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "USERPROFILE": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home",
+        "APPDATA": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home\\AppData\\Roaming",
+        "LOCALAPPDATA": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\home\\AppData\\Local",
+        "XDG_CACHE_HOME": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "processId": 52860,
+      "launchUtc": "2026-11-01T19:09:25.217571+00:00",
+      "resourceSampleAgeSeconds": 1.674098,
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd\\logs\\packaged-cache-controls.stdout",
+        "sha256": "9a9e9a8b7d52bdd3bccaf8957acf88b9f3bd89a9d615a37ab36593bf0e63caec"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\unrelated-cwd\\logs\\packaged-cache-controls.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exitCode": 0,
+      "seconds": 0.1965518000006341,
+      "passed": true
+    }
+  ],
+  "resources": [
+    {
+      "before": "compile-fixture-consumers",
+      "utc": "2026-11-01T19:09:12.458867+00:00",
+      "freeVirtualKiB": 101809288,
+      "freePhysicalKiB": 12858868,
+      "waitSeconds": 1.7216902999998638
+    },
+    {
+      "before": "packaged-cache",
+      "utc": "2026-11-01T19:09:14.836561+00:00",
+      "freeVirtualKiB": 101682844,
+      "freePhysicalKiB": 12805612,
+      "waitSeconds": 1.7296715999991648
+    },
+    {
+      "before": "packaged-condition",
+      "utc": "2026-11-01T19:09:19.380927+00:00",
+      "freeVirtualKiB": 101681448,
+      "freePhysicalKiB": 12763704,
+      "waitSeconds": 1.7333523999996032
+    },
+    {
+      "before": "packaged-and",
+      "utc": "2026-11-01T19:09:21.448050+00:00",
+      "freeVirtualKiB": 101679272,
+      "freePhysicalKiB": 12750880,
+      "waitSeconds": 1.6580919999996695
+    },
+    {
+      "before": "packaged-cache-controls",
+      "utc": "2026-11-01T19:09:23.519748+00:00",
+      "freeVirtualKiB": 101798064,
+      "freePhysicalKiB": 12817816,
+      "waitSeconds": 1.6636806999995315
+    }
+  ],
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\packaged94\\dotj-build-evaluation-candidate.jar",
+    "sha256": "add631430ab15623f4ba083a9da434d607894685a3def59fc44419d29048e3fa"
+  },
+  "resourceWaits": [
+    {
+      "before": "compile-fixture-consumers",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 1.7295783999998093,
+      "status": "READY"
+    },
+    {
+      "before": "packaged-cache",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 1.7400250000000597,
+      "status": "READY"
+    },
+    {
+      "before": "packaged-condition",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 1.7354973999999856,
+      "status": "READY"
+    },
+    {
+      "before": "packaged-and",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 1.6660062000000835,
+      "status": "READY"
+    },
+    {
+      "before": "packaged-cache-controls",
+      "limitSeconds": 120,
+      "pollSeconds": 5,
+      "seconds": 1.6715487999999823,
+      "status": "READY"
+    }
+  ],
+  "fixtureTestsJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\fixture-tests.jar",
+    "sha256": "fc6a765f76c64d517fe2f96dcfc3ccff9e46908ff9a1d3eb27fb9f18fa8bdf5a"
+  },
+  "cache": {
+    "bridge": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache-bridge.tsv",
+      "sha256": "98b09a0cc6be90a8ca739d56982f2fb525959eb1a4178dc0ccf132257584be90"
+    },
+    "results": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache-results.tsv",
+      "sha256": "07642c7425fbb5731692196117dc2c9c8402e4f3280acc8fbf502970fabcad5c"
+    },
+    "expected": [
+      "cc01-repeat-alpha\tMATCHED_EVALUATION\tQWxwaGE=\tQWxwaGE=\t\tTVNCNDEzMDptYWluLnByb2pAMzo4OickKE1vZGUpJyA9PSAnQWxwaGEnIE9yICckKE1vZGUpJyA9PSAnQmV0YScgQW5kICckKEdhdGUpJyA9PSAnT3Blbic=",
+      "cc02-repeat-gamma\tMATCHED_EVALUATION\t\t\t\t",
+      "cc03-repeat-beta\tMATCHED_EVALUATION\tQmV0YQ==\tQmV0YQ==\t\t",
+      "cc04-root-import-sites\tMATCHED_EVALUATION\taW1wb3J0Z3JvdXA=\tbGVhZg==\tbWFpbi5wcm9qPmNoaWxkLnByb2pANzo1fG1haW4ucHJvaj5sZWFmLnByb2pAOToz\tTVNCNDEzMDptYWluLnByb2pAMjoxODonJChTaXRlTW9kZSknID09ICdBbHBoYScgT3IgJyQoU2l0ZU1vZGUpJyA9PSAnQmV0YScgQW5kICckKEdhdGUpJyA9PSAnT3Blbic=",
+      "cc05-whitespace\tMATCHED_EVALUATION\tQWxwaGE=\tQWxwaGE=\t\tTVNCNDEzMDptYWluLnByb2pAMzo4OickKE1vZGUpJyA9PSAnQWxwaGEnICBPciAgJyQoTW9kZSknID09ICdCZXRhJyAgQW5kICAnJChHYXRlKScgPT0gJ09wZW4n",
+      "cc06-operator-case\tMATCHED_EVALUATION\tQWxwaGE=\tQWxwaGE=\t\tTVNCNDEzMDptYWluLnByb2pAMzo4OickKE1vZGUpJyA9PSAnQWxwaGEnIG9SICckKE1vZGUpJyA9PSAnQmV0YScgYU5kICckKEdhdGUpJyA9PSAnT3Blbic=",
+      "cc07-parenthesized\tMATCHED_EVALUATION\tY29udHJvbA==\tY29udHJvbA==\t\t",
+      "cc08-skipped-first\tMATCHED_EVALUATION\t\tZXZhbHVhdGVk\t\tTVNCNDEzMDptYWluLnByb2pANjo4OickKFNraXBNb2RlKScgPT0gJ0FscGhhJyBPciAnJChTa2lwTW9kZSknID09ICdCZXRhJyBBbmQgJyQoR2F0ZSknID09ICdPcGVuJw=="
+    ],
+    "actual": [
+      "cc01-repeat-alpha\tMATCHED_EVALUATION\tQWxwaGE=\tQWxwaGE=\t\tTVNCNDEzMDptYWluLnByb2pAMzo4OickKE1vZGUpJyA9PSAnQWxwaGEnIE9yICckKE1vZGUpJyA9PSAnQmV0YScgQW5kICckKEdhdGUpJyA9PSAnT3Blbic=",
+      "cc02-repeat-gamma\tMATCHED_EVALUATION\t\t\t\t",
+      "cc03-repeat-beta\tMATCHED_EVALUATION\tQmV0YQ==\tQmV0YQ==\t\t",
+      "cc04-root-import-sites\tMATCHED_EVALUATION\taW1wb3J0Z3JvdXA=\tbGVhZg==\tbWFpbi5wcm9qPmNoaWxkLnByb2pANzo1fG1haW4ucHJvaj5sZWFmLnByb2pAOToz\tTVNCNDEzMDptYWluLnByb2pAMjoxODonJChTaXRlTW9kZSknID09ICdBbHBoYScgT3IgJyQoU2l0ZU1vZGUpJyA9PSAnQmV0YScgQW5kICckKEdhdGUpJyA9PSAnT3Blbic=",
+      "cc05-whitespace\tMATCHED_EVALUATION\tQWxwaGE=\tQWxwaGE=\t\tTVNCNDEzMDptYWluLnByb2pAMzo4OickKE1vZGUpJyA9PSAnQWxwaGEnICBPciAgJyQoTW9kZSknID09ICdCZXRhJyAgQW5kICAnJChHYXRlKScgPT0gJ09wZW4n",
+      "cc06-operator-case\tMATCHED_EVALUATION\tQWxwaGE=\tQWxwaGE=\t\tTVNCNDEzMDptYWluLnByb2pAMzo4OickKE1vZGUpJyA9PSAnQWxwaGEnIG9SICckKE1vZGUpJyA9PSAnQmV0YScgYU5kICckKEdhdGUpJyA9PSAnT3Blbic=",
+      "cc07-parenthesized\tMATCHED_EVALUATION\tY29udHJvbA==\tY29udHJvbA==\t\t",
+      "cc08-skipped-first\tMATCHED_EVALUATION\t\tZXZhbHVhdGVk\t\tTVNCNDEzMDptYWluLnByb2pANjo4OickKFNraXBNb2RlKScgPT0gJ0FscGhhJyBPciAnJChTa2lwTW9kZSknID09ICdCZXRhJyBBbmQgJyQoR2F0ZSknID09ICdPcGVuJw=="
+    ],
+    "match": true
+  },
+  "condition": {
+    "bridge": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\condition-bridge.tsv",
+      "sha256": "ad51cc70b44d18b44335e3ae114424377ea1dbdcf89f459806f641a6d72a1cb4"
+    },
+    "results": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\condition-results.tsv",
+      "sha256": "b71eb0577460de1cc7bf13ec434fac581a66f1b6d283be15a062534ba2b4ebe9"
+    },
+    "expected": [
+      "CL01-truth-table\tMATCHED_EVALUATION\teHh4\t\t\t",
+      "CL01-left-chains\tMATCHED_EVALUATION\t\teXk=\t\t",
+      "CL02-precedence-1\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\tTVNCNDEzMDptYWluLnByb2pAMToyNTp0cnVlIE9yIGZhbHNlIEFuZCBmYWxzZQ==",
+      "CL02-precedence-2\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\tTVNCNDEzMDptYWluLnByb2pAMToyNTpmYWxzZSBBbmQgdHJ1ZSBPciB0cnVl",
+      "CL02-precedence-3\tMATCHED_EVALUATION\t\t\t\t",
+      "CL02-precedence-4\tMATCHED_EVALUATION\t\t\t\t",
+      "CL03-nested\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\tTVNCNDEzMDptYWluLnByb2pAMToxMjE6KGZhbHNlIEFuZCB0cnVlIE9yIHRydWUpIEFuZCB0cnVl",
+      "CL04-lazy-exists-1\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\t",
+      "CL04-lazy-exists-2\tPRIVATE_DECLARED_BOUNDARY\tIMPORT_PATH_PROFILE",
+      "CL04-lazy-exists-3\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\t",
+      "CL04-lazy-exists-4\tMATCHED_EVALUATION\t\t\t\t",
+      "CL05-source-order\tMATCHED_EVALUATION\tZmlyc3Q=\tc2Vjb25k\t\t",
+      "CL05-scalar-1\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\t",
+      "CL05-scalar-2\tPRIVATE_DECLARED_BOUNDARY\tCONDITION_COERCION",
+      "CL05-scalar-3\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\t",
+      "CL05-scalar-4\tPRIVATE_DECLARED_BOUNDARY\tCONDITION_PROFILE",
+      "CL06-property\tMATCHED_EVALUATION\tcm9vdA==\t\tbWFpbi5wcm9qPnN1Yi9vd25lci5wcm9wc0AxOjEw\t",
+      "CL06-propertygroup\tMATCHED_EVALUATION\t\tb3duZXI=\tbWFpbi5wcm9qPnN1Yi9vd25lci5wcm9wc0AxOjEw\t",
+      "CL06-import\tMATCHED_EVALUATION\t\tb3duZXI=\tbWFpbi5wcm9qPnN1Yi9vd25lci5wcm9wc0AxOjEwfHN1Yi9vd25lci5wcm9wcz5zdWIvb3duZXItaGl0LnByb3BzQDE6ODk=\t",
+      "CL06-importgroup\tMATCHED_EVALUATION\t\tb3duZXI=\tbWFpbi5wcm9qPnN1Yi9vd25lci5wcm9wc0AxOjEwfHN1Yi9vd25lci5wcm9wcz5zdWIvb3duZXItaGl0LnByb3BzQDE6MTc1\t",
+      "CL07-operator-case\tMATCHED_EVALUATION\teHh4eA==\t\t\t",
+      "CL07-quoted-reference-boundaries\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\t",
+      "CL08-malformed-1\tPRIVATE_NATIVE_PARSE_BOUNDARY\tCONDITION_PROFILE",
+      "CL08-malformed-2\tPRIVATE_NATIVE_PARSE_BOUNDARY\tCONDITION_PROFILE",
+      "CL08-malformed-3\tPRIVATE_NATIVE_PARSE_BOUNDARY\tCONDITION_PROFILE",
+      "CL08-malformed-4\tPRIVATE_NATIVE_PARSE_BOUNDARY\tCONDITION_PROFILE",
+      "CL08-malformed-5\tPRIVATE_NATIVE_PARSE_BOUNDARY\tCONDITION_PROFILE",
+      "CL08-skipped-malformed\tPRIVATE_DECLARED_BOUNDARY\tCONDITION_PROFILE",
+      "CL09-legacy-or-operator\tMATCHED_EVALUATION\tdmFsdWU=\t\t\t",
+      "CL09-legacy-skipped-unknown-condition\tMATCHED_EVALUATION\t\t\t\t",
+      "CL09-legacy-skipped-unknown-import-condition\tMATCHED_EVALUATION\t\t\t\t",
+      "CL09-and-transition-1\tMATCHED_EVALUATION\tYmFk\t\t\t",
+      "CL09-and-transition-2\tMATCHED_EVALUATION\t\t\t\t",
+      "CL09-and-transition-3\tMATCHED_EVALUATION\t\t\t\t",
+      "CL10-imports-globals-inert-targets\tMATCHED_EVALUATION\tZ2xvYmFs\tZmlyc3RzZWNvbmQ=\tbWFpbi5wcm9qPm9uZS5wcm9wc0AxOjc2fG1haW4ucHJvaj50d28ucHJvcHNAMToyMzk=\tTVNCNDEzMDptYWluLnByb2pAMToxNjM6dHJ1ZSBBbmQgZmFsc2UgT3IgZmFsc2U="
+    ],
+    "actual": [
+      "CL01-truth-table\tMATCHED_EVALUATION\teHh4\t\t\t",
+      "CL01-left-chains\tMATCHED_EVALUATION\t\teXk=\t\t",
+      "CL02-precedence-1\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\tTVNCNDEzMDptYWluLnByb2pAMToyNTp0cnVlIE9yIGZhbHNlIEFuZCBmYWxzZQ==",
+      "CL02-precedence-2\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\tTVNCNDEzMDptYWluLnByb2pAMToyNTpmYWxzZSBBbmQgdHJ1ZSBPciB0cnVl",
+      "CL02-precedence-3\tMATCHED_EVALUATION\t\t\t\t",
+      "CL02-precedence-4\tMATCHED_EVALUATION\t\t\t\t",
+      "CL03-nested\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\tTVNCNDEzMDptYWluLnByb2pAMToxMjE6KGZhbHNlIEFuZCB0cnVlIE9yIHRydWUpIEFuZCB0cnVl",
+      "CL04-lazy-exists-1\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\t",
+      "CL04-lazy-exists-2\tPRIVATE_DECLARED_BOUNDARY\tIMPORT_PATH_PROFILE",
+      "CL04-lazy-exists-3\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\t",
+      "CL04-lazy-exists-4\tMATCHED_EVALUATION\t\t\t\t",
+      "CL05-source-order\tMATCHED_EVALUATION\tZmlyc3Q=\tc2Vjb25k\t\t",
+      "CL05-scalar-1\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\t",
+      "CL05-scalar-2\tPRIVATE_DECLARED_BOUNDARY\tCONDITION_COERCION",
+      "CL05-scalar-3\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\t",
+      "CL05-scalar-4\tPRIVATE_DECLARED_BOUNDARY\tCONDITION_PROFILE",
+      "CL06-property\tMATCHED_EVALUATION\tcm9vdA==\t\tbWFpbi5wcm9qPnN1Yi9vd25lci5wcm9wc0AxOjEw\t",
+      "CL06-propertygroup\tMATCHED_EVALUATION\t\tb3duZXI=\tbWFpbi5wcm9qPnN1Yi9vd25lci5wcm9wc0AxOjEw\t",
+      "CL06-import\tMATCHED_EVALUATION\t\tb3duZXI=\tbWFpbi5wcm9qPnN1Yi9vd25lci5wcm9wc0AxOjEwfHN1Yi9vd25lci5wcm9wcz5zdWIvb3duZXItaGl0LnByb3BzQDE6ODk=\t",
+      "CL06-importgroup\tMATCHED_EVALUATION\t\tb3duZXI=\tbWFpbi5wcm9qPnN1Yi9vd25lci5wcm9wc0AxOjEwfHN1Yi9vd25lci5wcm9wcz5zdWIvb3duZXItaGl0LnByb3BzQDE6MTc1\t",
+      "CL07-operator-case\tMATCHED_EVALUATION\teHh4eA==\t\t\t",
+      "CL07-quoted-reference-boundaries\tMATCHED_EVALUATION\tc2VsZWN0ZWQ=\t\t\t",
+      "CL08-malformed-1\tPRIVATE_NATIVE_PARSE_BOUNDARY\tCONDITION_PROFILE",
+      "CL08-malformed-2\tPRIVATE_NATIVE_PARSE_BOUNDARY\tCONDITION_PROFILE",
+      "CL08-malformed-3\tPRIVATE_NATIVE_PARSE_BOUNDARY\tCONDITION_PROFILE",
+      "CL08-malformed-4\tPRIVATE_NATIVE_PARSE_BOUNDARY\tCONDITION_PROFILE",
+      "CL08-malformed-5\tPRIVATE_NATIVE_PARSE_BOUNDARY\tCONDITION_PROFILE",
+      "CL08-skipped-malformed\tPRIVATE_DECLARED_BOUNDARY\tCONDITION_PROFILE",
+      "CL09-legacy-or-operator\tMATCHED_EVALUATION\tdmFsdWU=\t\t\t",
+      "CL09-legacy-skipped-unknown-condition\tMATCHED_EVALUATION\t\t\t\t",
+      "CL09-legacy-skipped-unknown-import-condition\tMATCHED_EVALUATION\t\t\t\t",
+      "CL09-and-transition-1\tMATCHED_EVALUATION\tYmFk\t\t\t",
+      "CL09-and-transition-2\tMATCHED_EVALUATION\t\t\t\t",
+      "CL09-and-transition-3\tMATCHED_EVALUATION\t\t\t\t",
+      "CL10-imports-globals-inert-targets\tMATCHED_EVALUATION\tZ2xvYmFs\tZmlyc3RzZWNvbmQ=\tbWFpbi5wcm9qPm9uZS5wcm9wc0AxOjc2fG1haW4ucHJvaj50d28ucHJvcHNAMToyMzk=\tTVNCNDEzMDptYWluLnByb2pAMToxNjM6dHJ1ZSBBbmQgZmFsc2UgT3IgZmFsc2U="
+    ],
+    "match": true
+  },
+  "andResults": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\and-results.tsv",
+    "sha256": "f2962e70bb9bed6de980b01f95dc4efb9e91a618791bbe417a38b826a5c02f4d"
+  },
+  "cacheControls": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\cache-controls.tsv",
+    "sha256": "7eb00d479feb77258c71d5040a7dfa3c2a954646f8a54ce24f46fc172f40f561"
+  },
+  "pythonControls": [
+    {
+      "label": "native29",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-condition-cache-v1\\tools\\oracle\\dotj-build\\condition-cache-v1",
+        "-p",
+        "test_*.py"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3",
+      "timeoutSeconds": 120,
+      "processId": 44696,
+      "exitCode": 0,
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\native29.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\native29.stderr",
+        "sha256": "1d871d5b0da17ba5ba32b66db7564782b741dee6c97e4574cbbefd6f7e0466ec"
+      }
+    },
+    {
+      "label": "qualification10",
+      "argv": [
+        "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+        "-B",
+        "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-condition-cache-v1\\tools\\oracle\\dotj-build\\condition-cache-product-v1\\test_verify.py"
+      ],
+      "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3",
+      "timeoutSeconds": 120,
+      "processId": 23312,
+      "exitCode": 0,
+      "stdout": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\qualification10.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2511-cache-product-final-green-run3\\logs\\qualification10.stderr",
+        "sha256": "c888e1cc65083f34a70f09a35077f4108d4cc1e5bfde39a55cb53f8b6f43f90a"
+      }
+    }
+  ]
+}

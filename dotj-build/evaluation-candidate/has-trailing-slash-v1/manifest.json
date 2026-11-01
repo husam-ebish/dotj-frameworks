@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "profile": "Default",
+  "cases": [
+    {
+      "id": "HT01-literal-separators",
+      "globals": {}
+    },
+    {
+      "id": "HT02-function-token",
+      "globals": {}
+    },
+    {
+      "id": "HT03-encounter-order",
+      "globals": {}
+    },
+    {
+      "id": "HT04-empty-and-undefined",
+      "globals": {}
+    },
+    {
+      "id": "HT05-property-concatenation",
+      "globals": {}
+    },
+    {
+      "id": "HT06-globals-precedence",
+      "globals": {
+        "PathGlobal": "caller/",
+        "LocalPath": "caller"
+      }
+    },
+    {
+      "id": "HT07-propertygroup-site",
+      "globals": {}
+    },
+    {
+      "id": "HT08-property-site",
+      "globals": {}
+    },
+    {
+      "id": "HT09-import-site",
+      "globals": {}
+    },
+    {
+      "id": "HT10-importgroup-site",
+      "globals": {}
+    },
+    {
+      "id": "HT11-nested-import-update",
+      "globals": {}
+    },
+    {
+      "id": "HT12-and-or-precedence",
+      "globals": {}
+    },
+    {
+      "id": "HT13-short-circuit",
+      "globals": {
+        "Value": "a;b/"
+      }
+    },
+    {
+      "id": "HT14-cache-first",
+      "globals": {
+        "Shared": "first/"
+      }
+    },
+    {
+      "id": "HT15-cache-second",
+      "globals": {
+        "Shared": "second"
+      }
+    },
+    {
+      "id": "HT16-cache-third",
+      "globals": {
+        "Shared": "third\\"
+      }
+    },
+    {
+      "id": "HT17-cache-warning",
+      "globals": {
+        "WarningPath": "warning/"
+      }
+    },
+    {
+      "id": "HT18-inert-targets",
+      "globals": {}
+    },
+    {
+      "id": "HTB01-no-argument",
+      "globals": {}
+    },
+    {
+      "id": "HTB02-extra-argument",
+      "globals": {}
+    },
+    {
+      "id": "HTB03-malformed",
+      "globals": {}
+    },
+    {
+      "id": "HTB04-unescaped-list",
+      "globals": {}
+    },
+    {
+      "id": "HTB05-escaped-slash",
+      "globals": {}
+    },
+    {
+      "id": "HTB06-escaped-semicolon",
+      "globals": {}
+    },
+    {
+      "id": "HTB07-whitespace",
+      "globals": {}
+    },
+    {
+      "id": "HTB08-unknown-function",
+      "globals": {}
+    },
+    {
+      "id": "HT19-unicode-raw-global",
+      "globals": {
+        "UnicodePath": "\u03b4\u03bf\u03ba\u03b9\u03bc\u03ae/\u76ee\u5f55\\"
+      }
+    },
+    {
+      "id": "HT20-uri-drive-scalars",
+      "globals": {}
+    },
+    {
+      "id": "HT21-unicode-whitespace",
+      "globals": {
+        "TrimPath": "\u00a0\u0085a/\u0085\u00a0"
+      }
+    },
+    {
+      "id": "HT22-u001c-not-whitespace",
+      "globals": {
+        "ControlTail": "a/\u001c",
+        "ControlHead": "\u001ca/"
+      }
+    },
+    {
+      "id": "HT23-empty-and-single-tokens",
+      "globals": {
+        "EmptyTokens": "; ;;; \u00a0\u0085;"
+      }
+    },
+    {
+      "id": "HT24-percent-single-pass",
+      "globals": {}
+    },
+    {
+      "id": "HT25-percent-malformed",
+      "globals": {}
+    },
+    {
+      "id": "HT26-escaped-whitespace",
+      "globals": {}
+    },
+    {
+      "id": "HT27-global-escaped-scalars",
+      "globals": {
+        "EscapedSlash": "a%2f",
+        "EscapedSemicolon": "a%3bb/",
+        "EscapedTwice": "a%252f"
+      }
+    },
+    {
+      "id": "HT28-expanded-syntax-first",
+      "globals": {
+        "Dynamic": "a') Or (\"x\" == \"x\")"
+      }
+    },
+    {
+      "id": "HT29-expanded-syntax-second",
+      "globals": {
+        "Dynamic": "a') Or (\"x\" == \"x\")/"
+      }
+    },
+    {
+      "id": "HT30-global-multiple-tokens",
+      "globals": {
+        "Dynamic": "a;b/"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+<Project>
+<PropertyGroup>
+<P>not-trimmed</P>
+<P Condition="HasTrailingSlash('$(ControlTail)')">bad</P>
+<Q Condition="HasTrailingSlash('$(ControlHead)')">separator-last</Q>
+</PropertyGroup>
+</Project>

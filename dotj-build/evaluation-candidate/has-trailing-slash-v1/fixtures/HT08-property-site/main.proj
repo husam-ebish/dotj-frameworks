@@ -1,0 +1,7 @@
+<Project>
+<PropertyGroup>
+<P Condition="HasTrailingSlash('x/')">root</P>
+<Q Condition="HasTrailingSlash('x')">bad</Q>
+</PropertyGroup>
+<Import Project="child.props" />
+</Project>

@@ -1,0 +1,8 @@
+<Project>
+<PropertyGroup>
+<P>empty-list</P>
+<P Condition="HasTrailingSlash('; ;;;  ;')">bad</P>
+<Q Condition="HasTrailingSlash('; ; a/ ;;')">one-token</Q>
+<P Condition="HasTrailingSlash('$(EmptyTokens)')">bad-global</P>
+</PropertyGroup>
+</Project>

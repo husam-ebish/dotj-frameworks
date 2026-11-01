@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 2,
+  "nativeObservationStatus": "UNOBSERVED",
+  "rootScopeRuling": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task43-batch2513-fidelity-ruling-v1.json",
+  "counts": {
+    "cases": 38,
+    "semantic": 32,
+    "boundary": 6
+  },
+  "cases": [
+    {
+      "id": "HT01-literal-separators",
+      "dimension": "Forward slash, backslash, nonseparator and empty literals, writing distinct P/Q outcomes. Include nonexistent trailing-slash strings to prove predicate is lexical rather than Exists.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT02-function-token",
+      "dimension": "Canonical, lowercase, uppercase and mixed ASCII function spelling; exact identifier boundary.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT03-encounter-order",
+      "dimension": "Identical raw predicate HasTrailingSlash('$(PathValue)') before and after source-order assignments from folder to folder/ and folder\\; outputs retain encounter values.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT04-empty-and-undefined",
+      "dimension": "Literal empty and undefined/empty property operands yield false; literal 'null' is an ordinary string, not a null API argument.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT05-property-concatenation",
+      "dimension": "One-pass simple property substitution plus literal prefix/suffix, including $(Dir)/, repeated references and a backslash-valued suffix.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT06-globals-precedence",
+      "dimension": "Caller globals override assignments; a separately named TreatAsLocalProperty control overrides only its allowed property; caller map unchanged.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {
+        "PathGlobal": "caller/",
+        "LocalPath": "caller"
+      },
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT07-propertygroup-site",
+      "dimension": "True/false group conditions gate assignments, leaving rejected group values unset.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT08-property-site",
+      "dimension": "Individual property conditions in root/imported file; existing global-assignment precedence retained.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT09-import-site",
+      "dimension": "True predicate imports a fixed explicit child, false predicate skips a missing child; edge order and coordinates are observable.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT10-importgroup-site",
+      "dimension": "Group predicate guards several imports, including a nested property-dependent predicate; all effects in depth-first order.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT11-nested-import-update",
+      "dimension": "Child assigns path property used by later parent import; include paths remain defining-file relative while predicate itself does not resolve a path.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT12-and-or-precedence",
+      "dimension": "HasTrailingSlash with existing equality/Exists and grouped/un-grouped And/Or; true/false outcomes and MSB4130 field behavior retained.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT13-short-circuit",
+      "dimension": "false And HasTrailingSlash('$(Value)') and true Or HasTrailingSlash('$(Value)') with Value='a;b/' skip argument expansion/runtime scalar checks; evaluated forms are private boundary cases, not supported list semantics.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {
+        "Value": "a;b/"
+      },
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT14-cache-first",
+      "dimension": "Shared exact raw HasTrailingSlash('$(Shared)') with Shared='first/'; same process as following rows.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {
+        "Shared": "first/"
+      },
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT15-cache-second",
+      "dimension": "Same raw predicate with Shared='second'; result must change despite cache hit.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {
+        "Shared": "second"
+      },
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT16-cache-third",
+      "dimension": "Same raw predicate with Shared='third\\'; result must change again; results already returned stay immutable.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {
+        "Shared": "third\\"
+      },
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT17-cache-warning",
+      "dimension": "Repeated identical mixed-And/Or predicate containing HasTrailingSlash across reached root/import sites; source coordinates and first-reached parse warning only. Include distinct raw case/spacing controls.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {
+        "WarningPath": "warning/"
+      },
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT18-inert-targets",
+      "dimension": "True predicate activates properties/imports in Project with DefaultTargets/InitialTargets and inert WriteLinesToFile/Error Target declarations; marker remains absent and no task API exists.",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HTB01-no-argument",
+      "expression": "HasTrailingSlash()",
+      "disposition": "Native arity boundary; candidate CONDITION_PROFILE; no native exception ABI/code equality claim.",
+      "globals": {},
+      "category": "boundary",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "PRIVATE_NATIVE_PARSE_BOUNDARY",
+      "privateErrorCodes": [
+        "CONDITION_PROFILE"
+      ]
+    },
+    {
+      "id": "HTB02-extra-argument",
+      "expression": "HasTrailingSlash('a','b')",
+      "disposition": "Native arity boundary; candidate CONDITION_PROFILE.",
+      "globals": {},
+      "category": "boundary",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "PRIVATE_NATIVE_PARSE_BOUNDARY",
+      "privateErrorCodes": [
+        "CONDITION_PROFILE"
+      ]
+    },
+    {
+      "id": "HTB03-malformed",
+      "expression": "HasTrailingSlash('a/'",
+      "disposition": "Native parse boundary; candidate CONDITION_PROFILE, also checked statically in skipped child.",
+      "globals": {},
+      "category": "boundary",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "PRIVATE_NATIVE_PARSE_BOUNDARY",
+      "privateErrorCodes": [
+        "CONDITION_PROFILE"
+      ]
+    },
+    {
+      "id": "HTB04-unescaped-list",
+      "expression": "HasTrailingSlash('a;b/')",
+      "disposition": "Native scalar function multiple-item failure; candidate private scalar-profile refusal, preserve full native failure evidence.",
+      "globals": {},
+      "category": "boundary",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "PRIVATE_DECLARED_BOUNDARY",
+      "privateErrorCodes": [
+        "CONDITION_PROFILE"
+      ]
+    },
+    {
+      "id": "HTB05-escaped-slash",
+      "expression": "HasTrailingSlash('a%2f')",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": [],
+      "fidelityRevision": "Root ruling promotes original declared refusal to faithful scalar semantic comparison; ID retained for lineage.",
+      "dimension": "One-pass escaped slash %2f produces trailing separator after scalar token conversion."
+    },
+    {
+      "id": "HTB06-escaped-semicolon",
+      "expression": "HasTrailingSlash('a%3bb/')",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": [],
+      "fidelityRevision": "Root ruling promotes original declared refusal to faithful scalar semantic comparison; ID retained for lineage.",
+      "dimension": "Split-before-unescape preserves escaped semicolon in one scalar token."
+    },
+    {
+      "id": "HTB07-whitespace",
+      "expression": "HasTrailingSlash('a/ ')",
+      "disposition": "planned_native_semantic_comparison",
+      "globals": {},
+      "category": "semantic",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": [],
+      "fidelityRevision": "Root ruling promotes original declared refusal to faithful scalar semantic comparison; ID retained for lineage.",
+      "dimension": "Raw trailing ASCII space is trimmed before ItemSpec unescape."
+    },
+    {
+      "id": "HTB08-unknown-function",
+      "expression": "UnknownPredicate('a/')",
+      "disposition": "Retain unknown-function refusal; native error details observed without claiming same exception representation.",
+      "globals": {},
+      "category": "boundary",
+      "nativeExpected": "UNOBSERVED",
+      "privateDisposition": "PRIVATE_NATIVE_PARSE_BOUNDARY",
+      "privateErrorCodes": [
+        "CONDITION_PROFILE"
+      ]
+    },
+    {
+      "id": "HT19-unicode-raw-global",
+      "dimension": "Ordinary non-ASCII raw and caller-global scalar arguments are lexical data, without Unicode comparisons.",
+      "category": "semantic",
+      "globals": {
+        "UnicodePath": "\u03b4\u03bf\u03ba\u03b9\u03bc\u03ae/\u76ee\u5f55\\"
+      },
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT20-uri-drive-scalars",
+      "dimension": "Colon, URI punctuation and drive-shaped strings are scalars, with no path resolution or existence probe.",
+      "category": "semantic",
+      "globals": {},
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT21-unicode-whitespace",
+      "dimension": "NBSP U00A0 and NEL U0085 trim at token edges; ordinary embedded spaces remain scalar data.",
+      "category": "semantic",
+      "globals": {
+        "TrimPath": "\u00a0\u0085a/\u0085\u00a0"
+      },
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT22-u001c-not-whitespace",
+      "dimension": "U001C is passed in caller globals (not illegal XML1.0 literal text); it is not .NET whitespace, unlike Java trim.",
+      "category": "semantic",
+      "globals": {
+        "ControlTail": "a/\u001c",
+        "ControlHead": "\u001ca/"
+      },
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT23-empty-and-single-tokens",
+      "dimension": "Trim/discard empty semicolon segments; zero tokens false; one surviving token accepted despite surrounding delimiters.",
+      "category": "semantic",
+      "globals": {
+        "EmptyTokens": "; ;;; \u00a0\u0085;"
+      },
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT24-percent-single-pass",
+      "dimension": "%25 decodes once; %252f/%255c do not become separators through a recursive second unescape.",
+      "category": "semantic",
+      "globals": {},
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT25-percent-malformed",
+      "dimension": "Invalid/incomplete percent sequences are preserved as scalar data; full valid escapes remain case-insensitive.",
+      "category": "semantic",
+      "globals": {},
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT26-escaped-whitespace",
+      "dimension": "Trim occurs before unescape only; decoded trailing space/tab is not trimmed again and interior escaped space remains data.",
+      "category": "semantic",
+      "globals": {},
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT27-global-escaped-scalars",
+      "dimension": "Caller-global escaped slash/semicolon and recursive-looking escapes follow split-before-one-unescape without changing assignment/equality/Exists semantics.",
+      "category": "semantic",
+      "globals": {
+        "EscapedSlash": "a%2f",
+        "EscapedSemicolon": "a%3bb/",
+        "EscapedTwice": "a%252f"
+      },
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT28-expanded-syntax-first",
+      "dimension": "Expanded quote/operator/parenthesis/double-quote data is not reparsed; exact raw predicate warms cache with a false scalar.",
+      "category": "semantic",
+      "globals": {
+        "Dynamic": "a') Or (\"x\" == \"x\")"
+      },
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT29-expanded-syntax-second",
+      "dimension": "Same exact XML/raw cached predicate receives trailing-slash quote/operator data and must use the new scalar value.",
+      "category": "semantic",
+      "globals": {
+        "Dynamic": "a') Or (\"x\" == \"x\")/"
+      },
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "planned_native_semantic_comparison",
+      "privateDisposition": "MATCHED_EVALUATION_AFTER_NATIVE_FREEZE",
+      "privateErrorCodes": []
+    },
+    {
+      "id": "HT30-global-multiple-tokens",
+      "dimension": "Reached raw property argument expands to two nonempty unescaped list tokens; retain full native scalar-failure payload and private CONDITION_PROFILE distinction.",
+      "category": "boundary",
+      "globals": {
+        "Dynamic": "a;b/"
+      },
+      "nativeExpected": "UNOBSERVED",
+      "disposition": "native_scalar_failure_boundary",
+      "privateDisposition": "PRIVATE_DECLARED_BOUNDARY",
+      "privateErrorCodes": [
+        "CONDITION_PROFILE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<Project TreatAsLocalProperty="LocalPath">
+<PropertyGroup>
+<PathGlobal>local</PathGlobal>
+<LocalPath>local/</LocalPath>
+<P Condition="HasTrailingSlash('$(PathGlobal)')">global</P>
+<Q Condition="HasTrailingSlash('$(LocalPath)')">local</Q>
+</PropertyGroup>
+</Project>

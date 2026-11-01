@@ -71,6 +71,7 @@ final class ProjectEvaluationComponent {
     private static final Pattern NAME = Pattern.compile("[A-Za-z_][A-Za-z0-9_]*");
     private static final Pattern EQUALITY = Pattern.compile("'([^']*)'\\s*==\\s*'([^']*)'");
     private static final Pattern EXISTS = Pattern.compile("Exists\\('([^']*)'\\)");
+    private static final Pattern HAS_TRAILING_SLASH = Pattern.compile("HasTrailingSlash\\('([^']*)'\\)", Pattern.CASE_INSENSITIVE);
     private static final Pattern REFERENCE = Pattern.compile("\\$\\(([^)]*)\\)");
     private static ProfileRejected reject(String code, String why) { return new ProfileRejected(code, why); }
     private static String key(String input) {
@@ -378,6 +379,7 @@ final class ProjectEvaluationComponent {
         private static final int CONDITION_NODE_LIMIT = 256;
         private interface ConditionExpression { }
         private record ConditionAtom(String raw) implements ConditionExpression { }
+        private record HasTrailingSlashAtom(String rawArgument) implements ConditionExpression { }
         private record ConditionAnd(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
         private record ConditionOr(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
         private record ParsedCondition(ConditionExpression expression, boolean mixedAndOr) { }
@@ -392,8 +394,8 @@ final class ProjectEvaluationComponent {
             boolean andMarked, orMarked, mixedAndOr;
             ConditionParser(String raw) {
                 this.raw=raw;
-                // Validate reference/escape spelling without expanding a value or probing a path.
-                conditionTemplate(raw);
+                // Validate references without expanding values or decoding predicate data.
+                conditionReferences(raw);
             }
             void space() { while(cursor<raw.length() && raw.charAt(cursor)<=0x20)cursor++; }
             boolean word(char c) { return c>='A'&&c<='Z'||c>='a'&&c<='z'||c>='0'&&c<='9'||c=='_'; }
@@ -449,6 +451,11 @@ final class ProjectEvaluationComponent {
                     cursor++;depth--;return result;
                 }
                 int start=cursor;
+                Matcher trailingSlash=HAS_TRAILING_SLASH.matcher(raw).region(cursor,raw.length());
+                if(trailingSlash.lookingAt()) {
+                    cursor=trailingSlash.end();node();
+                    return new HasTrailingSlashAtom(trailingSlash.group(1));
+                }
                 if(raw.startsWith("true",cursor) && (cursor+4==raw.length()||!word(raw.charAt(cursor+4))))cursor+=4;
                 else if(raw.startsWith("false",cursor) && (cursor+5==raw.length()||!word(raw.charAt(cursor+5))))cursor+=5;
                 else {
@@ -493,7 +500,36 @@ final class ProjectEvaluationComponent {
                 return evaluateCondition(and.left(),owner,steps) && evaluateCondition(and.right(),owner,steps);
             if(expression instanceof ConditionOr or)
                 return evaluateCondition(or.left(),owner,steps) || evaluateCondition(or.right(),owner,steps);
+            if(expression instanceof HasTrailingSlashAtom slash)
+                return hasTrailingSlash(slash.rawArgument());
             return conditionAtom(((ConditionAtom)expression).raw(),owner);
+        }
+        private boolean hasTrailingSlash(String rawArgument) {
+            // MSBuild's scalar conversion splits and trims before a single unescape.
+            // Expanded syntax remains data; nothing here reparses or resolves a path.
+            String scalar=null;
+            for(String token:expand(rawArgument).split(";",-1)) {
+                token=trimImportWhiteSpace(token);
+                if(token.isEmpty())continue;
+                if(scalar!=null)throw reject("CONDITION_PROFILE","HasTrailingSlash requires at most one nonempty scalar token");
+                scalar=token;
+            }
+            if(scalar==null)return false;
+            StringBuilder decoded=new StringBuilder();
+            for(int i=0;i<scalar.length();i++) {
+                char c=scalar.charAt(i);
+                if(c=='%' && i+2<scalar.length()) {
+                    int high=hexDigit(scalar.charAt(i+1)),low=hexDigit(scalar.charAt(i+2));
+                    if(high>=0 && low>=0) { decoded.append((char)(high*16+low));i+=2;continue; }
+                }
+                decoded.append(c);
+            }
+            if(decoded.isEmpty())return false;
+            char last=decoded.charAt(decoded.length()-1);
+            return last=='/' || last=='\\';
+        }
+        private static int hexDigit(char c) {
+            return c>='0'&&c<='9'?c-'0':c>='a'&&c<='f'?c-'a'+10:c>='A'&&c<='F'?c-'A'+10:-1;
         }
         boolean conditionAtom(String raw, Path owner) throws IOException {
             String value=unescape(expand(raw)).trim();
@@ -509,6 +545,9 @@ final class ProjectEvaluationComponent {
             new ConditionParser(raw).parse();
         }
         String conditionTemplate(String raw) {
+            return unescape(conditionReferences(raw)).trim();
+        }
+        String conditionReferences(String raw) {
             Matcher references = REFERENCE.matcher(raw);
             StringBuilder template = new StringBuilder();
             while (references.find()) {
@@ -517,7 +556,7 @@ final class ProjectEvaluationComponent {
             }
             references.appendTail(template);
             if (template.indexOf("$(") >= 0) throw reject("PROPERTY_REFERENCE", "Unclosed property reference");
-            return unescape(template.toString()).trim();
+            return template.toString();
         }
         void validateAtom(String raw) {
             String value = conditionTemplate(raw);

@@ -1,0 +1,8 @@
+<Project>
+<PropertyGroup>
+<P Condition="HasTrailingSlash('a/ ')">nbsp</P>
+<Q Condition="HasTrailingSlash('a/')">nel</Q>
+<P Condition="HasTrailingSlash('$(TrimPath)')">$(P)-global</P>
+<Q Condition="HasTrailingSlash('with spaces/')">$(Q)-interior</Q>
+</PropertyGroup>
+</Project>
