@@ -136,15 +136,16 @@ final class CancellationSource implements AutoCloseable {
         Objects.requireNonNull(callback, "callback");
         CancellationRegistration registration = new CancellationRegistration(this, callback);
         synchronized (lock) {
-            if (closed) {
-                registration.unregister();
-                return registration;
-            }
             if (!cancellationRequested) {
+                if (closed) {
+                    registration.unregister();
+                    return registration;
+                }
                 registrations.add(registration);
                 return registration;
             }
         }
+        // Requested cancellation still runs late callbacks after close, as CoreLib does.
         registration.invoke();
         return registration;
     }

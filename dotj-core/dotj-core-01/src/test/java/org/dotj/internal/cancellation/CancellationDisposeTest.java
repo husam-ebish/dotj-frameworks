@@ -22,6 +22,15 @@ public final class CancellationDisposeTest {
         } catch (IllegalStateException expected) {
             // This is an internal prototype policy, not an exact public exception mapping.
         }
+        CancellationSource canceled = new CancellationSource();
+        CancellationToken kept = canceled.token();
+        canceled.cancel();
+        canceled.close();
+        boolean[] lateRan = {false};
+        kept.register(() -> lateRan[0] = true);
+        if (!lateRan[0]) {
+            throw new AssertionError("Late registration on a canceled, closed source did not run");
+        }
         System.out.println("PASS: internal source disposal and retained token");
     }
 }

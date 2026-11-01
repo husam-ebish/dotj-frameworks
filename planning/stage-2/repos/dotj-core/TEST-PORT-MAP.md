@@ -26,11 +26,11 @@ Source method rows below are lexical candidates from retrieved files. They are n
 | DJ-001-F01-02 | WP-01 | different generic arguments do not | Independent Java and .NET oracle cases passed for one bounded shape; four upstream argument-metadata cases passed, without a direct inequality assertion. [Disposition](evidence/type-inequality-disposition-v10.0.12.json) |
 | DJ-001-F01-03 | WP-01 | supplied resources are never closed implicitly | Independent Java and .NET DI oracle cases passed; 37 selected upstream DI ownership/order cases passed in Batch-062. Batch 2502 matched the original Java lifecycle fixtures against a native oracle on a private runtime JAR. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) [Lifecycle](OWNERSHIP-SOURCE-LIFECYCLE-v1.md) |
 | DJ-001-F01-04 | WP-01 | context values do not leak between requests | Java explicit-context and independent same-worker CLR cases passed; two supporting upstream context methods passed. Mechanisms differ and no exact upstream cross-request case is claimed. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
-| DJ-001-F02-01 | WP-02 | Late registration runs synchronously | Designed; map actual upstream case or specify independent oracle in E03 |
-| DJ-001-F02-02 | WP-02 | sequential callbacks use the declared LIFO profile | Designed; map actual upstream case or specify independent oracle in E03 |
-| DJ-001-F02-03 | WP-02 | self-close cannot deadlock | Designed; map actual upstream case or specify independent oracle in E03 |
-| DJ-001-F02-04 | WP-02 | CancelAsync completion waits for callbacks | Designed; map actual upstream case or specify independent oracle in E03 |
-| DJ-001-F02-05 | WP-02 | token identity survives source disposal as specified | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F02-01 | WP-02 | Late registration runs synchronously | Independent .NET 10.0.12 oracle and internal Java fixture matched in Batch 2505; no public API. [Fixtures](CANCELLATION-FIXTURES-v1.md) |
+| DJ-001-F02-02 | WP-02 | sequential callbacks use the declared LIFO profile | Independent .NET 10.0.12 oracle and internal Java fixture matched in Batch 2505; no public API. [Fixtures](CANCELLATION-FIXTURES-v1.md) |
+| DJ-001-F02-03 | WP-02 | self-close cannot deadlock | Independent .NET 10.0.12 oracle and internal Java fixture matched in Batch 2505; no public API. [Fixtures](CANCELLATION-FIXTURES-v1.md) |
+| DJ-001-F02-04 | WP-02 | CancelAsync completion waits for callbacks | Independent .NET 10.0.12 oracle and internal Java fixture matched in Batch 2505; no public API. [Fixtures](CANCELLATION-FIXTURES-v1.md) |
+| DJ-001-F02-05 | WP-02 | token identity survives source disposal as specified | Independent .NET 10.0.12 oracle and internal Java fixture matched in Batch 2505; no public API. [Fixtures](CANCELLATION-FIXTURES-v1.md) |
 | DJ-001-F03-01 | WP-03 | Concurrent singleton resolves return one published identity | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-001-F03-02 | WP-03 | aliases close once | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-001-F03-03 | WP-03 | supplied singleton stays caller-owned | Designed; map actual upstream case or specify independent oracle in E03 |
