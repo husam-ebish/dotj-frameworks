@@ -1,0 +1,58 @@
+import System.IConvertible;
+import System.Reflection.MemberTypes;
+import System.Runtime.Serialization.StreamingContextStates;
+import System.Reflection.BindingFlags;
+import System.Int32;
+import System.Reflection.FieldAttributes;
+import System.ApplicationException;
+import System.Reflection.TargetException;
+import System.MemberAccessException;
+import System.FieldAccessException;
+import System.Byte;
+import System.SByte;
+import System.UInt16;
+import System.UInt32;
+import System.DBNull;
+import System.Reflection.FieldInfo;
+import System.Globalization.NumberFormatInfo;
+import System.InvalidOperationException;
+import System.IFormatProvider;
+import System.Decimal;
+import System.Int32;
+import System.Reflection.FieldAttributes;
+import System.Reflection.FieldInfo;
+import System.IConvertible;
+import System.Reflection.MemberInfo;
+import System.Runtime.Serialization.StreamingContextStates;
+import System.Reflection.MemberFilter;
+import System.Reflection.TypeFilter;
+import System.Reflection.MethodInfo;
+import System.Reflection.ParameterInfo;
+import System.Runtime.Serialization.StreamingContextStates;
+import System.Type;
+import System.Exception;
+import System.ArgumentException;
+import System.Runtime.Serialization.StreamingContextStates;
+import System.Runtime.Serialization.StreamingContextStates;
+import System.Reflection.GenericParameterAttributes;
+import System.TypeCode;
+import java.nio.file.*;
+import java.util.*;
+class OwnedEnumFieldIntegrationQualificationProbe {
+ static String units(String s){if(s==null)return "~";StringJoiner j=new StringJoiner(",");for(char c:s.toCharArray())j.add(Integer.toString(c));return j.toString();}
+ static String value(Object o,Type self){if(o==null)return null;if(o instanceof Type t)return t==self?"self":"type:"+t.ToString();if(o instanceof MemberTypes v)return Integer.toString(v.get_Value());if(o instanceof GenericParameterAttributes v)return Integer.toString(v.get_Value());if(o instanceof TypeCode v)return Integer.toString(v.get_Value());if(o.getClass().isArray()){StringJoiner j=new StringJoiner(";");for(int i=0;i<java.lang.reflect.Array.getLength(o);i++)j.add(value(java.lang.reflect.Array.get(o,i),self));return j.toString();}return o.toString();}
+ static Type resolve(String name){return switch(name){case "null"->null;case "ListS"->Type.GetType("System.Collections.Generic.List`1").MakeGenericType(new Type[]{Type.GetType("System.String")});case "NullableInt"->Type.GetType("System.Nullable`1").MakeGenericType(new Type[]{Type.GetType("System.Int32")});default->Type.GetType("System."+name);};}
+ static String decode(String units){if(units.equals("~"))return null;StringBuilder b=new StringBuilder();if(!units.isEmpty())for(String p:units.split(","))b.append((char)Integer.parseInt(p));return b.toString();}
+ static String metadata(FieldInfo f){List<String> parts=new ArrayList<>();parts.add(f.get_Name());parts.add(f.get_DeclaringType().get_FullName());parts.add(f.get_ReflectedType().get_FullName());parts.add(f.get_FieldType().get_FullName());parts.add(Integer.toString(f.get_Attributes().get_Value()));parts.add(f.ToString());boolean[] values={f.get_IsPublic(),f.get_IsPrivate(),f.get_IsFamily(),f.get_IsAssembly(),f.get_IsFamilyAndAssembly(),f.get_IsFamilyOrAssembly(),f.get_IsStatic(),f.get_IsInitOnly(),f.get_IsLiteral(),f.get_IsSpecialName(),f.get_IsNotSerialized(),f.get_IsPinvokeImpl(),f.get_IsCollectible()};for(boolean v:values)parts.add(Boolean.toString(v));return String.join("#",parts);}
+ static Object ownerValue(String type,String text){return switch(type){case "Boolean"->Boolean.parseBoolean(text);case "Char"->text.charAt(0);case "Int16"->Short.parseShort(text);case "Int64"->Long.parseLong(text);case "UInt64"->new java.math.BigInteger(text);case "Single"->text.equals("NaN")?Float.intBitsToFloat(0xffc00000):Float.parseFloat(text);case "Double"->text.equals("NaN")?Double.longBitsToDouble(0xfff8000000000000L):Double.parseDouble(text);default->throw new AssertionError(type);};}
+ static String scalar(Object value,String owner){if(value instanceof String v)return "System.String:"+v;if(value instanceof Boolean v)return "System.Boolean:"+v;if(value instanceof Character v)return "System.Char:"+(int)v;if(value instanceof Float v)return "System.Single:"+String.format(java.util.Locale.ROOT,"%08X",Float.floatToRawIntBits(v));if(value instanceof Double v)return "System.Double:"+String.format(java.util.Locale.ROOT,"%016X",Double.doubleToRawLongBits(v));return "System."+owner+":"+value;}
+ static String enumScalar(Object value){if(value==null)return "~";if(value instanceof StreamingContextStates v)return "System.Runtime.Serialization.StreamingContextStates:"+v.ToString();if(value instanceof Int32 v)return "System.Int32:"+v.ToString();throw new AssertionError(value.getClass());}
+ static int number(Object value){if(value instanceof IConvertible v)return v.ToInt32(null);if(value instanceof Integer v)return v;throw new AssertionError(value.getClass());}
+ static String numbers(Object[] values){StringJoiner j=new StringJoiner(";");for(Object value:values)j.add(Integer.toString(number(value)));return j.toString();}
+ static String nullable(String value){return value==null?"~":value;}
+ public static void main(String[] args)throws java.lang.Exception{int calls=0,groups=0;List<String> failures=new ArrayList<>();for(String line:Files.readAllLines(Path.of(args[0]))){String[] p=line.split("\t",-1);String result=null,error="none",message=null,param=null;int hResult=0;try{Type t=resolve(p[1]);String fieldName=decode(p[3]);switch(p[2]){case "Inventory"->{StringJoiner text=new StringJoiner(";");for(FieldInfo field:t.GetFields(BindingFlags.Public.or(BindingFlags.Static)))text.add(field.get_Name()+"#"+field.get_FieldType().get_FullName()+"#"+number(field.GetRawConstantValue())+"#"+number(field.GetValue(null)));StringJoiner raw=new StringJoiner(";");for(int value:t.GetEnumValuesAsUnderlyingType())raw.add(Integer.toString(value));result=t.GetEnumUnderlyingType().get_FullName()+"|"+String.join(";",t.GetEnumNames())+"|"+numbers(t.GetEnumValues())+"|"+raw+"|"+text;}
+ case "Typed","Raw"->{FieldInfo field=t.GetField(fieldName);Object value=p[2].equals("Typed")?field.GetValue(null):field.GetRawConstantValue();result=nullable(t.GetEnumName(value))+"|"+t.IsEnumDefined(value)+"|"+number(value);}
+ case "Numeric"->{Object value=new Int32(Integer.parseInt(p[4]));result=nullable(t.GetEnumName(value))+"|"+t.IsEnumDefined(value);}
+ case "DefinedName"->result=Boolean.toString(t.IsEnumDefined(fieldName));default->throw new AssertionError(p[2]);}}catch(Exception expected){error=expected.getClass().getName();message=expected.get_Message();hResult=expected.get_HResult();if(expected instanceof ArgumentException argument)param=argument.get_ParamName();}catch(java.lang.RuntimeException unexpected){error=unexpected.getClass().getName();message=unexpected.getMessage();}String[] actual={units(result),error,units(message),Integer.toString(hResult),units(param)};for(int i=0;i<actual.length;i++){if(!actual[i].equals(p[5+i])&&failures.size()<30)failures.add("id="+p[0]+" type="+p[1]+" route="+p[2]+" field="+fieldNameForError(p[3])+" index="+i+" actual="+actual[i]+" expected="+p[5+i]);groups++;}calls++;}if(!failures.isEmpty())throw new AssertionError(String.join("\n",failures));java.lang.System.out.println("PASS owned enum field integration calls="+calls+" groups="+groups);}
+ static String fieldNameForError(String text){return decode(text);}
+}
