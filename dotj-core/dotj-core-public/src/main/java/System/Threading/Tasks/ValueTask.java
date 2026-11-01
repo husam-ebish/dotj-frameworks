@@ -5,6 +5,7 @@ package System.Threading.Tasks;
 import System.Action;
 import System.Action_1;
 import System.ArgumentNullException;
+import System.ArgumentOutOfRangeException;
 import System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable;
 import System.Runtime.CompilerServices.ValueTaskAwaiter;
 import System.Threading.Tasks.Sources.IValueTaskSource;
@@ -15,7 +16,14 @@ import org.dotj.internal.async.ValueTaskBridge;
 
 /** Selected nongeneric System.Threading.Tasks.ValueTask over a completed value or an IValueTaskSource. */
 public final class ValueTask {
-    private static final Action_1<Object> INVOKE = new Action_1<>(state -> ((Action) state).Invoke());
+    private static final Action_1<Object> INVOKE = new Action_1<>(state -> {
+        if (state instanceof Action action) {
+            action.Invoke();
+        } else {
+            throw new ArgumentOutOfRangeException("state", state,
+                "An unexpected state object was encountered. This is usually a sign of a bug in async method custom infrastructure, such as a custom awaiter or IValueTaskSource implementation.");
+        }
+    });
     private final IValueTaskSource source;
     private final short token;
 
@@ -24,6 +32,9 @@ public final class ValueTask {
             @Override
             public void register(ValueTask task, Action continuation, ValueTaskSourceOnCompletedFlags flags) {
                 if (task.source == null) {
+                    if (continuation == null) {
+                        throw new ArgumentNullException("continuation");
+                    }
                     ForkJoinPool.commonPool().execute(continuation::Invoke);
                     return;
                 }
@@ -98,7 +109,7 @@ public final class ValueTask {
     }
 
     public int GetHashCode() {
-        return source == null ? 0 : System.identityHashCode(source);
+        return source == null ? 0 : source.hashCode();
     }
 
     @Override

@@ -1,5 +1,6 @@
 import System.Action;
 import System.Action_1;
+import System.ArgumentException;
 import System.Exception;
 import System.IAsyncDisposable;
 import System.InvalidOperationException;
@@ -31,7 +32,7 @@ public final class PublicValueTaskFixtures {
         }
     }
 
-    private static final class Source implements IValueTaskSource {
+    private static class Source implements IValueTaskSource {
         final short token;
         ValueTaskSourceStatus status;
         Exception failure;
@@ -93,6 +94,43 @@ public final class PublicValueTaskFixtures {
                 continuation.Invoke(lastState);
             }
         }
+    }
+
+    private static final class HashSource extends Source {
+        int hashCalls;
+        Exception hashFailure;
+        HashSource() { super((short) 31); }
+        @Override
+        public int hashCode() {
+            hashCalls++;
+            if (hashFailure != null) { throw hashFailure; }
+            return 123456789;
+        }
+    }
+
+    // Keep host failures visible during RED instead of aborting before comparison.
+    private static String continuationError(Runnable action) {
+        try {
+            action.run();
+            return "none";
+        } catch (ArgumentException error) {
+            return error.getClass().getName() + "|" + error.get_HResult() + "|" + error.get_ParamName()
+                + "|" + error.get_Message().replace("\r", "\\r").replace("\n", "\\n");
+        } catch (java.lang.RuntimeException error) {
+            return "host:" + error.getClass().getName();
+        }
+    }
+
+    private static void nullContinuation(String prefix, BiConsumer<ValueTask, Action> register) {
+        record(prefix + ".completed", continuationError(() -> register.accept(new ValueTask(), null)));
+        Source source = new Source((short) 32);
+        record(prefix + ".source", continuationError(() -> register.accept(new ValueTask(source, source.token), null)));
+        record(prefix + ".source.calls", source.onCompletedCalls);
+        record(prefix + ".source.stateNull", source.lastState == null);
+        record(prefix + ".source.token", source.lastToken);
+        record(prefix + ".source.flags", source.lastFlags);
+        record(prefix + ".callback.null", continuationError(() -> source.continuation.Invoke(null)));
+        record(prefix + ".callback.wrongType", continuationError(() -> source.continuation.Invoke("wrong-state")));
     }
 
     private static final class Disposer implements IAsyncDisposable {
@@ -189,6 +227,27 @@ public final class PublicValueTaskFixtures {
         record("equal.differentSource", new ValueTask(equalSource, (short) 1).Equals(new ValueTask(new Source((short) 1), (short) 1)));
         record("equal.operatorInequality", ValueTask.op_Inequality(new ValueTask(equalSource, (short) 1), new ValueTask(equalSource, (short) 2)));
         record("equal.objectSame", new ValueTask(equalSource, (short) 1).Equals((Object) new ValueTask(equalSource, (short) 1)));
+
+        HashSource hashSource = new HashSource();
+        ValueTask hashed = new ValueTask(hashSource, (short) 31);
+        record("hash.override.value", hashed.GetHashCode());
+        record("hash.override.calls", hashSource.hashCalls);
+        Exception hashFailure = new Exception("hash failure");
+        hashSource.hashFailure = hashFailure;
+        try {
+            hashed.GetHashCode();
+            record("hash.override.failureSame", false);
+        } catch (Exception error) {
+            record("hash.override.failureSame", error == hashFailure);
+        }
+        record("hash.override.failureCalls", hashSource.hashCalls);
+
+        nullContinuation("null.await.onCompleted", (v, c) -> v.GetAwaiter().OnCompleted(c));
+        nullContinuation("null.await.unsafe", (v, c) -> v.GetAwaiter().UnsafeOnCompleted(c));
+        nullContinuation("null.configured.true.onCompleted", (v, c) -> v.ConfigureAwait(true).GetAwaiter().OnCompleted(c));
+        nullContinuation("null.configured.true.unsafe", (v, c) -> v.ConfigureAwait(true).GetAwaiter().UnsafeOnCompleted(c));
+        nullContinuation("null.configured.false.onCompleted", (v, c) -> v.ConfigureAwait(false).GetAwaiter().OnCompleted(c));
+        nullContinuation("null.configured.false.unsafe", (v, c) -> v.ConfigureAwait(false).GetAwaiter().UnsafeOnCompleted(c));
 
         flags("await.onCompleted", (s, c) -> new ValueTask(s, s.token).GetAwaiter().OnCompleted(c), new Source((short) 11));
         flags("await.unsafe", (s, c) -> new ValueTask(s, s.token).GetAwaiter().UnsafeOnCompleted(c), new Source((short) 12));

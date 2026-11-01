@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Sources;
 
-internal sealed class Source : IValueTaskSource
+internal class Source : IValueTaskSource
 {
     public readonly short Token;
     public ValueTaskSourceStatus Status;
@@ -64,6 +64,19 @@ internal sealed class Source : IValueTaskSource
     }
 }
 
+internal sealed class HashSource : Source
+{
+    public int HashCalls;
+    public Exception? HashFailure;
+    public HashSource() : base(31) { }
+    public override int GetHashCode()
+    {
+        HashCalls++;
+        if (HashFailure != null) throw HashFailure;
+        return 123456789;
+    }
+}
+
 internal sealed class Disposer : IAsyncDisposable
 {
     public int Calls;
@@ -93,6 +106,34 @@ internal static class PublicValueTaskOracle
         {
             return error.GetType().FullName + "|" + error.HResult + "|" + error.Message;
         }
+    }
+
+    private static string ContinuationError(Action action)
+    {
+        try
+        {
+            action();
+            return "none";
+        }
+        catch (ArgumentException error)
+        {
+            return error.GetType().FullName + "|" + error.HResult + "|" + error.ParamName
+                + "|" + error.Message.Replace("\r", "\\r").Replace("\n", "\\n");
+        }
+    }
+
+    private static void NullContinuation(string prefix, Action<ValueTask, Action> register)
+    {
+        // Null is deliberately supplied to characterize the native boundary.
+        Record(prefix + ".completed", ContinuationError(() => register(new ValueTask(), null!)));
+        var source = new Source(32);
+        Record(prefix + ".source", ContinuationError(() => register(new ValueTask(source, source.Token), null!)));
+        Record(prefix + ".source.calls", source.OnCompletedCalls);
+        Record(prefix + ".source.stateNull", source.LastState == null);
+        Record(prefix + ".source.token", source.LastToken);
+        Record(prefix + ".source.flags", source.LastFlags);
+        Record(prefix + ".callback.null", ContinuationError(() => source.Continuation!(null)));
+        Record(prefix + ".callback.wrongType", ContinuationError(() => source.Continuation!("wrong-state")));
     }
 
     private static void Flags(string prefix, Action<Source, Action> register, Source source, string expectedKey)
@@ -183,6 +224,30 @@ internal static class PublicValueTaskOracle
         Record("equal.differentSource", new ValueTask(equalSource, 1).Equals(new ValueTask(new Source(1), 1)));
         Record("equal.operatorInequality", new ValueTask(equalSource, 1) != new ValueTask(equalSource, 2));
         Record("equal.objectSame", new ValueTask(equalSource, 1).Equals((object)new ValueTask(equalSource, 1)));
+
+        var hashSource = new HashSource();
+        var hashed = new ValueTask(hashSource, 31);
+        Record("hash.override.value", hashed.GetHashCode());
+        Record("hash.override.calls", hashSource.HashCalls);
+        var hashFailure = new Exception("hash failure");
+        hashSource.HashFailure = hashFailure;
+        try
+        {
+            _ = hashed.GetHashCode();
+            Record("hash.override.failureSame", false);
+        }
+        catch (Exception error)
+        {
+            Record("hash.override.failureSame", ReferenceEquals(error, hashFailure));
+        }
+        Record("hash.override.failureCalls", hashSource.HashCalls);
+
+        NullContinuation("null.await.onCompleted", (v, c) => v.GetAwaiter().OnCompleted(c));
+        NullContinuation("null.await.unsafe", (v, c) => v.GetAwaiter().UnsafeOnCompleted(c));
+        NullContinuation("null.configured.true.onCompleted", (v, c) => v.ConfigureAwait(true).GetAwaiter().OnCompleted(c));
+        NullContinuation("null.configured.true.unsafe", (v, c) => v.ConfigureAwait(true).GetAwaiter().UnsafeOnCompleted(c));
+        NullContinuation("null.configured.false.onCompleted", (v, c) => v.ConfigureAwait(false).GetAwaiter().OnCompleted(c));
+        NullContinuation("null.configured.false.unsafe", (v, c) => v.ConfigureAwait(false).GetAwaiter().UnsafeOnCompleted(c));
 
         Flags("await.onCompleted", (s, c) => new ValueTask(s, s.Token).GetAwaiter().OnCompleted(c), new Source(11), "");
         Flags("await.unsafe", (s, c) => new ValueTask(s, s.Token).GetAwaiter().UnsafeOnCompleted(c), new Source(12), "");
