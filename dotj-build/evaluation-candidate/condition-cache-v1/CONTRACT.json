@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "status": "STATIC_PREPARATION_ONLY",
+  "scope": "Repeated exact raw conditions; native warning multiplicity, ownership and lifetime unobserved",
+  "baseline": "6d100e4117113085a9d973129b0634181182f5a6",
+  "counts": {
+    "groups": 6,
+    "cases": 8,
+    "fixtureFiles": 10,
+    "conditionOccurrences": 22,
+    "nativeProcessesProposed": 2
+  },
+  "observer": "Unchanged CaptureImportPathsV1; one fresh ProjectCollection and Project per ordered manifest row",
+  "parseOptions": {
+    "supportedSites": [
+      "PropertyGroup",
+      "property",
+      "ImportGroup",
+      "Import"
+    ],
+    "nativeOption": "AllowProperties",
+    "anchors": [
+      "Evaluator.cs:1002",
+      "Evaluator.cs:1320",
+      "Evaluator.cs:1446",
+      "Evaluator.cs:1620"
+    ],
+    "otherOptionsObserved": false
+  },
+  "staticAnchors": [
+    "ConditionEvaluator.cs:240-300",
+    "Conditionals/Parser.cs:134-145"
+  ],
+  "limits": {
+    "sameLiveProjectReevaluation": false,
+    "cacheLifetimeObserved": false,
+    "concurrency": false,
+    "eviction": false
+  },
+  "nativeExpectations": {
+    "successfulEvaluation": true,
+    "warningCodeAllowed": "MSB4130",
+    "warningMultiplicity": null,
+    "warningOwner": null,
+    "properties": "Static intended values retained in manifest; compare actual values after capture; no native observation yet"
+  },
+  "comparison": "Preserve full payload, row/context/order/types. Only replace exact fixture-root path prefix; never normalize raw conditions/operators/whitespace/globals/messages except literal path-prefix substitution.",
+  "identity": "Native runtime/observer/corpus fingerprint excludes mutable future Java candidate files; input lock binds fingerprint/tools; external checkpoint binds input lock. No cyclic checksums.",
+  "acceptanceCreditAdded": 0
+}

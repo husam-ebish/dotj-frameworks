@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup Condition="'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'">
+    <P>rootgroup</P>
+    <Q Condition="'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'">rootproperty</Q>
+  </PropertyGroup>
+  <ImportGroup Condition="'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'">
+    <Import Project="child.proj" Condition="'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'" />
+  </ImportGroup>
+  <Import Project="leaf.proj" Condition="'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'" />
+  <Target Name="Never"><WriteLinesToFile File="must-not-exist.txt" Lines="ran" /></Target>
+</Project>

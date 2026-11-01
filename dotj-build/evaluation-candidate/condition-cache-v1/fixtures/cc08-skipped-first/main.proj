@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup Condition="'$(Skip)' == 'Run'">
+    <P Condition="'$(SkipMode)' == 'Alpha' Or '$(SkipMode)' == 'Beta' And '$(Gate)' == 'Open'">skipped</P>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Q Condition="'$(SkipMode)' == 'Alpha' Or '$(SkipMode)' == 'Beta' And '$(Gate)' == 'Open'">evaluated</Q>
+  </PropertyGroup>
+  <Target Name="Never"><WriteLinesToFile File="must-not-exist.txt" Lines="ran" /></Target>
+</Project>
