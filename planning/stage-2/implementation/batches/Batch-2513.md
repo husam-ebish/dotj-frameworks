@@ -19,7 +19,7 @@
 | Acceptance | 0/1092 accepted implementation tasks (0.00%), 1686 open acceptance items, 0/66 qualified frameworks; 2 in progress and64 not started. Core27/build25/other1040 tasks remain; three core E01 decisions remain OPEN. |
 | Numbered batches | 2512 completed until this feature actually integrates. Old2500 milestone remaining0; whole-project planned/remaining batches UNKNOWN. Cases/control groups are not batches. |
 | Next action | Independent task/whole-branch review, then root-owned no-ff merge and immediate master/feature push. No merge/push has been performed by the implementer. |
-| Next proposed work | Source/contract/native baseline for Task-backed nongeneric ValueTask conversion and AsTask/Preserve using the Task prerequisite; exact next scope and further group/batch count remain unbaselined. |
+| Next proposed work | Source-backed Task.Run(Action), FromException(Exception) and CancellationTokenSource.CancelAsync vertical; root design preflight `task47-core-worktask-cancelasync-design-preflight-v1.json` SHA `88d17f19...`. Unnumbered until integration, fresh reconciliation and scope review; further group/batch count UNKNOWN. |
 
 | Work group | Done / selected | Remaining |
 |---|---:|---:|
