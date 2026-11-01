@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup Condition="'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'">
+    <P>importgroup</P>
+    <Q Condition="'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'">importproperty</Q>
+  </PropertyGroup>
+</Project>

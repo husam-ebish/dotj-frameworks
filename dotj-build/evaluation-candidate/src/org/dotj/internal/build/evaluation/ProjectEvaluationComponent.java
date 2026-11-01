@@ -380,6 +380,11 @@ final class ProjectEvaluationComponent {
         private record ConditionAtom(String raw) implements ConditionExpression { }
         private record ConditionAnd(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
         private record ConditionOr(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
+        private record ParsedCondition(ConditionExpression expression, boolean mixedAndOr) { }
+        // All supported sites use AllowProperties. Exact raw spelling is the cache key.
+        // Retain immutable syntax only: no State, owner, globals or expanded values.
+        private static final Map<String,ParsedCondition> CONDITIONS = new HashMap<>();
+        private static final int CONDITION_CACHE_THRESHOLD = 3000;
         private final class ConditionParser {
             final String raw;
             int cursor, depth, nodes;
@@ -461,14 +466,25 @@ final class ProjectEvaluationComponent {
         boolean condition(Element element, Path owner) throws IOException {
             String raw=element.getAttribute("Condition");
             if(raw.isEmpty())return true;
-            ConditionParser parser=new ConditionParser(raw);
-            ConditionExpression expression=parser.parse();
-            if(parser.mixedAndOr) {
+            ParsedCondition parsed;
+            boolean warn=false;
+            synchronized(CONDITIONS) {
+                // Source-derived bounded retention; native eviction/concurrency remain unqualified.
+                if(CONDITIONS.size()>CONDITION_CACHE_THRESHOLD)CONDITIONS.clear();
+                parsed=CONDITIONS.get(raw);
+                if(parsed==null) {
+                    ConditionParser parser=new ConditionParser(raw);
+                    parsed=new ParsedCondition(parser.parse(),parser.mixedAndOr);
+                    CONDITIONS.put(raw,parsed);
+                    warn=parsed.mixedAndOr();
+                }
+            }
+            if(warn) {
                 ImportSite site=conditionSites.get(element);
                 if(site==null)throw reject("XML_SOURCE_INDEX","Missing condition source identity");
                 conditionWarnings.add(new ConditionWarning("MSB4130",site.owner(),site.line(),site.column(),raw));
             }
-            return evaluateCondition(expression,owner,new int[1]);
+            return evaluateCondition(parsed.expression(),owner,new int[1]);
         }
         // Parsing limits the node count, which also bounds this recursion.
         private boolean evaluateCondition(ConditionExpression expression, Path owner, int[] steps) throws IOException {

@@ -1,0 +1,448 @@
+{
+  "schemaVersion": 1,
+  "status": "STATIC_NATIVE_INPUTS_FROZEN_NO_OBSERVATIONS",
+  "candidateSourcePinned": false,
+  "inputs": [
+    {
+      "base": "repo",
+      "path": "dotj-build/evaluation-candidate/condition-cache-v1/.gitattributes",
+      "sha256": "71d42b90e64e11454415595a38628d1c0b4846ff075f9c977c9938f5dc6ea558"
+    },
+    {
+      "base": "repo",
+      "path": "dotj-build/evaluation-candidate/condition-cache-v1/CONTRACT.json",
+      "sha256": "ec304b69afbddacc367000b1d53af2805c0c50054f68092cebaa229a8943817d"
+    },
+    {
+      "base": "repo",
+      "path": "dotj-build/evaluation-candidate/condition-cache-v1/evidence/manifest.json",
+      "sha256": "a4997ed6b8340a195697605002896ab5b2a5416a8c39d0a506f529787ed46287"
+    },
+    {
+      "base": "repo",
+      "path": "dotj-build/evaluation-candidate/condition-cache-v1/evidence/native-fingerprint.json",
+      "sha256": "ed44fbe4b73de7b5b8882f0d8e884d2364688bc114d60e96d1fa288bd4c601d6"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/condition-cache-v1/capture.py",
+      "sha256": "321e3d0e48faba1c27e0952a5e5eddb674c9b3f299fb7676c4c9d90844167fc3"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/condition-cache-v1/outer_cleanup_adapter.py",
+      "sha256": "9e2a68c1c4525fef8445e10d39cbd9a2f99c99e8f10ef02c039732e9168d446c"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/condition-cache-v1/test_capture.py",
+      "sha256": "96df36dce2317fc059d2b6e54d35e5a3a8fff622953b9cc3b63126a98b4453ec"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/condition-cache-v1/test_outer_adapter.py",
+      "sha256": "caeb51d2386607f2905c9b352686b5de3c3726502ac3365e8763c3be7a832f60"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/condition-cache-v1/test_verify.py",
+      "sha256": "402f4c4142f86aabe60a8d8cc719a74f0dcd8322be1eef98771fc7c834e2cead"
+    },
+    {
+      "base": "repo",
+      "path": "tools/oracle/dotj-build/condition-cache-v1/verify.py",
+      "sha256": "562bc744b7160a6df4b718649cfa22b7c92c06f112b9cf994b3b9dd802ea5e90"
+    },
+    {
+      "base": "root",
+      "path": "orchestration/two-frameworks/task-19-capture-phase-v4.py",
+      "sha256": "aedae01c3b8e692020de54477c8fa521fb6dc85b0b64cd3cc9d8d06d362988a5"
+    },
+    {
+      "base": "root",
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/ConditionEvaluator.cs",
+      "sha256": "5ed6af27c735988e413c9d2972f80603b0177581f5e48a0df7652cf00ee28d7c"
+    },
+    {
+      "base": "root",
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/Parser.cs",
+      "sha256": "37257c7da59755bfc3795177da20e5a7ee88ae0ce5f58abdec94719eb4af65d9"
+    },
+    {
+      "base": "root",
+      "path": "references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Evaluator.cs",
+      "sha256": "be9173e280c73e654129d396364f4373fdcafabbf21235b058aa399084a3d9a3"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/LICENSE.txt",
+      "sha256": "62bec384df47b0328307db41455ff6ea2559e5546b394ac69148561b21703120"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_asyncio.pyd",
+      "sha256": "166206ce4d432931cb29d8ee7398edf84b1b751d694668e0c89fff65f4147657"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_bz2.pyd",
+      "sha256": "64d9fbb516e08a6780dca160e40d8c6723d2a659b5ca3020de7a041305b3a3d4"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_ctypes.pyd",
+      "sha256": "b9c9e713f11e111daa55e4a62a135d7e385fa7aa0986d30b286d000e122b13aa"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_decimal.pyd",
+      "sha256": "b1f2dd16190154652f9ddb9e58a335932f56674dcdf6395bc634c577ae00429c"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_elementtree.pyd",
+      "sha256": "951e2623208ee402825f574041944cb9de2c67a9671c2cac607c1c22cd6da31a"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_hashlib.pyd",
+      "sha256": "1e079c6b44488e273bc62d9bcb27cec519e9916b47b8c2878ebade0772e0f484"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_lzma.pyd",
+      "sha256": "999ba26fe0b0376b7898d50ddb2f5012e7a64228e31fcdca99a4d7079df669e3"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_multiprocessing.pyd",
+      "sha256": "ce2b76029e1d4a3d4248bfe786277c6118f284e713bd2ba275d1288690e5aac5"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_overlapped.pyd",
+      "sha256": "8f40faaf55ce040ff5027a23df21da549e7d22a590832e47f6ce75a54a6134e5"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_queue.pyd",
+      "sha256": "baa5a4cec6c369efc461f7109f1e6150c0afeef8ce53dbd9d673a00093cdadf8"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_socket.pyd",
+      "sha256": "7acc6c44436bf77be3c425d39f0acba03b42119513ef9db31a7039c969e056bd"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_sqlite3.pyd",
+      "sha256": "48672a5c55ca7d0cda0e05e9b00201f3aff791bea79604e671d4e0b25cfb5dbe"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_ssl.pyd",
+      "sha256": "738c579ed151498337026ea1f5dc7688197b41b74e39f4d9de05261bb35d9206"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_uuid.pyd",
+      "sha256": "a004b7f5b07333db6c7079244c3880d57aae4bdfa56bde8bca2c530dea824cd2"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_wmi.pyd",
+      "sha256": "6793bd216b5a329689cde8b1532858d6731707ec5063897f979a81e57077402c"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/_zoneinfo.pyd",
+      "sha256": "4d0d790eb40e033dbc114f95f04b24e49b17e902aee66755e345c2b0c6fc7d28"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/libcrypto-3.dll",
+      "sha256": "e03dd02fdcfb791981c9962827cfcf495f2a47a514c1526efb57f847a9df514a"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/libffi-8.dll",
+      "sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/libssl-3.dll",
+      "sha256": "1e4bc0638682bfcbb36f4465d6a2e9944d917a60f05ecc8ddf9e96847e05e13f"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/pyexpat.pyd",
+      "sha256": "922dd767c7a27065d2a8bd08f151bfcf22f92b25e9abdf981297960f7587d650"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/python.cat",
+      "sha256": "275a686addc6d068fa35215cc75d42492d4e407416c87682c578eeaede214eb4"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/python.exe",
+      "sha256": "08a64dc73ac3e3776b49f0097c6306bdb9c8f7990a037065213324d328467bf5"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/python3.dll",
+      "sha256": "9b179a9e44badc9c9d327182996040c87be183ad4c9469645280ed3e4a2d7694"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/python313._pth",
+      "sha256": "35ddf94682ff9aa713a8d63557242ad00f3f28fdd39337f02c3bda4c0f791577"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/python313.dll",
+      "sha256": "c9f98606d0d06f4e8ae75ae385021e58b57c90d4fd325c0313c8c42abe1ebf63"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/python313.zip",
+      "sha256": "c3036ffd9a1a0121d9cfbc705513c9965b41da9db5c9c54491be7eb181d58acc"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/pythonw.exe",
+      "sha256": "960d4e036ac0d01a5a092ad0f7ac192b821e4e70ccecfe0cb443967bf8e22897"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/select.pyd",
+      "sha256": "01c8fef709b657b17e1db3754b05cb1070ad3e303dd531ef0f5545316df53aa2"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/sqlite3.dll",
+      "sha256": "a8236fc65f202eb8a98bd4397b39cfaacc2771ff4d765acadef0abf91492dcd3"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/unicodedata.pyd",
+      "sha256": "cc1f066d88c26a21808ec6053c0989d702b6d46429bb4f363e4f29b67f311c89"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/vcruntime140.dll",
+      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/vcruntime140_1.dll",
+      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8"
+    },
+    {
+      "base": "root",
+      "path": "toolchains/python-3.13.9/winsound.pyd",
+      "sha256": "f019f208df5f531b17ff91ba1a7e5aaa56567e0a38f2c99e8c391aacde87b03c"
+    }
+  ],
+  "limits": {
+    "heapMiB": 128,
+    "processors": 2,
+    "timeoutSeconds": 30,
+    "queryTimeoutSeconds": 20,
+    "minFreePhysicalKiB": 524288,
+    "minFreeVirtualKiB": 16777216,
+    "resourceWaitSeconds": 120,
+    "resourcePollSeconds": 5,
+    "aggregateCaptureSeconds": 540,
+    "nativeCleanupReserveSeconds": 35,
+    "outerCeilingSeconds": 600,
+    "maxResourceAgeSeconds": 2,
+    "nativeProcessAndCleanupBudgetSeconds": 35,
+    "nativeCleanupTotalSeconds": 5,
+    "nativeKillBudgetSeconds": 2,
+    "outerTreeKillTimeoutSeconds": 20,
+    "outerDrainTimeoutSeconds": 5,
+    "outerFinalDrainTimeoutSeconds": 5
+  },
+  "executionPins": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task-19-capture-phase-v4.py",
+      "sha256": "aedae01c3b8e692020de54477c8fa521fb6dc85b0b64cd3cc9d8d06d362988a5"
+    },
+    {
+      "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "sha256": "60c9b29843624dd8af6b6a7b26147753be6aeef65098b9a503cc50850afe410f"
+    },
+    {
+      "path": "C:\\Windows\\System32\\taskkill.exe",
+      "sha256": "1249717315fc8f4d2df17d5db9da0444795fdb9fb83dfb1f763c3f39282244f7"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_asyncio.pyd",
+      "sha256": "166206ce4d432931cb29d8ee7398edf84b1b751d694668e0c89fff65f4147657"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_bz2.pyd",
+      "sha256": "64d9fbb516e08a6780dca160e40d8c6723d2a659b5ca3020de7a041305b3a3d4"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_ctypes.pyd",
+      "sha256": "b9c9e713f11e111daa55e4a62a135d7e385fa7aa0986d30b286d000e122b13aa"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_decimal.pyd",
+      "sha256": "b1f2dd16190154652f9ddb9e58a335932f56674dcdf6395bc634c577ae00429c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_elementtree.pyd",
+      "sha256": "951e2623208ee402825f574041944cb9de2c67a9671c2cac607c1c22cd6da31a"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_hashlib.pyd",
+      "sha256": "1e079c6b44488e273bc62d9bcb27cec519e9916b47b8c2878ebade0772e0f484"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_lzma.pyd",
+      "sha256": "999ba26fe0b0376b7898d50ddb2f5012e7a64228e31fcdca99a4d7079df669e3"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_multiprocessing.pyd",
+      "sha256": "ce2b76029e1d4a3d4248bfe786277c6118f284e713bd2ba275d1288690e5aac5"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_overlapped.pyd",
+      "sha256": "8f40faaf55ce040ff5027a23df21da549e7d22a590832e47f6ce75a54a6134e5"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_queue.pyd",
+      "sha256": "baa5a4cec6c369efc461f7109f1e6150c0afeef8ce53dbd9d673a00093cdadf8"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_socket.pyd",
+      "sha256": "7acc6c44436bf77be3c425d39f0acba03b42119513ef9db31a7039c969e056bd"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_sqlite3.pyd",
+      "sha256": "48672a5c55ca7d0cda0e05e9b00201f3aff791bea79604e671d4e0b25cfb5dbe"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_ssl.pyd",
+      "sha256": "738c579ed151498337026ea1f5dc7688197b41b74e39f4d9de05261bb35d9206"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_uuid.pyd",
+      "sha256": "a004b7f5b07333db6c7079244c3880d57aae4bdfa56bde8bca2c530dea824cd2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_wmi.pyd",
+      "sha256": "6793bd216b5a329689cde8b1532858d6731707ec5063897f979a81e57077402c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\_zoneinfo.pyd",
+      "sha256": "4d0d790eb40e033dbc114f95f04b24e49b17e902aee66755e345c2b0c6fc7d28"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\libcrypto-3.dll",
+      "sha256": "e03dd02fdcfb791981c9962827cfcf495f2a47a514c1526efb57f847a9df514a"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\libffi-8.dll",
+      "sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\libssl-3.dll",
+      "sha256": "1e4bc0638682bfcbb36f4465d6a2e9944d917a60f05ecc8ddf9e96847e05e13f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\LICENSE.txt",
+      "sha256": "62bec384df47b0328307db41455ff6ea2559e5546b394ac69148561b21703120"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\pyexpat.pyd",
+      "sha256": "922dd767c7a27065d2a8bd08f151bfcf22f92b25e9abdf981297960f7587d650"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.cat",
+      "sha256": "275a686addc6d068fa35215cc75d42492d4e407416c87682c578eeaede214eb4"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python.exe",
+      "sha256": "08a64dc73ac3e3776b49f0097c6306bdb9c8f7990a037065213324d328467bf5"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python3.dll",
+      "sha256": "9b179a9e44badc9c9d327182996040c87be183ad4c9469645280ed3e4a2d7694"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python313._pth",
+      "sha256": "35ddf94682ff9aa713a8d63557242ad00f3f28fdd39337f02c3bda4c0f791577"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python313.dll",
+      "sha256": "c9f98606d0d06f4e8ae75ae385021e58b57c90d4fd325c0313c8c42abe1ebf63"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\python313.zip",
+      "sha256": "c3036ffd9a1a0121d9cfbc705513c9965b41da9db5c9c54491be7eb181d58acc"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\pythonw.exe",
+      "sha256": "960d4e036ac0d01a5a092ad0f7ac192b821e4e70ccecfe0cb443967bf8e22897"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\select.pyd",
+      "sha256": "01c8fef709b657b17e1db3754b05cb1070ad3e303dd531ef0f5545316df53aa2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\sqlite3.dll",
+      "sha256": "a8236fc65f202eb8a98bd4397b39cfaacc2771ff4d765acadef0abf91492dcd3"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\unicodedata.pyd",
+      "sha256": "cc1f066d88c26a21808ec6053c0989d702b6d46429bb4f363e4f29b67f311c89"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\vcruntime140.dll",
+      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\vcruntime140_1.dll",
+      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\python-3.13.9\\winsound.pyd",
+      "sha256": "f019f208df5f531b17ff91ba1a7e5aaa56567e0a38f2c99e8c391aacde87b03c"
+    }
+  ],
+  "copiedInputs": [
+    {
+      "base": "root",
+      "path": "validation/task24-native-pass1/CaptureImports.dll",
+      "target": "CaptureImports.dll",
+      "sha256": "146c884247995aefe942836456be66f8fc65067eb5c10c34da1a5c9729402277"
+    },
+    {
+      "base": "root",
+      "path": "validation/task24-native-pass1/CaptureImports.runtimeconfig.json",
+      "target": "CaptureImports.runtimeconfig.json",
+      "sha256": "e17d7238425cc363a850c7e53ad31221b40b7dbfe37c8b155703f9b8e73af1cc"
+    },
+    {
+      "base": "repo",
+      "path": "dotj-build/evaluation-candidate/condition-cache-v1/evidence/manifest.json",
+      "target": "manifest.json",
+      "sha256": "a4997ed6b8340a195697605002896ab5b2a5416a8c39d0a506f529787ed46287"
+    }
+  ],
+  "identity": "Fingerprint pins native runtime/observer/corpus; this input lock pins fingerprint plus harness. External checkpoint pins input lock; no layer pins itself or later layer.",
+  "observationsPerformed": 0,
+  "fixRound1": {
+    "scope": [
+      "NPR-01",
+      "NPR-02"
+    ],
+    "adapter": "tools/oracle/dotj-build/condition-cache-v1/outer_cleanup_adapter.py",
+    "helperFileChanged": false,
+    "nativeFingerprintChanged": false
+  }
+}

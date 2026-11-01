@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <P Condition="('$(Control)' == 'Alpha' Or '$(Control)' == 'Beta') And '$(Gate)' == 'Open'">control</P>
+    <Q Condition="('$(Control)' == 'Alpha' Or '$(Control)' == 'Beta') And '$(Gate)' == 'Open'">control</Q>
+  </PropertyGroup>
+  <Target Name="Never"><WriteLinesToFile File="must-not-exist.txt" Lines="ran" /></Target>
+</Project>

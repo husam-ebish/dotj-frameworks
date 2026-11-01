@@ -1,0 +1,364 @@
+{
+  "schemaVersion": 1,
+  "status": "STATIC_UNOBSERVED",
+  "cases": [
+    {
+      "id": "cc01-repeat-alpha",
+      "group": "repeat-fresh-collections",
+      "globals": {
+        "Mode": "Alpha",
+        "Gate": "Open"
+      },
+      "staticIntendedTruth": [
+        true,
+        true
+      ],
+      "staticIntendedProperties": {
+        "P": "Alpha",
+        "Q": "Alpha"
+      },
+      "notes": "Identical XML bytes in all three rows; fresh collection each row within one process. Static intention is not native observation."
+    },
+    {
+      "id": "cc02-repeat-gamma",
+      "group": "repeat-fresh-collections",
+      "globals": {
+        "Mode": "Gamma",
+        "Gate": "Open"
+      },
+      "staticIntendedTruth": [
+        false,
+        false
+      ],
+      "staticIntendedProperties": {
+        "P": "",
+        "Q": ""
+      },
+      "notes": "Identical XML bytes in all three rows; fresh collection each row within one process. Static intention is not native observation."
+    },
+    {
+      "id": "cc03-repeat-beta",
+      "group": "repeat-fresh-collections",
+      "globals": {
+        "Mode": "Beta",
+        "Gate": "Open"
+      },
+      "staticIntendedTruth": [
+        true,
+        true
+      ],
+      "staticIntendedProperties": {
+        "P": "Beta",
+        "Q": "Beta"
+      },
+      "notes": "Identical XML bytes in all three rows; fresh collection each row within one process. Static intention is not native observation."
+    },
+    {
+      "id": "cc04-root-import-sites",
+      "group": "root-import-sites",
+      "globals": {
+        "SiteMode": "Alpha",
+        "Gate": "Open"
+      },
+      "staticIntendedTruth": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "staticIntendedProperties": {
+        "P": "importgroup",
+        "Q": "leaf"
+      },
+      "notes": "Root/import ownership and PropertyGroup/property/ImportGroup/Import share AllowProperties; alternate ParserOptions not exercised."
+    },
+    {
+      "id": "cc05-whitespace",
+      "group": "raw-whitespace",
+      "globals": {
+        "Mode": "Alpha",
+        "Gate": "Open"
+      },
+      "staticIntendedTruth": [
+        true,
+        true
+      ],
+      "staticIntendedProperties": {
+        "P": "Alpha",
+        "Q": "Alpha"
+      },
+      "notes": "Whitespace differs from cc01; byte spelling must survive pair comparison."
+    },
+    {
+      "id": "cc06-operator-case",
+      "group": "raw-operator-case",
+      "globals": {
+        "Mode": "Alpha",
+        "Gate": "Open"
+      },
+      "staticIntendedTruth": [
+        true,
+        true
+      ],
+      "staticIntendedProperties": {
+        "P": "Alpha",
+        "Q": "Alpha"
+      },
+      "notes": "Operator case differs from cc01; no case normalization."
+    },
+    {
+      "id": "cc07-parenthesized",
+      "group": "parenthesized-unmixed",
+      "globals": {
+        "Control": "Alpha",
+        "Gate": "Open"
+      },
+      "staticIntendedTruth": [
+        true,
+        true
+      ],
+      "staticIntendedProperties": {
+        "P": "control",
+        "Q": "control"
+      },
+      "notes": "Unmixed parenthesized precedence control; do not assume warning count."
+    },
+    {
+      "id": "cc08-skipped-first",
+      "group": "skipped-first",
+      "globals": {
+        "Skip": "Hold",
+        "SkipMode": "Alpha",
+        "Gate": "Open"
+      },
+      "staticIntendedTruth": [
+        false,
+        null,
+        true
+      ],
+      "staticIntendedProperties": {
+        "P": "",
+        "Q": "evaluated"
+      },
+      "notes": "First sameRaw property occurrence is under skipped group; second evaluated later. No native warning state inferred from validation."
+    }
+  ],
+  "counts": {
+    "groups": 6,
+    "cases": 8,
+    "fixtureFiles": 10,
+    "conditionOccurrences": 22,
+    "nativeProcessesProposed": 2
+  },
+  "fixtures": [
+    {
+      "path": "cc01-repeat-alpha/main.proj",
+      "sha256": "6ef84c0dca87a0a6cb15f4f698bac0c11d6e6e76d2db463524dc6dd1a067840e",
+      "bytes": 347
+    },
+    {
+      "path": "cc02-repeat-gamma/main.proj",
+      "sha256": "6ef84c0dca87a0a6cb15f4f698bac0c11d6e6e76d2db463524dc6dd1a067840e",
+      "bytes": 347
+    },
+    {
+      "path": "cc03-repeat-beta/main.proj",
+      "sha256": "6ef84c0dca87a0a6cb15f4f698bac0c11d6e6e76d2db463524dc6dd1a067840e",
+      "bytes": 347
+    },
+    {
+      "path": "cc04-root-import-sites/child.proj",
+      "sha256": "d3ca53cea8ab0664ab046f22064919d1957fa86c14595e410794e8f7b27587a9",
+      "bytes": 283
+    },
+    {
+      "path": "cc04-root-import-sites/leaf.proj",
+      "sha256": "cd04ee2e20621a0c42d9a2bb77ace22eec1b3387d7f901069740773d8bbf7814",
+      "bytes": 66
+    },
+    {
+      "path": "cc04-root-import-sites/main.proj",
+      "sha256": "e1369cee98a6933bd7440214c2867df89a74be77f0f353b8321d2e34bc598933",
+      "bytes": 736
+    },
+    {
+      "path": "cc05-whitespace/main.proj",
+      "sha256": "d7dd46cc3c9e10c7a43e71c35012e16a6e94f75d9dc0df0b91365504035570fd",
+      "bytes": 355
+    },
+    {
+      "path": "cc06-operator-case/main.proj",
+      "sha256": "ed05338be7d9aae56721856396be86654f9613cd4f17a86a716f7543885be2a4",
+      "bytes": 347
+    },
+    {
+      "path": "cc07-parenthesized/main.proj",
+      "sha256": "bea48948a25b69fb1e2fc5d767e2e216dc56b363928293951cb4b2ca4a38cd28",
+      "bytes": 363
+    },
+    {
+      "path": "cc08-skipped-first/main.proj",
+      "sha256": "f91c692a4a5d078e86ed4aa7c4c84ee95c3e50c911111cb2c5e874877782d676",
+      "bytes": 433
+    }
+  ],
+  "conditionOccurrences": [
+    {
+      "fixture": "cc01-repeat-alpha/main.proj",
+      "raw": "'$(Mode)' == 'Alpha' Or '$(Mode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 3,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc01-repeat-alpha/main.proj",
+      "raw": "'$(Mode)' == 'Alpha' Or '$(Mode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 4,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc02-repeat-gamma/main.proj",
+      "raw": "'$(Mode)' == 'Alpha' Or '$(Mode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 3,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc02-repeat-gamma/main.proj",
+      "raw": "'$(Mode)' == 'Alpha' Or '$(Mode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 4,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc03-repeat-beta/main.proj",
+      "raw": "'$(Mode)' == 'Alpha' Or '$(Mode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 3,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc03-repeat-beta/main.proj",
+      "raw": "'$(Mode)' == 'Alpha' Or '$(Mode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 4,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc04-root-import-sites/child.proj",
+      "raw": "'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 2,
+      "attributeColumn": 18,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc04-root-import-sites/child.proj",
+      "raw": "'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 4,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc04-root-import-sites/main.proj",
+      "raw": "'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 2,
+      "attributeColumn": 18,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc04-root-import-sites/main.proj",
+      "raw": "'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 4,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc04-root-import-sites/main.proj",
+      "raw": "'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 6,
+      "attributeColumn": 16,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc04-root-import-sites/main.proj",
+      "raw": "'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 7,
+      "attributeColumn": 34,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc04-root-import-sites/main.proj",
+      "raw": "'$(SiteMode)' == 'Alpha' Or '$(SiteMode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 9,
+      "attributeColumn": 31,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc05-whitespace/main.proj",
+      "raw": "'$(Mode)' == 'Alpha'  Or  '$(Mode)' == 'Beta'  And  '$(Gate)' == 'Open'",
+      "attributeLine": 3,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc05-whitespace/main.proj",
+      "raw": "'$(Mode)' == 'Alpha'  Or  '$(Mode)' == 'Beta'  And  '$(Gate)' == 'Open'",
+      "attributeLine": 4,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc06-operator-case/main.proj",
+      "raw": "'$(Mode)' == 'Alpha' oR '$(Mode)' == 'Beta' aNd '$(Gate)' == 'Open'",
+      "attributeLine": 3,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc06-operator-case/main.proj",
+      "raw": "'$(Mode)' == 'Alpha' oR '$(Mode)' == 'Beta' aNd '$(Gate)' == 'Open'",
+      "attributeLine": 4,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc07-parenthesized/main.proj",
+      "raw": "('$(Control)' == 'Alpha' Or '$(Control)' == 'Beta') And '$(Gate)' == 'Open'",
+      "attributeLine": 3,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc07-parenthesized/main.proj",
+      "raw": "('$(Control)' == 'Alpha' Or '$(Control)' == 'Beta') And '$(Gate)' == 'Open'",
+      "attributeLine": 4,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc08-skipped-first/main.proj",
+      "raw": "'$(Skip)' == 'Run'",
+      "attributeLine": 2,
+      "attributeColumn": 18,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc08-skipped-first/main.proj",
+      "raw": "'$(SkipMode)' == 'Alpha' Or '$(SkipMode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 3,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    },
+    {
+      "fixture": "cc08-skipped-first/main.proj",
+      "raw": "'$(SkipMode)' == 'Alpha' Or '$(SkipMode)' == 'Beta' And '$(Gate)' == 'Open'",
+      "attributeLine": 6,
+      "attributeColumn": 8,
+      "context": "static attribute position; native warning ownership/positions unobserved"
+    }
+  ]
+}
