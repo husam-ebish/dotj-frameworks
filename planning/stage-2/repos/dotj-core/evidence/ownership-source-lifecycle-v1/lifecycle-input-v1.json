@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "profile": "ownership-source-lifecycle-v1",
+  "reference": {
+    "sdk": "10.0.401",
+    "runtime": "10.0.12"
+  },
+  "javaFixtures": {
+    "LifecycleConsumer.java": "11796d2faed2d47729c81604c8399f3a6f8bed6e3578b583852a4f26f027d8e5",
+    "Owner.java": "6aa40453406544753880f00b16673517de6796957d4692ca82f75b87a25ed8a9",
+    "Resource.java": "82daca01283b6498c1a02005dbc7c75f2f14ba64b933d10022bfb0f25d08220b",
+    "Producer.java": "9112d1a7491e17b8c436ce607ef0aa7f69ca154f72809e8b30006b9e37f1b93f"
+  },
+  "javaEvidenceSha256": "d7caf5682c2fc66608090b4804ae2a882a965fca0922ac2918a737d5bfced838",
+  "excluded": {
+    "ZeroConsumer": "Blocked: its instance field initializer has no direct C# form (CS0236)",
+    "publicApi": "Fixtures run on a private runtime JAR, not the public candidate",
+    "contextAndRaces": "Execution context, scheduling flags and concurrency are not in this profile"
+  }
+}

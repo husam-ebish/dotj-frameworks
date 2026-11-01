@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "profile": "ownership-source-lifecycle-v1",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "inputSha256": "b6c06a08a04b9ea2b8403674f1c14bc49ec2d1b6fde9264902a36c98d6be73fb",
+  "result": "PASS|syncDisposals=1|pendingDisposals=1|sourceCallbacks=1|sourceResultCalls=1|sourceToken=-8|throwDisposals=1|faultResultCalls=1|cleanupResultCalls=1|borrowedAfterExplicit=1|borrowedCloses=0",
+  "routes": {
+    "pending": "IValueTaskSource",
+    "fault": "IValueTaskSource",
+    "cleanup": "IValueTaskSource",
+    "registration": "ConfigureAwait(false).UnsafeOnCompleted",
+    "tokens": [
+      -8,
+      5,
+      7
+    ],
+    "flags": 0
+  },
+  "observations": {
+    "syncCompletedSuccessfully": true,
+    "borrowedUntouchedAfterOwner": true,
+    "pendingBeforeCompletion": true,
+    "doneBeforeCompletion": 0,
+    "registrations": 1,
+    "stateIsAction": true,
+    "doneAfterCompletion": 1,
+    "pendingCompletedSuccessfully": true,
+    "beforeReturnSameException": true,
+    "faultSameException": true,
+    "faultSameCause": true,
+    "cleanupSameException": true,
+    "borrowedUntouchedBeforeCaller": true,
+    "failurePhases": [
+      "DisposeAsync-before-return",
+      "GetResult-source-fault",
+      "finally-GetResult-source-fault"
+    ]
+  },
+  "diagnostics": {
+    "exceptions": [
+      {
+        "role": "beforeReturn",
+        "type": "System.Exception",
+        "message": "before return",
+        "hResult": -2146233088,
+        "innerType": null,
+        "innerMessage": null,
+        "sameAsSupplied": true,
+        "wrappers": []
+      },
+      {
+        "role": "fault",
+        "type": "System.Exception",
+        "message": "result fault",
+        "hResult": -2146233088,
+        "innerType": "System.Exception",
+        "innerMessage": "cause",
+        "sameAsSupplied": true,
+        "wrappers": []
+      },
+      {
+        "role": "cleanup",
+        "type": "System.Exception",
+        "message": "result fault",
+        "hResult": -2146233088,
+        "innerType": "System.Exception",
+        "innerMessage": "cause",
+        "sameAsSupplied": true,
+        "wrappers": []
+      }
+    ],
+    "statusCalls": 2,
+    "actionStateSameReference": true
+  }
+}

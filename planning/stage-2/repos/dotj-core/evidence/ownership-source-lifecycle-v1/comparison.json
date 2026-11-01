@@ -1,0 +1,57 @@
+{
+  "status": "PASS_MATCHED_LIFECYCLE_OBSERVABLES",
+  "profile": "ownership-source-lifecycle-v1",
+  "javaEvidenceSha256": "d7caf5682c2fc66608090b4804ae2a882a965fca0922ac2918a737d5bfced838",
+  "nativeEvidenceSha256": "0e695c86e1abc4501333045c82436e77c323f54dd2d2110911734a8221da7585",
+  "runId": "Batch-2502-run2",
+  "counters": {
+    "syncDisposals": 1,
+    "pendingDisposals": 1,
+    "sourceCallbacks": 1,
+    "sourceResultCalls": 1,
+    "sourceToken": -8,
+    "throwDisposals": 1,
+    "faultResultCalls": 1,
+    "cleanupResultCalls": 1,
+    "borrowedAfterExplicit": 1,
+    "borrowedCloses": 0
+  },
+  "nativeDiagnostics": {
+    "exceptions": [
+      {
+        "role": "beforeReturn",
+        "type": "System.Exception",
+        "message": "before return",
+        "hResult": -2146233088,
+        "innerType": null,
+        "innerMessage": null,
+        "sameAsSupplied": true,
+        "wrappers": []
+      },
+      {
+        "role": "fault",
+        "type": "System.Exception",
+        "message": "result fault",
+        "hResult": -2146233088,
+        "innerType": "System.Exception",
+        "innerMessage": "cause",
+        "sameAsSupplied": true,
+        "wrappers": []
+      },
+      {
+        "role": "cleanup",
+        "type": "System.Exception",
+        "message": "result fault",
+        "hResult": -2146233088,
+        "innerType": "System.Exception",
+        "innerMessage": "cause",
+        "sameAsSupplied": true,
+        "wrappers": []
+      }
+    ],
+    "statusCalls": 2,
+    "actionStateSameReference": true
+  },
+  "acceptanceCredit": 0,
+  "zeroInitializerPair": "BLOCKED_LANGUAGE_SHAPE_CS0236"
+}
