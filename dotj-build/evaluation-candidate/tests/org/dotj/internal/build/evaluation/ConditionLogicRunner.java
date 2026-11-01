@@ -25,7 +25,10 @@ final class ConditionLogicRunner {
                 StringJoiner imports=new StringJoiner("|");
                 for(ImportEdge edge:result.imports())
                     imports.add(root.relativize(edge.owner())+">"+root.relativize(edge.target())+"@"+edge.line()+":"+edge.column());
-                System.out.println(columns[0]+"\tOK\t"+encode(result.property("P"))+"\t"+encode(result.property("Q"))+"\t"+encode(imports.toString()));
+                StringJoiner warnings=new StringJoiner("|");
+                for(ConditionWarning warning:result.conditionWarnings())
+                    warnings.add(warning.referenceCode()+":"+root.relativize(warning.file())+"@"+warning.line()+":"+warning.column()+":"+warning.condition());
+                System.out.println(columns[0]+"\tOK\t"+encode(result.property("P"))+"\t"+encode(result.property("Q"))+"\t"+encode(imports.toString())+"\t"+encode(warnings.toString()));
             } catch(ProfileRejected rejected) {
                 System.out.println(columns[0]+"\tREJECT\t"+rejected.code);
             }

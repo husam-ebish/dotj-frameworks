@@ -55,10 +55,12 @@ final class ProjectEvaluationComponent {
     public record DuplicateImport(String referenceCode, Path owner, Path importedProject,
                                   WarningPosition current, ImportSite previous, Path rootContext,
                                   DiagnosticKind kind, ContextKind contextKind) { }
+    public record ConditionWarning(String referenceCode, Path file, int line, int column, String condition) { }
     public record Result(Map<String, String> escapedProperties, List<Path> evaluatedFiles,
                          List<DuplicateImport> duplicateImports, List<ImportEdge> imports,
-                         List<ImportEdge> importsIncludingDuplicates) {
+                         List<ImportEdge> importsIncludingDuplicates, List<ConditionWarning> conditionWarnings) {
         public Result {
+            conditionWarnings = List.copyOf(conditionWarnings);
             escapedProperties = Map.copyOf(escapedProperties); evaluatedFiles = List.copyOf(evaluatedFiles);
             duplicateImports = List.copyOf(duplicateImports); imports = List.copyOf(imports);
             // Null explicitly means unavailable for this profile; an available empty list stays empty.
@@ -106,7 +108,7 @@ final class ProjectEvaluationComponent {
         State state = new State(sandbox, globals, profile);
         state.read(project.toAbsolutePath().normalize(), true);
         return new Result(state.properties, state.files, state.duplicates, state.imports,
-                          profile == ImportProfile.RECORD_DUPLICATES ? state.recordedImports : null);
+                          profile == ImportProfile.RECORD_DUPLICATES ? state.recordedImports : null, state.conditionWarnings);
     }
     private static final class State {
         final Path sandbox;
@@ -120,6 +122,8 @@ final class ProjectEvaluationComponent {
         final LinkedHashSet<Path> seen = new LinkedHashSet<>();
         final List<Path> files = new ArrayList<>();
         final List<DuplicateImport> duplicates = new ArrayList<>();
+        final List<ConditionWarning> conditionWarnings = new ArrayList<>();
+        final Map<Element,ImportSite> conditionSites = new IdentityHashMap<>();
         final Map<Element,ImportSite> sourceSites = new IdentityHashMap<>();
         final Map<Path,ImportSite> firstImports = new HashMap<>();
         State(Path sandbox, Map<String,String> globals, ImportProfile profile) throws IOException {
@@ -182,7 +186,7 @@ final class ProjectEvaluationComponent {
                 });
                 byte[] bytes = Files.readAllBytes(file);
                 Document document = builder.parse(new ByteArrayInputStream(bytes),file.toUri().toString());
-                SourceIndex.attach(document,bytes,file,sourceSites);
+                SourceIndex.attach(document,bytes,file,sourceSites,conditionSites);
                 return document;
             } catch (ParserConfigurationException | SAXException exception) {
                 throw reject("XML_PROFILE", "XML syntax/DTD/entities outside controlled profile: " + exception.getMessage());
@@ -258,7 +262,7 @@ final class ProjectEvaluationComponent {
                     case "Import" -> importFile(child, owner);
                     case "ImportGroup" -> {
                         attrs(child, Set.of("Condition"));
-                        if (condition(child.getAttribute("Condition"),owner)) {
+                        if (condition(child,owner)) {
                             for(Element element:elements(child)) {
                                 if(!element.getTagName().equals("Import")) throw reject("IMPORT_GROUP_CHILD", "Only Import child supported");
                                 importFile(element,owner);
@@ -272,13 +276,13 @@ final class ProjectEvaluationComponent {
         }
         void propertyGroup(Element group, Path owner) throws IOException {
             attrs(group, Set.of("Condition"));
-            if (!condition(group.getAttribute("Condition"),owner)) return;
+            if (!condition(group,owner)) return;
             for (Element property : elements(group)) {
                 String name=key(property.getTagName()); attrs(property,Set.of("Condition"));
                 if (globalNames.contains(name) && !localOverrides.contains(name)) continue;
                 // Individual property conditions use the main project directory. Group/import
                 // conditions and Import Project resolution retain their defining-file owner.
-                if (!condition(property.getAttribute("Condition"),rootProject)) continue;
+                if (!condition(property,rootProject)) continue;
                 if (property.getElementsByTagName("*").getLength()!=0) throw reject("PROPERTY_XML", "Nested property XML not supported");
                 String value=expand(property.getTextContent());unescape(value);properties.put(name,value);
             }
@@ -300,7 +304,7 @@ final class ProjectEvaluationComponent {
         void importFile(Element element, Path owner) throws IOException {
             attrs(element,Set.of("Project","Condition"));
             if(!elements(element).isEmpty()) throw reject("IMPORT_CHILD", "Import children not supported");
-            if(!condition(element.getAttribute("Condition"),owner))return;
+            if(!condition(element,owner))return;
             ImportSite current = sourceSites.get(element);
             if (current == null) throw reject("XML_SOURCE_INDEX", "Missing import source identity");
             // All selected same-profile native end fields were observed as 0/0.
@@ -379,6 +383,8 @@ final class ProjectEvaluationComponent {
         private final class ConditionParser {
             final String raw;
             int cursor, depth, nodes;
+            // MSBuild marks every And/Or node, and each Expr level consumes its own marks.
+            boolean andMarked, orMarked, mixedAndOr;
             ConditionParser(String raw) {
                 this.raw=raw;
                 // Validate reference/escape spelling without expanding a value or probing a path.
@@ -406,12 +412,16 @@ final class ProjectEvaluationComponent {
             }
             // And binds tighter than Or; both associate left and short-circuit.
             ConditionExpression disjunction() {
+                boolean outerAnd=andMarked,outerOr=orMarked;
+                andMarked=orMarked=false;
                 ConditionExpression result=conjunction();space();
                 while(keyword("or")) {
                     cursor+=2;
                     ConditionExpression right=conjunction();
-                    node();result=new ConditionOr(result,right);space();
+                    node();result=new ConditionOr(result,right);orMarked=true;space();
                 }
+                mixedAndOr|=andMarked&&orMarked;
+                andMarked=outerAnd;orMarked=outerOr;
                 return result;
             }
             ConditionExpression conjunction() {
@@ -419,7 +429,7 @@ final class ProjectEvaluationComponent {
                 while(keyword("and")) {
                     cursor+=3;
                     ConditionExpression right=primary();
-                    node();result=new ConditionAnd(result,right);space();
+                    node();result=new ConditionAnd(result,right);andMarked=true;space();
                 }
                 return result;
             }
@@ -448,9 +458,17 @@ final class ProjectEvaluationComponent {
                 node();return new ConditionAtom(atom);
             }
         }
-        boolean condition(String raw, Path owner) throws IOException {
+        boolean condition(Element element, Path owner) throws IOException {
+            String raw=element.getAttribute("Condition");
             if(raw.isEmpty())return true;
-            return evaluateCondition(new ConditionParser(raw).parse(),owner,new int[1]);
+            ConditionParser parser=new ConditionParser(raw);
+            ConditionExpression expression=parser.parse();
+            if(parser.mixedAndOr) {
+                ImportSite site=conditionSites.get(element);
+                if(site==null)throw reject("XML_SOURCE_INDEX","Missing condition source identity");
+                conditionWarnings.add(new ConditionWarning("MSB4130",site.owner(),site.line(),site.column(),raw));
+            }
+            return evaluateCondition(expression,owner,new int[1]);
         }
         // Parsing limits the node count, which also bounds this recursion.
         private boolean evaluateCondition(ConditionExpression expression, Path owner, int[] steps) throws IOException {
@@ -520,8 +538,9 @@ final class ProjectEvaluationComponent {
      * Positions count UTF-16 characters, with XML CR/CRLF line normalization.
      */
     private static final class SourceIndex {
-        private record Start(String name, int offset) { }
-        static void attach(Document document, byte[] bytes, Path file, Map<Element,ImportSite> sites) {
+        private record Start(String name, int offset, int conditionOffset) { }
+        static void attach(Document document, byte[] bytes, Path file, Map<Element,ImportSite> sites,
+                           Map<Element,ImportSite> conditionSites) {
             String source;
             try {
                 source = Charset.forName(document.getInputEncoding()).newDecoder()
@@ -545,15 +564,16 @@ final class ProjectEvaluationComponent {
                 int nameStart = open+(closing ? 2 : 1), nameEnd = nameStart;
                 while (nameEnd < source.length() && !Character.isWhitespace(source.charAt(nameEnd))
                        && source.charAt(nameEnd) != '/' && source.charAt(nameEnd) != '>') nameEnd++;
-                if (!closing) starts.add(new Start(source.substring(nameStart,nameEnd),open));
-                char quote = 0;int end = nameEnd;
+                char quote = 0;int end = nameEnd,conditionOffset = -1;
                 for (;end < source.length();end++) {
                     char c = source.charAt(end);
                     if (quote != 0) { if (c == quote) quote = 0; }
                     else if (c == '\'' || c == '"') quote = c;
                     else if (c == '>') break;
+                    else if (Character.isWhitespace(source.charAt(end-1)) && source.startsWith("Condition",end)) conditionOffset = end;
                 }
                 if (end == source.length()) throw reject("XML_SOURCE_INDEX", "Unterminated XML start tag");
+                if (!closing) starts.add(new Start(source.substring(nameStart,nameEnd),open,conditionOffset));
                 cursor = end+1;
             }
             NodeList elements = document.getElementsByTagName("*");
@@ -567,6 +587,14 @@ final class ProjectEvaluationComponent {
                     else column++;
                 }
                 sites.put(element,new ImportSite(file,line,column));
+                if (start.conditionOffset() >= 0) {
+                    int conditionLine = line,conditionColumn = column;
+                    for (int i2 = position;i2 < start.conditionOffset();i2++) {
+                        if (source.charAt(i2) == '\n') { conditionLine++;conditionColumn = 1; }
+                        else conditionColumn++;
+                    }
+                    conditionSites.put(element,new ImportSite(file,conditionLine,conditionColumn));
+                }
             }
         }
         private static int after(String source,String delimiter,int start) {

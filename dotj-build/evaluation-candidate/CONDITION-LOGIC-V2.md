@@ -31,9 +31,13 @@ The four refusals were declared in the fixture manifest before native capture:
 
 `verify.py` still passes its 94 packaged comparisons. The three legacy rows in `predecessor-transitions.json` now test a malformed `Or` input, so they are transitions, not unchanged results. Their exact old documents are native-compared as `CL09-legacy-*`.
 
+## MSB4130
+
+Batch 2506 reports MSB4130 for evaluated conditions that mix `And` and `Or` at one expression level, following `Parser.cs`: each `Expr` level, including a parenthesized group, consumes its own marks, so `(true Or false) And false` does not warn. `Result.conditionWarnings` carries the code, file, line, column and condition text, and the native comparison covers all five fields. Skipped conditions are not evaluated, so they do not warn.
+
 ## Limits
 
-- The candidate does not emit the MSB4130 warning that native reports for mixed `And`/`Or` without parentheses.
+- Repeated identical conditions each report MSB4130 here; native parse caching for repeats is not captured.
 - Native failure text and positions are not compared.
 - `!=`, `!`, relational operators, items, globs and property functions stay outside the profile.
 - This is internal candidate work. `DJ-005-WP-01-T1` stays open and no acceptance credit is granted.
