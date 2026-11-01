@@ -2521,7 +2521,8 @@
     "Batch-2504",
     "Batch-2505",
     "Batch-2506",
-    "Batch-2507"
+    "Batch-2507",
+    "Batch-2508"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2714,7 +2715,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2507",
+      "lastUpdatedBatch": "Batch-2508",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12333,19 +12334,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2508",
+    "id": "Batch-2509",
     "framework": "dotj-core",
     "planTaskIds": [
-      "DJ-001-N01-T2"
+      "DJ-001-WP-02-T2"
     ],
-    "outcome": "Migrate System.Reflection.TypeFilter and MemberFilter to class-backed delegates.",
+    "outcome": "Define the public Task and ValueTask contract needed by CancelAsync, F01-03 and F01-04.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2507,
+    "completedBatches": 2508,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"

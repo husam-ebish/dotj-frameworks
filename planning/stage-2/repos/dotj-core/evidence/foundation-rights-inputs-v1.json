@@ -2,15 +2,23 @@
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR only; technical inputs for a licensing decision, not clearance",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "b6ae6cd74f018d71bdd2c94bd67bc8a6c761e05e8b18df18bf422c09a22af0d7",
+  "jarSha256": "f13802c2b463cb0bc33d80e9be7ba23b7fd3ccde3cdeb7347676aed538757bce",
   "selectedProductLicense": "MIT",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
-  "productSourceCount": 112,
+  "productSourceCount": 118,
   "productSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Action.java",
       "sha256": "13834efa1aa616b582ea120a4d51e02f2584ba18e7603c3cea8167dac5117093",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/AggregateException.java",
+      "sha256": "b3826b8df56c30ada8b6e5b2ca976d2c656147eae68663fc387e28fb8c33c82b",
       "classCount": 1,
       "headerHasSpdxIdentifier": true,
       "headerHasCopyrightNotice": false,
@@ -425,6 +433,22 @@
       "headerNamesDotNetFoundation": false
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/ObjectDisposedException.java",
+      "sha256": "a64cfa85b72cbae505f44c6e353eb1c46c3e4cabef070ac2a54a5b4d17627baf",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/OperationCanceledException.java",
+      "sha256": "fcf81b474ea5b8c07c7ff084558c88352536d6a49456266e2bc90bd42baef0a0",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/OutOfMemoryException.java",
       "sha256": "e9f160838c185b810593cbd244adf07bf90d87c8a0485461366f586af67d66b4",
       "classCount": 1,
@@ -804,6 +828,30 @@
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/UnicodeEncoding.java",
       "sha256": "fb3b3555af00e424e05b1dde71fbf188b562671c9ddbeed6d1b907d774511667",
       "classCount": 3,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationToken.java",
+      "sha256": "d9019f86a90599f9bea292a627ed1a23618227f8c2d528aa41786afaee2e8ced",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationTokenRegistration.java",
+      "sha256": "629212a69c5682b0cfc0840995802b572a8f223a58a7201b4f373c532394f627",
+      "classCount": 1,
+      "headerHasSpdxIdentifier": true,
+      "headerHasCopyrightNotice": false,
+      "headerNamesDotNetFoundation": false
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationTokenSource.java",
+      "sha256": "02d25e9501976d88fa58a0f49643f411d09139a44810657cc4af0b18f51307ba",
+      "classCount": 1,
       "headerHasSpdxIdentifier": true,
       "headerHasCopyrightNotice": false,
       "headerNamesDotNetFoundation": false

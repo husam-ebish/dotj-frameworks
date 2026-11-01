@@ -448,10 +448,34 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/delegates/ActionBody.java",
       "sha256": "cb014c3c3d0e160e5504b2d54354f5fe83135cb677541e6fea20fe4a8ef29593"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/AggregateException.java",
+      "sha256": "b3826b8df56c30ada8b6e5b2ca976d2c656147eae68663fc387e28fb8c33c82b"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/ObjectDisposedException.java",
+      "sha256": "a64cfa85b72cbae505f44c6e353eb1c46c3e4cabef070ac2a54a5b4d17627baf"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/OperationCanceledException.java",
+      "sha256": "fcf81b474ea5b8c07c7ff084558c88352536d6a49456266e2bc90bd42baef0a0"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationToken.java",
+      "sha256": "d9019f86a90599f9bea292a627ed1a23618227f8c2d528aa41786afaee2e8ced"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationTokenRegistration.java",
+      "sha256": "629212a69c5682b0cfc0840995802b572a8f223a58a7201b4f373c532394f627"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationTokenSource.java",
+      "sha256": "02d25e9501976d88fa58a0f49643f411d09139a44810657cc4af0b18f51307ba"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "b6ae6cd74f018d71bdd2c94bd67bc8a6c761e05e8b18df18bf422c09a22af0d7",
+  "jarSha256": "f13802c2b463cb0bc33d80e9be7ba23b7fd3ccde3cdeb7347676aed538757bce",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -459,6 +483,7 @@
     "META-INF/MANIFEST.MF",
     "META-INF/LICENSE",
     "System/Action.class",
+    "System/AggregateException.class",
     "System/ApplicationException.class",
     "System/ArgumentException.class",
     "System/ArgumentNullException.class",
@@ -510,6 +535,8 @@
     "System/NotImplementedException.class",
     "System/NotSupportedException.class",
     "System/NullReferenceException.class",
+    "System/ObjectDisposedException.class",
+    "System/OperationCanceledException.class",
     "System/OutOfMemoryException.class",
     "System/OverflowException.class",
     "System/ReadOnlySpan.class",
@@ -574,6 +601,9 @@
     "System/Text/UnicodeEncoding$UnicodeDecoder.class",
     "System/Text/UnicodeEncoding$UnicodeEncoder.class",
     "System/Text/UnicodeEncoding.class",
+    "System/Threading/CancellationToken.class",
+    "System/Threading/CancellationTokenRegistration.class",
+    "System/Threading/CancellationTokenSource.class",
     "System/TimeSpan.class",
     "System/Type$1.class",
     "System/Type$2.class",
@@ -614,6 +644,7 @@
   ],
   "classSha256": {
     "System/Action.class": "2a0b8da1e940dfcb23dce4a728c3906f3fa6e05296ba715d5afb4e1e7feda41a",
+    "System/AggregateException.class": "e6209a070a733fdc38c9394ddf537f21a4e862d71b28965b4af3044d712735dd",
     "System/ApplicationException.class": "4b83a59086c4d5377358324c1cc9327c947dd673bc3dc0da20b9f443a036919e",
     "System/ArgumentException.class": "ea0ce656b3d6c80727b34edbd90cef4605f4dedaabceefb4b71fe1931f8807fe",
     "System/ArgumentNullException.class": "2cd366ad265e9c29443994d6b7c02c8a023f80acdf361b3a811604bb77312687",
@@ -665,6 +696,8 @@
     "System/NotImplementedException.class": "ccb3dc3e9496962c28c80c4153374dad80d119416f60f736866f25a121d313b6",
     "System/NotSupportedException.class": "debe51d9dfcb2c98849d0f91fdcf80fd9a1b0ac7f7c22b7e922dd14f30d7f1a5",
     "System/NullReferenceException.class": "56143723bee2c925c6ff564e83fc30bafa0f870fc31a83c8d0eeaaba09bae7c1",
+    "System/ObjectDisposedException.class": "1959583558c4b2a541239408d38a053a18133efe31211197a0374312c4af8bb0",
+    "System/OperationCanceledException.class": "948b81b761c871dce1ef95589f2ed5ad95552ba21cc9b96275b72794b68a8135",
     "System/OutOfMemoryException.class": "5840f8bf04832dc94d16d91abd8668ecde374052ebadd6d3dd9ab228f0b1ee46",
     "System/OverflowException.class": "3ad22e648ab9b7bf086776ea77f6568451fcf71c904d3799d6745b8cdb4ddd56",
     "System/ReadOnlySpan.class": "95988b5925dd283f6ebc43e4c9dd368c76638e443a511bc1a5b6e2fd43f27e5c",
@@ -729,6 +762,9 @@
     "System/Text/UnicodeEncoding$UnicodeDecoder.class": "20d683ef8fc0c7163cf6ca3c10b72cd24503e870bb26069131a03f625ededde7",
     "System/Text/UnicodeEncoding$UnicodeEncoder.class": "596213c4aab12a891cc435aefa20de890bba826008e2809b7f36aae1540705e2",
     "System/Text/UnicodeEncoding.class": "2111ac3da9822d7383ebfb7b74014c556648dda2d7954dba3e4613c9203b569f",
+    "System/Threading/CancellationToken.class": "5370f6071710d5518dd1f927e4e105895d5a0c3fca9a1fa2acbcd4ae808ecaa7",
+    "System/Threading/CancellationTokenRegistration.class": "c169233598f93d44972f09d38578371016e336e1342fb0016535aee543fa8e5d",
+    "System/Threading/CancellationTokenSource.class": "65e32c4d3fddbdf335a71bc6193951c469f48f12ad99fa2c129ccc2b95a90776",
     "System/TimeSpan.class": "7ba310346c6886e0f736c7256230fb27631c73e233e5bbb1adcc25419e598994",
     "System/Type$1.class": "7b36aec6c039fb86189357f88eb8000319bbea4e31d69ca1a00927cc65e4dfc5",
     "System/Type$2.class": "2fe506ae6b81061726bcccc429bf694ce7afd26881271a6f01906bb8f1fe5957",

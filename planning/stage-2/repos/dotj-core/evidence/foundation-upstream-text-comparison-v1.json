@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 112 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 118 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "b6ae6cd74f018d71bdd2c94bd67bc8a6c761e05e8b18df18bf422c09a22af0d7",
+  "jarSha256": "f13802c2b463cb0bc33d80e9be7ba23b7fd3ccde3cdeb7347676aed538757bce",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -15,6 +15,18 @@
       "upstreamSha256": "4814c761246b013306000bb4d3b188f8060922e9cb6342f16e17507cf1eff791",
       "productIdentifierCount": 81,
       "upstreamIdentifierCount": 1481,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/AggregateException.java",
+      "productSha256": "b3826b8df56c30ada8b6e5b2ca976d2c656147eae68663fc387e28fb8c33c82b",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/AggregateException.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/AggregateException.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "b8996ab7343613dfdd4e2d5ef813d9fcebdb74979fcb10c8537ded508833be5d",
+      "productIdentifierCount": 73,
+      "upstreamIdentifierCount": 1833,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
     },
@@ -648,6 +660,30 @@
       "sharedIdentifierShingleSamples": []
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/ObjectDisposedException.java",
+      "productSha256": "a64cfa85b72cbae505f44c6e353eb1c46c3e4cabef070ac2a54a5b4d17627baf",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/ObjectDisposedException.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/ObjectDisposedException.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "f17048421fa2e8f386a171d7437529fc3275b0c96554799469214782743b549d",
+      "productIdentifierCount": 50,
+      "upstreamIdentifierCount": 369,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/OperationCanceledException.java",
+      "productSha256": "fcf81b474ea5b8c07c7ff084558c88352536d6a49456266e2bc90bd42baef0a0",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/OperationCanceledException.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/OperationCanceledException.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "a1cb158a7c06252562c2e4759591f490550f0dc8dc524d5913f75b243b370767",
+      "productIdentifierCount": 67,
+      "upstreamIdentifierCount": 167,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/OutOfMemoryException.java",
       "productSha256": "e9f160838c185b810593cbd244adf07bf90d87c8a0485461366f586af67d66b4",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/OutOfMemoryException.cs",
@@ -1196,6 +1232,42 @@
       "upstreamSha256": "b5a717988edb22bae8688fb5cf9d8efe9d503dfe2918cdb5a9c95578a5768828",
       "productIdentifierCount": 4193,
       "upstreamIdentifierCount": 7013,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationToken.java",
+      "productSha256": "d9019f86a90599f9bea292a627ed1a23618227f8c2d528aa41786afaee2e8ced",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationToken.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationToken.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "productIdentifierCount": 185,
+      "upstreamIdentifierCount": 2389,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationTokenRegistration.java",
+      "productSha256": "629212a69c5682b0cfc0840995802b572a8f223a58a7201b4f373c532394f627",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "productIdentifierCount": 142,
+      "upstreamIdentifierCount": 996,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationTokenSource.java",
+      "productSha256": "02d25e9501976d88fa58a0f49643f411d09139a44810657cc4af0b18f51307ba",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "productIdentifierCount": 445,
+      "upstreamIdentifierCount": 6090,
       "sharedIdentifierShinglesOfLength12": 0,
       "sharedIdentifierShingleSamples": []
     },

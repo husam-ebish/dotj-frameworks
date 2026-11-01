@@ -1,14 +1,20 @@
 {
   "schemaVersion": 1,
-  "scope": "112 hashed Java product sources in the built foundation candidate JAR",
+  "scope": "118 hashed Java product sources in the built foundation candidate JAR",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "b6ae6cd74f018d71bdd2c94bd67bc8a6c761e05e8b18df18bf422c09a22af0d7",
-  "sourceCount": 112,
+  "jarSha256": "f13802c2b463cb0bc33d80e9be7ba23b7fd3ccde3cdeb7347676aed538757bce",
+  "sourceCount": 118,
   "sources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Action.java",
       "sha256": "13834efa1aa616b582ea120a4d51e02f2584ba18e7603c3cea8167dac5117093",
       "localIntroductionCommit": "3438db243afe4b022836281843cca3c73964344c",
+      "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/AggregateException.java",
+      "sha256": "b3826b8df56c30ada8b6e5b2ca976d2c656147eae68663fc387e28fb8c33c82b",
+      "localIntroductionCommit": "9225b933638192ddfa17b7688640379f33a00dfb",
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     },
     {
@@ -318,6 +324,18 @@
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/ObjectDisposedException.java",
+      "sha256": "a64cfa85b72cbae505f44c6e353eb1c46c3e4cabef070ac2a54a5b4d17627baf",
+      "localIntroductionCommit": "9225b933638192ddfa17b7688640379f33a00dfb",
+      "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/OperationCanceledException.java",
+      "sha256": "fcf81b474ea5b8c07c7ff084558c88352536d6a49456266e2bc90bd42baef0a0",
+      "localIntroductionCommit": "9225b933638192ddfa17b7688640379f33a00dfb",
+      "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/OutOfMemoryException.java",
       "sha256": "e9f160838c185b810593cbd244adf07bf90d87c8a0485461366f586af67d66b4",
       "localIntroductionCommit": "62a1e5c3b774fb3cc88146eaa48c27839d746ea5",
@@ -606,6 +624,24 @@
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationToken.java",
+      "sha256": "d9019f86a90599f9bea292a627ed1a23618227f8c2d528aa41786afaee2e8ced",
+      "localIntroductionCommit": "9225b933638192ddfa17b7688640379f33a00dfb",
+      "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationTokenRegistration.java",
+      "sha256": "629212a69c5682b0cfc0840995802b572a8f223a58a7201b4f373c532394f627",
+      "localIntroductionCommit": "9225b933638192ddfa17b7688640379f33a00dfb",
+      "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationTokenSource.java",
+      "sha256": "02d25e9501976d88fa58a0f49643f411d09139a44810657cc4af0b18f51307ba",
+      "localIntroductionCommit": "9225b933638192ddfa17b7688640379f33a00dfb",
+      "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java",
       "sha256": "6a47bf60566edd39e14c9051b15c0527e89608ad0bf483013d7e22e81f33b78d",
       "localIntroductionCommit": "e96f44b06ac2b3a7c0a8afefe54454446e398fa6",
@@ -678,7 +714,7 @@
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     }
   ],
-  "headerObservation": "MIT SPDX identifier in first 30 lines of all 112 current Java files; no inline copyright or .NET Foundation text",
+  "headerObservation": "MIT SPDX identifier in first 30 lines of all 118 current Java files; no inline copyright or .NET Foundation text",
   "upstreamNoticeApplicability": "UNRESOLVED: local Git introductions and source headers do not prove independent authorship or exclude embedded upstream material",
   "releaseQualification": "E01_OPEN"
 }
