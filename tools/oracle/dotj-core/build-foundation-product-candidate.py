@@ -390,6 +390,9 @@ SOURCES.append(PRODUCT / "src/main/java/System/Globalization/DigitShapes.java")
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Globalization/DigitShapes.class"])
 SOURCES += [PRODUCT / "src/main/java/System" / (name + ".java") for name in ("Delegate", "MulticastDelegate", "Action")]
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/delegates/ActionBody.java")
+SOURCES += [PRODUCT / "src/main/java/System" / (name + ".java") for name in ("AggregateException", "ObjectDisposedException", "OperationCanceledException")]
+SOURCES += [PRODUCT / "src/main/java/System/Threading" / (name + ".java") for name in ("CancellationToken", "CancellationTokenRegistration", "CancellationTokenSource")]
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/AggregateException.class", "System/ObjectDisposedException.class", "System/OperationCanceledException.class", "System/Threading/CancellationToken.class", "System/Threading/CancellationTokenRegistration.class", "System/Threading/CancellationTokenSource.class"])
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Action.class", "System/Delegate.class", "System/MulticastDelegate.class", "org/dotj/internal/delegates/ActionBody.class"])
 
 def main():
