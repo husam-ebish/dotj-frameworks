@@ -1,6 +1,6 @@
 # PUBLIC-TASK-N01-v2
 
-Status: implemented selected nongeneric Task prerequisite, with candidate-JAR qualification and the first canonical-gate header finding corrected. Scoped fix review, the second canonical foundation gate and final gate-JAR qualification remain pending. No batch, task, scenario or framework acceptance credit is claimed.
+Status: selected nongeneric Task prerequisite implemented and final candidate-JAR verification passed, including the full 515-check foundation gate. Framework/task acceptance remains open; no acceptance credit is claimed.
 
 This is the current implementation contract. [PUBLIC-TASK-N01-v1.md](PUBLIC-TASK-N01-v1.md) remains the immutable historical preparation/fixture contract, including its preparation-time status. Its selected surface, native source anchors, 61 scenario rows, 697 typed observations and exclusions remain binding. V2 changes no frozen expectation.
 
