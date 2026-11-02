@@ -88,7 +88,7 @@ def groups(r):
         c.require(actual and all(x.name.startswith(tuple(Path(pin['path']).stem for pin in group['fixture'])) for x in actual),'fixture-only classes; no product source fallback')
         cp=['--module-path',jar,'--add-modules','dotj.core.foundation.v1','-cp',str(out/'classes')] if module else ['-cp',str(out/'classes')+os.pathsep+jar]
         prefix=[str(p.JDK/'bin/java.exe'),*p.frozen_phases.jvm(out),*cp]
-        modes=runtime_modes(name,out,jar,group)
+        modes=runtime_modes(name,out,jar,group,r)
         c.require(len(records)==1+len(modes),'exact closed runtime count')
         for rec,(owner,arguments) in zip(records[1:],modes):
             c.require(rec['argv']==prefix+[owner,*arguments],'exact same-JAR runtime argv')
@@ -96,7 +96,16 @@ def groups(r):
         if name in ['delegate-action-v1','public-cancellation-v1','public-valuetask-v1']:c.require(group['payloads']==[c.descriptor(out/'observations.txt')],'legacy actual payload output argument')
         else:c.require(group['payloads']==[rec['streams']['stdout'] for rec in records[1:]],'payload binds actual runtime stdout')
 
-def runtime_modes(name,out,jar,group):
+def executed_delay_case_input(receipt):
+    c.validate_pin(receipt['retainedDelayPaired']);retained=c.read(receipt['retainedDelayPaired']['path'])
+    original=p.FROZEN.with_name('public-task-delay-product-v1')/'case-inputs.tsv'
+    pins=[pin for pin in retained['inputs'] if Path(pin['path'])==original]
+    c.require(len(pins)==1,'one retained executed Delay case-input version');p.resolve(pins[0])
+    executed=COMPILED_ROOT/'tools/oracle/dotj-core/public-task-delay-product-v1/case-inputs.tsv'
+    c.validate_pin(dict(pins[0],path=str(executed)))
+    return str(executed)
+
+def runtime_modes(name,out,jar,group,receipt=None):
     owner=Path(group['fixture'][0]['path']).stem
     expected=str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/expected-public-surface-v1.txt')
     if name=='paired':return [(owner,[jar,str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/matrix-v2.tsv')])]
@@ -111,7 +120,7 @@ def runtime_modes(name,out,jar,group):
     if name=='valuetask-boundaries':return [('ValueTaskTaskBoundaryControls',[mode,jar,expected]) for mode in ['controls','task-first','configured-first','conversion-first']]
     if name=='worktask-boundaries':return [('System.Threading.Tasks.WorkTaskBoundaryControls',[jar]),('System.Threading.CancelAsyncBoundaryControls',[jar])]
     if name in ['delegate-action-v1','public-cancellation-v1','public-valuetask-v1']:return [(owner,[str(out/'observations.txt')])]
-    if name=='delay':return [('PublicTaskDelayProductFixtures',[str(p.FROZEN/'fixture-manifest.json'),str(p.HERE/'case-inputs.tsv'),part,jar]) for part in ['ordinary','async']]
+    if name=='delay':return [('PublicTaskDelayProductFixtures',[str(p.FROZEN/'fixture-manifest.json'),executed_delay_case_input(receipt),part,jar]) for part in ['ordinary','async']]
     if name=='delay-private':return [('System.Threading.Tasks.TaskDelayProductControls',[jar,str(n)]) for n in range(1,10)]
     raise ValueError('unrecognized consumer group '+name)
 
@@ -269,6 +278,25 @@ def depths(e,jar):
     observed=q.prior.wire(Path(controls['groups'][0]['payloads'][0]['path']).read_bytes());wanted=c.read(HERE/'depth-matrix-v1.json')['privateControls'];c.require(set(observed)==set(wanted) and all(value==('b','true') for value in observed.values()),'complete actual depth private controls')
     return dict(cases=4,fields=72,privateControls=8,depth=8192,publicDepthLimit=False)
 
+def qualified_reader(e):
+    if 'canonicalProjection' not in e:return e['reader']
+    pin=e['finalWave']['actualFoundation']['phase'];c.validate_pin(pin);gate=c.read(pin['path'])
+    c.require(gate['status']=='PASS_GATE' and gate['finalized'] is True and gate['candidateJar']==e['candidateJar'],'actual qualified reader gate')
+    path=COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/verify_candidate.py'
+    pairs=[pair for pair in gate['inputs'] if Path(pair['original']['path'])==path]
+    c.require(len(pairs)==1 and e['canonicalProjection']['qualifiedReader']==pairs[0],'exact gate-executed historical reader version')
+    pair=pairs[0];c.validate_pin(pair['original']);c.validate_pin(pair['durable'])
+    c.require(all(pair['original'][key]==pair['durable'][key] for key in ['sha256','sizeBytes']),'qualified reader source/copy equality')
+    return pair['original']
+
+def canonical_projection(e,jar):
+    proof=e['canonicalProjection'];c.require(proof['status']=='PURE_RELOCATION_CORRECTION_AFTER_QUALIFIED_GATE','canonical proof chronology')
+    record=phase(proof['phase'],'PASS_CANONICAL-CONTROLS',jar);c.validate_pin(proof['controls']);controls=c.read(proof['controls']['path'])
+    c.require(controls['status']=='PASS' and len(controls['controls'])==16 and all(row['passed'] for row in controls['controls']),'actual relocation predicate controls')
+    c.require(controls['reader']==e['reader'] and controls['source']==proof['source'] and controls['candidateJar']==jar,'current relocation-control reader/source/artifact')
+    c.validate_pin(proof['source']);c.require(c.sha(HERE/'CanonicalProjectionControls.py')==proof['source']['sha256'],'current relocation-control source bytes')
+    c.require([command['label'] for command in record['commands']]==['canonical-controls'] and record['commands'][0]['argv']==[str(p.PYTHON),'-B',proof['source']['path'],str(Path(proof['controls']['path']).parent)],'actual owned Python-only relocation controls argv')
+
 def validate(e,artifact_override=None,source_root=None,canonical_root=Path('C:/source/repos/dotj Frameworks')):
     c.require(e['status']=='SELECTED_BEHAVIOR_CHECKS_PASSED','selected evidence status');jar=e['candidateJar'];c.validate_pin(jar)
     c.validate_pin(e['reader']);c.require(c.sha(HERE/'verify_candidate.py')==e['reader']['sha256'],'actual final reader version')
@@ -332,7 +360,7 @@ def validate(e,artifact_override=None,source_root=None,canonical_root=Path('C:/s
     if 'negativeControls' in e:
         c.validate_pin(e['negativeControls']);controls=c.read(e['negativeControls']['path']);c.require(controls['status']=='PASS' and len(controls['controls'])==47 and all(row['passed'] for row in controls['controls']),'actual new consumed predicate/source/artifact negative controls')
         previous=e['reviewedReader'];c.validate_pin(previous['durable']);c.require(all(previous['original'][k]==previous['durable'][k] for k in ['sha256','sizeBytes']),'actual reviewed reader retained')
-        expected_reader=e['reader'] if e.get('finalWave',{}).get('currentNegativeControls') is True else previous['original']
+        expected_reader=qualified_reader(e) if e.get('finalWave',{}).get('currentNegativeControls') is True else previous['original']
         c.require(controls['reader']==expected_reader and controls['source']['sha256']==c.sha(HERE/'verify-negative-controls.py'),'actual current or explicitly retained historical47 source/reader version')
         control_jar=e['finalWave']['reviewedJar']['original'] if 'finalWave' in e and not e['finalWave']['currentNegativeControls'] else jar
         owned=phase(e['negativePhase'],'PASS_NEGATIVE',control_jar);c.validate_pin(owned['selectedEvidenceInput']);c.require([rec['label'] for rec in owned['commands']]==['negative-controls'],'owned pure-control command plan')
@@ -344,10 +372,11 @@ def validate(e,artifact_override=None,source_root=None,canonical_root=Path('C:/s
     proof_out=Path(e['observationCorrection']['proofControlsPhase']['path']).parent
     c.require(proof['commands'][0]['argv']==[str(p.PYTHON),'-B',str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/verify_candidate.py'),'--observation-controls',str(proof_out/'controls')],'actual observation proof controls argv')
     c.validate_pin(e['observationCorrection']['proofControls']);proof_result=c.read(e['observationCorrection']['proofControls']['path'])
-    c.require(proof_result['status']=='PASS' and proof_result['reader']==e['reader'] and len(proof_result['controls'])==(26 if depth else 16) and all(row['passed'] for row in proof_result['controls']),'current actual observation/depth proof controls')
+    c.require(proof_result['status']=='PASS' and proof_result['reader']==qualified_reader(e) and len(proof_result['controls'])==(26 if depth else 16) and all(row['passed'] for row in proof_result['controls']),'actual qualified observation/depth proof-control reader version')
     c.require(proof_result['inputs']=={key:e['observationCorrection'][key] for key in ['native','paired','controls']},'proof controls consume these exact current observations')
     executed=proof_result['selectedEvidenceAtExecution'];c.validate_pin(executed['durable']);c.require(all(executed['original'][key]==executed['durable'][key] for key in ['sha256','sizeBytes']),'actual consumed selected evidence preserved')
     if depth:c.require(proof_result['depthInputs']=={key:e['finalWave'][key] for key in ['depthNative','depthPaired','depthControls','productFreeze']},'proof controls consume exact current depth/artifact proofs')
+    if 'canonicalProjection' in e:canonical_projection(e,jar)
     return dict(cases=e['nativeCases'],fields=e['nativeFields'],nativePassesPerMatrix=2,observationCorrection=observation,depth=depth,privateControls=len(markers),historicalGroups=historical,jarSha256=jar['sha256'],artifactProvenance=provenance)
 
 def observation_proof_controls(out):

@@ -109,9 +109,9 @@
   "nativePasses": 2,
   "privateControls": 27,
   "reader": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\verify_candidate.py",
-    "sha256": "46be18ef777b38472445bcc3c4f29de564ffdfa9039deac6f9192e6d9b878fc3",
-    "sizeBytes": 45660
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-canonical-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\verify_candidate.py",
+    "sha256": "ebf35b5f5a6c5b4847e447fe66314815f20f1da00d5eef66c86597bb4b3909c9",
+    "sizeBytes": 48329
   },
   "inheritedRunCases": 39,
   "inheritedRunFields": 524,
@@ -275,9 +275,9 @@
     {
       "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/qualify.py",
       "pin": {
-        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\qualify.py",
-        "sha256": "53c827e2580f789170d1a6ec63167e9f5f1f0b2c05b42ee7186a1c62dec44207",
-        "sizeBytes": 28369
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-canonical-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\qualify.py",
+        "sha256": "2f9ed50a5933511cb0c2417d05698b63de76c8fbdf61de80dd2873d5ec7bbd61",
+        "sizeBytes": 28544
       }
     },
     {
@@ -347,9 +347,9 @@
     {
       "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/verify_candidate.py",
       "pin": {
-        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\verify_candidate.py",
-        "sha256": "46be18ef777b38472445bcc3c4f29de564ffdfa9039deac6f9192e6d9b878fc3",
-        "sizeBytes": 45660
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-canonical-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\verify_candidate.py",
+        "sha256": "ebf35b5f5a6c5b4847e447fe66314815f20f1da00d5eef66c86597bb4b3909c9",
+        "sizeBytes": 48329
       }
     },
     {
@@ -526,6 +526,14 @@
         "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\depth-matrix-v1.json",
         "sha256": "2175ec86f902d8bc2d8dea6c1bef02abcb37d4165380ac85c01ca5f54d38cc3a",
         "sizeBytes": 1945
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/CanonicalProjectionControls.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-canonical-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\CanonicalProjectionControls.py",
+        "sha256": "7ccd065633f0c84d61ce2ccb22974b6db561c03cdcbde3ce59d3a9a30e0df2fb",
+        "sizeBytes": 6266
       }
     }
   ],
@@ -775,5 +783,46 @@
       "currentMetadataAddedAfterGate": true
     },
     "metadataChronology": "Current result/report pointers follow actual gate. Its exact four executed proof bytes are retained separately; current source/reader/tool/fixture bytes are unchanged. Gate consumed the retained current Java/native proof receipts; it did not rerun those fixtures."
+  },
+  "canonicalProjection": {
+    "status": "PURE_RELOCATION_CORRECTION_AFTER_QUALIFIED_GATE",
+    "finding": "T125-CANON-I1",
+    "qualifiedReader": {
+      "original": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\verify_candidate.py",
+        "sha256": "46be18ef777b38472445bcc3c4f29de564ffdfa9039deac6f9192e6d9b878fc3",
+        "sizeBytes": 45660
+      },
+      "durable": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\final-wave\\foundation-gate-v1\\inputs\\verify_candidate.py",
+        "sha256": "46be18ef777b38472445bcc3c4f29de564ffdfa9039deac6f9192e6d9b878fc3",
+        "sizeBytes": 45660
+      }
+    },
+    "source": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-canonical-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\CanonicalProjectionControls.py",
+      "sha256": "7ccd065633f0c84d61ce2ccb22974b6db561c03cdcbde3ce59d3a9a30e0df2fb",
+      "sizeBytes": 6266
+    },
+    "qualifiedGate": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\final-wave\\foundation-gate-v1\\receipt.json",
+      "sha256": "320f59ce493ef24beca3c85b3f395329480315ba2d6dcf1a278f3041afb0152c",
+      "sizeBytes": 538543
+    },
+    "gateExecutedThisReader": false,
+    "productSourceJarFixturesUnchanged": true,
+    "historicalControls": "Actual47 and26 controls remain bound to the gate-executed46be reader; not relabeled as current reader execution. Current relocation controls and final five pure entrypoints qualify this later reader.",
+    "actualCanonicalCExecution": false,
+    "integration": "Localmastere13 merge exists; originfffc remains unpublished. Root owns reviewed fix merge and actual C5/push; tracker2519 deliberately unchanged.",
+    "phase": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-canonical-proof-fix-v1\\canonical-controls-v1\\receipt.json",
+      "sha256": "4636af83f357a3cd7664bd43acad15ba1ccf022a86c974cf211f311d6a1d7d80",
+      "sizeBytes": 30809
+    },
+    "controls": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-canonical-proof-fix-v1\\canonical-controls-v1\\controls\\receipt.json",
+      "sha256": "86f86afd6700e315036499d788f56afe8406a93ad8f082ac9641d7ade8743135",
+      "sizeBytes": 4743
+    }
   }
 }
