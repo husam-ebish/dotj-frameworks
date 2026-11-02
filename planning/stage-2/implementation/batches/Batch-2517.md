@@ -1,0 +1,24 @@
+# Batch-2517: nongeneric Task delay and cancellation
+
+Status: selected group 1/1 implemented and qualified as a bounded candidate. Independent task review, whole-branch review and root integration/merge/push remain pending; integrated selected group 0/1. Canonical Batch-2516 was actually merged and pushed at `f4617d95dcc01edeb933e5e4273bb7ca246371a7`; this branch records the post-integration CANDIDATE count/list length 2517.
+
+Exactly five public static members are added: `Task.FromCanceled(CancellationToken)`, `Task.Delay(int)`, `Task.Delay(int,CancellationToken)`, `Task.Delay(TimeSpan)` and `Task.Delay(TimeSpan,CancellationToken)`. Task remains final with its nonpublic constructor. Validation precedes cancellation/zero fast paths; TimeSpan milliseconds retain the supported long range through the production scheduler. A private composed state owns timer and actual cancellation registration publication/cleanup. Cancellation queues delay continuations after publishing state; the original Task/TCS/Run/ValueTask dispatch behavior remains qualified. Timer expiry hands off to independent daemon workers without inheriting thread locals.
+
+One final JAR, `7528c565d2242ad5ab50700ad554e1561e71ba78ed40ed48b9a834cf58934099`, supplies all selected new and historical execution. Actual paired Java covers all 113 cases/3955 typed fields and matches both retained native passes (7910 native scalar observations). All 30 private controls execute in nine bounded groups, including late resource publication, winner-only cleanup through throwing dispatch, actual self/external registration disposal, independent timer liveness, rejection, setup failure, null carriers and four large no-token forwarding controls. The complete compiled public surface permits exactly five additions.
+
+Historical replay on the identical final JAR retains ValueTask115/1884+8, Task61/697+49, WorkTask66/612+8, delegate34/cancellation48/ValueTask135. Java-only Task and WorkTask boundary successors permit only the exact five additions while preserving every old behavior assertion; original frozen fixtures remain unchanged. Seventeen new consumed-contract/wrapper controls and three canonical artifact-resolution plus three payload/class-binding controls pass; old 69 static/mock guard controls are retained rather than rerun. The packaged Java sample executes; paired C#/.j samples record migration intent without an actual .j compiler claim.
+
+The actual fresh isolated D foundation gate passed 518/518 registered checks and rebuilt the identical final JAR. Source/notice/E01 evidence binds that hash; all three Core E01 decisions remain OPEN. Selected Task product/new/historical JDK runs use 128MiB; the required unchanged full foundation suite uses its established 256MiB envelope. Its unrelated SDK metadata phase uses an explicitly bounded 512MiB CLR heap, Windows ProgramFiles(x86), and LatestPatch, plus standard Windows PowerShell PATH/PATHEXT, while checking actual runtime10.0.12/CoreLib hash. Earlier NuGet environment, Roslyn memory, runtime binding and oversized legacy-javac failures remain recorded; they are not successful gate runs. SDK metadata retains existing SYSLIB0050 warnings.
+
+Frozen Task2517 SDK/native/baseline prerequisite producers and raw captures were never replayed or edited. Every frozen export preserves raw SHA/size; Git blob byte checks cover the frozen and new profiles. Exact old-path/hash archives support read-only verification after canonical source merge. The first overwritten product artifact was recovered by one explicitly labeled forensic compiler invocation and exact-hash ZIP reconstruction; it is `RECONSTRUCTED_EXACT_HASH`, not originally retained bytes. Twenty-three pre-existing superseded D dependencies are individually recorded as unconsumed; additional unresolved canonical inputs are zero. No old evidence is rewritten to claim a new pass.
+
+| Measure | Done | Remaining |
+| --- | ---: | ---: |
+| Selected implementation group | 1/1 candidate | independent reviews |
+| Selected integration group | 0/1 | root merge1 |
+| Accepted tasks | 0/1092 (0%) | core27/build25/other1040 |
+| Qualified frameworks | 0/66 | 1686 open acceptance items |
+| Historical Batch-2500 target | complete | 0 |
+| Whole-project batches | UNKNOWN | UNKNOWN |
+
+Product dependencies remain JDK java.base only; Python/JDK/.NET are development/reference tools. Generic Task/TCS/ValueTask arity, old generic-erasure ledgers, TimeProvider/Wait/WaitAsync/Run(token), broader scheduler/context behavior, whole WP02/N01/NF01-NF03, release rights and .j installer/feed qualification remain open. No acceptance, merge or push is claimed. See [selected evidence](../../repos/dotj-core/evidence/public-task-delay-v1.json) and [preservation](../../repos/dotj-core/evidence/public-task-delay-preservation-v2.json).

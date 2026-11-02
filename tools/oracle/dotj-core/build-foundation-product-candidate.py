@@ -417,6 +417,8 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + [
     "System/Threading/Tasks/TaskCompletionSource.class", "System/Threading/Tasks/TaskStatus.class",
     "System/Threading/Tasks/TaskCanceledException.class", "System/Runtime/CompilerServices/TaskAwaiter.class",
     "org/dotj/internal/async/TaskBridge.class"])
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Threading/Tasks/Task$" + name + ".class"
+    for name in ("CompletionAttempt", "DelayDefaults", "DelayInfrastructure", "DelayRegistrar", "DelayState", "DelayTimer", "TimerHandle")])
 
 
 def build_product(run_tool=run):

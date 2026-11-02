@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "status": "STATIC_DESIGN_REQUIRES_INDEPENDENT_ROOT_REVIEW",
+  "actualParentRuns": 0,
+  "entrypoints": [
+    "root-source-compile.py",
+    "root-native-capture.py",
+    "root-baseline-compile.py",
+    "root-baseline-red.py"
+  ],
+  "commonImplementation": "root_phase.py",
+  "originalGuardSha256": "a2a3701ae675fd563da61eb19ce41d79479bc1f435c1ec07af6c0ddefd67e125",
+  "bootstrap": "Fixed launcher imports and size-capped small identity/approval documents only. All transitive producer/input locks and full SDK/JDK/Python/source inventories and hashes reverify in the guard-owned Python parent before workload admission.",
+  "deadline": "Guard first monotonic sample is the exact root context start; deadline=start+180. Context/argv creation consumes this same clock through explicit guard.now injection; no global clock/stdlib monkeypatch.",
+  "admission": "Inside parent, full payload/source hash inventory \u2192 bound payload-admission receipt \u2192 fresh resource wait(now+160) \u2192 whole child ceiling+5 cleanup must fit ACTUAL root deadline. Check again in prelaunch.",
+  "proof": "Root receipt retains owned parent argv/env/source/input/descriptor/approval/assessment/context/artifact hashes, streams and guard result. Inner receipt retains workload evidence and bound full-payload admission. Compilation/native consumers reject inner-only receipts.",
+  "counters": "Separate typed outerPythonLaunches and innerWorkloadLaunches. Timeout without finalized bound no-child evidence leaves inner count UNKNOWN; observed launched1 remains1 even if failure. No inference of0 from missing child evidence.",
+  "approval": "Root supplies fresh assessment hash and one-phase approval bound to exact descriptor/input lock/artifact binding. No actual approval authored by preparer.",
+  "ceilings": {
+    "outerPythonSeconds": 180,
+    "nativeSeconds": 30,
+    "SDKOrJDKSeconds": 120,
+    "cleanupSeconds": 5,
+    "nativeStdoutBytes": 2097152,
+    "nativeStderrBytes": 524288,
+    "compilerEachStreamBytes": 2097152,
+    "inputJsonBytes": 16777216
+  }
+}

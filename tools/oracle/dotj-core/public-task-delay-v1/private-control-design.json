@@ -1,0 +1,545 @@
+{
+  "version": 1,
+  "status": "DESIGNED_NOT_EXECUTED",
+  "controlCount": 30,
+  "infrastructureContract": {
+    "primaryFile": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Task.java",
+    "composition": "Private nested DelayState owns a new Task, optional TimerHandle and CancellationTokenRegistration, plus a resource lock and cleanupRequested marker. Task remains final. Place helper implementations nested/private, or a package-private TaskDelaySupport.java only if size requires it. No public nested interfaces, setters, constructors or cancellation producer escapes.",
+    "interfaces": [
+      "Private DelayTimer.schedule(long milliseconds, Runnable callback) -> idempotent TimerHandle.cancel()",
+      "Per-invocation registration function mapping token/callback to the actual CancellationTokenRegistration, production using token.Register(Action); the test function gates before/after the real registration and returns that real CTR, never subclasses the final carrier",
+      "Per-invocation asynchronous Executor for delay completion/continuations",
+      "Package-private test entry point accepting an immutable per-call infrastructure object, never a global mutable hook"
+    ],
+    "productionTimer": "ScheduledThreadPoolExecutor with remove-on-cancel enabled and one scheduler worker is acceptable only for expiry notification. Scheduled work hands off to independent cached daemon workers and returns immediately; no arbitrary user continuation executes on the scheduler worker. Use java.base only. Native source supports callback threadpool dispatch; there is no exact thread-count or latency equivalence claim.",
+    "rejection": "Define a delay-specific rejected-executor fallback using a fresh noninheriting daemon worker, so neither cancellation nor timer scheduler executes user continuations inline on rejection. Preserve exactly-once completion/dispatch attempts. Catastrophic allocation failure is not a fabricated native fault mapping; retain raw failure and make cleanup best-effort in finally.",
+    "construction": "Create DelayState before invoking scheduling; finite timer may call back before schedule returns. Publish returned handle under resource lock, then dispose it outside lock if cleanupRequested or Task already terminal. Register cancellation only for cancelable non-fastpath promises; callback may run synchronously before Register returns. Publish returned CTR with the same late-publication rule. If setup throws after acquiring a resource, detach and dispose acquired resources before rethrowing the setup failure; do not fabricate a faulted Task for runtime infrastructure failure.",
+    "cleanup": "Winning timer calls completion first, then cleanup; winning cancellation completes then cleanup. Use finally around completion dispatch so unexpected dispatch failure cannot skip cleanup once terminal. Cleanup atomically marks cleanupRequested and detaches published handles under resource lock; outside all Delay/Task locks dispose registration then timer. Each late-published resource observes terminal/cleanupRequested and disposes itself outside the lock. Idempotent handle/CTR disposal permits duplicate paths safely. Record the winning attempt before continuation dispatch inside the Task terminal transition (a private per-attempt outcome holder, never a public callback). Only that winner owns completion-finally cleanup; terminal status alone is not proof this caller won. Late-publication disposal remains a separate constructor obligation. This distinguishes a loser from a winner whose dispatch subsequently throws.",
+    "lockOrder": "Never wait in CTR.Dispose while holding Delay resource lock or Task lock. Never hold resource lock across scheduling, registration, completion or arbitrary callback invocation. Source Cancel already releases CTS lock before callbacks. Cancellation cleanup can dispose its own registration without waiting; external timer cleanup can wait for an in-flight cancellation callback only while owning no locks the callback needs.",
+    "completionBeforeCleanup": "Terminal status can precede cleanup while an inline timer continuation blocks. Require eventual resource cleanup after that continuation is released, not eager cleanup at the first status observation. Late constructor publication may independently dispose its returned resource while the winning continuation is still running; both orders are source-permitted.",
+    "retention": "Canceled scheduled futures are removed from the queue. Detach resource fields after cleanup. Keep the public Task from retaining a completed DelayState unnecessarily; callback closures may retain it only until timer work/registration is released. No forced-GC timing acceptance assertion."
+  },
+  "phaseDiscipline": {
+    "seams": "Immutable infrastructure supplied only to a per-call package-private entry. Fake scheduler can invoke callback before returning handle, pause at publication, expose idempotent dispose count and release its own gate. Fake registrar can cancel token then synchronously invoke callback before returning the actual CTR. Use actual CTR for self-dispose/external-wait controls. A queued executor can hold and release individual continuations without modifying global Task behavior.",
+    "phaseControl": "CountDownLatch/CyclicBarrier/Semaphore or native ManualResetEventSlim gates with timeouts; signal entered, release, returned and cleanup-complete phases. Every acquired gate is released in finally and every owned worker joined or terminated within the process budget. Do not block the same thread that must produce the release signal. An entered-intent signal alone is not proof that Dispose blocked. Require explicit return/release ordering with a controlled callback still active, and classify any negative-at-sample observation honestly.",
+    "nativeLimits": "Native public APIs cannot force internal timer-field races. Capture only stable public observations; deterministic publication/cleanup race proofs are Java-only source-derived controls, not invented native observations.",
+    "envelopes": "Per-phase waits at most 2 seconds; use separate bounded groups/processes where needed so aggregate native execution remains within 30 seconds and Java within 120 seconds. Finite timer smoke uses a short nominal delay plus a generous 2-second completion envelope, without asserting exact elapsed milliseconds or ordering across unrelated timers. Infinite pending proof relies on branch/resource control and bounded handshakes, not a long sleep.",
+    "wire": "Versioned stable keys and strict typed Boolean/int/string observations. Add int64 encoding only if the schema explicitly defines it, otherwise serialize tick inputs as canonical strings. No absolute timestamps, exact thread IDs, addresses, scheduler latency or random ordering in equality comparisons. Race rows express allowed outcome invariants instead of requiring one native winner to repeat in Java."
+  },
+  "controls": [
+    {
+      "id": "J01",
+      "name": "timer-before-handle-publication",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Per-call fake DelayTimer invokes callback synchronously, returning a counted idempotent handle only after callback returns.",
+      "orderedSchedule": [
+        "Invoke production DelayState construction with fake timer and actual None token.",
+        "Fake schedule invokes success callback before returning handle.",
+        "Observe winning terminal payload.",
+        "Return handle and finish constructor."
+      ],
+      "assertions": [
+        "Success is terminal before timer handle publication.",
+        "Late publication disposes handle once outside locks.",
+        "No registration allocated for None."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J02",
+      "name": "synchronous-cancel-before-CTR-publication",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Registrar gates before actual token.Register; saved token is cancelable and initially live.",
+      "orderedSchedule": [
+        "Constructor schedules counted handle.",
+        "Registrar cancels CTS, then invokes actual Register(callback), causing callback synchronously.",
+        "Hold return of the actual empty CTR until terminal assertion recorded.",
+        "Return CTR; constructor applies late-publication cleanup."
+      ],
+      "assertions": [
+        "Canceled TCE retains supplied Task/token.",
+        "Returned real CTR disposed outside locks; no subclass of final CTR.",
+        "Timer canceled exactly once; no second terminal winner."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J03",
+      "name": "timer-before-registration-publication",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Registrar calls real Register, then blocks returning the acquired actual CTR.",
+      "orderedSchedule": [
+        "Constructor timer handle is published.",
+        "Registrar signals acquired-real-CTR and waits.",
+        "Controller fires timer callback.",
+        "Observe successful terminal state and timer disposal.",
+        "Release registrar; publish CTR."
+      ],
+      "assertions": [
+        "Late CTR publication disposes it idempotently.",
+        "Subsequent Cancel produces no terminal overwrite.",
+        "Resource fields detached."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J04",
+      "name": "timer-wins-then-loser",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Per-call controllable timer, actual CTS, queued executor, terminal attempt outcome instrumentation private to test invocation.",
+      "orderedSchedule": [
+        "Pause both attempts before terminal transition.",
+        "Release timer attempt and await its winner-marker.",
+        "Release other attempt.",
+        "Drain queued continuations and release cleanup."
+      ],
+      "assertions": [
+        "Exactly one winning marker and one terminal payload.",
+        "Loser does not own completion-finally cleanup.",
+        "All registered callbacks invoked once; no Faulted state.",
+        "Winner recorded before dispatch, even when dispatch throws."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J05",
+      "name": "cancel-wins-then-loser",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Per-call controllable timer, actual CTS, queued executor, terminal attempt outcome instrumentation private to test invocation.",
+      "orderedSchedule": [
+        "Pause both attempts before terminal transition.",
+        "Release cancel attempt and await its winner-marker.",
+        "Release other attempt.",
+        "Drain queued continuations and release cleanup."
+      ],
+      "assertions": [
+        "Exactly one winning marker and one terminal payload.",
+        "Loser does not own completion-finally cleanup.",
+        "All registered callbacks invoked once; no Faulted state.",
+        "Winner recorded before dispatch, even when dispatch throws."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J06",
+      "name": "async-flag-set-timer-wins",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Gate cancellation callback after its delay-only async flag store, before complete(Canceled).",
+      "orderedSchedule": [
+        "Cancel on owned worker and await after-flag gate.",
+        "Fire timer and allow success transition.",
+        "Hold asynchronous executor; observe success without running callback.",
+        "Release cancellation loser, then queued callback."
+      ],
+      "assertions": [
+        "Timer may win with asynchronous continuation dispatch.",
+        "No required race winner equality to native captures.",
+        "Payload remains successful; cancellation never overwrites it."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J07",
+      "name": "winner-dispatch-throws-cleanup-finally",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Executor fails at controlled dispatch; outcome holder is set inside Task terminal lock before dispatch.",
+      "orderedSchedule": [
+        "Force winner to publish terminal state.",
+        "Throw synthetic infrastructure failure after winner marker.",
+        "Release completion finally."
+      ],
+      "assertions": [
+        "Winner owns cleanup despite dispatch exception.",
+        "Acquired handle/CTR detached and disposed.",
+        "Raw failure is retained; no fake canceled/faulted return."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J08",
+      "name": "loser-does-not-clean-winners-inline-resources",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Winner inline callback blocks; other completion attempt loses.",
+      "orderedSchedule": [
+        "Timer wins and first inline continuation signals entered then waits.",
+        "Cancel attempt loses while terminal status is visible.",
+        "Inspect resource cleanup marker before release.",
+        "Release winner continuation and join."
+      ],
+      "assertions": [
+        "Terminal state alone does not grant loser cleanup ownership.",
+        "Winning completion finally eventually cleans resources.",
+        "Late-publication cleanup remains independently permitted."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J09",
+      "name": "double-late-publication-idempotence",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Fake timer and real registrar each hold returned resources while completion wins.",
+      "orderedSchedule": [
+        "Complete before both publications.",
+        "Publish handle, then CTR.",
+        "Invoke duplicate timer callback and duplicate cleanup requests."
+      ],
+      "assertions": [
+        "Each physical resource released once; idempotent calls safe.",
+        "No retained resource fields and no duplicate payload/callback."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J10",
+      "name": "actual-CTR-self-dispose",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Real CTS.Register callback invokes Dispose on its own real CTR captured after registration.",
+      "orderedSchedule": [
+        "Register while live and publish real CTR.",
+        "Cancel on owned worker.",
+        "Callback records self-entry, calls CTR.Dispose, records return, then exits."
+      ],
+      "assertions": [
+        "Dispose returns without waiting on itself.",
+        "No Delay/Task lock held on disposal path.",
+        "Return and callback exit both occur within envelope."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J11",
+      "name": "actual-CTR-external-wait",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Actual callback is held active by entered/release latches; actual CTR passed to external disposer.",
+      "orderedSchedule": [
+        "Start cancellation and await callback entered.",
+        "Start external disposer.",
+        "Use bounded state/stack observation to establish disposer is WAITING inside actual CTR.Dispose, never infer blocking from intent signal alone.",
+        "Controller performs independent Task status read and resource-lock probe.",
+        "Record release order, release callback, await callback exit and dispose return order."
+      ],
+      "assertions": [
+        "Dispose return order follows callback release and callback exit.",
+        "Negative-at-sample alone is diagnostic, not proof.",
+        "Task/resource probes finish while Dispose waits: no inversion/locks held."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J12",
+      "name": "success-before-inline-release-eventual-cleanup",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Timer first continuation holds explicit release latch.",
+      "orderedSchedule": [
+        "Fire timer on owned worker.",
+        "Await continuation entry; observe successful status from controller.",
+        "Confirm caller still inside continuation.",
+        "Release callback, join timer caller, await cleanup complete."
+      ],
+      "assertions": [
+        "Success publication precedes inline release.",
+        "Cleanup is eventually required, not demanded at first terminal observation."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J13",
+      "name": "scheduler-handoff-isolation",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "One expiry scheduler and independent workers; first timer continuation blocked.",
+      "orderedSchedule": [
+        "Let first expiry hand off then block first user continuation.",
+        "Schedule/fire second independent timer.",
+        "Await second successful completion before releasing first."
+      ],
+      "assertions": [
+        "Arbitrary user continuation never executes on scheduler worker.",
+        "Second timer completes while first continuation blocked.",
+        "Scheduler handoff returns promptly by explicit returned gate, not latency equality."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J14",
+      "name": "daemon-noninherit-lazy-timer",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Set InheritableThreadLocal sentinel before first use; fresh per-invocation infrastructure.",
+      "orderedSchedule": [
+        "Construct lazy-timer under sentinel owner.",
+        "Run controlled callback reading inheritance and daemon flag.",
+        "Release worker and join."
+      ],
+      "assertions": [
+        "New worker is daemon and sentinel is absent.",
+        "Lazy creation cannot inherit context.",
+        "Old Task/TCS/Run/ValueTask queue behavior remains unchanged."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J15",
+      "name": "daemon-noninherit-lazy-continuation-worker",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Set InheritableThreadLocal sentinel before first use; fresh per-invocation infrastructure.",
+      "orderedSchedule": [
+        "Construct lazy-continuation-worker under sentinel owner.",
+        "Run controlled callback reading inheritance and daemon flag.",
+        "Release worker and join."
+      ],
+      "assertions": [
+        "New worker is daemon and sentinel is absent.",
+        "Lazy creation cannot inherit context.",
+        "Old Task/TCS/Run/ValueTask queue behavior remains unchanged."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J16",
+      "name": "daemon-noninherit-rejected-executor-fallback",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Set InheritableThreadLocal sentinel before first use; fresh per-invocation infrastructure.",
+      "orderedSchedule": [
+        "Construct rejected-executor-fallback under sentinel owner.",
+        "Run controlled callback reading inheritance and daemon flag.",
+        "Release worker and join."
+      ],
+      "assertions": [
+        "New worker is daemon and sentinel is absent.",
+        "Lazy creation cannot inherit context.",
+        "Old Task/TCS/Run/ValueTask queue behavior remains unchanged."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J17",
+      "name": "rejected-executor",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Per-call executor throws RejectedExecutionException; fallback factory records fresh thread attributes.",
+      "orderedSchedule": [
+        "Cancel delay from marked call stack.",
+        "Reject queue submission.",
+        "Await fallback callback while caller returns independently."
+      ],
+      "assertions": [
+        "Fallback is asynchronous, fresh daemon and noninheriting.",
+        "No inline callback on cancellation/scheduler thread.",
+        "Exactly one callback and terminal transition."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J18",
+      "name": "setup-failure-timer-schedule-after-acquisition",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Per-invocation seam throws identified synthetic setup failure after specified acquisition.",
+      "orderedSchedule": [
+        "Acquire resource and publish acquisition evidence.",
+        "Throw at timer-schedule-after-acquisition.",
+        "Constructor finally detaches acquired resources then disposes outside locks."
+      ],
+      "assertions": [
+        "Same setup failure propagates.",
+        "No fake faulted/canceled Task is returned.",
+        "Every acquired resource released; catastrophic failure raw retained.",
+        "Ownership transfer occurs only when schedule returns a handle. If scheduling acquires then throws before returning, the scheduler implementation must release its own unreturned resource; DelayState cannot dispose an unpublished handle it never received."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J19",
+      "name": "setup-failure-registrar-after-timer-acquisition",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Per-invocation seam throws identified synthetic setup failure after specified acquisition.",
+      "orderedSchedule": [
+        "Acquire resource and publish acquisition evidence.",
+        "Throw at registrar-after-timer-acquisition.",
+        "Constructor finally detaches acquired resources then disposes outside locks."
+      ],
+      "assertions": [
+        "Same setup failure propagates.",
+        "No fake faulted/canceled Task is returned.",
+        "Every acquired resource released; catastrophic failure raw retained."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J20",
+      "name": "old-producers-dispatch-regression",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Actual old TaskCompletionSource, Task.Run and ValueTask(Task) producer paths; exact frozen behavior assertions.",
+      "orderedSchedule": [
+        "Register first blocking callback and additional callback on each old producer.",
+        "Complete producer on marked worker.",
+        "Observe first inline relation and additional queued before first release.",
+        "Register late callback and prove queued relation."
+      ],
+      "assertions": [
+        "Delay-only async state never leaks to existing producers.",
+        "All old assertions retained in Java-only 49-boundary successor."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J21",
+      "name": "null-from-canceled",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Java carrier adaptation only; CLR value types do not admit these null inputs.",
+      "orderedSchedule": [
+        "FromCanceled((CancellationToken)null)"
+      ],
+      "assertions": [
+        "ArgumentNullException(cancellationToken)",
+        "No native row or CLR parity claim."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J22",
+      "name": "null-delay",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Java carrier adaptation only; CLR value types do not admit these null inputs.",
+      "orderedSchedule": [
+        "Delay((TimeSpan)null)"
+      ],
+      "assertions": [
+        "ArgumentNullException(delay)",
+        "No native row or CLR parity claim."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J23",
+      "name": "double-null",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Java carrier adaptation only; CLR value types do not admit these null inputs.",
+      "orderedSchedule": [
+        "Delay((TimeSpan)null,(CancellationToken)null)"
+      ],
+      "assertions": [
+        "ArgumentNullException(delay)",
+        "No native row or CLR parity claim."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J24",
+      "name": "invalid-int-null",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Java carrier adaptation only; CLR value types do not admit these null inputs.",
+      "orderedSchedule": [
+        "Delay(-2,(CancellationToken)null)"
+      ],
+      "assertions": [
+        "ArgumentOutOfRangeException(millisecondsDelay)",
+        "No native row or CLR parity claim."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J25",
+      "name": "invalid-span-null",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Java carrier adaptation only; CLR value types do not admit these null inputs.",
+      "orderedSchedule": [
+        "Delay(new TimeSpan(-20000),(CancellationToken)null)"
+      ],
+      "assertions": [
+        "ArgumentOutOfRangeException(delay)",
+        "No native row or CLR parity claim."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J26",
+      "name": "valid-null-token",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Java carrier adaptation only; CLR value types do not admit these null inputs.",
+      "orderedSchedule": [
+        "Delay(0,(CancellationToken)null)"
+      ],
+      "assertions": [
+        "ArgumentNullException(cancellationToken)",
+        "No native row or CLR parity claim."
+      ],
+      "releaseFinally": "Release every gate; join every owned thread within 2s; fail if any worker or cleanup remains unresolved."
+    },
+    {
+      "id": "J27",
+      "name": "large-no-token-DelayInt-2147483647",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Per-invocation immutable infrastructure with recording fake finite scheduler, counted idempotent handle, and registrar that fails if invoked. Use the same production forwarding/validation method as the exact public no-token wrapper; never duplicate conversion in fixture.",
+      "orderedSchedule": [
+        "Invoke actual public DelayInt wrapper for value 2147483647 as a bounded pending public observation.",
+        "Require future source/call-graph control that public no-token wrapper forwards its original carrier unchanged to the shared production method with None token; no pre-forward narrowing or separate test-only conversion is allowed.",
+        "Invoke that same shared production method through per-invocation infrastructure with original input 2147483647; record schedule argument.",
+        "Inspect pending task and recorded resources; trigger fake timer success then release every fake handle in finally."
+      ],
+      "assertions": [
+        "Exactly one finite schedule call receives long 2147483647; no narrowing, signed wrap, saturation, or mistaken infinite sentinel.",
+        "No cancellation registration for no-token path; task initially WaitingForActivation, no fault, not CompletedTask.",
+        "Explicit timer fire completes successfully and idempotent handle cancellation releases the fake resource."
+      ],
+      "releaseFinally": "Release all gates; fire or cancel fake handle exactly once; join owned workers in2s; no real multi-day waiting."
+    },
+    {
+      "id": "J28",
+      "name": "large-no-token-DelaySpan-21474836480000",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Per-invocation immutable infrastructure with recording fake finite scheduler, counted idempotent handle, and registrar that fails if invoked. Use the same production forwarding/validation method as the exact public no-token wrapper; never duplicate conversion in fixture.",
+      "orderedSchedule": [
+        "Invoke actual public DelaySpan wrapper for value 21474836480000 as a bounded pending public observation.",
+        "Require future source/call-graph control that public no-token wrapper forwards its original carrier unchanged to the shared production method with None token; no pre-forward narrowing or separate test-only conversion is allowed.",
+        "Invoke that same shared production method through per-invocation infrastructure with original input 21474836480000; record schedule argument.",
+        "Inspect pending task and recorded resources; trigger fake timer success then release every fake handle in finally."
+      ],
+      "assertions": [
+        "Exactly one finite schedule call receives long 2147483648; no narrowing, signed wrap, saturation, or mistaken infinite sentinel.",
+        "No cancellation registration for no-token path; task initially WaitingForActivation, no fault, not CompletedTask.",
+        "Explicit timer fire completes successfully and idempotent handle cancellation releases the fake resource."
+      ],
+      "releaseFinally": "Release all gates; fire or cancel fake handle exactly once; join owned workers in2s; no real multi-day waiting."
+    },
+    {
+      "id": "J29",
+      "name": "large-no-token-DelaySpan-42949672940000",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Per-invocation immutable infrastructure with recording fake finite scheduler, counted idempotent handle, and registrar that fails if invoked. Use the same production forwarding/validation method as the exact public no-token wrapper; never duplicate conversion in fixture.",
+      "orderedSchedule": [
+        "Invoke actual public DelaySpan wrapper for value 42949672940000 as a bounded pending public observation.",
+        "Require future source/call-graph control that public no-token wrapper forwards its original carrier unchanged to the shared production method with None token; no pre-forward narrowing or separate test-only conversion is allowed.",
+        "Invoke that same shared production method through per-invocation infrastructure with original input 42949672940000; record schedule argument.",
+        "Inspect pending task and recorded resources; trigger fake timer success then release every fake handle in finally."
+      ],
+      "assertions": [
+        "Exactly one finite schedule call receives long 4294967294; no narrowing, signed wrap, saturation, or mistaken infinite sentinel.",
+        "No cancellation registration for no-token path; task initially WaitingForActivation, no fault, not CompletedTask.",
+        "Explicit timer fire completes successfully and idempotent handle cancellation releases the fake resource."
+      ],
+      "releaseFinally": "Release all gates; fire or cancel fake handle exactly once; join owned workers in2s; no real multi-day waiting."
+    },
+    {
+      "id": "J30",
+      "name": "large-no-token-DelaySpan-42949672949999",
+      "classification": "JAVA_ONLY_SOURCE_DERIVED_NOT_EXECUTED",
+      "setup": "Per-invocation immutable infrastructure with recording fake finite scheduler, counted idempotent handle, and registrar that fails if invoked. Use the same production forwarding/validation method as the exact public no-token wrapper; never duplicate conversion in fixture.",
+      "orderedSchedule": [
+        "Invoke actual public DelaySpan wrapper for value 42949672949999 as a bounded pending public observation.",
+        "Require future source/call-graph control that public no-token wrapper forwards its original carrier unchanged to the shared production method with None token; no pre-forward narrowing or separate test-only conversion is allowed.",
+        "Invoke that same shared production method through per-invocation infrastructure with original input 42949672949999; record schedule argument.",
+        "Inspect pending task and recorded resources; trigger fake timer success then release every fake handle in finally."
+      ],
+      "assertions": [
+        "Exactly one finite schedule call receives long 4294967294; no narrowing, signed wrap, saturation, or mistaken infinite sentinel.",
+        "No cancellation registration for no-token path; task initially WaitingForActivation, no fault, not CompletedTask.",
+        "Explicit timer fire completes successfully and idempotent handle cancellation releases the fake resource."
+      ],
+      "releaseFinally": "Release all gates; fire or cancel fake handle exactly once; join owned workers in2s; no real multi-day waiting."
+    }
+  ],
+  "globalMutableHooks": false,
+  "publicSeams": false,
+  "dependencies": [
+    "java.base"
+  ],
+  "implementationProfile": "public-task-delay-product-v1; future Java-only successor, never edit captured native helper"
+}

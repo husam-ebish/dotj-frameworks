@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "protocol": "task-delay-tsv-v1",
+  "closed": true,
+  "fields": {
+    "kind": "s",
+    "exceptionType": "s",
+    "message": "s",
+    "paramName": "s",
+    "hresult": "i",
+    "actualValueKind": "s",
+    "actualValue": "s",
+    "status": "s",
+    "completed": "b",
+    "successful": "b",
+    "canceled": "b",
+    "faulted": "b",
+    "exceptionNull": "b",
+    "completedTaskIdentity": "b",
+    "awaitType": "s",
+    "awaitTaskIdentity": "b",
+    "awaitTokenEqual": "b",
+    "repeatType": "s",
+    "repeatTaskIdentity": "b",
+    "repeatTokenEqual": "b",
+    "awaitMessage": "s",
+    "awaitHresult": "i",
+    "repeatMessage": "s",
+    "repeatHresult": "i",
+    "tokenCanBeCanceled": "b",
+    "tokenRequested": "b",
+    "callbackCalls": "i",
+    "lateCalls": "i",
+    "unsafeCalls": "i",
+    "stateBeforeReturn": "b",
+    "sameCallStack": "b",
+    "secondWhileBlocked": "b",
+    "shape": "s",
+    "winner": "s",
+    "asyncCompleted": "b"
+  },
+  "caseCount": 113,
+  "scalarCount": 3955,
+  "globalIdentity": {
+    "profile": "public-task-delay-v1",
+    "runtime": "10.0.12",
+    "manifestSha256": "63fead468e3b8afe2decae05df587ee9d3c16a043014be1a35711595e99d36d5"
+  },
+  "framing": [
+    "META\tprofile\truntime\tmanifestSHA",
+    "BEGIN\tcaseId",
+    "caseId.field\ttype\tvalue",
+    "END\tcaseId"
+  ],
+  "types": {
+    "b": "true|false",
+    "i": "canonical signed Int32; JSON bool is not int",
+    "s": "canonical base64 UTF-8"
+  },
+  "ticks": "canonical signed Int64 decimal strings in manifest; native long.Parse invariant",
+  "ordinaryComparison": "all stable fields exact after CRLF/LF decoding only; exception payload retained",
+  "raceComparison": {
+    "scenario": "race",
+    "rawRetained": [
+      "winner",
+      "sameCallStack",
+      "status",
+      "canceled",
+      "successful",
+      "awaitType",
+      "awaitTaskIdentity",
+      "awaitTokenEqual"
+    ],
+    "allowedWinners": [
+      "timer",
+      "cancel"
+    ],
+    "rules": [
+      "Closed outcomes success/RanToCompletion/timer and canceled/Canceled/cancel only; all terminal flags coupled.",
+      "Both await/repeat payloads match outcome, including exact source English TCE message/HResult and Task/token identity.",
+      "Every varying field validated by outcome; every stable field exact compared; raw rows unchanged."
+    ],
+    "allowedVaryingFields": [
+      "kind",
+      "status",
+      "successful",
+      "canceled",
+      "awaitType",
+      "awaitTaskIdentity",
+      "awaitTokenEqual",
+      "repeatType",
+      "repeatTaskIdentity",
+      "repeatTokenEqual",
+      "awaitMessage",
+      "awaitHresult",
+      "repeatMessage",
+      "repeatHresult",
+      "winner"
+    ],
+    "stableFields": [
+      "exceptionType",
+      "message",
+      "paramName",
+      "hresult",
+      "actualValueKind",
+      "actualValue",
+      "completed",
+      "faulted",
+      "exceptionNull",
+      "completedTaskIdentity",
+      "tokenCanBeCanceled",
+      "tokenRequested",
+      "callbackCalls",
+      "lateCalls",
+      "unsafeCalls",
+      "stateBeforeReturn",
+      "sameCallStack",
+      "secondWhileBlocked",
+      "shape",
+      "asyncCompleted"
+    ]
+  },
+  "excludedEquality": [
+    "absolute thread IDs",
+    "timestamps",
+    "addresses",
+    "elapsed latency"
+  ],
+  "fatalPolicy": "fatal, cleanup, ownership, incomplete framing and runtimeFault results fail closed; raw streams retained"
+}

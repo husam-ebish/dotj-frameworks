@@ -13,7 +13,7 @@
     "totalUniqueNamedTasks": 1356,
     "sdkIntegrationTasks": 60
   },
-  "currentBatch": "Batch-2516",
+  "currentBatch": "Batch-2517",
   "completedBatches": [
     "Batch-001",
     "Batch-002",
@@ -2530,7 +2530,8 @@
     "Batch-2513",
     "Batch-2514",
     "Batch-2515",
-    "Batch-2516"
+    "Batch-2516",
+    "Batch-2517"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -12351,18 +12352,18 @@
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
     "id": null,
-    "framework": "dotj-build",
+    "framework": "dotj-core",
     "planTaskIds": [],
-    "outcome": "Finish independent task/whole-branch review and root integration decision for Batch-2516; further substantive scope remains unnumbered and unbaselined.",
+    "outcome": "Independent task/whole-branch reviews and root integration decision for bounded Batch2517; further substantive scope remains unnumbered and unbaselined.",
     "requiresContinue": false,
-    "basis": "Batch-2515 actually integrated2b659b4d5; selected Batch-2516 candidate passes full same-JAR Boolean/predecessor qualification, zero acceptance credit."
+    "basis": "Batch2516 actually integratedf461; Task delay candidate passes new/historical same-JAR and actual isolated full foundation gate; zero acceptance credit."
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2516,
-    "countContext": "Canonical Batch-2515 is integrated at2b659b4d581e8925e4386846015356244e7fbfe7. Post-integration CANDIDATE count/list length2516 only: private Boolean/scalar/Not/typed-equality selected group1/1 implemented and verified, actual integrated group0/1 until root review/merge. Independent task review, whole-branch review, merge and push pending; no acceptance credit.",
+    "completedBatches": 2517,
+    "countContext": "Canonical Batch2516 actually integrated/pushedf461. This branch records post-integration CANDIDATE count/list length2517, selected Task delay group1/1 qualified; actual integration0/1 until root reviews/merge. No acceptance credit; project total/remaining UNKNOWN.",
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12471,5 +12472,49 @@
       "REFERENCE_AND_DEPENDENCY_RIGHTS",
       "RELEASE_REVIEW"
     ]
+  },
+  "batch2517Candidate": {
+    "status": "BOUNDED_CANDIDATE_INTEGRATION_PENDING",
+    "canonicalIntegratedBatch": "Batch-2516",
+    "canonicalBase": "f4617d95dcc01edeb933e5e4273bb7ca246371a7",
+    "selectedImplementationGroups": 1,
+    "selectedImplementedGroups": 1,
+    "selectedIntegratedGroups": 0,
+    "publicAdditions": 5,
+    "newCases": 113,
+    "newFields": 3955,
+    "retainedNativePasses": 2,
+    "privateControls": 30,
+    "privateGroups": 9,
+    "historicalGroups": 9,
+    "historicalFieldsAndControls": 3475,
+    "consumedContractAndWrapperControls": 17,
+    "canonicalArtifactControls": 3,
+    "payloadClassBindingControls": 3,
+    "actualFoundationChecks": 518,
+    "jar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-delay-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+      "sha256": "7528c565d2242ad5ab50700ad554e1561e71ba78ed40ed48b9a834cf58934099",
+      "sizeBytes": 853870
+    },
+    "gateReceipt": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2517-task-delay-product-implementation-v1\\full-foundation-pure-finalization-v1\\receipt.json",
+      "sha256": "9b7bbd9e06eb784d184d98e4d8f209ec05e8accf5f97210dc250379f2bfa1a9b",
+      "sizeBytes": 576438
+    },
+    "acceptedTasksAdded": 0,
+    "qualifiedFrameworksAdded": 0,
+    "openAcceptanceItems": 1686,
+    "coreE01Open": 3,
+    "totalProjectBatches": null,
+    "remainingProjectBatches": null,
+    "taskReviewPending": true,
+    "wholeBranchReviewPending": true,
+    "rootMergePushPending": true,
+    "dependencies": {
+      "product": "JDK java.base only",
+      "developmentReference": "Existing Python/JDK/.NET tools; frozen Task2517 prerequisites not replayed",
+      "broader": "Generic/context/N01/NF/release/.j installation qualification unresolved"
+    }
   }
 }

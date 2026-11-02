@@ -5,15 +5,20 @@ package System.Threading.Tasks;
 import System.Action;
 import System.AggregateException;
 import System.ArgumentNullException;
+import System.ArgumentOutOfRangeException;
 import System.Exception;
 import System.OperationCanceledException;
 import System.Runtime.CompilerServices.TaskAwaiter;
 import System.Threading.CancellationToken;
+import System.Threading.CancellationTokenRegistration;
+import System.TimeSpan;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import org.dotj.internal.async.TaskBridge;
 
 /** Selected nongeneric promise and computational task, with default-context dispatch. */
@@ -27,6 +32,8 @@ public final class Task {
     private OperationCanceledException cancellationCause;
     private CancellationToken token = CancellationToken.get_None();
     private List<Action> continuations = new ArrayList<>();
+    private volatile boolean delayAsync;
+    private Executor delayQueue;
     private final TaskBridge access = new TaskBridge() {
         @Override public boolean isCompleted() { return get_IsCompleted(); }
         @Override public void awaitResult() { Task.this.awaitResult(); }
@@ -42,6 +49,169 @@ public final class Task {
     }
 
     public static Task get_CompletedTask() { return COMPLETED; }
+
+    public static Task FromCanceled(CancellationToken cancellationToken) {
+        if (cancellationToken == null) throw new ArgumentNullException("cancellationToken");
+        if (!cancellationToken.get_IsCancellationRequested())
+            throw new ArgumentOutOfRangeException("cancellationToken");
+        Task task = new Task();
+        task.complete(TaskStatus.Canceled, null, cancellationToken);
+        return task;
+    }
+
+    public static Task Delay(int millisecondsDelay) {
+        return delay(millisecondsDelay, CancellationToken.get_None(), null);
+    }
+
+    public static Task Delay(int millisecondsDelay, CancellationToken cancellationToken) {
+        return delay(millisecondsDelay, cancellationToken, null);
+    }
+
+    public static Task Delay(TimeSpan delay) {
+        return delay(delay, CancellationToken.get_None(), null);
+    }
+
+    public static Task Delay(TimeSpan delay, CancellationToken cancellationToken) {
+        return delay(delay, cancellationToken, null);
+    }
+
+    // Immutable, per-invocation infrastructure exercises these same production paths.
+    static Task delay(int millisecondsDelay, CancellationToken token, DelayInfrastructure infrastructure) {
+        if (millisecondsDelay < -1) throw new ArgumentOutOfRangeException("millisecondsDelay",
+                "The value needs to be either -1 (signifying an infinite timeout), 0 or a positive integer.");
+        return delayValidated(millisecondsDelay, token, infrastructure);
+    }
+
+    static Task delay(TimeSpan delay, CancellationToken token, DelayInfrastructure infrastructure) {
+        if (delay == null) throw new ArgumentNullException("delay");
+        long milliseconds = (long) delay.get_TotalMilliseconds();
+        if (milliseconds < -1 || milliseconds > 4294967294L)
+            throw new ArgumentOutOfRangeException("delay", "The value needs to translate in milliseconds to -1 (signifying an infinite timeout), 0, or a positive integer less than or equal to the maximum allowed timer duration.");
+        return delayValidated(milliseconds, token, infrastructure);
+    }
+
+    private static Task delayValidated(long milliseconds, CancellationToken token, DelayInfrastructure infrastructure) {
+        if (token == null) throw new ArgumentNullException("cancellationToken");
+        if (token.get_IsCancellationRequested()) return FromCanceled(token);
+        if (milliseconds == 0) return COMPLETED;
+        DelayState state = new DelayState(infrastructure == null ? DelayDefaults.INFRASTRUCTURE : infrastructure);
+        state.start(milliseconds, token);
+        return state.task;
+    }
+
+    interface DelayTimer { TimerHandle schedule(long milliseconds, Runnable callback); }
+    interface TimerHandle { void cancel(); }
+    interface DelayRegistrar { CancellationTokenRegistration register(CancellationToken token, Action callback); }
+
+    static final class DelayInfrastructure {
+        final DelayTimer timer;
+        final DelayRegistrar registrar;
+        final Executor executor;
+        final Runnable afterCancellationFlag;
+        DelayInfrastructure(DelayTimer timer, DelayRegistrar registrar, Executor executor, Runnable afterCancellationFlag) {
+            this.timer = timer;
+            this.registrar = registrar;
+            this.executor = executor;
+            this.afterCancellationFlag = afterCancellationFlag;
+        }
+    }
+
+    private static final class DelayDefaults {
+        static final Executor WORKERS = Executors.newCachedThreadPool(body -> delayDaemon(body, "dotj-delay-worker"));
+        static final ScheduledThreadPoolExecutor TIMER = timer();
+        static final DelayInfrastructure INFRASTRUCTURE = new DelayInfrastructure((milliseconds, callback) -> {
+            var future = TIMER.schedule(() -> executeDelay(WORKERS, callback), milliseconds, TimeUnit.MILLISECONDS);
+            return () -> future.cancel(false);
+        }, (token, callback) -> token.Register(callback), WORKERS, () -> { });
+        private static ScheduledThreadPoolExecutor timer() {
+            ScheduledThreadPoolExecutor timer = new ScheduledThreadPoolExecutor(1,
+                    body -> delayDaemon(body, "dotj-delay-expiry"));
+            timer.setRemoveOnCancelPolicy(true);
+            return timer;
+        }
+    }
+
+    private static final class CompletionAttempt { boolean won; }
+
+    private static final class DelayState {
+        final Task task = new Task();
+        final DelayInfrastructure infrastructure;
+        final Object resources = new Object();
+        boolean cleanupRequested;
+        TimerHandle timer;
+        CancellationTokenRegistration registration;
+        DelayState(DelayInfrastructure infrastructure) {
+            this.infrastructure = infrastructure;
+            task.delayQueue = infrastructure.executor;
+        }
+        void start(long milliseconds, CancellationToken token) {
+            try {
+                if (milliseconds != -1) publish(infrastructure.timer.schedule(milliseconds,
+                        () -> finish(TaskStatus.RanToCompletion, CancellationToken.get_None())));
+                if (token.get_CanBeCanceled()) publish(infrastructure.registrar.register(token, new Action(() -> {
+                    task.delayAsync = true;
+                    infrastructure.afterCancellationFlag.run();
+                    finish(TaskStatus.Canceled, token);
+                })));
+            } catch (RuntimeException | Error failure) {
+                try { cleanup(); } catch (RuntimeException | Error secondary) { failure.addSuppressed(secondary); }
+                throw failure;
+            }
+        }
+        void publish(TimerHandle handle) {
+            boolean dispose;
+            synchronized (resources) {
+                dispose = cleanupRequested || task.get_IsCompleted();
+                if (!dispose) timer = handle;
+            }
+            if (dispose) handle.cancel();
+        }
+        void publish(CancellationTokenRegistration handle) {
+            boolean dispose;
+            synchronized (resources) {
+                dispose = cleanupRequested || task.get_IsCompleted();
+                if (!dispose) registration = handle;
+            }
+            if (dispose) handle.Dispose();
+        }
+        void finish(TaskStatus status, CancellationToken token) {
+            CompletionAttempt attempt = new CompletionAttempt();
+            try { task.complete(status, null, token, null, attempt); }
+            finally { if (attempt.won) cleanup(); }
+        }
+        void cleanup() {
+            TimerHandle timerToDispose;
+            CancellationTokenRegistration registrationToDispose;
+            synchronized (resources) {
+                cleanupRequested = true;
+                timerToDispose = timer;
+                registrationToDispose = registration;
+                timer = null;
+                registration = null;
+            }
+            // Dispose can wait for an active callback; never hold either private lock.
+            try { if (registrationToDispose != null) registrationToDispose.Dispose(); }
+            finally { if (timerToDispose != null) timerToDispose.cancel(); }
+        }
+    }
+
+    private static Thread delayDaemon(Runnable body, String name) {
+        Thread thread = new Thread(null, body, name, 0, false);
+        thread.setDaemon(true);
+        return thread;
+    }
+
+    private static void executeDelay(Executor executor, Runnable callback) {
+        try { executor.execute(callback); }
+        catch (RejectedExecutionException rejection) {
+            delayDaemon(callback, "dotj-delay-rejection").start();
+        }
+    }
+
+    private static void invokeDelay(Action continuation) {
+        try { continuation.Invoke(); }
+        catch (Throwable failure) { delayDaemon(() -> reportOnCurrentThread(failure), "dotj-delay-failure").start(); }
+    }
 
     public static Task FromException(Exception exception) {
         if (exception == null) throw new ArgumentNullException("exception");
@@ -108,9 +278,15 @@ public final class Task {
 
     private boolean complete(TaskStatus terminal, Exception exception, CancellationToken cancellationToken,
             OperationCanceledException originalCancellation) {
+        return complete(terminal, exception, cancellationToken, originalCancellation, null);
+    }
+
+    private boolean complete(TaskStatus terminal, Exception exception, CancellationToken cancellationToken,
+            OperationCanceledException originalCancellation, CompletionAttempt attempt) {
         List<Action> pending;
         synchronized (lock) {
             if (get_IsCompleted()) return false;
+            if (attempt != null) attempt.won = true;
             fault = exception;
             token = cancellationToken;
             cancellationCause = originalCancellation;
@@ -122,14 +298,22 @@ public final class Task {
         // Queue every additional callback before the first can block the completing thread.
         // Even a catastrophic dispatch failure must not prevent attempts for other callbacks.
         Throwable dispatchFailure = null;
-        for (int i = 1; i < pending.size(); i++) {
-            try { queueContinuation(pending.get(i), QUEUE); }
+        boolean asynchronous = delayAsync;
+        for (int i = asynchronous ? 0 : 1; i < pending.size(); i++) {
+            Action continuation = pending.get(i);
+            try {
+                if (delayQueue == null) queueContinuation(continuation, QUEUE);
+                else executeDelay(delayQueue, () -> invokeDelay(continuation));
+            }
             catch (RuntimeException | Error failure) {
                 if (dispatchFailure == null) dispatchFailure = failure;
-                else dispatchFailure.addSuppressed(failure);
+                else if (dispatchFailure != failure) dispatchFailure.addSuppressed(failure);
             }
         }
-        if (!pending.isEmpty()) invoke(pending.get(0));
+        if (!asynchronous && !pending.isEmpty()) {
+            if (delayQueue == null) invoke(pending.get(0));
+            else invokeDelay(pending.get(0));
+        }
         if (dispatchFailure instanceof RuntimeException failure) throw failure;
         if (dispatchFailure instanceof Error failure) throw failure;
         return true;
@@ -162,7 +346,8 @@ public final class Task {
                 return;
             }
         }
-        queueContinuation(continuation, QUEUE);
+        if (delayQueue == null) queueContinuation(continuation, QUEUE);
+        else executeDelay(delayQueue, () -> invokeDelay(continuation));
     }
 
     // Package-private seam permits a rejected-executor boundary control without mutable globals.

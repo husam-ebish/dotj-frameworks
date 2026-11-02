@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "classification": "SOURCE_PREDICTED_NOT_OBSERVED",
+  "rules": [
+    "Validation occurs before canceled and zero fast paths; int < -1 rejects millisecondsDelay; TimeSpan truncates double TotalMilliseconds to long then accepts -1..4294967294.",
+    "FromCanceled requires requested token, returns a distinct canceled Task; repeated await TCE retains Task and token with typed HResult/message and no fault.",
+    "Canceled zero takes precedence over CompletedTask identity; uncanceled zero is CompletedTask.",
+    "Infinite noncancelable/disposed-unrequested stays pending without timer; finite disposed-unrequested succeeds with saved token.",
+    "Pending and late callbacks OnCompleted/UnsafeOnCompleted are exactly once; shared token and CancelAsync preserve each Task payload.",
+    "Cancellation state publication is synchronous and continuations are asynchronous relative to cancellation call stack; blocked user callback cannot block Cancel.",
+    "Independent timer completion proceeds while first continuation blocks.",
+    "Timer/cancel winner is retained raw; either terminal outcome allowed, canceled identity required, no fault or second winner.",
+    "Native public APIs do not force timer/registration publication races; 30 Java-only control designs carry those source obligations."
+  ],
+  "largeOverloadForwarding": {
+    "nativeBoundaries": "D110-D113 explicitly cover accepted no-token large values, intentionally pending under owned-process exit cleanup; existing adjacent rejections retained.",
+    "privateControls": "J27-J30 assert unchanged public-wrapper forwarding and shared production scheduler long values2147483647/2147483648/4294967294/4294967294, no registration or wrap/saturation/infinite substitution."
+  },
+  "unexpectedExceptions": "No unknown exception maps to false/success; runtimeFault retains type/message/HResult and incomplete case fails closed.",
+  "ordinaryFields": "Exact comparison; only CRLF/LF encoding normalized. Race raw winner/affinity retained and validated by allowed outcomes."
+}
