@@ -101,7 +101,8 @@ def runtime_modes(name,out,jar,group):
     expected=str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/expected-public-surface-v1.txt')
     if name=='paired':return [(owner,[jar,str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/matrix-v2.tsv')])]
     if name=='paired-validation':return [(owner,[jar,str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/validation-boundary-v1.tsv')])]
-    if name=='paired-supplement':return [(owner,[jar])]
+    if name in ['paired-supplement','observation-paired']:return [(owner,[jar])]
+    if name=='observation-controls':return [('WaitAsyncObservationControls',[jar])]
     if name=='private':return [('System.Threading.Tasks.TaskWaitAsyncControls',[jar]),('System.Threading.Tasks.TaskWaitAsyncControls',[jar,'fresh'])]
     if name in ['run-token','run-token-supplement','run-token-association','valuetask-task','task','worktask','sample']:return [(owner,[jar])]
     if name in ['run-token-private','run-token-association-private','task-boundaries']:return [('System.Threading.Tasks.'+owner,[jar])]
@@ -188,6 +189,48 @@ def history(e,jar):
         markers=Path(by[name]['payloads'][0]['path']).read_text().splitlines();c.require(len(markers)==wanted and len(set(markers))==wanted and all(x.endswith('\tb\ttrue') for x in markers),'retained Run private controls')
     return len(selected)
 
+def observation_payload(payload):
+    q.observation_schema(payload);matrix=c.read(HERE/'observation-matrix-v1.json')
+    def field(row,name,kind,value):c.require(payload[row+'.'+name]==(kind,str(value).lower() if type(value) is bool else str(value)),'direct observation '+row+'.'+name)
+    for name in ['waitSameThread','waitInCancel','waitInline','waitSawCanceled','sourceSameThread','waitUnaffectedBySource']:field('O001',name,'b',True)
+    field('O001','sourceInCancel','b',False)
+    for name in ['waitCallbacks','sourceCallbacks']:field('O001',name,'i',1)
+    types={'success':'null','fault':'System.InvalidOperationException','source-cancel':'System.Threading.Tasks.TaskCanceledException','caller-cancel':'System.Threading.Tasks.TaskCanceledException','timeout':'System.TimeoutException'}
+    for row in matrix['rows'][1:]:
+        id=row['id'];outcome=row['outcome'];identity=outcome in ['fault','timeout'];cancel=outcome.endswith('cancel')
+        field(id,'receiverAlias','b',row['shape']=='alias')
+        for name in ['asTaskIdentity','preserveIdentity']:field(id,name,'b',True)
+        for prefix in ['normal','configured']:
+            field(id,prefix+'Type','s',types[outcome]);field(id,prefix+'Succeeded','b',outcome=='success')
+            field(id,prefix+'StoredIdentity','s','same' if identity else 'not-applicable')
+            field(id,prefix+'TokenMatch','s','equal' if cancel else 'not-applicable');field(id,prefix+'TaskMatch','s','same' if cancel else 'not-applicable');field(id,prefix+'Matches','b',True)
+
+def observations(e,jar):
+    correction=e['observationCorrection'];c.require(correction['status']=='POST_GATE_EVIDENCE_STRENGTHENING' and correction['productUnchanged'] is True,'explicit post-gate observation correction')
+    c.validate_pin(correction['freeze']);lock=c.read(correction['freeze']['path'])
+    c.require(lock['candidateJar']==jar,'frozen same product JAR')
+    for pin in lock['files']:c.validate_pin(pin)
+    native=phase(correction['native'],'PASS_OBSERVATION-NATIVE',jar);paired=phase(correction['paired'],'PASS_OBSERVATION-PAIRED',jar);controls=phase(correction['controls'],'PASS_OBSERVATION-CONTROLS',jar)
+    groups(paired);groups(controls)
+    for r in [native,paired,controls]:
+        c.require(r['matrixFreeze']==correction['freeze'],'executed observation freeze')
+        for pin in lock['files']:
+            pair=next((pair for pair in r['inputs'] if pair['original']==pin),None);c.require(pair is not None,'frozen fixture was actual executed phase input');c.validate_pin(pair['durable'])
+    for pin in native['references']+[native['runtimeConfig'],native['compiledNative'],native['inheritedInstalledPayload']]:c.validate_pin(pin)
+    prior=c.read(native['inheritedInstalledPayload']['path']);c.require(native['references']==prior['references'] and native['inheritedInstalledPayload']==e['native'],'same installed selected native references')
+    c.require(c.read(native['runtimeConfig']['path'])==c.read(prior['compiledNative'][1]['path']),'unchanged runtime Disable configuration')
+    out=Path(correction['native']['path']).parent;dotnet=p.B/'toolchains/dotnet'
+    compiler=[str(dotnet/'dotnet.exe'),'exec',str(dotnet/'sdk/10.0.401/Roslyn/bincore/csc.dll'),'-nologo','-noconfig','-nostdlib','-target:exe','-deterministic','-nullable:enable','-langversion:14','-warnaserror','-out:'+str(out/'WaitAsyncObservationOracle.dll'),*['-r:'+pin['path'] for pin in native['references']],str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/WaitAsyncObservationOracle.cs')]
+    c.require([r['label'] for r in native['commands']]==['compile-native','native-pass1','native-pass2'] and native['commands'][0]['argv']==compiler,'closed actual observation native compiler')
+    runtime=[str(dotnet/'dotnet.exe'),'exec','--runtimeconfig',str(out/'WaitAsyncObservationOracle.runtimeconfig.json'),str(out/'WaitAsyncObservationOracle.dll')]
+    actual=q.prior.wire(Path(paired['groups'][0]['payloads'][0]['path']).read_bytes());observation_payload(actual)
+    c.require(native['cases']==11 and native['fields']==159 and native['nativePasses']==2,'complete finite observation matrix')
+    for rec in native['commands'][1:]:c.require(rec['argv']==runtime and Path(rec['stderrPath']).read_bytes()==b'' and q.prior.wire(Path(rec['stdoutPath']).read_bytes())==actual,'two exact typed observation native captures')
+    observed=q.prior.wire(Path(controls['groups'][0]['payloads'][0]['path']).read_bytes());wanted={'actual-positive-shared-observer','queued-published-canceled','queued-before-return-not-inline','source-inline-cannot-overwrite-queued-wait','late-published-before-observation','same-thread-after-return-not-inline','source-cannot-overwrite-late-wait','wrong-token-rejected','wrong-task-rejected','actual-valuetask-stored-fault-accepted','same-class-wrong-fault-object-rejected','wrong-timeout-object-rejected','success-with-error-rejected','nonapplicable-facets-explicit'}
+    c.require(set(observed)==wanted|{key for key in actual if key.startswith('O001.')} and all(observed[key]==('b','true') for key in wanted),'actual shared observation controls complete')
+    c.require(all(observed[key]==value for key,value in actual.items() if key.startswith('O001.')),'controls use actual positive observer')
+    return dict(cases=11,fields=159,sharedControls=14,chronology='POST_GATE_EVIDENCE_STRENGTHENING')
+
 def validate(e,artifact_override=None,source_root=None,canonical_root=Path('C:/source/repos/dotj Frameworks')):
     c.require(e['status']=='SELECTED_BEHAVIOR_CHECKS_PASSED','selected evidence status');jar=e['candidateJar'];c.validate_pin(jar)
     c.validate_pin(e['reader']);c.require(c.sha(HERE/'verify_candidate.py')==e['reader']['sha256'],'actual final reader version')
@@ -248,10 +291,43 @@ def validate(e,artifact_override=None,source_root=None,canonical_root=Path('C:/s
     c.require(e['acceptanceCredit']==0 and e['acceptedTasks']=='0/1092 (0%)' and e['openAcceptanceItems']==1686 and e['qualifiedFrameworks']=='0/66','no invented acceptance credit')
     if 'negativeControls' in e:
         c.validate_pin(e['negativeControls']);controls=c.read(e['negativeControls']['path']);c.require(controls['status']=='PASS' and len(controls['controls'])==47 and all(row['passed'] for row in controls['controls']),'actual new consumed predicate/source/artifact negative controls')
-        c.require(controls['reader']==e['reader'] and controls['source']['sha256']==c.sha(HERE/'verify-negative-controls.py'),'actual final negative-control source/reader version')
+        previous=e['reviewedReader'];c.validate_pin(previous['durable']);c.require(all(previous['original'][k]==previous['durable'][k] for k in ['sha256','sizeBytes']),'actual reviewed reader retained')
+        c.require(controls['reader']==previous['original'] and controls['source']['sha256']==c.sha(HERE/'verify-negative-controls.py'),'historical 47 controls retain actual reviewed source/reader version')
         owned=phase(e['negativePhase'],'PASS_NEGATIVE',jar);c.validate_pin(owned['selectedEvidenceInput']);c.require([rec['label'] for rec in owned['commands']]==['negative-controls'],'owned pure-control command plan')
         c.require(owned['commands'][0]['argv']==[str(p.PYTHON),'-B',str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/verify-negative-controls.py'),str(Path(e['negativeControls']['path']).parent)],'actual owned pure-control argv')
-    return dict(cases=e['nativeCases'],fields=e['nativeFields'],nativePassesPerMatrix=2,privateControls=len(markers),historicalGroups=historical,jarSha256=jar['sha256'],artifactProvenance=provenance)
+    observation=observations(e,jar)
+    proof=phase(e['observationCorrection']['proofControlsPhase'],'PASS_OBSERVATION-PROOF-CONTROLS',jar)
+    c.require([r['label'] for r in proof['commands']]==['observation-proof-controls'],'owned observation proof control command')
+    proof_out=Path(e['observationCorrection']['proofControlsPhase']['path']).parent
+    c.require(proof['commands'][0]['argv']==[str(p.PYTHON),'-B',str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/verify_candidate.py'),'--observation-controls',str(proof_out/'controls')],'actual observation proof controls argv')
+    c.validate_pin(e['observationCorrection']['proofControls']);proof_result=c.read(e['observationCorrection']['proofControls']['path'])
+    c.require(proof_result['status']=='PASS' and proof_result['reader']==e['reader'] and len(proof_result['controls'])==16 and all(row['passed'] for row in proof_result['controls']),'current actual observation proof controls')
+    c.require(proof_result['inputs']=={key:e['observationCorrection'][key] for key in ['native','paired','controls']},'proof controls consume these exact current observations')
+    executed=proof_result['selectedEvidenceAtExecution'];c.validate_pin(executed['durable']);c.require(all(executed['original'][key]==executed['durable'][key] for key in ['sha256','sizeBytes']),'actual consumed selected evidence preserved')
+    return dict(cases=e['nativeCases'],fields=e['nativeFields'],nativePassesPerMatrix=2,observationCorrection=observation,privateControls=len(markers),historicalGroups=historical,jarSha256=jar['sha256'],artifactProvenance=provenance)
 
-def main():print('PASS selected nongeneric Task.WaitAsync: '+str(validate(c.read(p.E/'public-task-wait-async-v1.json'))))
+def observation_proof_controls(out):
+    import copy
+    import shutil
+    out=Path(out);out.mkdir();selected=p.E/'public-task-wait-async-v1.json';snapshot=out/'selected-evidence-at-execution.json';shutil.copyfile(selected,snapshot);e=c.read(snapshot);rows=[]
+    observations(e,e['candidateJar']);rows.append(dict(name='actual-retained-current-proof-accepted',passed=True))
+    paired=c.read(e['observationCorrection']['paired']['path']);actual=q.prior.wire(Path(paired['groups'][0]['payloads'][0]['path']).read_bytes())
+    mutations=[('O001.waitSameThread',('b','false')),('O001.waitInCancel',('b','false')),('O001.waitSawCanceled',('b','false')),('O001.waitUnaffectedBySource',('b','false')),('O001.waitCallbacks',('i','2')),('O003.normalStoredIdentity',('s','different')),('O006.configuredStoredIdentity',('s','different')),('O004.normalTokenMatch',('s','different')),('O005.configuredTaskMatch',('s','different')),('O002.normalStoredIdentity',('s','same'))]
+    def refused(name,fn):
+        try:fn()
+        except (ValueError,KeyError,FileNotFoundError):rows.append(dict(name=name,passed=True));return
+        raise ValueError('control unexpectedly accepted '+name)
+    for key,value in mutations:
+        changed=dict(actual);changed[key]=value;refused('reject-'+key,lambda changed=changed:observation_payload(changed))
+    changed=dict(actual);changed.pop('O001.waitInCancel');refused('missing-direct-boundary-refused',lambda:observation_payload(changed))
+    changed=dict(actual);changed['O001.waitInCancel']=('s','true');refused('wrong-typed-boundary-refused',lambda:observation_payload(changed))
+    for key,value in [('productUnchanged',False),('status','PASS')]:
+        changed=copy.deepcopy(e);changed['observationCorrection'][key]=value;refused('reject-correction-'+key,lambda changed=changed:observations(changed,changed['candidateJar']))
+    changed=copy.deepcopy(e);changed['observationCorrection']['freeze']['sha256']='0'*64;refused('changed-frozen-source-proof-refused',lambda:observations(changed,changed['candidateJar']))
+    p.write(out/'receipt.json',dict(status='PASS',reader=c.descriptor(__file__),selectedEvidenceAtExecution=dict(original=c.descriptor(selected),durable=c.descriptor(snapshot)),controls=rows,inputs=dict(native=e['observationCorrection']['native'],paired=e['observationCorrection']['paired'],controls=e['observationCorrection']['controls']),acceptanceCredit=0))
+    print('PASS current observation proof controls',len(rows))
+
+def main():
+    if len(sys.argv)==3 and sys.argv[1]=='--observation-controls':observation_proof_controls(sys.argv[2]);return
+    print('PASS selected nongeneric Task.WaitAsync: '+str(validate(c.read(p.E/'public-task-wait-async-v1.json'))))
 if __name__=='__main__':main()

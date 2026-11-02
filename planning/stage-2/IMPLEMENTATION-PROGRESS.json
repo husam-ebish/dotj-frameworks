@@ -12667,5 +12667,50 @@
     "totalProjectBatches": null,
     "remainingProjectBatches": null,
     "historicalBatch2500TargetRemaining": 0
+  },
+  "batch2520Fix1": {
+    "status": "FIX1_EVIDENCE_CORRECTION_QUALIFIED_SCOPED_REREVIEW_PENDING",
+    "findings": [
+      "T120-SPEC-I1",
+      "T120-TEST-M1"
+    ],
+    "productUnchanged": true,
+    "jarSha256": "63b46d6509f9f7a78aabee7c1463ec8291b6d7937e57ec2a95be752fb449f72d",
+    "productSourcesUnchanged": 137,
+    "newCases": 11,
+    "newExactWireFields": 159,
+    "newNativePasses": 2,
+    "newSharedObserverControls": 14,
+    "newConsumedProofControls": 16,
+    "finalFivePure": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\final-pure-v4\\receipt.json",
+      "sha256": "499108ff3a93b998b745e294e270966602db98b44db47cb5e3821fbdb95c05ad",
+      "sizeBytes": 51245
+    },
+    "oldCases": 487,
+    "oldExactWireFields": 10690,
+    "oldPrivate": 27,
+    "oldHistoricalGroups": 16,
+    "oldGate2Checks": 520,
+    "oldGate2ExecutedNewCode": false,
+    "old47Controls": "Historical on preserved reviewed reader, not relabeled current-reader execution",
+    "qualification": "Current stricter reader and focused evidence are post-gate strengthening on identical product; full gate2 remains historical on its actual archived code/proofs",
+    "scopedRereviewPending": true,
+    "wholeBranchReviewPending": true,
+    "rootMergePushPending": true,
+    "integratedMainline": 2519,
+    "candidate": 2520,
+    "acceptedTasks": "0/1092 (0%)",
+    "openAcceptanceItems": 1686,
+    "qualifiedFrameworks": "0/66",
+    "e01AllThree": "OPEN",
+    "old2500TargetRemaining": 0,
+    "wholeProjectTotalRemaining": "UNKNOWN/UNKNOWN",
+    "qualificationRecord": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-foundation-v1.json",
+      "sha256": "d527f5a3335d51956067cb8b23735b3da9fd030dcd0d5614d25235e7211db785",
+      "sizeBytes": 11219
+    },
+    "finalMetadataChronology": "Summary pointer updated after final pure; final reader/runner/selected proof bytes unchanged"
   }
 }

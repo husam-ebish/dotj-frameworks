@@ -93,5 +93,91 @@
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-applicability-v1.json",
     "sha256": "33e8b5a62fffd29de0bebabe784f9de08a55812fe51e8bb8ffc037784cc7950e",
     "sizeBytes": 3244
+  },
+  "postGateObservationCorrection": {
+    "status": "POST_GATE_EVIDENCE_STRENGTHENING",
+    "findings": [
+      "T120-SPEC-I1",
+      "T120-TEST-M1"
+    ],
+    "productUnchanged": true,
+    "freeze": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-freeze-v2.json",
+      "sha256": "4e81b64cc00becfee580dec7bd83a7db94d901e5a7cc25b1bb49471410460679",
+      "sizeBytes": 2063
+    },
+    "native": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-native-v2\\receipt.json",
+      "sha256": "1b924f2d392b426ab7134fa394702e408f3a66b80d065d084d428f0ca40d2508",
+      "sizeBytes": 116818
+    },
+    "paired": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-paired-v2\\receipt.json",
+      "sha256": "9d3e05b1c9cf0d3f75500404dbebff988820c2bface9caf3f2e770cf26ca4f61",
+      "sizeBytes": 40024
+    },
+    "controls": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-controls-v2\\receipt.json",
+      "sha256": "1ca0ce855b915fcd4d4447069e49ee2b77e53f4ff74b1d7b649972721a3d3bcd",
+      "sizeBytes": 40847
+    },
+    "cases": 11,
+    "fields": 159,
+    "sharedControls": 14,
+    "gate2ExecutedThisCode": false,
+    "historicalCases": 487,
+    "historicalFields": 10690,
+    "qualificationLimit": "Selected nongeneric default-clock WaitAsync only; no whole Task/ValueTask/N01/WP02/framework/release qualification",
+    "oldW0371": "Historical booleans conflate status and source callback; do not independently observe wait callback inline during Cancel. O001 directly observes callback thread + in-Cancel boundary.",
+    "oldW0381W0390": "Historical ValueTask rows check exception class; direct-Task token/identity fields are not ValueTask observations. O002-O011 independently observe both ValueTask awaiters.",
+    "aliasCallerTimeout": "Alias receiver is an already-completed inner WaitAsync; outer WaitAsync aliases it. Distinct wrapper rows use pending borrowed TCS.",
+    "notApplicable": "Stored identity only fault/timeout; token and TCE.Task only cancellation. Other cells emit literal not-applicable; repeated synthetic TCE object identity is not required.",
+    "reviewedBytesPreserved": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\reviewed-preservation-v1.json",
+      "sha256": "a81f52c895f1e074bde9305f7fce875f7375fc5b9139a1462cefbcdc72e31c08",
+      "sizeBytes": 134709
+    },
+    "historicalGate2Unchanged": true,
+    "currentSelectedEvidence": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-v1.json",
+      "sha256": "347eb293d845c7e44badf80874cbb7d59850d3978d5b91daf8b6aba5ac8b9b20",
+      "sizeBytes": 33264
+    },
+    "currentSelectedContract": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-contract-v1.json",
+      "sha256": "80e03b3594ed331d4ae7c70ab8fc6b08bdfd47cbb622bb2ed235c036ba875d6d",
+      "sizeBytes": 19528
+    },
+    "currentSelectedPreservation": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-preservation-v1.json",
+      "sha256": "b33a01f3747f2a159e51a59354dbea432850b7696a5b61a8e44c06fd6c4cceba",
+      "sizeBytes": 60684
+    },
+    "currentN01SelectedMap": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\n01-selected-task-wait-async-v1.json",
+      "sha256": "cb40cd7a4b81aa509897e2a3ca5295efb3235a216bfb6f80326ac6753d82f825",
+      "sizeBytes": 2420
+    },
+    "currentApplicability": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-applicability-v1.json",
+      "sha256": "3851d5d3a3bdd31ac17ed6f6defa6daf27a36bd955c5b9340d1f124907413591",
+      "sizeBytes": 6128
+    },
+    "proofControlsPhase": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-proof-controls-v2\\receipt.json",
+      "sha256": "eb4739372daf0fb07c00c8d8182abd4e5ed177ef03431c46c2c542e3ccbf0344",
+      "sizeBytes": 28587
+    },
+    "finalFivePure": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\final-pure-v4\\receipt.json",
+      "sha256": "499108ff3a93b998b745e294e270966602db98b44db47cb5e3821fbdb95c05ad",
+      "sizeBytes": 51245
+    },
+    "proofControls": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-proof-controls-v2\\controls\\receipt.json",
+      "sha256": "a462ae490d87df8037c6309d8fe2b9ebe59f4fe536f858ca8f7c5bf7a1401a9b",
+      "sizeBytes": 3234
+    },
+    "finalMetadataChronology": "Final pure-v4 executed exact final reader/runner and LF selected-evidence proof bytes. This summary pointer follows execution. Gate2 did not execute fix1 code."
   }
 }

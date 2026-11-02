@@ -202,5 +202,44 @@
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2519-integration-v1.json",
     "sha256": "dc102ebf8b3daaa38f3b964e3a12c03e6072de1f085df236a1b36194159ca564",
     "sizeBytes": 48736
+  },
+  "postGateObservationCorrection": {
+    "status": "POST_GATE_EVIDENCE_STRENGTHENING",
+    "findings": [
+      "T120-SPEC-I1",
+      "T120-TEST-M1"
+    ],
+    "productUnchanged": true,
+    "freeze": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-freeze-v2.json",
+      "sha256": "4e81b64cc00becfee580dec7bd83a7db94d901e5a7cc25b1bb49471410460679",
+      "sizeBytes": 2063
+    },
+    "native": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-native-v2\\receipt.json",
+      "sha256": "1b924f2d392b426ab7134fa394702e408f3a66b80d065d084d428f0ca40d2508",
+      "sizeBytes": 116818
+    },
+    "paired": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-paired-v2\\receipt.json",
+      "sha256": "9d3e05b1c9cf0d3f75500404dbebff988820c2bface9caf3f2e770cf26ca4f61",
+      "sizeBytes": 40024
+    },
+    "controls": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-controls-v2\\receipt.json",
+      "sha256": "1ca0ce855b915fcd4d4447069e49ee2b77e53f4ff74b1d7b649972721a3d3bcd",
+      "sizeBytes": 40847
+    },
+    "cases": 11,
+    "fields": 159,
+    "sharedControls": 14,
+    "gate2ExecutedThisCode": false,
+    "historicalCases": 487,
+    "historicalFields": 10690,
+    "qualificationLimit": "Selected nongeneric default-clock WaitAsync only; no whole Task/ValueTask/N01/WP02/framework/release qualification",
+    "oldW0371": "Historical booleans conflate status and source callback; do not independently observe wait callback inline during Cancel. O001 directly observes callback thread + in-Cancel boundary.",
+    "oldW0381W0390": "Historical ValueTask rows check exception class; direct-Task token/identity fields are not ValueTask observations. O002-O011 independently observe both ValueTask awaiters.",
+    "aliasCallerTimeout": "Alias receiver is an already-completed inner WaitAsync; outer WaitAsync aliases it. Distinct wrapper rows use pending borrowed TCS.",
+    "notApplicable": "Stored identity only fault/timeout; token and TCE.Task only cancellation. Other cells emit literal not-applicable; repeated synthetic TCE object identity is not required."
   }
 }

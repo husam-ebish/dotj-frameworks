@@ -139,10 +139,47 @@ def sample(s,jar):
     group,records=s.java_group('sample',[HERE/'WaitAsyncSample.java'],None,[('WaitAsyncSample',[str(jar)])],jar,module=True)
     actual=prior.wire(Path(records[0]['stdoutPath']).read_bytes());c.require(captures[0]==captures[1]==actual and len(actual)==6 and all(x==('b','true') for x in actual.values()),'paired sample exact six fields')
     s.java_group('retained-delay-sample',[p.HERE/'DelayCancellationSample.java'],None,[('DelayCancellationSample',[str(jar)])],jar)
+def observation_schema(payload):
+    matrix=c.read(HERE/'observation-matrix-v1.json')
+    expected={row['id']+'.'+name:kind for row in matrix['rows'] for name,kind in matrix['fields'][row['group']].items()}
+    c.require(set(payload)==set(expected) and all(payload[key][0]==kind for key,kind in expected.items()),'exact observation typed schema')
+
+def observation(s,mode):
+    lock=A/'fix1/observation-freeze-v2.json'
+    for pin in c.read(lock)['files']:c.validate_pin(pin)
+    s.data['matrixFreeze']=c.descriptor(lock)
+    if mode=='observation-native':
+        old=c.read(A/'native-v2/receipt.json');dotnet=p.B/'toolchains/dotnet';refs=old['references']
+        for pin in refs:c.validate_pin(pin)
+        s.data['references']=refs;s.data['inheritedInstalledPayload']=c.descriptor(A/'native-v2/receipt.json')
+        target=s.out/'WaitAsyncObservationOracle.runtimeconfig.json';shutil.copyfile(A/'native-v2/PublicTaskWaitAsyncOracle.runtimeconfig.json',target)
+        s.data['runtimeConfig']=c.descriptor(target);s.save()
+        s.step('compile-native',[str(dotnet/'dotnet.exe'),'exec',str(dotnet/'sdk/10.0.401/Roslyn/bincore/csc.dll'),'-nologo','-noconfig','-nostdlib','-target:exe','-deterministic','-nullable:enable','-langversion:14','-warnaserror','-out:'+str(s.out/'WaitAsyncObservationOracle.dll'),*['-r:'+pin['path'] for pin in refs],str(HERE/'WaitAsyncObservationOracle.cs')])
+        s.data['compiledNative']=c.descriptor(s.out/'WaitAsyncObservationOracle.dll');s.save();passes=[]
+        for n in [1,2]:
+            rec=s.step('native-pass'+str(n),[str(dotnet/'dotnet.exe'),'exec','--runtimeconfig',str(target),str(s.out/'WaitAsyncObservationOracle.dll')],timeout=60)
+            c.require(Path(rec['stderrPath']).read_bytes()==b'','observation native stderr');passes.append(prior.wire(Path(rec['stdoutPath']).read_bytes()))
+        observation_schema(passes[0]);c.require(passes[0]==passes[1],'two exact observation native passes');s.data.update(cases=11,fields=len(passes[0]),nativePasses=2)
+    else:
+        controls=mode=='observation-controls';owner='WaitAsyncObservationControls' if controls else 'WaitAsyncObservationFixtures'
+        fixtures=[HERE/'WaitAsyncObservationFixtures.java']+([HERE/'WaitAsyncObservationControls.java'] if controls else [])
+        group,records=s.java_group(mode,fixtures,owner,[(owner,[str(s.jar)])],s.jar)
+        actual=prior.wire(Path(records[0]['stdoutPath']).read_bytes())
+        if controls:
+            markers={key:value for key,value in actual.items() if not key.startswith('O001.')};c.require(len(markers)==14 and all(value==('b','true') for value in markers.values()),'actual shared observation controls');group['controls']=len(markers)
+        else:
+            observation_schema(actual);native_path=A/'fix1/observation-native-v2/receipt.json';native=c.read(native_path);s.data['nativeReceipt']=c.descriptor(native_path)
+            c.require(native['status']=='PASS_OBSERVATION-NATIVE','actual observation native completion')
+            for rec in native['commands'][1:]:c.require(actual==prior.wire(Path(rec['stdoutPath']).read_bytes()),'exact observation native comparison')
+            group.update(cases=11,fields=len(actual),nativePasses=2)
+
 def inner(args):
     s=Session(args.out,args.mode,args.jar);s.jar=args.jar
     try:
-        if args.mode=='native':native(s)
+        if args.mode in ['observation-native','observation-paired','observation-controls']:observation(s,args.mode)
+        elif args.mode=='observation-proof-controls':
+            s.step('observation-proof-controls',[str(p.PYTHON),'-B',str(HERE/'verify_candidate.py'),'--observation-controls',str(s.out/'controls')])
+        elif args.mode=='native':native(s)
         elif args.mode=='native-supplement':native_supplement(s)
         elif args.mode=='native-validation':native_supplement(s,True)
         elif args.mode=='paired-supplement':paired_supplement(s,args.jar)
