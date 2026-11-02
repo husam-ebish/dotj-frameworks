@@ -3,6 +3,11 @@ import importlib.util,json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
 def main():
+    if (ROOT/'planning/stage-2/repos/dotj-core/evidence/public-task-delay-v1.json').is_file():
+        import sys
+        sys.path.insert(0,str(ROOT/'tools/oracle/dotj-core/public-task-delay-product-v1'))
+        from verify_product import main as delay_successor
+        delay_successor();return
     spec=importlib.util.spec_from_file_location('current_same_jar',Path(__file__).with_name('verify-public-valuetask-task.py'))
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     e=module.c.read(module.E/'public-worktask-cancelasync-v1.json')

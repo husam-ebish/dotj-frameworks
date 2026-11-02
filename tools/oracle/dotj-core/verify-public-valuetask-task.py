@@ -34,6 +34,10 @@ def receipt(d,expected_status):
  return r
 
 def main(legacy=False):
+ if (E/'public-task-delay-v1.json').is_file():
+  sys.path.insert(0,str(ROOT/'tools/oracle/dotj-core/public-task-delay-product-v1'))
+  from verify_product import main as delay_successor
+  delay_successor();return
  e=c.read(E/'public-valuetask-task-v1.json');artifact=c.read(E/'foundation-product-candidate-v1.json');jar=ROOT/artifact['jarPath']
  c.require(c.sha(jar)==artifact['jarSha256']==e['candidateJar']['sha256'],'current gate JAR differs: selected same-JAR runs required')
  for d in artifact['productSources']:c.require(c.sha(ROOT/d['path'])==d['sha256'],'current source binding')

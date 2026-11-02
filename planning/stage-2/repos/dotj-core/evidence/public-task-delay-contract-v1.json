@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "status": "ADOPTED_BOUNDED_SELECTED_VIEW_NOT_QUALIFIED",
+  "plan": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task88-next-core-delay-scope-plan-v1.json",
+    "sha256": "53acc4caa6edcb60271eea59cffc68060b6540ccf2a5e8f171e4380d2f995084",
+    "sizeBytes": 71794
+  },
+  "adoption": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2517-root-scope-adoption-v1.json",
+    "sha256": "7e000ea3b9b9d40f45a84e9595b5e6ef4acea5eca2ed5c4c5cdedb4b1c6a1262",
+    "sizeBytes": 4741
+  },
+  "exactApis": [
+    {
+      "clr": "public static System.Threading.Tasks.Task FromCanceled(System.Threading.CancellationToken cancellationToken)",
+      "java": "public static Task FromCanceled(CancellationToken cancellationToken)",
+      "source": "Task.cs:5468-5473",
+      "metadataLines": "task.json:691-703"
+    },
+    {
+      "clr": "public static System.Threading.Tasks.Task Delay(System.Int32 millisecondsDelay)",
+      "java": "public static Task Delay(int millisecondsDelay)",
+      "source": "Task.cs:5742",
+      "metadataLines": "task.json:584-596"
+    },
+    {
+      "clr": "public static System.Threading.Tasks.Task Delay(System.Int32 millisecondsDelay, System.Threading.CancellationToken cancellationToken)",
+      "java": "public static Task Delay(int millisecondsDelay, CancellationToken cancellationToken)",
+      "source": "Task.cs:5762-5770",
+      "metadataLines": "task.json:563-581"
+    },
+    {
+      "clr": "public static System.Threading.Tasks.Task Delay(System.TimeSpan delay)",
+      "java": "public static Task Delay(TimeSpan delay)",
+      "source": "Task.cs:5685",
+      "metadataLines": "task.json:668-680"
+    },
+    {
+      "clr": "public static System.Threading.Tasks.Task Delay(System.TimeSpan delay, System.Threading.CancellationToken cancellationToken)",
+      "java": "public static Task Delay(TimeSpan delay, CancellationToken cancellationToken)",
+      "source": "Task.cs:5714-5728",
+      "metadataLines": "task.json:599-617"
+    }
+  ],
+  "apiMapping": {
+    "declaringType": "System.Threading.Tasks.Task",
+    "genericArity": 0,
+    "static": true,
+    "optionalParameters": false,
+    "metadataPath": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+    "representation": "Task, CancellationToken and TimeSpan retain exact selected public names; int is the Int32 carrier. Task remains final and externally read-only. Private nested helpers do not enter the public API ledger. No return-type-only overload conflict exists among these five members.",
+    "ledgerReconciliation": "n01-public-method-dispositions-v10.0.12.json lines 1200-1269 marks Delay overloads INDIVIDUAL_SYNTAX_ONLY and FromCanceled nongeneric plus generic siblings BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE. Preserve this historical file as evidence; add a versioned selected contract/disposition delta for the nongeneric slice, referencing the old limitation. Do not mark the generic family, N01 as a whole, or public exact compatibility accepted.",
+    "nullCarriers": "Explicit Java-only adaptation: FromCanceled(null) throws ArgumentNullException(cancellationToken); Delay(TimeSpan null) throws ArgumentNullException(delay). For two-argument Delay first validate delay/range, then reject a null cancellationToken with ArgumentNullException(cancellationToken), then choose native fast paths. Combined-null TimeSpan/token rejects delay first. Record these separately from CLR parity, since CLR value-type null inputs cannot exist.",
+    "existingFromExceptionPrecedent": {
+      "historicalLedger": "planning/stage-2/repos/dotj-core/evidence/n01-public-method-dispositions-v10.0.12.json",
+      "historicalRecords": "FromException(System.Exception) lines 192-200, sourceBatch Batch-320/probeBatch Batch-787; generic FromException<TResult>(System.Exception) lines 3531-3539, sourceBatch Batch-664/probeBatch Batch-1161. Both remain BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE/publicBehaviorQualified=false.",
+      "selectedContract": "planning/stage-2/repos/dotj-core/PUBLIC-WORKTASK-CANCELASYNC-N01-v1.md lines 3-7,19-21",
+      "selectedCaptureContract": "tools/oracle/dotj-core/public-worktask-cancelasync-v1/frozen-native-contract-v1.json lines 5-22,64-79",
+      "conclusion": "Current Task.java lines 46-51 implements only nongeneric FromException; selected worktask contract and current Batch2515 same-JAR evidence qualify that bounded candidate while explicitly leaving generic tasks and broad qualification open. Use the same successor-view pattern for nongeneric FromCanceled, with no edits to historical generic-family blocked records.",
+      "fromCanceledRecord": "FromCanceled(CancellationToken), sourceBatch Batch-421/probeBatch Batch-906, lines 1254-1262; generic sibling probeBatch Batch-907 at 1263-1271."
+    }
+  },
+  "stateSemantics": {
+    "validation": "int rejects values less than -1 with AOOE(millisecondsDelay). TimeSpan converts (long)delay.get_TotalMilliseconds() with truncation toward zero, then rejects below -1 or above 4294967294 with AOOE(delay). Keep long internally; do not narrow large valid TimeSpan delays to int.",
+    "fractionalExamples": "-1 tick and -9999 ticks truncate to zero; -10000 through -19999 ticks truncate to -1; -20000 ticks reject. At upper range use tick-exact vectors around 4294967294 and 4294967295 milliseconds, including fractional offsets, and preserve double-to-long source conversion rather than substituting an arbitrary duration rule.",
+    "selection": "After validation and Java-carrier checks: requested token returns FromCanceled(token), even at zero; otherwise zero returns CompletedTask; otherwise create cancelable promise if CanBeCanceled, else noncancelable promise. Infinite -1 installs no timer; infinite noncancelable remains pending with no registration or timer.",
+    "fromCanceled": "Construct a distinct canceled Task with supplied token, no fault and no original OperationCanceledException payload. Await throws TaskCanceledException bound to this Task, token equality preserved even after source disposal. Nonrequested None/default/live/disposed-nonrequested tokens reject.",
+    "linearization": "Task's existing synchronized terminal transition is the sole winner. Payload writes precede volatile status publication; only one of timer success and cancellation wins. Loser never overwrites state or creates a fault. Await returns on success, or TCE with original Task/token on cancellation.",
+    "dispatch": "A private per-Task volatile/lock-safe delay async flag is initially false. Cancellation callback sets it before invoking complete(Canceled). Completion reads it at the dispatch decision and queues every pending callback when true; state publication itself is synchronous. Timer completion may inline the first pending continuation if false. A cancellation race may set the flag before timer dispatch even if timer wins; accept async timer dispatch then. Existing TCS/Run/ValueTask producers never set the flag, retaining first-inline/additional-queued behavior. Already-completed continuation registration remains asynchronous.",
+    "disposedTokens": "Use a token obtained before source disposal. Disposed nonrequested tokens remain nonrequested and CanBeCanceled; registration may be empty, finite delay still succeeds, infinite delay remains pending. Already-requested then disposed tokens still produce canceled tasks. Do not call get_Token on an already-disposed source as a surrogate for Delay behavior.",
+    "contextBoundary": "No custom scheduler or ExecutionContext capture parity claim. New timer threads, worker threads and delay-specific fallback workers must be daemon and disable inheritable-thread-local inheritance, including lazy creation paths. Do not silently change old Task queue behavior; give Delay a private dispatch executor if necessary. Native uses UnsafeRegister/context-free timers; the existing Register adaptation is valid only in the stated bounded default-context profile."
+  },
+  "privateDesign": {
+    "primaryFile": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Task.java",
+    "composition": "Private nested DelayState owns a new Task, optional TimerHandle and CancellationTokenRegistration, plus a resource lock and cleanupRequested marker. Task remains final. Place helper implementations nested/private, or a package-private TaskDelaySupport.java only if size requires it. No public nested interfaces, setters, constructors or cancellation producer escapes.",
+    "interfaces": [
+      "Private DelayTimer.schedule(long milliseconds, Runnable callback) -> idempotent TimerHandle.cancel()",
+      "Per-invocation registration function mapping token/callback to the actual CancellationTokenRegistration, production using token.Register(Action); the test function gates before/after the real registration and returns that real CTR, never subclasses the final carrier",
+      "Per-invocation asynchronous Executor for delay completion/continuations",
+      "Package-private test entry point accepting an immutable per-call infrastructure object, never a global mutable hook"
+    ],
+    "productionTimer": "ScheduledThreadPoolExecutor with remove-on-cancel enabled and one scheduler worker is acceptable only for expiry notification. Scheduled work hands off to independent cached daemon workers and returns immediately; no arbitrary user continuation executes on the scheduler worker. Use java.base only. Native source supports callback threadpool dispatch; there is no exact thread-count or latency equivalence claim.",
+    "rejection": "Define a delay-specific rejected-executor fallback using a fresh noninheriting daemon worker, so neither cancellation nor timer scheduler executes user continuations inline on rejection. Preserve exactly-once completion/dispatch attempts. Catastrophic allocation failure is not a fabricated native fault mapping; retain raw failure and make cleanup best-effort in finally.",
+    "construction": "Create DelayState before invoking scheduling; finite timer may call back before schedule returns. Publish returned handle under resource lock, then dispose it outside lock if cleanupRequested or Task already terminal. Register cancellation only for cancelable non-fastpath promises; callback may run synchronously before Register returns. Publish returned CTR with the same late-publication rule. If setup throws after acquiring a resource, detach and dispose acquired resources before rethrowing the setup failure; do not fabricate a faulted Task for runtime infrastructure failure.",
+    "cleanup": "Winning timer calls completion first, then cleanup; winning cancellation completes then cleanup. Use finally around completion dispatch so unexpected dispatch failure cannot skip cleanup once terminal. Cleanup atomically marks cleanupRequested and detaches published handles under resource lock; outside all Delay/Task locks dispose registration then timer. Each late-published resource observes terminal/cleanupRequested and disposes itself outside the lock. Idempotent handle/CTR disposal permits duplicate paths safely. Record the winning attempt before continuation dispatch inside the Task terminal transition (a private per-attempt outcome holder, never a public callback). Only that winner owns completion-finally cleanup; terminal status alone is not proof this caller won. Late-publication disposal remains a separate constructor obligation. This distinguishes a loser from a winner whose dispatch subsequently throws.",
+    "lockOrder": "Never wait in CTR.Dispose while holding Delay resource lock or Task lock. Never hold resource lock across scheduling, registration, completion or arbitrary callback invocation. Source Cancel already releases CTS lock before callbacks. Cancellation cleanup can dispose its own registration without waiting; external timer cleanup can wait for an in-flight cancellation callback only while owning no locks the callback needs.",
+    "completionBeforeCleanup": "Terminal status can precede cleanup while an inline timer continuation blocks. Require eventual resource cleanup after that continuation is released, not eager cleanup at the first status observation. Late constructor publication may independently dispose its returned resource while the winning continuation is still running; both orders are source-permitted.",
+    "retention": "Canceled scheduled futures are removed from the queue. Detach resource fields after cleanup. Keep the public Task from retaining a completed DelayState unnecessarily; callback closures may retain it only until timer work/registration is released. No forced-GC timing acceptance assertion."
+  },
+  "sourceAnchors": [
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "lines": "5468-5473",
+      "fact": "FromCanceled requires requested token; AOOE parameter cancellationToken otherwise; retain supplied token."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "lines": "5685,5714-5728,5742,5762-5787",
+      "fact": "Exact overload forwarding, delay validation before token/zero selection, cast TotalMilliseconds to long then range-check -1..4294967294."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "lines": "5791-5847",
+      "fact": "Infinite allocates no timer; System timer suppresses context flow; timer-field late publication is cleaned; successful completion precedes cleanup."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "lines": "5851-5896,3454-3480",
+      "fact": "UnsafeRegister, async-continuation flag before canceled completion, benign timer-win async race, late-registration disposal and registration-before-timer cleanup."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/Timer.cs",
+      "lines": "181-185,261-268,334,670-686,714-733,827",
+      "fact": "Timer callbacks are dispatched through threadpool paths; timeout maximum 0xfffffffe. Isolation from blocking callbacks is a design obligation, not an exact scheduling promise."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/CancellationToken.cs",
+      "lines": "250-263,287-294",
+      "fact": "UnsafeRegister passes no synchronization/execution context; default token returns empty registration."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs",
+      "lines": "586-600",
+      "fact": "Already-canceled registration is synchronous; uncanceled disposed source accepts no registration. Do not infer throwing from stale XML exception documentation."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/Tasks/Task.java",
+      "lines": "20-53,101-136,138-165,169-196",
+      "fact": "Final Task, package-private producer, payload-before-volatile-terminal publication, first pending continuation inline/additional queued, await TCE(Task), already-completed registration queues."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/Tasks/TaskCanceledException.java",
+      "lines": "9-17",
+      "fact": "Constructor retains original Task and its token for await cancellation identity."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/Tasks/TaskCompletionSource.java",
+      "lines": "11-30",
+      "fact": "Old producer uses the default completion path; preserve its semantics and null-token adaptation."
+    },
+    {
+      "root": "product",
+      "path": "System/Runtime/CompilerServices/TaskAwaiter.java",
+      "lines": "8-20",
+      "fact": "Immutable bridge exposes result and completion registration; context capture explicitly outside profile."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/CancellationToken.java",
+      "lines": "26-42,51-78",
+      "fact": "None/live/requested checks, callback registration and source-backed token equality."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/CancellationTokenRegistration.java",
+      "lines": "29-79",
+      "fact": "Unregister removes pending callback; Dispose waits on other running thread and bypasses self-wait."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/CancellationTokenSource.java",
+      "lines": "86-111,199-244",
+      "fact": "Cancel invokes callbacks outside source lock; late requested registration invokes synchronously, disposed nonrequested registration returns empty, disposal unregisters existing callbacks."
+    },
+    {
+      "root": "product",
+      "path": "System/TimeSpan.java",
+      "lines": "38-44,978-982",
+      "fact": "Tick construction and TotalMilliseconds carrier usable for delay truncation and range validation."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Runtime/tests/System.Threading.Tasks.Tests/Task/TaskRtTests.cs",
+      "lines": "560-702",
+      "fact": "True upstream test anchors: TaskDelay_OutOfBounds_ThrowsException, TaskDelay_MaxSupported_Success, RunDelayTests, RunDelayTests_NegativeCases, TaskDelay_Cancellation_ContinuationsInvokedAsynchronously. Map purposes into bounded designed fixtures; do not claim to run these tests unchanged or to support WaitAll/ContinueWith."
+    },
+    {
+      "root": "repo",
+      "path": "planning/stage-2/repos/dotj-core/WORK-PACKAGES.md",
+      "lines": "7-21,47-65",
+      "fact": "E01/E02/E03 and N01 gates; WP02 state/continuation, unregister/dispose/context and migration acceptance requirements."
+    },
+    {
+      "root": "repo",
+      "path": "planning/stage-2/repos/dotj-core/API-COMPATIBILITY.md",
+      "lines": "1-60",
+      "fact": "Exact names/concepts, selected release metadata distinction, N01 and NF01-NF03 acceptance; bounded evidence is not full qualification."
+    }
+  ],
+  "historicalLedgerChanged": false,
+  "genericFamily": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE remains open",
+  "N01Credit": false,
+  "frameworkQualificationCredit": false
+}

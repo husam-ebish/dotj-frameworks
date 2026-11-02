@@ -1,0 +1,33 @@
+{
+  "surface": {
+    "additions": [
+      "System/Threading/Tasks/Task|M|Delay|(I)LSystem/Threading/Tasks/Task;|9",
+      "System/Threading/Tasks/Task|M|Delay|(ILSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|9",
+      "System/Threading/Tasks/Task|M|Delay|(LSystem/TimeSpan;)LSystem/Threading/Tasks/Task;|9",
+      "System/Threading/Tasks/Task|M|Delay|(LSystem/TimeSpan;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|9",
+      "System/Threading/Tasks/Task|M|FromCanceled|(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|9"
+    ],
+    "removed": [],
+    "before": 2503,
+    "after": 2508
+  },
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-delay-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+    "sha256": "7528c565d2242ad5ab50700ad554e1561e71ba78ed40ed48b9a834cf58934099",
+    "sizeBytes": 853870
+  },
+  "addedPrivateClasses": [
+    "System/Threading/Tasks/Task$CompletionAttempt.class",
+    "System/Threading/Tasks/Task$DelayDefaults.class",
+    "System/Threading/Tasks/Task$DelayInfrastructure.class",
+    "System/Threading/Tasks/Task$DelayRegistrar.class",
+    "System/Threading/Tasks/Task$DelayState.class",
+    "System/Threading/Tasks/Task$DelayTimer.class",
+    "System/Threading/Tasks/Task$TimerHandle.class"
+  ],
+  "oldClassesChanged": [
+    "System/Threading/Tasks/Task.class"
+  ],
+  "oldGenericLedgerChanged": false,
+  "acceptedTaskCredit": 0
+}
