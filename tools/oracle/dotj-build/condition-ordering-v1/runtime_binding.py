@@ -12,20 +12,22 @@ p=importlib.util.module_from_spec(s);s.loader.exec_module(p)
 
 def verify(value,raw,contract=None):
     contract=contract if contract is not None else p.read(p.HERE/'runtime-binding-contract.json')
+    return verify_context(value,raw,contract,p.read(p.HERE/'payload-lock.json'),p.read(p.HERE/'reuse-chain.json'),p.read(p.HERE/'execution-proposal.json')['fingerprint'])
+
+def verify_context(value,raw,contract,payload,reused,expected):
+    """Same binding assertions with an explicit immutable historical context."""
     p.keys(contract,['schemaVersion','fingerprint','binaryPins','observerPins','loadedLibraries','tpaEntries','depsPath','hostVersion'],'runtime binding contract')
     p.require(type(contract['schemaVersion']) is int and contract['schemaVersion']==1,'runtime binding version')
-    expected=p.read(p.HERE/'execution-proposal.json')['fingerprint']
     p.require(p.same(contract['fingerprint'],expected),'closed runtime fingerprint contract')
     libraries={name:str(p.B/'toolchains/dotnet'/folder/name) for name,folder in [('hostfxr.dll','host/fxr/10.0.12'),('hostpolicy.dll','shared/Microsoft.NETCore.App/10.0.12'),('coreclr.dll','shared/Microsoft.NETCore.App/10.0.12')]}
     p.require(p.same(contract['loadedLibraries'],libraries) and contract['depsPath']==str(p.B/'toolchains/dotnet/sdk/10.0.401/MSBuild.deps.json'),'fixed runtime directory and SDK deps context')
     for key,expected_value in expected.items():p.require(type(value.get(key)) is str and value[key]==expected_value,'observer runtime/module fingerprint '+key)
-    payload=p.read(p.HERE/'payload-lock.json');pins=payload['files'];seen=set()
+    pins=payload['files'];seen=set()
     required={expected[k] for k in ['corePath','msbuildPath','frameworkPath']}|set(contract['loadedLibraries'].values())|{contract['depsPath']}
     for d in contract['binaryPins']:
         p.check_descriptor(d);p.require(d['path'] not in seen,'unique binding binary path');seen.add(d['path'])
         p.require(any(p.same(d,x) for x in pins),'exact closed payload binary descriptor');p.pin(d)
     p.require(seen==required,'complete module/runtime/deps binary binding set')
-    reused=p.read(p.HERE/'reuse-chain.json')
     p.require(p.same(contract['observerPins'],[reused[k] for k in ['source','dll','runtimeconfig']]),'trusted observer source/binary/runtimeconfig chain')
     for d in contract['observerPins']:p.pin(d)
     p.require(type(raw) is bytes and len(raw)<=524288,'bounded retained host trace')
