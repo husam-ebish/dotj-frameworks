@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "status": "SELECTED_BEHAVIOR_CHECKS_PASSED",
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+    "sha256": "5774616ea8d36568de3b4df6078e45da6e486b64b963cd59176c31f5bb568a16",
+    "sizeBytes": 854899
+  },
+  "publicSurface": {
+    "before": 2508,
+    "after": 2509,
+    "added": [
+      "System/Threading/Tasks/Task|M|Run|(LSystem/Action;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|9"
+    ],
+    "removed": []
+  },
+  "contract": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-run-token-contract-v1.json",
+    "sha256": "f3401251e92634961a38fe691c3f9dfd808c35cd1e9d6126950db41af60a2e6d",
+    "sizeBytes": 6084
+  },
+  "baseline": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\baseline-v1\\receipt.json",
+    "sha256": "a6b758e9c69221706048df9fb2242a085ebe3874b6766cc34e5ad81782ba7373",
+    "sizeBytes": 142757
+  },
+  "native": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\native-v1\\receipt.json",
+    "sha256": "15d1ea0a2beac02aeb5c7d2d506bd29214e6146f6792ab4e71d93fec451ea8e7",
+    "sizeBytes": 1872341
+  },
+  "nativeSupplement": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\native-supplement-v1\\receipt.json",
+    "sha256": "d3f7092b657de4dd34a64ab9c6db6776eb11e3e6b61fafcc89bacbebc200fd83",
+    "sizeBytes": 1879663
+  },
+  "build": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\build-v2\\receipt.json",
+    "sha256": "51e6ccf5cafb31825e7bc05c34a36ce7442dfd895012246658aec6601ea7f50b",
+    "sizeBytes": 233111
+  },
+  "paired": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\paired-v1\\receipt.json",
+    "sha256": "d78aa6f87fa4cb804ec07ad5caccc691b0e7b448392b2e2c2c2ca39ff77c381e",
+    "sizeBytes": 157672
+  },
+  "pairedSupplement": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\paired-supplement-v1\\receipt.json",
+    "sha256": "c868dc1cc4875d2dcd536209a011e52a978d8fd4efa1923a638c0c386cd29b82",
+    "sizeBytes": 160558
+  },
+  "private": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\private-v1\\receipt.json",
+    "sha256": "02631c61e50fb9bba8beadfac303687356a84d13237d15db365c0a60aaffc681",
+    "sizeBytes": 156156
+  },
+  "historicalPartial": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-v1\\receipt.json",
+    "sha256": "1994972b03c7851cb54eaa98d8013100ec3de553db8e7bf40425457951b65fad",
+    "sizeBytes": 223749
+  },
+  "historicalTail": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-tail-v2\\receipt.json",
+    "sha256": "3c93427b853e434bfcfa60dc3e390ada7b82c692c2060f8e910740ea0350e87d",
+    "sizeBytes": 357597
+  },
+  "audits": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\audits-v1\\receipt.json",
+    "sha256": "545506b94e0d2ec000789273fa6caf019a4c2f6c032087b19a6bb4de1f1c1bbd",
+    "sizeBytes": 52996
+  },
+  "executedProducerVersions": [
+    {
+      "phase": "baseline",
+      "executedProducer": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\baseline-v1\\inputs\\qualify.py",
+        "sha256": "0a62db1f61b1a1f7d0b5a11f288dc02495ff80ab58db03cd518f5ad98c4eed02",
+        "sizeBytes": 13288
+      },
+      "outerInvocation": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\baseline-v1-outer\\invocation.json",
+        "sha256": "82b778d52c4cc598b396762b8a40d2142fed7882a8defbee67f5687232b9fa24",
+        "sizeBytes": 892
+      },
+      "outerController": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\baseline-v1-outer\\controller.json",
+        "sha256": "517bcd4a359e75d5f99c57b773350a650ffbd4126bcd81c2fbb845e1bceaea89",
+        "sizeBytes": 5498
+      },
+      "helperVersion": "Retrospective immutable helper pins recorded in implementation report; native1/build2/private1 loaded earlier producer versions"
+    },
+    {
+      "phase": "native",
+      "executedProducer": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\native-v1\\inputs\\qualify.py",
+        "sha256": "0a62db1f61b1a1f7d0b5a11f288dc02495ff80ab58db03cd518f5ad98c4eed02",
+        "sizeBytes": 13288
+      },
+      "outerInvocation": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\native-v1-outer\\invocation.json",
+        "sha256": "7f2f588f9bdeaf47fc9292e6678189a5beb896beb94d17ddbd06febdd37055a5",
+        "sizeBytes": 888
+      },
+      "outerController": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\native-v1-outer\\controller.json",
+        "sha256": "d8acbafd05c12351247af715daaa94ef09182e68e7eaa45833e6d8ff455120ab",
+        "sizeBytes": 5459
+      },
+      "helperVersion": "Retrospective immutable helper pins recorded in implementation report; native1/build2/private1 loaded earlier producer versions"
+    },
+    {
+      "phase": "nativeSupplement",
+      "executedProducer": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\native-supplement-v1\\inputs\\qualify.py",
+        "sha256": "ab30ff09caa9423c958b9602ff46143ada4707c663dd9f3ec97fd8e1f65848ee",
+        "sizeBytes": 14945
+      },
+      "outerInvocation": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\native-supplement-v1-outer\\invocation.json",
+        "sha256": "bd66f6ee6cba44997a32b0217acee394378882088f521ad43c63e5910e37b36a",
+        "sizeBytes": 910
+      },
+      "outerController": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\native-supplement-v1-outer\\controller.json",
+        "sha256": "37a4be54634e8ee10b6b005b4421f806948baa902493ea6a6f4339d1cc24f822",
+        "sizeBytes": 5771
+      },
+      "helperVersion": "Retrospective immutable helper pins recorded in implementation report; native1/build2/private1 loaded earlier producer versions"
+    },
+    {
+      "phase": "build",
+      "executedProducer": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\build-v2\\inputs\\qualify.py",
+        "sha256": "93cc70f975477308d2252cf9813816a5d613cdc1f746552551c3612c6cd07959",
+        "sizeBytes": 14461
+      },
+      "outerInvocation": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\build-v2-outer\\invocation.json",
+        "sha256": "6fe4c15f99e713d699791c921a520f267413a2d9ffe44327a6f8f3bd6a4983ed",
+        "sizeBytes": 886
+      },
+      "outerController": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\build-v2-outer\\controller.json",
+        "sha256": "86ee104ffbc1e0cee9d135ee8389a9f1d35647339e9038a098ad81b31d0fdf7d",
+        "sizeBytes": 5534
+      },
+      "helperVersion": "Retrospective immutable helper pins recorded in implementation report; native1/build2/private1 loaded earlier producer versions"
+    },
+    {
+      "phase": "paired",
+      "executedProducer": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\paired-v1\\inputs\\qualify.py",
+        "sha256": "ab30ff09caa9423c958b9602ff46143ada4707c663dd9f3ec97fd8e1f65848ee",
+        "sizeBytes": 14945
+      },
+      "outerInvocation": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\paired-v1-outer\\invocation.json",
+        "sha256": "b763f5b426bccf79c31f9f1011111546f90a594fb226da22f11d875d49b7eebe",
+        "sizeBytes": 1213
+      },
+      "outerController": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\paired-v1-outer\\controller.json",
+        "sha256": "66c1e88d845660d1026afc585b72b89b5a1549ee4a8ea6a0f7420515dfab46d2",
+        "sizeBytes": 5876
+      },
+      "helperVersion": "Retrospective immutable helper pins recorded in implementation report; native1/build2/private1 loaded earlier producer versions"
+    },
+    {
+      "phase": "pairedSupplement",
+      "executedProducer": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\paired-supplement-v1\\inputs\\qualify.py",
+        "sha256": "1f61a388a6c6e387cc8ebeeec73b9e7ce4329ecd749078a1551b8dc5bf12cbc7",
+        "sizeBytes": 15107
+      },
+      "outerInvocation": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\paired-supplement-v1-outer\\invocation.json",
+        "sha256": "f1d08af63e2878e83fd8f7644d0cd958b21af8d4952794e9c1c9065326ce5e50",
+        "sizeBytes": 1246
+      },
+      "outerController": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\paired-supplement-v1-outer\\controller.json",
+        "sha256": "969fd713743593918635309b55fc5304cce3c0efa23ef225d11e543cba9f325d",
+        "sizeBytes": 6110
+      },
+      "helperVersion": [
+        {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-delay-product-v1\\product_support.py",
+          "sha256": "88c96ea7444c78ae6c5ebabc6945abfd23920602f466741f5944af3d4288c4dd",
+          "sizeBytes": 12295
+        },
+        {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-delay-v1\\tools\\oracle\\dotj-core\\public-task-delay-v1\\contract.py",
+          "sha256": "9dd9ea809dae4167f1419a473c88c8c9a5de587c28c279cd003ca116e3b2deda",
+          "sizeBytes": 15124
+        },
+        {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-delay-v1\\tools\\oracle\\dotj-core\\public-task-delay-v1\\phase_tools.py",
+          "sha256": "7231615af75f406186d5061daa746b1c55191d759076261ecb0ac9c71edbda29",
+          "sizeBytes": 22295
+        }
+      ]
+    },
+    {
+      "phase": "private",
+      "executedProducer": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\private-v1\\inputs\\qualify.py",
+        "sha256": "45d50b6044d7c217ccc2a685d4ff86f12d70ef0be3967777dc226bb909c98a53",
+        "sizeBytes": 14575
+      },
+      "outerInvocation": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\private-v1-outer\\invocation.json",
+        "sha256": "e7bf37bec0da7bdcbcb0de1797001dbdbc7881af066b1c8958b9080d13fd1d28",
+        "sizeBytes": 1067
+      },
+      "outerController": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\private-v1-outer\\controller.json",
+        "sha256": "b3c682fbe59a149257dd274fba36517a58290c2f72a68826e968a99de7bd2fdd",
+        "sizeBytes": 5747
+      },
+      "helperVersion": "Retrospective immutable helper pins recorded in implementation report; native1/build2/private1 loaded earlier producer versions"
+    },
+    {
+      "phase": "historicalPartial",
+      "executedProducer": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-v1\\inputs\\qualify.py",
+        "sha256": "ada2532b6a8c048f682657749719867a0b43b5e97425c05cf68cd61d29352ebf",
+        "sizeBytes": 14604
+      },
+      "outerInvocation": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-v1-outer\\invocation.json",
+        "sha256": "fdc76f8fd1b6726d789f3da2dcc25ff1d37b8fb947f3004c41ca3881d8aab883",
+        "sizeBytes": 1073
+      },
+      "outerController": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-v1-outer\\controller.json",
+        "sha256": "f6ce2953aaf0d29051888eaec4ddda3269f394910f7c50fa1004ac9ca50620a0",
+        "sizeBytes": 5812
+      },
+      "helperVersion": "Retrospective immutable helper pins recorded in implementation report; native1/build2/private1 loaded earlier producer versions"
+    },
+    {
+      "phase": "historicalTail",
+      "executedProducer": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-tail-v2\\inputs\\qualify.py",
+        "sha256": "7034196956f8bdaf8f9792e68083628866f9d9ac5e418bdad6552d9bd7df0d8d",
+        "sizeBytes": 15004
+      },
+      "outerInvocation": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-tail-v2-outer\\invocation.json",
+        "sha256": "f7bbd884b2f3cbf2627d53487b8d3dd3a3c168dca7e7fe182ff3f66568000c32",
+        "sizeBytes": 1212
+      },
+      "outerController": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-tail-v2-outer\\controller.json",
+        "sha256": "a5380d75b0166ff2ef6a62a18b3002ebba9f5611854f12fda89954449f670adf",
+        "sizeBytes": 6036
+      },
+      "helperVersion": "Retrospective immutable helper pins recorded in implementation report; native1/build2/private1 loaded earlier producer versions"
+    },
+    {
+      "phase": "audits",
+      "executedProducer": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\audits-v1\\inputs\\qualify.py",
+        "sha256": "1f61a388a6c6e387cc8ebeeec73b9e7ce4329ecd749078a1551b8dc5bf12cbc7",
+        "sizeBytes": 15107
+      },
+      "outerInvocation": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\audits-v1-outer\\invocation.json",
+        "sha256": "4907579f037f307a25508947813e518128c04e691baca1e38fcf663f851af093",
+        "sizeBytes": 1065
+      },
+      "outerController": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\audits-v1-outer\\controller.json",
+        "sha256": "a1c79df1f5ee7f883b233ba1cef2ef8f99a8afdfe515801d0559aca9803c0b10",
+        "sizeBytes": 5729
+      },
+      "helperVersion": [
+        {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-delay-product-v1\\product_support.py",
+          "sha256": "88c96ea7444c78ae6c5ebabc6945abfd23920602f466741f5944af3d4288c4dd",
+          "sizeBytes": 12295
+        },
+        {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-delay-v1\\tools\\oracle\\dotj-core\\public-task-delay-v1\\contract.py",
+          "sha256": "9dd9ea809dae4167f1419a473c88c8c9a5de587c28c279cd003ca116e3b2deda",
+          "sizeBytes": 15124
+        },
+        {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-delay-v1\\tools\\oracle\\dotj-core\\public-task-delay-v1\\phase_tools.py",
+          "sha256": "7231615af75f406186d5061daa746b1c55191d759076261ecb0ac9c71edbda29",
+          "sizeBytes": 22295
+        }
+      ]
+    }
+  ],
+  "failedNoChildBuild": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\build-v1-outer\\controller.json",
+    "sha256": "a065bd453bcd01e11a895329180670b5e7547ad54ae80d5f0487b851553a1deb",
+    "sizeBytes": 5439
+  },
+  "launchControls": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\launch-admission-controls-v3.stdout",
+    "sha256": "97ad841372c8a9920a88eb480af5acb9e24cc010b85917a7de52df84474a71f9",
+    "sizeBytes": 1018
+  },
+  "foundationQualification": "Separate public-task-run-token-foundation-v1.json records the actual foundation gate after it completes; no gate success is asserted here",
+  "historicalSuccessors": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\historical-successors-v1.json",
+    "sha256": "1dc1dcc7ca5272398155bd900b917af062c63805ab1106ef1daba54e46b324f9",
+    "sizeBytes": 2393
+  },
+  "nativeCases": 25,
+  "nativeFields": 300,
+  "nativePassesPerMatrix": 2,
+  "privateControls": 23,
+  "historicalFieldsAndControls": 3475,
+  "delayCases": 113,
+  "delayFields": 3955,
+  "delayPrivateControls": 30,
+  "acceptanceCredit": 0,
+  "acceptedTasks": "0/1092 (0%)",
+  "openAcceptanceItems": 1686,
+  "qualifiedFrameworks": "0/66",
+  "wholeProjectRemainingBatches": "UNKNOWN",
+  "e01Decisions": "All three OPEN",
+  "integration": "Root independent reviews and terminal merge/push not asserted"
+}

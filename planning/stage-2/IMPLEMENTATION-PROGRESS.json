@@ -13,7 +13,7 @@
     "totalUniqueNamedTasks": 1356,
     "sdkIntegrationTasks": 60
   },
-  "currentBatch": "Batch-2518",
+  "currentBatch": "Batch-2519",
   "completedBatches": [
     "Batch-001",
     "Batch-002",
@@ -2532,7 +2532,8 @@
     "Batch-2515",
     "Batch-2516",
     "Batch-2517",
-    "Batch-2518"
+    "Batch-2518",
+    "Batch-2519"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -12353,20 +12354,21 @@
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
     "id": null,
-    "framework": "dotj-build",
+    "framework": "dotj-core",
     "planTaskIds": [
-      "DJ-005-WP-01-T1"
+      "DJ-001-WP-02-T1",
+      "DJ-001-WP-02-T2"
     ],
-    "outcome": "Verify Batch2518 Git integration, then baseline the next substantive remaining acceptance scope before assigning another batch number.",
+    "outcome": "Root independent specification/quality/whole-branch reviews and terminal integration of the qualified Batch2519 candidate, then select remaining acceptance scope.",
     "requiresContinue": false,
-    "basis": "Selected ordering vertical is qualified; items/globs/platform/public API and wider acceptance remain open. No fixed project batch total."
+    "basis": "Exactly one selected Run(Action,CancellationToken) overload qualified; no additional batch number assigned or acceptance credit."
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2518,
-    "countContext": "2518 qualified numbered candidate records in this checkout. Preintegration canonical baseline Batch2517 is merged/pushed86ae. The Batch2518 record itself does not assert terminal merge/push; verify Git ancestry and origin/master equality. No acceptance credit; project total/remaining UNKNOWN.",
+    "completedBatches": 2519,
+    "countContext": "2519 qualified numbered candidate records in this feature checkout; actual integrated mainline baseline remains Batch2518/mastera116c7ec. Batch2519 has passed its selected checks and actual complete foundation gate; independent root reviews and terminal merge/push are separate. Accepted0/1092, open1686, qualified0/66, future project batches UNKNOWN.",
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12532,7 +12534,7 @@
   },
   "completedBatchesMeaning": "Qualified numbered candidate records in this checkout, not accepted implementation tasks. On a feature branch this includes its qualified candidate; terminal integration/push is verified from Git.",
   "batch2518Candidate": {
-    "status": "IMPLEMENTED_AND_QUALIFIED_SELECTED_PRIVATE_CANDIDATE",
+    "status": "MERGED_AND_PUSHED_BOUNDED_CANDIDATE",
     "framework": "dotj-build",
     "selectedImplementationGroups": 1,
     "selectedImplementedGroups": 1,
@@ -12557,6 +12559,61 @@
     "openAcceptanceItems": 1686,
     "totalProjectBatches": null,
     "remainingProjectBatches": null,
-    "terminalIntegration": "Derived from Git, not asserted by this candidate record"
+    "terminalIntegration": "Actual merged and pushed master/origin-master a116c7ec505dff9dc076a658dee52b7beb4dc6a8; original branch-base fields remain historical",
+    "selectedIntegratedGroups": 1,
+    "integration": {
+      "mergeCommit": "a116c7ec505dff9dc076a658dee52b7beb4dc6a8",
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2518-integration-v1.json",
+        "sha256": "11c75389202e3af08df40baca9e1b45519d5f2ce730cf769177d85acc59633fa",
+        "sizeBytes": 72229
+      },
+      "qualificationReplayed": false
+    },
+    "frozenTask106StatusClarification": "T110-DOC-M1: evaluator CONTRACT197 and condition-ordering-product README69 retain frozen original bytes; later qualification and actual2518 integration govern current status."
+  },
+  "batch2519Candidate": {
+    "status": "QUALIFIED_FEATURE_CANDIDATE_ROOT_REVIEW_AND_INTEGRATION_PENDING",
+    "framework": "dotj-core",
+    "canonicalIntegratedBatch": "Batch-2518",
+    "canonicalBase": "a116c7ec505dff9dc076a658dee52b7beb4dc6a8",
+    "selectedImplementationGroups": 1,
+    "selectedImplementedGroups": 1,
+    "selectedIntegratedGroups": 0,
+    "publicAdditions": 1,
+    "newCases": 25,
+    "newFields": 300,
+    "retainedNativePassesPerMatrix": 2,
+    "privateControls": 23,
+    "historicalGroups": 11,
+    "historicalFieldsAndControls": 3475,
+    "delayCases": 113,
+    "delayFields": 3955,
+    "delayPrivateControls": 30,
+    "actualFoundationChecks": 519,
+    "jar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+      "sha256": "5774616ea8d36568de3b4df6078e45da6e486b64b963cd59176c31f5bb568a16",
+      "sizeBytes": 854899
+    },
+    "qualification": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-run-token-foundation-v1.json",
+      "sha256": "72f18203257318e43911690886b03e687e2e9cfa392e40edf26de6c1fe0b6fe2",
+      "sizeBytes": 5241
+    },
+    "acceptedTasksAdded": 0,
+    "qualifiedFrameworksAdded": 0,
+    "openAcceptanceItems": 1686,
+    "coreE01Open": 3,
+    "totalProjectBatches": null,
+    "remainingProjectBatches": null,
+    "taskReviewPending": true,
+    "wholeBranchReviewPending": true,
+    "rootMergePushPending": true,
+    "dependencies": {
+      "product": "JDK java.base only",
+      "developmentReference": "Pinned Python3.13.9/JDK21/.NET10; native Action references and complete inherited foundation gate",
+      "broader": "Generic/context/public .j/N01/NF/release qualification remains unresolved"
+    }
   }
 }

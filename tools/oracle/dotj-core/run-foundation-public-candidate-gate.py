@@ -534,6 +534,7 @@ CHECKS = (
     "verify-public-worktask-cancelasync.py",
     "verify-public-valuetask-task.py",
     "verify-public-task-delay.py",
+    "verify-public-task-run-token.py",
 )
 
 
@@ -573,7 +574,7 @@ def main():
     jar_hash = artifact["jarSha256"]
     assert jar_hash == mapping["jarSha256"] == queue["jarSha256"]
     assert jar_hash == packet["candidateJarSha256"]
-    assert jar_hash == read("public-task-delay-v1.json")["candidateJar"]["sha256"]
+    assert jar_hash == read("public-task-run-token-v1.json")["candidateJar"]["sha256"]
     assert sha256(ROOT / artifact["jarPath"]) == jar_hash
     assert len(artifact["productSources"]) == queue["sourceCount"]
     assert len(artifact["jarEntries"]) == len(artifact["classSha256"]) + 2
@@ -1570,6 +1571,9 @@ def main():
         "public-task-delay-v1.json",
         "public-task-delay-contract-v1.json",
         "public-task-delay-preservation-v1.json",
+        "public-task-run-token-v1.json",
+        "public-task-run-token-contract-v1.json",
+        "n01-selected-task-run-token-v1.json",
     )
     record = {
         "schemaVersion": 1,
