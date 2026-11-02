@@ -532,6 +532,7 @@ CHECKS = (
     "build-foundation-e01-review-packet.py",
     "verify-differential-oracle-provenance.py",
     "verify-public-worktask-cancelasync.py",
+    "verify-public-valuetask-task.py",
 )
 
 
@@ -1563,6 +1564,7 @@ def main():
         "foundation-e01-review-packet-v1.json",
         "differential-oracle-provenance-v1.json",
         "public-worktask-cancelasync-v1.json",
+        "public-valuetask-task-v1.json",
     )
     record = {
         "schemaVersion": 1,

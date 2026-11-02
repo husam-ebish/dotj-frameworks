@@ -404,7 +404,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/INotifyC
 SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/ICriticalNotifyCompletion.java")
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/async/ValueTaskBridge.java")
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/delegates/ActionBody1.java")
-EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Action_1.class", "System/IAsyncDisposable.class", "System/Threading/Tasks/ValueTask.class", "System/Threading/Tasks/Sources/IValueTaskSource.class", "System/Threading/Tasks/Sources/ValueTaskSourceStatus.class", "System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.class", "System/Runtime/CompilerServices/ValueTaskAwaiter.class", "System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable.class", "System/Runtime/CompilerServices/INotifyCompletion.class", "System/Runtime/CompilerServices/ICriticalNotifyCompletion.class", "org/dotj/internal/async/ValueTaskBridge.class", "org/dotj/internal/delegates/ActionBody1.class", "System/Threading/Tasks/ValueTask$1.class", "System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable$ConfiguredValueTaskAwaiter.class", "org/dotj/internal/async/ValueTaskBridge$Access.class"])
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Action_1.class", "System/IAsyncDisposable.class", "System/Threading/Tasks/ValueTask.class", "System/Threading/Tasks/Sources/IValueTaskSource.class", "System/Threading/Tasks/Sources/ValueTaskSourceStatus.class", "System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.class", "System/Runtime/CompilerServices/ValueTaskAwaiter.class", "System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable.class", "System/Runtime/CompilerServices/INotifyCompletion.class", "System/Runtime/CompilerServices/ICriticalNotifyCompletion.class", "org/dotj/internal/async/ValueTaskBridge.class", "org/dotj/internal/delegates/ActionBody1.class", "System/Threading/Tasks/ValueTask$1.class", "System/Threading/Tasks/ValueTask$SourceTask.class", "System/Runtime/CompilerServices/ConfiguredValueTaskAwaitable$ConfiguredValueTaskAwaiter.class", "org/dotj/internal/async/ValueTaskBridge$Access.class"])
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/AggregateException.class", "System/ObjectDisposedException.class", "System/OperationCanceledException.class", "System/Threading/CancellationToken.class", "System/Threading/CancellationTokenRegistration.class", "System/Threading/CancellationTokenSource.class"])
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Action.class", "System/Delegate.class", "System/MulticastDelegate.class", "org/dotj/internal/delegates/ActionBody.class"])
 
@@ -430,7 +430,7 @@ def build_product(run_tool=run):
         output_dir.mkdir(parents=True, exist_ok=True)
         for stale_class in output_dir.rglob("*.class"):
             stale_class.unlink()
-    run_tool("javac", "--release", "21", "-d", str(CLASSES), *(str(path) for path in SOURCES))
+    run_tool("javac", "-encoding", "UTF-8", "--release", "21", "-d", str(CLASSES), *(str(path) for path in SOURCES))
     class_files = sorted(path.relative_to(CLASSES).as_posix() for path in CLASSES.rglob("*.class"))
     assert class_files == EXPECTED_CLASSES, class_files
     public_type = run_tool("javap", "-public", "-classpath", str(CLASSES), "System.Type")
