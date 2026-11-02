@@ -1,8 +1,25 @@
 # Stage 2 implementation state
 
+## Verified Batch2520 publication
+
+Batch2520 is implemented, independently reviewed, canonically verified, merged and pushed at `5110415dd57a916e3f1e516092c0b4daa88a5570`. The original feature and canonical-proof repair refs were also verified remotely. Publication receipt: `D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/batch2520-integration-completion-v1.json`, SHA256 `5bc0723d02554e040e9a1ba53e40a77109c90dcd12065c2428cd17c7ca7b4344`.
+
+The replacement JAR is `1b3de7eba209fcb45d29f637fa2f1f3835095b51a9b52ac90efe06236383b8d7` (872158 bytes,137 sources,195 classes). Its actual complete foundation gate passed520 checks. The stack-safe8192-depth regression passed four outcomes; the canonical reader repair passed16 pure controls and all five actual C entrypoints. Canonical verification used the retained D artifact with full current-source equality; no C JAR build/JVM execution is claimed. Earlier63b/pending-review statements below are retained historical snapshots superseded by this record. All three E01 decisions remain OPEN.
+
+| Measure | Done | Remaining |
+| --- | --- | --- |
+| Numbered qualified candidates | 2520 | Whole-project total/remaining UNKNOWN |
+| Historical2500 target | 2500/2500 | 0 to that target |
+| Selected WaitAsync group | 1/1 | 0 |
+| Accepted implementation tasks | 0/1092 (0%) | 1092 unaccepted |
+| Open acceptance items | no closure credit | 1686 |
+| Qualified frameworks | 0/66 | 66 |
+| Git publication | merge/push/remote refs verified | Later status-only commits may advance master |
+| Next substantive task | Build WP01 item/metadata/glob source-derived scope | New batch number/total not assigned |
+
 Updated: 2026-11-02. Baseline: `stage-2-2026-10-20-v2`.
 
-## Current position
+## Historical qualification and planning snapshots
 
 - Candidate Batch2520 implements the complete selected nongeneric default-clock Task.WaitAsync family plus TimeoutException/type lookup and removable completion actions on retained JAR63b46d65:487 native cases/10690 typed fields across three matrices, two passes each,27 private groups,47 owned negative controls,16 historical groups and paired/original samples. The actual complete520-check foundation gate2 passed on the same137-source/195-class artifact. Root task/code/whole-branch reviews and integration remain pending; selected group planned1/done0/remaining1. Accepted0/1092/open1686/framework0/66/3E01OPEN/projecttotal and remainingUNKNOWN. See [Batch2520](implementation/batches/Batch-2520.md) and [actual qualification](repos/dotj-core/evidence/public-task-wait-async-foundation-v1.json).
 - Current integrated baseline is Batch2519 at fffc29c7a9607547be14e8f161530873c11d711d, actually merged/pushed according to retained orchestration/batch2519-integration-v1.json SHA256dc102ebf8b3daaa38f3b964e3a12c03e6072de1f085df236a1b36194159ca564. Its premerge report remains historical with an appended reconciliation. Canonical C JAR is absent; qualified D artifacts and source equality do not imply a C build/JVM run. Candidate2520 is not yet integrated.
