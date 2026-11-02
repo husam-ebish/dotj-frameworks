@@ -1,0 +1,1 @@
+<Project><PropertyGroup><N>1</N></PropertyGroup><PropertyGroup Condition="'$(N)'&lt;2"><P>yes</P><Q>taken</Q></PropertyGroup><PropertyGroup><N>3</N><Q Condition="'$(N)'&gt;2">after</Q></PropertyGroup><Target Name="Never"><Error Text="must never execute"/><WriteLinesToFile File="must-not-exist.txt" Lines="bad"/></Target></Project>

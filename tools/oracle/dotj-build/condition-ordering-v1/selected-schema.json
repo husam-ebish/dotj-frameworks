@@ -1,0 +1,571 @@
+{
+  "schemaVersion": 1,
+  "status": "SELECTED_SCHEMA_NOT_OBSERVED",
+  "emitter": {
+    "path": "C:\\source\\repos\\dotj Frameworks\\tools\\oracle\\dotj-build\\condition-boolean-observer-v3\\CaptureBooleanObserverV3.cs",
+    "sha256": "ae72272c9c7a3fee215b7798d203a7fc379e9f91ae8f29eb3f7407c778c0bdb5",
+    "sizeBytes": 6300
+  },
+  "validator": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-ordering-conditions-v1\\tools\\oracle\\dotj-build\\condition-ordering-v1\\protocol.py",
+    "sha256": "eef7a2bfb0d5f6085178ec746cbd902db7cea6b780aba3f530dd158c752cbe32",
+    "sizeBytes": 15687
+  },
+  "outcomes": [
+    "SUCCESS",
+    "PROJECT_ERROR",
+    "UNEXPECTED_NONFATAL_RUNTIME_FAULT",
+    "FATAL_OR_CLEANUP_FAILURE"
+  ],
+  "fields": [
+    {
+      "path": "runtime",
+      "type": "string",
+      "requiredWhen": "COMPLETE_DOCUMENT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        104
+      ],
+      "emitterText": "runtime = RuntimeInformation.FrameworkDescription"
+    },
+    {
+      "path": "msbuildAssembly",
+      "type": "string",
+      "requiredWhen": "COMPLETE_DOCUMENT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        105
+      ],
+      "emitterText": "msbuildAssembly = typeof(Project).Assembly.FullName"
+    },
+    {
+      "path": "msbuildPath",
+      "type": "string",
+      "requiredWhen": "COMPLETE_DOCUMENT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        105
+      ],
+      "emitterText": "msbuildPath = typeof(Project).Assembly.Location"
+    },
+    {
+      "path": "frameworkPath",
+      "type": "string",
+      "requiredWhen": "COMPLETE_DOCUMENT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        106
+      ],
+      "emitterText": "frameworkPath = typeof(ILogger).Assembly.Location"
+    },
+    {
+      "path": "corePath",
+      "type": "string",
+      "requiredWhen": "COMPLETE_DOCUMENT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        106
+      ],
+      "emitterText": "corePath = typeof(string).Assembly.Location"
+    },
+    {
+      "path": "profile",
+      "type": "string",
+      "requiredWhen": "COMPLETE_DOCUMENT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        100,
+        107
+      ],
+      "emitterText": "profile = settings.ToString()"
+    },
+    {
+      "path": "rows[].id",
+      "type": "string",
+      "requiredWhen": "EVERY_ROW",
+      "availability": "EMITTED",
+      "emitterLines": [
+        100
+      ],
+      "emitterText": "rows.Add(new { id, globals"
+    },
+    {
+      "path": "rows[].globals",
+      "type": "map<string,string>",
+      "requiredWhen": "EVERY_ROW",
+      "availability": "EMITTED",
+      "emitterLines": [
+        100
+      ],
+      "emitterText": "rows.Add(new { id, globals"
+    },
+    {
+      "path": "rows[].profile",
+      "type": "string",
+      "requiredWhen": "EVERY_ROW",
+      "availability": "EMITTED",
+      "emitterLines": [
+        100
+      ],
+      "emitterText": "rows.Add(new { id, globals"
+    },
+    {
+      "path": "rows[].taskMarkerAbsent",
+      "type": "boolean(true)",
+      "requiredWhen": "EVERY_ROW",
+      "availability": "EMITTED",
+      "emitterLines": [
+        101
+      ],
+      "emitterText": "taskMarkerAbsent = true"
+    },
+    {
+      "path": "rows[].evaluation.properties.P",
+      "type": "string",
+      "requiredWhen": "SUCCESS",
+      "availability": "EMITTED",
+      "emitterLines": [
+        78
+      ],
+      "emitterText": "P = project.GetPropertyValue"
+    },
+    {
+      "path": "rows[].evaluation.properties.Q",
+      "type": "string",
+      "requiredWhen": "SUCCESS",
+      "availability": "EMITTED",
+      "emitterLines": [
+        78
+      ],
+      "emitterText": "Q = project.GetPropertyValue"
+    },
+    {
+      "path": "rows[].evaluation.success",
+      "type": "boolean",
+      "requiredWhen": "SUCCESS_OR_PROJECT_ERROR",
+      "availability": "EMITTED",
+      "emitterLines": [
+        78,
+        83
+      ],
+      "emitterText": "success ="
+    },
+    {
+      "path": "rows[].evaluation.imports",
+      "type": "array<import>",
+      "requiredWhen": "SUCCESS",
+      "availability": "EMITTED",
+      "emitterLines": [
+        79
+      ],
+      "emitterText": "imports ="
+    },
+    {
+      "path": "rows[].evaluation.duplicateImports",
+      "type": "array<import>|null",
+      "requiredWhen": "SUCCESS",
+      "availability": "EMITTED",
+      "emitterLines": [
+        75,
+        76
+      ],
+      "emitterText": "duplicateImports ="
+    },
+    {
+      "path": "import.owner",
+      "type": "string",
+      "requiredWhen": "EACH_IMPORT_EDGE",
+      "availability": "EMITTED",
+      "emitterLines": [
+        29
+      ],
+      "emitterText": "owner = i.ImportingElement"
+    },
+    {
+      "path": "import.project",
+      "type": "string",
+      "requiredWhen": "EACH_IMPORT_EDGE",
+      "availability": "EMITTED",
+      "emitterLines": [
+        30
+      ],
+      "emitterText": "project = i.ImportedProject"
+    },
+    {
+      "path": "import.line",
+      "type": "integer",
+      "requiredWhen": "EACH_IMPORT_EDGE",
+      "availability": "EMITTED",
+      "emitterLines": [
+        31
+      ],
+      "emitterText": "line = i.ImportingElement"
+    },
+    {
+      "path": "import.column",
+      "type": "integer",
+      "requiredWhen": "EACH_IMPORT_EDGE",
+      "availability": "EMITTED",
+      "emitterLines": [
+        32
+      ],
+      "emitterText": "column = i.ImportingElement"
+    },
+    {
+      "path": "rows[].evaluation.duplicateGetterFailure",
+      "type": "object<type,message>|null",
+      "requiredWhen": "SUCCESS",
+      "availability": "EMITTED",
+      "emitterLines": [
+        77
+      ],
+      "emitterText": "duplicateGetterFailure = new"
+    },
+    {
+      "path": "duplicateGetterFailure.type",
+      "type": "string",
+      "requiredWhen": "GETTER_FAILURE",
+      "availability": "EMITTED",
+      "emitterLines": [
+        77,
+        83,
+        88
+      ],
+      "emitterText": "type = e."
+    },
+    {
+      "path": "duplicateGetterFailure.message",
+      "type": "string",
+      "requiredWhen": "GETTER_FAILURE",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        77,
+        84,
+        89
+      ],
+      "emitterText": "message = e."
+    },
+    {
+      "path": "ProjectError.type",
+      "type": "string",
+      "requiredWhen": "PROJECT_ERROR",
+      "availability": "EMITTED",
+      "emitterLines": [
+        77,
+        83,
+        88
+      ],
+      "emitterText": "type = e.GetType().FullName"
+    },
+    {
+      "path": "ProjectError.code",
+      "type": "string",
+      "requiredWhen": "PROJECT_ERROR",
+      "availability": "EMITTED",
+      "emitterLines": [
+        83
+      ],
+      "emitterText": "code = e.ErrorCode"
+    },
+    {
+      "path": "ProjectError.file",
+      "type": "string",
+      "requiredWhen": "PROJECT_ERROR",
+      "availability": "EMITTED",
+      "emitterLines": [
+        84
+      ],
+      "emitterText": "file = e.ProjectFile"
+    },
+    {
+      "path": "ProjectError.line",
+      "type": "integer",
+      "requiredWhen": "PROJECT_ERROR",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        84
+      ],
+      "emitterText": "line = e.LineNumber"
+    },
+    {
+      "path": "ProjectError.column",
+      "type": "integer",
+      "requiredWhen": "PROJECT_ERROR",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        84
+      ],
+      "emitterText": "column = e.ColumnNumber"
+    },
+    {
+      "path": "ProjectError.endLine",
+      "type": "integer",
+      "requiredWhen": "PROJECT_ERROR",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        84
+      ],
+      "emitterText": "endLine = e.EndLineNumber"
+    },
+    {
+      "path": "ProjectError.endColumn",
+      "type": "integer",
+      "requiredWhen": "PROJECT_ERROR",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        84
+      ],
+      "emitterText": "endColumn = e.EndColumnNumber"
+    },
+    {
+      "path": "ProjectError.message",
+      "type": "string",
+      "requiredWhen": "PROJECT_ERROR",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        77,
+        84,
+        89
+      ],
+      "emitterText": "message = e.Message"
+    },
+    {
+      "path": "ProjectError.hresult",
+      "type": "integer",
+      "requiredWhen": "PROJECT_ERROR",
+      "availability": "EMITTED",
+      "emitterLines": [
+        84,
+        89
+      ],
+      "emitterText": "hresult = e.HResult"
+    },
+    {
+      "path": "ProjectError.stack",
+      "type": null,
+      "requiredWhen": "NEVER",
+      "availability": "UNAVAILABLE_IN_REUSED_BINARY",
+      "emitterLines": [],
+      "emitterText": null
+    },
+    {
+      "path": "RuntimeFault.outcome",
+      "type": "literal(runtime-fault-v3)",
+      "requiredWhen": "UNEXPECTED_NONFATAL_RUNTIME_FAULT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        88
+      ],
+      "emitterText": "outcome = \"runtime-fault-v3\""
+    },
+    {
+      "path": "RuntimeFault.type",
+      "type": "string",
+      "requiredWhen": "UNEXPECTED_NONFATAL_RUNTIME_FAULT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        77,
+        83,
+        88
+      ],
+      "emitterText": "type = e.GetType().FullName"
+    },
+    {
+      "path": "RuntimeFault.message",
+      "type": "string",
+      "requiredWhen": "UNEXPECTED_NONFATAL_RUNTIME_FAULT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        77,
+        84,
+        89
+      ],
+      "emitterText": "message = e.Message"
+    },
+    {
+      "path": "RuntimeFault.hresult",
+      "type": "integer",
+      "requiredWhen": "UNEXPECTED_NONFATAL_RUNTIME_FAULT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        84,
+        89
+      ],
+      "emitterText": "hresult = e.HResult"
+    },
+    {
+      "path": "RuntimeFault.stack",
+      "type": "string|null",
+      "requiredWhen": "UNEXPECTED_NONFATAL_RUNTIME_FAULT",
+      "availability": "EMITTED",
+      "emitterLines": [
+        89
+      ],
+      "emitterText": "stack = e.StackTrace"
+    },
+    {
+      "path": "diagnostics[].kind",
+      "type": "enum(warning,error)",
+      "requiredWhen": "EACH_DIAGNOSTIC",
+      "availability": "EMITTED",
+      "emitterLines": [
+        19
+      ],
+      "emitterText": "kind = \"warning\""
+    },
+    {
+      "path": "diagnostics[].code",
+      "type": "string",
+      "requiredWhen": "EACH_DIAGNOSTIC",
+      "availability": "EMITTED",
+      "emitterLines": [
+        19,
+        21
+      ],
+      "emitterText": "code = e.Code"
+    },
+    {
+      "path": "diagnostics[].file",
+      "type": "string",
+      "requiredWhen": "EACH_DIAGNOSTIC",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22
+      ],
+      "emitterText": "file = e.File"
+    },
+    {
+      "path": "diagnostics[].line",
+      "type": "integer",
+      "requiredWhen": "EACH_DIAGNOSTIC",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        84
+      ],
+      "emitterText": "line = e.LineNumber"
+    },
+    {
+      "path": "diagnostics[].column",
+      "type": "integer",
+      "requiredWhen": "EACH_DIAGNOSTIC",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        84
+      ],
+      "emitterText": "column = e.ColumnNumber"
+    },
+    {
+      "path": "diagnostics[].endLine",
+      "type": "integer",
+      "requiredWhen": "EACH_DIAGNOSTIC",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        84
+      ],
+      "emitterText": "endLine = e.EndLineNumber"
+    },
+    {
+      "path": "diagnostics[].endColumn",
+      "type": "integer",
+      "requiredWhen": "EACH_DIAGNOSTIC",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        84
+      ],
+      "emitterText": "endColumn = e.EndColumnNumber"
+    },
+    {
+      "path": "diagnostics[].message",
+      "type": "string",
+      "requiredWhen": "EACH_DIAGNOSTIC",
+      "availability": "EMITTED",
+      "emitterLines": [
+        20,
+        22,
+        77,
+        84,
+        89
+      ],
+      "emitterText": "message = e.Message"
+    },
+    {
+      "path": "cleanup.before",
+      "type": "integer>=0",
+      "requiredWhen": "EVERY_ROW",
+      "availability": "EMITTED",
+      "emitterLines": [
+        101
+      ],
+      "emitterText": "before, loaded"
+    },
+    {
+      "path": "cleanup.loaded",
+      "type": "integer>=0",
+      "requiredWhen": "EVERY_ROW",
+      "availability": "EMITTED",
+      "emitterLines": [
+        101
+      ],
+      "emitterText": "before, loaded"
+    },
+    {
+      "path": "cleanup.afterUnload",
+      "type": "integer(0)",
+      "requiredWhen": "EVERY_ROW",
+      "availability": "EMITTED",
+      "emitterLines": [
+        101
+      ],
+      "emitterText": "afterUnload = after"
+    },
+    {
+      "path": "cleanup.disposed",
+      "type": "boolean(true)",
+      "requiredWhen": "EVERY_ROW",
+      "availability": "EMITTED",
+      "emitterLines": [
+        101
+      ],
+      "emitterText": "disposed = true"
+    }
+  ],
+  "outcomeRules": {
+    "SUCCESS": "exact success object; arrays ordered; nullable duplicate fields distinct",
+    "PROJECT_ERROR": "all emitted fields, no invented stack",
+    "UNEXPECTED_NONFATAL_RUNTIME_FAULT": "outcome/type/message/hresult/stack present; no fatal types or ProjectError",
+    "FATAL_OR_CLEANUP_FAILURE": "parent/child absence/failure/partial/progress/cleanup distinguished; unavailable counts UNKNOWN"
+  },
+  "retention": [
+    "entire stdout",
+    "entire stderr with host trace",
+    "ordered BEGIN/END",
+    "separate owned parent/child receipts",
+    "all paths/messages raw",
+    "runtime-fault stack raw"
+  ],
+  "normalization": "Only declared fixture-root prefix in file/owner/project/message. Stack and all raw streams unchanged.",
+  "observedScalarFields": null
+}

@@ -1,0 +1,1 @@
+<Project><Import Project="nested/child.proj" Condition="1&lt;2"/><Import Project="nested/child.proj" Condition="2&gt;1"/><Target Name="Never"><Error Text="must never execute"/><WriteLinesToFile File="must-not-exist.txt" Lines="bad"/></Target></Project>

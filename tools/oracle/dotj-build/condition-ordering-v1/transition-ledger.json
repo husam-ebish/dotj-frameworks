@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "status": "FROZEN_SINGLE_JUSTIFIED_TRANSITION_PENDING_NATIVE",
+  "sourceInventory": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-ordering-conditions-v1\\tools\\oracle\\dotj-build\\condition-ordering-v1\\historical-input-inventory.json",
+    "sha256": "ed0c4f07fc1e56f4800da36af5a5932e73efb0083e1b6a4df818ec491e2949c5",
+    "sizeBytes": 1325225
+  },
+  "transitions": [
+    {
+      "oldId": "BOOL-BOUND-ordering",
+      "newId": "ORD-HISTORY-BOOL-BOUND-ordering",
+      "oldFixture": {
+        "path": "C:\\source\\repos\\dotj Frameworks\\tools\\oracle\\dotj-build\\condition-boolean-v1\\private-fixtures\\BOOL-BOUND-ordering\\main.proj",
+        "sha256": "1bd1eda9c9288821a313d27cdc44f5d01e14f47c2f551f96582f92d65a83e06b",
+        "sizeBytes": 216
+      },
+      "newFixture": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-ordering-conditions-v1\\tools\\oracle\\dotj-build\\condition-ordering-v1\\fixtures\\ORD-HISTORY-BOOL-BOUND-ordering\\main.proj",
+        "sha256": "1bd1eda9c9288821a313d27cdc44f5d01e14f47c2f551f96582f92d65a83e06b",
+        "sizeBytes": 216
+      },
+      "oldDisposition": "PRIVATE_DESIGN_REFUSAL / CONDITION_PROFILE; no prior native parity",
+      "newDisposition": "PENDING_FRESH_NATIVE_OBSERVATION"
+    }
+  ],
+  "extraDispositionCandidates": [],
+  "historicalObligations": {
+    "finalJarRule": "Every new and historical consumer runs against the same final fresh compiled product JAR. Do not borrow successful rows from a pre-final JAR. No old native execution is scheduled.",
+    "oldNative297": {
+      "successObservableMatches": 239,
+      "projectErrorMappings": 46,
+      "restrictions": 9,
+      "explicitNreAdaptations": 3
+    },
+    "privateInputs": 16,
+    "privateGroups": 14,
+    "current94": {
+      "total": 94,
+      "unchanged": 92,
+      "priorTransitions": 2
+    },
+    "and": [
+      9,
+      1,
+      24
+    ],
+    "condition": [
+      28,
+      5,
+      2
+    ],
+    "conditionWarnings": 4,
+    "cache": {
+      "cases": 8,
+      "privateGroups": 4,
+      "warningVector": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "hasTrailingSlash": {
+      "cases": [
+        32,
+        6
+      ],
+      "warnings": 4,
+      "privateGroups": 4,
+      "syntaxRefused": 18,
+      "syntaxAccepted": 4
+    },
+    "preserved": {
+      "oldTransitions": 18,
+      "predecessorFiles": 391,
+      "inventory": 223
+    },
+    "newTransitions": [
+      {
+        "id": "BOOL-BOUND-ordering",
+        "dataset": "old16 private inputs",
+        "file": "tools/oracle/dotj-build/condition-boolean-v1/private-fixtures/BOOL-BOUND-ordering/main.proj",
+        "condition": "1<2",
+        "before": "PRIVATE_DESIGN_REFUSAL / CONDITION_PROFILE; no prior native parity",
+        "proposedAfter": "Native-backed selected success with P=yes,Q=taken, no imports/warnings, marker absent; currently source prediction, not observation",
+        "strategy": "Retain old fixture/CONTRACT/captures byte-for-byte. New profile captures identical bytes and supplies explicit old-ID/new-capture link; new consumer changes only this expected disposition and retains all16 input identities/all14 control-group purposes."
+      }
+    ],
+    "nonTransitions": {
+      "old297Restrictions": [
+        "BOOL-LAZY-09",
+        "BOOL-BAD-01-skipped",
+        "BOOL-BAD-02-skipped",
+        "BOOL-BAD-03-skipped",
+        "BOOL-BAD-04-skipped",
+        "BOOL-BAD-05-skipped",
+        "BOOL-BAD-06-skipped",
+        "BOOL-BAD-07-skipped",
+        "BOOL-BAD-08-skipped"
+      ],
+      "reason": "Empty Exists and malformed skipped syntax remain outside/preserved policy; none becomes supported through ordering.",
+      "otherInspectedControls": "Current And successor syntax list and HasTrailingSlash18-refused/4-accepted list contain no ordering input; no additional transition is justified by source inspection."
+    },
+    "transitionCompletenessGate": "At new consumer authoring, mechanically enumerate frozen current contracts/manifests and exact generated control inputs before freezing the successor ledger; stop on any extra changed disposition. Do not change historical inputs or silently adjust counts.",
+    "durableClosure": {
+      "archiveLock": "D:/AI/Implementation/dotj Frameworks/validation/Batch-2516-historical-input-archive-v1/archive-lock.json",
+      "archiveSha256": "02b5dd9a08e8db4b4251f212ba32b1c2d0f9e0de5357e0192c82599c43d9a1c0",
+      "scope": "Exact14 canonical-file historical H1 resolution, with raw worktree bytes and Git blobs;11 exact raw and3 explicit CRLF/LF relations. This is not blanket permission to resolve any changed path.",
+      "retention": "Retain H1/H2/H3/H4 producers, captures, helpers, failures, baseline RED, native observation lock and old14 archive unchanged.",
+      "gap": "Before future canonical edits, freeze new current-master source/docs/consumers into a separate typed historical closure for any new checkpoint that would otherwise depend on changed canonical paths. New read-only resolver validates old exact14 archive and all original unaffected pins; no retargeting old CLI or monkeypatching. Full transitive old closure not exhaustively rerun in this planning task."
+    },
+    "baseline": {
+      "jar": "D:/AI/Implementation/dotj Frameworks/validation/Batch-2516-boolean-product-green-v3/dotj-build-evaluation-candidate.jar",
+      "jarSha256": "97b027c56221716cc748aa03a80d24d65a180e13fb0deb07b059c2bbdd290b1c",
+      "jarSizeBytes": 98307,
+      "receipt": "D:/AI/Implementation/dotj Frameworks/validation/Batch-2516-boolean-product-green-v5/receipt.json",
+      "receiptSha256": "dc29b067a67a31a87fa3b81fc40d5c6c49e0c63c375af6f9427520fe81dd0eb8"
+    }
+  },
+  "actualOldNativeExecutions": 0
+}

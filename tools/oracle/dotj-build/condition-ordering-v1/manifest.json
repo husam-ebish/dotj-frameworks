@@ -1,0 +1,6052 @@
+{
+  "schemaVersion": 1,
+  "status": "DESIGNED_NOT_OBSERVED",
+  "groups": [
+    "all-four-numeric",
+    "all-four-versions",
+    "both-mixed-paths",
+    "dispatch-priority",
+    "nonnumeric-and-observable-errors",
+    "grammar-and-xml",
+    "one-pass-and-reached-order",
+    "sites-imports-globals-and-lifecycle",
+    "cache-and-warning-owner",
+    "version-component-reachability",
+    "private-bounds-and-isolation",
+    "historical-transition"
+  ],
+  "cases": [
+    {
+      "id": "ORD-NUM-LT-less",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "1<2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-less/main.proj",
+          "sha256": "f1e9465c82d9ad988943c4ec8d0dffe8047381c1502b520af0dec0dfdf512a93",
+          "sizeBytes": 213
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-equal",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "2<2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-equal",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-equal/main.proj",
+          "sha256": "e5128c0d30f4be6243e6ec1b106d8858d9a4bcb8473555ece8aaf9d61e53ddf4",
+          "sizeBytes": 213
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-greater",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "3<2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-greater/main.proj",
+          "sha256": "c5aa736516e41d8066bdea8be4775079188ec9ca98b7ef220f89f36a6582f95c",
+          "sizeBytes": 213
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-signed",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "+4<-4",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-signed",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-signed/main.proj",
+          "sha256": "ca5e81dbb90fb9bea3388622efbaadfe015b505aafecf2882ed376e545d124d1",
+          "sizeBytes": 215
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-zero",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "-0<0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-zero",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-zero/main.proj",
+          "sha256": "13cb31b1f1513fa7ac075b4c789e471f02ca9e3a0309529e4849839b7339f139",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-decimal",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "-.5<+.25",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-decimal",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-decimal/main.proj",
+          "sha256": "29bea3f095a938e426c6a765c52b7403553c126892445019be5ba7e15444fcd6",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-hex",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0xFFFFFFFF<0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-hex/main.proj",
+          "sha256": "f2ad58ac3a582ab6cf7374295c6e52ce5dff13ce28c50882e7f690db2922fe70",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-hexzero",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0x00000001<1",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-hexzero",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-hexzero/main.proj",
+          "sha256": "cf3ef9cbdcfa1bab5cd65c39b889c230f8b067a681b803886cd3d6dba7b1a6c9",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-large",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'999999999999999999999999999999999999999'<0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-large/main.proj",
+          "sha256": "63b99aca1f14dc41537134c79b7826eafb769bb903cb6b9983407a9bea90189a",
+          "sizeBytes": 253
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-nan-left",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'NaN'<0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-nan-left",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-nan-left/main.proj",
+          "sha256": "d43b3c754a94a45f201255f377d88948fa5ad88e25d68d1c7f8a2b59230608d6",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-nan-right",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0<'NaN'",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-nan-right",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-nan-right/main.proj",
+          "sha256": "036c7aea05bc8089bd1327f983fcbb4ec13ee86330564925e5c79349f457e77a",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-nan-trim",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "' NaN '<0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-nan-trim",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-nan-trim/main.proj",
+          "sha256": "de3b2bacabc95bdc32e3a815c6db7034a344f21851a5ac01cd241bc8d488ed4a",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-exponent",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'1e2'<2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-exponent",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-exponent/main.proj",
+          "sha256": "3b0f049738ffd819b4c1bdadbc15eba1697f8b9ac57e1459d8cab2984053dce9",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-infinity",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'Infinity'<0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-infinity",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-infinity/main.proj",
+          "sha256": "3de62c27b954881c617e04ef5d83778196288a3a71ca5c65f3c4a2f7d6d5cc34",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-suffix",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'1d'<0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-suffix",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-suffix/main.proj",
+          "sha256": "aa0a6acab56b6341b6e5f3845722c7e2bcbff1c71fb9b67ca2e9a404874f1452",
+          "sizeBytes": 216
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-hexfloat",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'0x1p1'<0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-hexfloat",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-hexfloat/main.proj",
+          "sha256": "ec69326bc9f4fdb955f2240969fc87de3774635bfd8204008a0590eec54414d0",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-property",
+      "group": "all-four-numeric",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-property",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-property/main.proj",
+          "sha256": "f50a1123ae69751451cebf4bb7357f58b879a95d067ed4185b67cf003539c6be",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LT-quoted",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'01.50'<'2.0'",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LT-quoted",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LT-quoted/main.proj",
+          "sha256": "3a7f85a26b3f1cdea50963b4dffd39b6988c866a30c101e981367c29dd50df80",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-less",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "1<=2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-less/main.proj",
+          "sha256": "3951bf6904a450dfb8349aeec17c7c10265b40aa22de390ca468a334c90ad7d8",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-equal",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "2<=2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-equal",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-equal/main.proj",
+          "sha256": "67ef2a5fcb11ff5472fadd225cdfc209b01daeb6b0bc02a1218e0e903900d686",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-greater",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "3<=2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-greater/main.proj",
+          "sha256": "d118f8efb3d38749afd3b07ab85cae6f366239b7483bffe1221045f419c0f937",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-signed",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "+4<=-4",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-signed",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-signed/main.proj",
+          "sha256": "b3a39c7fdf7a428cbdab936be1773e4e1268c39e1177dcb4e74fcf5991eef2cb",
+          "sizeBytes": 216
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-zero",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "-0<=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-zero",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-zero/main.proj",
+          "sha256": "b5a72a8afd7dd4135f44e46a3f2203c12541f9b04e47355337d6b1c0fd123ea8",
+          "sizeBytes": 215
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-decimal",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "-.5<=+.25",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-decimal",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-decimal/main.proj",
+          "sha256": "69000e8625894863e49ae5400188316e47d28ade90b4fd0ec273b121cbd72fbf",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-hex",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0xFFFFFFFF<=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-hex/main.proj",
+          "sha256": "5332531e0b1e9159232429b82f5b5c415ae947fbb9aec6f26f5c50ae2fe8e331",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-hexzero",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0x00000001<=1",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-hexzero",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-hexzero/main.proj",
+          "sha256": "fa4a1d9505f78cb530a2ce92fef0414864673928e84d410337fd0eb3b944c70f",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-large",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'999999999999999999999999999999999999999'<=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-large/main.proj",
+          "sha256": "72c71e1e772318cc9bb06a92ba6460d2b00b106e4a7ff27de7276c30a3378bc5",
+          "sizeBytes": 254
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-nan-left",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'NaN'<=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-nan-left",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-nan-left/main.proj",
+          "sha256": "8f222837152a941959ff7b06342dc59162a1e71f63bff707ad018c3fdb1d5430",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-nan-right",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0<='NaN'",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-nan-right",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-nan-right/main.proj",
+          "sha256": "8dda7c99e59f6f27227f6cc063f0ec6981d49b7add55d236afa3c46f7c11affd",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-nan-trim",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "' NaN '<=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-nan-trim",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-nan-trim/main.proj",
+          "sha256": "4f7c66273de9039b7c8a7f79a609fc02a91841a1bf0d3bd540c5085c6c693189",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-exponent",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'1e2'<=2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-exponent",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-exponent/main.proj",
+          "sha256": "c84903b79f714457604ec95f56f154de0704398c801868be542c197d3dc16f75",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-infinity",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'Infinity'<=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-infinity",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-infinity/main.proj",
+          "sha256": "59d82a72c247c0d8a56ba011827045c5867d8a32e030aa8ff128809e9175c71a",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-suffix",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'1d'<=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-suffix",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-suffix/main.proj",
+          "sha256": "20152b26c977f3ee8d868291cc9d94c3f9f39221c61ba644b9960134b3f6a2ec",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-hexfloat",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'0x1p1'<=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-hexfloat",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-hexfloat/main.proj",
+          "sha256": "2cfa2189cce19629bff8f85344997a9d9da8680267121221d760b70b86504b77",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-property",
+      "group": "all-four-numeric",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'<=2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-property",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-property/main.proj",
+          "sha256": "b45456cc0ecdc2d99cb5f8c4827a3e67c1260a1bcaabc05ae5cbb5766e2a3735",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-LE-quoted",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'01.50'<='2.0'",
+      "site": "PropertyGroup",
+      "purpose": "NUM-LE-quoted",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-LE-quoted/main.proj",
+          "sha256": "0954c8ae8a3560fc7ebe9c605838069a8c5a7ce6de55c0209a382478457c340f",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-less",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "1>2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-less/main.proj",
+          "sha256": "ffe3e2ae6e3c6bbe13a3341487ab2cca9cb68f195a044d376680ab9e0c98b2ec",
+          "sizeBytes": 213
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-equal",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "2>2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-equal",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-equal/main.proj",
+          "sha256": "e1fa17969e43f9e4e628e23acc1326c4a941527cce6caeef80b231468566a69a",
+          "sizeBytes": 213
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-greater",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "3>2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-greater/main.proj",
+          "sha256": "ee6386b4b73003f5f97847c4094c89a387f60fc9e5701da9e6207ce6380be4f4",
+          "sizeBytes": 213
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-signed",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "+4>-4",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-signed",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-signed/main.proj",
+          "sha256": "7fbeda604c408c10fb3dffff0e4560acbb19685d15becedf4314a18274a9233f",
+          "sizeBytes": 215
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-zero",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "-0>0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-zero",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-zero/main.proj",
+          "sha256": "9fa6219abf2912969f02655ced54a2b3eae41be0d1727d62e540f1003a613e0b",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-decimal",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "-.5>+.25",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-decimal",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-decimal/main.proj",
+          "sha256": "5c3a26527444c6e04f67bc4bad8b2e97c979f47b84c9ad8076904b19f8a7e92c",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-hex",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0xFFFFFFFF>0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-hex/main.proj",
+          "sha256": "c2ab3746a3e67a84efb49ea30e4b833070e20861de4f6b1cb578c27f6800cc13",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-hexzero",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0x00000001>1",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-hexzero",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-hexzero/main.proj",
+          "sha256": "7c5ee368d40122bd0d7614ae2a3594b7c2afbc3e6d73566d8863606cd11a72f8",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-large",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'999999999999999999999999999999999999999'>0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-large/main.proj",
+          "sha256": "2acff447e278c61d6103b5cbfb8b3bfb80bc1c33ddd480be21b843a694f6f3fd",
+          "sizeBytes": 253
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-nan-left",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'NaN'>0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-nan-left",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-nan-left/main.proj",
+          "sha256": "4dc22d31c3e5556daec7b23cf84dfb1de79ebda8b97aeec9f95a068981f2dd09",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-nan-right",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0>'NaN'",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-nan-right",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-nan-right/main.proj",
+          "sha256": "2a4e9fe884a1ec1df7ad585543aebec64d7404ad9d59b731942264a20c5c3168",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-nan-trim",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "' NaN '>0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-nan-trim",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-nan-trim/main.proj",
+          "sha256": "fc3ecd88821a40965bef3f113acf234b6b8e6ec6f632f956cba1df3d8268848e",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-exponent",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'1e2'>2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-exponent",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-exponent/main.proj",
+          "sha256": "5b5526a7744ec58ed437a9976f1efb373bade3081d882b129f584cc0681b40fc",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-infinity",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'Infinity'>0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-infinity",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-infinity/main.proj",
+          "sha256": "7279de954fb0cd94e60afe2be551fdbb0af3e6b64230d9835ac0fcc7da662083",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-suffix",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'1d'>0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-suffix",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-suffix/main.proj",
+          "sha256": "9dc10afb2640429e52a64abd4bc24cf2041fa68f073e285af894214b363069d3",
+          "sizeBytes": 216
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-hexfloat",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'0x1p1'>0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-hexfloat",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-hexfloat/main.proj",
+          "sha256": "c0da554e1f4df59fe39a6a7cb953ce37c634e5dcd00a5fa83f65539dd7e082d9",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-property",
+      "group": "all-four-numeric",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'>2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-property",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-property/main.proj",
+          "sha256": "b5d9f17ba2a436315014151116c359cb224c06c8daa8d604aceb65b27ed031dd",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GT-quoted",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'01.50'>'2.0'",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GT-quoted",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GT-quoted/main.proj",
+          "sha256": "5c1e5b33adf8c3047faf38d054cc3825b6d274cff9ab4743961a93637112f7f9",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-less",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "1>=2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-less/main.proj",
+          "sha256": "1b6b8d3f36b3df06bb0498e870595f6f2fc1674af21aeebeb13204242cdc6d0a",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-equal",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "2>=2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-equal",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-equal/main.proj",
+          "sha256": "e921160068b4556d2bdb3d81d56c4675b45093d96fc9595f971b36b6cf4dbcc6",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-greater",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "3>=2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-greater/main.proj",
+          "sha256": "f8f611665367a6fb7acce6fa5534dffba78f4e5fa1292c68483fa0b278e3b9e3",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-signed",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "+4>=-4",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-signed",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-signed/main.proj",
+          "sha256": "ed9df4c6225235ab8988fbae4c06fab9da8a44b611b76c33df540ac6fd4e01c4",
+          "sizeBytes": 216
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-zero",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "-0>=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-zero",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-zero/main.proj",
+          "sha256": "8ad1e32fb49ea3e4092b878b8c95755cbee00283e56ef78d3fd7302c77dd5290",
+          "sizeBytes": 215
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-decimal",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "-.5>=+.25",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-decimal",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-decimal/main.proj",
+          "sha256": "41dc5f192ba7c010f055f2d130b2672543b7d5268408cfa278acaf092af1c88f",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-hex",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0xFFFFFFFF>=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-hex/main.proj",
+          "sha256": "184af7beaefd2badfc097d44ff9c7a204929231440b7fd7e35a9cbeb8d12634d",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-hexzero",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0x00000001>=1",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-hexzero",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-hexzero/main.proj",
+          "sha256": "038953bb74220bbedb6815e5b6a53733ad276f2b77c8bd4eb2dd7a915f8bda36",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-large",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'999999999999999999999999999999999999999'>=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-large/main.proj",
+          "sha256": "2ac5c2519549d0c0de8f754b0172463934993640e1a4f2bd57bce8be6f3af77d",
+          "sizeBytes": 254
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-nan-left",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'NaN'>=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-nan-left",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-nan-left/main.proj",
+          "sha256": "460526e7e79074465325cc0a4b2dc65b3589d48fde2f110f896a0024fc94ec49",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-nan-right",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "0>='NaN'",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-nan-right",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-nan-right/main.proj",
+          "sha256": "4203e1af60946dd5de8fe4307639fc1d54bcda6aa737dcd47962144d0ed75842",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-nan-trim",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "' NaN '>=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-nan-trim",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-nan-trim/main.proj",
+          "sha256": "829df8ff98a8e3342e4ae7e513bfdfddd3ee74cbd4a3bbdb897d09248502b0f5",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-exponent",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'1e2'>=2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-exponent",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-exponent/main.proj",
+          "sha256": "8a54e2b79a5fa625fec0b87fb354527420c81b33a3c7defe29cc93ed2e3a8207",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-infinity",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'Infinity'>=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-infinity",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-infinity/main.proj",
+          "sha256": "003d8abd921189ac07e9f31842416d60cd9a3dbc70bbcb3588e6a371f02ce1b3",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-suffix",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'1d'>=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-suffix",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-suffix/main.proj",
+          "sha256": "5c4057efac4615edbeee109d96647e8e31b007dc97b827c427c26e0ab95ae497",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-hexfloat",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'0x1p1'>=0",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-hexfloat",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-hexfloat/main.proj",
+          "sha256": "0c8576a333b02586beb88c3b5acfa385d1163003978d7a4c7223fdd70352b056",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-property",
+      "group": "all-four-numeric",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'>=2",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-property",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-property/main.proj",
+          "sha256": "e1796c3c7fc54a58808064d821d2aa1cb0c92a23243418bf7fc279b80c112786",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-NUM-GE-quoted",
+      "group": "all-four-numeric",
+      "globals": {},
+      "condition": "'01.50'>='2.0'",
+      "site": "PropertyGroup",
+      "purpose": "NUM-GE-quoted",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-NUM-GE-quoted/main.proj",
+          "sha256": "7a7c8093b4b59f58260ef7065581615aebf495a58e8ec66eafb3ca2512db6511",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-major",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'1.2.3'<'2.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-major",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-major/main.proj",
+          "sha256": "1e45b222a04d097de818a38e1cbfd96dae37e12cd01bd3f0e4acac41ef561f98",
+          "sizeBytes": 225
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-minor",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.1.0'<'6.2.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-minor",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-minor/main.proj",
+          "sha256": "cd2211b1c17a6330f6e0d5608781203f192f218067d7e2869ac1a882045eb9eb",
+          "sizeBytes": 225
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-build",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1'<'6.2.2'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-build",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-build/main.proj",
+          "sha256": "354af815c72e4cd08f50db807f444f04c83a815339fa31c3543fec8b87dee98b",
+          "sizeBytes": 225
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-revision",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1.1'<'6.2.1.2'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-revision",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-revision/main.proj",
+          "sha256": "a9f417caf32f5f543e0e97dc250f688fc4bcf9e4e5e0cabfeb387ade711a637a",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-equal",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1.1'<'6.2.1.1'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-equal",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-equal/main.proj",
+          "sha256": "3eb76c4500593b05d634201a33c180b6133f005ec70938d0d3ac070254b6dc8f",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-two-three",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0'<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-two-three",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-two-three/main.proj",
+          "sha256": "81e2cef25ddf9ff5c971eda1fa57124f0784801a9a4d863248feecad7823bf9e",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-three-four",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0.0'<'6.0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-three-four",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-three-four/main.proj",
+          "sha256": "08d0c91bfa5ec0e72d8b76beacf9ac08d2c9fe047c4b949d2cc0b444070026ad",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-max",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'2147483647.2147483647.2147483647.2147483647'<'1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-max",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-max/main.proj",
+          "sha256": "928b912d80ad2aa099ff64cf3535b69ebb380c65af76befbe1064b544690162d",
+          "sizeBytes": 263
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-overflow",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'2147483648.0.0'<'1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-overflow",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-overflow/main.proj",
+          "sha256": "fbd2a3299d7ce7d4abae4b44b487a66f4794d6acc62c8ed565b96b1c2a519fe4",
+          "sizeBytes": 234
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-negative",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.-1.0'<'1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-negative",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-negative/main.proj",
+          "sha256": "414043f0c851a0fb419e2194d17b35b7b13a007fd5711ee47f07713c081f7110",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-empty",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6..0'<'1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-empty",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-empty/main.proj",
+          "sha256": "f3237bf70c73bcd4c914e76ca74f508d6c9fe2163f173ea35803f2417b91f201",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-fifth",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0.0.0.0'<'1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-fifth",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-fifth/main.proj",
+          "sha256": "e70519f20eb21ac6c1ba34465b9d22e76db1e55317100f6a7caaef3ebd065ee3",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-plus",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'+6.+0.+0'<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-plus",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-plus/main.proj",
+          "sha256": "300f563e51e3c2e260cb1873a2eeecf08b2d68fce621807a419ce2cfc7ab3378",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-negative-zero",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.-0.-0'<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-negative-zero",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-negative-zero/main.proj",
+          "sha256": "306521271a09860b07b13df98cebd435769231bbd3ac2fac28e30f21e629b682",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-space",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "' 6 . 0 . 0 '<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-space",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-space/main.proj",
+          "sha256": "5ab6f7ebb89bd2e5898d9573793f3430b48f76099c7e5de386ebb7fd2fd5cbcf",
+          "sizeBytes": 231
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-sign-space",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.+ 0.0'<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-sign-space",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-sign-space/main.proj",
+          "sha256": "4ef15dd33af8022350baaacd98dc212682a68c12c31ee2e4fe1e550c4cf168b4",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-nonnumeric",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'v6.0.0'<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-nonnumeric",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-nonnumeric/main.proj",
+          "sha256": "9bd0ecfb953a3595f9312d5656be5f7f28f39a6072e3db009255c40927fdfc03",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-exponent",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0e0.0'<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-exponent",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-exponent/main.proj",
+          "sha256": "e0809a2af2c7304e714eb1a35af85f5fdfa6faf687a65c83f392bb1148766097",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LT-hex",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0x0.0'<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LT-hex",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LT-hex/main.proj",
+          "sha256": "d5b6911a58d1b8b0b19e9bf40350c1bda05c0ad3e94342e58d74c1a07bc28ac9",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-major",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'1.2.3'<='2.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-major",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-major/main.proj",
+          "sha256": "85f0582c2254b77397ce65e87177dc6514a4d6dc797cc9fb8a4308a0ef457210",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-minor",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.1.0'<='6.2.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-minor",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-minor/main.proj",
+          "sha256": "0e62c801e945220ae82f75a7ca0ebf30c18cefe93a6e8b4f8398489b086a95a2",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-build",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1'<='6.2.2'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-build",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-build/main.proj",
+          "sha256": "8a73d250b075d217cedd19253fb67e55eca280dd4caa508bb258c79c1a487821",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-revision",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1.1'<='6.2.1.2'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-revision",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-revision/main.proj",
+          "sha256": "079da2c31a222175636457648423d5b7d6efde52035385405933dc1072b50c0d",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-equal",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1.1'<='6.2.1.1'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-equal",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-equal/main.proj",
+          "sha256": "8c8cfad4756e9ab6bcf332fc987e410e6c33325ce5f86d263cd29059d581e6e1",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-two-three",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0'<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-two-three",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-two-three/main.proj",
+          "sha256": "8a64b85d58e60672764b052e9b410a6b73943623e1150cd7e635db5d53a13a63",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-three-four",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0.0'<='6.0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-three-four",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-three-four/main.proj",
+          "sha256": "dc5e673bfa95a8c7495b82275fdf2216529d45f545e16ba3cc66edc34c3cab1a",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-max",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'2147483647.2147483647.2147483647.2147483647'<='1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-max",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-max/main.proj",
+          "sha256": "c1a9bdc55bd4c9aa98e34db145f3db9f7ddbe6b844fa8cdd626eb3fee413f845",
+          "sizeBytes": 264
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-overflow",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'2147483648.0.0'<='1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-overflow",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-overflow/main.proj",
+          "sha256": "a735a233f6758f0a7bdb04fd92be34c30196784abf8fed29c736586dd954a7ff",
+          "sizeBytes": 235
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-negative",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.-1.0'<='1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-negative",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-negative/main.proj",
+          "sha256": "d5961927de3e0a0b8b9018131b43c61b9632b2e655ab890b7cc201b95490fdc9",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-empty",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6..0'<='1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-empty",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-empty/main.proj",
+          "sha256": "123701910e4ef2927dbf8de9158263b3623dc3e9416729f1700bf1e01c0f3f2c",
+          "sizeBytes": 225
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-fifth",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0.0.0.0'<='1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-fifth",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-fifth/main.proj",
+          "sha256": "10686a0ddb27b6fdc1e766a7129c3ed3fa2744a0dac32a6d83ada9c5b9e1d2ff",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-plus",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'+6.+0.+0'<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-plus",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-plus/main.proj",
+          "sha256": "220350fc2f27531d1e6d2431020d05bb4a392e5c706cc0397adb501421296019",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-negative-zero",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.-0.-0'<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-negative-zero",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-negative-zero/main.proj",
+          "sha256": "b2c860668e3baf91e09ac749f19672f9c5e636928ec23f0c03375f335eca97e9",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-space",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "' 6 . 0 . 0 '<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-space",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-space/main.proj",
+          "sha256": "85d5154ce37edc5d6b6bb9209db5bc4b15ddb7ef30dc546d9dd3fbeb7229a0c3",
+          "sizeBytes": 232
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-sign-space",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.+ 0.0'<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-sign-space",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-sign-space/main.proj",
+          "sha256": "a78226f76ba17faf96a4874ca5b0c4dbcbb9dde37f4f4c6d8c11da29c5345753",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-nonnumeric",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'v6.0.0'<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-nonnumeric",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-nonnumeric/main.proj",
+          "sha256": "675078bc890c94049a66c07d5e8d0a426086339e8263dc56f21e8a689cd3ddff",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-exponent",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0e0.0'<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-exponent",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-exponent/main.proj",
+          "sha256": "3e7ee1b80d3ed3cb40d101afd352569648568800c07e0aeb8373881f74e1809a",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-LE-hex",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0x0.0'<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-LE-hex",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-LE-hex/main.proj",
+          "sha256": "143c8d51a46bb1d85098a5e4b647e391b94f5b7f8738ffa784fae4ac5dae43e9",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-major",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'1.2.3'>'2.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-major",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-major/main.proj",
+          "sha256": "a5adcfe03afda1db7988dd02dded4c6c7f05ec77e1d9c9c4c154afac7050b526",
+          "sizeBytes": 225
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-minor",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.1.0'>'6.2.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-minor",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-minor/main.proj",
+          "sha256": "a43307fcae2103455065bbe1af105f00049fdf6d24ba5e87f474d58e041c01d8",
+          "sizeBytes": 225
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-build",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1'>'6.2.2'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-build",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-build/main.proj",
+          "sha256": "c836662e0877fc17773278879f7a7af3eb315968c0a90157b1ffd2c28b2af0a9",
+          "sizeBytes": 225
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-revision",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1.1'>'6.2.1.2'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-revision",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-revision/main.proj",
+          "sha256": "2d385d26a7bd290aa482c663725acb4033f8f90a8a84e362b3661b945f84108e",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-equal",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1.1'>'6.2.1.1'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-equal",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-equal/main.proj",
+          "sha256": "6cbca0f1502ae825c7c5416b7b161e6592629011821c2eef323634d20834eb16",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-two-three",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0'>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-two-three",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-two-three/main.proj",
+          "sha256": "43768975ab10903349dd99a6c670b494b8db120fd89e2f971f30e5df4862a76a",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-three-four",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0.0'>'6.0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-three-four",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-three-four/main.proj",
+          "sha256": "96ef06765ff2602abed84e1050b59f1810294ee94d32c8624054b3e1ba2dd024",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-max",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'2147483647.2147483647.2147483647.2147483647'>'1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-max",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-max/main.proj",
+          "sha256": "ef08282b4bbcb2c5cac3595aab55d4f0656ab404f6186729960b921fb818b3cd",
+          "sizeBytes": 263
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-overflow",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'2147483648.0.0'>'1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-overflow",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-overflow/main.proj",
+          "sha256": "502ef5d710b2f54ac384e020cbbf308f09cc3d735d0f89212986b1e4e625480d",
+          "sizeBytes": 234
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-negative",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.-1.0'>'1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-negative",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-negative/main.proj",
+          "sha256": "5888685d17493f41926292a6f5054e19e41b81da94465b754acda6bf8802684c",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-empty",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6..0'>'1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-empty",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-empty/main.proj",
+          "sha256": "5903c7d124a38e597cffde8e24608aca67ee35e05ec746efe81ca8c8fe85d2d7",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-fifth",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0.0.0.0'>'1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-fifth",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-fifth/main.proj",
+          "sha256": "2626862ec4fa73536c17023b20c2b570bfb222431e055ccdf905aaf77b1220b4",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-plus",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'+6.+0.+0'>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-plus",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-plus/main.proj",
+          "sha256": "6e1cd300990adbaa713589c4f34b37ac628c8acb4bdd6873cfea21417cabaab4",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-negative-zero",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.-0.-0'>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-negative-zero",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-negative-zero/main.proj",
+          "sha256": "ede16d28c4234e749ff07596a28109f922afd7b09412526cca8f3c881f0dfd69",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-space",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "' 6 . 0 . 0 '>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-space",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-space/main.proj",
+          "sha256": "406a55577562bd6e70817775900b9ca45b3ae7b770dc4b54fe69d9e93b63384c",
+          "sizeBytes": 231
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-sign-space",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.+ 0.0'>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-sign-space",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-sign-space/main.proj",
+          "sha256": "2bc2946c4e9556954950a1d62d1d6551c581572a65d6247177e4fc26f98ec8c2",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-nonnumeric",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'v6.0.0'>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-nonnumeric",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-nonnumeric/main.proj",
+          "sha256": "f9409b1da613b98d830ac4f499592945422c5290136097d0b9d3e1075488fa40",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-exponent",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0e0.0'>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-exponent",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-exponent/main.proj",
+          "sha256": "3f289463e44694c6da62c87dd409b5672dea34a79931d078e4ca5a07b0bf08d6",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GT-hex",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0x0.0'>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GT-hex",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GT-hex/main.proj",
+          "sha256": "5f98d0d4ce0ab1df2fbe2344aacfdfcba209bb6494bc41d1d2424f52444eceda",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-major",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'1.2.3'>='2.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-major",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-major/main.proj",
+          "sha256": "fae9f0ef964054cf122988c6937eaab202c666956d18394f0d3d0a587b2191d7",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-minor",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.1.0'>='6.2.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-minor",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-minor/main.proj",
+          "sha256": "9a655944957b8ff94c884ea71f4fac89504f5a5f3957d561183d7cc6ca63af92",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-build",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1'>='6.2.2'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-build",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-build/main.proj",
+          "sha256": "a964a3b395fcc9e5a4293c5c91495ed26649bc4a072f9920b1ee78c3654be63d",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-revision",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1.1'>='6.2.1.2'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-revision",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-revision/main.proj",
+          "sha256": "a82dcb36514ad3f7b3348e0e16ab35f080a7fafb70f4dceea4024c96d1cd8e84",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-equal",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.2.1.1'>='6.2.1.1'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-equal",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-equal/main.proj",
+          "sha256": "9cf3a06c18c8e2e73e31a6a02ff56cf85098afc154a4c012b1ea37a35ca35bb8",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-two-three",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0'>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-two-three",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-two-three/main.proj",
+          "sha256": "db511959168bd4730a3834a02e205599a56905107d5152334dc6f9b25d28932e",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-three-four",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0.0'>='6.0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-three-four",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-three-four/main.proj",
+          "sha256": "40ee59bfc068bb99169bf9bfdd021c698df1da8d60b1dbb205ed637186a68d3b",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-max",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'2147483647.2147483647.2147483647.2147483647'>='1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-max",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-max/main.proj",
+          "sha256": "c2f16d1f8db9724b38109188808dfb6d963895c1d9710df0b7b393a73c84011a",
+          "sizeBytes": 264
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-overflow",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'2147483648.0.0'>='1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-overflow",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-overflow/main.proj",
+          "sha256": "ca0203970b2c96f78f508299b5eab5767ad4d0dabf856c3361b374c1cd2066d1",
+          "sizeBytes": 235
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-negative",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.-1.0'>='1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-negative",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-negative/main.proj",
+          "sha256": "582ce53414062a3eed8d62b397baa219f3bc86331e7be21f91d7292ab7eafff3",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-empty",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6..0'>='1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-empty",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-empty/main.proj",
+          "sha256": "fd1a12649ebdf16fd7a83dac9e85b93e7a30c798b1dfef14ef548ce7a8d25223",
+          "sizeBytes": 225
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-fifth",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0.0.0.0'>='1.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-fifth",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-fifth/main.proj",
+          "sha256": "2edabed9e8fc7c56d26cf3da347abd7c140b769517d3b403473c07ec3c412f5c",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-plus",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'+6.+0.+0'>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-plus",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-plus/main.proj",
+          "sha256": "8e0dc5b516d90619fd0d3e8a0728080adf3b6e03ee23032672bebc65239b765a",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-negative-zero",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.-0.-0'>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-negative-zero",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-negative-zero/main.proj",
+          "sha256": "462f12b29dcfceda1b4d830586cd478ccdea0fb6ff6ddb31a75c2eef284499aa",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-space",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "' 6 . 0 . 0 '>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-space",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-space/main.proj",
+          "sha256": "8c25bcd7463bce1b8b88b3b30510ec8712dcd7aa25bc98c476f88565ba69d9d8",
+          "sizeBytes": 232
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-sign-space",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.+ 0.0'>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-sign-space",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-sign-space/main.proj",
+          "sha256": "81958710d4038b63abf9c9e69a6cd48a6d68a3190e6f95855e58143b7e9a9085",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-nonnumeric",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'v6.0.0'>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-nonnumeric",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-nonnumeric/main.proj",
+          "sha256": "8d93af8df394745280fe7a0688280040825284b2c63e7fe28264aecf5b2e7a19",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-exponent",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0e0.0'>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-exponent",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-exponent/main.proj",
+          "sha256": "69d43583f778e56110769adb2d3c83f27701bf45a67eda68545e5225e5b33d59",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-VER-GE-hex",
+      "group": "all-four-versions",
+      "globals": {},
+      "condition": "'6.0x0.0'>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "VER-GE-hex",
+      "sourceAnchor": "Version.cs:357-442",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-VER-GE-hex/main.proj",
+          "sha256": "8dcec01c936c59b4354e353b88accd180e9c355d116c30897e16a04a1805d8d3",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-NV-less",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "5<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-NV-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-NV-less/main.proj",
+          "sha256": "e2bb59ff8cbf5bd6d21c07b484652ca53c5658117b47d4e248bc815885e9e3d1",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-VN-less",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'<5",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-VN-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-VN-less/main.proj",
+          "sha256": "7d33990becc31f3b82b9741381b93c95ee26eb294b9ae1ce3df79bd1fe118f0b",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-NV-equal-major",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "6<'6.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-NV-equal-major",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-NV-equal-major/main.proj",
+          "sha256": "81d2404b9cff414c6cfe1d37eb7b7f818b914f4f7d5c430c6dd0274438330c94",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-VN-equal-major",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0'<6",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-VN-equal-major",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-VN-equal-major/main.proj",
+          "sha256": "54fd4737fb333ef654acde85e9ca780378e9d9c2b2a1ca6fb705785d53f1fd60",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-NV-greater",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "7<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-NV-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-NV-greater/main.proj",
+          "sha256": "91d34b8d1d54162326a39d7b00bff8615e96880cbdd16126d8f3dcd3673fe281",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-VN-greater",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'<7",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-VN-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-VN-greater/main.proj",
+          "sha256": "7efa6c9cea276e12f640c967dbd1b05dc579ee54fec831fe4bbb433c60557fbd",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-NV-fractional",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "6.5<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-NV-fractional",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-NV-fractional/main.proj",
+          "sha256": "b680802f034a15fee332e053764f29ab5133faf97b2de9c89ffb306aeb0037be",
+          "sizeBytes": 221
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-VN-fractional",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'<6.5",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-VN-fractional",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-VN-fractional/main.proj",
+          "sha256": "71ecbed90f2a7e0058a6ce1332ccb3408a49969125c48d207c5f312f1f136b04",
+          "sizeBytes": 221
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-NV-negative",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "-1<'0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-NV-negative",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-NV-negative/main.proj",
+          "sha256": "3a7a126b2771b5bede916ef6a3932b49e71ade548968510b9a9f7dcce8776fc5",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-VN-negative",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'0.0.0'<-1",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-VN-negative",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-VN-negative/main.proj",
+          "sha256": "e1c7ed9730035062778ead27642a1463e26242cad6d0ab9e46f22297c0ce5432",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-NV-large",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "999999999999<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-NV-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-NV-large/main.proj",
+          "sha256": "b92b7a01e66285a865f6b81502075edebe47171ad3221b52c0fa6a8bec912cae",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-VN-large",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'<999999999999",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-VN-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-VN-large/main.proj",
+          "sha256": "41175a94194ac39db2b49bce73705aae811e5498e43c7d7c6131276f97889d64",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-NV-nan",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'NaN'<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-NV-nan",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-NV-nan/main.proj",
+          "sha256": "44b94655ae8cb778add7dca6f3a270baf5ea09033f9f754aebcf8521068621a9",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-VN-nan",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'<'NaN'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-VN-nan",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-VN-nan/main.proj",
+          "sha256": "a05e2a08196be90f965280c11a0a4da2cd332ea9c6191d5dc544e35d6d19b5fc",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-NV-hex",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "0xFFFFFFFF<'0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-NV-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-NV-hex/main.proj",
+          "sha256": "29ac9993f1c53a13fcce9c6fcf06345ec0bdba4821bad33c989d76bb6dfbd83f",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LT-VN-hex",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'0.0.0'<0xFFFFFFFF",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LT-VN-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LT-VN-hex/main.proj",
+          "sha256": "dabf1c3185e35bbf0d64089e2913a2d432d9301d78764de17095802c42986d23",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-NV-less",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "5<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-NV-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-NV-less/main.proj",
+          "sha256": "52490f4cd895be1cf4cdd403cbee857c683327148a4cc3bd150434134197ffcc",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-VN-less",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'<=5",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-VN-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-VN-less/main.proj",
+          "sha256": "377eafbb8cc82f83908a7ee3139e3941d92562945299b514a9ecca2f064dd2b2",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-NV-equal-major",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "6<='6.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-NV-equal-major",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-NV-equal-major/main.proj",
+          "sha256": "98400fee4c5acfc72b087a102b3e0b05cdd6b87090605338b8a31989f28ae1f1",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-VN-equal-major",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0'<=6",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-VN-equal-major",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-VN-equal-major/main.proj",
+          "sha256": "edb1d914c477798b96a6e108c622c67d78525f0e106bf3e38e705e2d0a5737df",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-NV-greater",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "7<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-NV-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-NV-greater/main.proj",
+          "sha256": "21edc008b480783f7f06fd3f59f33d5f7575d9ffd8113cf3ba53180d23775bfe",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-VN-greater",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'<=7",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-VN-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-VN-greater/main.proj",
+          "sha256": "b3c483e51ac7f52cded3c99e641ffba4b4580cbf7ffcbc98a801e6a997c1b3de",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-NV-fractional",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "6.5<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-NV-fractional",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-NV-fractional/main.proj",
+          "sha256": "6a65c0154b9bf46d22da2565438c48cf09841e92f7f8fdd4a0594593931bd07f",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-VN-fractional",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'<=6.5",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-VN-fractional",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-VN-fractional/main.proj",
+          "sha256": "e00d42c95a4128ada37d52015f364b8e0e467a0b476f9ac3cd92943580e4d9e5",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-NV-negative",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "-1<='0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-NV-negative",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-NV-negative/main.proj",
+          "sha256": "f0609d4c3885f89b02455188ffa9fbdaf727ce11d52f1c9fcaf9f459ffea563c",
+          "sizeBytes": 221
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-VN-negative",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'0.0.0'<=-1",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-VN-negative",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-VN-negative/main.proj",
+          "sha256": "f2b15bd7fdd91a0419c5a9bfa138cf6d5f2aaab242d5c611c946cbb47a56517f",
+          "sizeBytes": 221
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-NV-large",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "999999999999<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-NV-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-NV-large/main.proj",
+          "sha256": "cf0c3ba8aec845825b2108c785f72e20488acd91b0710f8c4a16574d6750b9a6",
+          "sizeBytes": 231
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-VN-large",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'<=999999999999",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-VN-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-VN-large/main.proj",
+          "sha256": "0cb2a10c6249428ee7086f20eb1a469469c9584e70576e990caf62a83afcd8ea",
+          "sizeBytes": 231
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-NV-nan",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'NaN'<='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-NV-nan",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-NV-nan/main.proj",
+          "sha256": "4d8bb7e22954a8ad737255f137668cd432bf78867cab55d22c70837d562c9ca3",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-VN-nan",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'<='NaN'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-VN-nan",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-VN-nan/main.proj",
+          "sha256": "a1b5df18ea0c08209a6d6931faf700e4dc9213615e2a047287692dcdc1b46066",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-NV-hex",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "0xFFFFFFFF<='0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-NV-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-NV-hex/main.proj",
+          "sha256": "7552f54d3a03351c83956201f1dbb5bdd7851c4365623e86b5945545389f035e",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-LE-VN-hex",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'0.0.0'<=0xFFFFFFFF",
+      "site": "PropertyGroup",
+      "purpose": "MIX-LE-VN-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-LE-VN-hex/main.proj",
+          "sha256": "00940481c9b0649d68e46e57959c59127f250fddfe27513e969105ff24854492",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-NV-less",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "5>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-NV-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-NV-less/main.proj",
+          "sha256": "3aa694fc3ec7cda835d2e88b3f8488fbe1ff12470321b5fed3dd7918a21843f9",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-VN-less",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'>5",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-VN-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-VN-less/main.proj",
+          "sha256": "52fd679c7f975fdc7be920cfe2594864a8f3a4478bd696db5045f597effc96fe",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-NV-equal-major",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "6>'6.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-NV-equal-major",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-NV-equal-major/main.proj",
+          "sha256": "0f3cff88b8b4000483c68b38297d0116593a8710b749dda70f017e7a40df8efb",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-VN-equal-major",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0'>6",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-VN-equal-major",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-VN-equal-major/main.proj",
+          "sha256": "c63a51743563b3838cd639f8fb823fc44a9f4c1e1e3c235c35d7e34d8a8750ef",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-NV-greater",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "7>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-NV-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-NV-greater/main.proj",
+          "sha256": "b11323a05c455fb1643840f6baab38024183b3809a1692f8db9fb330ea9d3960",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-VN-greater",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'>7",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-VN-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-VN-greater/main.proj",
+          "sha256": "b3c4e742602cf70a115e0b46fac1ec9958b2b3c79d1bc5311712676f63610e79",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-NV-fractional",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "6.5>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-NV-fractional",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-NV-fractional/main.proj",
+          "sha256": "15494d723f0b54d185cc54ffbd94e8410d52447d9c042fa162036f5f2f5213c9",
+          "sizeBytes": 221
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-VN-fractional",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'>6.5",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-VN-fractional",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-VN-fractional/main.proj",
+          "sha256": "f897ccb5fe0acfe0df29844f32a4803d0b01048cd4f2264472725c7fab89d093",
+          "sizeBytes": 221
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-NV-negative",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "-1>'0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-NV-negative",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-NV-negative/main.proj",
+          "sha256": "d5e309793a8fb3ac7f9279bdbb4cc59791b8ea85d4a73b13c50e59fe0f8f090a",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-VN-negative",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'0.0.0'>-1",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-VN-negative",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-VN-negative/main.proj",
+          "sha256": "39a4a753e64acc10f5bda4f7afdf6604e0edea027f4020043a9071df88cb4a96",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-NV-large",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "999999999999>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-NV-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-NV-large/main.proj",
+          "sha256": "dea78027d7c4793939726ab76a1e688f4728942311d6c55114dc5a6f8083d20c",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-VN-large",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'>999999999999",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-VN-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-VN-large/main.proj",
+          "sha256": "688ebb17aeab562b2e6ebf16cd504e992f9dd956cd3fef6dc54b8d822044de76",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-NV-nan",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'NaN'>'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-NV-nan",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-NV-nan/main.proj",
+          "sha256": "ce8940e5f0749b90cb34e67fdefcd62a4b9b5294aa3bbe90eb337d15dfcac367",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-VN-nan",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'>'NaN'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-VN-nan",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-VN-nan/main.proj",
+          "sha256": "2c0f293d66499939d6652a006b06c6a0425fd7be103cb6e9a2be7c55d2203eac",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-NV-hex",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "0xFFFFFFFF>'0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-NV-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-NV-hex/main.proj",
+          "sha256": "6ba7de25660b088322663ef3ebda5b70931fcba4bba1e7fe31124dcd9d0d5043",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GT-VN-hex",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'0.0.0'>0xFFFFFFFF",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GT-VN-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GT-VN-hex/main.proj",
+          "sha256": "a6d39482a538964fd8b9aea002270f953725d19a40f4860ca8d67f62ab190d2c",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-NV-less",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "5>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-NV-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-NV-less/main.proj",
+          "sha256": "19663857b98a8b65ed61672c42fb9af285d4e55d6f51478a2a23065c421bb1a5",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-VN-less",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'>=5",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-VN-less",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-VN-less/main.proj",
+          "sha256": "d91d618b119a4c005f6d5e9f0e470a451227629c0c259d7f63acfc01b285b0e2",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-NV-equal-major",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "6>='6.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-NV-equal-major",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-NV-equal-major/main.proj",
+          "sha256": "83b3a89e5210e12d801e09fec3610ad546592bba1044553afa5ccb93c6292c8d",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-VN-equal-major",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0'>=6",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-VN-equal-major",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-VN-equal-major/main.proj",
+          "sha256": "a119b0077d49495f9fb80e67ebe167c262be8d59c7217da7cc3022d9f3e44bbe",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-NV-greater",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "7>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-NV-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-NV-greater/main.proj",
+          "sha256": "9aead8d4528f8a4fcd39b251d717404cd241b197935530899c008496c9a5a521",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-VN-greater",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'>=7",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-VN-greater",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-VN-greater/main.proj",
+          "sha256": "7b42dff462517723c8d9be60f8d3f67ee7a5c95bcb6b6d94b30c2d45f7b674cc",
+          "sizeBytes": 220
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-NV-fractional",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "6.5>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-NV-fractional",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-NV-fractional/main.proj",
+          "sha256": "fcd3bc2e993e445b65b43e933aa2b6810b6ab0babe6edc79a2f28d4cb8e4500c",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-VN-fractional",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'>=6.5",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-VN-fractional",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-VN-fractional/main.proj",
+          "sha256": "42b9a5b59d3d89d33bf78141f6c96c1beba861cdeedc8712e0aad4334db03981",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-NV-negative",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "-1>='0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-NV-negative",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-NV-negative/main.proj",
+          "sha256": "e74ba76758c11859c2d341c4b40cae449853be3f6c6238a978afc47032705fce",
+          "sizeBytes": 221
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-VN-negative",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'0.0.0'>=-1",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-VN-negative",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-VN-negative/main.proj",
+          "sha256": "e362fd476feb018060e2f777af7a22f9014c1c9af0bf60e1bf316074bb0f4675",
+          "sizeBytes": 221
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-NV-large",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "999999999999>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-NV-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-NV-large/main.proj",
+          "sha256": "35ed783acde27f953171c3468485926623242bf7276059af58d6c40ea611cf4d",
+          "sizeBytes": 231
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-VN-large",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'>=999999999999",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-VN-large",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-VN-large/main.proj",
+          "sha256": "2ce53c85f04ab3e2931ef42629d259747b236b0a939f43b60419cf7c264b7c06",
+          "sizeBytes": 231
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-NV-nan",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'NaN'>='6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-NV-nan",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-NV-nan/main.proj",
+          "sha256": "511c42105d86e8ebf3f63ab79aed401e04d96c7706acc04c40762e6cde19cac7",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-VN-nan",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'6.0.0'>='NaN'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-VN-nan",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-VN-nan/main.proj",
+          "sha256": "3ddba139e2078ec877da522d09c08fe285eafec35dd8c7d0b6fc9cf634ff75c3",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-NV-hex",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "0xFFFFFFFF>='0.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-NV-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-NV-hex/main.proj",
+          "sha256": "dc19425cf33406db8cdf2a19fb80a0e4ab3eb65e2c0684c1bbb5e33944359bf1",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-MIX-GE-VN-hex",
+      "group": "both-mixed-paths",
+      "globals": {},
+      "condition": "'0.0.0'>=0xFFFFFFFF",
+      "site": "PropertyGroup",
+      "purpose": "MIX-GE-VN-hex",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-MIX-GE-VN-hex/main.proj",
+          "sha256": "ae82c203ed0ee771488fc92bee346fdb0d0b2e9c0d95766196a600483ca3ff32",
+          "sizeBytes": 229
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-LT-version-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.1'<'6.2.0'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-LT-version-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-LT-version-priority/main.proj",
+          "sha256": "ed676a975cd391f7cc360305f039058af248356175cb9b704300f6347eb749d3",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-LT-numeric-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.10'<'6.2'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-LT-numeric-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-LT-numeric-priority/main.proj",
+          "sha256": "1a13e0d6207f87ade80cd3cc423141677e7d9fbbd736626bddf5dfd49b68d9c3",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-LT-upstream-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'8.1'<'8.0.16.23'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-LT-upstream-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-LT-upstream-priority/main.proj",
+          "sha256": "63823ede0cfcada2869c91d428c6edc9689c934b68690c62839dd932f27597f7",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-LT-reverse-version",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.2.0'<'6.1'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-LT-reverse-version",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-LT-reverse-version/main.proj",
+          "sha256": "d1b4880a295ca03d1c398f9c7046ca05699d98f980c013fd34ff30e94c48166f",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-LE-version-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.1'<='6.2.0'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-LE-version-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-LE-version-priority/main.proj",
+          "sha256": "70c8326095526275c0a0bd1d73572f25343197f49f7c60954ce7d1bc9a4c0a2d",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-LE-numeric-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.10'<='6.2'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-LE-numeric-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-LE-numeric-priority/main.proj",
+          "sha256": "786ec16d549712e2fc9bf106c884fab42a7efca28ffb58a1f61c06c68af17a31",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-LE-upstream-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'8.1'<='8.0.16.23'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-LE-upstream-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-LE-upstream-priority/main.proj",
+          "sha256": "e412b8845d74d49c415d257c566501cb5d500e0dd52a100e33c12d1bdfde34c9",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-LE-reverse-version",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.2.0'<='6.1'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-LE-reverse-version",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-LE-reverse-version/main.proj",
+          "sha256": "d61b4b4e7b044179190add3331289254fa075cd80cf853d0fe63f76de362a2ba",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-GT-version-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.1'>'6.2.0'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-GT-version-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-GT-version-priority/main.proj",
+          "sha256": "ab3d1c7ff2100daaed6e6792702b22e79750efd984f9819196941152a039d665",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-GT-numeric-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.10'>'6.2'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-GT-numeric-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-GT-numeric-priority/main.proj",
+          "sha256": "0a1bc2a0a549324b5679acc50a744f05ff60d6f3cbc45b16baa2c0d2c7582b15",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-GT-upstream-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'8.1'>'8.0.16.23'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-GT-upstream-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-GT-upstream-priority/main.proj",
+          "sha256": "9ca391a7bc5b85ca7a960c3b635005aaf6bae5741528ab2a08b991fd58a001de",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-GT-reverse-version",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.2.0'>'6.1'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-GT-reverse-version",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-GT-reverse-version/main.proj",
+          "sha256": "66cbac8042b2b4bc0fbb88baebb89db732d3f2e4e9d1f9ebc4abd026a19cb302",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-GE-version-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.1'>='6.2.0'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-GE-version-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-GE-version-priority/main.proj",
+          "sha256": "e531b3aa2eb13b8a2467f9479630d086ebba3ea6a0cd0a63d663e67159e67cc5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-GE-numeric-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.10'>='6.2'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-GE-numeric-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-GE-numeric-priority/main.proj",
+          "sha256": "4f614491b5b19bc180929625bd0536a02ac14bf578c88557f1febc1e5a59292f",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-GE-upstream-priority",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'8.1'>='8.0.16.23'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-GE-upstream-priority",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-GE-upstream-priority/main.proj",
+          "sha256": "fba4e92bc0bcadbae44e944d5b9a0115c45727e8b94248f1432a6c86916e9345",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-DISPATCH-GE-reverse-version",
+      "group": "dispatch-priority",
+      "globals": {},
+      "condition": "'6.2.0'>='6.1'",
+      "site": "PropertyGroup",
+      "purpose": "DISPATCH-GE-reverse-version",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-DISPATCH-GE-reverse-version/main.proj",
+          "sha256": "3e9e7fa711e04004907a6e4d96c1fc3252924c235bb6be05db8943cdc9d1393e",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-left",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "'bad'<1",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-left",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-left/main.proj",
+          "sha256": "bea14f099a2dd26220f072252f2aa438c5e8056b6b4dc97eba3e748bfe697514",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-right",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "1<'bad'",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-right",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-right/main.proj",
+          "sha256": "dd10f868198ed1c7840e74563ae41c9ff42608c45561dafdd5848b315e97565e",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-source-error-side",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "'6.0.0'<'bad'",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-source-error-side",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-source-error-side/main.proj",
+          "sha256": "301e6e17661d643db2d667d09260d1f121a7981706afda5f811a2d929c9c2552",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-both",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "'bad'<'worse'",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-both",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-both/main.proj",
+          "sha256": "49e5129179e26fe2e8a8eb89ef43ee1dae34d123812bd04c57d1d9df95ec55cf",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-empty",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "''<1",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-empty",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-empty/main.proj",
+          "sha256": "ae16475017ad9fc78b1fea31d04097b2bc5f463eece5cb10608583bb69d6609c",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-undefined",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "'$(Missing)'<1",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-undefined",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-undefined/main.proj",
+          "sha256": "adb361636910247e32b17384807b78e84053ce283384de48fda858496e87ca94",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-boolean",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "'true'<1",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-boolean",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-boolean/main.proj",
+          "sha256": "044f3a9e140b76e96ad4dbce96cb58aa7ebe2d6ba599787bd2d45c03048c4659",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-exists",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "Exists('')<1",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-exists",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-exists/main.proj",
+          "sha256": "6b144c923e9dd3da3718c9d812ce6a0dad7cbb694b1a5ecef42c00d78ef47d5e",
+          "sizeBytes": 222
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-slash",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "HasTrailingSlash('bad')<1",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-slash",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-slash/main.proj",
+          "sha256": "8e54610405f95725185f084e185c881b0bf50735ef88e046b8b809baf6799fe8",
+          "sizeBytes": 235
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-not",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "!1<2",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-not",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-not/main.proj",
+          "sha256": "c13f993173ddfcec0f81a8f0c9170b784f5a60b29cad7d7b157e2ba904ae3e80",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-nested",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "(Exists('')==true)<1",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-nested",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-nested/main.proj",
+          "sha256": "07823c21c03009ed9ccbfdf2f53b46768a43f24656955adf732171a411679263",
+          "sizeBytes": 230
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-bad-global-left",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {
+        "L": "bad",
+        "R": "worse"
+      },
+      "condition": "'$(L)'<'$(R)'",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-bad-global-left",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-bad-global-left/main.proj",
+          "sha256": "9bdcd8ddc8785b6557e9f1692b695192754dd545d5a5370295033010bc42ced8",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-bad-global-right",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {
+        "L": "bad",
+        "R": "worse"
+      },
+      "condition": "'$(R)'<'$(L)'",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-bad-global-right",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-bad-global-right/main.proj",
+          "sha256": "2781406c8512c7cdb7bdcff897b76485b3306ff8f7ebe01fcca89eb51b91ebb4",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-ERROR-version-only-right",
+      "group": "nonnumeric-and-observable-errors",
+      "globals": {},
+      "condition": "'bad'<'6.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "ERROR-version-only-right",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-ERROR-version-only-right/main.proj",
+          "sha256": "e763db7fef39e094fbb97ce9a25b0c8d30a6b80bfe07d4066defdecc59f53150",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-group",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "!(1<2)",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-group",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-group/main.proj",
+          "sha256": "43b9cb01c6b7f6f69af1e09f8f589360b6368a191f580588ff451ed2e25c3137",
+          "sizeBytes": 216
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-precedence",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "false Or 1<2 And false",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-precedence",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-precedence/main.proj",
+          "sha256": "749e025feb8781a7b37934444aac6d130155dbf7a3b1dc39d0bc8afecf5556b9",
+          "sizeBytes": 232
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-short-or",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "true Or 'bad'<1",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-short-or",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-short-or/main.proj",
+          "sha256": "775b6d41b4ef4bfffd69c006872a4e5a4d44102fcedb8677029c0f86873ccfc5",
+          "sizeBytes": 225
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-short-and",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "false And 'bad'<1",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-short-and",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-short-and/main.proj",
+          "sha256": "a822a3737f34af9bbaf2cbaef0421deab6c79537c1ea250ca252c40ae08254d7",
+          "sizeBytes": 227
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-separate-le",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "1< =2",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-separate-le",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-separate-le/main.proj",
+          "sha256": "35140d1c81c95dd5c177ad86f397897d52e7b02fd11b2127a97bf5e9169ad5df",
+          "sizeBytes": 215
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-separate-ge",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "1> =2",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-separate-ge",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-separate-ge/main.proj",
+          "sha256": "34a1e1bcb61001efc248af4299dead540661e5674edaa17aacb6bd03f12e08e9",
+          "sizeBytes": 215
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-missing-left",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "<2",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-missing-left",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-missing-left/main.proj",
+          "sha256": "160120f26f52eb7b87855e7353fcef53a87fd2dd07c7ca234026057d53601d82",
+          "sizeBytes": 212
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-missing-right",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "1<",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-missing-right",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-missing-right/main.proj",
+          "sha256": "2da909334cfa4b627dd919b1f5e46ddd75cb6fd9b20029dca442ebc01a044940",
+          "sizeBytes": 212
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-chain",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "1<2<3",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-chain",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-chain/main.proj",
+          "sha256": "869f7b0a681fc84988a318b8aeed52fdcb7a9cfab991a240dc01bd28a86e1cbd",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-chain-eq",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "1<2==true",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-chain-eq",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-chain-eq/main.proj",
+          "sha256": "fe4889bee8c0438c8dfb7ca2092df914f47dd8fe86df086e8ec1247a3aa54cc3",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-chain-reverse",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "true==1<2",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-chain-reverse",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-chain-reverse/main.proj",
+          "sha256": "8357e45a0fe92f74c52fe33f1a0327ea3363c5c3aeaeb504416016249011cc53",
+          "sizeBytes": 219
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-double",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "1<<2",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-double",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-double/main.proj",
+          "sha256": "511e9b7cb30b7ce69dacb7ef603717115d861b17d0ad22ee100c357503faf0b1",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-unclosed",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "(1<2",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-unclosed",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-unclosed/main.proj",
+          "sha256": "a8c3199b00f8e1fa097f084d0aebc4f12a815705277de9091f367d35850cd2ca",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-trailing",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "1<2 junk",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-trailing",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-trailing/main.proj",
+          "sha256": "90e7eb252fb7b4cd6b723f65e6e2955556afeedd24c759fc30f49f60cca1aba7",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-not-factor",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "!1<2",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-not-factor",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-not-factor/main.proj",
+          "sha256": "c13f993173ddfcec0f81a8f0c9170b784f5a60b29cad7d7b157e2ba904ae3e80",
+          "sizeBytes": 214
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-nested-group",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "((1<2))",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-nested-group",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-nested-group/main.proj",
+          "sha256": "a210d5e1b0c625caf587d296e6eaa6cdd8bcbe7362c01f393df739523b15bf65",
+          "sizeBytes": 217
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-and-or",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "1<2 And false Or true",
+      "site": "PropertyGroup",
+      "purpose": "GRAMMAR-and-or",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-and-or/main.proj",
+          "sha256": "179b7ea709dd0e4fbc99b101dd5882a8a720b7ece2c1e594a3bd8661fb6285cd",
+          "sizeBytes": 231
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-GRAMMAR-skipped-malformed",
+      "group": "grammar-and-xml",
+      "globals": {},
+      "condition": "1<",
+      "site": "Import",
+      "purpose": "GRAMMAR-skipped-malformed",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-GRAMMAR-skipped-malformed/main.proj",
+          "sha256": "7b428f9345c758cc1ea5f226d8bdddeddc476d4e67b094bcb59a4489da2f1c9f",
+          "sizeBytes": 235
+        },
+        {
+          "relativePath": "ORD-GRAMMAR-skipped-malformed/nested/child.proj",
+          "sha256": "94879ede0c8382b9f08c465a21a557e353a00300787065f0c4cb919323856933",
+          "sizeBytes": 73
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-EXPAND-global",
+      "group": "one-pass-and-reached-order",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "EXPAND-global",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-EXPAND-global/main.proj",
+          "sha256": "f50a1123ae69751451cebf4bb7357f58b879a95d067ed4185b67cf003539c6be",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-EXPAND-escaped-dollar",
+      "group": "one-pass-and-reached-order",
+      "globals": {
+        "N": "%24(M)"
+      },
+      "condition": "'$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "EXPAND-escaped-dollar",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-EXPAND-escaped-dollar/main.proj",
+          "sha256": "f50a1123ae69751451cebf4bb7357f58b879a95d067ed4185b67cf003539c6be",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-EXPAND-residual",
+      "group": "one-pass-and-reached-order",
+      "globals": {
+        "N": "$(M)",
+        "M": "1"
+      },
+      "condition": "'$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "EXPAND-residual",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-EXPAND-residual/main.proj",
+          "sha256": "f50a1123ae69751451cebf4bb7357f58b879a95d067ed4185b67cf003539c6be",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-EXPAND-operator-data",
+      "group": "one-pass-and-reached-order",
+      "globals": {
+        "N": "1<2"
+      },
+      "condition": "'$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "EXPAND-operator-data",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-EXPAND-operator-data/main.proj",
+          "sha256": "f50a1123ae69751451cebf4bb7357f58b879a95d067ed4185b67cf003539c6be",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-EXPAND-quote-data",
+      "group": "one-pass-and-reached-order",
+      "globals": {
+        "N": "1' Or true Or '1"
+      },
+      "condition": "'$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "EXPAND-quote-data",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-EXPAND-quote-data/main.proj",
+          "sha256": "f50a1123ae69751451cebf4bb7357f58b879a95d067ed4185b67cf003539c6be",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-EXPAND-unicode-left",
+      "group": "one-pass-and-reached-order",
+      "globals": {
+        "L": "\u00e9",
+        "R": "bad"
+      },
+      "condition": "'$(L)'<'$(R)'",
+      "site": "PropertyGroup",
+      "purpose": "EXPAND-unicode-left",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SOURCE_OR_NATIVE_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-EXPAND-unicode-left/main.proj",
+          "sha256": "9bdcd8ddc8785b6557e9f1692b695192754dd545d5a5370295033010bc42ced8",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-EXPAND-unicode-right",
+      "group": "one-pass-and-reached-order",
+      "globals": {
+        "L": "\u00e9",
+        "R": "bad"
+      },
+      "condition": "'$(R)'<'$(L)'",
+      "site": "PropertyGroup",
+      "purpose": "EXPAND-unicode-right",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SOURCE_OR_NATIVE_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-EXPAND-unicode-right/main.proj",
+          "sha256": "2781406c8512c7cdb7bdcff897b76485b3306ff8f7ebe01fcca89eb51b91ebb4",
+          "sizeBytes": 223
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-EXPAND-skip-or",
+      "group": "one-pass-and-reached-order",
+      "globals": {
+        "N": "bad"
+      },
+      "condition": "true Or '$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "EXPAND-skip-or",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-EXPAND-skip-or/main.proj",
+          "sha256": "feaa65bc751bae053f93fe848ba6ac30bfb2b1635a3bdf860ba2236d840c95d7",
+          "sizeBytes": 226
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-EXPAND-skip-and",
+      "group": "one-pass-and-reached-order",
+      "globals": {
+        "N": "bad"
+      },
+      "condition": "false And '$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "EXPAND-skip-and",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-EXPAND-skip-and/main.proj",
+          "sha256": "59b4f51dd52ed6ad4010ffd1a43f0499f66bbb9dd545ac54df6600882679aa95",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-EXPAND-encounter-order",
+      "group": "one-pass-and-reached-order",
+      "globals": {},
+      "condition": "'$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "EXPAND-encounter-order",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-EXPAND-encounter-order/main.proj",
+          "sha256": "55b1c6e8e7cd5e30e7834cdf0ea73fa596bd8238868f517816395229b101019b",
+          "sizeBytes": 332
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-SITE-Property",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'<2",
+      "site": "Property",
+      "purpose": "SITE-Property",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-SITE-Property/main.proj",
+          "sha256": "727090e4297117f8c12e490a3f679e271498c5b9642d61f006afbf32b8a75115",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-SITE-PropertyGroup",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "SITE-PropertyGroup",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-SITE-PropertyGroup/main.proj",
+          "sha256": "f50a1123ae69751451cebf4bb7357f58b879a95d067ed4185b67cf003539c6be",
+          "sizeBytes": 218
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-SITE-Import",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'<2",
+      "site": "Import",
+      "purpose": "SITE-Import",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-SITE-Import/main.proj",
+          "sha256": "2fc8b3650f5daf3deff02d017c2e9cfa4dbf793cc409069ac008ae2a45788b09",
+          "sizeBytes": 202
+        },
+        {
+          "relativePath": "ORD-SITE-Import/nested/child.proj",
+          "sha256": "94879ede0c8382b9f08c465a21a557e353a00300787065f0c4cb919323856933",
+          "sizeBytes": 73
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-SITE-ImportGroup",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'<2",
+      "site": "ImportGroup",
+      "purpose": "SITE-ImportGroup",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-SITE-ImportGroup/main.proj",
+          "sha256": "f02d63270308feca086e5eed544da0ad8b0056ea1c46631f5cc631fe6dc8cc73",
+          "sizeBytes": 229
+        },
+        {
+          "relativePath": "ORD-SITE-ImportGroup/nested/child.proj",
+          "sha256": "94879ede0c8382b9f08c465a21a557e353a00300787065f0c4cb919323856933",
+          "sizeBytes": 73
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-SITE-global-immutable",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "SITE-global-immutable",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-SITE-global-immutable/main.proj",
+          "sha256": "e15a1e767a44e814418f3e3e9f9a1d694175388bd38a2a126dbea7c6a3f61701",
+          "sizeBytes": 257
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-SITE-global-local",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {
+        "N": "1"
+      },
+      "condition": "'$(N)'<2",
+      "site": "PropertyGroup",
+      "purpose": "SITE-global-local",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-SITE-global-local/main.proj",
+          "sha256": "c18aabfed63464903ed48ff116a60ac9185ac4558374a80f706120d39cee2fda",
+          "sizeBytes": 282
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-IMPORT-false-missing",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {},
+      "condition": "2<1",
+      "site": "Import",
+      "purpose": "IMPORT-false-missing",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-IMPORT-false-missing/main.proj",
+          "sha256": "2ab2920ef7cb74441629923f56d6cfe6603969d5c4216f8cf4d4026a8a0a12a1",
+          "sizeBytes": 191
+        },
+        {
+          "relativePath": "ORD-IMPORT-false-missing/nested/child.proj",
+          "sha256": "94879ede0c8382b9f08c465a21a557e353a00300787065f0c4cb919323856933",
+          "sizeBytes": 73
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-IMPORT-true-missing",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {},
+      "condition": "1<2",
+      "site": "Import",
+      "purpose": "IMPORT-true-missing",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-IMPORT-true-missing/main.proj",
+          "sha256": "2bc2bbdb998fae84c715f51526aa730ec45037e0335cffb42afcc2701e5e8387",
+          "sizeBytes": 191
+        },
+        {
+          "relativePath": "ORD-IMPORT-true-missing/nested/child.proj",
+          "sha256": "94879ede0c8382b9f08c465a21a557e353a00300787065f0c4cb919323856933",
+          "sizeBytes": 73
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-IMPORT-false-expanded",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {},
+      "condition": "2<1",
+      "site": "Import",
+      "purpose": "IMPORT-false-expanded",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-IMPORT-false-expanded/main.proj",
+          "sha256": "8134eb1f6ab9d71c27139ed564a4080cf956990b2f15a9f6df17b5f3c382e7d8",
+          "sizeBytes": 190
+        },
+        {
+          "relativePath": "ORD-IMPORT-false-expanded/nested/child.proj",
+          "sha256": "94879ede0c8382b9f08c465a21a557e353a00300787065f0c4cb919323856933",
+          "sizeBytes": 73
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-IMPORT-duplicate",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {},
+      "condition": "1<2",
+      "site": "Import",
+      "purpose": "IMPORT-duplicate",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-IMPORT-duplicate/main.proj",
+          "sha256": "62d975d52e5fafd52657624ef14670f3b21cfe916532df425a611e750af5e11a",
+          "sizeBytes": 253
+        },
+        {
+          "relativePath": "ORD-IMPORT-duplicate/nested/child.proj",
+          "sha256": "94879ede0c8382b9f08c465a21a557e353a00300787065f0c4cb919323856933",
+          "sizeBytes": 73
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-IMPORT-cycle",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {},
+      "condition": "1<2",
+      "site": "Import",
+      "purpose": "IMPORT-cycle",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-IMPORT-cycle/main.proj",
+          "sha256": "66de70b2716a94f674f61c4f2d79a55f1ddf25131e996650924994045d96bde8",
+          "sizeBytes": 197
+        },
+        {
+          "relativePath": "ORD-IMPORT-cycle/nested/child.proj",
+          "sha256": "6f6d7376f6cdbe41c0d6aee07791007a8ae75f7a9e1237e4ce683e6e3e52c84b",
+          "sizeBytes": 71
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-IMPORT-nested-owner",
+      "group": "sites-imports-globals-and-lifecycle",
+      "globals": {},
+      "condition": "1<2",
+      "site": "Import",
+      "purpose": "IMPORT-nested-owner",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-IMPORT-nested-owner/main.proj",
+          "sha256": "66de70b2716a94f674f61c4f2d79a55f1ddf25131e996650924994045d96bde8",
+          "sizeBytes": 197
+        },
+        {
+          "relativePath": "ORD-IMPORT-nested-owner/nested/child.proj",
+          "sha256": "6c509d654a34412ee226738cda13ea1805c89cd3992a03d59d9da80a3d28df25",
+          "sizeBytes": 141
+        },
+        {
+          "relativePath": "ORD-IMPORT-nested-owner/nested/grand.proj",
+          "sha256": "2a5298a3db04557ae507874a4cf4bf11c2623b2b02ec8e5752c119952902f5a8",
+          "sizeBytes": 64
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-CACHE-fail-valid-0",
+      "group": "cache-and-warning-owner",
+      "globals": {
+        "CacheN": "bad"
+      },
+      "condition": "'$(CacheN)' < 2718",
+      "site": "PropertyGroup",
+      "purpose": "CACHE-fail-valid-0",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-CACHE-fail-valid-0/main.proj",
+          "sha256": "6d25f4303708a57334ccab9afb1edfb7933f43acacc7235358d96d3e80ef0274",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-CACHE-fail-valid-1",
+      "group": "cache-and-warning-owner",
+      "globals": {
+        "CacheN": "1"
+      },
+      "condition": "'$(CacheN)' < 2718",
+      "site": "PropertyGroup",
+      "purpose": "CACHE-fail-valid-1",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-CACHE-fail-valid-1/main.proj",
+          "sha256": "6d25f4303708a57334ccab9afb1edfb7933f43acacc7235358d96d3e80ef0274",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-CACHE-fail-valid-2",
+      "group": "cache-and-warning-owner",
+      "globals": {
+        "CacheN": "3000"
+      },
+      "condition": "'$(CacheN)' < 2718",
+      "site": "PropertyGroup",
+      "purpose": "CACHE-fail-valid-2",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-CACHE-fail-valid-2/main.proj",
+          "sha256": "6d25f4303708a57334ccab9afb1edfb7933f43acacc7235358d96d3e80ef0274",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-CACHE-fail-valid-3",
+      "group": "cache-and-warning-owner",
+      "globals": {
+        "CacheN": "1"
+      },
+      "condition": "'$(CacheN)' < 2718",
+      "site": "PropertyGroup",
+      "purpose": "CACHE-fail-valid-3",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-CACHE-fail-valid-3/main.proj",
+          "sha256": "6d25f4303708a57334ccab9afb1edfb7933f43acacc7235358d96d3e80ef0274",
+          "sizeBytes": 228
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-CACHE-owner-0",
+      "group": "cache-and-warning-owner",
+      "globals": {},
+      "condition": "2718<3000 And true Or false",
+      "site": "PropertyGroup",
+      "purpose": "CACHE-owner-0",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-CACHE-owner-0/main.proj",
+          "sha256": "d3a71fe73f75e7f1b76b9d95cbdfb0d8d401f33483e30c50a86ea2bebc2c5d52",
+          "sizeBytes": 237
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-CACHE-owner-1",
+      "group": "cache-and-warning-owner",
+      "globals": {},
+      "condition": "2718<3000 And true Or false",
+      "site": "Import",
+      "purpose": "CACHE-owner-1",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-CACHE-owner-1/main.proj",
+          "sha256": "60c023476a594f8f99ab931dd6f911765fdeb35eb6874b0913dc10943988b43d",
+          "sizeBytes": 221
+        },
+        {
+          "relativePath": "ORD-CACHE-owner-1/nested/child.proj",
+          "sha256": "94879ede0c8382b9f08c465a21a557e353a00300787065f0c4cb919323856933",
+          "sizeBytes": 73
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-CACHE-owner-2",
+      "group": "cache-and-warning-owner",
+      "globals": {},
+      "condition": "2718 < 3000 And true Or false",
+      "site": "PropertyGroup",
+      "purpose": "CACHE-owner-2",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-CACHE-owner-2/main.proj",
+          "sha256": "b9c7224074c47ff0ba6e0a5ec8e99cb3a51f1769ff35c4c3bb3e6227a0cc509c",
+          "sizeBytes": 239
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-CACHE-owner-3",
+      "group": "cache-and-warning-owner",
+      "globals": {},
+      "condition": "2718<3000 and true or false",
+      "site": "PropertyGroup",
+      "purpose": "CACHE-owner-3",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-CACHE-owner-3/main.proj",
+          "sha256": "6cc12a9d2488a3f82dee9e2c675d4912240605fb75183a48419886e832e4ecba",
+          "sizeBytes": 237
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-CACHE-skipped-first",
+      "group": "cache-and-warning-owner",
+      "globals": {},
+      "condition": "2719<3000 And true Or false",
+      "site": "PropertyGroup",
+      "purpose": "CACHE-skipped-first",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-CACHE-skipped-first/main.proj",
+          "sha256": "02f2eef3015910c36975fd8181897c2e2ae0e2ecd97af8420d7957d4f6148232",
+          "sizeBytes": 284
+        },
+        {
+          "relativePath": "ORD-CACHE-skipped-first/nested/child.proj",
+          "sha256": "17692c4da23fd35dad4be7db4787fdca0c6b3b9e14893ceb9f8812f1025d8a3d",
+          "sizeBytes": 116
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-escaped-nul",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.0.0%00"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-escaped-nul",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-escaped-nul/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-global-nul",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.0.0\u0000"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-global-nul",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-global-nul/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-space-then-nul",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.0.0 \u0000"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-space-then-nul",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-space-then-nul/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-nul-then-space",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.0.0\u0000 "
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-nul-then-space",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-nul-then-space/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-tab",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.\t0.0"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-tab",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-tab/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-newline",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.\n0.0"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-newline",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-newline/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-vertical-tab",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.\u000b0.0"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-vertical-tab",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-vertical-tab/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-form-feed",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.\f0.0"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-form-feed",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-form-feed/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-carriage",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.\r0.0"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-carriage",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-carriage/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-nbsp",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.\u00a00.0"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-nbsp",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-nbsp/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-unicode-digit",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.\u0660.0"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-unicode-digit",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-unicode-digit/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-REACH-escaped-tab",
+      "group": "version-component-reachability",
+      "globals": {
+        "V": "6.%090.0"
+      },
+      "condition": "'$(V)'<'7.0.0'",
+      "site": "PropertyGroup",
+      "purpose": "REACH-escaped-tab",
+      "sourceAnchor": "Version.cs:357-442; Number.Parsing.Common.cs:302-309",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "REACHABILITY_AND_RESTRICTION_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-REACH-escaped-tab/main.proj",
+          "sha256": "1037c282e9906ba228c92f27b9772d9cc42103e11d323605934926e39cb76ca5",
+          "sizeBytes": 224
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-BOUND-group64",
+      "group": "private-bounds-and-isolation",
+      "globals": {},
+      "condition": "((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((1<2))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))",
+      "site": "PropertyGroup",
+      "purpose": "BOUND-group64",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-BOUND-group64/main.proj",
+          "sha256": "1b639747406841e45371858f14b1398044957c35aa2a373e764e4f756ab64ca7",
+          "sizeBytes": 341
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-BOUND-group65",
+      "group": "private-bounds-and-isolation",
+      "globals": {},
+      "condition": "(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((1<2)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))",
+      "site": "PropertyGroup",
+      "purpose": "BOUND-group65",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "PRIVATE_DESIGN_REFUSAL",
+      "files": [
+        {
+          "relativePath": "ORD-BOUND-group65/main.proj",
+          "sha256": "2256dc8ed2e2786427f12a064874a8525c3450fda6273a0d5a040d36d4a91f62",
+          "sizeBytes": 343
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-BOUND-node256",
+      "group": "private-bounds-and-isolation",
+      "globals": {},
+      "condition": "!1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2",
+      "site": "PropertyGroup",
+      "purpose": "BOUND-node256",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "PRIVATE_BOUNDARY_REVIEW",
+      "files": [
+        {
+          "relativePath": "ORD-BOUND-node256/main.proj",
+          "sha256": "7614127b9e2aac98822218173617f295534082d4bb31550e69361987fa6b10a6",
+          "sizeBytes": 907
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-BOUND-node257",
+      "group": "private-bounds-and-isolation",
+      "globals": {},
+      "condition": "!!1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2 And 1<2",
+      "site": "PropertyGroup",
+      "purpose": "BOUND-node257",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "PRIVATE_DESIGN_REFUSAL",
+      "files": [
+        {
+          "relativePath": "ORD-BOUND-node257/main.proj",
+          "sha256": "5fbb965720f6eb95d5ee95a2058b1bfaa002a6cf87e8bf2f775ce9da77745556",
+          "sizeBytes": 908
+        }
+      ],
+      "historicalId": null
+    },
+    {
+      "id": "ORD-HISTORY-BOOL-BOUND-ordering",
+      "group": "historical-transition",
+      "globals": {},
+      "condition": "1<2",
+      "site": "PropertyGroup",
+      "purpose": "HISTORY-BOOL-BOUND-ordering",
+      "sourceAnchor": "NumericComparisonExpressionNode.cs:36-65",
+      "nativeStatus": "NOT_LAUNCHED_NOT_OBSERVED",
+      "productScope": "SELECTED",
+      "files": [
+        {
+          "relativePath": "ORD-HISTORY-BOOL-BOUND-ordering/main.proj",
+          "sha256": "1bd1eda9c9288821a313d27cdc44f5d01e14f47c2f551f96582f92d65a83e06b",
+          "sizeBytes": 216
+        }
+      ],
+      "historicalId": "BOOL-BOUND-ordering"
+    }
+  ],
+  "javaOnlyControls": [
+    {
+      "id": "JAVA-VERSION-INTEGER-BOUNDARIES",
+      "nativeParityCredit": 0,
+      "values": [
+        "+0",
+        "-0",
+        "2147483647",
+        "2147483648",
+        "-1",
+        "\t+0\r",
+        "+ 0",
+        "0 \u0000",
+        "0\u0000 ",
+        "\u0660",
+        "\u00a00"
+      ]
+    },
+    {
+      "id": "JAVA-PRIVATE-GROUP-64-65",
+      "nativeParityCredit": 0,
+      "accepted": 64,
+      "refused": 65
+    },
+    {
+      "id": "JAVA-PRIVATE-NODE-256-257",
+      "nativeParityCredit": 0,
+      "accepted": 256,
+      "refused": 257
+    },
+    {
+      "id": "JAVA-RAW-AST-SNAPSHOT-ISOLATION",
+      "nativeParityCredit": 0,
+      "purpose": "immutable raw nodes, fresh globals/owner/error and snapshots; behavior before field inspection"
+    },
+    {
+      "id": "JAVA-CACHE-3000-CLEAR",
+      "nativeParityCredit": 0,
+      "purpose": "unchanged >3000 private clear policy; no native eviction equivalence"
+    }
+  ]
+}
