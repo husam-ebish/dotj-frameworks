@@ -42,8 +42,11 @@ def design():
     for tag,op in ops:
         for label,left,right in versions:add(GROUPS[1],f'VER-{tag}-{label}',f"'{left}'{op}'{right}'",anchor='Version.cs:357-442')
     for tag,op in ops:
-        for label,num,ver in [('less','5','6.0.0'),('equal-major','6','6.0'),('greater','7','6.0.0'),
-                              ('fractional','6.5','6.0.0'),('negative','-1','0.0.0'),('large','999999999999','6.0.0'),
+        # Equal-major must avoid numeric/numeric; fractional must avoid the
+        # higher-priority version/version path. Minor5000000000 exceeds Int32,
+        # while invariant decimal conversion still yields the finite number6.5.
+        for label,num,ver in [('less','5','6.0.0'),('equal-major','6','6.0.0'),('greater','7','6.0.0'),
+                              ('fractional','6.5000000000','6.0.0'),('negative','-1','0.0.0'),('large','999999999999','6.0.0'),
                               ('nan',"'NaN'",'6.0.0'),('hex','0xFFFFFFFF','0.0.0')]:
             add(GROUPS[2],f'MIX-{tag}-NV-{label}',f"{num}{op}'{ver}'")
             add(GROUPS[2],f'MIX-{tag}-VN-{label}',f"'{ver}'{op}{num}")

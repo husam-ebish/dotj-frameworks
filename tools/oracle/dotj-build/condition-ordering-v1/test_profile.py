@@ -3,6 +3,8 @@ import copy
 import importlib.util
 import json
 import pathlib
+import re
+from decimal import Decimal
 import unittest
 
 HERE = pathlib.Path(__file__).resolve().parent
@@ -11,6 +13,29 @@ p = None
 if (HERE / 'protocol.py').exists():
     p = importlib.util.module_from_spec(SPEC)
     SPEC.loader.exec_module(p)
+
+
+def witness_eligibility(token):
+    """Independent source-contract probe for this fix's unsigned decimal subset.
+
+    NumericExpressionNode delegates to invariant finite decimal conversion and
+    Version.TryParse; Version requires 2..4 nonnegative Int32 components. This
+    intentionally does not implement general conversion or any product logic.
+    """
+    text=token[1:-1] if token.startswith("'") and token.endswith("'") else token
+    numeric=bool(re.fullmatch(r'[0-9]+(?:\.[0-9]+)?',text)) and Decimal(text).is_finite()
+    components=text.split('.')
+    version=2<=len(components)<=4 and all(re.fullmatch(r'[0-9]+',c) and 0<=int(c)<=2147483647 for c in components)
+    return numeric,version
+
+
+def witness_dispatch(left,right):
+    ln,lv=witness_eligibility(left);rn,rv=witness_eligibility(right)
+    if ln and rn:return 'NUMERIC_PAIR'
+    if lv and rv:return 'VERSION_PAIR'
+    if ln and rv:return 'NUMERIC_VERSION'
+    if lv and rn:return 'VERSION_NUMERIC'
+    return 'NONNUMERIC'
 
 
 class ProfileControls(unittest.TestCase):
@@ -44,6 +69,49 @@ class ProfileControls(unittest.TestCase):
     def test_success_error_fault_shapes(self):
         for kind in ['SUCCESS','PROJECT_ERROR','UNEXPECTED_NONFATAL_RUNTIME_FAULT']:
             p.row(p.example_row(kind), 'ORD-TEST', {})
+
+    def test_fix1_all_four_both_directions_are_genuine_mixed_witnesses(self):
+        cases={c['id']:c for c in p.read(HERE/'manifest.json')['cases']}
+        for op in ['LT','LE','GT','GE']:
+            for label in ['equal-major','fractional']:
+                for direction in ['NV','VN']:
+                    case=cases[f'ORD-MIX-{op}-{direction}-{label}']
+                    left,_,right=re.fullmatch(r'(.+?)(<=|>=|<|>)(.+)',case['condition']).groups()
+                    with self.subTest(id=case['id']):
+                        self.assertEqual('NUMERIC_VERSION' if direction=='NV' else 'VERSION_NUMERIC',witness_dispatch(left,right))
+                        self.assertEqual((True,False) if direction=='NV' else (False,True),witness_eligibility(left))
+                        self.assertEqual((False,True) if direction=='NV' else (True,False),witness_eligibility(right))
+
+    def test_fix1_former_mislabeled_inputs_are_not_mixed(self):
+        for left,right,expected in [('6',"'6.0'",'NUMERIC_PAIR'),("'6.0'",'6','NUMERIC_PAIR'),('6.5',"'6.0.0'",'VERSION_PAIR'),("'6.0.0'",'6.5','VERSION_PAIR')]:
+            with self.subTest(left=left,right=right):
+                self.assertEqual(expected,witness_dispatch(left,right))
+                self.assertNotIn(witness_dispatch(left,right),['NUMERIC_VERSION','VERSION_NUMERIC'])
+        self.assertEqual((True,False),witness_eligibility('6.5000000000'))
+        self.assertEqual(Decimal('6.5'),Decimal('6.5000000000'))
+        self.assertGreater(int('5000000000'),2147483647)
+
+    def test_fix1_project_error_identity_is_exact_emitter_catch(self):
+        for exception in ['System.NullReferenceException','System.OutOfMemoryException','System.StackOverflowException','System.AccessViolationException','System.Exception','Microsoft.Build.Exceptions.InvalidProjectFileExceptionExtra','']:
+            bad=p.example_row('PROJECT_ERROR');bad['evaluation']['type']=exception
+            with self.subTest(exception=exception),self.assertRaises(ValueError):p.row(bad,'ORD-TEST',{})
+
+    def test_fix1_success_getter_requires_exactly_one_emitter_alternative(self):
+        for imports,failure in [(None,None),([],{ 'type':'System.InvalidOperationException','message':'control'})]:
+            bad=p.example_row('SUCCESS');bad['evaluation'].update(duplicateImports=imports,duplicateGetterFailure=failure)
+            with self.subTest(imports=imports,failure=failure),self.assertRaises(ValueError):p.row(bad,'ORD-TEST',{})
+        for failure_type in ['System.NullReferenceException','System.OutOfMemoryException','System.Exception','']:
+            bad=p.example_row('SUCCESS');bad['evaluation']['duplicateGetterFailure']['type']=failure_type
+            with self.subTest(failure_type=failure_type),self.assertRaises(ValueError):p.row(bad,'ORD-TEST',{})
+
+    def test_fix1_incompatible_fault_error_success_shapes_fail_closed(self):
+        for kind,mutations in [
+            ('PROJECT_ERROR',[lambda e:e.update(outcome='runtime-fault-v3'),lambda e:e.update(stack='invented'),lambda e:e.pop('hresult')]),
+            ('UNEXPECTED_NONFATAL_RUNTIME_FAULT',[lambda e:e.update(success=False),lambda e:e.pop('stack'),lambda e:e.update(type='Microsoft.Build.Exceptions.InvalidProjectFileException')]),
+            ('SUCCESS',[lambda e:e.pop('duplicateGetterFailure'),lambda e:e.pop('duplicateImports'),lambda e:e.update(outcome='runtime-fault-v3')])]:
+            for i,mutate in enumerate(mutations):
+                bad=p.example_row(kind);mutate(bad['evaluation'])
+                with self.subTest(kind=kind,mutation=i),self.assertRaises(ValueError):p.row(bad,'ORD-TEST',{})
 
     def test_row_rejects_wrong_types_and_presence(self):
         changes = [('boolint',lambda r:r['cleanup'].update(loaded=True)),

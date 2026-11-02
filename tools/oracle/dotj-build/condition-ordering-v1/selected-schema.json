@@ -8,8 +8,8 @@
   },
   "validator": {
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-ordering-conditions-v1\\tools\\oracle\\dotj-build\\condition-ordering-v1\\protocol.py",
-    "sha256": "eef7a2bfb0d5f6085178ec746cbd902db7cea6b780aba3f530dd158c752cbe32",
-    "sizeBytes": 15687
+    "sha256": "11f0e97700b1d6385f34fe211cf3bad59e68bf623e2c48b5e6d41a52499ceeae",
+    "sizeBytes": 15955
   },
   "outcomes": [
     "SUCCESS",
@@ -553,8 +553,8 @@
     }
   ],
   "outcomeRules": {
-    "SUCCESS": "exact success object; arrays ordered; nullable duplicate fields distinct",
-    "PROJECT_ERROR": "all emitted fields, no invented stack",
+    "SUCCESS": "Exact success object; arrays ordered; exactly one duplicateImports array or duplicateGetterFailure object, whose pinned emitted identity is System.InvalidOperationException.",
+    "PROJECT_ERROR": "Exact emitted fields and exact Microsoft.Build.Exceptions.InvalidProjectFileException catch identity; no invented stack; incompatible runtime/fatal exception identity rejected.",
     "UNEXPECTED_NONFATAL_RUNTIME_FAULT": "outcome/type/message/hresult/stack present; no fatal types or ProjectError",
     "FATAL_OR_CLEANUP_FAILURE": "parent/child absence/failure/partial/progress/cleanup distinguished; unavailable counts UNKNOWN"
   },

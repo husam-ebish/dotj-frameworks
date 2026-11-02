@@ -141,10 +141,12 @@ def row(r,case_id,globals):
         if ev['duplicateGetterFailure'] is not None:
             keys(ev['duplicateGetterFailure'],['type','message'],'duplicate getter')
             for k in ['type','message']:string(ev['duplicateGetterFailure'][k],k)
-        require(not (ev['duplicateImports'] is not None and ev['duplicateGetterFailure'] is not None),'getter success/failure exclusive')
+            require(ev['duplicateGetterFailure']['type']=='System.InvalidOperationException','pinned duplicate getter exception identity')
+        require((ev['duplicateImports'] is None)!=(ev['duplicateGetterFailure'] is None),'exactly one duplicate getter result/failure alternative')
         return 'SUCCESS'
     keys(ev,['success','type','code','file','line','column','endLine','endColumn','message','hresult'],'ProjectError: stack UNAVAILABLE')
     for k in ['type','code','file','message']:string(ev[k],k)
+    require(ev['type']=='Microsoft.Build.Exceptions.InvalidProjectFileException','pinned ProjectError catch identity')
     for k in ['line','column','endLine','endColumn']:integer(ev[k],k,0)
     integer(ev['hresult'],'hresult');return 'PROJECT_ERROR'
 
