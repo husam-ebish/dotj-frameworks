@@ -1,0 +1,34 @@
+{
+  "status": "ROOT_INDEPENDENT_TYPED_DATA_AUDIT_PASS",
+  "nativeRows": 297,
+  "actualOutputRows": 327,
+  "dispositions": {
+    "MATCHED_EVALUATION": 239,
+    "MATCHED_PRIVATE_FAILURE": 46,
+    "SOURCE_BASED_PRIVATE_ADAPTATION_NO_CONDITIONED_PROPERTIES": 3,
+    "DECLARED_PRIVATE_PROFILE_RESTRICTION": 9
+  },
+  "nativeErrorCodes": {
+    "MSB4113": 19,
+    "MSB4100": 7,
+    "MSB4092": 9,
+    "MSB4088": 8,
+    "MSB4115": 1,
+    "MSB4101": 1,
+    "MSB4019": 1
+  },
+  "privateInputRows": 16,
+  "privateControlGroups": 14,
+  "transitionsQualified": 18,
+  "legacyOutputRows": {
+    "condition-results.tsv": 35,
+    "cache-results.tsv": 8,
+    "and-results.tsv": 34,
+    "predicate-results.tsv": 38,
+    "outputs/all-comparisons.tsv": 94
+  },
+  "receiptSha256": "dc29b067a67a31a87fa3b81fc40d5c6c49e0c63c375af6f9427520fe81dd0eb8",
+  "contractSha256": "10edc594c2e5e31e5aea9581dccdc60a0f5b30f4754cad1a00c82899fd90b179",
+  "acceptanceCredit": 0,
+  "limitation": "Checks retained typed output against frozen root native observations and exact source-adaptation identity; not another runtime/native run or claim of full exception/public API parity"
+}

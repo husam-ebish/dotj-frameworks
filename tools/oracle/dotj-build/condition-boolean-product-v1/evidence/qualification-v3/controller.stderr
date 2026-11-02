@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 177, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 175, in main
+    try:qualify(out,record,run);save()
+        ~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 115, in qualify
+    java('packaged-boolean','ConditionBooleanProductTest',[out/'boolean-bridge.tsv',out/'boolean-fixtures',out/'boolean-private-bridge.tsv',out/'boolean-private-fixtures',out/'boolean-controls',out/'boolean-results.tsv',candidate])
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 113, in java
+    run(label,cmd,out/'unrelated-cwd');c.pin(record['candidateJar']);c.pin(record['consumerJar']);check()
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 173, in run
+    entry['process']=guard.run(argv,cwd,env,label,120,prelaunch=prelaunch,on_update=lambda r:c.write(out/(label+'-process.json'),r));entry['stdout']=c.descriptor(entry['process']['stdoutPath']);entry['stderr']=c.descriptor(entry['process']['stderrPath']);record['commands'].append(entry);save();success(entry['process']);c.require(Path(entry['stderr']['path']).read_bytes()==b'','unexpected stderr '+label)
+                                                                                                                                                                                                                                                                                                       ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 15, in success
+    c.require(type(r['exitCode']) is int and r['exitCode']==0,'command exit '+str(r['exitCode']))
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\contract.py", line 13, in require
+    if not ok:raise ValueError(why)
+              ^^^^^^^^^^^^^^^^^^^^^
+ValueError: command exit 1

@@ -69,7 +69,6 @@ final class ProjectEvaluationComponent {
         public String property(String name) { return unescape(escapedProperties.getOrDefault(key(name), "")); }
     }
     private static final Pattern NAME = Pattern.compile("[A-Za-z_][A-Za-z0-9_]*");
-    private static final Pattern EQUALITY = Pattern.compile("'([^']*)'\\s*==\\s*'([^']*)'");
     private static final Pattern EXISTS = Pattern.compile("Exists\\('([^']*)'\\)");
     private static final Pattern HAS_TRAILING_SLASH = Pattern.compile("HasTrailingSlash\\('([^']*)'\\)", Pattern.CASE_INSENSITIVE);
     private static final Pattern REFERENCE = Pattern.compile("\\$\\(([^)]*)\\)");
@@ -378,7 +377,10 @@ final class ProjectEvaluationComponent {
         private static final int CONDITION_GROUP_LIMIT = 64;
         private static final int CONDITION_NODE_LIMIT = 256;
         private interface ConditionExpression { }
-        private record ConditionAtom(String raw) implements ConditionExpression { }
+        private record ConditionScalar(String raw, boolean numeric) implements ConditionExpression { }
+        private record ExistsAtom(String rawArgument) implements ConditionExpression { }
+        private record ConditionNot(ConditionExpression child) implements ConditionExpression { }
+        private record ConditionRelation(ConditionExpression left, ConditionExpression right, boolean unequal) implements ConditionExpression { }
         private record HasTrailingSlashAtom(String rawArgument) implements ConditionExpression { }
         private record ConditionAnd(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
         private record ConditionOr(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
@@ -432,17 +434,28 @@ final class ProjectEvaluationComponent {
                 return result;
             }
             ConditionExpression conjunction() {
-                ConditionExpression result=primary();space();
+                ConditionExpression result=relation();space();
                 while(keyword("and")) {
                     cursor+=3;
-                    ConditionExpression right=primary();
+                    ConditionExpression right=relation();
                     node();result=new ConditionAnd(result,right);andMarked=true;space();
                 }
                 return result;
             }
+            ConditionExpression relation() {
+                ConditionExpression left=primary();space();
+                if(raw.startsWith("==",cursor)||raw.startsWith("!=",cursor)) {
+                    boolean unequal=raw.charAt(cursor)=='!';cursor+=2;node();
+                    return new ConditionRelation(left,primary(),unequal);
+                }
+                return left;
+            }
             ConditionExpression primary() {
                 space();
                 if(cursor>=raw.length())throw reject("CONDITION_PROFILE","Missing condition operand");
+                if(raw.charAt(cursor)=='!' && !raw.startsWith("!=",cursor)) {
+                    node();cursor++;return new ConditionNot(primary());
+                }
                 if(raw.charAt(cursor)=='(') {
                     if(depth>=CONDITION_GROUP_LIMIT)throw reject("CONDITION_BOUND","Private condition grouping depth exceeded");
                     depth++;cursor++;
@@ -450,26 +463,41 @@ final class ProjectEvaluationComponent {
                     if(cursor>=raw.length()||raw.charAt(cursor)!=')')throw reject("CONDITION_PROFILE","Unbalanced condition group");
                     cursor++;depth--;return result;
                 }
-                int start=cursor;
-                Matcher trailingSlash=HAS_TRAILING_SLASH.matcher(raw).region(cursor,raw.length());
-                if(trailingSlash.lookingAt()) {
-                    cursor=trailingSlash.end();node();
-                    return new HasTrailingSlashAtom(trailingSlash.group(1));
-                }
-                if(raw.startsWith("true",cursor) && (cursor+4==raw.length()||!word(raw.charAt(cursor+4))))cursor+=4;
-                else if(raw.startsWith("false",cursor) && (cursor+5==raw.length()||!word(raw.charAt(cursor+5))))cursor+=5;
-                else {
-                    // Whole quoted atoms keep And, parentheses and property references scalar.
-                    Matcher exists=EXISTS.matcher(raw).region(cursor,raw.length());
-                    Matcher eq=EQUALITY.matcher(raw).region(cursor,raw.length());
-                    if(exists.lookingAt())cursor=exists.end();
-                    else if(eq.lookingAt())cursor=eq.end();
-                    else throw reject("CONDITION_PROFILE","Condition atom outside selected profile");
-                }
-                String atom=raw.substring(start,cursor);validateAtom(atom);
-                node();return new ConditionAtom(atom);
+                Matcher slash=HAS_TRAILING_SLASH.matcher(raw).region(cursor,raw.length());
+                if(slash.lookingAt()) { cursor=slash.end();node();return new HasTrailingSlashAtom(slash.group(1)); }
+                Matcher exists=EXISTS.matcher(raw).region(cursor,raw.length());
+                if(exists.lookingAt()) { cursor=exists.end();node();return new ExistsAtom(exists.group(1)); }
+                int start=cursor;boolean numeric=false;String text;
+                char first=raw.charAt(cursor);
+                if(first=='\'') {
+                    start=++cursor;
+                    while(cursor<raw.length()&&raw.charAt(cursor)!='\'')cursor++;
+                    if(cursor==raw.length())throw reject("CONDITION_PROFILE","Unclosed quoted operand");
+                    text=raw.substring(start,cursor++);
+                } else if(raw.startsWith("$(",cursor)) {
+                    int end=raw.indexOf(')',cursor+2);
+                    if(end<0)throw reject("PROPERTY_REFERENCE","Unclosed property reference");
+                    key(raw.substring(cursor+2,end));cursor=end+1;text=raw.substring(start,cursor);
+                } else if(first>='0'&&first<='9'||first=='+'||first=='-'||first=='.') {
+                    numeric=true;
+                    if(raw.startsWith("0x",cursor)||raw.startsWith("0X",cursor)) {
+                        cursor+=2;while(cursor<raw.length()&&hexDigit(raw.charAt(cursor))>=0)cursor++;
+                    } else {
+                        if(first=='+'||first=='-')cursor++;
+                        while(cursor<raw.length()&&(raw.charAt(cursor)>='0'&&raw.charAt(cursor)<='9'||raw.charAt(cursor)=='.'))cursor++;
+                    }
+                    text=raw.substring(start,cursor);
+                } else if(first>='a'&&first<='z'||first>='A'&&first<='Z'||first=='_') {
+                    while(cursor<raw.length()&&word(raw.charAt(cursor)))cursor++;
+                    text=raw.substring(start,cursor);
+                    if(text.equalsIgnoreCase("And")||text.equalsIgnoreCase("Or"))throw reject("CONDITION_PROFILE","Operator without operand");
+                } else throw reject("CONDITION_PROFILE","Operand outside selected ASCII grammar");
+                // The inherited comparison boundary is static, including skipped syntax.
+                asciiFold(decodeConditionScalar(conditionReferences(text)));
+                node();return new ConditionScalar(text,numeric);
             }
         }
+
         boolean condition(Element element, Path owner) throws IOException {
             String raw=element.getAttribute("Condition");
             if(raw.isEmpty())return true;
@@ -491,18 +519,104 @@ final class ProjectEvaluationComponent {
                 if(site==null)throw reject("XML_SOURCE_INDEX","Missing condition source identity");
                 conditionWarnings.add(new ConditionWarning("MSB4130",site.owner(),site.line(),site.column(),raw));
             }
-            return evaluateCondition(parsed.expression(),owner,new int[1]);
+            return requireBoolean(parsed.expression(),owner,true);
         }
-        // Parsing limits the node count, which also bounds this recursion.
-        private boolean evaluateCondition(ConditionExpression expression, Path owner, int[] steps) throws IOException {
-            if(steps[0]++>=CONDITION_NODE_LIMIT)throw reject("CONDITION_BOUND","Private condition evaluation bound exceeded");
+        // Each conversion is evaluation-local. Cached records contain only raw syntax.
+        // In particular, emptiness checks never execute Boolean operators.
+        private boolean empty(ConditionExpression expression) {
+            return expression instanceof ConditionScalar scalar && !scalar.numeric() && scalarText(scalar).isEmpty();
+        }
+        private String scalarText(ConditionScalar scalar) { return decodeConditionScalar(expand(scalar.raw())); }
+        private String text(ConditionExpression expression) {
+            if(expression instanceof ConditionScalar scalar)return scalarText(scalar);
+            if(expression instanceof ConditionNot not) {
+                String child=text(not.child());return "!"+(child==null?"":child);
+            }
+            return null;
+        }
+        private Double number(ConditionExpression expression) {
+            return expression instanceof ConditionScalar scalar ? conditionNumber(scalarText(scalar)) : null;
+        }
+        private Boolean bool(ConditionExpression expression,Path owner) throws IOException {
+            if(expression instanceof ConditionScalar scalar)
+                return scalar.numeric()?null:conditionBoolean(scalarText(scalar));
+            if(expression instanceof ConditionNot not)return !requireBoolean(not.child(),owner,false);
             if(expression instanceof ConditionAnd and)
-                return evaluateCondition(and.left(),owner,steps) && evaluateCondition(and.right(),owner,steps);
+                return requireBoolean(and.left(),owner,false)&&requireBoolean(and.right(),owner,false);
             if(expression instanceof ConditionOr or)
-                return evaluateCondition(or.left(),owner,steps) || evaluateCondition(or.right(),owner,steps);
-            if(expression instanceof HasTrailingSlashAtom slash)
-                return hasTrailingSlash(slash.rawArgument());
-            return conditionAtom(((ConditionAtom)expression).raw(),owner);
+                return requireBoolean(or.left(),owner,false)||requireBoolean(or.right(),owner,false);
+            if(expression instanceof HasTrailingSlashAtom slash)return hasTrailingSlash(slash.rawArgument());
+            if(expression instanceof ExistsAtom exists) {
+                // Retain the separately qualified Exists path conversion and source directory.
+                String argument=unescape(expand(exists.rawArgument()));
+                return Files.exists(relative(owner,argument));
+            }
+            ConditionRelation relation=(ConditionRelation)expression;
+            ConditionExpression left=relation.left(),right=relation.right();
+            boolean leftEmpty=empty(left),rightEmpty=empty(right),equal;
+            if(leftEmpty||rightEmpty)equal=leftEmpty==rightEmpty;
+            else {
+                Double ln=number(left),rn=ln==null?null:number(right);
+                if(ln!=null&&rn!=null)equal=ln.doubleValue()==rn.doubleValue();
+                else {
+                    Boolean lb=bool(left,owner),rb=lb==null?null:bool(right,owner);
+                    if(lb!=null&&rb!=null)equal=lb.booleanValue()==rb.booleanValue();
+                    else {
+                        String lt=text(left),rt=text(right);
+                        if(lt==null||rt==null)throw reject("CONDITION_ILL_FORMED","Comparison operand has no string representation");
+                        equal=asciiFold(lt).equals(asciiFold(rt));
+                    }
+                }
+            }
+            return relation.unequal()?!equal:equal;
+        }
+        private boolean requireBoolean(ConditionExpression expression,Path owner,boolean root) throws IOException {
+            Boolean value=bool(expression,owner);
+            if(value==null)throw reject(root?"CONDITION_NOT_BOOLEAN":"CONDITION_NOT_BOOLEAN_CHILD","Reached operand does not evaluate to Boolean");
+            return value;
+        }
+        private static Boolean conditionBoolean(String text) {
+            asciiFold(text);
+            // ASCII aliases only, deliberately no whitespace trimming or expression reparse.
+            for(String alias:List.of("true","on","yes","!false","!off","!no"))if(alias.equalsIgnoreCase(text))return true;
+            for(String alias:List.of("false","off","no","!true","!on","!yes"))if(alias.equalsIgnoreCase(text))return false;
+            return null;
+        }
+        private static final Pattern CONDITION_DECIMAL=Pattern.compile("[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)");
+        private static Double conditionNumber(String text) {
+            asciiFold(text);
+            // AllowDecimalPoint|AllowLeadingSign with invariant culture; Java's broader
+            // exponent, suffix, whitespace and hexadecimal-floating grammar is excluded.
+            // Runtime numeric parsing accepts trailing NUL compatibility characters.
+            // Special-symbol fallback instead trims whitespace from the ORIGINAL input.
+            int end=text.length();while(end>0&&text.charAt(end-1)=='\0')end--;
+            String ordinary=text.substring(0,end);
+            if(CONDITION_DECIMAL.matcher(ordinary).matches()) {
+                double value=Double.parseDouble(ordinary);
+                if(!Double.isInfinite(value))return value;
+            }
+            String special=trimImportWhiteSpace(text);
+            if(special.equalsIgnoreCase("NaN")||special.equalsIgnoreCase("+NaN")||special.equalsIgnoreCase("-NaN"))return Double.NaN;
+            if(ordinary.length()>=3&&ordinary.charAt(0)=='0'&&(ordinary.charAt(1)=='x'||ordinary.charAt(1)=='X')) {
+                String digits=ordinary.substring(2);int first=0;
+                while(first<digits.length()&&digits.charAt(first)=='0')first++;
+                if(digits.length()-first>8)return null;
+                for(int i=0;i<digits.length();i++)if(hexDigit(digits.charAt(i))<0)return null;
+                return (double)(int)(first==digits.length()?0:Long.parseLong(digits.substring(first),16));
+            }
+            return null;
+        }
+        private static String decodeConditionScalar(String raw) {
+            StringBuilder result=new StringBuilder();
+            for(int i=0;i<raw.length();i++) {
+                char c=raw.charAt(i);
+                if(c=='%'&&i+2<raw.length()) {
+                    int h=hexDigit(raw.charAt(i+1)),l=hexDigit(raw.charAt(i+2));
+                    if(h>=0&&l>=0){result.append((char)(h*16+l));i+=2;continue;}
+                }
+                result.append(c);
+            }
+            return result.toString();
         }
         private boolean hasTrailingSlash(String rawArgument) {
             // MSBuild's scalar conversion splits and trims before a single unescape.
@@ -531,47 +645,18 @@ final class ProjectEvaluationComponent {
         private static int hexDigit(char c) {
             return c>='0'&&c<='9'?c-'0':c>='a'&&c<='f'?c-'a'+10:c>='A'&&c<='F'?c-'A'+10:-1;
         }
-        boolean conditionAtom(String raw, Path owner) throws IOException {
-            String value=unescape(expand(raw)).trim();
-            if(value.equals("true"))return true;if(value.equals("false"))return false;
-            Matcher exists=EXISTS.matcher(value);
-            if(exists.matches())return Files.exists(relative(owner,exists.group(1)));
-            Matcher eq=EQUALITY.matcher(value);
-            if(!eq.matches())throw reject("CONDITION_PROFILE", "Only literal true/false, selected Exists and quoted string equality supported");
-            return equality(eq);
-        }
         void validateCondition(String raw) {
-            if (raw.isEmpty()) return;
-            new ConditionParser(raw).parse();
-        }
-        String conditionTemplate(String raw) {
-            return unescape(conditionReferences(raw)).trim();
+            if (!raw.isEmpty()) new ConditionParser(raw).parse();
         }
         String conditionReferences(String raw) {
             Matcher references = REFERENCE.matcher(raw);
             StringBuilder template = new StringBuilder();
             while (references.find()) {
-                key(references.group(1));
-                references.appendReplacement(template, "");
+                key(references.group(1));references.appendReplacement(template, "");
             }
             references.appendTail(template);
             if (template.indexOf("$(") >= 0) throw reject("PROPERTY_REFERENCE", "Unclosed property reference");
             return template.toString();
-        }
-        void validateAtom(String raw) {
-            String value = conditionTemplate(raw);
-            if (value.equals("true") || value.equals("false") || EXISTS.matcher(value).matches()) return;
-            Matcher equality = EQUALITY.matcher(value);
-            if (!equality.matches()) throw reject("CONDITION_PROFILE", "Condition syntax outside selected profile");
-            equality(equality);
-        }
-        boolean equality(Matcher eq) {
-            String left=asciiFold(eq.group(1)),right=asciiFold(eq.group(2));
-            Set<String> boolAliases=Set.of("TRUE","FALSE","ON","OFF","YES","NO");
-            for(String operand:List.of(left,right))
-                if(!operand.matches("[A-Z]*") || boolAliases.contains(operand))
-                    throw reject("CONDITION_COERCION", "Numeric/version/bool/other comparison coercion not qualified");
-            return left.equals(right);
         }
         void inertTarget(Element target) {
             attrs(target,Set.of("Name"));key(target.getAttribute("Name"));

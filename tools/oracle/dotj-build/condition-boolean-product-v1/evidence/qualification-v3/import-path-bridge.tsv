@@ -1,0 +1,36 @@
+CASE	Default	NEG-dynamic-import	true	b25lLnByb3Bz	
+AVAIL	false
+UNIQUE	main.proj	one.props	1	57
+END
+CASE	Default	condition-before-path	true	c2VsZWN0ZWQ=	Y29uZGl0aW9u
+AVAIL	false
+UNIQUE	main.proj	one.props	6	3
+END
+CASE	Default	defined-empty-expands-empty	false		
+NOTICE	error	MSB4020	main.proj	-	3	3	0	0	INVALID	-	-	-
+FAILURE	INVALID_IMPORT_EXPRESSION	MSB4020	main.proj	-	3	3	0	0
+END
+CASE	Default	encounter-order-concatenation	true	b25ldHdv	Zmlyc3RzZWNvbmQ=
+AVAIL	false
+UNIQUE	main.proj	one.props	3	3
+UNIQUE	main.proj	two.props	5	3
+END
+CASE	Default	expanded-missing-file	false		
+NOTICE	error	MSB4019	main.proj	missing.props	3	3	0	0	MISSING	-	-	-
+FAILURE	MISSING_IMPORT	MSB4019	main.proj	missing.props	3	3	0	0
+END
+CASE	Default	immutable-global-import-name	true	b25jZQ==	b25lLnByb3Bz
+GLOBAL	SW1wb3J0TmFtZQ==	b25lLnByb3Bz
+AVAIL	false
+UNIQUE	main.proj	one.props	3	3
+NOTICE	warning	MSB4011	main.proj	one.props	4	3	0	0	PREVIOUS	main.proj	3	3
+END
+CASE	Default	nested-owner-relative	true	b3duZXI=	c3Vi
+AVAIL	false
+UNIQUE	main.proj	sub/one.props	2	3
+UNIQUE	sub/one.props	sub/two.props	3	3
+END
+CASE	Default	undefined-expands-empty	false		
+NOTICE	error	MSB4020	main.proj	-	2	3	0	0	INVALID	-	-	-
+FAILURE	INVALID_IMPORT_EXPRESSION	MSB4020	main.proj	-	2	3	0	0
+END

@@ -1,0 +1,115 @@
+{
+  "status": "IMPLEMENTED_VERIFIED_CANDIDATE_PENDING_ROOT_REVIEW_MERGE",
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-boolean-product-green-v3\\dotj-build-evaluation-candidate.jar",
+    "sha256": "97b027c56221716cc748aa03a80d24d65a180e13fb0deb07b059c2bbdd290b1c",
+    "sizeBytes": 98307
+  },
+  "receipt": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-boolean-product-green-v5\\receipt.json",
+    "sha256": "dc29b067a67a31a87fa3b81fc40d5c6c49e0c63c375af6f9427520fe81dd0eb8",
+    "sizeBytes": 537151
+  },
+  "contract": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-boolean-conditions-v1\\tools\\oracle\\dotj-build\\condition-boolean-product-v1\\CONTRACT.json",
+    "sha256": "10edc594c2e5e31e5aea9581dccdc60a0f5b30f4754cad1a00c82899fd90b179",
+    "sizeBytes": 346314
+  },
+  "exportLock": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-boolean-conditions-v1\\tools\\oracle\\dotj-build\\condition-boolean-product-v1\\export-lock.json",
+    "sha256": "35f6ce5b7fbfc74f32300744b78465824793ec964dadf4b743f4c38c2de76806",
+    "sizeBytes": 197939
+  },
+  "counts": {
+    "newNativeIds": 297,
+    "nativeSuccessObservableMatches": 239,
+    "nativeProjectErrorMappings": 46,
+    "inheritedProfileRestrictions": 9,
+    "sourceBasedFaultAdaptations": 3,
+    "privateInputs": 16,
+    "privateGroups": 14,
+    "current94": 94,
+    "current94Unchanged": 92,
+    "current94Transitions": 2,
+    "and": [
+      9,
+      1,
+      24
+    ],
+    "condition": [
+      28,
+      5,
+      2
+    ],
+    "conditionWarnings": 4,
+    "cache": 8,
+    "cacheWarningVector": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "cachePrivateGroups": 4,
+    "hasTrailingSlash": [
+      32,
+      6
+    ],
+    "hasTrailingSlashWarnings": 4,
+    "hasTrailingSlashPrivateGroups": 4,
+    "hasTrailingSlashSyntax": [
+      18,
+      4
+    ],
+    "preservedFiles": 391,
+    "predecessorCaseControlInventory": 223,
+    "transitionIds": 18,
+    "acceptedTasksAdded": 0
+  },
+  "numericSourceDetails": {
+    "ordinary": "Invariant signed decimal point; reject infinite conversion, then prefixed Int32 hex (two-s-complement, leading zeros), trailing NUL allowed for successful ordinary decimal/hex parsing.",
+    "special": "NaN/+NaN/-NaN case-insensitive after source whitespace trim on original input; no NUL stripping for special symbols. Infinity remains failed conversion/string fallback.",
+    "controls": "Seven additional real-evaluation source-only NaN trim/trailing NUL/fallback inputs in existing BC-PREDICATE-CONVERSIONS and BC-ALIASES-DATA groups; separate from selected72 native predicates.",
+    "ASCII": "Reached numeric/Boolean/text scalar conversions reject non-ASCII expanded values; added long-s probes. HasTrailingSlash keeps its separately qualified ordinary Unicode argument behavior."
+  },
+  "historicalResolution": {
+    "archive": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-historical-input-archive-v1\\archive-lock.json",
+      "sha256": "02b5dd9a08e8db4b4251f212ba32b1c2d0f9e0de5357e0192c82599c43d9a1c0",
+      "sizeBytes": 18053
+    },
+    "policy": "Explicit14file archive resolution for read-only historical H1 proof; all other old pins original paths. Old frozen CLIs remain historical fail-closed and can reject after canonical source changes; do not use them as new capture authority.",
+    "workingVsGit": {
+      "exactRaw": 11,
+      "worktreeCrlfVsGitLf": 3
+    }
+  },
+  "acceptanceCredit": 0,
+  "publicAcceptance": false,
+  "selectedGroup": {
+    "implementedVerifiedCandidate": 1,
+    "total": 1,
+    "integratedDone": 0,
+    "integrationRemaining": 1
+  },
+  "rootReadOnlyAudits": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2516-root-v5-initial-audit-v1.json",
+      "sha256": "95df9c29189fedbf7fb7224a30424c108d56057f2369b08bea158f7caaaab39c",
+      "sizeBytes": 5527
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2516-root-v5-typed-data-audit-v1.json",
+      "sha256": "868257e6243e31c4d713a3a3b88054781f0b63a8e649365c47a5a2e2d63f2349",
+      "sizeBytes": 1175
+    }
+  ],
+  "readOnlySelfAudit": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2516-boolean-product-v1\\readonly-audit-v2.json",
+    "sha256": "93302a9f5be92e7a41845dd4231ac40da099daacb43583d3ae33407da964b571",
+    "sizeBytes": 1567
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "status": "ROOT_INITIAL_READ_ONLY_V5_AUDIT",
+  "receipt": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-boolean-product-green-v5\\receipt.json",
+    "sha256": "dc29b067a67a31a87fa3b81fc40d5c6c49e0c63c375af6f9427520fe81dd0eb8",
+    "sizeBytes": 537151
+  },
+  "descriptorCount": 1617,
+  "descriptorMismatches": [],
+  "commandsPassed": 14,
+  "soleJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-boolean-product-green-v3\\dotj-build-evaluation-candidate.jar",
+    "sha256": "97b027c56221716cc748aa03a80d24d65a180e13fb0deb07b059c2bbdd290b1c",
+    "sizeBytes": 98307
+  },
+  "jarEntries": 28,
+  "counts": {
+    "newNativeIds": 297,
+    "nativeSuccessObservableMatches": 239,
+    "nativeProjectErrorMappings": 46,
+    "inheritedProfileRestrictions": 9,
+    "sourceBasedFaultAdaptations": 3,
+    "privateInputs": 16,
+    "privateGroups": 14,
+    "current94": 94,
+    "current94Unchanged": 92,
+    "current94Transitions": 2,
+    "and": [
+      9,
+      1,
+      24
+    ],
+    "condition": [
+      28,
+      5,
+      2
+    ],
+    "conditionWarnings": 4,
+    "cache": 8,
+    "cacheWarningVector": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "cachePrivateGroups": 4,
+    "hasTrailingSlash": [
+      32,
+      6
+    ],
+    "hasTrailingSlashWarnings": 4,
+    "hasTrailingSlashPrivateGroups": 4,
+    "hasTrailingSlashSyntax": [
+      18,
+      4
+    ],
+    "preservedFiles": 391,
+    "predecessorCaseControlInventory": 223,
+    "transitionIds": 18,
+    "acceptedTasksAdded": 0
+  },
+  "transitions": [
+    {
+      "id": "NEG-numeric-comparison",
+      "nativeCase": "BOOL-TRANS-01",
+      "nativeResult": "BOOL-TRANS-01\tMATCHED_EVALUATION\tdmFsdWU=\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "NEG-bool-coercion",
+      "nativeCase": "BOOL-TRANS-02",
+      "nativeResult": "BOOL-TRANS-02\tMATCHED_EVALUATION\tdmFsdWU=\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "AC-SYNTAX-10",
+      "nativeCase": "BOOL-TRANS-03",
+      "nativeResult": "BOOL-TRANS-03\tMATCHED_EVALUATION\teWVz\tdGFrZW4=\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "AC-COERCION-11",
+      "nativeCase": "BOOL-TRANS-04",
+      "nativeResult": "BOOL-TRANS-04\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "AC-COERCION-12",
+      "nativeCase": "BOOL-TRANS-05",
+      "nativeResult": "BOOL-TRANS-05\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "AC-COERCION-13",
+      "nativeCase": "BOOL-TRANS-06",
+      "nativeResult": "BOOL-TRANS-06\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "AC-COERCION-14",
+      "nativeCase": "BOOL-TRANS-07",
+      "nativeResult": "BOOL-TRANS-07\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "AC-EXPANSION-IS-SCALAR/subcase-1",
+      "nativeCase": "BOOL-TRANS-08",
+      "nativeResult": "BOOL-TRANS-08\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "AC-EXPANSION-IS-SCALAR/subcase-2",
+      "nativeCase": "BOOL-TRANS-09",
+      "nativeResult": "BOOL-TRANS-09\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "AC-EXPANSION-IS-SCALAR/subcase-3",
+      "nativeCase": "BOOL-TRANS-10",
+      "nativeResult": "BOOL-TRANS-10\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "AC-EXPANSION-IS-SCALAR/subcase-4",
+      "nativeCase": "BOOL-TRANS-11",
+      "nativeResult": "BOOL-TRANS-11\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "CL05-scalar-2",
+      "nativeCase": "BOOL-TRANS-12",
+      "nativeResult": "BOOL-TRANS-12\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "CL05-scalar-4",
+      "nativeCase": "BOOL-TRANS-13",
+      "nativeResult": "BOOL-TRANS-13\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "CC-WARM-SCALAR-INJECTION",
+      "nativeCase": "BOOL-TRANS-14",
+      "nativeResult": "BOOL-TRANS-14\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "HT-STATIC-SYNTAX-AND-SKIPPED/1/skipped-false",
+      "nativeCase": "BOOL-TRANS-15",
+      "nativeResult": "BOOL-TRANS-15\tMATCHED_EVALUATION\teWVz\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "HT-STATIC-SYNTAX-AND-SKIPPED/1/skipped-true",
+      "nativeCase": "BOOL-TRANS-16",
+      "nativeResult": "BOOL-TRANS-16\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "HT-STATIC-SYNTAX-AND-SKIPPED/2/skipped-false",
+      "nativeCase": "BOOL-TRANS-17",
+      "nativeResult": "BOOL-TRANS-17\tMATCHED_EVALUATION\teWVz\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    },
+    {
+      "id": "HT-STATIC-SYNTAX-AND-SKIPPED/2/skipped-true",
+      "nativeCase": "BOOL-TRANS-18",
+      "nativeResult": "BOOL-TRANS-18\tMATCHED_EVALUATION\t\t\t\t",
+      "status": "QUALIFIED_SUCCESSOR"
+    }
+  ],
+  "boundary": "Product runtime was not rerun. This audit checks retained proof, exactJAR/guard/resources/descriptorbinding; independent source/task review still required."
+}

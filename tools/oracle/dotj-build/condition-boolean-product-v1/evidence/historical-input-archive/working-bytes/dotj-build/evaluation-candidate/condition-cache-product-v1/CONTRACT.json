@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "scope": "Internal sequential Default AllowProperties parsed-condition cache",
+  "nativeObservationSha256": "9612d662aa80501614b04475236169d7bb839ef5e0d41b932e2964bd0d2d688c",
+  "nativeCases": 8,
+  "nativeWarningCounts": [1, 0, 0, 1, 1, 1, 0, 1],
+  "nativeProperties": [["Alpha", "Alpha"], ["", ""], ["Beta", "Beta"], ["importgroup", "leaf"], ["Alpha", "Alpha"], ["Alpha", "Alpha"], ["control", "control"], ["", "evaluated"]],
+  "representation": "Per named-module classloader static synchronized exact raw string to immutable AST. Parse and warning emission only on reached cache miss. No evaluation context, value, globals, owner path or State retained. Evaluation outside lock.",
+  "retention": "Clear before lookup when entry count exceeds 3000, derived from pinned ConditionEvaluator.FlushCacheIfLargerThanThreshold. Native eviction parity unqualified.",
+  "validation": "Whole XML standalone parse validates skipped branches without warming cache or emitting warnings. Existing 64-group, 256-node and grammar bounds preserved.",
+  "qualification": {"currentPackagedRows": 94, "historicalUnchangedRows": 91, "legacyTransitions": 3, "andNativeSuccesses": 9, "andMalformedBoundary": 1, "andPrivateControls": 24, "conditionEvaluations": 26, "conditionParseBoundaries": 5, "conditionDeclaredBoundaries": 4, "conditionWarnings": 4},
+  "unqualified": ["native cache internals", "concurrency", "eviction", "multiple classloaders", "same live native Project reevaluation", "alternate ParserOptions", "full MSBuild cache parity"],
+  "acceptedTasksAdded": 0,
+  "numberedBatchCredit": 0
+}

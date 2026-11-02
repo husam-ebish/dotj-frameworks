@@ -1,0 +1,715 @@
+{
+    "schemaVersion":  1,
+    "status":  "SOURCE_PLAN_READY",
+    "kind":  "UNNUMBERED_SOURCE_ONLY_SCOPE_RECOMMENDATION",
+    "recommendation":  "One coherent private condition Boolean-scalar and logical-negation vertical, with typed operands, ordinary ! / == / != / And / Or precedence and the equality engine prerequisites. Do not implement unary ! around the existing equality atom.",
+    "adoptionGate":  "Root may adopt only after actual Batch2515 integration and fresh canonical-master reconciliation. No branch, future batch number, row total, implementation authorization or acceptance credit is assigned by this report.",
+    "execution":  {
+                      "performed":  [
+                                        "Read named local source, contracts, existing evidence and tool identities",
+                                        "Queried graph project identity/readiness/exact coverage and symbol search",
+                                        "Wrote this designated scratch report and hashed read inputs"
+                                    ],
+                      "notPerformed":  [
+                                           "Repository/worktree edits",
+                                           "Git mutation",
+                                           "Index mutation",
+                                           "Downloads",
+                                           "Native/JDK/.NET execution",
+                                           "Builds or tests",
+                                           "Subagents",
+                                           "Polling or mutation of root gate session 79517"
+                                       ],
+                      "sessions":  "All planning shell calls completed synchronously; no owned live sessions remain.",
+                      "skill":  "D:/AI/Skills/planning-and-task-breakdown/SKILL.md; designated JSON output contract supersedes default tasks/plan.md and tasks/todo.md locations"
+                  },
+    "graph":  {
+                  "project":  "dotj-build",
+                  "root":  "C:/source/repos/dotj Frameworks/dotj-build",
+                  "listProjectsChecked":  true,
+                  "ready":  true,
+                  "indexedAt":  "2026-10-31T11:13:11Z",
+                  "watched":  false,
+                  "exactPath":  "evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java",
+                  "coverage":  "excluded subtree; freshness not_tracked; search_graph ProjectEvaluationComponent returned zero symbols",
+                  "fallback":  "Direct reads and hashes of named source; no inference of current private behavior from stale/uncovered graph and no scratch indexing"
+              },
+    "identity":  {
+                     "factsPath":  "D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/task68-next-build-condition-scope-facts-v1.json",
+                     "factsSha256":  "48a3d86c894305e7bfbc34ad3d2b2ccf6a9f20f79e3279a74dc38869ff63674e",
+                     "currentEvaluatorSha256":  "5e6bd7db01967c1eec6060ebc0ef2701d27b5041b2dc4e016c5b01a5e793cc5d",
+                     "selectedSourceRevision":  "b44cdcec4c79c50c67560876707d57d4f635fa3b",
+                     "selectedRootTree":  "3ffd98251b9d775b41982e28202f0febcb28666c",
+                     "historicalAnalysisRevision":  "6348d0c087aeec18c323b01a2c77da089ddafea0",
+                     "distinction":  "The historical API analysis pin is not the selected SDK/source behavior pin. Existing CONTRACT.md describes VMR attribution, matching src and different eng/global.json; no standalone-build reproduction claim.",
+                     "latestBuildEvidence":  "Batch2513 packaged HasTrailingSlash contract; immutable W13/build lineage is not changed by this planning task or the core gate"
+                 },
+    "sourceRoots":  {
+                        "repo":  "C:/source/repos/dotj Frameworks",
+                        "upstream":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src"
+                    },
+    "sourceAnchors":  [
+                          {
+                              "root":  "repo",
+                              "path":  "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java",
+                              "lines":  "73-74, 139-140, 367-575",
+                              "finding":  "Exists already selected. Raw cache and typed HasTrailingSlash exist. Equality remains a whole regex atom; no unary Not. equality rejects Boolean aliases and numeric/version/other comparison operands. New operand typing replaces this restriction through explicit predecessor transitions.",
+                              "sha256":  "5e6bd7db01967c1eec6060ebc0ef2701d27b5041b2dc4e016c5b01a5e793cc5d",
+                              "sizeBytes":  40806
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/Parser.cs",
+                              "lines":  "127-209, 218-267, 270-331, 352-374",
+                              "finding":  "Or then And then one relational operation whose operands are Factor; Factor recursively accepts Not, groups and functions; String/Property/Numeric are independent operands. ! binds above ==/!=; unparenthesized relation chains leave unexpected tokens.",
+                              "sha256":  "37257c7da59755bfc3795177da20e5a7ee88ae0ce5f58abdec94719eb4af65d9",
+                              "sizeBytes":  15816
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/Scanner.cs",
+                              "lines":  "145-148, 203-214, 266-275, 408-420, 577-655, 659-798",
+                              "finding":  "!= versus ! longest token; quoted string preserves content and tracks expansion; bare property is its own operand; bare And/Or are tokens; numeric lexical shape differs from numeric conversion. Native whitespace and simple-string classifiers must be dispositioned explicitly.",
+                              "sha256":  "7a094db4dda1b40c4f8c444cef1ab037ea9ee88010f015d91fa2b2a062eda323",
+                              "sizeBytes":  31513
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/CharacterUtilities.cs",
+                              "lines":  "8-25",
+                              "finding":  "Native number/string starts and string characters. Existing ASCII identifier/profile boundary remains explicit; do not imply general Unicode lexer parity.",
+                              "sha256":  "8f7083ba9ed8d2fb3637eafa37929793acee620bf6dd83a3b6fcaf8c8e9a0e0d",
+                              "sizeBytes":  936
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/NotExpressionNode.cs",
+                              "lines":  "19-31, 37-50",
+                              "finding":  "TryBool child or ExpressionDoesNotEvaluateToBoolean; returns negation. Expanded/unexpanded diagnostic string is ! plus child text, which also participates in comparison string fallback.",
+                              "sha256":  "491397f33dd912d1eda8e079901f7fd5caa0ab932677396f6786100489d03597",
+                              "sizeBytes":  2027
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/StringExpressionNode.cs",
+                              "lines":  "27-60, 71-115, 127-160",
+                              "finding":  "TryBool uses expanded scalar; TryNumeric is attempted for strings too. Empty optimization and evaluation-local expanded cache are separate from raw AST retention; reset clears values.",
+                              "sha256":  "05890a707fc988078db579f18f813e7db660bb234ed591cc06d05976d5b7c8e7",
+                              "sizeBytes":  7791
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Framework/Utilities/ConversionUtilities.cs",
+                              "lines":  "73-123, 161-203",
+                              "finding":  "Twelve case-insensitive Boolean aliases without trim; numeric conversion tries invariant decimal then Int32 hexadecimal; decimal excludes infinity. Java parseDouble alone is not the contract.",
+                              "sha256":  "9fa5cc60a61f9241b71ceea74200995f814c0c1c653507cef1cdc748ab6e919e",
+                              "sizeBytes":  8099
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/MultipleComparisonExpressionNode.cs",
+                              "lines":  "39-100, 115-138",
+                              "finding":  "Both child emptiness checks first; if either empty compare emptiness flags; else numeric pair, Boolean pair, then expanded string pair or IllFormedCondition for absent representations. ConditionedProperties table is a separate public-observable gap.",
+                              "sha256":  "a1eee9cacb457916773bf1062b1b8dcd07e9a10198d94c97dab69b4329217f4d",
+                              "sizeBytes":  6581
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/EqualExpressionNode.cs",
+                              "lines":  "18-36",
+                              "finding":  "Numeric and Boolean equality; string OrdinalIgnoreCase.",
+                              "sha256":  "c90c2b241688cf228400b8545564eeeaa21f56806ef1d3eb5bc4156c923d0927",
+                              "sizeBytes":  1209
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/NotEqualExpressionNode.cs",
+                              "lines":  "18-36",
+                              "finding":  "Same conversion machinery with inequality; != must not tokenize as unary ! followed by =.",
+                              "sha256":  "b04470e23762da9c25fcb7cffe793563a84db4d5163a4c7356039af7584291d1",
+                              "sizeBytes":  1215
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/OperatorExpressionNode.cs",
+                              "lines":  "15-41, 61-65, 79-116",
+                              "finding":  "Operators always supply Boolean through BoolEvaluate but not numeric/version or ordinary string representation; recursive state reset and And/Or conflict traversal.",
+                              "sha256":  "e54db6fc014dbecce824e5ab9ef9261adb467cc3e319df51dd2d392b02d9754c",
+                              "sizeBytes":  4161
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/GenericExpressionNode.cs",
+                              "lines":  "27-29, 61-72, 94-105",
+                              "finding":  "Operator default emptiness false; non-Boolean top-level condition uses ConditionNotBooleanDetail, distinct from Not/And/Or child failure.",
+                              "sha256":  "6b7b2eef7527fb9819d3aa058a3f293a135724d94e3e307c0c53bf0c5fb873ae",
+                              "sizeBytes":  3944
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/NumericExpressionNode.cs",
+                              "lines":  "24-57",
+                              "finding":  "Numeric operands do not convert to Boolean but retain original text, even if numeric conversion fails; version-looking tokens must not automatically become Version equality.",
+                              "sha256":  "1cb565d648cc513c6aea599f62fac822e682971a09fc148463c4f06119ea395f",
+                              "sizeBytes":  2309
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/AndExpressionNode.cs",
+                              "lines":  "19-48",
+                              "finding":  "Left Boolean conversion before right, false short-circuits; reached non-Boolean children fail.",
+                              "sha256":  "c9c6e255684ead96145aa0e12784cc9b5cb4bac0a61cfdb07c248faf3c9e7749",
+                              "sizeBytes":  2220
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/OrExpressionNode.cs",
+                              "lines":  "19-48",
+                              "finding":  "Left Boolean conversion before right, true short-circuits; reached non-Boolean children fail.",
+                              "sha256":  "c4721b3213efbc8a980ccacf2a150cd4b4bcab1ade89b762616b0d5b994c3872",
+                              "sizeBytes":  2201
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Conditionals/FunctionCallExpressionNode.cs",
+                              "lines":  "33-103, 115-147, 150-182",
+                              "finding":  "Existing functions produce Boolean operator values. HasTrailingSlash uses TaskItem scalar conversion; Exists uses file-list conversion. Neither is the general StringExpression scalar conversion.",
+                              "sha256":  "511ccfa7231ba8c091dc85194029c7676435b50d6399fa03b80556af244608d4",
+                              "sizeBytes":  7931
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/ConditionEvaluator.cs",
+                              "lines":  "231-298, 455-481",
+                              "finding":  "Empty condition true; cache keyed by parser options and exact raw string, parse only on miss, reset evaluation state; scalar expansion delegates string unescape, not TaskItem split/trim.",
+                              "sha256":  "5ed6af27c735988e413c9d2972f80603b0177581f5e48a0df7652cf00ee28d7c",
+                              "sizeBytes":  23752
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build/Evaluation/Expander.cs",
+                              "lines":  "237-265",
+                              "finding":  "String expansion then unescape; Windows path-adjustment call is separately inspected. Property-injected condition punctuation remains data.",
+                              "sha256":  "e15343dd5421c959b8939b71e69497e4ed7bb2ce7966bdfa5dd4abd2bdf08b31",
+                              "sizeBytes":  31130
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Framework/EscapingUtilities.cs",
+                              "lines":  "104-175",
+                              "finding":  "Default trim=false; valid %XX decode once, malformed escapes preserved; no recursive decode.",
+                              "sha256":  "ea38278217bb89c4ccddac7f31cc9e285be5efdbe1dc3971e6692521de38006b",
+                              "sizeBytes":  12568
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Framework/FileUtilities.cs",
+                              "lines":  "766-784",
+                              "finding":  "MaybeAdjustFilePath returns unchanged on Windows; Linux behavior is not qualified by a Windows-only scalar contract.",
+                              "sha256":  "a667fb521e462e4c5a064045d5f11bc7bb391c810518729fbebbebf3ae5579fd",
+                              "sizeBytes":  73244
+                          },
+                          {
+                              "root":  "upstream",
+                              "path":  "Build.UnitTests/ExpressionTreeExpression_Tests.cs",
+                              "lines":  "35-41, 51-55, 89-97, 117-134, 169-187, 252-258, 292-345, 432-480",
+                              "finding":  "Real EvaluateAVarietyOfTrueExpressions/FalseExpressions/ErrorExpressions contain true==yes, true==!false, !true==false, !!true, true==1, false!=1, operator/string errors and !0/!1. These are source anchors, not executed tests or invented case IDs.",
+                              "sha256":  "152fbcce2f0f87287d4732e7fd191df092f9d1bd05960137b040f5f3569dd8d4",
+                              "sizeBytes":  18630
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "planning/stage-2/repos/dotj-build/WORK-PACKAGES.md",
+                              "lines":  "WP-01 tasks/acceptance; E01-E03/N01/Q01",
+                              "finding":  "DJ-005-WP-01-T1 specifies property/item precedence, imports, conditions, globs; acceptance is broader than this private condition slice.",
+                              "sha256":  "48b31c0a66d6f7ac32d6871466e3cdbe6c0066969a46f6aff2f09f9eded7af29",
+                              "sizeBytes":  14730
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "planning/stage-2/repos/dotj-build/API-COMPATIBILITY.md",
+                              "lines":  "N01 tasks and NF01-NF03; selected lifecycle evidence",
+                              "finding":  "Exact Microsoft names and faithful representations required for eventual public facade. Private JDK helpers do not close public compatibility.",
+                              "sha256":  "1f5f63bf01ab06e69b6d94bf48fbe5e032247ebca6ad2a90bb3243637d5b3855",
+                              "sizeBytes":  4669
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "planning/stage-2/repos/dotj-build/TEST-PORT-MAP.md",
+                              "lines":  "Designed acceptance fixtures F01-01 through F01-04; Differential runner design",
+                              "finding":  "Deterministic conditional import/property expansion and no-task execution alignment; designed case groups need locked native observations, not synthetic upstream IDs.",
+                              "sha256":  "f999ea94806622f8cbb375fcf6eae9fd3eb2fa7b3e7eaea2e46f4d35002d3595",
+                              "sizeBytes":  14197
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "dotj-build/evaluation-candidate/CONTRACT.md",
+                              "lines":  "Source and oracle identity; Supported input; Refusals; Acceptance disposition",
+                              "finding":  "Private Windows bounded evaluator; full import-cycle chains, items/globs/platforms, public lifecycle and gates remain open.",
+                              "sha256":  "83fa141f12f6f095d771fbf5ebb6adcf8f5b8bc47b6c8f91202fb8e621f6088d",
+                              "sizeBytes":  12804
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "dotj-build/evaluation-candidate/src/module-info.java",
+                              "lines":  "1-4",
+                              "finding":  "No exports/opens; java.xml dependency plus implicit java.base; no third-party runtime.",
+                              "sha256":  "4aff79a07ae0f450a31172d78d4a519e405a7372ee4a693b867c4b49a24ed321",
+                              "sizeBytes":  155
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "dotj-build/evaluation-candidate/tests/org/dotj/internal/build/evaluation/AndConditionTest.java",
+                              "lines":  "20-63",
+                              "finding":  "24 private controls include intentional Not/coercion/expanded-data refusals and 64/65 group, 255/257 node boundaries.",
+                              "sha256":  "6875ffacbbff0be5d10a314fa6897ab1f2653fc33f6b58c235f24577a3768e00",
+                              "sizeBytes":  10122
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "dotj-build/evaluation-candidate/tests/org/dotj/internal/build/evaluation/ProjectEvaluationComponentTest.java",
+                              "lines":  "48-49",
+                              "finding":  "Legacy numeric-comparison and bool-coercion cases are generated inputs; numeric and Boolean equality intentionally transition.",
+                              "sha256":  "92cb7240cf5f44370dcefaaf1d31f816378020390826752c32c769ec51cfe6d7",
+                              "sizeBytes":  10905
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "dotj-build/evaluation-candidate/tests/org/dotj/internal/build/evaluation/HasTrailingSlashPackagedTest.java",
+                              "lines":  "106-136",
+                              "finding":  "Four control groups include !/!= refusals, function whitespace boundary, expanded scalar preservation, item/metadata/function boundaries and parse budgets.",
+                              "sha256":  "8bae5b5a36fe2542b5850ceebb7ee257a6bce1667dfaa97f945f26e6210e7a51",
+                              "sizeBytes":  12172
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "dotj-build/evaluation-candidate/condition-product-v3/CONTRACT.json",
+                              "lines":  "conditionIds, counts, expected rows and control IDs",
+                              "finding":  "35 condition IDs: 26 semantic, 5 native parse boundaries, 4 declared boundaries; four warning observations are fields, not extra cases.",
+                              "sha256":  "e74923115e63b8c6e705284a02602108a56247b5955e72c7d4f58f3aea0e4971",
+                              "sizeBytes":  18243
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "dotj-build/evaluation-candidate/condition-cache-product-v1/CONTRACT.json",
+                              "lines":  "whole document",
+                              "finding":  "Eight sequential cases with warning vector [1,0,0,1,1,1,0,1]; four private controls and immutable raw AST representation.",
+                              "sha256":  "e5c2cca688a1d9843bb28efc809fcbd24190ae8819c86abb849163eec59ad520",
+                              "sizeBytes":  1609
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "dotj-build/evaluation-candidate/has-trailing-slash-product-v1/CONTRACT.json",
+                              "lines":  "sameJarQualification, evidence, limits",
+                              "finding":  "Current packaged preservation obligations and exact artifact identity, not accepted framework tasks.",
+                              "sha256":  "fb62157a166ddfc683d13a8727e5a211e5a4244516c6ca6e8dab7a09b50aadbc",
+                              "sizeBytes":  4507
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "dotj-build/evaluation-candidate/has-trailing-slash-v1/evidence/native-fingerprint.json",
+                              "lines":  "runtime, sdk, resolvedAssemblies, files, coverage",
+                              "finding":  "Existing selected host/SDK/runtime/observer closure; source-only availability check is not fresh native runtime-load proof.",
+                              "sha256":  "cbc96defdfc1f3c2264afa143b0f5c2f666e3079611843ce62e2fc8df6ec3c91",
+                              "sizeBytes":  89733
+                          },
+                          {
+                              "root":  "repo",
+                              "path":  "tools/oracle/dotj-build/CaptureImportPathsV1.cs",
+                              "lines":  "12-82",
+                              "finding":  "Reusable evaluation-only observer captures P/Q, import edges, diagnostics and failure details, unload/dispose and marker absence; no Build/target/restore call.",
+                              "sha256":  "88441552ff6b47ec287cfefc3d9f29525865ab3e906d00fa7ce0f268093d33e9",
+                              "sizeBytes":  4793
+                          }
+                      ],
+    "chosenCapability":  {
+                             "profile":  "Private Windows Default AllowProperties condition evaluation in existing SDK-less namespace-free projects, existing sandbox/file budgets and source-site policy.",
+                             "grammar":  "Expr := AndExpr (\u0027Or\u0027 AndExpr)*; AndExpr := Relation (\u0027And\u0027 Relation)*; Relation := Factor ((\u0027==\u0027|\u0027!=\u0027) Factor)?; Factor := \u0027!\u0027 Factor | \u0027(\u0027 Expr \u0027)\u0027 | scalar operand | selected existing predicate. Preserve case-insensitive And/Or, standard single-quoted strings, bare simple strings/Boolean aliases and bare simple $(Property) operands. Keep lexical content distinct from expanded values.",
+                             "necessaryPrerequisites":  [
+                                                            "Replace whole-equality regex atom with immutable scalar, numeric-text, comparison and Not nodes; preserve existing predicate nodes and source-site evaluation directories.",
+                                                            "Give nodes explicit Boolean conversion, numeric conversion, emptiness and optional string representation rather than Java truthiness or Boolean-to-string flattening.",
+                                                            "Implement both == and != using the native ordering of empty/numeric/Boolean/string decisions, including asymmetric short-circuit conversion and errors. Bare/quoted/property scalar relations are ordinary prerequisites, not a restricted special syntax around Not.",
+                                                            "Numeric-first equality is necessary once ordinary scalar equality is generalized: support invariant decimal and Int32 hexadecimal conversion for equality, including numeric-looking quoted/property data, sign/decimal grammar, signed hex limits and failed-conversion string fallback. Qualify rounding/overflow/underflow and exceptional spellings with native data; do not substitute unrestricted Java parseDouble. This is an equality prerequisite, not a new numeric-operator workstream.",
+                                                            "Decode scalar %XX once after reached property expansion, preserve malformed percent sequences, no trim or semicolon split for Boolean/string operands. Do not reuse HasTrailingSlash\u0027s TaskItem scalar conversion.",
+                                                            "Preserve full syntax validation of skipped branches without value expansion/cache warming/warnings; inherited static unsupported-feature guards remain separately documented profile restrictions.",
+                                                            "Extend node/depth accounting before recursive Not descent so a long ! chain cannot bypass bounds; retain immutable raw cached syntax and evaluation-local values only."
+                                                        ],
+                             "unrelatedDeferred":  [
+                                                       "Ordering operators \u003c \u003c= \u003e \u003e=, Version ordering/coercion and MSBuildToolsVersion special property shim (reserved properties already outside this profile)",
+                                                       "General functions/property functions, item lists, item metadata, globs, SDK resolvers and expanded import-profile scope",
+                                                       "Full Unicode OrdinalIgnoreCase equivalence and general Unicode lexer; retain declared ASCII comparison/identifier limits with native-vs-profile dispositions",
+                                                       "Broader Exists file-list/function syntax qualification: existing selected Exists works and is reused as Boolean operand. Current case/argument/empty-path restrictions remain explicit; do not claim full FunctionCall parity.",
+                                                       "Public conditioned-property inventory, exact InvalidProjectFileException ABI/messages/HResult, Microsoft.Build facade, CLR task loading and target execution"
+                                                   ],
+                             "numericRiskGate":  "Do not silently drop numeric-first equality if capture exposes an unsupported conversion case. Resolve the required equality conversion contract or mark that prerequisite unresolved before product dispatch; no reduced Boolean-only equality success claim.",
+                             "functionSyntaxDisposition":  "Negation and relation operands reuse currently qualified predicate spelling/arguments. Generic scanner recognition must not accidentally promote whitespace/casing/new function argument forms. If implementation chooses to accept a newly exposed form, add native capture and a separate explicit predecessor transition first."
+                         },
+    "semantics":  {
+                      "trueAliases":  [
+                                          "true",
+                                          "on",
+                                          "yes",
+                                          "!false",
+                                          "!off",
+                                          "!no"
+                                      ],
+                      "falseAliases":  [
+                                           "false",
+                                           "off",
+                                           "no",
+                                           "!true",
+                                           "!on",
+                                           "!yes"
+                                       ],
+                      "aliases":  "OrdinalIgnoreCase for these ASCII aliases. Quoted \u0027!true\u0027 is scalar data; !!true is two syntax nodes; a property value \u0027!!true\u0027 is not reparsed and cannot be converted as an alias. Quoted or expanded whitespace is not trimmed.",
+                      "empty":  "Empty Condition attribute remains true. Empty/undefined scalar alone is non-Boolean, not false. Equality checks both operands\u0027 emptiness before attempting Boolean operators; preserve source order and avoid eagerly evaluating every node.",
+                      "typeFlow":  "Operator nodes supply Boolean, no numeric value and generally no string. Not additionally returns ! plus child expanded text for fallback. Grouping returns the same node, not an implicitly Boolean wrapper. Compare strings only after both preceding conversion attempts fail; never stringify a Boolean operator to true/false to make an otherwise invalid comparison succeed.",
+                      "errors":  "Malformed grammar is parse-time. Reached non-Boolean root uses native ConditionNotBooleanDetail; Not/And/Or child conversion uses ExpressionDoesNotEvaluateToBoolean; absent relation string representation can use IllFormedCondition. Record native codes/locations/messages from capture, then map private errors honestly. Source resource names are not invented observed codes.",
+                      "laziness":  "And/Or short-circuit reached evaluation, property expansion, predicate conversion/probes and Boolean failures. Syntax is still parsed on both sides and statically across the private XML validation boundary. Equality\u0027s empty optimization may skip evaluation of an operator even though both syntax operands exist.",
+                      "cache":  "Exact raw ordinal text and current AllowProperties profile; cache immutable syntax only. Separate each evaluation\u0027s expanded values/conversion state. Never key by expanded result, owner, globals or normalized spacing. Warning emitted at first reached parse, with actual source owner/line/column/raw text; static validation does not warm cache. Retain \u003e3000 clear behavior without claiming native eviction/concurrency parity.",
+                      "itemBoundary":  "Boolean scalar \u0027true;false\u0027 is one non-Boolean string, not two items. HasTrailingSlash retains split-before-unescape/trim/cardinality conversion. Raw @(...), %(...), property functions and ItemGroup remain refused under inherited static profile; do not advertise them as supported skipped operations."
+                  },
+    "coverageGroups":  [
+                           {
+                               "id":  "alias-and-scalar-conversion",
+                               "mechanism":  "Exercise all 12 aliases, mixed case, quoted/unquoted ordinary six words, quoted bang aliases, bare/quoted property operands, immutable globals and source-order reassignment. Compare P/Q and imports at all four condition sites.",
+                               "sourceExpected":  "Alias truth follows converter; ! toggles a reached Boolean result; undefined/empty/non-alias/whitespace-padded scalar causes reached Boolean failure. No observations have been captured for this plan."
+                           },
+                           {
+                               "id":  "ordinary-precedence-and-types",
+                               "mechanism":  "!true==false; true==!false; !!true; !(\u0027alpha\u0027==\u0027alpha\u0027); !\u0027alpha\u0027==\u0027alpha\u0027; !(true And false) Or false; grouped relation operands and unparenthesized chained comparisons; whitespace around ! and ==/!=; lexical != ambiguity.",
+                               "sourceExpected":  "!true==false true; true==!false true; !!true true; negated grouped equality false; !\u0027alpha\u0027==\u0027alpha\u0027 reaches non-Boolean negation and fails rather than negating the whole equality. Chained comparisons require grouping."
+                           },
+                           {
+                               "id":  "equality-conversion-and-fallback",
+                               "mechanism":  "true==yes; false!=\u00271\u0027; \u0027true\u0027==\u0027on\u0027; true==1; \u00271\u0027==\u00271.0\u0027; 0x10==16; \u00271.2.3\u0027==\u00271.2.3\u0027; !\u0027true\u0027==\u0027alpha\u0027; HasTrailingSlash(\u0027a/\u0027)==\u0027alpha\u0027; (\u0027a\u0027==\u0027a\u0027)!=\u0027a\u0027; both operand orders and ==/!= complements.",
+                               "sourceExpected":  "Numeric pair before Boolean pair before string pair; true==1 false by fallback; \u00271\u0027==\u00271.0\u0027 true numerically; version-looking equality falls through text rather than Version comparison. Not has text fallback; function/comparison operators generally lack it and can produce IllFormedCondition. Native capture must retain actual failure details."
+                           },
+                           {
+                               "id":  "numeric-equality-prerequisite-boundaries",
+                               "mechanism":  "Signs, decimal point/leading zero, signed 32-bit hex maximum/minimum, overflow hex, exponent spelling in quotes, whitespace, underflow/rounding-neighbor decimal strings, infinity/NaN spellings and invalid numeric-looking tokens, in both operand orders with Boolean and ordinary strings.",
+                               "sourceExpected":  "Use exact TryConvertDecimalOrHexToDouble behavior and lexical-vs-conversion distinction. Special/rounding cases remain unresolved native distinctions until captured; never infer from Java parsing or label expected design values observations."
+                           },
+                           {
+                               "id":  "empty-before-operator-evaluation",
+                               "mechanism":  "\u0027\u0027==\u0027\u0027; \u0027\u0027==false; !\u0027alpha\u0027==\u0027\u0027 and \u0027\u0027==!\u0027alpha\u0027; !\u0027alpha\u0027!=\u0027\u0027; empty undefined property versus predicate and comparison nodes; contrast nonempty relation operand.",
+                               "sourceExpected":  "\u0027\u0027==\u0027\u0027 true; \u0027\u0027==false false; !\u0027alpha\u0027==\u0027\u0027 false and != true through emptiness flags without requiring invalid negation. Replacing empty with nonempty reaches negation failure. Source expectation requires fresh native confirmation."
+                           },
+                           {
+                               "id":  "expansion-remains-data",
+                               "mechanism":  "Properties expanding to !true, !!true, embedded quotes, ==/And/Or/parentheses, $(Again), %21true, %2521true, %74rue, %20true, malformed %, semicolons; repeat identical raw condition with different globals and assignments.",
+                               "sourceExpected":  "One-pass string expansion/unescape only; aliases can be data, injected expression syntax never becomes grammar; no second expansion/decode, trim or list split. ASCII comparison boundary remains explicit for decoded non-ASCII values."
+                           },
+                           {
+                               "id":  "short-circuit-and-static-validation",
+                               "mechanism":  "false And !\u0027alpha\u0027; true Or !\u0027alpha\u0027; true And !\u0027alpha\u0027; false Or !\u0027alpha\u0027; malformed !/!=/missing-right/group in reached and skipped sites; evaluated versus skipped existing Exists invalid path and HasTrailingSlash multi-token values.",
+                               "sourceExpected":  "Reached invalid Boolean values fail; skipped values are untouched; malformed syntax fails under full private syntax validation even in skipped XML. Unsupported property functions/item syntax retain inherited static refusal; do not confuse that policy with native skipped-site behavior."
+                           },
+                           {
+                               "id":  "site-import-and-no-task-execution",
+                               "mechanism":  "Property, PropertyGroup, Import and ImportGroup; imported source location and evaluation-directory probes; true/false conditional imports, missing-path failures, globals/local assignments and inert Error/WriteLinesToFile markers.",
+                               "sourceExpected":  "Deterministic source-order P/Q and import graph; correct current source site for warnings/errors and existing owner/root directory semantics; marker remains absent, no task/restore/process engine added."
+                           },
+                           {
+                               "id":  "cache-and-warning-lifecycle",
+                               "mechanism":  "Cold/warm exact raw condition repeated with changed globals, file owners and condition sites; raw whitespace/case differences; skipped first occurrence; mixed And/Or under Not, relation and groups; runtime failure then reuse.",
+                               "sourceExpected":  "No expanded/result/context state retained; native warning order/owner/coordinates/raw condition retained from fresh captures; existing eight-case warning vector preserved. New warning patterns remain source-derived design pending capture."
+                           },
+                           {
+                               "id":  "private-bounds-and-boundaries",
+                               "mechanism":  "64/65 groups, exact 256-node accounting including Not/comparison/scalar children, 255/257 existing chains, long unary chain, deep mixed group/Not, blank condition versus whitespace-only, malformed quote/token, raw item/metadata/property function and Unicode comparison boundaries.",
+                               "sourceExpected":  "Private bounds fail predictably before stack/resource exhaustion, including skipped branches; limits are adaptations, not native parity. Any changed old node-count interpretation must be versioned with preserved historical controls, not silently weakened."
+                           }
+                       ],
+    "predecessorDisposition":  {
+                                   "preserveCorpus":  "Retain immutable predecessor producers, fixture bytes, observations, locks and IDs. Compare all unaffected outcomes on the same final JAR. Version successor expectation/disposition records for changed outcomes; do not rewrite historical native data or claim the prior 94/24 outcomes all remain identical.",
+                                   "requiredDatasets":  {
+                                                            "current94":  94,
+                                                            "andSemantic":  9,
+                                                            "andMalformedBoundary":  1,
+                                                            "andPrivateControls":  24,
+                                                            "conditionIds":  35,
+                                                            "conditionSemantic":  26,
+                                                            "conditionNativeParseBoundaries":  5,
+                                                            "conditionDeclaredBoundaries":  4,
+                                                            "conditionWarningFields":  4,
+                                                            "cacheSemantic":  8,
+                                                            "cachePrivateControls":  4,
+                                                            "cacheWarningVector":  [
+                                                                                       1,
+                                                                                       0,
+                                                                                       0,
+                                                                                       1,
+                                                                                       1,
+                                                                                       1,
+                                                                                       0,
+                                                                                       1
+                                                                                   ],
+                                                            "hasTrailingSlashCases":  38,
+                                                            "hasTrailingSlashSemantic":  32,
+                                                            "hasTrailingSlashPrivateBoundaries":  6,
+                                                            "hasTrailingSlashWarningFields":  4,
+                                                            "hasTrailingSlashPrivateControlGroups":  4,
+                                                            "affectedAdapterControls":  6
+                                                        },
+                                   "knownTransitions":  [
+                                                            {
+                                                                "identity":  "NEG-bool-coercion / generated bool-coercion",
+                                                                "old":  "CONDITION_COERCION for \u0027true\u0027 == \u0027on\u0027",
+                                                                "planned":  "Native-backed Boolean equality succeeds true"
+                                                            },
+                                                            {
+                                                                "identity":  "NEG-numeric-comparison / generated numeric-comparison",
+                                                                "old":  "CONDITION_COERCION for \u00271\u0027 == \u00271.0\u0027",
+                                                                "planned":  "Native-backed numeric-first equality succeeds true; verify exact retained row ID during implementation reconciliation"
+                                                            },
+                                                            {
+                                                                "identity":  "AC-SYNTAX-10",
+                                                                "old":  "true And !false refused",
+                                                                "planned":  "Native-backed successful true evaluation; retain old input and historical outcome"
+                                                            },
+                                                            {
+                                                                "identity":  "AC-COERCION-11 through AC-COERCION-14",
+                                                                "old":  "false And (\u00271\u0027/\u00271.0\u0027/\u0027true\u0027/\u0027on\u0027 equal to itself) refused statically",
+                                                                "planned":  "Valid syntax; false And skips relation evaluation; native capture and successor controls replace refusal expectations"
+                                                            },
+                                                            {
+                                                                "identity":  "AC-EXPANSION-IS-SCALAR",
+                                                                "old":  "Expanded quote/parenthesis/Boolean/numeric strings all refused in relation to alpha",
+                                                                "planned":  "Typed scalar data prevents injection and uses native comparison/fallback; individual subcases need locked transition results rather than blanket refusal"
+                                                            },
+                                                            {
+                                                                "identity":  "HT-STATIC-SYNTAX-AND-SKIPPED",
+                                                                "old":  "Control group includes true And !false and \u0027a\u0027 != \u0027b\u0027 among 22 refusals",
+                                                                "planned":  "Those syntax forms intentionally become valid in reached/skipped sites. Preserve unrelated malformed/function boundaries; do not retain stale group refusal count"
+                                                            },
+                                                            {
+                                                                "identity":  "CL05 scalar and CL09 transition families; condition declared boundaries",
+                                                                "old":  "Selected refusal expectations depend on old expanded equality/coercion profile",
+                                                                "planned":  "Audit every named ID against typed-scalar contract and capture changed inputs before changing classifications; no invented exact changed-ID count"
+                                                            }
+                                                        ],
+                                   "furtherAudit":  "Exact enumerated successor transition list is a prerequisite deliverable. The group references above do not assert that every CL05/CL09 case changes. Existing Exists/HasTrailingSlash semantics, item guards, imports and warning provenance remain regression obligations."
+                               },
+    "implementationPlan":  [
+                               {
+                                   "step":  "contract-and-native-prerequisites",
+                                   "dependsOn":  [
+
+                                                 ],
+                                   "description":  "Freeze grammar/typeflow/error dispositions and designed immutable fixtures, then produce independently retained native reference passes before product edits.",
+                                   "acceptanceCriteria":  [
+                                                              "Every new case maps to source mechanism and F01-01/F01-04 or private boundary; ordinary equality prerequisite included",
+                                                              "Selected host/runtime/assembly/source/input proof is locked and two fresh native passes agree on approved observables",
+                                                              "All changed predecessor IDs have explicit native-backed successor dispositions; unresolved distinctions remain blocked"
+                                                          ],
+                                   "likelyFiles":  [
+                                                       "New evaluation-candidate condition Boolean contract/manifest/corpus",
+                                                       "New tools/oracle/dotj-build condition Boolean capture/verifier adapters",
+                                                       "Existing CaptureImportPathsV1.cs only if additional observer fields are necessary"
+                                                   ],
+                                   "verification":  "Future guarded evaluation-only native capture; verify input hashes, assembly loads, actual process/cleanup and raw outputs before deriving a Java bridge. No such run in this task."
+                               },
+                               {
+                                   "step":  "typed-parser-and-scalars",
+                                   "dependsOn":  [
+                                                     "contract-and-native-prerequisites"
+                                                 ],
+                                   "description":  "Implement immutable scalar/numeric/Not/comparison AST with ordinary precedence and reached-only string expansion.",
+                                   "acceptanceCriteria":  [
+                                                              "Bare/quoted/property Boolean scalars and repeated Not parse without whole-equality wrapping",
+                                                              "Raw AST contains no evaluation context or expanded data; scalar escapes are decoded once without trim/list split/reparse",
+                                                              "Bounds count new nodes before recursion and malformed skipped syntax remains refused"
+                                                          ],
+                                   "likelyFiles":  [
+                                                       "ProjectEvaluationComponent.java or package-private condition implementation extracted from it",
+                                                       "New ConditionBooleanPackagedTest.java",
+                                                       "New product condition Boolean contract"
+                                                   ],
+                                   "verification":  "Genuine pre-change packaged red then focused typed-parser/scalar and bounds checks; do not mistake control generation for evidence of product failure."
+                               },
+                               {
+                                   "step":  "relation-conversion-and-context",
+                                   "dependsOn":  [
+                                                     "typed-parser-and-scalars"
+                                                 ],
+                                   "description":  "Implement empty/numeric/Boolean/string comparison decisions, Not and logical error propagation and existing predicate Boolean operands.",
+                                   "acceptanceCriteria":  [
+                                                              "==/!= honor source conversion order, optional string representations and empty-side evaluation bypass",
+                                                              "Numeric equality prerequisite passes approved native boundaries; no Java truthiness, Boolean stringification or broad Java numeric syntax",
+                                                              "All four XML sites preserve property timing/import directories and no-task marker behavior"
+                                                          ],
+                                   "likelyFiles":  [
+                                                       "Private condition evaluator implementation",
+                                                       "ConditionBooleanPackagedTest.java",
+                                                       "Successor predecessor-dispositions manifest"
+                                                   ],
+                                   "verification":  "Differential cases covering both operand orders, success/failure and short-circuit; retain native failures separately from private ABI mapping."
+                               },
+                               {
+                                   "step":  "cache-and-predecessor-integration",
+                                   "dependsOn":  [
+                                                     "relation-conversion-and-context"
+                                                 ],
+                                   "description":  "Qualify raw-cache reuse, warning identity and all approved predecessor transitions without overwriting historical evidence.",
+                                   "acceptanceCriteria":  [
+                                                              "Cold/warm/failed/skipped evaluation cannot leak scalar state or source owner",
+                                                              "Mixed And/Or warnings retain order and complete selected source fields under new Not/relation shapes",
+                                                              "Every pre-existing case/control is preserved or individually transitioned with source/native evidence"
+                                                          ],
+                                   "likelyFiles":  [
+                                                       "ConditionBooleanPackagedTest.java",
+                                                       "Existing AndConditionTest.java and HasTrailingSlashPackagedTest.java successor controls",
+                                                       "Successor condition/current94 comparison adapters and dispositions"
+                                                   ],
+                                   "verification":  "Future same-JAR regression runs, explicit changed-ID audit and adapter forgery controls; avoid historical whole-Result equality when warning lifecycle intentionally differs."
+                               },
+                               {
+                                   "step":  "single-artifact-qualification-and-review",
+                                   "dependsOn":  [
+                                                     "cache-and-predecessor-integration"
+                                                 ],
+                                   "description":  "Build and qualify one packaged artifact against new corpus and full required predecessor obligations, then obtain independent source/evidence review and root integration decision.",
+                                   "acceptanceCriteria":  [
+                                                              "Every consumer loads evaluator from the exact qualified JAR; no duplicate product class on consumer path and no rebuild between dataset claims",
+                                                              "Artifact/source/tool/input hashes, process receipts, cleanup and all outcomes are retained with deviations explicit",
+                                                              "Acceptance/API/platform limitations remain unchanged except the precisely qualified private capability"
+                                                          ],
+                                   "likelyFiles":  [
+                                                       "New product contract and qualification manifest",
+                                                       "Root-owned guarded qualification adapter",
+                                                       "TEST-PORT-MAP bounded evidence update if approved"
+                                                   ],
+                                   "verification":  "Use current approved ownership/resource guards, compile Java 21 with java.base/java.xml only, run all applicable datasets on same JAR, independent evidence audit; root later reconciles and integrates."
+                               }
+                           ],
+    "validationSequence":  [
+                               "After root\u0027s actual core integration, reconcile canonical sources and all hashes; no branch/batch assumed here.",
+                               "Freeze reference contract/corpus and transition identities; inspect existing source/SDK proof and rehash selected executable/assembly/observer inputs before any launch.",
+                               "Run the native observer evaluation-only in two fresh processes under selected .NET 10.0.12 rollForward Disable / SDK 10.0.401 / MSBuild 18.9.11; retain command/env, actual resolved assemblies and host trace/load proof, raw diagnostics, failures, imports, P/Q, cleanup and task-marker absence. No Build, target, restore or network/download step.",
+                               "Verify native consistency and approve per-observable normalization (fixture-root paths only where declared; no string/Boolean/numeric/warning suppression). Generate immutable bridge from verified native results, not handwritten expected observations.",
+                               "Obtain genuine product red against predecessor JAR for chosen new behavior before implementation; preserve failure receipt and source identity.",
+                               "Implement and build once; compile JAR-only explicit consumer sources. Qualify full new corpus plus current94, And9+1+24, condition35/warnings4, cache8+4, HasTrailingSlash38/warnings4/controlgroups4 and affected adapter controls with explicit transition ledger.",
+                               "Apply approved resource/ownership guards from current lineage (128 MiB heap, two processors, SerialGC, 120s per JDK process; bounded parent/inner deadline, fresh memory floor query and owned cleanup). Reconcile actual guard version before launch; do not reuse or poll root\u0027s active process.",
+                               "Independent source/evidence review checks exact JAR lineage, repeated-cache source identity, no source-compilation substitution and unchanged public/module boundary; root integration only afterward. No accepted-task credit from captures/static metrics alone."
+                           ],
+    "inputAvailability":  {
+                              "referenceStatus":  "Selected source files were read locally and will be hashed in this report. Existing native fingerprint records selected toolchain/assembly provenance; existence and selected hashes are checked without execution.",
+                              "referenceProfile":  "SDK 10.0.401, MSBuild file version 18.9.11, Microsoft.Build assembly 15.1.0.0, .NET runtime 10.0.12",
+                              "existingObserver":  "D:/AI/Implementation/dotj Frameworks/validation/task24-native-pass1/CaptureImports.dll and runtimeconfig.json; source tools/oracle/dotj-build/CaptureImportPathsV1.cs. Observer naming differs from source class; retain exact lineage rather than assume a newly built binary.",
+                              "existingValidationTools":  "tools/oracle/dotj-build/has-trailing-slash-v1/capture.py, verify.py, packaged.py, test_capture.py; existing private evaluation verify.py and packaged tests; pinned Python and qualified JDK available for future authorized gate.",
+                              "downloadNeed":  "No recorded missing input requiring a download was identified for this source plan. Do not download; future exact missing input must be recorded and root-authorized.",
+                              "remainingProof":  "Fresh native runtime/assembly/input capture for the new cases, full required conversion boundary results, final successor transition IDs and actual final JAR qualification are future work, not available observations.",
+                              "broaderBlockers":  "Broader framework dependency graph and .j SDK installer/feed integration remain unresolved; existing development Python/JDK/.NET tooling is not a substitute for those product deliverables.",
+                              "selectedActualFiles":  [
+                                                          {
+                                                              "path":  "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\dotnet.exe",
+                                                              "exists":  true,
+                                                              "lockedSha256":  "21a46f1e5235cf4e844b9de5429f0e198b9c97a41f0503a66442f1d639ca3ee6",
+                                                              "actualSha256":  "21a46f1e5235cf4e844b9de5429f0e198b9c97a41f0503a66442f1d639ca3ee6",
+                                                              "matches":  true
+                                                          },
+                                                          {
+                                                              "path":  "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
+                                                              "exists":  true,
+                                                              "lockedSha256":  "96896c3c1e0843ea5c4cc03baac8df3a61587e3742599b6b29f99dbd25595eff",
+                                                              "actualSha256":  "96896c3c1e0843ea5c4cc03baac8df3a61587e3742599b6b29f99dbd25595eff",
+                                                              "matches":  true
+                                                          },
+                                                          {
+                                                              "path":  "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll",
+                                                              "exists":  true,
+                                                              "lockedSha256":  "58a2da163e77baa35719982597f92384d8ae442479070df97b4747b1093f5a2f",
+                                                              "actualSha256":  "58a2da163e77baa35719982597f92384d8ae442479070df97b4747b1093f5a2f",
+                                                              "matches":  true
+                                                          },
+                                                          {
+                                                              "path":  "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\MSBuild.dll",
+                                                              "exists":  true,
+                                                              "lockedSha256":  "22f7b95c5cc1e7287a9d561a0e88719c4d545c5f3892e3e6501051f5abcbe147",
+                                                              "actualSha256":  "22f7b95c5cc1e7287a9d561a0e88719c4d545c5f3892e3e6501051f5abcbe147",
+                                                              "matches":  true
+                                                          },
+                                                          {
+                                                              "path":  "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
+                                                              "exists":  true,
+                                                              "lockedSha256":  "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+                                                              "actualSha256":  "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+                                                              "matches":  true
+                                                          },
+                                                          {
+                                                              "path":  "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-native-pass1\\CaptureImports.dll",
+                                                              "exists":  true,
+                                                              "lockedSha256":  "146c884247995aefe942836456be66f8fc65067eb5c10c34da1a5c9729402277",
+                                                              "actualSha256":  "146c884247995aefe942836456be66f8fc65067eb5c10c34da1a5c9729402277",
+                                                              "matches":  true
+                                                          },
+                                                          {
+                                                              "path":  "D:\\AI\\Implementation\\dotj Frameworks\\validation\\task24-native-pass1\\CaptureImports.runtimeconfig.json",
+                                                              "exists":  true,
+                                                              "lockedSha256":  "e17d7238425cc363a850c7e53ad31221b40b7dbfe37c8b155703f9b8e73af1cc",
+                                                              "actualSha256":  "e17d7238425cc363a850c7e53ad31221b40b7dbfe37c8b155703f9b8e73af1cc",
+                                                              "matches":  true
+                                                          },
+                                                          {
+                                                              "path":  "D:/AI/Implementation/dotj Frameworks/toolchains/python-3.13.9/python.exe",
+                                                              "exists":  true,
+                                                              "actualSha256":  "08a64dc73ac3e3776b49f0097c6306bdb9c8f7990a037065213324d328467bf5",
+                                                              "note":  "Availability and file identity only; not executed or newly qualified"
+                                                          },
+                                                          {
+                                                              "path":  "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/bin/java.exe",
+                                                              "exists":  true,
+                                                              "actualSha256":  "1f41cc782de7ddd8824376568f9011413d710cf225047906106d2a01a0e3f7a9",
+                                                              "note":  "Availability and file identity only; not executed or newly qualified"
+                                                          },
+                                                          {
+                                                              "path":  "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/bin/javac.exe",
+                                                              "exists":  true,
+                                                              "actualSha256":  "00ff52b49ba8cb2de4718fade93f411549d704eb869641eaa69986608a452a26",
+                                                              "note":  "Availability and file identity only; not executed or newly qualified"
+                                                          }
+                                                      ]
+                          },
+    "apiBoundaries":  {
+                          "productRuntime":  "JDK APIs only: java.base and java.xml; no third-party runtime additions",
+                          "module":  "Private named module; retain no exports/opens and no new replacement public API",
+                          "publicCompatibility":  "Do not claim Microsoft.Build facade, Project/ProjectCollection lifecycle representation, exact exception ABI, CLR task compatibility or paired compiled C#/.j examples",
+                          "noTaskExecution":  "All new fixtures use evaluation-only P/Q/import observations and inert task markers. No task registry, target scheduler, process launch, restore or network behavior in product."
+                      },
+    "acceptanceAlignment":  {
+                                "task":  "DJ-005-WP-01-T1",
+                                "advances":  [
+                                                 "DJ-005-F01-01 deterministic conditional imports and property expansion within selected private condition profile",
+                                                 "DJ-005-F01-04 evaluation remains separate from task execution, with retained markers and packaged checks"
+                                             ],
+                                "stillOpen":  [
+                                                  "Full property/item precedence and conditions/environment contract",
+                                                  "F01-02 full cycle-chain diagnostics beyond selected warning/ignore profiles",
+                                                  "F01-03 Windows/Linux globs and case matrix",
+                                                  "E01 eligibility/release/rights/source-build-input closure",
+                                                  "E02 full semantic/dependency inventory",
+                                                  "E03 broader fixtures and reviewed public contract",
+                                                  "N01/NF01-NF03 public exact naming/representation/API diff/examples",
+                                                  "Q01 integrated platform/release qualification"
+                                              ],
+                                "credit":  "Private implementation/reference evidence may advance a requirement; it does not accept WP-01-T1, a fixture family, a package or a framework by itself."
+                            },
+    "counts":  {
+                   "coreTasksRemaining":  27,
+                   "buildTasksRemaining":  25,
+                   "otherTasksRemaining":  1040,
+                   "totalTasks":  1092,
+                   "acceptedTasks":  0,
+                   "openAcceptanceItems":  1686,
+                   "qualifiedFrameworks":  0,
+                   "totalFrameworks":  66,
+                   "coreE01OpenItems":  3,
+                   "acceptedTasksAddedByPlan":  0,
+                   "futureBatchNumber":  null,
+                   "futureBatchCount":  null,
+                   "futureCaseCount":  null,
+                   "distinction":  "Inherited acceptance score is not recomputed or credited here. Existing corpus counts describe obligations, not future project totals or accepted tasks."
+               },
+    "plannedAtUtc":  "2026-11-02T01:43:53.0157378Z"
+}

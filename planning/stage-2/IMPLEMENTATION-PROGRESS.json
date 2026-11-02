@@ -13,7 +13,7 @@
     "totalUniqueNamedTasks": 1356,
     "sdkIntegrationTasks": 60
   },
-  "currentBatch": "Batch-2515",
+  "currentBatch": "Batch-2516",
   "completedBatches": [
     "Batch-001",
     "Batch-002",
@@ -2529,7 +2529,8 @@
     "Batch-2512",
     "Batch-2513",
     "Batch-2514",
-    "Batch-2515"
+    "Batch-2515",
+    "Batch-2516"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -12350,18 +12351,18 @@
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
     "id": null,
-    "framework": "dotj-core",
+    "framework": "dotj-build",
     "planTaskIds": [],
-    "outcome": "Further substantive scope remains unnumbered and unbaselined; finish Batch-2515 whole-branch review and root integration first.",
+    "outcome": "Finish independent task/whole-branch review and root integration decision for Batch-2516; further substantive scope remains unnumbered and unbaselined.",
     "requiresContinue": false,
-    "basis": "Current ValueTask Task lifetime selected group 1/1 implemented and verified in this integration candidate; task review approved, root canonical gate passed 517/517 and final JAR is identical to all retained selected-suite proof. No task or framework acceptance credit."
+    "basis": "Batch-2515 actually integrated2b659b4d5; selected Batch-2516 candidate passes full same-JAR Boolean/predecessor qualification, zero acceptance credit."
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2515,
-    "countContext": "Post-integration CANDIDATE count/list length 2515 only. Batch-2515 selected group 1/1 is implemented and verified; independent task review approved, root canonical gate passed 517/517, final JAR identical to selected-suite proof (new115/1884+8, Task61/697+49, WorkTask66/612+8, delegate34/cancellation48/ValueTask135), 136 sources/182 classes. Whole-branch review and root integration/merge/push remain pending. Canonical master remains 2514 until root merge; no current push or acceptance credit.",
+    "completedBatches": 2516,
+    "countContext": "Canonical Batch-2515 is integrated at2b659b4d581e8925e4386846015356244e7fbfe7. Post-integration CANDIDATE count/list length2516 only: private Boolean/scalar/Not/typed-equality selected group1/1 implemented and verified, actual integrated group0/1 until root review/merge. Independent task review, whole-branch review, merge and push pending; no acceptance credit.",
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12396,5 +12397,79 @@
     "projectBatchTotal": null,
     "requiresIntermediateApproval": false,
     "boundary": "User decisions and external blockers remain explicit; passing bounded batches does not accept implementation tasks."
+  },
+  "batch2516Candidate": {
+    "status": "IMPLEMENTED_VERIFIED_PENDING_REVIEW_MERGE",
+    "selectedGroupDone": 1,
+    "selectedGroupTotal": 1,
+    "integratedSelectedGroupDone": 0,
+    "canonicalMasterBatch": 2515,
+    "canonicalBaseCommit": "2b659b4d581e8925e4386846015356244e7fbfe7",
+    "counts": {
+      "newNativeIds": 297,
+      "nativeSuccessObservableMatches": 239,
+      "nativeProjectErrorMappings": 46,
+      "inheritedProfileRestrictions": 9,
+      "sourceBasedFaultAdaptations": 3,
+      "privateInputs": 16,
+      "privateGroups": 14,
+      "current94": 94,
+      "current94Unchanged": 92,
+      "current94Transitions": 2,
+      "and": [
+        9,
+        1,
+        24
+      ],
+      "condition": [
+        28,
+        5,
+        2
+      ],
+      "conditionWarnings": 4,
+      "cache": 8,
+      "cacheWarningVector": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "cachePrivateGroups": 4,
+      "hasTrailingSlash": [
+        32,
+        6
+      ],
+      "hasTrailingSlashWarnings": 4,
+      "hasTrailingSlashPrivateGroups": 4,
+      "hasTrailingSlashSyntax": [
+        18,
+        4
+      ],
+      "preservedFiles": 391,
+      "predecessorCaseControlInventory": 223,
+      "transitionIds": 18,
+      "acceptedTasksAdded": 0
+    },
+    "jar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-boolean-product-green-v3\\dotj-build-evaluation-candidate.jar",
+      "sha256": "97b027c56221716cc748aa03a80d24d65a180e13fb0deb07b059c2bbdd290b1c",
+      "sizeBytes": 98307
+    },
+    "acceptedTasksAdded": 0,
+    "qualifiedFrameworksAdded": 0,
+    "dependencies": {
+      "product": "JDK java.base/java.xml only",
+      "developmentReference": "Existing Python3.13.9/JDK21/.NET10 tooling available; no new capture/download",
+      "broader": "Dependency graph and .j installer/feed unresolved"
+    },
+    "coreE01Open": [
+      "SOURCE_AND_NOTICE_APPLICABILITY",
+      "REFERENCE_AND_DEPENDENCY_RIGHTS",
+      "RELEASE_REVIEW"
+    ]
   }
 }
