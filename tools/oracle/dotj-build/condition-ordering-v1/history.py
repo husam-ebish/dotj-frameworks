@@ -82,3 +82,38 @@ def verify_execution(expected):
     result=verify_reuse(p.read(lock['reuseChain']['path']),entries+old['entries'])
     p.fixtures(p.read(lock['manifest']['path']),p.HERE/'fixtures')
     return lock,result
+
+def verify_archived_execution(expected,snapshot_descriptor):
+    """Fresh postcapture closure through a separately pinned exact archive.
+
+    No old module import, producer retarget, global fallback or path mutation.
+    The caller closes the snapshot descriptor and predecessor execution digest.
+    """
+    import time
+    started=time.monotonic();p.pin(snapshot_descriptor);snapshot=p.read(snapshot_descriptor['path'])
+    entries=snapshot['profileEntries'];lock_entries=[e for e in entries if Path(e['repositoryRelativePath']).name=='execution-lock.json']
+    p.require(len(lock_entries)==1,'single archived execution lock');archived=lock_entries[0]['archived'];p.pin(archived)
+    p.require(archived['sha256']==expected==snapshot['previousExecutionLockSha256'],'exact predecessor execution digest')
+    lock=p.read(archived['path'])
+    p.keys(lock,['schemaVersion','status','profileInventory','pins','payloadLock','archiveLock','reuseChain','proposal','selectedSchema','manifest','transitionLedger'],'archived execution lock')
+    p.require(type(lock['schemaVersion']) is int and lock['schemaVersion']==1 and lock['status']=='PREPARATION_FROZEN_NOT_LAUNCHED','archived original lock status')
+    p.require(set(lock['profileInventory'])=={e['original']['path'] for e in entries if e is not lock_entries[0]},'archived exact profile inventory')
+    for e in entries:
+        p.check_descriptor(e['original']);p.pin(e['archived']);p.pin(e['gitBlob'])
+        p.require(e['original']['sha256']==e['archived']['sha256']==e['gitBlob']['sha256'] and e['original']['sizeBytes']==e['archived']['sizeBytes']==e['gitBlob']['sizeBytes'],'archived exact raw/Git bytes')
+    resolutions=[historical_pin(d,entries) for d in lock['pins']]
+    def read_bound(name):return p.read(historical_pin(lock[name],entries)['path'])
+    payload=read_bound('payloadLock')
+    for d in payload['files']:p.pin(d)
+    for root in payload['roots']:
+        p.require({str(f) for f in Path(root).rglob('*') if f.is_file()}=={d['path'] for d in payload['files'] if Path(d['path']).is_relative_to(Path(root))},'archived actual full payload inventory')
+    current_archive=read_bound('archiveLock');old_entries=current_archive['entries']
+    for e in old_entries:
+        p.pin(e['archived'])
+        if e['gitBlob'] is not None:p.pin(e['gitBlob'])
+    p.pin(current_archive['oldArchive']);older=p.read(current_archive['oldArchive']['path'])
+    for e in older['entries']:p.pin(e['archived']);p.pin(e['gitBlob'])
+    reused=verify_reuse(read_bound('reuseChain'),old_entries+older['entries'])
+    manifest=read_bound('manifest');manifest_path=Path(historical_pin(lock['manifest'],entries)['path'])
+    p.fixtures(manifest,manifest_path.parent/'fixtures')
+    return dict(status='FRESH_ARCHIVED_PREDECESSOR_POSTCAPTURE_CLOSURE_VERIFIED',executionLock=archived,snapshot=snapshot_descriptor,profileFiles=len(entries),pinsVerified=len(resolutions),payloadFiles=len(payload['files']),binaryReuse=reused,readOnlySeconds=time.monotonic()-started,newNativeExecutions=0,newCompilerExecutions=0,newJvmExecutions=0)

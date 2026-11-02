@@ -55,6 +55,7 @@ def inner(phase,execution,review_sha,ownership_handle):
     envelope,membership,deadline=ownership.consume(ownership_handle,p,phase,execution,review_sha)
     g=guard();history=load('ordering_history_inner',p.HERE/'history.py')
     proposal,plan=phase_plan(phase);out=Path(plan['output']);directories(out)
+    p.require(phase in proposal['remainingProducerPhases'],'retained first capture may not be relaunched')
     receipt=dict(schemaVersion=1,status='FATAL_OR_CLEANUP_FAILURE',phase=phase,actualOuterDeadlineMonotonic=deadline,ownershipEnvelope=envelope,ownershipProof=membership,
                  innerStartedMonotonic=started,executionLockSha256=execution,review=None,process=None,
                  nativeExecutions=p.execution_count(None),newCompilerExecutions=0,resourceSamples=[],resourceAdmissions=[],raw={},progress=None,
@@ -92,9 +93,8 @@ def inner(phase,execution,review_sha,ownership_handle):
         ids=[c['id'] for c in selected['cases']]
         receipt['progress']=p.progress(raw.decode('utf-8',errors='replace'),ids,True)
         value=p.loads(p.bounded(out/'native.stdout',2097152));receipt['outcomes']=p.observation(value,selected['cases'],proposal['fingerprint'])
-        # Host trace must show the exact selected runtime and each actual module.
-        trace=raw.decode('utf-8',errors='replace')
-        for path in proposal['requiredHostTracePaths']:p.require(path.casefold() in trace.casefold(),'runtime host trace binding '+path)
+        binding=load('ordering_runtime_binding_native',p.HERE/'runtime_binding.py')
+        receipt['runtimeBinding']=binding.verify(value,raw)
         history.verify_execution(execution)
         receipt['status']='CAPTURED_PENDING_INDEPENDENT_ROOT_REVIEW'
     except BaseException as error:
@@ -113,6 +113,8 @@ def outer(phase,execution,review_sha):
     # A fixed lexical phase is checked before any proposal read or payload hash.
     import re
     p.require(re.fullmatch(r'pass[12]-part[0-9]{2}',phase),'phase grammar')
+    proposal,_=phase_plan(phase)
+    p.require(phase in proposal['remainingProducerPhases'],'retained first capture may not be relaunched')
     out=p.A/'controllers'/phase;directories(out)
     record=dict(schemaVersion=1,status='FATAL_OR_CLEANUP_FAILURE',phase=phase,executionLockSha256=execution,
                 reviewSha256=review_sha,process=None,controllerExecutions=p.execution_count(None),innerReceipt=None,raw={},failure=None,environment=environment(out))

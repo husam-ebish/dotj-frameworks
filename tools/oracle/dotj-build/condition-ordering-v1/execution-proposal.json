@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "PROPOSED_NOT_LAUNCHED_REQUIRES_INDEPENDENT_ROOT_APPROVAL",
+  "status": "CORRECTED_TRACE_BINDING_PREPARATION_ONLY_SEVEN_REMAINING_PHASES_NOT_APPROVED",
   "invocations": [
     {
       "phase": "pass1-part01",
@@ -1180,11 +1180,6 @@
     "corePath": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
     "profile": "Default"
   },
-  "requiredHostTracePaths": [
-    "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.12\\System.Private.CoreLib.dll",
-    "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.dll",
-    "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\dotnet\\sdk\\10.0.401\\Microsoft.Build.Framework.dll"
-  ],
   "guard": {
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-completion-v1\\tools\\oracle\\dotj-core\\public-task-v1\\owned_process.py",
     "sha256": "a2a3701ae675fd563da61eb19ce41d79479bc1f435c1ec07af6c0ddefd67e125",
@@ -1237,5 +1232,45 @@
     "jvm": 0,
     "productEdits": 0
   },
-  "ownershipCapability": "One-use inherited anonymous pipe written only after suspended child Job assignment, before resume; exact actual OS parent/child PIDs and parent executable, actual current-process membership in declared parent Job via short-lived duplicated query handle, same monotonic start+180 deadline bound to parent launch envelope. Direct --inner without capability fails closed. No inherited Job handle. Pure seam controls only; actual Windows integration NOT OBSERVED."
+  "ownershipCapability": "One-use inherited anonymous pipe written only after suspended child Job assignment, before resume; exact actual OS parent/child PIDs and parent executable, actual current-process membership in declared parent Job via short-lived duplicated query handle, same monotonic start+180 deadline bound to parent launch envelope. Direct --inner without capability fails closed. No inherited Job handle. Pure seam controls only; actual Windows integration NOT OBSERVED.",
+  "runtimeBindingContract": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-ordering-conditions-v1\\tools\\oracle\\dotj-build\\condition-ordering-v1\\runtime-binding-contract.json",
+    "sha256": "8923d5d58cd636f768a18429ffe0fcc9214f107e9d2e40e9382ccd8ff8f346b1",
+    "sizeBytes": 4536
+  },
+  "retainedPredecessor": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-ordering-conditions-v1\\tools\\oracle\\dotj-build\\condition-ordering-v1\\first-capture-predecessor.json",
+    "sha256": "a3b2ea970dab4deb0c8cab4c3720f60047ae2f4f8667e10d5e947c1d5c369d35",
+    "sizeBytes": 4250
+  },
+  "remainingProducerPhases": [
+    "pass1-part02",
+    "pass1-part03",
+    "pass1-part04",
+    "pass2-part01",
+    "pass2-part02",
+    "pass2-part03",
+    "pass2-part04"
+  ],
+  "remainingProposedNativeInvocations": 7,
+  "remainingApprovedNativeInvocations": 0,
+  "retainedActualExecutionCounts": {
+    "native": 1,
+    "controller": 1,
+    "nativeExitCode": 0,
+    "controllerExitCode": 1,
+    "qualifiedCapture": false
+  },
+  "consumerVersion": "freeze_contract_v2.py; exact first predecessor requires independent pure-finalization review, seven future phases require normal successful corrected producer receipts/new lock.",
+  "pureRecoveryPolicy": {
+    "source": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-ordering-conditions-v1\\tools\\oracle\\dotj-build\\condition-ordering-v1\\segmented_closure.py",
+      "sha256": "7637b45a03f265026d0e104a7bfe01203d4d6591f9366bfcc41e5c0fb29a4fe1",
+      "sizeBytes": 19392
+    },
+    "oldAndNewFullClosureRequired": true,
+    "pureWorkerSeconds": 120,
+    "runtimeAdmissionCredit": false,
+    "futureInsideParentFullVerificationUnchanged": true
+  }
 }
