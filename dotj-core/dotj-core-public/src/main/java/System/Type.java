@@ -573,6 +573,7 @@ public abstract class Type extends MemberInfo {
             case "System.ApplicationException" -> fromJavaClass(ApplicationException.class);
             case "System.Reflection.TargetException" -> fromJavaClass(TargetException.class);
             case "System.SystemException" -> fromJavaClass(SystemException.class);
+            case "System.TimeoutException" -> fromJavaClass(TimeoutException.class);
             case "System.NotImplementedException" -> fromJavaClass(NotImplementedException.class);
             case "System.ArgumentException" -> fromJavaClass(ArgumentException.class);
             case "System.ArgumentNullException" -> fromJavaClass(ArgumentNullException.class);
@@ -778,6 +779,7 @@ public abstract class Type extends MemberInfo {
             case "system.applicationexception" -> ignoreCase ? fromJavaClass(ApplicationException.class) : null;
             case "system.reflection.targetexception" -> ignoreCase ? fromJavaClass(TargetException.class) : null;
             case "system.systemexception" -> ignoreCase ? fromJavaClass(SystemException.class) : null;
+            case "system.timeoutexception" -> ignoreCase ? fromJavaClass(TimeoutException.class) : null;
             case "system.notimplementedexception" -> ignoreCase ? fromJavaClass(NotImplementedException.class) : null;
             case "system.argumentexception" -> ignoreCase ? fromJavaClass(ArgumentException.class) : null;
             case "system.argumentnullexception" -> ignoreCase ? fromJavaClass(ArgumentNullException.class) : null;

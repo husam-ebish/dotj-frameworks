@@ -391,6 +391,7 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Globalization/DigitShapes.
 SOURCES += [PRODUCT / "src/main/java/System" / (name + ".java") for name in ("Delegate", "MulticastDelegate", "Action")]
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/delegates/ActionBody.java")
 SOURCES += [PRODUCT / "src/main/java/System" / (name + ".java") for name in ("AggregateException", "ObjectDisposedException", "OperationCanceledException")]
+SOURCES.append(PRODUCT / "src/main/java/System/TimeoutException.java")
 SOURCES += [PRODUCT / "src/main/java/System/Threading" / (name + ".java") for name in ("CancellationToken", "CancellationTokenRegistration", "CancellationTokenSource")]
 SOURCES.append(PRODUCT / "src/main/java/System/Action_1.java")
 SOURCES.append(PRODUCT / "src/main/java/System/IAsyncDisposable.java")
@@ -419,6 +420,9 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + [
     "org/dotj/internal/async/TaskBridge.class"])
 EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/Threading/Tasks/Task$" + name + ".class"
     for name in ("CompletionAttempt", "DelayDefaults", "DelayInfrastructure", "DelayRegistrar", "DelayState", "DelayTimer", "TimerHandle")])
+EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + ["System/TimeoutException.class"]
+    + ["System/Threading/Tasks/Task$" + name + ".class" for name in
+       ("CompletionAction", "Continuation", "WaitDefaults", "WaitInfrastructure", "WaitState")])
 
 
 def build_product(run_tool=run):
