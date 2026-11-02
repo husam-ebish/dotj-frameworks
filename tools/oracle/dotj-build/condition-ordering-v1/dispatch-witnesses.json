@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED",
+  "sourcePins": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\Conditionals\\NumericComparisonExpressionNode.cs",
+      "sha256": "561289c0bf6ff4b3fbaa5bf449102b90c81f70a5a6bdc2a5721ffe2334a4ddc5",
+      "sizeBytes": 2889
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\Conditionals\\NumericExpressionNode.cs",
+      "sha256": "1cb565d648cc513c6aea599f62fac822e682971a09fc148463c4f06119ea395f",
+      "sizeBytes": 2309
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\Conditionals\\StringExpressionNode.cs",
+      "sha256": "05890a707fc988078db579f18f813e7db660bb234ed591cc06d05976d5b7c8e7",
+      "sizeBytes": 7791
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Framework\\Utilities\\ConversionUtilities.cs",
+      "sha256": "9fa5cc60a61f9241b71ceea74200995f814c0c1c653507cef1cdc748ab6e919e",
+      "sizeBytes": 8099
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\libraries\\System.Private.CoreLib\\src\\System\\Version.cs",
+      "sha256": "1ce5d5d7d6b3e512ea4519ee6e1b405678eb7981ab7f112b39aed80f49b14807",
+      "sizeBytes": 19971
+    }
+  ],
+  "sourceRules": [
+    "NumericExpressionNode.cs:31-39 and StringExpressionNode.cs:38-61 try both numeric and Version conversions on the same text.",
+    "ConversionUtilities.cs:161-203: invariant decimal point/leading sign, finite Double, then source hex rules.",
+    "Version.cs:357-442:2..4 components; each nonnegative Int32; no dot is not a version and minor5000000000 overflows.",
+    "NumericComparisonExpressionNode.cs:54-60 dispatch priority: numeric pair, version pair, numeric/version, version/numeric."
+  ],
+  "witnesses": [
+    {
+      "id": "ORD-MIX-LT-NV-equal-major",
+      "condition": "6<'6.0.0'",
+      "expectedDispatchFromSource": "NUMERIC_VERSION",
+      "numericOperandText": "6",
+      "numericValueFromSource": "6",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "A version requires at least major.minor",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-LT-VN-equal-major",
+      "condition": "'6.0.0'<6",
+      "expectedDispatchFromSource": "VERSION_NUMERIC",
+      "numericOperandText": "6",
+      "numericValueFromSource": "6",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "A version requires at least major.minor",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-LT-NV-fractional",
+      "condition": "6.5000000000<'6.0.0'",
+      "expectedDispatchFromSource": "NUMERIC_VERSION",
+      "numericOperandText": "6.5000000000",
+      "numericValueFromSource": "6.5",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "Minor5000000000 exceeds Int32 maximum2147483647",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-LT-VN-fractional",
+      "condition": "'6.0.0'<6.5000000000",
+      "expectedDispatchFromSource": "VERSION_NUMERIC",
+      "numericOperandText": "6.5000000000",
+      "numericValueFromSource": "6.5",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "Minor5000000000 exceeds Int32 maximum2147483647",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-LE-NV-equal-major",
+      "condition": "6<='6.0.0'",
+      "expectedDispatchFromSource": "NUMERIC_VERSION",
+      "numericOperandText": "6",
+      "numericValueFromSource": "6",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "A version requires at least major.minor",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-LE-VN-equal-major",
+      "condition": "'6.0.0'<=6",
+      "expectedDispatchFromSource": "VERSION_NUMERIC",
+      "numericOperandText": "6",
+      "numericValueFromSource": "6",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "A version requires at least major.minor",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-LE-NV-fractional",
+      "condition": "6.5000000000<='6.0.0'",
+      "expectedDispatchFromSource": "NUMERIC_VERSION",
+      "numericOperandText": "6.5000000000",
+      "numericValueFromSource": "6.5",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "Minor5000000000 exceeds Int32 maximum2147483647",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-LE-VN-fractional",
+      "condition": "'6.0.0'<=6.5000000000",
+      "expectedDispatchFromSource": "VERSION_NUMERIC",
+      "numericOperandText": "6.5000000000",
+      "numericValueFromSource": "6.5",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "Minor5000000000 exceeds Int32 maximum2147483647",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-GT-NV-equal-major",
+      "condition": "6>'6.0.0'",
+      "expectedDispatchFromSource": "NUMERIC_VERSION",
+      "numericOperandText": "6",
+      "numericValueFromSource": "6",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "A version requires at least major.minor",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-GT-VN-equal-major",
+      "condition": "'6.0.0'>6",
+      "expectedDispatchFromSource": "VERSION_NUMERIC",
+      "numericOperandText": "6",
+      "numericValueFromSource": "6",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "A version requires at least major.minor",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-GT-NV-fractional",
+      "condition": "6.5000000000>'6.0.0'",
+      "expectedDispatchFromSource": "NUMERIC_VERSION",
+      "numericOperandText": "6.5000000000",
+      "numericValueFromSource": "6.5",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "Minor5000000000 exceeds Int32 maximum2147483647",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-GT-VN-fractional",
+      "condition": "'6.0.0'>6.5000000000",
+      "expectedDispatchFromSource": "VERSION_NUMERIC",
+      "numericOperandText": "6.5000000000",
+      "numericValueFromSource": "6.5",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "Minor5000000000 exceeds Int32 maximum2147483647",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-GE-NV-equal-major",
+      "condition": "6>='6.0.0'",
+      "expectedDispatchFromSource": "NUMERIC_VERSION",
+      "numericOperandText": "6",
+      "numericValueFromSource": "6",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "A version requires at least major.minor",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-GE-VN-equal-major",
+      "condition": "'6.0.0'>=6",
+      "expectedDispatchFromSource": "VERSION_NUMERIC",
+      "numericOperandText": "6",
+      "numericValueFromSource": "6",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "A version requires at least major.minor",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-GE-NV-fractional",
+      "condition": "6.5000000000>='6.0.0'",
+      "expectedDispatchFromSource": "NUMERIC_VERSION",
+      "numericOperandText": "6.5000000000",
+      "numericValueFromSource": "6.5",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "Minor5000000000 exceeds Int32 maximum2147483647",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    },
+    {
+      "id": "ORD-MIX-GE-VN-fractional",
+      "condition": "'6.0.0'>=6.5000000000",
+      "expectedDispatchFromSource": "VERSION_NUMERIC",
+      "numericOperandText": "6.5000000000",
+      "numericValueFromSource": "6.5",
+      "numericOperandEligibility": {
+        "numeric": true,
+        "version": false
+      },
+      "versionOperandText": "6.0.0",
+      "versionOperandEligibility": {
+        "numeric": false,
+        "version": true
+      },
+      "numericVersionRefusalReason": "Minor5000000000 exceeds Int32 maximum2147483647",
+      "status": "SOURCE_DERIVED_NOT_NATIVE_OBSERVED"
+    }
+  ],
+  "formerInputs": [
+    {
+      "left": "6",
+      "right": "6.0",
+      "actualDispatchFromSource": "NUMERIC_PAIR"
+    },
+    {
+      "left": "6.0",
+      "right": "6",
+      "actualDispatchFromSource": "NUMERIC_PAIR"
+    },
+    {
+      "left": "6.5",
+      "right": "6.0.0",
+      "actualDispatchFromSource": "VERSION_PAIR"
+    },
+    {
+      "left": "6.0.0",
+      "right": "6.5",
+      "actualDispatchFromSource": "VERSION_PAIR"
+    }
+  ],
+  "parityCredit": 0
+}

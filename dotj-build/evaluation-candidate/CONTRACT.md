@@ -183,3 +183,16 @@ remain open.
 The source-defined numeric path allows invariant signed decimal-point text and finite binary64 values, then prefixed signed Int32 hex with two-s-complement behavior. Java exponent/suffix/hex-float grammar is excluded. Runtime compatibility allows trailing NULs on ordinary decimal/hex parsing; NaN special recognition instead trims source whitespace on the original input, and Infinity fails numeric conversion. Numeric/Boolean/text scalar conversion retains the declared ASCII boundary for reached expanded values. General scalar data has no trim/list split/reparse; HasTrailingSlash and Exists preserve separate conversion/site rules.
 
 All297 IDs and18 predecessor transitions have explicit dispositions. Three actual native NREs have reviewed source-based false/no-inventory adaptations with zero paired parity credit. Nine inherited static-syntax/Exists restrictions and46 private error mappings do not claim full native exception ABI. Public conditioned-property inventory, full Unicode/platform/API/release behavior and task execution remain excluded. Parser group64/node256 bounds count scalar/relation/Not nodes; specialized predicates remain one leaf. Exact raw cache, first-reached warning ownership and >3000 eviction policy remain private adaptations. Original producers/tests/fixtures/evidence stay immutable; use the explicit new historical archive resolver for read-only proof after canonical source changes.
+
+## Private numeric and version ordering successor
+
+[Ordering product contract](../../tools/oracle/dotj-build/condition-ordering-product-v1/README.md)
+adds all four ordering operators at the single equality/comparison precedence
+level, with numeric pairs, version pairs and both mixed directions. Equality
+conversion stays unchanged. Raw immutable ordering syntax retains evaluation-local
+one-pass scalar conversion, source-order short circuit, warning ownership and
+existing bounds. The original BOOL-BOUND-ordering private refusal has an explicit
+native-backed success successor; the other historical restrictions stay explicit.
+Development verification passed the new308 classifications and retained
+Boolean297/private16/control14 against one actual JAR. Full same-JAR historical
+qualification, independent review, integration and acceptance remain outstanding.

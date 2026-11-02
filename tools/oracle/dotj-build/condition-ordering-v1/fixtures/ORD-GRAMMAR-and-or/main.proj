@@ -1,0 +1,1 @@
+<Project><PropertyGroup Condition="1&lt;2 And false Or true"><P>yes</P><Q>taken</Q></PropertyGroup><Target Name="Never"><Error Text="must never execute"/><WriteLinesToFile File="must-not-exist.txt" Lines="bad"/></Target></Project>

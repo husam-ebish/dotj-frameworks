@@ -1,6 +1,6 @@
 # Batch-2517: nongeneric Task delay and cancellation
 
-Status: selected group 1/1 implemented and qualified as a bounded candidate. Independent task review, whole-branch review and root integration/merge/push remain pending; integrated selected group 0/1. Canonical Batch-2516 was actually merged and pushed at `f4617d95dcc01edeb933e5e4273bb7ca246371a7`; this branch records the post-integration CANDIDATE count/list length 2517.
+Status: selected bounded candidate implemented, qualified, merged and pushed. Canonical merge `86ae0a71075df8dae93b4487652d7d01b868f649` and retained integration receipt `15a1d003db46581786f7d8dd7259fd93046c22b624b2a0d5974f55eeab64cd68` reconcile the former preintegration pending status. This update records existing Git completion and runs no old qualification again.
 
 Exactly five public static members are added: `Task.FromCanceled(CancellationToken)`, `Task.Delay(int)`, `Task.Delay(int,CancellationToken)`, `Task.Delay(TimeSpan)` and `Task.Delay(TimeSpan,CancellationToken)`. Task remains final with its nonpublic constructor. Validation precedes cancellation/zero fast paths; TimeSpan milliseconds retain the supported long range through the production scheduler. A private composed state owns timer and actual cancellation registration publication/cleanup. Cancellation queues delay continuations after publishing state; the original Task/TCS/Run/ValueTask dispatch behavior remains qualified. Timer expiry hands off to independent daemon workers without inheriting thread locals.
 
@@ -14,11 +14,11 @@ Frozen Task2517 SDK/native/baseline prerequisite producers and raw captures were
 
 | Measure | Done | Remaining |
 | --- | ---: | ---: |
-| Selected implementation group | 1/1 candidate | independent reviews |
-| Selected integration group | 0/1 | root merge1 |
+| Selected implementation group | 1/1 qualified | 0 selected checks |
+| Selected integration group | 1/1 verified | 0 |
 | Accepted tasks | 0/1092 (0%) | core27/build25/other1040 |
 | Qualified frameworks | 0/66 | 1686 open acceptance items |
 | Historical Batch-2500 target | complete | 0 |
 | Whole-project batches | UNKNOWN | UNKNOWN |
 
-Product dependencies remain JDK java.base only; Python/JDK/.NET are development/reference tools. Generic Task/TCS/ValueTask arity, old generic-erasure ledgers, TimeProvider/Wait/WaitAsync/Run(token), broader scheduler/context behavior, whole WP02/N01/NF01-NF03, release rights and .j installer/feed qualification remain open. No acceptance, merge or push is claimed. See [selected evidence](../../repos/dotj-core/evidence/public-task-delay-v1.json) and [preservation](../../repos/dotj-core/evidence/public-task-delay-preservation-v2.json).
+Product dependencies remain JDK java.base only; Python/JDK/.NET are development/reference tools. Generic Task/TCS/ValueTask arity, old generic-erasure ledgers, TimeProvider/Wait/WaitAsync/Run(token), broader scheduler/context behavior, whole WP02/N01/NF01-NF03, release rights and .j installer/feed qualification remain open. No task acceptance or framework qualification is claimed. Verified Git integration is recorded above; the qualification narrative remains its historical evidence. See [selected evidence](../../repos/dotj-core/evidence/public-task-delay-v1.json) and [preservation](../../repos/dotj-core/evidence/public-task-delay-preservation-v2.json).

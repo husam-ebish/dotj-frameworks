@@ -381,6 +381,18 @@ final class ProjectEvaluationComponent {
         private record ExistsAtom(String rawArgument) implements ConditionExpression { }
         private record ConditionNot(ConditionExpression child) implements ConditionExpression { }
         private record ConditionRelation(ConditionExpression left, ConditionExpression right, boolean unequal) implements ConditionExpression { }
+        private enum OrderingOperator { LESS, LESS_OR_EQUAL, GREATER, GREATER_OR_EQUAL }
+        private record ConditionOrdering(ConditionExpression left, ConditionExpression right,
+                                         OrderingOperator operator) implements ConditionExpression { }
+        private record ConditionVersion(int major, int minor, int build, int revision) {
+            int compareTo(ConditionVersion other) {
+                int result=Integer.compare(major,other.major);
+                if(result==0)result=Integer.compare(minor,other.minor);
+                if(result==0)result=Integer.compare(build,other.build);
+                if(result==0)result=Integer.compare(revision,other.revision);
+                return result;
+            }
+        }
         private record HasTrailingSlashAtom(String rawArgument) implements ConditionExpression { }
         private record ConditionAnd(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
         private record ConditionOr(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
@@ -447,6 +459,15 @@ final class ProjectEvaluationComponent {
                 if(raw.startsWith("==",cursor)||raw.startsWith("!=",cursor)) {
                     boolean unequal=raw.charAt(cursor)=='!';cursor+=2;node();
                     return new ConditionRelation(left,primary(),unequal);
+                }
+                if(cursor<raw.length()&&(raw.charAt(cursor)=='<'||raw.charAt(cursor)=='>')) {
+                    boolean less=raw.charAt(cursor++)=='<';
+                    boolean inclusive=cursor<raw.length()&&raw.charAt(cursor)=='=';
+                    if(inclusive)cursor++;
+                    OrderingOperator operator=less
+                        ?(inclusive?OrderingOperator.LESS_OR_EQUAL:OrderingOperator.LESS)
+                        :(inclusive?OrderingOperator.GREATER_OR_EQUAL:OrderingOperator.GREATER);
+                    node();return new ConditionOrdering(left,primary(),operator);
                 }
                 return left;
             }
@@ -551,6 +572,7 @@ final class ProjectEvaluationComponent {
                 String argument=unescape(expand(exists.rawArgument()));
                 return Files.exists(relative(owner,argument));
             }
+            if(expression instanceof ConditionOrdering ordering)return ordering(ordering);
             ConditionRelation relation=(ConditionRelation)expression;
             ConditionExpression left=relation.left(),right=relation.right();
             boolean leftEmpty=empty(left),rightEmpty=empty(right),equal;
@@ -569,6 +591,76 @@ final class ProjectEvaluationComponent {
                 }
             }
             return relation.unequal()?!equal:equal;
+        }
+        private boolean ordering(ConditionOrdering expression) {
+            // Match NumericComparisonExpressionNode's conversion and dispatch order.
+            // Expand each reached scalar once; these locals never enter the raw AST cache.
+            String left=expression.left() instanceof ConditionScalar scalar?scalarText(scalar):null;
+            Double leftNumber=left==null?null:conditionNumber(left);
+            ConditionVersion leftVersion=left==null?null:conditionVersion(left);
+            String right=expression.right() instanceof ConditionScalar scalar?scalarText(scalar):null;
+            Double rightNumber=right==null?null:conditionNumber(right);
+            ConditionVersion rightVersion=right==null?null:conditionVersion(right);
+            if(leftNumber==null&&leftVersion==null||rightNumber==null&&rightVersion==null) {
+                // The native error selects by numeric-left success, even when left is a valid version.
+                ConditionExpression offending=leftNumber!=null?expression.right():expression.left();
+                String expanded=leftNumber!=null?right:left;
+                if(offending instanceof ConditionScalar scalar)
+                    throw reject("CONDITION_NON_NUMERIC","Ordering operand \""+scalar.raw()+"\" evaluates to \""+expanded+"\" instead of a number or version");
+                throw reject("CONDITION_NON_NUMERIC","Ordering operand has no numeric or version representation");
+            }
+            OrderingOperator operator=expression.operator();
+            if(leftNumber!=null&&rightNumber!=null)return compareNumbers(leftNumber,rightNumber,operator);
+            if(leftVersion!=null&&rightVersion!=null)return compareNumbers(leftVersion.compareTo(rightVersion),0,operator);
+            if(leftNumber!=null) {
+                if(leftNumber.doubleValue()==rightVersion.major())
+                    return operator==OrderingOperator.LESS||operator==OrderingOperator.LESS_OR_EQUAL;
+                return compareNumbers(leftNumber,rightVersion.major(),operator);
+            }
+            if(leftVersion.major()==rightNumber.doubleValue())
+                return operator==OrderingOperator.GREATER||operator==OrderingOperator.GREATER_OR_EQUAL;
+            return compareNumbers(leftVersion.major(),rightNumber,operator);
+        }
+        private static boolean compareNumbers(double left,double right,OrderingOperator operator) {
+            // Primitive comparisons preserve NaN=false in every homogeneous and mixed path.
+            return switch(operator) {
+                case LESS -> left<right;
+                case LESS_OR_EQUAL -> left<=right;
+                case GREATER -> left>right;
+                case GREATER_OR_EQUAL -> left>=right;
+            };
+        }
+        private static ConditionVersion conditionVersion(String text) {
+            asciiFold(text);
+            String[] components=text.split("\\.",-1);
+            if(components.length<2||components.length>4)return null;
+            int[] values={0,0,-1,-1};
+            for(int i=0;i<components.length;i++) {
+                Integer value=versionComponent(components[i]);
+                if(value==null)return null;
+                values[i]=value;
+            }
+            return new ConditionVersion(values[0],values[1],values[2],values[3]);
+        }
+        private static boolean integerSpace(char c) { return c==' '||c>='\t'&&c<='\r'; }
+        private static Integer versionComponent(String text) {
+            // Invariant NumberStyles.Integer: ASCII whitespace, one sign, decimal digits,
+            // trailing whitespace then optional NUL compatibility characters (in that order).
+            int cursor=0;
+            while(cursor<text.length()&&integerSpace(text.charAt(cursor)))cursor++;
+            boolean negative=false;
+            if(cursor<text.length()&&(text.charAt(cursor)=='+'||text.charAt(cursor)=='-'))
+                negative=text.charAt(cursor++)=='-';
+            int start=cursor,value=0;
+            while(cursor<text.length()&&text.charAt(cursor)>='0'&&text.charAt(cursor)<='9') {
+                int digit=text.charAt(cursor++)-'0';
+                if(value>(Integer.MAX_VALUE-digit)/10)return null;
+                value=value*10+digit;
+            }
+            if(cursor==start||negative&&value!=0)return null;
+            while(cursor<text.length()&&integerSpace(text.charAt(cursor)))cursor++;
+            while(cursor<text.length()&&text.charAt(cursor)=='\0')cursor++;
+            return cursor==text.length()?value:null;
         }
         private boolean requireBoolean(ConditionExpression expression,Path owner,boolean root) throws IOException {
             Boolean value=bool(expression,owner);

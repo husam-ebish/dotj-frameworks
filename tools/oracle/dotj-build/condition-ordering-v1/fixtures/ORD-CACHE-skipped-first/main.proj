@@ -1,0 +1,1 @@
+<Project><PropertyGroup Condition="false"><P Condition="2719&lt;3000 And true Or false">skipped</P></PropertyGroup><Import Project="nested/child.proj"/><Target Name="Never"><Error Text="must never execute"/><WriteLinesToFile File="must-not-exist.txt" Lines="bad"/></Target></Project>
