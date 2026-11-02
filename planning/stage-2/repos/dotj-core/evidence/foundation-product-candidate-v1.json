@@ -523,7 +523,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Task.java",
-      "sha256": "6b270eff64a222100be1afe047697fcbf4c95b84ac9bdc68411194dd1f5478cf"
+      "sha256": "a96f71b9e85b67dc9bd9806982976775c1f6d8e49375def56bdd957da0417af2"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskCompletionSource.java",
@@ -547,7 +547,7 @@
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "a83c6451854a7295532fd6a300f3603db6a8b3c73d65af9823222de9caf6e4db",
+  "jarSha256": "7528c565d2242ad5ab50700ad554e1561e71ba78ed40ed48b9a834cf58934099",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -688,6 +688,13 @@
     "System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.class",
     "System/Threading/Tasks/Sources/ValueTaskSourceStatus.class",
     "System/Threading/Tasks/Task$1.class",
+    "System/Threading/Tasks/Task$CompletionAttempt.class",
+    "System/Threading/Tasks/Task$DelayDefaults.class",
+    "System/Threading/Tasks/Task$DelayInfrastructure.class",
+    "System/Threading/Tasks/Task$DelayRegistrar.class",
+    "System/Threading/Tasks/Task$DelayState.class",
+    "System/Threading/Tasks/Task$DelayTimer.class",
+    "System/Threading/Tasks/Task$TimerHandle.class",
     "System/Threading/Tasks/Task.class",
     "System/Threading/Tasks/TaskCanceledException.class",
     "System/Threading/Tasks/TaskCompletionSource.class",
@@ -871,8 +878,15 @@
     "System/Threading/Tasks/Sources/IValueTaskSource.class": "5f63202635af281eb75cb6cf0cf2059b9e7d8f2aa3c5b844526329bc805e0e46",
     "System/Threading/Tasks/Sources/ValueTaskSourceOnCompletedFlags.class": "e2d712a2b08707eb25f0d29bac95348c1424deb9c36f35ad389eba92a6e56b93",
     "System/Threading/Tasks/Sources/ValueTaskSourceStatus.class": "e0890353694ab48d759f635379407f0cc424c5a1dc6798d0f8f5b524d2235000",
-    "System/Threading/Tasks/Task$1.class": "6e9dbd646871d75d6aaebd871aba63f78e080a07d7b0e83c59d38ba47af1d61d",
-    "System/Threading/Tasks/Task.class": "6f34cd86352f4e11bbbe17835bfb0ef010910a459591b7d0482433609055a0c6",
+    "System/Threading/Tasks/Task$1.class": "d15d025a8ec7f647d63d14fa0d9fd488f81e22874a1f926852e3cf778af6c9d1",
+    "System/Threading/Tasks/Task$CompletionAttempt.class": "a1aaa6a0d35518bbf63890c3fab24da0af9cd5c34ee9f29bbee4a4399311c155",
+    "System/Threading/Tasks/Task$DelayDefaults.class": "bbcf492e84adb075a0b3168fb8c21d13529d6e65665052c5ef83bce3d5d487ce",
+    "System/Threading/Tasks/Task$DelayInfrastructure.class": "8395cca9ae53d091f10d52462b34736713779c7b581294129f97374a84ac59b5",
+    "System/Threading/Tasks/Task$DelayRegistrar.class": "915c3479394f997fbc99770f8d0cbd3e69ba31877d4b5eafd9f49127e385e38d",
+    "System/Threading/Tasks/Task$DelayState.class": "7acd880238ebeb41894e9762030ba5d542da4b54278bd11455b97c0b7858857e",
+    "System/Threading/Tasks/Task$DelayTimer.class": "f73d7d490249c57a01e2199075a63a0ba97ddcb690183f3dc32e93f71506b3e3",
+    "System/Threading/Tasks/Task$TimerHandle.class": "3adcceda1d5fc43dd03c97cae7939374395c4345abe2469440b60f307524380e",
+    "System/Threading/Tasks/Task.class": "3f293779f2c9f5f4c4ccf7b48340baa53c2778a2ad961b4f472ad0061dd4fde3",
     "System/Threading/Tasks/TaskCanceledException.class": "60cb86ab029b59bdb02239658e5c128b18bcd268e34234d0802a75adb39a01ec",
     "System/Threading/Tasks/TaskCompletionSource.class": "1d1e1a9a39af376b35223b6b913e257cd208061c1f274a92b96934b08ff685a3",
     "System/Threading/Tasks/TaskStatus.class": "4307d26ae040926c61047857c26a3f255fe5fc3c3e356448d87f0a2594c2f90e",
@@ -921,20 +935,5 @@
     "org/dotj/internal/text/Utf8Codec.class": "4762214fd23835db24fbb4fc60ffd6957c403097510afe13482fbb292983b1ea",
     "org/dotj/internal/throwing/ThrowSite.class": "a1ee91996e5d293c4a7ab0c77ac612bd796739bfa8acfa3646374c6e7058ab25"
   },
-  "disposalConsumer": "PASS: product IDisposable shape, explicit dispatch, borrowed ownership and failure propagation",
-  "typeConsumer": "PASS external System.Type selected identity consumer",
-  "exceptionConsumer": "PASS external selected Exception constructors and inner identity",
-  "int32BitConsumer": "PASS external selected Int32 bit helpers",
-  "int32ArithmeticConsumer": "PASS external selected Int32 signed arithmetic",
-  "int32SpanConsumer": "PASS external selected Int32 span parsing and formatting",
-  "decimalBitsConsumer": "PASS external selected Decimal bits",
-  "decimalMultiplyConsumer": "PASS external selected Decimal multiplication",
-  "decimalDivideConsumer": "PASS external selected Decimal division",
-  "exceptionStackBoundary": {
-    "dotNetPrethrowStackNull": true,
-    "dotNetThrownStackNonEmpty": true,
-    "javaConstructedThrowableStackNonEmpty": true,
-    "mappingStatus": "OPEN: construction and throw capture points differ"
-  },
-  "status": "BUILT_FOUNDATION_CANDIDATE; complete public API, behavior, E01 release rights and framework qualification OPEN"
+  "status": "BUILT_STAGED_CANDIDATE; Batch2517 qualification and integration pending"
 }
