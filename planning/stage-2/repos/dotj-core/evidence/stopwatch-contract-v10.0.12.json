@@ -4,7 +4,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "javaSha256": "1f41cc782de7ddd8824376568f9011413d710cf225047906106d2a01a0e3f7a9",
   "oracleSha256": "cfcd31135cbda92fab26ee353afae51f31328ed672f44cf67473f4e2dcae2b6d",
-  "candidateJarSha256": "18f9b3ffb4fe2d8dcbe5a7d036b557b543a61e2a6507bfd51375420ca7017a99",
+  "candidateJarSha256": "63b46d6509f9f7a78aabee7c1463ec8291b6d7937e57ec2a95be752fb449f72d",
   "consumerSourceSha256": "4b9fa3dde11f90fdb3c22e1bc1da40e6515d9aba64473746234355bafd8b0707",
   "upstreamSourceMember": "src/libraries/System.Private.CoreLib/src/System/Diagnostics/Stopwatch.cs",
   "upstreamSourceSha256": "8ee76eff6d199d65064dd6e8b29e05b95722e670a8af8dd048c6d7fb84957955",
@@ -1133,37 +1133,37 @@
       "operation": "start",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 161
+      "observedElapsedTicks": 1010
     },
     {
       "operation": "sleep:5",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 225185
+      "observedElapsedTicks": 217106
     },
     {
       "operation": "start",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 225608
+      "observedElapsedTicks": 217979
     },
     {
       "operation": "sleep:5",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 385729
+      "observedElapsedTicks": 368487
     },
     {
       "operation": "stop",
       "running": false,
       "elapsedZero": false,
-      "observedElapsedTicks": 386105
+      "observedElapsedTicks": 369381
     },
     {
       "operation": "stop",
       "running": false,
       "elapsedZero": false,
-      "observedElapsedTicks": 386105
+      "observedElapsedTicks": 369381
     },
     {
       "operation": "reset",
@@ -1175,43 +1175,43 @@
       "operation": "restart",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 200
+      "observedElapsedTicks": 910
     },
     {
       "operation": "sleep:5",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 148261
+      "observedElapsedTicks": 133300
     },
     {
       "operation": "stop",
       "running": false,
       "elapsedZero": false,
-      "observedElapsedTicks": 148605
+      "observedElapsedTicks": 134070
     },
     {
       "operation": "start",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 148630
+      "observedElapsedTicks": 134127
     },
     {
       "operation": "sleep:5",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 306381
+      "observedElapsedTicks": 291165
     },
     {
       "operation": "stop",
       "running": false,
       "elapsedZero": false,
-      "observedElapsedTicks": 307041
+      "observedElapsedTicks": 291799
     },
     {
       "operation": "restart",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 95
+      "observedElapsedTicks": 97
     },
     {
       "operation": "reset",
@@ -1223,19 +1223,19 @@
       "operation": "startNew",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 388
+      "observedElapsedTicks": 863
     },
     {
       "operation": "sleep:5",
       "running": true,
       "elapsedZero": false,
-      "observedElapsedTicks": 138846
+      "observedElapsedTicks": 138887
     },
     {
       "operation": "stop",
       "running": false,
       "elapsedZero": false,
-      "observedElapsedTicks": 139830
+      "observedElapsedTicks": 139637
     }
   ],
   "candidateTrace": [
@@ -1276,67 +1276,67 @@
       "record": "state",
       "operation": "start",
       "running": true,
-      "before": 6,
-      "after": 2762,
-      "spanTicks": 9,
+      "before": 5,
+      "after": 2418,
+      "spanTicks": 8,
       "milliseconds": 0,
-      "text": "00:00:00.0000016",
-      "javaText": "00:00:00.0002060"
+      "text": "00:00:00.0000014",
+      "javaText": "00:00:00.0001834"
     },
     {
       "record": "state",
       "operation": "sleep:5",
       "running": true,
-      "before": 64237,
-      "after": 70554,
-      "spanTicks": 64263,
-      "milliseconds": 6,
-      "text": "00:00:00.0064331",
-      "javaText": "00:00:00.0068693"
+      "before": 9009372,
+      "after": 9012519,
+      "spanTicks": 9009399,
+      "milliseconds": 900,
+      "text": "00:00:00.9009452",
+      "javaText": "00:00:00.9011886"
     },
     {
       "record": "state",
       "operation": "start",
       "running": true,
-      "before": 72594,
-      "after": 75704,
-      "spanTicks": 72600,
-      "milliseconds": 7,
-      "text": "00:00:00.0072619",
-      "javaText": "00:00:00.0074204"
+      "before": 9013721,
+      "after": 9014815,
+      "spanTicks": 9013723,
+      "milliseconds": 901,
+      "text": "00:00:00.9013731",
+      "javaText": "00:00:00.9014292"
     },
     {
       "record": "state",
       "operation": "sleep:5",
       "running": true,
-      "before": 144005,
-      "after": 146241,
-      "spanTicks": 144030,
-      "milliseconds": 14,
-      "text": "00:00:00.0144075",
-      "javaText": "00:00:00.0145810"
+      "before": 9069086,
+      "after": 9071513,
+      "spanTicks": 9069114,
+      "milliseconds": 906,
+      "text": "00:00:00.9069164",
+      "javaText": "00:00:00.9070999"
     },
     {
       "record": "state",
       "operation": "stop",
       "running": false,
-      "before": 147165,
-      "after": 147165,
-      "spanTicks": 147165,
-      "milliseconds": 14,
-      "text": "00:00:00.0147165",
-      "javaText": "00:00:00.0147165"
+      "before": 9072687,
+      "after": 9072687,
+      "spanTicks": 9072687,
+      "milliseconds": 907,
+      "text": "00:00:00.9072687",
+      "javaText": "00:00:00.9072687"
     },
     {
       "record": "state",
       "operation": "stop",
       "running": false,
-      "before": 147165,
-      "after": 147165,
-      "spanTicks": 147165,
-      "milliseconds": 14,
-      "text": "00:00:00.0147165",
-      "javaText": "00:00:00.0147165"
+      "before": 9072687,
+      "after": 9072687,
+      "spanTicks": 9072687,
+      "milliseconds": 907,
+      "text": "00:00:00.9072687",
+      "javaText": "00:00:00.9072687"
     },
     {
       "record": "state",
@@ -1354,77 +1354,77 @@
       "operation": "restart",
       "running": true,
       "before": 3,
-      "after": 915,
+      "after": 1034,
       "spanTicks": 5,
       "milliseconds": 0,
-      "text": "00:00:00.0000010",
-      "javaText": "00:00:00.0000491"
+      "text": "00:00:00.0000011",
+      "javaText": "00:00:00.0000560"
     },
     {
       "record": "state",
       "operation": "sleep:5",
       "running": true,
-      "before": 52899,
-      "after": 54889,
-      "spanTicks": 52913,
+      "before": 54667,
+      "after": 56475,
+      "spanTicks": 54674,
       "milliseconds": 5,
-      "text": "00:00:00.0052944",
-      "javaText": "00:00:00.0054482"
+      "text": "00:00:00.0054694",
+      "javaText": "00:00:00.0055904"
     },
     {
       "record": "state",
       "operation": "stop",
       "running": false,
-      "before": 55597,
-      "after": 55597,
-      "spanTicks": 55597,
+      "before": 57023,
+      "after": 57023,
+      "spanTicks": 57023,
       "milliseconds": 5,
-      "text": "00:00:00.0055597",
-      "javaText": "00:00:00.0055597"
+      "text": "00:00:00.0057023",
+      "javaText": "00:00:00.0057023"
     },
     {
       "record": "state",
       "operation": "start",
       "running": true,
-      "before": 55600,
-      "after": 56438,
-      "spanTicks": 55601,
+      "before": 57025,
+      "after": 57831,
+      "spanTicks": 57027,
       "milliseconds": 5,
-      "text": "00:00:00.0055607",
-      "javaText": "00:00:00.0056000"
+      "text": "00:00:00.0057033",
+      "javaText": "00:00:00.0057467"
     },
     {
       "record": "state",
       "operation": "sleep:5",
       "running": true,
-      "before": 121952,
-      "after": 123845,
-      "spanTicks": 121969,
-      "milliseconds": 12,
-      "text": "00:00:00.0122012",
-      "javaText": "00:00:00.0123496"
+      "before": 116935,
+      "after": 119430,
+      "spanTicks": 116958,
+      "milliseconds": 11,
+      "text": "00:00:00.0117003",
+      "javaText": "00:00:00.0119016"
     },
     {
       "record": "state",
       "operation": "stop",
       "running": false,
-      "before": 124666,
-      "after": 124666,
-      "spanTicks": 124666,
+      "before": 120406,
+      "after": 120406,
+      "spanTicks": 120406,
       "milliseconds": 12,
-      "text": "00:00:00.0124666",
-      "javaText": "00:00:00.0124666"
+      "text": "00:00:00.0120406",
+      "javaText": "00:00:00.0120406"
     },
     {
       "record": "state",
       "operation": "restart",
       "running": true,
-      "before": 3,
-      "after": 1062,
-      "spanTicks": 6,
+      "before": 6,
+      "after": 1316,
+      "spanTicks": 8,
       "milliseconds": 0,
-      "text": "00:00:00.0000016",
-      "javaText": "00:00:00.0000576"
+      "text": "00:00:00.0000017",
+      "javaText": "00:00:00.0000727"
     },
     {
       "record": "state",
@@ -1442,33 +1442,33 @@
       "operation": "startNew",
       "running": true,
       "before": 3,
-      "after": 761,
-      "spanTicks": 4,
+      "after": 1021,
+      "spanTicks": 5,
       "milliseconds": 0,
-      "text": "00:00:00.0000009",
-      "javaText": "00:00:00.0000440"
+      "text": "00:00:00.0000011",
+      "javaText": "00:00:00.0000548"
     },
     {
       "record": "state",
       "operation": "sleep:5",
       "running": true,
-      "before": 63250,
-      "after": 65085,
-      "spanTicks": 63268,
-      "milliseconds": 6,
-      "text": "00:00:00.0063303",
-      "javaText": "00:00:00.0064764"
+      "before": 58273,
+      "after": 60783,
+      "spanTicks": 58291,
+      "milliseconds": 5,
+      "text": "00:00:00.0058333",
+      "javaText": "00:00:00.0060439"
     },
     {
       "record": "state",
       "operation": "stop",
       "running": false,
-      "before": 66302,
-      "after": 66302,
-      "spanTicks": 66302,
+      "before": 61574,
+      "after": 61574,
+      "spanTicks": 61574,
       "milliseconds": 6,
-      "text": "00:00:00.0066302",
-      "javaText": "00:00:00.0066302"
+      "text": "00:00:00.0061574",
+      "javaText": "00:00:00.0061574"
     }
   ],
   "candidateCounter": {
@@ -1477,12 +1477,12 @@
     "highResolution": true,
     "nondecreasing": true,
     "advanced": true,
-    "start": 619899,
-    "end": 619919,
-    "oneArgumentTicks": 14,
+    "start": 9518016,
+    "end": 9518037,
+    "oneArgumentTicks": 16,
     "derivedReset": true
   },
   "liveStateChecksPassed": 21,
-  "outerNativeElapsedTicks": 1519289,
+  "outerNativeElapsedTicks": 11103616,
   "qualification": "BOUNDED_100NS_MONOTONIC_PROFILE_PASS; ORIGIN_LIFETIME_RESOLUTION_SUSPEND_CONCURRENCY_REFLECTION_LANGUAGE_AND_RELEASE_OPEN"
 }

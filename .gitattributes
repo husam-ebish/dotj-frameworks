@@ -1425,3 +1425,10 @@ planning/stage-2/repos/dotj-core/evidence/utf8-strict-differential-v1.json -text
 planning/stage-2/repos/dotj-core/evidence/utf8-type-differential-v1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 dotj-core/dotj-core-public/src/main/java/System/TimeoutException.java text eol=lf
 planning/stage-2/repos/dotj-core/evidence/public-task-wait-async*-v1.json -text
+planning/stage-2/repos/dotj-core/evidence/foundation-file-notice-map-v1.json -text
+tools/oracle/dotj-core/verify-public-task-wait-async.py text eol=lf
+planning/stage-2/repos/dotj-core/evidence/n01-selected-task-wait-async-v1.json -text
+tools/oracle/dotj-core/public-task-wait-async-v1/* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/oracle/dotj-core/public-task-wait-async-v1/*.tsv whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve immutable native-capture bytes, including the space-only Oracle line 153.
+tools/oracle/dotj-core/public-task-wait-async-v1/PublicTaskWaitAsyncOracle.cs whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

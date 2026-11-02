@@ -12355,13 +12355,9 @@
   "nextProposedBatch": {
     "id": null,
     "framework": "dotj-core",
-    "planTaskIds": [
-      "DJ-001-WP-02-T1",
-      "DJ-001-WP-02-T2"
-    ],
-    "outcome": "Root independent specification/quality/whole-branch reviews and terminal integration of the qualified Batch2519 candidate, then select remaining acceptance scope.",
+    "outcome": "Root independent Task119 specification/code/whole-branch reviews and integration of qualified candidate2520; future scope remains unassigned.",
     "requiresContinue": false,
-    "basis": "Exactly one selected Run(Action,CancellationToken) overload qualified; no additional batch number assigned or acceptance credit."
+    "basis": "Selected group remains planned1/done0/remaining1 until required reviews/integration. No acceptance credit or global batch remainder invented."
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
@@ -12618,5 +12614,58 @@
     "associationPrivateControls": 6,
     "fixRound": 1,
     "scopedRereviewPending": true
+  },
+  "batch2519CandidateSemantics": "Historical premerge qualification snapshot retained verbatim; actual integration is reconciled separately below.",
+  "batch2519IntegrationReconciliation": {
+    "status": "ACTUALLY_MERGED_AND_PUSHED",
+    "head": "fffc29c7a9607547be14e8f161530873c11d711d",
+    "receipt": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2519-integration-v1.json",
+      "sha256": "dc102ebf8b3daaa38f3b964e3a12c03e6072de1f085df236a1b36194159ca564",
+      "sizeBytes": 48736
+    },
+    "canonicalJarAbsent": true,
+    "canonicalBuildOrJvmClaim": false
+  },
+  "batch2520Candidate": {
+    "status": "IMPLEMENTATION_QUALIFIED_ROOT_REVIEW_AND_INTEGRATION_PENDING",
+    "framework": "dotj-core",
+    "canonicalIntegratedBatch": "Batch-2519",
+    "canonicalBase": "fffc29c7a9607547be14e8f161530873c11d711d",
+    "selectedGroupsPlanned": 1,
+    "selectedGroupsDone": 0,
+    "selectedGroupsRemaining": 1,
+    "implementationChecksPassed": true,
+    "taskReviewPending": true,
+    "wholeBranchReviewPending": true,
+    "rootMergePushPending": true,
+    "publicTaskOverloads": 3,
+    "publicExceptionClasses": 1,
+    "publicExceptionConstructors": 3,
+    "nativeCases": 487,
+    "nativeFields": 10690,
+    "nativePassesPerMatrix": 2,
+    "privateControls": 27,
+    "negativeControls": 47,
+    "historicalGroups": 16,
+    "actualFoundationChecks": 520,
+    "jar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+      "sha256": "63b46d6509f9f7a78aabee7c1463ec8291b6d7937e57ec2a95be752fb449f72d",
+      "sizeBytes": 871254
+    },
+    "qualification": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-foundation-v1.json",
+      "sha256": "26c6004da1de64e6c0bb441dbf51ac02647f8f0af4caf99bcbc1dd76a016d6f7",
+      "sizeBytes": 5745
+    },
+    "firstIntermediateJarUnavailable": true,
+    "acceptedTasksAdded": 0,
+    "qualifiedFrameworksAdded": 0,
+    "openAcceptanceItems": 1686,
+    "e01Open": 3,
+    "totalProjectBatches": null,
+    "remainingProjectBatches": null,
+    "historicalBatch2500TargetRemaining": 0
   }
 }

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "selectedNativeApis": [
+    "System.Threading.Tasks.Task.WaitAsync(System.Threading.CancellationToken)",
+    "System.Threading.Tasks.Task.WaitAsync(System.TimeSpan)",
+    "System.Threading.Tasks.Task.WaitAsync(System.TimeSpan,System.Threading.CancellationToken)"
+  ],
+  "exception": "System.TimeoutException ordinary class/three public constructors; inherited exception behavior and Type exact/ignore-case lookup",
+  "compiledDeclaredDelta": {
+    "before": 2509,
+    "after": 2516,
+    "added": [
+      "System/Threading/Tasks/Task|M|WaitAsync|(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|1",
+      "System/Threading/Tasks/Task|M|WaitAsync|(LSystem/TimeSpan;)LSystem/Threading/Tasks/Task;|1",
+      "System/Threading/Tasks/Task|M|WaitAsync|(LSystem/TimeSpan;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|1",
+      "System/TimeoutException|C|33",
+      "System/TimeoutException|M|<init>|()V|1",
+      "System/TimeoutException|M|<init>|(Ljava/lang/String;)V|1",
+      "System/TimeoutException|M|<init>|(Ljava/lang/String;LSystem/Exception;)V|1"
+    ],
+    "removed": []
+  },
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+    "sha256": "63b46d6509f9f7a78aabee7c1463ec8291b6d7937e57ec2a95be752fb449f72d",
+    "sizeBytes": 871254
+  },
+  "contract": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-contract-v1.json",
+    "sha256": "13a7f96fbad8d1baf8e5c680cf22c3886432dfc5d9c8083fd0f701cba1c7a169",
+    "sizeBytes": 17149
+  },
+  "sourceAndMetadata": "Pinned runtime4271d88 / installedCoreLib1125acc... / native10.0.12; exact selected fields in primary390/8510 plus17/340 and80/1840 supplements",
+  "wholeN01Qualified": false,
+  "acceptanceCredit": 0,
+  "unsupported": [
+    "TimeProvider",
+    "generic Task<TResult>",
+    "obsolete formatter construction",
+    "ambient CLR context/custom scheduler",
+    "public .j execution",
+    "whole Task/.NET and release qualification"
+  ]
+}

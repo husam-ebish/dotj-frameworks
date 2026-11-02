@@ -15,6 +15,12 @@ ROOT = Path(__file__).resolve().parents[3]
 ORACLE = Path(__file__).resolve().parent
 EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence"
 OUTPUT = EVIDENCE / "foundation-public-candidate-gate-v1.json"
+WAIT_ASYNC_EVIDENCE_FILES = (
+    "public-task-wait-async-v1.json",
+    "public-task-wait-async-contract-v1.json",
+    "public-task-wait-async-preservation-v1.json",
+    "n01-selected-task-wait-async-v1.json",
+)
 CHECKS = (
     "verify-foundation-check-scheduler.py",
     "capture-foundation-public-metadata.py",
@@ -535,6 +541,7 @@ CHECKS = (
     "verify-public-valuetask-task.py",
     "verify-public-task-delay.py",
     "verify-public-task-run-token.py",
+    "verify-public-task-wait-async.py",
 )
 
 
@@ -544,6 +551,12 @@ def read(name):
 
 def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def selected_task_evidence_name(evidence=EVIDENCE):
+    return (WAIT_ASYNC_EVIDENCE_FILES[0]
+            if (evidence / WAIT_ASYNC_EVIDENCE_FILES[0]).is_file()
+            else "public-task-run-token-v1.json")
 
 
 def main():
@@ -574,7 +587,8 @@ def main():
     jar_hash = artifact["jarSha256"]
     assert jar_hash == mapping["jarSha256"] == queue["jarSha256"]
     assert jar_hash == packet["candidateJarSha256"]
-    assert jar_hash == read("public-task-run-token-v1.json")["candidateJar"]["sha256"]
+    selected_task_evidence = selected_task_evidence_name()
+    assert jar_hash == read(selected_task_evidence)["candidateJar"]["sha256"]
     assert sha256(ROOT / artifact["jarPath"]) == jar_hash
     assert len(artifact["productSources"]) == queue["sourceCount"]
     assert len(artifact["jarEntries"]) == len(artifact["classSha256"]) + 2
@@ -1575,12 +1589,15 @@ def main():
         "public-task-run-token-contract-v1.json",
         "n01-selected-task-run-token-v1.json",
     )
+    if selected_task_evidence == WAIT_ASYNC_EVIDENCE_FILES[0]:
+        evidence_files += WAIT_ASYNC_EVIDENCE_FILES
     record = {
         "schemaVersion": 1,
         "scope": "Current dotj-core public foundation candidate and bounded E01 inputs",
         "executionPhases": phase_results,
         "checks": list(CHECKS),
         "candidateJarSha256": jar_hash,
+        "selectedTaskEvidence": selected_task_evidence,
         "productSourceCount": len(artifact["productSources"]),
         "jarEntryCount": len(artifact["jarEntries"]),
         "evidenceSha256": {

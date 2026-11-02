@@ -34,6 +34,10 @@ def receipt(d,expected_status):
  return r
 
 def main(legacy=False):
+ if (E/'public-task-wait-async-v1.json').is_file():
+  sys.path.insert(0,str(ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1'))
+  from verify_candidate import main as wait_async_successor
+  wait_async_successor();return
  if (E/'public-task-run-token-v1.json').is_file():
   sys.path.insert(0,str(ROOT/'tools/oracle/dotj-core/public-task-run-token-v1'))
   from verify_candidate import main as run_token_successor

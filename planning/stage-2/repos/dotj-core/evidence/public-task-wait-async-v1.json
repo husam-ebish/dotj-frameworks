@@ -1,0 +1,534 @@
+{
+  "version": 1,
+  "status": "SELECTED_BEHAVIOR_CHECKS_PASSED",
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+    "sha256": "63b46d6509f9f7a78aabee7c1463ec8291b6d7937e57ec2a95be752fb449f72d",
+    "sizeBytes": 871254
+  },
+  "compiledRoot": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1",
+  "publicSurface": {
+    "before": 2509,
+    "after": 2516,
+    "added": [
+      "System/Threading/Tasks/Task|M|WaitAsync|(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|1",
+      "System/Threading/Tasks/Task|M|WaitAsync|(LSystem/TimeSpan;)LSystem/Threading/Tasks/Task;|1",
+      "System/Threading/Tasks/Task|M|WaitAsync|(LSystem/TimeSpan;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|1",
+      "System/TimeoutException|C|33",
+      "System/TimeoutException|M|<init>|()V|1",
+      "System/TimeoutException|M|<init>|(Ljava/lang/String;)V|1",
+      "System/TimeoutException|M|<init>|(Ljava/lang/String;LSystem/Exception;)V|1"
+    ],
+    "removed": []
+  },
+  "contract": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-contract-v1.json",
+    "sha256": "13a7f96fbad8d1baf8e5c680cf22c3886432dfc5d9c8083fd0f701cba1c7a169",
+    "sizeBytes": 17149
+  },
+  "sourcePinArchive": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\adopted-source-pin-archive-v1.json",
+    "sha256": "05c07c68caee3ff86aa9b17622e7c10f35a8aa2212439d7318288b4f0632bea3",
+    "sizeBytes": 14545
+  },
+  "baseline": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\baseline-v1\\receipt.json",
+    "sha256": "6f3f6fc511818cf31ef0b9101cc806d5855aff276f90db3afcbf618061be6533",
+    "sizeBytes": 144469
+  },
+  "native": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\native-v2\\receipt.json",
+    "sha256": "74171ac0e6fa1dbf557b6ed9fe85d91107ae650c5bbec6bf9a2e8b2eedf9fd6b",
+    "sizeBytes": 1881668
+  },
+  "build": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\build-v2\\receipt.json",
+    "sha256": "30e25c88f471ccca65875f8d4a36a3ed7145c593ba28b3296c7c709562347a6f",
+    "sizeBytes": 231575
+  },
+  "paired": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\paired-v4\\receipt.json",
+    "sha256": "85635f9ed31abc836749216327e5b22a90a39da242e4ce012631ae9ed744f312",
+    "sizeBytes": 23549
+  },
+  "private": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\private-v5\\receipt.json",
+    "sha256": "99fb3623c516ed01a34a1507dbee0bb91a2c3adbe9892d4ee96d807660cfddc2",
+    "sizeBytes": 41400
+  },
+  "sample": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\sample-v1\\receipt.json",
+    "sha256": "c9d8996a99630803ad1129b98a0a57185d40c2e049cfd517b5e213bf2259a954",
+    "sizeBytes": 137128
+  },
+  "predecessorEvidence": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\adopted-source-pins-v2\\11\\public-task-run-token-v1.json",
+    "sha256": "0c56bafae8baaa54ef9c26f72e052349872e67f6f6d2eeaed7800b1359babacb",
+    "sizeBytes": 20532
+  },
+  "preservation": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-preservation-v1.json",
+    "sha256": "35c6c9af02a0c0790ad72ae71a2ac117ec567b5f66b153d26b6b1ddd48da3cde",
+    "sizeBytes": 56969
+  },
+  "historicalSuccessors": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\historical-successors-v2.json",
+    "sha256": "7479827f9664501a4f9d4116a4eac1209a04f7c78babd0a49ffde77d9cdbbfee",
+    "sizeBytes": 4030
+  },
+  "historicalPhases": [
+    {
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\historical-v1\\receipt.json",
+        "sha256": "96db5f514a2d62879e9f41c61a5a11f7717ff8f9db2b7f4e8f8988199a9f16f1",
+        "sizeBytes": 101451
+      },
+      "status": "FAILED_RETAINED",
+      "acceptedGroups": [
+        "valuetask-task",
+        "valuetask-boundaries",
+        "task"
+      ]
+    },
+    {
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\historical-tail-v2\\receipt.json",
+        "sha256": "625bf3ddc18f91d9a30eec70ef0096a4aa4a6d95606ddbea65f49ec8b745ba06",
+        "sizeBytes": 307058
+      },
+      "status": "PASS_HISTORICAL",
+      "acceptedGroups": [
+        "task-boundaries",
+        "worktask",
+        "worktask-boundaries",
+        "delegate-action-v1",
+        "public-cancellation-v1",
+        "public-valuetask-v1",
+        "delay",
+        "delay-private",
+        "run-token",
+        "run-token-supplement",
+        "run-token-association",
+        "run-token-private",
+        "run-token-association-private"
+      ]
+    }
+  ],
+  "nativeCases": 487,
+  "nativeFields": 10690,
+  "nativePasses": 2,
+  "privateControls": 27,
+  "reader": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\verify_candidate.py",
+    "sha256": "0bd6c20d974c4ac354ef7c4452c98688f3027f4ce3b5ce866d3852a23257e1d1",
+    "sizeBytes": 28524
+  },
+  "inheritedRunCases": 39,
+  "inheritedRunFields": 524,
+  "inheritedRunControls": 29,
+  "inheritedLegacyGroups": 11,
+  "foundationQualification": "Actual full foundation gate remains future work; separate receipt will record it after completion",
+  "intermediateBuild1ArtifactUnavailable": true,
+  "acceptanceCredit": 0,
+  "acceptedTasks": "0/1092 (0%)",
+  "openAcceptanceItems": 1686,
+  "qualifiedFrameworks": "0/66",
+  "e01Decisions": "All three OPEN",
+  "wholeProjectRemainingBatches": "UNKNOWN",
+  "integration": "Root independent reviews, merge and push not asserted",
+  "primaryCases": 390,
+  "primaryFields": 8510,
+  "supplementFreeze": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\supplement-freeze-v1.json",
+    "sha256": "90e384a78f556c2a5d076a6b64c90a2b1cf4e2bf2a54314a9d47221e1d500b24",
+    "sizeBytes": 2797
+  },
+  "supplements": [
+    {
+      "kind": "source-disposal",
+      "native": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\native-supplement-v1\\receipt.json",
+        "sha256": "593ea9abf588751bf503ef290f38974dd753f30908fb6e54ff696cdf5dd95018",
+        "sizeBytes": 112321
+      },
+      "paired": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\paired-supplement-v1\\receipt.json",
+        "sha256": "18bb86d5d8b4c5375ad2dcf8eba5aeda7c33cb39fba9910f6761fe4bd063901d",
+        "sizeBytes": 35309
+      }
+    },
+    {
+      "kind": "validation",
+      "native": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\native-validation-v1\\receipt.json",
+        "sha256": "76817b1b42560a4402369675a9b043e67d8fb674b05c59987dfdf880293fe42d",
+        "sizeBytes": 31694
+      },
+      "paired": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\paired-validation-v1\\receipt.json",
+        "sha256": "4f111d666eb0ca92c11c7e1d1f96fc52e5ecb8ad65993886e7c1198e5443af34",
+        "sizeBytes": 35826
+      }
+    }
+  ],
+  "nativeTimeoutProfile": {
+    "nativeChildSeconds": 60,
+    "predecessorRunSeconds": 30,
+    "unchanged": "Windows Job/128MiB/SDK10.0.401/runtime10.0.12/Disable/resource/outer1800 envelope",
+    "rootAdjudication": "Retrospectively accepted60s for fixed matrix; actual primary captures0.8648873s/0.8508296s fit both bounds; no nominal-limit recapture and no priorapproval claim"
+  },
+  "toolPins": [
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/.gitattributes",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\.gitattributes",
+        "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+        "sizeBytes": 8
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/BaselineWaitAsync.java",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\BaselineWaitAsync.java",
+        "sha256": "5addcb258016621865ef98a2a063d48d4d74aa4bd170b010118ba06879cd909a",
+        "sizeBytes": 371
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/expected-public-surface-v1.txt",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\expected-public-surface-v1.txt",
+        "sha256": "547cd503cfc8fdffe1bbaea37a86ec661eecb7a9fdf7ff75ddb81edccb1d097d",
+        "sizeBytes": 212189
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/historical-successors-v1.json",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\historical-successors-v1.json",
+        "sha256": "3b74593a430cad5458b0ffb4f3ddd19cbb3b84b6c4e290792f4b98f55e2091ab",
+        "sizeBytes": 3345
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/historical-successors-v2.json",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\historical-successors-v2.json",
+        "sha256": "7479827f9664501a4f9d4116a4eac1209a04f7c78babd0a49ffde77d9cdbbfee",
+        "sizeBytes": 4030
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/historical.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\historical.py",
+        "sha256": "1b3c6f54051ea7f9658a90e5cd8ca6b994dace45724e37756193cdcbbcc81cf2",
+        "sizeBytes": 6178
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/matrix-v1.json",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\matrix-v1.json",
+        "sha256": "0a9f3dcb816294ed6f08ad4ba6b7c0208c74356d18431ae4de3824e49b537655",
+        "sizeBytes": 100313
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/matrix-v1.tsv",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\matrix-v1.tsv",
+        "sha256": "6c1df27b3e5354785e0ac3c30d7faf69447fbce4bb5180679d4e87da8bd6451c",
+        "sizeBytes": 24041
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/matrix-v2.json",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\matrix-v2.json",
+        "sha256": "58395f01fb8832a072a1a47a53da97236b637c5a2a0d6d9ed614a7f699c22fba",
+        "sizeBytes": 100660
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/matrix-v2.tsv",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\matrix-v2.tsv",
+        "sha256": "cd737614e7912bc1b28f7174abd6c2bc74c980668af95ec145d1c5ce63435154",
+        "sizeBytes": 24041
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/prepare-contract.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\prepare-contract.py",
+        "sha256": "9443883512485c86537ee93610ea98c04142019d56a4a18c0f2644227397e6f8",
+        "sizeBytes": 4357
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/PublicTaskWaitAsyncFixtures.java",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\PublicTaskWaitAsyncFixtures.java",
+        "sha256": "f867c21792b7694aac2c85fd4836d8750dbcfb57e5e6dbc9a9b5f8a4e4fdb538",
+        "sizeBytes": 15783
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/PublicTaskWaitAsyncOracle.cs",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\PublicTaskWaitAsyncOracle.cs",
+        "sha256": "3f52ef82c47bfb35f04e47ca3ce1a7d9f5e938072a6ea264cad99b4addb0c525",
+        "sizeBytes": 14707
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/qualify.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\qualify.py",
+        "sha256": "0db3e4cc58276d06e0d2aeffa56f0b8ae6a667ddc130df479f15be817b2ce55f",
+        "sizeBytes": 20905
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/supplement-schema-v1.json",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\supplement-schema-v1.json",
+        "sha256": "21d54d103324d0fdce7245b3a5ad025eb0d987361bb298e267c7755da2d792f9",
+        "sizeBytes": 1492
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/SupplementWaitAsyncFixtures.java",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\SupplementWaitAsyncFixtures.java",
+        "sha256": "e25506d2508108f7333d1fe26f9dc23889ae1ae88ce0a316aa68231eea1e8be3",
+        "sizeBytes": 5736
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/SupplementWaitAsyncOracle.cs",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\SupplementWaitAsyncOracle.cs",
+        "sha256": "8ae02c5228a04dcd13db17130cdaea59ff3b16c5876a75391da130ca877a7d77",
+        "sizeBytes": 5332
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/TaskBoundaryControls.java",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\TaskBoundaryControls.java",
+        "sha256": "d512ae34f12356585e0432fa7266b305bbc3aa4f11bb93941f80f35844de8e1f",
+        "sizeBytes": 13819
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/TaskWaitAsyncControls.java",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\TaskWaitAsyncControls.java",
+        "sha256": "15e8105229d3368c44c5f7a14878066f67ce99bc426d6b9c960d8e0e64e692f8",
+        "sizeBytes": 23443
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/validation-boundary-schema-v1.json",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\validation-boundary-schema-v1.json",
+        "sha256": "3d756e85f553d6c83a93baf3a1419e9727be6561fc348d897e9e77d5aaff4707",
+        "sizeBytes": 22401
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/validation-boundary-v1.tsv",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\validation-boundary-v1.tsv",
+        "sha256": "156699c5b635ee425da6451d208d3dd9f9f16354f255dcb6611eb57ca3ee46e9",
+        "sizeBytes": 4868
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/verify-negative-controls.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\verify-negative-controls.py",
+        "sha256": "957c4b8b34d9b9d3f1d6de92eff48dba3a5eb8b10cf73b2e83e5d38f58fef9bc",
+        "sizeBytes": 6693
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/verify_candidate.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\verify_candidate.py",
+        "sha256": "0bd6c20d974c4ac354ef7c4452c98688f3027f4ce3b5ce866d3852a23257e1d1",
+        "sizeBytes": 28524
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/WaitAsyncSample.cs",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\WaitAsyncSample.cs",
+        "sha256": "7f37723fe932ae8e94eebc668340ca4e497ff15afea387d6978a294d1bb8993c",
+        "sizeBytes": 1364
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/WaitAsyncSample.java",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\WaitAsyncSample.java",
+        "sha256": "290e5ac951a246a6ce6899f7aafb6afd4add10f6bf8ee42b065f818321f67f81",
+        "sizeBytes": 1985
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/WorkTaskBoundaryControls.java",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\WorkTaskBoundaryControls.java",
+        "sha256": "f182361370b7f40c9de4e70d604b9133477ccc88ad8e6e97bf0b069778d817ca",
+        "sizeBytes": 12855
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/verify-public-task-wait-async.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\verify-public-task-wait-async.py",
+        "sha256": "7bdf8e10aa9da358d9a55cd2483f25a2c32c4b58a94f023a0f51188cca30e184",
+        "sizeBytes": 264
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/verify-public-task-run-token.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\verify-public-task-run-token.py",
+        "sha256": "c913b529a99e8217eeed8ddb2ff4421195a41d8bbd126b0ee1517576f952aaf6",
+        "sizeBytes": 433
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/verify-public-task-delay.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\verify-public-task-delay.py",
+        "sha256": "476fa1deca3e14f63b87ff8fe30b180710a6ca0a688027f626f69c46614c3552",
+        "sizeBytes": 759
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/verify-public-valuetask-task.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\verify-public-valuetask-task.py",
+        "sha256": "46e822ace9f7d85953746598042ee95d8c6a1f4bf46447cdea81c4b19c90a53e",
+        "sizeBytes": 11833
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/verify-public-worktask-cancelasync.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\verify-public-worktask-cancelasync.py",
+        "sha256": "16881393a33447015e25cf299dc5c218b30ee82125d321844965a6d05813b113",
+        "sizeBytes": 1821
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/run-foundation-public-candidate-gate.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\run-foundation-public-candidate-gate.py",
+        "sha256": "ed476729423b8cd431f96f7c4910fca0e09c9bd1a0308e43d29bf5f09a7ee5f2",
+        "sizeBytes": 90940
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/build-system-type-candidate.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\build-system-type-candidate.py",
+        "sha256": "88e01c2fe809add9a3c8b1dc57c0d962229f34420147c26438b5e540cf6e99bb",
+        "sizeBytes": 198398
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-delay-product-v1/product_support.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-delay-product-v1\\product_support.py",
+        "sha256": "88c96ea7444c78ae6c5ebabc6945abfd23920602f466741f5944af3d4288c4dd",
+        "sizeBytes": 12295
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-run-token-v1/qualify.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\qualify.py",
+        "sha256": "f0c25d0955b0249e574ed62846a5e62d596cdd2cb7db5b6603b6361c5c49da19",
+        "sizeBytes": 21010
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/build-foundation-product-candidate.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\build-foundation-product-candidate.py",
+        "sha256": "a4b4d97b109686f0a28132251cc5242a82034ecdb2990b83333bfca32ad04b68",
+        "sizeBytes": 340251
+      }
+    },
+    {
+      "relativePath": "tools/oracle/dotj-core/public-task-wait-async-v1/GateTaskEvidenceControls.py",
+      "pin": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\GateTaskEvidenceControls.py",
+        "sha256": "ac224cbd31720a8234042943b1f962678c5b001c75e6a74084db9cda818d6f60",
+        "sizeBytes": 3731
+      }
+    }
+  ],
+  "negativeControls": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\owned-negative-controls-v1\\controls\\receipt.json",
+    "sha256": "66e98a2577d527f4ffa8dffc21f20a87bf69e119cc75c99a7b32ec3819d9d78b",
+    "sizeBytes": 7698
+  },
+  "negativePhase": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\owned-negative-controls-v1\\receipt.json",
+    "sha256": "1051244221b42306a136881c60c39ab0e0ba69dce701c47de0fea6e7d46500ae",
+    "sizeBytes": 25055
+  },
+  "negativeControlChronology": "Direct historical47pure runs retained; current47 proof is the actual owned Python-only run on the final reader and all three matrices. Its selected-evidence input snapshot precedes appending this completed proof.",
+  "n01SelectedMap": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\n01-selected-task-wait-async-v1.json",
+    "sha256": "f3398e3134a3ef72b69d9e8c2acd18effb543c496c7253e514dd1d32a3ef8192",
+    "sizeBytes": 2211
+  },
+  "baselineClarification": {
+    "genuineJavacOverloadRefusals": 3,
+    "constructorDiagnostic": "Fourth diagnostic refers to implicit java.lang.System qualification collision, not a reliable constructor reference. Original fixture/raw and executed source remain unchanged historical evidence.",
+    "timeoutAbsenceProof": "Actual retained18f9 compiled public surface lacks TimeoutException class and ordinary constructors; exact final7-entry delta independently adds that class/3ctors plus3WaitAsync methods.",
+    "oldProducerWording": "four actual missing members",
+    "currentProducerWording": "three genuine overload refusals plus System name-collision diagnostic; class absence is proved by compiled surface"
+  },
+  "gate1Failure": {
+    "phase": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\foundation-gate-v1\\receipt.json",
+      "sha256": "ce7751d2c8541c08db3acb936f610f55467ac5e725271d7bfd36e8242e48cbda",
+      "sizeBytes": 531854
+    },
+    "rawCause": "All520 child checks completed; final aggregate asserted historical Run-token18f9 rather than currentWait63b. No PASS aggregate claimed.",
+    "preservation": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\failed-gate-v1-preservation-manifest.json",
+      "sha256": "45f42b85d6efc26fa6c5b85eed55c1eeff9e49fff813d561b094fd0ccc01afbe",
+      "sizeBytes": 1271351
+    },
+    "productChanged": false
+  },
+  "postGate1Transition": {
+    "scope": "Current task evidence selection and four noncircular aggregate proof bindings; producer diagnostic wording only. Final reader body, product bytes and all487native/27private/16history/sample captures unchanged.",
+    "gate1SelectedSnapshot": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\gate-executed-selected-evidence-v1.json",
+      "sha256": "79680f12916bad09e4c8e149315229a0711c017c91dda1be5878d7996194e7e5",
+      "sizeBytes": 24667
+    },
+    "newAggregateSource": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\run-foundation-public-candidate-gate.py",
+      "sha256": "ed476729423b8cd431f96f7c4910fca0e09c9bd1a0308e43d29bf5f09a7ee5f2",
+      "sizeBytes": 90940
+    },
+    "newProducerSource": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\tools\\oracle\\dotj-core\\public-task-wait-async-v1\\qualify.py",
+      "sha256": "0db3e4cc58276d06e0d2aeffa56f0b8ae6a667ddc130df479f15be817b2ce55f",
+      "sizeBytes": 20905
+    },
+    "rootRuling": "Correct local aggregate helper, test strict wrong/malformed current refusal and legacy inability to qualify63b; finalpure then complete freshgate2. No oldRun evidence rewrite or future-source execution claim."
+  }
+}
