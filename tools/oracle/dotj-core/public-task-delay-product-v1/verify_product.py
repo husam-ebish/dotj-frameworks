@@ -7,6 +7,21 @@ def group_command(rec,name):
     label=rec['label'];prefix='run-'+name+'-'
     return label=='compile-'+name or (label.startswith(prefix) and label[len(prefix):].isdigit())
 
+def qualified_artifact(artifact,evidence,source_root):
+    """Canonical source projection reads the exact archived qualified artifact.
+
+    Every D/W17/gate tree must supply its own actual current JAR. The canonical
+    read-only path never calls the archived artifact a new canonical build.
+    """
+    root=Path(source_root).resolve()
+    if root==Path('C:/source/repos/dotj Frameworks').resolve():
+        path=p.resolve(evidence['candidateJar'])
+        c.require(c.sha(path)==artifact['jarSha256']==evidence['candidateJar']['sha256'],'exact archived canonical projection artifact')
+        return path,'ARCHIVED_QUALIFIED_ARTIFACT_FOR_CANONICAL_SOURCE_PROJECTION'
+    path=root/artifact['jarPath']
+    c.require(path.is_file() and c.sha(path)==artifact['jarSha256']==evidence['candidateJar']['sha256'],'actual current D/gate JAR required; no archive fallback')
+    return path,'ACTUAL_CURRENT_D_OR_GATE_ARTIFACT'
+
 def command(rec,success=True):
     c.require(type(rec.get('processId')) is int and rec['processId']>0,'owned positive typed PID')
     for key in ['launched','jobAssigned','resumed']:c.require(rec.get(key) is True,'owned child '+key)
@@ -69,7 +84,7 @@ def validate(e):
     c.keys(e,['schemaVersion','status','candidateJar','contract','build','paired','private','historicalPartial','historicalTailPartial','historicalTail','sample','archiveManifest','historicalAudit','exports','forensicRecovery','acceptanceCredit','qualifiedFrameworks','remainingBoundaries'],'product evidence')
     c.require(type(e['schemaVersion']) is int and e['schemaVersion']==1 and e['status']=='BOUNDED_CANDIDATE_QUALIFIED_INTEGRATION_PENDING','bounded candidate status')
     c.require(e['acceptanceCredit']==0 and e['qualifiedFrameworks']==0,'no acceptance/release promotion')
-    artifact=c.read(p.E/'foundation-product-candidate-v1.json');jar=p.ROOT/artifact['jarPath'];digest=c.sha(jar)
+    artifact=c.read(p.E/'foundation-product-candidate-v1.json');jar,artifactMode=qualified_artifact(artifact,e,p.ROOT);digest=c.sha(jar)
     c.require(e['candidateJar']['sha256']==digest==artifact['jarSha256'],'current canonical candidate must match identical qualified final JAR')
     p.resolve(e['candidateJar']);p.check_surface(jar)
     for pin in artifact['productSources']:c.require(c.sha(p.ROOT/pin['path'])==pin['sha256'],'current source closure')
@@ -134,10 +149,10 @@ def validate(e):
             c.require(data==next(x['expected'] for x in plan if x['name']==name),'legacy native fields')
     sample=receipt(e['sample'],digest,'PASS_SAMPLE');actual_group(sample['groups'][0],sample['commands'],e['candidateJar']['path'])
     c.require(p.resolve(sample['groups'][0]['payloads'][0]).read_text(encoding='utf-8').splitlines()==['sample.success\tb\ttrue','sample.canceled\tb\ttrue'],'actual packaged migration Java sample')
-    return dict(cases=113,fields=3955,nativePasses=2,privateControls=30,privateGroups=9,historicalGroups=len(groups),historicalActualFieldsAndControls=sum(g['actualCount'] for g in groups),surfaceAdditions=5,jarSha256=digest)
+    return dict(cases=113,fields=3955,nativePasses=2,privateControls=30,privateGroups=9,historicalGroups=len(groups),historicalActualFieldsAndControls=sum(g['actualCount'] for g in groups),surfaceAdditions=5,jarSha256=digest,artifactProvenance=artifactMode)
 
 def main():
     result=validate(c.read(p.E/'public-task-delay-v1.json'))
-    print('PASS Task delay candidate:113cases/3955fields x2native;30private/9groups;9historicalgroups;exact5APIs;sameJAR '+result['jarSha256'])
+    print('PASS Task delay candidate:113cases/3955fields x2native;30private/9groups;9historicalgroups;exact5APIs;sameJAR '+result['jarSha256']+';'+result['artifactProvenance'])
 
 if __name__=='__main__':main()
