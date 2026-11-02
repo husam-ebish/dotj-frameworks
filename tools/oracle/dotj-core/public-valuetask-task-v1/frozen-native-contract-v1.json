@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "contract": "VALUETASK-TASK-NATIVE-v1",
+  "runtime": "10.0.12",
+  "publicExtensions": [
+    {
+      "kind": "M",
+      "name": "<init>",
+      "descriptor": "(LSystem/Threading/Tasks/Task;)V",
+      "modifiers": 1
+    },
+    {
+      "kind": "M",
+      "name": "AsTask",
+      "descriptor": "()LSystem/Threading/Tasks/Task;",
+      "modifiers": 1
+    },
+    {
+      "kind": "M",
+      "name": "Preserve",
+      "descriptor": "()LSystem/Threading/Tasks/ValueTask;",
+      "modifiers": 1
+    }
+  ],
+  "sourceSemantics": [
+    {
+      "id": "S-BACKING",
+      "anchors": [
+        "U-VT:74-85",
+        "U-VT:146-180",
+        "U-VT:294-407"
+      ],
+      "rule": "Null Task constructor throws ArgumentNullException(task). Task backing uses token0; predicates mirror Task, direct GetResult waits/rethrows via Task, AsTask returns original Task. Equality compares backing identity/token and hash invokes backing virtual hash. Compare hash relations rather than cross-runtime numeric hashes."
+    },
+    {
+      "id": "S-PRESERVE",
+      "anchors": [
+        "U-VT:172-183",
+        "U-VT:29-53"
+      ],
+      "rule": "Default AsTask uses CompletedTask; default Preserve stays completed. Task-backed Preserve retains backing Task. Source-backed Preserve converts via AsTask into a durable Task-backed value. Java ValueTask object reference identity is not native struct identity."
+    },
+    {
+      "id": "S-SYNC-SOURCE",
+      "anchors": [
+        "U-VT:190-225"
+      ],
+      "rule": "GetStatus runs once outside catch. Every non-Pending status consumes GetResult once synchronously. Normal result yields CompletedTask even when status says Faulted/Canceled/unknown. A thrown result is classified using previously read status, not exception type alone."
+    },
+    {
+      "id": "S-CANCELLATION",
+      "anchors": [
+        "U-VT:207-224",
+        "U-VT:261-277",
+        "U-TASK:3258-3288",
+        "U-TASK:3396-3432",
+        "U-TA:135-146"
+      ],
+      "rule": "Canceled status plus OCE stores original exception and its token, even if token unsignaled; repeated awaits rethrow same OCE. Canceled status plus ordinary exception discards that fault and uses pre-canceled token, producing TCE on awaiting. Non-canceled status plus OCE stays faulted with original identity. Canceled Task.Exception is null."
+    },
+    {
+      "id": "S-PENDING",
+      "anchors": [
+        "U-VT:228-291"
+      ],
+      "rule": "Pending conversion registers exactly one callback with original token and None flags, returning an owned pending promise without blocking. Callback checks state/source, clears retained source, reads status once, consumes result once, and completes using the status-directed rules. Initialized adapter must support inline callback during OnCompleted."
+    },
+    {
+      "id": "S-THROW-BOUNDARIES",
+      "anchors": [
+        "U-VT:192",
+        "U-VT:236-255",
+        "U-VT:286-290"
+      ],
+      "rule": "Initial GetStatus and OnCompleted exceptions escape AsTask synchronously. Callback GetStatus exception escapes callback invocation and leaves Task pending. Sequential duplicate callback or null/wrong state throws ArgumentOutOfRangeException(state) before another consumption. Exact private native state-string/ActualValue rendering is a Java representation boundary; stable type/parameter/resource checks stay paired."
+    },
+    {
+      "id": "S-CONTINUATIONS",
+      "anchors": [
+        "U-VTA:35-84",
+        "U-CVTA:40-92",
+        "U-TA:79-187",
+        "U-TASK:2484-2543"
+      ],
+      "rule": "Task-backed normal/configured awaiters delegate completion/result/registration. Null continuation validation follows Task route. Existing source flags remain3/1/3/2/1/0. Late Task registration queues; pending first callback may inline in existing default-context shallow-stack profile. No-context tests do not establish custom context or execution-flow parity."
+    },
+    {
+      "id": "S-CONSUMPTION",
+      "anchors": [
+        "U-VT:29-53",
+        "U-VT:172-183",
+        "U-VT:190-291"
+      ],
+      "rule": "Original source-backed ValueTask is not reusable after conversion. Repeated await and continuation tests target one returned Task or one preserved value. Do not prescribe repeated AsTask/Preserve on a consumed reusable source, awaiting original after conversion, or arbitrary concurrent duplicate callbacks as supported behavior. Diagnostic repeatable sources can expose per-call flow without generalizing reuse guarantees."
+    }
+  ],
+  "consumption": "Original source-backed value is consumed once. Durable tests use only returned Task/preserved ValueTask. No arbitrary concurrent duplicate callback contract.",
+  "nativeBoundary": "CLR private Task subclass versus Java final Task composition; private state ActualValue/state formatting excluded.",
+  "hashBoundary": "paired hash relations only, no cross-runtime integer hash comparison",
+  "contextBoundary": "default context and shallow stack only; no custom SynchronizationContext or ExecutionContext claims",
+  "foreignThrowablePolicy": "Java-only: GetStatus/OnCompleted RuntimeException/Error propagate unchanged; GetResult foreign Throwable wraps in System.Exception preserving cause and status-directed completion. Canceled status follows ordinary-exception cancellation; native original System.OperationCanceledException remains identity-preserved.",
+  "nativeObservationProtocol": "One future reviewed native capture; schema/C#/sources/runtime/helpers/source trace locks become immutable after capture. Candidate and fullgate consume verify-only.",
+  "regressionObligations": [
+    "ValueTask135 including virtual-hash/null-callback/state cases",
+    "Task61 rows/697 scalar observations and current successor49 Java controls",
+    "WorkTask/CancelAsync66 designed rows/612 fields plus8 Java-only groups after root actual qualification",
+    "delegate34 and cancellation48",
+    "Actual canonical product/independent consumers, source-to-class binder, ordered rights/provenance/upstream-text/notice/ThrowSite/E01/oracle audits"
+  ],
+  "mutableStatusAuthority": "planning/stage-2/implementation/batches/Batch-2515.md and repository STATE; qualification status must not be edited into this frozen contract",
+  "exclusions": [
+    "Generic Task/TCS/ValueTask, ManualResetValueTaskSourceCore, async builders/compiler lowering, struct copies/default-awaiter and runtime generic identity remain separate.",
+    "No ValueTask.FromException/FromCanceled/FromResult or public Task.FromCanceled needed for selected3 APIs. Adjacent factories can be a later separately scoped vertical; counts UNKNOWN.",
+    "No custom scheduler/SynchronizationContext or ExecutionContext/AsyncLocal capture qualification. Existing configured ValueTask remains usable in default context and source flags remain observable.",
+    "No broad reflection parity: Java ValueTask class and existing representation helper constructors/bridges differ; native private adapter subclass/state formatting not portable API.",
+    "No reuse guarantee for original source-backed value after conversion, stable canceled-cache identity under races, or arbitrary concurrent duplicate source callbacks.",
+    "Foreign Java Throwable policy and catastrophic JVM worker allocation/start failure remain separate from CLR behavior. Freeze explicit result-boundary adaptation before implementation.",
+    "Broader graph/.jinstaller and all E01 decisions remain unresolved. This plan is not framework or artifact acceptance."
+  ]
+}

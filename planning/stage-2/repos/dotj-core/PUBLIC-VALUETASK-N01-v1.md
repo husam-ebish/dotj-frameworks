@@ -29,7 +29,7 @@ pending.ConfigureAwait(false).GetAwaiter().UnsafeOnCompleted(new Action(() -> re
 
 ## Limits
 
-- The selected public nongeneric `Task` prerequisite now exists. `AsTask`, `Preserve` and `new ValueTask(Task)` remain unimplemented integrations. The Batch-2514 candidate implements selected `CancelAsync`; see [the current contract](PUBLIC-WORKTASK-CANCELASYNC-N01-v1.md). Independent task review approved; root canonical gate passed 516/516 checks and verified the identical final JAR. Whole-branch review and root integration/merge/push remain pending. No acceptance credit is claimed.
+- The selected public nongeneric `Task` prerequisite now exists. The selected `AsTask`, `Preserve` and `new ValueTask(Task)` integration is defined in [the Task lifetime contract](PUBLIC-VALUETASK-TASK-N01-v1.md); current status belongs to Batch-2515. The Batch-2514 candidate implements selected `CancelAsync`; see [the current contract](PUBLIC-WORKTASK-CANCELASYNC-N01-v1.md). Independent task review approved; root canonical gate passed 516/516 checks and verified the identical final JAR. Whole-branch review and root integration/merge/push remain pending. No acceptance credit is claimed.
 - Generic `ValueTask<T>`, `ValueTaskAwaiter<T>`, `ManualResetValueTaskSourceCore` and `ExecutionContext` capture are not provided.
 - Scheduling-context posting is not implemented: the flags are passed to the source, but this layer does not post to a `SynchronizationContext`.
 - Struct copy semantics are not claimed.

@@ -6,6 +6,7 @@ import System.Action;
 import System.AggregateException;
 import System.ArgumentNullException;
 import System.Exception;
+import System.OperationCanceledException;
 import System.Runtime.CompilerServices.TaskAwaiter;
 import System.Threading.CancellationToken;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public final class Task {
     private final Object lock = new Object();
     private volatile TaskStatus status = TaskStatus.WaitingForActivation;
     private Exception fault;
+    private OperationCanceledException cancellationCause;
     private CancellationToken token = CancellationToken.get_None();
     private List<Action> continuations = new ArrayList<>();
     private final TaskBridge access = new TaskBridge() {
@@ -96,12 +98,22 @@ public final class Task {
         synchronized (lock) { return token; }
     }
 
+    boolean completeCanceled(OperationCanceledException cause) {
+        return complete(TaskStatus.Canceled, null, cause.get_CancellationToken(), cause);
+    }
+
     boolean complete(TaskStatus terminal, Exception exception, CancellationToken cancellationToken) {
+        return complete(terminal, exception, cancellationToken, null);
+    }
+
+    private boolean complete(TaskStatus terminal, Exception exception, CancellationToken cancellationToken,
+            OperationCanceledException originalCancellation) {
         List<Action> pending;
         synchronized (lock) {
             if (get_IsCompleted()) return false;
             fault = exception;
             token = cancellationToken;
+            cancellationCause = originalCancellation;
             pending = continuations;
             continuations = null;
             status = terminal; // Release publication follows all terminal payload writes.
@@ -133,7 +145,10 @@ public final class Task {
                 }
             }
             if (get_IsFaulted()) throw fault;
-            if (get_IsCanceled()) throw new TaskCanceledException(this);
+            if (get_IsCanceled()) {
+                if (cancellationCause != null) throw cancellationCause;
+                throw new TaskCanceledException(this);
+            }
         } finally {
             if (interrupted) Thread.currentThread().interrupt();
         }
