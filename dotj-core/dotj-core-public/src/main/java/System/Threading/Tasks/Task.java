@@ -222,12 +222,34 @@ public final class Task {
 
     public static Task Run(Action action) { return run(action, QUEUE); }
 
+    public static Task Run(Action action, CancellationToken cancellationToken) {
+        return run(action, cancellationToken, QUEUE);
+    }
+
     // Per-invocation seam: production always uses the asynchronous daemon pool.
     static Task run(Action action, Executor executor) {
         if (action == null) throw new ArgumentNullException("action");
+        return schedule(action, null, executor, null);
+    }
+
+    static Task run(Action action, CancellationToken cancellationToken, Executor executor) {
+        return run(action, cancellationToken, executor, null);
+    }
+
+    // The optional barrier belongs to this invocation, never to mutable global state.
+    static Task run(Action action, CancellationToken cancellationToken, Executor executor, Runnable afterEntryCheck) {
+        if (action == null) throw new ArgumentNullException("action");
+        if (cancellationToken == null) throw new ArgumentNullException("cancellationToken");
+        return schedule(action, cancellationToken, executor, afterEntryCheck);
+    }
+
+    private static Task schedule(Action action, CancellationToken cancellationToken, Executor executor,
+            Runnable afterEntryCheck) {
         Task task = new Task();
+        // TaskCanceledException(Task) observes this association in every state.
+        task.token = cancellationToken == null ? CancellationToken.get_None() : cancellationToken;
         task.status = TaskStatus.WaitingToRun;
-        Runnable work = () -> task.execute(action);
+        Runnable work = () -> task.execute(action, cancellationToken, afterEntryCheck);
         try { executor.execute(work); }
         catch (RejectedExecutionException rejection) {
             daemon(() -> {
@@ -238,18 +260,32 @@ public final class Task {
         return task;
     }
 
-    private void execute(Action action) {
+    private void execute(Action action, CancellationToken cancellationToken, Runnable afterEntryCheck) {
+        // Runtime-queued work acquires no cancellation registration. The worker
+        // checks once at entry; a later request cannot revoke an entered action.
+        if (cancellationToken != null && cancellationToken.get_IsCancellationRequested()) {
+            complete(TaskStatus.Canceled, null, cancellationToken);
+            return;
+        }
         status = TaskStatus.Running;
+        if (afterEntryCheck != null) afterEntryCheck.run();
         Exception failure = null;
+        OperationCanceledException cancellation = null;
         try { action.Invoke(); }
-        catch (Exception original) { failure = original; }
+        catch (Exception original) {
+            if (original instanceof OperationCanceledException canceled && cancellationToken != null
+                    && cancellationToken.get_IsCancellationRequested()
+                    && cancellationToken.Equals(canceled.get_CancellationToken())) cancellation = canceled;
+            else failure = original;
+        }
         catch (Throwable foreign) {
             failure = new Exception("Java task action failed.");
             failure.initCause(foreign);
         }
         // Completion dispatch is outside the action catch scope.
-        complete(failure == null ? TaskStatus.RanToCompletion : TaskStatus.Faulted,
-                failure, CancellationToken.get_None());
+        if (cancellation != null) completeCanceled(cancellation);
+        else complete(failure == null ? TaskStatus.RanToCompletion : TaskStatus.Faulted,
+                    failure, cancellationToken == null ? CancellationToken.get_None() : cancellationToken);
     }
 
     public TaskStatus get_Status() { return status; }
@@ -375,7 +411,7 @@ public final class Task {
     }
 
     private static Thread daemon(Runnable body, String name) {
-        Thread thread = new Thread(body, name);
+        Thread thread = new Thread(null, body, name, 0, false);
         thread.setDaemon(true);
         return thread;
     }

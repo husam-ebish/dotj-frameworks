@@ -1,0 +1,140 @@
+{
+  "version": 2,
+  "batch": 2519,
+  "selectedApi": "public static System.Threading.Tasks.Task Run(System.Action action, System.Threading.CancellationToken cancellationToken)",
+  "publicDelta": "System/Threading/Tasks/Task|M|Run|(LSystem/Action;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|9",
+  "adoptedPlan": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\next-core-run-token-scope-plan-v1.json",
+    "sha256": "4bda2ea05f65010517d72575f50358ca84869cf3b0dd4b265be856a456a8b726"
+  },
+  "runtimeSource": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\Task.cs",
+    "sha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+    "sizeBytes": 389364
+  },
+  "upstreamTests": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\libraries\\System.Runtime\\tests\\System.Threading.Tasks.Tests\\Task\\TaskRtTests.cs",
+    "sha256": "27fa4f56273d730d5cb0266947ac10281b78ec73471281673c55721034c11366",
+    "sizeBytes": 56711
+  },
+  "runtimeRevision": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "sourceAnchors": {
+    "nullAction": "Task.cs507-522",
+    "noRegistration": "Task.cs605-650 QueuedByRuntime exclusion; InternalStartNew1141-1156",
+    "queue": "Task.cs1658-1691",
+    "entry": "Task.cs2238-2296",
+    "matchingOce": "Task.cs2413-2434",
+    "publicRun": "Task.cs5525-5546"
+  },
+  "upstreamMapping": [
+    {
+      "method": "TaskRtTests.RunRunTests",
+      "assertions": "Selected Action live-token body invocation and RanToCompletion; no upstream generic/AttachedToParent execution",
+      "designedCases": [
+        "live",
+        "none",
+        "default"
+      ]
+    },
+    {
+      "method": "TaskRtTests.RunRunTests_Cancellation_Negative",
+      "assertions": "Selected precanceled Action suppression and IsCanceled; await replaces unsupported public Wait",
+      "designedCases": [
+        "precanceled"
+      ]
+    }
+  ],
+  "designedFixtureSources": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\PublicTaskRunTokenOracle.cs",
+      "sha256": "0adbd91d65fbbfbddae639084add21c684ceb806c5e4403036bc54f2915b8899",
+      "sizeBytes": 4880
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\PublicTaskRunTokenFixtures.java",
+      "sha256": "0f9fa0fbfbbce1ad6955daacbbf0db64ef88ebd4df8b54b9da014c1e55e9855b",
+      "sizeBytes": 5985
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\SupplementRunTokenOracle.cs",
+      "sha256": "8d49c2dcc0a4b79d0656df59ad77c5bc9f9788cbcf7ca12d4bf920ea7cb1c182",
+      "sizeBytes": 2601
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\SupplementRunTokenFixtures.java",
+      "sha256": "bb1444b6c7a849eb84083c570bdfe84f12f7648ed340e5a3c1b7eea305323829",
+      "sizeBytes": 3287
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\TaskRunTokenControls.java",
+      "sha256": "9ad464f1e049c4aceea8fd267410759207c731f068ffabb32067ecb55c45acd2",
+      "sizeBytes": 15068
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\TaskRunTokenAssociationOracle.cs",
+      "sha256": "746cdbc55598e50b6410657425e906a9b148d45c20999bb90f51149f518ee6e6",
+      "sizeBytes": 3354
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\TaskRunTokenAssociationFixtures.java",
+      "sha256": "a5450c6c0baf539f9f19dd305edcf67e9cac03d36f6e41e4ad7654755081489a",
+      "sizeBytes": 4395
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\TaskRunTokenAssociationControls.java",
+      "sha256": "d7e7b5a4a74585f070ca4386ffd926eb2f545aca70f6c85f30d7a55c688fbbba",
+      "sizeBytes": 3728
+    }
+  ],
+  "semantics": [
+    "Validate action before Java token null",
+    "Run-associated token is initialized before queue publication and retained on success/fault/cancellation; existing TaskCanceledException(Task) observes it while queued/running/terminal. Old Run(Action) remains None; unrelated promise/Delay policy unchanged.",
+    "Always queue including requested tokens; no return-time status contract",
+    "Worker checks requested token once before invoking action",
+    "Cancellation after entry neither interrupts nor forces cancellation",
+    "Only associated requested token equal to thrown OCE token cancels; original OCE retained for repeated awaits",
+    "Unrequested/default/foreign/null Java OCE token faults; ordinary failures fault despite requests",
+    "No Run registration/CTR/timer ownership; completion dispatch outside action catch",
+    "Old Run(Action) keeps all-OCE-fault behavior"
+  ],
+  "fieldNormalization": {
+    "repeatIdentity": "For synthesized skip TaskCanceledException with no original action exception, this is a vacuous original-identity assertion. No synthesized exception object reuse is claimed. Matching action OCE and fault identities are compared directly.",
+    "taskIdentity": "TaskCanceledException payload identity; other exceptions vacuous",
+    "heldRunning": "Only emitted while an entered action is blocked; never status at Run return"
+  },
+  "javaAdaptations": [
+    "Java null token validation and null OCE token faults are separate representation controls",
+    "No inheritable JVM state from creator at fresh daemon construction is a correction to the predecessor shared helper; it is source-derived predecessor behavior, not an observed predecessor run",
+    "Cached workers are not cleared of arbitrary task-written ThreadLocals; no CLR ExecutionContext capture claim",
+    "Foreign Java Throwable wrapped with original cause",
+    "Rejected executor reports on new daemon and invokes work in finally; catastrophic thread creation failures remain outside delivery guarantee",
+    "Private held executor/after-entry barrier gives source-supported ordering, not a CLR scheduling observation"
+  ],
+  "exclusions": [
+    "generic Task/TCS/ValueTask arity",
+    "Func/unwrap Run",
+    "custom scheduler/creation options",
+    "ExecutionContext parity",
+    "public .j execution",
+    "CTS/CTR/Delay redesign",
+    "whole WP02/N01/NF acceptance",
+    "E01 release rights"
+  ],
+  "acceptanceCredit": 0,
+  "acceptedTasks": "0/1092 (0%)",
+  "openAcceptanceItems": 1686,
+  "qualifiedFrameworks": "0/66",
+  "wholeProjectRemainingBatches": "UNKNOWN",
+  "e01Decisions": "All three OPEN",
+  "fixRound": 1,
+  "associationNative": {
+    "cases": 14,
+    "fields": 224,
+    "receipt": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\association-native-v1\\receipt.json",
+      "sha256": "b2b27be43c8d9fd7b2b53638220b60a246a1c6b38b89e58eb32d53401c795205",
+      "sizeBytes": 1884515
+    },
+    "nativeQueuedObservationClaim": false
+  }
+}

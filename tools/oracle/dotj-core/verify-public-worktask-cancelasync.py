@@ -3,6 +3,11 @@ import importlib.util,json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
 def main():
+    if (ROOT/'planning/stage-2/repos/dotj-core/evidence/public-task-run-token-v1.json').is_file():
+        import sys
+        sys.path.insert(0,str(ROOT/'tools/oracle/dotj-core/public-task-run-token-v1'))
+        from verify_candidate import main as run_token_successor
+        run_token_successor();return
     if (ROOT/'planning/stage-2/repos/dotj-core/evidence/public-task-delay-v1.json').is_file():
         import sys
         sys.path.insert(0,str(ROOT/'tools/oracle/dotj-core/public-task-delay-product-v1'))

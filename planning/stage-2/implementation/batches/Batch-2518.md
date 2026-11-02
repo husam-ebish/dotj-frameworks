@@ -1,6 +1,6 @@
 # Batch-2518: numeric and version ordering conditions
 
-Status: one selected private implementation group is implemented and qualified. Independent product review is approved. Whole-branch approval is required before integration; terminal merge/push is verified from Git ancestry and remote equality, not asserted by this preintegration report.
+Status: one selected private implementation group is implemented, qualified, merged and pushed. The actual integration receipt verifies master and origin/master at `a116c7ec505dff9dc076a658dee52b7beb4dc6a8`, with the reviewed tree `03a76a32c42dbf44a4d17ff6c40de031a09f77ce`. Receipt: `D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/batch2518-integration-v1.json`, SHA-256 `11c75389202e3af08df40baca9e1b45519d5f2ce730cf769177d85acc59633fa`. Qualification was not replayed for this status reconciliation.
 
 The private evaluator supports `<`, `<=`, `>` and `>=` for numeric pairs, version pairs and both mixed operand directions at existing condition sites. Conversion order, version component parsing, NaN comparisons and selected error-side behavior follow the pinned sources and observed reference contract. Equality, Boolean short circuit, immutable raw AST caching, reached single-pass expansion, warnings, owner isolation, bounds and the no-task boundary remain preserved. No public facade or module exports were added.
 
@@ -12,16 +12,18 @@ Reference capture retains two matching 308-case passes: 222 native successes and
 
 | Measure | Recorded result | Remaining |
 | --- | --- | --- |
-| Numbered qualified candidate records in this checkout | 2518 | terminal integration from Git |
+| Numbered qualified candidate records through this batch | 2518 | integrated at a116c7ec |
 | Historical Batch-2500 target | 2500/2500 | 0 to that target |
 | Whole-project batches | UNKNOWN | UNKNOWN |
 | Selected private ordering group | 1/1 qualified | 0 implementation checks |
 | Accepted implementation tasks | 0/1092 (0%) | 1092 |
 | Open acceptance items | 1686 | no closure credit here |
 | Qualified frameworks | 0/66 | 66 |
-| Git workflow | feature/batch-2518-build-ordering-conditions-v1 to master | whole-branch gate, then verify merge/push |
-| Next concrete work | verify integration, then select remaining acceptance scope | no further batch number assigned |
+| Git workflow | feature/batch-2518-build-ordering-conditions-v1 to master | actual merge/push verified |
+| Next concrete work | Batch-2519 selected Core Task.Run(Action,CancellationToken) | qualification and root review recorded separately |
 
-`completedBatches` records qualified numbered candidates in the checkout; on a feature branch it includes that candidate. It does not assert that a future merge or push has happened. The canonical baseline before this integration was Batch2517 at86ae. Root records terminal merge/push separately and reports the verified mainline result.
+`completedBatches` records qualified numbered candidates in the checkout; on a feature branch it includes that candidate. The canonical baseline before this integration was Batch2517 at86ae. Batch2518 integration is the verified Git fact above; any later feature candidate count is separate from the integrated mainline count.
+
+T110-DOC-M1 current-status clarification: the wording at [evaluation CONTRACT.md:197](../../../../dotj-build/evaluation-candidate/CONTRACT.md) and [condition-ordering product README.md:69](../../../../tools/oracle/dotj-build/condition-ordering-product-v1/README.md) belongs to frozen Task106 development snapshots. Their original bytes are preserved. Later same-JAR qualification is recorded in [private-condition-ordering-v1.json](../../repos/dotj-build/evidence/private-condition-ordering-v1.json); actual Batch2518 integration is recorded by the receipt above. Those frozen preparation-time statements do not describe the current integration state.
 
 Product dependencies are JDK `java.base` and `java.xml`, with no third-party Java runtime library. Python, the pinned JDK and the .NET reference tools are development/validation tools. Paths in the evidence describe this machine, not portable installation requirements. The broader66-framework dependency graph, public .j installer/feed, full public API/platform/item/glob coverage and release qualification remain open. No full .NET parity, accepted work-package task or qualified framework is claimed. See [selected evidence](../../repos/dotj-build/evidence/private-condition-ordering-v1.json).
