@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "newMembers": [
+    {
+      "clr": "public static System.Threading.Tasks.Task FromCanceled(System.Threading.CancellationToken cancellationToken)",
+      "java": "public static Task FromCanceled(CancellationToken cancellationToken)",
+      "source": "Task.cs:5468-5473",
+      "metadataLines": "task.json:691-703"
+    },
+    {
+      "clr": "public static System.Threading.Tasks.Task Delay(System.Int32 millisecondsDelay)",
+      "java": "public static Task Delay(int millisecondsDelay)",
+      "source": "Task.cs:5742",
+      "metadataLines": "task.json:584-596"
+    },
+    {
+      "clr": "public static System.Threading.Tasks.Task Delay(System.Int32 millisecondsDelay, System.Threading.CancellationToken cancellationToken)",
+      "java": "public static Task Delay(int millisecondsDelay, CancellationToken cancellationToken)",
+      "source": "Task.cs:5762-5770",
+      "metadataLines": "task.json:563-581"
+    },
+    {
+      "clr": "public static System.Threading.Tasks.Task Delay(System.TimeSpan delay)",
+      "java": "public static Task Delay(TimeSpan delay)",
+      "source": "Task.cs:5685",
+      "metadataLines": "task.json:668-680"
+    },
+    {
+      "clr": "public static System.Threading.Tasks.Task Delay(System.TimeSpan delay, System.Threading.CancellationToken cancellationToken)",
+      "java": "public static Task Delay(TimeSpan delay, CancellationToken cancellationToken)",
+      "source": "Task.cs:5714-5728",
+      "metadataLines": "task.json:599-617"
+    }
+  ],
+  "addedMemberCount": 5,
+  "preserve": "All existing Task public signatures, final class and externally read-only producer boundary.",
+  "forbidden": [
+    "public timer abstraction",
+    "public constructor",
+    "public completion producer",
+    "TimeProvider",
+    "Task<TResult>",
+    "Run(Action,CancellationToken)",
+    "Wait/WaitAsync"
+  ],
+  "baselineComparison": "Future compiled surface compares complete old inventory plus exact five; do not reduce to checking additions alone.",
+  "old49BoundaryControls": "Original bytes remain frozen; Java-only successor retains all behavior assertions and allows only this exact delta."
+}

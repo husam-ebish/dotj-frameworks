@@ -1,0 +1,2208 @@
+{
+  "version": 1,
+  "basis": "SOURCE_PREDICTED_NOT_OBSERVED",
+  "runtimeCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "sourceAnchors": [
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "lines": "5468-5473",
+      "fact": "FromCanceled requires requested token; AOOE parameter cancellationToken otherwise; retain supplied token."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "lines": "5685,5714-5728,5742,5762-5787",
+      "fact": "Exact overload forwarding, delay validation before token/zero selection, cast TotalMilliseconds to long then range-check -1..4294967294."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "lines": "5791-5847",
+      "fact": "Infinite allocates no timer; System timer suppresses context flow; timer-field late publication is cleaned; successful completion precedes cleanup."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "lines": "5851-5896,3454-3480",
+      "fact": "UnsafeRegister, async-continuation flag before canceled completion, benign timer-win async race, late-registration disposal and registration-before-timer cleanup."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/Timer.cs",
+      "lines": "181-185,261-268,334,670-686,714-733,827",
+      "fact": "Timer callbacks are dispatched through threadpool paths; timeout maximum 0xfffffffe. Isolation from blocking callbacks is a design obligation, not an exact scheduling promise."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/CancellationToken.cs",
+      "lines": "250-263,287-294",
+      "fact": "UnsafeRegister passes no synchronization/execution context; default token returns empty registration."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs",
+      "lines": "586-600",
+      "fact": "Already-canceled registration is synchronous; uncanceled disposed source accepts no registration. Do not infer throwing from stale XML exception documentation."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/Tasks/Task.java",
+      "lines": "20-53,101-136,138-165,169-196",
+      "fact": "Final Task, package-private producer, payload-before-volatile-terminal publication, first pending continuation inline/additional queued, await TCE(Task), already-completed registration queues."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/Tasks/TaskCanceledException.java",
+      "lines": "9-17",
+      "fact": "Constructor retains original Task and its token for await cancellation identity."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/Tasks/TaskCompletionSource.java",
+      "lines": "11-30",
+      "fact": "Old producer uses the default completion path; preserve its semantics and null-token adaptation."
+    },
+    {
+      "root": "product",
+      "path": "System/Runtime/CompilerServices/TaskAwaiter.java",
+      "lines": "8-20",
+      "fact": "Immutable bridge exposes result and completion registration; context capture explicitly outside profile."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/CancellationToken.java",
+      "lines": "26-42,51-78",
+      "fact": "None/live/requested checks, callback registration and source-backed token equality."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/CancellationTokenRegistration.java",
+      "lines": "29-79",
+      "fact": "Unregister removes pending callback; Dispose waits on other running thread and bypasses self-wait."
+    },
+    {
+      "root": "product",
+      "path": "System/Threading/CancellationTokenSource.java",
+      "lines": "86-111,199-244",
+      "fact": "Cancel invokes callbacks outside source lock; late requested registration invokes synchronously, disposed nonrequested registration returns empty, disposal unregisters existing callbacks."
+    },
+    {
+      "root": "product",
+      "path": "System/TimeSpan.java",
+      "lines": "38-44,978-982",
+      "fact": "Tick construction and TotalMilliseconds carrier usable for delay truncation and range validation."
+    },
+    {
+      "root": "upstream",
+      "path": "System.Runtime/tests/System.Threading.Tasks.Tests/Task/TaskRtTests.cs",
+      "lines": "560-702",
+      "fact": "True upstream test anchors: TaskDelay_OutOfBounds_ThrowsException, TaskDelay_MaxSupported_Success, RunDelayTests, RunDelayTests_NegativeCases, TaskDelay_Cancellation_ContinuationsInvokedAsynchronously. Map purposes into bounded designed fixtures; do not claim to run these tests unchanged or to support WaitAll/ContinueWith."
+    },
+    {
+      "root": "repo",
+      "path": "planning/stage-2/repos/dotj-core/WORK-PACKAGES.md",
+      "lines": "7-21,47-65",
+      "fact": "E01/E02/E03 and N01 gates; WP02 state/continuation, unregister/dispose/context and migration acceptance requirements."
+    },
+    {
+      "root": "repo",
+      "path": "planning/stage-2/repos/dotj-core/API-COMPATIBILITY.md",
+      "lines": "1-60",
+      "fact": "Exact names/concepts, selected release metadata distinction, N01 and NF01-NF03 acceptance; bounded evidence is not full qualification."
+    }
+  ],
+  "upstreamTestMapping": {
+    "TaskDelay_OutOfBounds_ThrowsException": "delay-validation",
+    "TaskDelay_MaxSupported_Success": "delay-validation",
+    "RunDelayTests": "delay-fastpaths/delay-completion",
+    "RunDelayTests_NegativeCases": "disposed tokens/precanceled/shared",
+    "TaskDelay_Cancellation_ContinuationsInvokedAsynchronously": "delay-dispatch"
+  },
+  "groups": [
+    {
+      "group": {
+        "id": "delay-api",
+        "kind": "compiled surface plus native metadata",
+        "scope": "Five exact nongeneric signatures, names, parameters/static/return shape; preserve all old selected members and public read-only producer boundary; absence of unwanted helper/public TimeProvider surface."
+      },
+      "nativeCaseIds": [
+        "D001",
+        "D002",
+        "D003",
+        "D004",
+        "D005"
+      ],
+      "javaControlIds": [],
+      "futureSameJarObligation": false
+    },
+    {
+      "group": {
+        "id": "from-canceled",
+        "kind": "paired native/Java",
+        "scope": "None, default, live, Boolean-requested, canceled-source and canceled/disposed token cases; AOOE parameter; canceled flags/no fault; await TCE subtype, original Task reference and token equality; repeated await."
+      },
+      "nativeCaseIds": [
+        "D006",
+        "D007",
+        "D008",
+        "D009",
+        "D010",
+        "D011",
+        "D012"
+      ],
+      "javaControlIds": [],
+      "futureSameJarObligation": false
+    },
+    {
+      "group": {
+        "id": "delay-validation",
+        "kind": "paired native/Java",
+        "scope": "int minimum/-2/-1/0/positive/maximum; tick-exact fractional negatives, TimeSpan minimum/maximum, upper supported boundary and adjacent fractions; invalid inputs with precanceled tokens still throw before fastpaths."
+      },
+      "nativeCaseIds": [
+        "D013",
+        "D014",
+        "D015",
+        "D016",
+        "D017",
+        "D018",
+        "D019",
+        "D020",
+        "D021",
+        "D022",
+        "D023",
+        "D024",
+        "D025",
+        "D026",
+        "D027",
+        "D028",
+        "D029",
+        "D030",
+        "D031",
+        "D032",
+        "D033",
+        "D034",
+        "D035",
+        "D036",
+        "D037",
+        "D038",
+        "D039",
+        "D040",
+        "D041",
+        "D042",
+        "D043",
+        "D044",
+        "D045",
+        "D046",
+        "D047",
+        "D048",
+        "D049",
+        "D050",
+        "D051",
+        "D052",
+        "D053",
+        "D054",
+        "D055",
+        "D056",
+        "D057",
+        "D058",
+        "D059",
+        "D060",
+        "D061",
+        "D062",
+        "D063",
+        "D064",
+        "D065",
+        "D066",
+        "D067",
+        "D068",
+        "D069",
+        "D070",
+        "D071",
+        "D110",
+        "D111",
+        "D112",
+        "D113"
+      ],
+      "javaControlIds": [
+        "J27",
+        "J28",
+        "J29",
+        "J30"
+      ],
+      "futureSameJarObligation": false
+    },
+    {
+      "group": {
+        "id": "delay-fastpaths",
+        "kind": "paired behavior plus Java private resource controls",
+        "scope": "All overloads, None/live/requested/disposed tokens, zero CompletedTask identity, precanceled-zero precedence, infinite no timer, noncancelable infinite pending. Large accepted waits use cancelable tokens for cleanup; never wait days to prove a boundary."
+      },
+      "nativeCaseIds": [
+        "D072",
+        "D073",
+        "D074",
+        "D075",
+        "D076",
+        "D077",
+        "D078",
+        "D079",
+        "D080",
+        "D081",
+        "D082",
+        "D083",
+        "D088",
+        "D089",
+        "D090",
+        "D091",
+        "D092",
+        "D093",
+        "D094",
+        "D095",
+        "D096",
+        "D097",
+        "D098",
+        "D099"
+      ],
+      "javaControlIds": [],
+      "futureSameJarObligation": false
+    },
+    {
+      "group": {
+        "id": "delay-completion",
+        "kind": "paired native/Java",
+        "scope": "Finite timer success, infinite cancellation, finite cancellation, terminal monotonicity, pre/post-completion await registration, OnCompleted/UnsafeOnCompleted, exactly-once callback counts, shared-token multiple delays, token disposal and CTS CancelAsync interactions."
+      },
+      "nativeCaseIds": [
+        "D084",
+        "D085",
+        "D086",
+        "D087",
+        "D100",
+        "D101",
+        "D102",
+        "D103",
+        "D104",
+        "D105",
+        "D106"
+      ],
+      "javaControlIds": [],
+      "futureSameJarObligation": false
+    },
+    {
+      "group": {
+        "id": "delay-dispatch",
+        "kind": "native observable relations plus Java deterministic seams",
+        "scope": "Cancellation status set before Cancel returns; a continuation blocked on an explicit release latch cannot block Cancel. Use logical call-stack/thread-local relation and handshakes, not exact ThreadIDs. Uncontended timer may inline; racing async flag permits either dispatch relation with valid terminal outcome. A blocked first timer continuation must not prevent a second independent delay from completing."
+      },
+      "nativeCaseIds": [
+        "D107",
+        "D108",
+        "D109"
+      ],
+      "javaControlIds": [],
+      "futureSameJarObligation": false
+    },
+    {
+      "group": {
+        "id": "delay-races-cleanup",
+        "kind": "Java-only deterministic controls with source rationale",
+        "scope": "Timer callback before returned handle publication; synchronous canceled registration before returned CTR publication; timer-before-registration publication; timer/cancel both winner orders and flag-set-before-timer-win; self-dispose, external Dispose waits, duplicate callbacks, late publication after cleanup, success-before-inline-release and eventual cleanup, no lock inversion, timer handoff isolation and rejection fallback."
+      },
+      "nativeCaseIds": [],
+      "javaControlIds": [
+        "J01",
+        "J02",
+        "J03",
+        "J04",
+        "J05",
+        "J06",
+        "J07",
+        "J08",
+        "J09",
+        "J10",
+        "J11",
+        "J12",
+        "J13",
+        "J14",
+        "J15",
+        "J16",
+        "J17",
+        "J18",
+        "J19",
+        "J20",
+        "J21",
+        "J22",
+        "J23",
+        "J24",
+        "J25",
+        "J26"
+      ],
+      "futureSameJarObligation": false
+    },
+    {
+      "group": {
+        "id": "delay-java-adaptation",
+        "kind": "Java-only",
+        "scope": "Typed null TimeSpan/token and combined invalid precedence; new thread inheritance suppression; duration kept as long; package-private seams invisible publicly; setup failure releases acquired resources without fake fault/canceled mapping."
+      },
+      "nativeCaseIds": [],
+      "javaControlIds": [
+        "J01",
+        "J02",
+        "J03",
+        "J04",
+        "J05",
+        "J06",
+        "J07",
+        "J08",
+        "J09",
+        "J10",
+        "J11",
+        "J12",
+        "J13",
+        "J14",
+        "J15",
+        "J16",
+        "J17",
+        "J18",
+        "J19",
+        "J20",
+        "J21",
+        "J22",
+        "J23",
+        "J24",
+        "J25",
+        "J26",
+        "J27",
+        "J28",
+        "J29",
+        "J30"
+      ],
+      "futureSameJarObligation": false
+    },
+    {
+      "group": {
+        "id": "delay-consumer-regression",
+        "kind": "packaged consumer and same-JAR historical replay",
+        "scope": "New native comparison and all retained Task/TCS/ValueTask/CTS/worktask groups execute against the identical final candidate JAR. Paired C#/.j migration intent and actual compiler availability are separately recorded."
+      },
+      "nativeCaseIds": [],
+      "javaControlIds": [],
+      "futureSameJarObligation": true
+    }
+  ],
+  "rows": [
+    {
+      "id": "D001",
+      "input": {
+        "id": "D001",
+        "group": "delay-api",
+        "scenario": "shape",
+        "api": "FromCanceled",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D002",
+      "input": {
+        "id": "D002",
+        "group": "delay-api",
+        "scenario": "shape",
+        "api": "DelayInt",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D003",
+      "input": {
+        "id": "D003",
+        "group": "delay-api",
+        "scenario": "shape",
+        "api": "DelayIntToken",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D004",
+      "input": {
+        "id": "D004",
+        "group": "delay-api",
+        "scenario": "shape",
+        "api": "DelaySpan",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D005",
+      "input": {
+        "id": "D005",
+        "group": "delay-api",
+        "scenario": "shape",
+        "api": "DelaySpanToken",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D006",
+      "input": {
+        "id": "D006",
+        "group": "from-canceled",
+        "scenario": "invoke",
+        "api": "FromCanceled",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "argument",
+        "expectedParamName": "cancellationToken",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D007",
+      "input": {
+        "id": "D007",
+        "group": "from-canceled",
+        "scenario": "invoke",
+        "api": "FromCanceled",
+        "value": "0",
+        "token": "default",
+        "expectedKind": "argument",
+        "expectedParamName": "cancellationToken",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D008",
+      "input": {
+        "id": "D008",
+        "group": "from-canceled",
+        "scenario": "invoke",
+        "api": "FromCanceled",
+        "value": "0",
+        "token": "live",
+        "expectedKind": "argument",
+        "expectedParamName": "cancellationToken",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D009",
+      "input": {
+        "id": "D009",
+        "group": "from-canceled",
+        "scenario": "invoke",
+        "api": "FromCanceled",
+        "value": "0",
+        "token": "boolRequested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D010",
+      "input": {
+        "id": "D010",
+        "group": "from-canceled",
+        "scenario": "invoke",
+        "api": "FromCanceled",
+        "value": "0",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D011",
+      "input": {
+        "id": "D011",
+        "group": "from-canceled",
+        "scenario": "invoke",
+        "api": "FromCanceled",
+        "value": "0",
+        "token": "disposed",
+        "expectedKind": "argument",
+        "expectedParamName": "cancellationToken",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D012",
+      "input": {
+        "id": "D012",
+        "group": "from-canceled",
+        "scenario": "invoke",
+        "api": "FromCanceled",
+        "value": "0",
+        "token": "disposedRequested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D013",
+      "input": {
+        "id": "D013",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayInt",
+        "value": "-2147483648",
+        "token": "none",
+        "expectedKind": "argument",
+        "expectedParamName": "millisecondsDelay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D014",
+      "input": {
+        "id": "D014",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayInt",
+        "value": "-2",
+        "token": "none",
+        "expectedKind": "argument",
+        "expectedParamName": "millisecondsDelay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D015",
+      "input": {
+        "id": "D015",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayInt",
+        "value": "-1",
+        "token": "none",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D016",
+      "input": {
+        "id": "D016",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayInt",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D017",
+      "input": {
+        "id": "D017",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayInt",
+        "value": "1",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D018",
+      "input": {
+        "id": "D018",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-2147483648",
+        "token": "none",
+        "expectedKind": "argument",
+        "expectedParamName": "millisecondsDelay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D019",
+      "input": {
+        "id": "D019",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-2147483648",
+        "token": "requested",
+        "expectedKind": "argument",
+        "expectedParamName": "millisecondsDelay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D020",
+      "input": {
+        "id": "D020",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-2",
+        "token": "none",
+        "expectedKind": "argument",
+        "expectedParamName": "millisecondsDelay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D021",
+      "input": {
+        "id": "D021",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-2",
+        "token": "requested",
+        "expectedKind": "argument",
+        "expectedParamName": "millisecondsDelay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D022",
+      "input": {
+        "id": "D022",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-1",
+        "token": "none",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D023",
+      "input": {
+        "id": "D023",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-1",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D024",
+      "input": {
+        "id": "D024",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D025",
+      "input": {
+        "id": "D025",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "0",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D026",
+      "input": {
+        "id": "D026",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "1",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D027",
+      "input": {
+        "id": "D027",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "1",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D028",
+      "input": {
+        "id": "D028",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "2147483647",
+        "token": "live",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D029",
+      "input": {
+        "id": "D029",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "2147483647",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D030",
+      "input": {
+        "id": "D030",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "-9223372036854775808",
+        "token": "none",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D031",
+      "input": {
+        "id": "D031",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "-20000",
+        "token": "none",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D032",
+      "input": {
+        "id": "D032",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "-19999",
+        "token": "none",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D033",
+      "input": {
+        "id": "D033",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "-10000",
+        "token": "none",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D034",
+      "input": {
+        "id": "D034",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "-9999",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D035",
+      "input": {
+        "id": "D035",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "-1",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D036",
+      "input": {
+        "id": "D036",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D037",
+      "input": {
+        "id": "D037",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "1",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D038",
+      "input": {
+        "id": "D038",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "9999",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D039",
+      "input": {
+        "id": "D039",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "10000",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D040",
+      "input": {
+        "id": "D040",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "42949672950000",
+        "token": "none",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D041",
+      "input": {
+        "id": "D041",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "9223372036854775807",
+        "token": "none",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D042",
+      "input": {
+        "id": "D042",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-9223372036854775808",
+        "token": "live",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D043",
+      "input": {
+        "id": "D043",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-9223372036854775808",
+        "token": "requested",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D044",
+      "input": {
+        "id": "D044",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-20000",
+        "token": "live",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D045",
+      "input": {
+        "id": "D045",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-20000",
+        "token": "requested",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D046",
+      "input": {
+        "id": "D046",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-19999",
+        "token": "live",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D047",
+      "input": {
+        "id": "D047",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-19999",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D048",
+      "input": {
+        "id": "D048",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-10000",
+        "token": "live",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D049",
+      "input": {
+        "id": "D049",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-10000",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D050",
+      "input": {
+        "id": "D050",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-9999",
+        "token": "live",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D051",
+      "input": {
+        "id": "D051",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-9999",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D052",
+      "input": {
+        "id": "D052",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-1",
+        "token": "live",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D053",
+      "input": {
+        "id": "D053",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-1",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D054",
+      "input": {
+        "id": "D054",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "0",
+        "token": "live",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D055",
+      "input": {
+        "id": "D055",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "0",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D056",
+      "input": {
+        "id": "D056",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "1",
+        "token": "live",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D057",
+      "input": {
+        "id": "D057",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "1",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D058",
+      "input": {
+        "id": "D058",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "9999",
+        "token": "live",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D059",
+      "input": {
+        "id": "D059",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "9999",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D060",
+      "input": {
+        "id": "D060",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "10000",
+        "token": "live",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D061",
+      "input": {
+        "id": "D061",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "10000",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D062",
+      "input": {
+        "id": "D062",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "42949672939999",
+        "token": "live",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D063",
+      "input": {
+        "id": "D063",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "42949672939999",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D064",
+      "input": {
+        "id": "D064",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "42949672940000",
+        "token": "live",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D065",
+      "input": {
+        "id": "D065",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "42949672940000",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D066",
+      "input": {
+        "id": "D066",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "42949672949999",
+        "token": "live",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D067",
+      "input": {
+        "id": "D067",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "42949672949999",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D068",
+      "input": {
+        "id": "D068",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "42949672950000",
+        "token": "live",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D069",
+      "input": {
+        "id": "D069",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "42949672950000",
+        "token": "requested",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D070",
+      "input": {
+        "id": "D070",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "9223372036854775807",
+        "token": "live",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D071",
+      "input": {
+        "id": "D071",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "9223372036854775807",
+        "token": "requested",
+        "expectedKind": "argument",
+        "expectedParamName": "delay",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D072",
+      "input": {
+        "id": "D072",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D073",
+      "input": {
+        "id": "D073",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-1",
+        "token": "none",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D074",
+      "input": {
+        "id": "D074",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "0",
+        "token": "default",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D075",
+      "input": {
+        "id": "D075",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-1",
+        "token": "default",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D076",
+      "input": {
+        "id": "D076",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "0",
+        "token": "live",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D077",
+      "input": {
+        "id": "D077",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-1",
+        "token": "live",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D078",
+      "input": {
+        "id": "D078",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "0",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D079",
+      "input": {
+        "id": "D079",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-1",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D080",
+      "input": {
+        "id": "D080",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "0",
+        "token": "disposed",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D081",
+      "input": {
+        "id": "D081",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-1",
+        "token": "disposed",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D082",
+      "input": {
+        "id": "D082",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "0",
+        "token": "disposedRequested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D083",
+      "input": {
+        "id": "D083",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "-1",
+        "token": "disposedRequested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D084",
+      "input": {
+        "id": "D084",
+        "group": "delay-completion",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "2",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D085",
+      "input": {
+        "id": "D085",
+        "group": "delay-completion",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "2",
+        "token": "live",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D086",
+      "input": {
+        "id": "D086",
+        "group": "delay-completion",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "2",
+        "token": "disposed",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D087",
+      "input": {
+        "id": "D087",
+        "group": "delay-completion",
+        "scenario": "invoke",
+        "api": "DelayIntToken",
+        "value": "2",
+        "token": "disposedRequested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D088",
+      "input": {
+        "id": "D088",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D089",
+      "input": {
+        "id": "D089",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-10000",
+        "token": "none",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D090",
+      "input": {
+        "id": "D090",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "0",
+        "token": "default",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D091",
+      "input": {
+        "id": "D091",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-10000",
+        "token": "default",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D092",
+      "input": {
+        "id": "D092",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "0",
+        "token": "live",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D093",
+      "input": {
+        "id": "D093",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-10000",
+        "token": "live",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D094",
+      "input": {
+        "id": "D094",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "0",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D095",
+      "input": {
+        "id": "D095",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-10000",
+        "token": "requested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D096",
+      "input": {
+        "id": "D096",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "0",
+        "token": "disposed",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D097",
+      "input": {
+        "id": "D097",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-10000",
+        "token": "disposed",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D098",
+      "input": {
+        "id": "D098",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "0",
+        "token": "disposedRequested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D099",
+      "input": {
+        "id": "D099",
+        "group": "delay-fastpaths",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "-10000",
+        "token": "disposedRequested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D100",
+      "input": {
+        "id": "D100",
+        "group": "delay-completion",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "20000",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D101",
+      "input": {
+        "id": "D101",
+        "group": "delay-completion",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "20000",
+        "token": "live",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D102",
+      "input": {
+        "id": "D102",
+        "group": "delay-completion",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "20000",
+        "token": "disposed",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D103",
+      "input": {
+        "id": "D103",
+        "group": "delay-completion",
+        "scenario": "invoke",
+        "api": "DelaySpanToken",
+        "value": "20000",
+        "token": "disposedRequested",
+        "expectedKind": "canceled",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D104",
+      "input": {
+        "id": "D104",
+        "group": "delay-completion",
+        "scenario": "callbacks",
+        "api": "",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "async"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D105",
+      "input": {
+        "id": "D105",
+        "group": "delay-completion",
+        "scenario": "shared",
+        "api": "",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "async"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D106",
+      "input": {
+        "id": "D106",
+        "group": "delay-completion",
+        "scenario": "cancelAsync",
+        "api": "",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "async"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D107",
+      "input": {
+        "id": "D107",
+        "group": "delay-dispatch",
+        "scenario": "dispatch",
+        "api": "",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "async"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D108",
+      "input": {
+        "id": "D108",
+        "group": "delay-dispatch",
+        "scenario": "isolation",
+        "api": "",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "async"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D109",
+      "input": {
+        "id": "D109",
+        "group": "delay-dispatch",
+        "scenario": "race",
+        "api": "",
+        "value": "0",
+        "token": "none",
+        "expectedKind": "success",
+        "expectedParamName": "",
+        "partition": "async"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D110",
+      "input": {
+        "id": "D110",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelayInt",
+        "value": "2147483647",
+        "token": "none",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D111",
+      "input": {
+        "id": "D111",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "21474836480000",
+        "token": "none",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D112",
+      "input": {
+        "id": "D112",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "42949672940000",
+        "token": "none",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    },
+    {
+      "id": "D113",
+      "input": {
+        "id": "D113",
+        "group": "delay-validation",
+        "scenario": "invoke",
+        "api": "DelaySpan",
+        "value": "42949672949999",
+        "token": "none",
+        "expectedKind": "pending",
+        "expectedParamName": "",
+        "partition": "ordinary"
+      },
+      "expectationClassification": "SOURCE_PREDICTED",
+      "nativeObserved": false
+    }
+  ],
+  "allGroupsRetained": true,
+  "upstreamTestsRunUnchanged": false
+}
