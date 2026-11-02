@@ -1,0 +1,916 @@
+{
+  "schemaVersion": 1,
+  "status": "DESIGN_NOT_EXECUTED",
+  "groups": [
+    {
+      "id": "BC-RAW-AST-IMMUTABLE",
+      "inputs": [
+        "BOOL-CACHE-01",
+        "BOOL-CACHE-02",
+        "BOOL-CACHE-06",
+        "BOOL-CACHE-07"
+      ],
+      "mechanism": "Use same evaluator/cache across fresh evaluation owners and retain first Result. Inspect cached entry only after behavior checks; records retain raw scalar text and no State/Path/globals/expanded fields.",
+      "assertions": [
+        "changed globals change result",
+        "failure then valid reuse has no cached conversion failure",
+        "all reachable AST fields final and syntax-only",
+        "retained Result properties/imports/warnings immutable and unchanged"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-RAW-AST-IMMUTABLE"
+    },
+    {
+      "id": "BC-REACHED-EXPANSION",
+      "inputs": [
+        "BOOL-LAZY-01",
+        "BOOL-LAZY-02",
+        "BOOL-LAZY-03",
+        "BOOL-LAZY-04",
+        "BOOL-EMPTY-03",
+        "BOOL-EMPTY-04"
+      ],
+      "mechanism": "Evaluate invalid nonboolean child under both short-circuit operators and equality empty optimization; contrast nonempty/reached operands.",
+      "assertions": [
+        "skipped invalid Boolean does not throw",
+        "reached invalid Boolean fails with private mapped code",
+        "empty equality does not evaluate invalid Not"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-REACHED-EXPANSION"
+    },
+    {
+      "id": "BC-ALIASES-DATA",
+      "inputs": [
+        "BOOL-ALIAS-01-quoted",
+        "BOOL-ALIAS-01-property",
+        "BOOL-ALIAS-01-quoted-property",
+        "BOOL-ALIAS-01-mixed",
+        "BOOL-ALIAS-02-quoted",
+        "BOOL-ALIAS-02-property",
+        "BOOL-ALIAS-02-quoted-property",
+        "BOOL-ALIAS-02-mixed",
+        "BOOL-ALIAS-03-quoted",
+        "BOOL-ALIAS-03-property",
+        "BOOL-ALIAS-03-quoted-property",
+        "BOOL-ALIAS-03-mixed",
+        "BOOL-ALIAS-04-quoted",
+        "BOOL-ALIAS-04-property",
+        "BOOL-ALIAS-04-quoted-property",
+        "BOOL-ALIAS-04-mixed",
+        "BOOL-ALIAS-05-quoted",
+        "BOOL-ALIAS-05-property",
+        "BOOL-ALIAS-05-quoted-property",
+        "BOOL-ALIAS-05-mixed",
+        "BOOL-ALIAS-06-quoted",
+        "BOOL-ALIAS-06-property",
+        "BOOL-ALIAS-06-quoted-property",
+        "BOOL-ALIAS-06-mixed",
+        "BOOL-ALIAS-07-quoted",
+        "BOOL-ALIAS-07-property",
+        "BOOL-ALIAS-07-quoted-property",
+        "BOOL-ALIAS-07-mixed",
+        "BOOL-ALIAS-08-quoted",
+        "BOOL-ALIAS-08-property",
+        "BOOL-ALIAS-08-quoted-property",
+        "BOOL-ALIAS-08-mixed",
+        "BOOL-ALIAS-09-quoted",
+        "BOOL-ALIAS-09-property",
+        "BOOL-ALIAS-09-quoted-property",
+        "BOOL-ALIAS-09-mixed",
+        "BOOL-ALIAS-10-quoted",
+        "BOOL-ALIAS-10-property",
+        "BOOL-ALIAS-10-quoted-property",
+        "BOOL-ALIAS-10-mixed",
+        "BOOL-ALIAS-11-quoted",
+        "BOOL-ALIAS-11-property",
+        "BOOL-ALIAS-11-quoted-property",
+        "BOOL-ALIAS-11-mixed",
+        "BOOL-ALIAS-12-quoted",
+        "BOOL-ALIAS-12-property",
+        "BOOL-ALIAS-12-quoted-property",
+        "BOOL-ALIAS-12-mixed",
+        "BOOL-NONBOOL-01",
+        "BOOL-NONBOOL-02",
+        "BOOL-NONBOOL-03",
+        "BOOL-NONBOOL-04",
+        "BOOL-NONBOOL-05",
+        "BOOL-NONBOOL-06",
+        "BOOL-NONBOOL-07",
+        "BOOL-NONBOOL-08",
+        "BOOL-DATA-01",
+        "BOOL-DATA-EQ-01",
+        "BOOL-DATA-02",
+        "BOOL-DATA-EQ-02",
+        "BOOL-DATA-03",
+        "BOOL-DATA-EQ-03",
+        "BOOL-DATA-04",
+        "BOOL-DATA-EQ-04",
+        "BOOL-DATA-05",
+        "BOOL-DATA-EQ-05",
+        "BOOL-DATA-06",
+        "BOOL-DATA-EQ-06",
+        "BOOL-DATA-07",
+        "BOOL-DATA-EQ-07",
+        "BOOL-DATA-08",
+        "BOOL-DATA-EQ-08",
+        "BOOL-DATA-09",
+        "BOOL-DATA-EQ-09",
+        "BOOL-DATA-10",
+        "BOOL-DATA-EQ-10",
+        "BOOL-DATA-11",
+        "BOOL-DATA-EQ-11",
+        "BOOL-DATA-12",
+        "BOOL-DATA-EQ-12",
+        "BOOL-DATA-13",
+        "BOOL-DATA-EQ-13",
+        "BOOL-DATA-14",
+        "BOOL-DATA-EQ-14"
+      ],
+      "mechanism": "Use exact manifest properties and literals; compare native frozen success/failure independently.",
+      "assertions": [
+        "all twelve aliases",
+        "no trim/list split/second expansion/decode/reparse",
+        "quoted bang aliases differ from syntax",
+        "failure remains failure"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-ALIASES-DATA"
+    },
+    {
+      "id": "BC-EXACT-RAW-CACHE",
+      "inputs": [
+        "BOOL-CACHE-01",
+        "BOOL-CACHE-02",
+        "BOOL-CACHE-03",
+        "BOOL-CACHE-04"
+      ],
+      "mechanism": "Cold process; repeat raw string at new owner then raw leading-space/operator-case variants. Supplement behavior with cache key inspection; do not derive expected values from AST implementation.",
+      "assertions": [
+        "same raw key reused irrespective of owner/globals",
+        "spacing/case variants separately cached",
+        "cache only reached parse",
+        "warning captured only first reached raw spelling"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-EXACT-RAW-CACHE"
+    },
+    {
+      "id": "BC-WARNING-OWNER",
+      "inputs": [
+        "BOOL-CACHE-SKIPPED-FIRST",
+        "BOOL-CACHE-05"
+      ],
+      "mechanism": "Skipped local occurrence precedes reached imported owner; use frozen native warning event fields and fixture condition site index.",
+      "assertions": [
+        "code MSB4130 where captured",
+        "owner/raw condition/line/column exactly native",
+        "ordered warnings preserved",
+        "static validation does not warm warning cache"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-WARNING-OWNER"
+    },
+    {
+      "id": "BC-BOUNDS",
+      "inputs": [
+        "BOOL-BOUND-groups64",
+        "BOOL-BOUND-groups65",
+        "BOOL-BOUND-chain255",
+        "BOOL-BOUND-chain257",
+        "BOOL-BOUND-not256",
+        "BOOL-BOUND-not257",
+        "BOOL-BOUND-relation255",
+        "BOOL-BOUND-relation259",
+        "BOOL-BOUND-mixed-depth"
+      ],
+      "mechanism": "Parse exact fixtures including skipped versions before evaluation; use independent structural counts: scalar1,Not child+1,relation children+1,And/Or children+1,group0,existing predicate1.",
+      "assertions": [
+        "groups64 accepted groups65 refused",
+        "255/256 nodes accepted 257+ refused",
+        "long unary/mixed recursion bounded before stack failure",
+        "skipped branches obey same parse budgets"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-BOUNDS"
+    },
+    {
+      "id": "BC-SKIPPED-SYNTAX",
+      "inputs": [
+        "BOOL-BAD-01-reached",
+        "BOOL-BAD-01-skipped",
+        "BOOL-BAD-02-reached",
+        "BOOL-BAD-02-skipped",
+        "BOOL-BAD-03-reached",
+        "BOOL-BAD-03-skipped",
+        "BOOL-BAD-04-reached",
+        "BOOL-BAD-04-skipped",
+        "BOOL-BAD-05-reached",
+        "BOOL-BAD-05-skipped",
+        "BOOL-BAD-06-reached",
+        "BOOL-BAD-06-skipped",
+        "BOOL-BAD-07-reached",
+        "BOOL-BAD-07-skipped",
+        "BOOL-BAD-08-reached",
+        "BOOL-BAD-08-skipped"
+      ],
+      "mechanism": "Run both reached and skipped XML sites, retain malformed text unchanged.",
+      "assertions": [
+        "all malformed raw conditions privately rejected even if native skips XML evaluation",
+        "no operand evaluation on skipped valid syntax"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-SKIPPED-SYNTAX"
+    },
+    {
+      "id": "BC-PREDICATE-CONVERSIONS",
+      "inputs": [
+        "BOOL-LAZY-05",
+        "BOOL-LAZY-06",
+        "BOOL-LAZY-07",
+        "BOOL-LAZY-08",
+        "BOOL-LAZY-09"
+      ],
+      "mechanism": "Pair general scalar true;false with HasTrailingSlash list/percent/trim and Exists invalid path; reuse unchanged historical predicate cases on same final JAR.",
+      "assertions": [
+        "general scalar never TaskItem split",
+        "HasTrailingSlash split-before-decode and cardinality preserved",
+        "Exists file-list/site semantics preserved",
+        "predicate Boolean operands allowed in relations and Not"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-PREDICATE-CONVERSIONS"
+    },
+    {
+      "id": "BC-GLOBALS-AND-REASSIGN",
+      "inputs": [
+        "BOOL-GLOBAL-IMMUTABLE",
+        "BOOL-REASSIGN"
+      ],
+      "mechanism": "Capture caller Map before/after; re-evaluate without reusing expanded values.",
+      "assertions": [
+        "immutable globals override assignments",
+        "source-order local assignments affect later conditions",
+        "caller and retained snapshots unchanged"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-GLOBALS-AND-REASSIGN"
+    },
+    {
+      "id": "BC-SITES-IMPORTS",
+      "inputs": [
+        "BOOL-SITE-Property-yes",
+        "BOOL-SITE-Property-off",
+        "BOOL-SITE-PropertyGroup-yes",
+        "BOOL-SITE-PropertyGroup-off",
+        "BOOL-SITE-Import-yes",
+        "BOOL-SITE-Import-off",
+        "BOOL-SITE-ImportGroup-yes",
+        "BOOL-SITE-ImportGroup-off",
+        "BOOL-OWNER-Property",
+        "BOOL-OWNER-PropertyGroup",
+        "BOOL-OWNER-Import",
+        "BOOL-OWNER-ImportGroup"
+      ],
+      "mechanism": "Evaluate all four XML condition sites and imported owners using copied fixture tree and unrelated cwd.",
+      "assertions": [
+        "P/Q and ordered import owner,target,line,column exact native",
+        "owner/root Exists directory distinction retained"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-SITES-IMPORTS"
+    },
+    {
+      "id": "BC-NO-TASK-OR-PROCESS",
+      "inputs": [
+        "BOOL-SITE-Property-yes",
+        "BOOL-SITE-Property-off",
+        "BOOL-SITE-PropertyGroup-yes",
+        "BOOL-SITE-PropertyGroup-off",
+        "BOOL-SITE-Import-yes",
+        "BOOL-SITE-Import-off",
+        "BOOL-SITE-ImportGroup-yes",
+        "BOOL-SITE-ImportGroup-off"
+      ],
+      "mechanism": "After evaluations traverse only owned fixture tree for must-not-exist.txt; source/dependency audit for process/task engines, runtime restricted java.base/java.xml/product module.",
+      "assertions": [
+        "inert Error/WriteLinesToFile never execute",
+        "no process/restore/task path introduced",
+        "process marker absence"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-NO-TASK-OR-PROCESS"
+    },
+    {
+      "id": "BC-MODULE-BOUNDARY",
+      "inputs": [
+        "baseline-identity.json"
+      ],
+      "mechanism": "Load exact candidate JAR in named module with --limit-modules java.base,java.xml,product; inspect module-info and class origin alongside real evaluation.",
+      "assertions": [
+        "module name exact",
+        "exports0 opens0",
+        "evaluator package-private",
+        "no dependency on baseline source/classes or unnamed classpath"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-MODULE-BOUNDARY"
+    },
+    {
+      "id": "BC-CACHE-EVICTION",
+      "inputs": [
+        "more-than-3000-unique-raw-conditions"
+      ],
+      "mechanism": "Evaluate 3002 distinct raw ASCII equality conditions with whitespace variants, then original warning raw condition and retained original Result.",
+      "assertions": [
+        "bounded cache clears beyond3000",
+        "warning reappears after clear",
+        "retained snapshot unchanged",
+        "private policy, no native eviction/concurrency parity"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-CACHE-EVICTION"
+    },
+    {
+      "id": "BC-PREDECESSOR-SUCCESSORS",
+      "inputs": [
+        "BE01",
+        "BE02",
+        "BE03",
+        "BE04",
+        "BE05",
+        "BE06",
+        "BE07",
+        "BE08",
+        "BE09",
+        "BE10",
+        "BE11",
+        "BE12",
+        "BE13",
+        "BE14",
+        "BE15",
+        "BE16",
+        "BE17",
+        "BE18",
+        "BE19",
+        "BE20",
+        "BI01-repeat",
+        "BI02-diamond",
+        "BI03-two-file-cycle",
+        "BI04-relative-alias",
+        "BI05-false-then-true",
+        "BI06-prior-duplicate",
+        "BI07-prior-cycle",
+        "BI08-nonroot-cycle",
+        "BI09-missing",
+        "NEG-sdk",
+        "NEG-items",
+        "NEG-property-function",
+        "NEG-unicode-name",
+        "NEG-unicode-comparison",
+        "NEG-numeric-comparison",
+        "NEG-bool-coercion",
+        "NEG-or-operator",
+        "NEG-glob-import",
+        "NEG-outside-import",
+        "NEG-network-import",
+        "NEG-unknown-escape",
+        "NEG-duplicate-import",
+        "NEG-cycle-import",
+        "NEG-doctype",
+        "NEG-unknown-target-task",
+        "NEG-dynamic-import",
+        "NEG-false-hidden-function",
+        "NEG-reserved-property",
+        "NEG-skipped-unknown-condition",
+        "NEG-skipped-unknown-import-condition",
+        "NEG-skipped-unicode-condition",
+        "NEG-skipped-function-condition",
+        "BI01-repeat",
+        "BI02-diamond",
+        "BI04-relative-alias",
+        "BI05-false-then-true",
+        "BI06-prior-duplicate",
+        "BL01-lf-multiline",
+        "BL02-crlf-comment-unicode",
+        "BL03-cdata-quotes",
+        "BL04-bom-declaration",
+        "BL05-formatted-diamond",
+        "BI03-two-file-cycle",
+        "BI07-prior-cycle",
+        "BI08-nonroot-cycle",
+        "BI01-repeat",
+        "BI02-diamond",
+        "BI03-two-file-cycle",
+        "BI04-relative-alias",
+        "BI05-false-then-true",
+        "BI06-prior-duplicate",
+        "BI07-prior-cycle",
+        "BI08-nonroot-cycle",
+        "BI09-missing",
+        "BI01-repeat",
+        "BI02-diamond",
+        "BI03-two-file-cycle",
+        "BI04-relative-alias",
+        "BI05-false-then-true",
+        "BI06-prior-duplicate",
+        "BI07-prior-cycle",
+        "BI08-nonroot-cycle",
+        "BI09-missing",
+        "condition-before-path",
+        "defined-empty-expands-empty",
+        "encounter-order-concatenation",
+        "expanded-missing-file",
+        "immutable-global-import-name",
+        "nested-owner-relative",
+        "undefined-expands-empty",
+        "BW01-ascii-whitespace-only",
+        "BW02-ascii-padded-path",
+        "BW03-nbsp-whitespace-only",
+        "BW04-nbsp-padded-path",
+        "BA01-literal-truth-table",
+        "BA02-balanced-nesting",
+        "BA03-token-case-and-boundaries",
+        "BA04-lazy-right-exists",
+        "BA05-owner-relative-exists",
+        "BA06-encounter-time-properties",
+        "BA07-import-groups-and-no-task-execution",
+        "BA08-malformed-right-side-parsed",
+        "BA09-root-marker-atom-and-sites",
+        "BA10-owner-marker-atom-and-sites",
+        "CL01-truth-table",
+        "CL01-left-chains",
+        "CL02-precedence-1",
+        "CL02-precedence-2",
+        "CL02-precedence-3",
+        "CL02-precedence-4",
+        "CL03-nested",
+        "CL04-lazy-exists-1",
+        "CL04-lazy-exists-2",
+        "CL04-lazy-exists-3",
+        "CL04-lazy-exists-4",
+        "CL05-source-order",
+        "CL05-scalar-1",
+        "CL05-scalar-2",
+        "CL05-scalar-3",
+        "CL05-scalar-4",
+        "CL06-property",
+        "CL06-propertygroup",
+        "CL06-import",
+        "CL06-importgroup",
+        "CL07-operator-case",
+        "CL07-quoted-reference-boundaries",
+        "CL08-malformed-1",
+        "CL08-malformed-2",
+        "CL08-malformed-3",
+        "CL08-malformed-4",
+        "CL08-malformed-5",
+        "CL08-skipped-malformed",
+        "CL09-legacy-or-operator",
+        "CL09-legacy-skipped-unknown-condition",
+        "CL09-legacy-skipped-unknown-import-condition",
+        "CL09-and-transition-1",
+        "CL09-and-transition-2",
+        "CL09-and-transition-3",
+        "CL10-imports-globals-inert-targets",
+        "cc01-repeat-alpha",
+        "cc02-repeat-gamma",
+        "cc03-repeat-beta",
+        "cc04-root-import-sites",
+        "cc05-whitespace",
+        "cc06-operator-case",
+        "cc07-parenthesized",
+        "cc08-skipped-first",
+        "HT01-literal-separators",
+        "HT02-function-token",
+        "HT03-encounter-order",
+        "HT04-empty-and-undefined",
+        "HT05-property-concatenation",
+        "HT06-globals-precedence",
+        "HT07-propertygroup-site",
+        "HT08-property-site",
+        "HT09-import-site",
+        "HT10-importgroup-site",
+        "HT11-nested-import-update",
+        "HT12-and-or-precedence",
+        "HT13-short-circuit",
+        "HT14-cache-first",
+        "HT15-cache-second",
+        "HT16-cache-third",
+        "HT17-cache-warning",
+        "HT18-inert-targets",
+        "HTB01-no-argument",
+        "HTB02-extra-argument",
+        "HTB03-malformed",
+        "HTB04-unescaped-list",
+        "HTB05-escaped-slash",
+        "HTB06-escaped-semicolon",
+        "HTB07-whitespace",
+        "HTB08-unknown-function",
+        "HT19-unicode-raw-global",
+        "HT20-uri-drive-scalars",
+        "HT21-unicode-whitespace",
+        "HT22-u001c-not-whitespace",
+        "HT23-empty-and-single-tokens",
+        "HT24-percent-single-pass",
+        "HT25-percent-malformed",
+        "HT26-escaped-whitespace",
+        "HT27-global-escaped-scalars",
+        "HT28-expanded-syntax-first",
+        "HT29-expanded-syntax-second",
+        "HT30-global-multiple-tokens",
+        "AC-SYNTAX-1",
+        "AC-SYNTAX-2",
+        "AC-SYNTAX-3",
+        "AC-SYNTAX-4",
+        "AC-SYNTAX-5",
+        "AC-SYNTAX-6",
+        "AC-SYNTAX-7",
+        "AC-SYNTAX-8",
+        "AC-SYNTAX-9",
+        "AC-SYNTAX-10",
+        "AC-COERCION-11",
+        "AC-COERCION-12",
+        "AC-COERCION-13",
+        "AC-COERCION-14",
+        "AC-UNICODE",
+        "AC-FUNCTION",
+        "AC-SKIPPED-BRANCHES",
+        "AC-LAZY-EMPTY-PATH",
+        "AC-EXPANSION-IS-SCALAR",
+        "AC-DEPTH-65",
+        "AC-DEPTH-LARGE",
+        "AC-NODES-257",
+        "AC-CHAIN-LARGE",
+        "AC-EXACT-ALLOWED-BOUNDS",
+        "CC-OWNER-AND-VALUE-FRESHNESS",
+        "CC-IMMUTABLE-SNAPSHOTS",
+        "CC-WARM-SCALAR-INJECTION",
+        "CC-WARM-SKIPPED-MALFORMED",
+        "HT-STATIC-SYNTAX-AND-SKIPPED",
+        "HT-WARM-LITERAL-DATA-AND-LAZY-TOKENIZATION",
+        "HT-STATIC-ITEM-METADATA-FUNCTION",
+        "HT-EXISTING-GROUP-NODE-BUDGETS",
+        "NEG-or-operator",
+        "NEG-skipped-unknown-condition",
+        "NEG-skipped-unknown-import-condition",
+        "AC-SYNTAX-9",
+        "AC-SKIPPED-BRANCHES/property/true-Or-false",
+        "AC-SKIPPED-BRANCHES/import/true-Or-false"
+      ],
+      "mechanism": "Version Java-only consumers under new closure. Read frozen historical native data and exact transition ledger; no old native execution.",
+      "assertions": [
+        "every unaffected stable ID retained",
+        "changed inputs use fresh native case references",
+        "current94 not blanket identical",
+        "condition successor28semantic/5nativeParse/2declared pending capture",
+        "HT syntax18refusals+4accepted, stable group retained",
+        "old cache warning vector retained on final same JAR"
+      ],
+      "expectedProtocolMarker": "PASS_BOOLEAN_CONTROL BC-PREDECESSOR-SUCCESSORS"
+    }
+  ],
+  "privateCases": [
+    {
+      "id": "BOOL-BOUND-groups64",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((true))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "accepted",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-groups65",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((true)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "CONDITION_BOUND",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-chain255",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "accepted",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-chain257",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true And true",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "CONDITION_BOUND",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-not256",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!true",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "accepted",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-not257",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!true",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "CONDITION_BOUND",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-relation255",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a'",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "accepted",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-relation259",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a' And 'a'=='a'",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "CONDITION_BOUND",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-mixed-depth",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(!(true)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "CONDITION_BOUND",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-blank",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "accepted",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-space",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "   ",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "CONDITION_PROFILE",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-item",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "@(X)",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "CONDITION_PROFILE",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-metadata",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "%(X)",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "CONDITION_PROFILE",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-function",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "$([System.String]::Copy('true'))",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "PROPERTY_FUNCTION",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-unicode",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "'%e9'=='%e9'",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "UNICODE_COMPARISON",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    },
+    {
+      "id": "BOOL-BOUND-ordering",
+      "group": "private-bounds-and-boundaries",
+      "globals": {},
+      "condition": "1<2",
+      "site": "PropertyGroup",
+      "fixture": "main.proj",
+      "sourceAnchors": [
+        "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+      ],
+      "prediction": "CONDITION_PROFILE",
+      "nativeOutcome": "UNOBSERVED",
+      "notes": "private adaptation; not native parity; exact typed AST count includes scalar/comparison/Not/And nodes, grouping has no node",
+      "requiredObservations": [
+        "evaluation.success",
+        "evaluation.properties.P/Q OR evaluation.type/code/file/line/column/endLine/endColumn/message/hresult",
+        "ordered imports owner/project/line/column",
+        "diagnostics kind/code/file/line/column/endLine/endColumn/message",
+        "cleanup before/loaded/afterUnload/disposed",
+        "taskMarkerAbsent"
+      ]
+    }
+  ],
+  "publicBoundary": "ASCII/private Windows only; not Microsoft.Build public ABI",
+  "diagnostics": "Native full error type/code/message/file/coordinates retained. Product private rejection categories are explicit mapping, never native exception ABI. Freeze mapping only after native pair review."
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "oldFailure": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2516-native-attempt1-failure-v1.json",
+    "sha256": "06ca6b11eeb139f0c0f6fefafcb4af73abe871056f9b97485c52af76540868ef",
+    "sizeBytes": 4879
+  },
+  "sourcePins": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\native\\corehost\\hostpolicy\\deps_resolver.cpp",
+      "sha256": "49f9c03a5f4338a4d56dd8ffe00427347015b50fae64dc08ff2b6fa1eb388a7d",
+      "sizeBytes": 35368
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\native\\corehost\\hostmisc\\trace.cpp",
+      "sha256": "c8c0f9c89c22ae170a98f7ae3a4e592683305379576f01b751377b69dc3f9cb9",
+      "sizeBytes": 8333
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\reference\\upstream\\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6\\src\\native\\corehost\\hostmisc\\trace.h",
+      "sha256": "b8ec36c9899dd128ce195493e3c2cabcb744ed489bf97665b613246be9ddaa5c",
+      "sizeBytes": 1191
+    }
+  ],
+  "anchors": [
+    {
+      "file": "hostpolicy/deps_resolver.cpp",
+      "line": 784,
+      "meaning": "Processing native/culture for deps entry emitted by trace::verbose"
+    },
+    {
+      "file": "hostmisc/trace.cpp",
+      "lines": [
+        11,
+        21,
+        94,
+        166,
+        193
+      ],
+      "meaning": "verbosity3=info, verbosity4=verbose; setup info startup marker; threshold suppresses verbose only"
+    }
+  ],
+  "hypothesis": "Info3 removes verbose culture/resource probing while preserving info/warning/error and structured loaded-path proof.",
+  "actualTrace3Volume": "UNOBSERVED; bounded actual run may still fail; never raise limits, filter, truncate or retry",
+  "binaryLineage": "Existing fingerprint remains authority. Source counterparts explain filtering, not standalone build qualification."
+}

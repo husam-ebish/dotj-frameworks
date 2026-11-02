@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "kind": "Boolean-v1-CaptureImportPathsV1-closed-schema",
+  "status": "EXPECTED_TYPES_ONLY_VALUES_UNOBSERVED",
+  "observer": {
+    "type": "object",
+    "fields": {
+      "runtime": {
+        "type": "string"
+      },
+      "msbuildAssembly": {
+        "type": "string"
+      },
+      "msbuildPath": {
+        "type": "string"
+      },
+      "frameworkPath": {
+        "type": "string"
+      },
+      "corePath": {
+        "type": "string"
+      },
+      "profile": {
+        "type": "string"
+      },
+      "rows": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": {
+              "type": "string"
+            },
+            "globals": {
+              "type": "object",
+              "values": {
+                "type": "string"
+              }
+            },
+            "profile": {
+              "type": "string"
+            },
+            "evaluation": {
+              "type": "union",
+              "variants": [
+                {
+                  "type": "object",
+                  "fields": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "properties": {
+                      "type": "object",
+                      "fields": {
+                        "P": {
+                          "type": "string"
+                        },
+                        "Q": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "imports": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "fields": {
+                          "owner": {
+                            "type": "string"
+                          },
+                          "project": {
+                            "type": "string"
+                          },
+                          "line": {
+                            "type": "integer"
+                          },
+                          "column": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "duplicateImports": {
+                      "type": "union",
+                      "variants": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "fields": {
+                              "owner": {
+                                "type": "string"
+                              },
+                              "project": {
+                                "type": "string"
+                              },
+                              "line": {
+                                "type": "integer"
+                              },
+                              "column": {
+                                "type": "integer"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "duplicateGetterFailure": {
+                      "type": "union",
+                      "variants": [
+                        {
+                          "type": "object",
+                          "fields": {
+                            "type": {
+                              "type": "string"
+                            },
+                            "message": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "fields": {
+                    "success": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "union",
+                      "variants": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "file": {
+                      "type": "union",
+                      "variants": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "line": {
+                      "type": "integer"
+                    },
+                    "column": {
+                      "type": "integer"
+                    },
+                    "endLine": {
+                      "type": "integer"
+                    },
+                    "endColumn": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "hresult": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              ]
+            },
+            "diagnostics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "fields": {
+                  "kind": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "union",
+                    "variants": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "file": {
+                    "type": "union",
+                    "variants": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "line": {
+                    "type": "integer"
+                  },
+                  "column": {
+                    "type": "integer"
+                  },
+                  "endLine": {
+                    "type": "integer"
+                  },
+                  "endColumn": {
+                    "type": "integer"
+                  },
+                  "message": {
+                    "type": "union",
+                    "variants": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "cleanup": {
+              "type": "object",
+              "fields": {
+                "before": {
+                  "type": "integer"
+                },
+                "loaded": {
+                  "type": "integer"
+                },
+                "afterUnload": {
+                  "type": "integer"
+                },
+                "disposed": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "taskMarkerAbsent": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  },
+  "pairNormalization": {
+    "allowed": "literal owned fixture-root substitution only in import owner/project, native failure file/message, duplicateGetterFailure.message, diagnostic file/message and raw stderr",
+    "forbidden": "properties/globals, field omission, diagnostic suppression, case folding, slash rewriting, whitespace, message generalization or event reordering"
+  },
+  "nativeValues": "UNOBSERVED"
+}

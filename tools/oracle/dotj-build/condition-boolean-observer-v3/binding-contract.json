@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 3,
+  "status": "FUTURE_ACTUAL_ARTIFACTS_REQUIRED",
+  "reviewPath": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2516-observer-fault-prelaunch-review.json",
+  "bindingPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2516-observer-fault-preparation-v1\\compiled-observer-lock.json",
+  "rootCompileProofPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2516-observer-fault-preparation-v1\\root-compile-proof.json",
+  "rootControllerProofPath": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2516-observer-fault-preparation-v1\\root-compile-controller.json",
+  "stages": [
+    "Independent reviewer approves exact execution lock/source/compiler proposal and conditionally approves two fixed native commands",
+    "Root runs fixed compile phase under immutable guard; controller180s, direct csc30s; actual PID/job/resume/exit/raw/artifacts and failure count retained",
+    "Root verifies complete original+v3 closure, actual successful compile proof, parent proof, argv, reference pins, source/runtimeconfig hashes",
+    "Root executes bind_compiled.py, producing exclusive compiled-observer-lock.json with actual DLL hash and compiler/root proof hashes",
+    "Root uses external actual lock digest in typed render; before and after each fixed native launch verify original+v3+review+compiled lock+root proof",
+    "Each new native process must emit closed 297 rows, complete progress, real loaded assembly paths and bounded raw info3 trace; failure stops all subsequent phases",
+    "Read-only receipt and pair validation; root later decides runtime-fault parity contract; no acceptance credit now"
+  ],
+  "reviewRequiredFields": [
+    "schemaVersion",
+    "independentReviewer",
+    "sourceCompileApproved",
+    "conditionalNativeApproved",
+    "executionLockSha256",
+    "originalLockSha256",
+    "previousLockSha256",
+    "failureSha256",
+    "pythonManifestSha256",
+    "compilerProposalSha256",
+    "bindingContractSha256"
+  ],
+  "noCircularHash": "Execution lock pins static inputs only, not itself/report/dynamic proofs; independent review binds execution digest; actual compiled lock binds review+compile proofs+artifacts; native receipts bind actual compiled lock.",
+  "fatalPolicy": "OOM/stack overflow/access violation/SEH/thread abort and wrapped catastrophic failures escape. Cleanup/task-marker/progress/serialization failures escape; partial output never qualifies.",
+  "normalization": "Exact original declared path/message substitution plus runtime-fault message only. Fault stack/type/HResult/order retained unchanged; mismatch fails pair.",
+  "checkpointBudget": {
+    "maximumLines": 594,
+    "maximumBytes": 71280,
+    "retainedAttempt2StderrBytes": 295759,
+    "reasonedCombinedBytes": 367039,
+    "actualNewVolume": "UNOBSERVED; multiple runtime faults may increase volume; fixed limits fail closed"
+  },
+  "protectedCounts": {
+    "cases": 297,
+    "fixtures": 362,
+    "private": 16,
+    "transitions": 18,
+    "inventory": 223,
+    "oldFailedReferenceProcesses": 2,
+    "completedCaptures": 0,
+    "futureCompiler": 1,
+    "futureNative": 2,
+    "totalReferenceProcessesIfBothComplete": 4
+  },
+  "admission": "Immutable W12 guard: wait_resources(+160) capped at120 with35s reserve, admission before runtime clock; fresh<=2s;512MiB free physical and16GiB available commit; heap128MiB/2CPU;cleanup5;stdout2MiB,stderr512KiB(native) or2MiB(compiler);poll100ms.",
+  "parentRationale": "180s parent caps inner120s admission +30s execution +5s cleanup +25s hash/coordination. If hash overhead exhausts parent, fail without retry or limit expansion.",
+  "missingUntilRootRun": [
+    "Independent review",
+    "Successful real compiler and root controller proofs",
+    "Actual compiled DLL and bound artifact lock",
+    "Two complete independent native outputs",
+    "Root runtime-fault parity decision"
+  ]
+}
