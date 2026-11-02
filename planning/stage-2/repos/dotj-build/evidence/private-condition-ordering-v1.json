@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-2518",
+  "status": "IMPLEMENTED_AND_QUALIFIED_SELECTED_PRIVATE_CANDIDATE",
+  "sourceHead": "b46dc7d34d65fd6ee6c0cde50ce1c899220ab3c4",
+  "scope": "All four numeric/version ordering operators, both homogeneous and both mixed paths; existing private boundaries retained",
+  "acceptanceMapping": [
+    "DJ-005-WP-01-T1",
+    "DJ-005-F01-01"
+  ],
+  "preservedAcceptance": [
+    "DJ-005-F01-04"
+  ],
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2518-build-ordering-preparation-v1\\task106-product-dev-attempt02\\dotj-build-evaluation-candidate.jar",
+    "sha256": "6bc95bc7ed6d702ed58f455f10fe35ed0c71389dd175034afefaee2e259e089f",
+    "sizeBytes": 109934
+  },
+  "sourceReview": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task107-ordering-product-review-v1.json",
+    "sha256": "cd0cb78153e5f4125555d47eb2eb59e691495e7e88640edf43a75ba85489392a",
+    "sizeBytes": 12120
+  },
+  "qualification": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2518-build-ordering-preparation-v1\\root-task108-historical-finaljar-attempt02\\root-review-v2.json",
+    "sha256": "7bc0b79197a2daaaa0ae39da1e85622c2364435f0a175c37713ef37e517d6ac8",
+    "sizeBytes": 58974
+  },
+  "implementationReport": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2518-build-ordering-preparation-v1\\task106-product-implementation-report-v1.json",
+    "sha256": "c246c601ace7ffa966ef88fa162bc7d621ec0a9f544116cbd55a38cc581356cd",
+    "sizeBytes": 22148
+  },
+  "nativeReference": {
+    "contractSha256": "9beb122636b028f01dccbdf4988c517160abcfdfcf06d374fcab470c70732452",
+    "uniqueCases": 308,
+    "matchingPasses": 2,
+    "rawRows": 616,
+    "successesPerPass": 222,
+    "projectErrorsPerPass": 86,
+    "qualifiedCapturePhases": 8,
+    "historicalTimedOutControllerNativeInvocation": "UNKNOWN"
+  },
+  "productClassifications": {
+    "total": 308,
+    "successComparisons": 220,
+    "privateErrorMappings": 81,
+    "explicitPrivateRestrictions": 7
+  },
+  "restrictionIds": [
+    "ORD-GRAMMAR-skipped-malformed",
+    "ORD-EXPAND-unicode-left",
+    "ORD-EXPAND-unicode-right",
+    "ORD-REACH-nbsp",
+    "ORD-REACH-unicode-digit",
+    "ORD-BOUND-group65",
+    "ORD-BOUND-node257"
+  ],
+  "regressionCoverage": {
+    "booleanNativeIds": 297,
+    "privateInputs": 16,
+    "privateGroups": 14,
+    "M1WarningFailureReuse": true,
+    "additionalHistoricalJvms": 12,
+    "exactCurrentRows": 94,
+    "currentGoldenSha256": "2e20775ad371a68951697747513bfed36c7e005075ed1cab0c6fb6b17d05c64c",
+    "andScope": [
+      9,
+      1,
+      24
+    ],
+    "conditionScope": [
+      28,
+      5,
+      2
+    ],
+    "conditionWarnings": 4,
+    "cacheScope": [
+      8,
+      4
+    ],
+    "cacheWarningVector": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    "predicateScope": [
+      32,
+      6
+    ],
+    "predicatePrivateGroups": 4,
+    "predecessorTransitions": 18,
+    "predecessorFiles": 391,
+    "retainedCaseControlInventory": 223
+  },
+  "dependencies": {
+    "productJavaModules": [
+      "java.base",
+      "java.xml"
+    ],
+    "thirdPartyJavaRuntimeLibraries": [],
+    "development": "Python and pinned JDK; .NET SDK/runtime are reference-validation tools",
+    "broaderProject": "Resolved 66-framework graph and public .j installer/feed remain open"
+  },
+  "acceptance": {
+    "acceptedTasksAdded": 0,
+    "completedTasks": 0,
+    "totalTasks": 1092,
+    "percent": 0.0,
+    "openAcceptanceItems": 1686,
+    "qualifiedFrameworks": 0,
+    "totalFrameworks": 66
+  },
+  "retainedFailures": [
+    "Native predecessor failures and one unknown historical invocation remain preserved",
+    "Missing fix-review file after disk disconnect was transparently reissued, not claimed byte-identical",
+    "Dev attempt01 compiler setup failure preceded all tests; corrected attempt02 passed",
+    "Historical attempt01 prefix check rejected a legitimate Test class before any JVM; exact collision fix reviewed",
+    "Interrupted PowerShell root audit claimed no pass; bounded Python audit v2 verified existing results without reruns"
+  ],
+  "integration": {
+    "feature": "feature/batch-2518-build-ordering-conditions-v1",
+    "target": "master",
+    "preIntegrationCanonicalMerge": "86ae0a71075df8dae93b4487652d7d01b868f649",
+    "terminalState": "Verify Git ancestry and origin/master equality; this preintegration record does not assert a future push"
+  },
+  "limitations": [
+    "Private selected profile, not full .NET/public API or framework qualification",
+    "Full property/item/glob/platform coverage and remaining work-package criteria remain open",
+    "Whole-branch review is required before integration; no acceptance credit from candidate tests"
+  ]
+}

@@ -13,7 +13,7 @@
     "totalUniqueNamedTasks": 1356,
     "sdkIntegrationTasks": 60
   },
-  "currentBatch": "Batch-2517",
+  "currentBatch": "Batch-2518",
   "completedBatches": [
     "Batch-001",
     "Batch-002",
@@ -2531,7 +2531,8 @@
     "Batch-2514",
     "Batch-2515",
     "Batch-2516",
-    "Batch-2517"
+    "Batch-2517",
+    "Batch-2518"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -12352,18 +12353,20 @@
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
     "id": null,
-    "framework": "dotj-core",
-    "planTaskIds": [],
-    "outcome": "Independent task/whole-branch reviews and root integration decision for bounded Batch2517; further substantive scope remains unnumbered and unbaselined.",
+    "framework": "dotj-build",
+    "planTaskIds": [
+      "DJ-005-WP-01-T1"
+    ],
+    "outcome": "Verify Batch2518 Git integration, then baseline the next substantive remaining acceptance scope before assigning another batch number.",
     "requiresContinue": false,
-    "basis": "Batch2516 actually integratedf461; Task delay candidate passes new/historical same-JAR and actual isolated full foundation gate; zero acceptance credit."
+    "basis": "Selected ordering vertical is qualified; items/globs/platform/public API and wider acceptance remain open. No fixed project batch total."
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2517,
-    "countContext": "Canonical Batch2516 actually integrated/pushedf461. This branch records post-integration CANDIDATE count/list length2517, selected Task delay group1/1 qualified; actual integration0/1 until root reviews/merge. No acceptance credit; project total/remaining UNKNOWN.",
+    "completedBatches": 2518,
+    "countContext": "2518 qualified numbered candidate records in this checkout. Preintegration canonical baseline Batch2517 is merged/pushed86ae. The Batch2518 record itself does not assert terminal merge/push; verify Git ancestry and origin/master equality. No acceptance credit; project total/remaining UNKNOWN.",
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12474,12 +12477,12 @@
     ]
   },
   "batch2517Candidate": {
-    "status": "BOUNDED_CANDIDATE_INTEGRATION_PENDING",
+    "status": "MERGED_AND_PUSHED_BOUNDED_CANDIDATE",
     "canonicalIntegratedBatch": "Batch-2516",
     "canonicalBase": "f4617d95dcc01edeb933e5e4273bb7ca246371a7",
     "selectedImplementationGroups": 1,
     "selectedImplementedGroups": 1,
-    "selectedIntegratedGroups": 0,
+    "selectedIntegratedGroups": 1,
     "publicAdditions": 5,
     "newCases": 113,
     "newFields": 3955,
@@ -12508,13 +12511,52 @@
     "coreE01Open": 3,
     "totalProjectBatches": null,
     "remainingProjectBatches": null,
-    "taskReviewPending": true,
-    "wholeBranchReviewPending": true,
-    "rootMergePushPending": true,
+    "taskReviewPending": false,
+    "wholeBranchReviewPending": false,
+    "rootMergePushPending": false,
     "dependencies": {
       "product": "JDK java.base only",
       "developmentReference": "Existing Python/JDK/.NET tools; frozen Task2517 prerequisites not replayed",
       "broader": "Generic/context/N01/NF/release/.j installation qualification unresolved"
+    },
+    "integration": {
+      "mergeCommit": "86ae0a71075df8dae93b4487652d7d01b868f649",
+      "receipt": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2517-integration-v1.json",
+        "sha256": "15a1d003db46581786f7d8dd7259fd93046c22b624b2a0d5974f55eeab64cd68",
+        "sizeBytes": 52735
+      },
+      "qualificationReplayed": false,
+      "baselineMeaning": "Original canonicalBase fields describe branch creation and remain historical"
     }
+  },
+  "completedBatchesMeaning": "Qualified numbered candidate records in this checkout, not accepted implementation tasks. On a feature branch this includes its qualified candidate; terminal integration/push is verified from Git.",
+  "batch2518Candidate": {
+    "status": "IMPLEMENTED_AND_QUALIFIED_SELECTED_PRIVATE_CANDIDATE",
+    "framework": "dotj-build",
+    "selectedImplementationGroups": 1,
+    "selectedImplementedGroups": 1,
+    "jar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2518-build-ordering-preparation-v1\\task106-product-dev-attempt02\\dotj-build-evaluation-candidate.jar",
+      "sha256": "6bc95bc7ed6d702ed58f455f10fe35ed0c71389dd175034afefaee2e259e089f",
+      "sizeBytes": 109934
+    },
+    "sourceReview": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task107-ordering-product-review-v1.json",
+      "sha256": "cd0cb78153e5f4125555d47eb2eb59e691495e7e88640edf43a75ba85489392a",
+      "sizeBytes": 12120
+    },
+    "qualification": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2518-build-ordering-preparation-v1\\root-task108-historical-finaljar-attempt02\\root-review-v2.json",
+      "sha256": "7bc0b79197a2daaaa0ae39da1e85622c2364435f0a175c37713ef37e517d6ac8",
+      "sizeBytes": 58974
+    },
+    "evidence": "planning/stage-2/repos/dotj-build/evidence/private-condition-ordering-v1.json",
+    "acceptedTasksAdded": 0,
+    "qualifiedFrameworksAdded": 0,
+    "openAcceptanceItems": 1686,
+    "totalProjectBatches": null,
+    "remainingProjectBatches": null,
+    "terminalIntegration": "Derived from Git, not asserted by this candidate record"
   }
 }
