@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 2,
+  "status": "CORRECTED_ZIP_DERIVED_PRESERVATION_ADJUDICATION",
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-delay-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+    "sha256": "7528c565d2242ad5ab50700ad554e1561e71ba78ed40ed48b9a834cf58934099",
+    "sizeBytes": 853870
+  },
+  "baselineJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2515-gate1\\source\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+    "sha256": "a83c6451854a7295532fd6a300f3603db6a8b3c73d65af9823222de9caf6e4db",
+    "sizeBytes": 837858
+  },
+  "oldClassCount": 182,
+  "newClassCount": 189,
+  "unchangedOldClasses": 180,
+  "changedOldClasses": [
+    "System/Threading/Tasks/Task$1.class",
+    "System/Threading/Tasks/Task.class"
+  ],
+  "addedPrivateClasses": [
+    "System/Threading/Tasks/Task$CompletionAttempt.class",
+    "System/Threading/Tasks/Task$DelayDefaults.class",
+    "System/Threading/Tasks/Task$DelayInfrastructure.class",
+    "System/Threading/Tasks/Task$DelayRegistrar.class",
+    "System/Threading/Tasks/Task$DelayState.class",
+    "System/Threading/Tasks/Task$DelayTimer.class",
+    "System/Threading/Tasks/Task$TimerHandle.class"
+  ],
+  "removedClasses": [],
+  "completePublicSurface": {
+    "additions": [
+      "System/Threading/Tasks/Task|M|Delay|(I)LSystem/Threading/Tasks/Task;|9",
+      "System/Threading/Tasks/Task|M|Delay|(ILSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|9",
+      "System/Threading/Tasks/Task|M|Delay|(LSystem/TimeSpan;)LSystem/Threading/Tasks/Task;|9",
+      "System/Threading/Tasks/Task|M|Delay|(LSystem/TimeSpan;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|9",
+      "System/Threading/Tasks/Task|M|FromCanceled|(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|9"
+    ],
+    "removed": [],
+    "before": 2503,
+    "after": 2508
+  },
+  "oldTaskBridgeChange": "Only four LineNumberTable line-number bytes change; constant pool, Code bytecode, exception tables and every other byte are identical",
+  "actualByteAudit": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2517-task-delay-product-implementation-v1\\task-bridge-debug-line-preservation-v1.json",
+    "sha256": "213a1e3773ddb8e6012d07802e541da160fff48c5819ea571a1a6ae4ecfcb5e4",
+    "sizeBytes": 944
+  },
+  "independentRootByteAudit": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2517-root-task-bridge-debug-audit-v1.json",
+    "sha256": "98079babdff571067a2c13dfd3791e8166b08a619b96d870f33046259765e9c4",
+    "sizeBytes": 1718
+  },
+  "supersededIncompleteStatement": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-delay-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-delay-preservation-v1.json",
+    "sha256": "4d3fc2ab67c140811f80275b8b8b71a7be0da9d82b9274a34a894fa6b44cd038",
+    "sizeBytes": 1505
+  },
+  "exactGateConsumedStatement": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2517-gate6\\source\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-delay-preservation-v1.json",
+    "sha256": "4d3fc2ab67c140811f80275b8b8b71a7be0da9d82b9274a34a894fa6b44cd038",
+    "sizeBytes": 1505
+  },
+  "gateSourceRevision": "ed556c6eef447faba54e6cdd70efcf4c7b3b6a24",
+  "correction": "V1 listed only Task.class as a changed old class. Actual baseline a83 to final7528 also changes Task$1 debug line numbers. The first-feature8e81 to final7528 comparison still changes only Task.class; these comparisons are distinct.",
+  "actualGateAggregate": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2517-gate6\\source\\planning\\stage-2\\repos\\dotj-core\\evidence\\foundation-public-candidate-gate-v1.json",
+    "sha256": "57a26e445f7833709536325c32935ae7af8fa12c1117b52f44da16d08071a2c3",
+    "sizeBytes": 178079
+  },
+  "pureGateFinalization": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2517-task-delay-product-implementation-v1\\full-foundation-pure-finalization-v1\\receipt.json",
+    "sha256": "9b7bbd9e06eb784d184d98e4d8f209ec05e8accf5f97210dc250379f2bfa1a9b",
+    "sizeBytes": 576438
+  },
+  "correctedMetadataWasGateTested": false,
+  "gateConsumedV1BytesChanged": false,
+  "additionalCompilerOrRuntimeChildren": 0,
+  "acceptedTaskCredit": 0,
+  "genericLedgerChanged": false
+}
