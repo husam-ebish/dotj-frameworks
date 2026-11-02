@@ -153,10 +153,16 @@ def outer(args):
           '--bootstrap-sha256='+args.bootstrap_sha256,'--ownership-handle='+str(cap.handle)]
     record=dict(schemaVersion=1,status='INCOMPLETE',operation=args.operation,attemptId=plan['attemptId'],sourceLockSha256=source,
                 review=review_d,bootstrap=boot,outerStartedMonotonic=started,actualOuterDeadlineMonotonic=started+900,
-                failure=None,innerReceipt=None,environment=c.environment(root),ownershipPipeHandle=cap.handle)
+                failure=None,innerReceipt=None,environment=c.environment(root),ownershipPipeHandle=cap.handle,
+                outerCleanupReserveSeconds=5,outerFinalizationReserveSeconds=1)
     code=1
     try:
-        process=guard.run(argv,controller,c.environment(root),'controller',max(0,started+900-time.monotonic()),
+        # The unchanged guard adds cleanup AFTER its execution timeout. Both
+        # cleanup and finalization must fit inside the inherited owned900.
+        budget=started+900-time.monotonic()-5-1
+        record['controllerExecutionBudgetSeconds']=budget
+        c.require(c.finite(budget) and budget>0,'outer cleanup and finalization budget exhausted before launch')
+        process=guard.run(argv,controller,c.environment(root),'controller',budget,
                           launch=cap.launch,job_factory=cap.job_factory,stream_limits=c.POLICY['runtimeCaps'])
         record.update(process=process,ownershipEnvelope=cap.record)
         c.require(process['launched'] is True and process['jobAssigned'] is True and process['resumed'] is True
@@ -169,7 +175,19 @@ def outer(args):
     except BaseException as error:record.update(status='FATAL_OR_CLEANUP_FAILURE',failure=dict(type=type(error).__name__,message=str(error)))
     finally:
         cap.close();record['raw']={s:c.descriptor(controller/('controller.'+s)) for s in ['stdout','stderr'] if (controller/('controller.'+s)).exists()}
-        record['seconds']=time.monotonic()-started;c.fresh_json(controller/'receipt.json',record)
+        record['seconds']=time.monotonic()-started
+        if not c.finite(record['seconds']) or not 0<=record['seconds']<=900:
+            code=1
+            record.update(status='FATAL_OR_CLEANUP_FAILURE',failure=dict(type='ValueError',message='completed parent exceeds owned900'))
+        c.fresh_json(controller/'receipt.json',record)
+        # Include receipt writing in the completion check. Preserve the first
+        # receipt if writing itself overruns, with a separate explicit failure.
+        completed=time.monotonic()-started
+        if not c.finite(completed) or not 0<=completed<=900:
+            code=1
+            c.fresh_json(controller/'deadline-failure.json',dict(schemaVersion=1,status='FATAL_OR_CLEANUP_FAILURE',
+                sourceLockSha256=source,actualOuterDeadlineMonotonic=started+900,seconds=completed,
+                failure=dict(type='ValueError',message='completed parent including receipt writing exceeds owned900')))
     return code
 
 

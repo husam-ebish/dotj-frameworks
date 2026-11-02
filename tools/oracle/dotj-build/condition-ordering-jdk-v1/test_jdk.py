@@ -195,13 +195,63 @@ class Preparation(unittest.TestCase):
         import re
         self.assertIsNone(re.search(r'(?im)\$(?:home|codex_home)\s*=',(HERE/'jdk_bootstrap.ps1').read_text()))
 
+    def test_outer_deadline_reserves_cleanup_and_finalization_and_rejects_overrun(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        import jdk_runner as runner
+        # Exercise the actual outer call wiring, without starting any process.
+        for scenario in ['stalled', 'exhausted', 'overrun', 'write-overrun', 'success']:
+            with self.subTest(scenario=scenario), tempfile.TemporaryDirectory(dir=c.TEST_ROOT) as folder:
+                root=Path(folder)/'operation'; clock=[100.0]; calls=[]; receipts={}
+                envelope={'fake':'PURE_CONTROL'}
+                cap=SimpleNamespace(handle=123,record=envelope,launch=object(),job_factory=object(),close=lambda:None)
+                def capability(*args):
+                    if scenario=='exhausted':clock[0]=994.0
+                    return cap
+                def run(argv,cwd,env,label,timeout,**kwargs):
+                    calls.append((timeout,kwargs))
+                    if scenario=='stalled':clock[0]+=timeout+5
+                    elif scenario=='overrun':clock[0]=1000.01
+                    else:clock[0]=110.0
+                    return dict(launched=True,jobAssigned=True,resumed=True,exitCode=-1 if scenario=='stalled' else 0,
+                                timedOut=scenario=='stalled',outputLimitExceeded=False,error=None,cleanupError=None,cleanupSeconds=5)
+                def save(path,value):
+                    receipts[Path(path).name]=copy.deepcopy(value)
+                    if scenario=='write-overrun':clock[0]=1000.02
+                args=SimpleNamespace(operation='baseline-compile',source_lock_sha256='a'*64,review_sha256='b'*64,bootstrap_sha256='c'*64)
+                child=dict(failure=None,status='COMPILE_COMPLETE_PENDING_ROOT_REVIEW',sourceLockSha256='a'*64,ownershipEnvelope=envelope)
+                with contextlib.ExitStack() as stack:
+                    for target,value in [('approval',lambda *a:({},{})),('bootstrap',lambda *a:{}),
+                                         ('guard_module',lambda:SimpleNamespace(run=run))]:stack.enter_context(patch.object(runner,target,value))
+                    stack.enter_context(patch.object(runner.time,'monotonic',lambda:clock[0]))
+                    stack.enter_context(patch.object(runner.ownership,'LaunchCapability',capability))
+                    for target,value in [('operation',lambda op:dict(cwd=str(root),attemptId='pure',operation=op)),
+                                         ('sha',lambda p:'a'*64),('environment',lambda p:{}),('descriptor',lambda p:{}),
+                                         ('read',lambda p:child),('fresh_json',save)]:stack.enter_context(patch.object(runner.c,target,value))
+                    code=runner.outer(args)
+                self.assertEqual(code,0 if scenario=='success' else 1)
+                self.assertEqual(len(calls),0 if scenario=='exhausted' else 1)
+                if calls:
+                    self.assertEqual(calls[0][0],894.0)
+                    self.assertIs(calls[0][1]['launch'],cap.launch)
+                    self.assertIs(calls[0][1]['job_factory'],cap.job_factory)
+                receipt=receipts['receipt.json']
+                self.assertEqual(receipt['actualOuterDeadlineMonotonic'],1000.0)
+                if scenario=='stalled':
+                    self.assertTrue(receipt['process']['timedOut'])
+                    self.assertEqual(receipt['seconds'],899.0)
+                if scenario in ['overrun','exhausted']:self.assertIsNotNone(receipt['failure'])
+                if scenario=='write-overrun':
+                    self.assertGreater(receipts['deadline-failure.json']['seconds'],900)
+                    self.assertIsNotNone(receipts['deadline-failure.json']['failure'])
+
     def test_review_never_approves_unknown_output_or_unbounded_operation(self):
         self.assertTrue((HERE/'jdk-controller-policy-v1.json').exists(),'concrete policy required')
         value=dict(schemaVersion=1,independentReviewer='PURE_SCHEMA_CONTROL_NOT_AN_APPROVAL',
                    operation='baseline-compile',attemptId='baseline-compile-attempt01',sourceLockSha256='a'*64,
                    policySha256=c.sha(HERE/'jdk-controller-policy-v1.json'),guardSha256=c.GUARD_SHA,
                    jdkInvocationApproved=True,invocationCountApproved=1,
-                   fitEvidence=dict(path=str(c.TEST_ROOT/'input-fit01/timing.json'),sha256='b'*64,sizeBytes=1),
+                   fitEvidence=dict(path=str(c.TEST_ROOT/'input-fit-fix1/timing.json'),sha256='b'*64,sizeBytes=1),
                    compilerProof=None,compilerControllerProof=None,compiledOutput=None)
         # Schema-only controls never write reviews, stage outputs, or actual fit proofs.
         c.validate_review(value,'baseline-compile','a'*64,verify_files=False)

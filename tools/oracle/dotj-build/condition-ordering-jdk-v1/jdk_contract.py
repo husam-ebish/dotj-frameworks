@@ -360,7 +360,7 @@ def validate_review(value, operation_name, source, *, verify_files=True):
     require(value['jdkInvocationApproved'] is True and type(value['invocationCountApproved']) is int
             and value['invocationCountApproved']==1, 'one separately approved actual JDK invocation')
     d=value['fitEvidence'];descriptor_schema(d)
-    require(d['path']==str(TEST_ROOT/'input-fit01/timing.json'),'one authorized actual input-fit path')
+    require(d['path']==str(TEST_ROOT/'input-fit-fix1/timing.json'),'one authorized actual input-fit path')
     if verify_files:
         pin(d);fit=read(d['path'])
         require(fit['sourceLockSha256']==source and fit['policySha256']==value['policySha256']

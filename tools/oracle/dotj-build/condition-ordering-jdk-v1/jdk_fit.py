@@ -15,7 +15,7 @@ def main():
     parser.add_argument('--source-lock-sha256',required=True)
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
-    c.require(args.output==c.TEST_ROOT/'input-fit01','one exact authorized fresh fit output')
+    c.require(args.output==c.TEST_ROOT/'input-fit-fix1','one exact authorized fresh fit output')
     c.require(not (args.output/'timing.json').exists(),'one fit, no retry or overwrite')
     c.require(not c.COMPILE.exists() and not c.RUNTIME.exists(),'fit has no compiler output or runtime attempt')
     started=time.monotonic();pre=stage.full_inputs(args.source_lock_sha256);mid=time.monotonic()
