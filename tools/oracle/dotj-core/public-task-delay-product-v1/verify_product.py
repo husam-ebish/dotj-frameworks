@@ -54,6 +54,10 @@ def actual_group(group,records,jar):
     c.require(len(commands)>=2,'actual compile/runtime group closure')
     compile=commands[0];command(compile)
     out=Path(compile['cwd']);args=compile['argv'];source_args=[d['path'] for d in group['fixture']]
+    actualClasses=sorted((out/'classes').rglob('*.class'))
+    c.require({str(x) for x in actualClasses}=={x['path'] for x in group['classes']} and len(actualClasses)==len(group['classes']),'exact actual compiled fixture directory inventory')
+    fixtureNames=[Path(x).stem for x in source_args]
+    c.require(all(any(x.name==name+'.class' or x.name.startswith(name+'$') for name in fixtureNames) for x in actualClasses),'no compiled product or unrelated fixture class leakage')
     pathargs=['--module-path',jar,'--add-modules','dotj.core.foundation.v1'] if name=='paired' else ['-cp',jar]
     c.require(args==[str(p.JDK/'bin/javac.exe'),*['-J'+x for x in p.frozen_phases.jvm(out)],'-parameters','-encoding','UTF-8','-implicit:none','-sourcepath',str(out/'empty-sourcepath'),*pathargs,'-d',str(out/'classes'),*source_args],'exact compiled consumer argv')
     c.require(args[0]==str(p.JDK/'bin/javac.exe') and '-implicit:none' in args and args[args.index('-sourcepath')+1]==str(out/'empty-sourcepath') and not list((out/'empty-sourcepath').iterdir()),'JAR-only consumer compilation')
@@ -78,6 +82,10 @@ def actual_group(group,records,jar):
     cp=['--module-path',jar,'--add-modules','dotj.core.foundation.v1','-cp',str(out/'classes')] if name=='paired' else ['-cp',str(out/'classes')+';'+jar]
     for run,(owner,arguments) in zip(commands[1:],modes[name]):
         c.require(run['argv']==[str(p.JDK/'bin/java.exe'),*p.frozen_phases.jvm(out),*cp,owner,*arguments],'exact compiled consumer runtime argv')
+    if name in ['delegate-action-v1','public-cancellation-v1','public-valuetask-v1']:
+        c.require(group['payloads']==[c.descriptor(out/'observations.txt')],'actual payload is exact runtime output-argument destination')
+    else:
+        c.require(group['payloads']==[run['streams']['stdout'] for run in commands[1:]],'actual payloads bound to exact runtime stdout descriptors')
     c.require(len(commands)==1+len(group['payloads']) or name in ['delegate-action-v1','public-cancellation-v1','public-valuetask-v1'],'actual runtime/payload count')
 
 def validate(e):
