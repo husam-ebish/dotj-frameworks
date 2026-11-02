@@ -29,7 +29,7 @@ registration.Dispose();
 
 ## Limits
 
-- The current Batch-2514 candidate implements selected `CancelAsync` and its callback-completion integration, including late empty registrations and disposed-source messages. See [the selected contract](PUBLIC-WORKTASK-CANCELASYNC-N01-v1.md); independent review, full gate and final-artifact qualification remain pending.
+- The current Batch-2514 candidate implements selected `CancelAsync` and its callback-completion integration, including late empty registrations and disposed-source messages. See [the selected contract](PUBLIC-WORKTASK-CANCELASYNC-N01-v1.md). Independent task review approved; root canonical gate passed 516/516 checks and verified the identical final JAR. Whole-branch review and root integration/merge/push remain pending.
 - `WaitHandle`, `Register` state overloads, `UnsafeRegister` and `ExecutionContext` capture are not provided.
 - `F02-04` therefore remains internal only, and `Cancel` catches only `System.Exception` callback failures.
 - No acceptance credit is granted.
