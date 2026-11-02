@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 2,
+  "modeSelectedInternally": true,
+  "allowAbbrev": false,
+  "rawArgumentForwarding": false,
+  "verify": {
+    "required": [
+      "lock",
+      "lock-sha256",
+      "checkpoint",
+      "checkpoint-sha256",
+      "receipt",
+      "receipt-sha256"
+    ],
+    "optional": [
+      "java-lock",
+      "java-lock-sha256",
+      "candidate-jar",
+      "candidate-sha256",
+      "observation-lock",
+      "observation-lock-sha256"
+    ],
+    "dispatch": "frozen.verify_receipt only"
+  },
+  "boundaries": {
+    "required": [
+      "out",
+      "candidate-jar",
+      "candidate-sha256",
+      "java-lock",
+      "java-lock-sha256",
+      "execute-reviewed"
+    ],
+    "dispatch": "owned parent -> fixed private child -> qualified product_runner_v3.inner(groups, only=valuetask-boundaries)",
+    "fixture": "public-valuetask-task-product-v1/ValueTaskTaskBoundaryControls.java"
+  },
+  "rejected": [
+    "mode selectors in any syntax",
+    "option abbreviations",
+    "inner selectors",
+    "unknown options",
+    "positional arguments",
+    "verify execution flags"
+  ]
+}
