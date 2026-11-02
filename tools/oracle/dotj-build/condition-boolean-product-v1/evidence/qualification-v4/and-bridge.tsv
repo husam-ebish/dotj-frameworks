@@ -1,0 +1,31 @@
+CASE	BA01-literal-truth-table	SUCCESS	dHQ=	YmFzZQ==	0
+END
+CASE	BA02-balanced-nesting	SUCCESS	bmVzdGVk	YmFzZQ==	0
+END
+CASE	BA03-token-case-and-boundaries	SUCCESS	bWl4ZWQ=	cXVvdGVk	0
+END
+CASE	BA04-lazy-right-exists	SUCCESS	YmFzZQ==	dGFpbA==	0
+GLOBAL	RW1wdHlQYXRo	
+END
+CASE	BA05-owner-relative-exists	SUCCESS			0
+EDGE	main.proj	sub/entry.props	2	3
+END
+CASE	BA06-encounter-time-properties	SUCCESS	Zmlyc3Q=	c2Vjb25k	0
+EDGE	main.proj	change.props	3	3
+END
+CASE	BA07-import-groups-and-no-task-execution	SUCCESS	b25l	dHdv	0
+EDGE	main.proj	a.props	4	5
+EDGE	main.proj	b.props	7	3
+END
+CASE	BA08-malformed-right-side-parsed	PRIVATE_MALFORMED			1
+END
+CASE	BA09-root-marker-atom-and-sites	SUCCESS	U3RhcnRQcm9wZXJ0eVBsYWluUHJvYmVQcm9wZXJ0eUFuZFByb2Jl	U3RhcnQ=	0
+EDGE	main.proj	sub/entry.props	3	3
+END
+CASE	BA10-owner-marker-atom-and-sites	SUCCESS	U3RhcnRQcm9wZXJ0eUdyb3VwUGxhaW5Qcm9iZVByb3BlcnR5R3JvdXBBbmRQcm9iZQ==	U3RhcnRJbXBvcnRQbGFpblByb2JlSW1wb3J0QW5kUHJvYmVJbXBvcnRHcm91cFBsYWluUHJvYmVJbXBvcnRHcm91cEFuZFByb2Jl	0
+EDGE	main.proj	sub/entry.props	3	3
+EDGE	sub/entry.props	sub/importplainprobe.props	10	3
+EDGE	sub/entry.props	sub/importandprobe.props	11	3
+EDGE	sub/entry.props	sub/importgroupplainprobe.props	14	51
+EDGE	sub/entry.props	sub/importgroupandprobe.props	15	60
+END

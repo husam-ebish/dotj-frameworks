@@ -1,0 +1,16 @@
+BOOLEAN_GENUINE_RED BOOL-PREC-01 CONDITION_PROFILE
+Exception in thread "main" java.lang.AssertionError: NATIVE_SUPPORTED_BOOLEAN_REJECTED
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.BooleanBaselineRed.main(BooleanBaselineRed.java:25)
+Caused by: org.dotj.internal.build.evaluation.ProjectEvaluationComponent$ProfileRejected: Condition atom outside selected profile
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent.reject(ProjectEvaluationComponent.java:76)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent$State$ConditionParser.primary(ProjectEvaluationComponent.java:467)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent$State$ConditionParser.conjunction(ProjectEvaluationComponent.java:435)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent$State$ConditionParser.disjunction(ProjectEvaluationComponent.java:424)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent$State$ConditionParser.parse(ProjectEvaluationComponent.java:416)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent$State.validateCondition(ProjectEvaluationComponent.java:545)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent$State.attrs(ProjectEvaluationComponent.java:201)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent$State.validateStructure(ProjectEvaluationComponent.java:219)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent$State.read(ProjectEvaluationComponent.java:167)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent.evaluate(ProjectEvaluationComponent.java:110)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.ProjectEvaluationComponent.evaluate(ProjectEvaluationComponent.java:105)
+	at org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.BooleanBaselineRed.main(BooleanBaselineRed.java:20)

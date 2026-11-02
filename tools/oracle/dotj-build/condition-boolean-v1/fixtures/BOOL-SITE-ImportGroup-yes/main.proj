@@ -1,0 +1,4 @@
+<Project>
+<ImportGroup Condition="$(Gate)"><Import Project="taken.props"/></ImportGroup>
+<Target Name="Never"><Error Text="must never execute"/><WriteLinesToFile File="must-not-exist.txt" Lines="bad"/></Target>
+</Project>

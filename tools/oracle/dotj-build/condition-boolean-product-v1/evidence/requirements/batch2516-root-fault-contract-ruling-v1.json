@@ -1,0 +1,63 @@
+{
+  "status": "ROOT_ADOPTED_PRIVATE_FAULT_CONTRACT",
+  "review": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task84-build-boolean-fault-contract-review-v1.json",
+    "sha256": "72bc60ef0270a260d9155e9800579311d5bf8337978a7ad7ae8cb4874d741500",
+    "sizeBytes": 30960
+  },
+  "scope": "Batch-2516 private evaluator only; ConditionedProperties inventory excluded",
+  "dispositions": [
+    {
+      "id": "BOOL-EMPTY-06",
+      "condition": "$(Undefined)==HasTrailingSlash('a/')",
+      "nativeOutcome": "runtime-fault-v3",
+      "nativeException": "System.NullReferenceException",
+      "nativeHResult": -2147467261,
+      "privateDisposition": "SOURCE_BASED_PRIVATE_ADAPTATION_NO_CONDITIONED_PROPERTIES",
+      "leftEmpty": true,
+      "rightEmpty": false,
+      "privateConditionResult": false,
+      "privateFixtureP": "",
+      "privateFixtureQ": "",
+      "privateAssignments": "P/Q skipped",
+      "operatorEvaluation": "HasTrailingSlash is not evaluated",
+      "nativePairedParityEligible": false
+    },
+    {
+      "id": "BOOL-EMPTY-07",
+      "condition": "HasTrailingSlash('a/')==$(Undefined)",
+      "nativeOutcome": "runtime-fault-v3",
+      "nativeException": "System.NullReferenceException",
+      "nativeHResult": -2147467261,
+      "privateDisposition": "SOURCE_BASED_PRIVATE_ADAPTATION_NO_CONDITIONED_PROPERTIES",
+      "leftEmpty": false,
+      "rightEmpty": true,
+      "privateConditionResult": false,
+      "privateFixtureP": "",
+      "privateFixtureQ": "",
+      "privateAssignments": "P/Q skipped",
+      "operatorEvaluation": "HasTrailingSlash is not evaluated",
+      "nativePairedParityEligible": false
+    },
+    {
+      "id": "BOOL-EMPTY-08",
+      "condition": "''==('a'=='a')",
+      "nativeOutcome": "runtime-fault-v3",
+      "nativeException": "System.NullReferenceException",
+      "nativeHResult": -2147467261,
+      "privateDisposition": "SOURCE_BASED_PRIVATE_ADAPTATION_NO_CONDITIONED_PROPERTIES",
+      "leftEmpty": true,
+      "rightEmpty": false,
+      "privateConditionResult": false,
+      "privateFixtureP": "",
+      "privateFixtureQ": "",
+      "privateAssignments": "P/Q skipped",
+      "operatorEvaluation": "Nested equality is not evaluated",
+      "nativePairedParityEligible": false
+    }
+  ],
+  "preservation": "All three actual native NRE rows and producer/raw receipts immutable; no paired parity credit for these cases; remaining294 require explicit qualification",
+  "reason": "Source no-inventory mode and empty-side comparison reviewed independently and read by root",
+  "costIfWrong": "Correct private evaluator/qualification contract before integration; no native data rewrite or external decision",
+  "acceptanceCredit": 0
+}

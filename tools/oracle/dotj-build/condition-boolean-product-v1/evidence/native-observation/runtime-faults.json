@@ -1,0 +1,79 @@
+{
+  "status": "OBSERVED_NATIVE_RUNTIME_FAULTS_NOT_BOOLEAN_FALSE_OR_SUCCESS",
+  "cases": [
+    {
+      "id": "BOOL-EMPTY-06",
+      "condition": "$(Undefined)==HasTrailingSlash('a/')",
+      "nativeRow": {
+        "id": "BOOL-EMPTY-06",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "outcome": "runtime-fault-v3",
+          "type": "System.NullReferenceException",
+          "message": "Object reference not set to an instance of an object.",
+          "hresult": -2147467261,
+          "stack": "   at Microsoft.Build.Evaluation.ConditionEvaluator.UpdateConditionedPropertiesTable(Dictionary`2 conditionedPropertiesTable, String leftValue, String rightValueExpanded)\r\n   at Microsoft.Build.Evaluation.MultipleComparisonNode.UpdateConditionedProperties(IConditionEvaluationState state)\r\n   at Microsoft.Build.Evaluation.MultipleComparisonNode.BoolEvaluate(IConditionEvaluationState state)\r\n   at Microsoft.Build.Evaluation.OperatorExpressionNode.TryBoolEvaluate(IConditionEvaluationState state, Boolean& result)\r\n   at Microsoft.Build.Evaluation.GenericExpressionNode.Evaluate(IConditionEvaluationState state)\r\n   at Microsoft.Build.Evaluation.ConditionEvaluator.EvaluateConditionCollectingConditionedProperties[P,I](String condition, ParserOptions options, Expander`2 expander, ExpanderOptions expanderOptions, Dictionary`2 conditionedPropertiesTable, String evaluationDirectory, ElementLocation elementLocation, IFileSystem fileSystem, LoggingContext loggingContext, ProjectRootElementCacheBase projectRootElementCache)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.EvaluateConditionCollectingConditionedProperties(ProjectElement element, String condition, ExpanderOptions expanderOptions, ParserOptions parserOptions, ProjectRootElementCacheBase projectRootElementCache)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.EvaluatePropertyGroupElement(ProjectPropertyGroupElement propertyGroupElement)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.PerformDepthFirstPass(ProjectRootElement currentProjectOrImport)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate()\r\n   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate(IEvaluatorData`4 data, Project project, ProjectRootElement root, ProjectLoadSettings loadSettings, Int32 maxNodeCount, PropertyDictionary`1 environmentProperties, ICollection`1 propertiesFromCommandLine, ILoggingService loggingService, IItemFactory`2 itemFactory, IToolsetProvider toolsetProvider, IDirectoryCacheFactory directoryCacheFactory, ProjectRootElementCacheBase projectRootElementCache, BuildEventContext buildEventContext, ISdkResolverService sdkResolverService, Int32 submissionId, EvaluationContext evaluationContext, Boolean interactive)\r\n   at Microsoft.Build.Evaluation.Project.ProjectImpl.Reevaluate(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)\r\n   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)\r\n   at Microsoft.Build.Evaluation.Project.ProjectImpl.Initialize(IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext, Boolean interactive)\r\n   at Microsoft.Build.Evaluation.Project..ctor(String projectFile, IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext, IDirectoryCacheFactory directoryCacheFactory, Boolean interactive)\r\n   at Microsoft.Build.Evaluation.Project..ctor(String projectFile, IDictionary`2 globalProperties, String toolsVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings)\r\n   at CaptureBooleanObserverV3.Main(String[] args)"
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 0,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      }
+    },
+    {
+      "id": "BOOL-EMPTY-07",
+      "condition": "HasTrailingSlash('a/')==$(Undefined)",
+      "nativeRow": {
+        "id": "BOOL-EMPTY-07",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "outcome": "runtime-fault-v3",
+          "type": "System.NullReferenceException",
+          "message": "Object reference not set to an instance of an object.",
+          "hresult": -2147467261,
+          "stack": "   at Microsoft.Build.Evaluation.ConditionEvaluator.UpdateConditionedPropertiesTable(Dictionary`2 conditionedPropertiesTable, String leftValue, String rightValueExpanded)\r\n   at Microsoft.Build.Evaluation.MultipleComparisonNode.UpdateConditionedProperties(IConditionEvaluationState state)\r\n   at Microsoft.Build.Evaluation.MultipleComparisonNode.BoolEvaluate(IConditionEvaluationState state)\r\n   at Microsoft.Build.Evaluation.OperatorExpressionNode.TryBoolEvaluate(IConditionEvaluationState state, Boolean& result)\r\n   at Microsoft.Build.Evaluation.GenericExpressionNode.Evaluate(IConditionEvaluationState state)\r\n   at Microsoft.Build.Evaluation.ConditionEvaluator.EvaluateConditionCollectingConditionedProperties[P,I](String condition, ParserOptions options, Expander`2 expander, ExpanderOptions expanderOptions, Dictionary`2 conditionedPropertiesTable, String evaluationDirectory, ElementLocation elementLocation, IFileSystem fileSystem, LoggingContext loggingContext, ProjectRootElementCacheBase projectRootElementCache)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.EvaluateConditionCollectingConditionedProperties(ProjectElement element, String condition, ExpanderOptions expanderOptions, ParserOptions parserOptions, ProjectRootElementCacheBase projectRootElementCache)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.EvaluatePropertyGroupElement(ProjectPropertyGroupElement propertyGroupElement)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.PerformDepthFirstPass(ProjectRootElement currentProjectOrImport)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate()\r\n   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate(IEvaluatorData`4 data, Project project, ProjectRootElement root, ProjectLoadSettings loadSettings, Int32 maxNodeCount, PropertyDictionary`1 environmentProperties, ICollection`1 propertiesFromCommandLine, ILoggingService loggingService, IItemFactory`2 itemFactory, IToolsetProvider toolsetProvider, IDirectoryCacheFactory directoryCacheFactory, ProjectRootElementCacheBase projectRootElementCache, BuildEventContext buildEventContext, ISdkResolverService sdkResolverService, Int32 submissionId, EvaluationContext evaluationContext, Boolean interactive)\r\n   at Microsoft.Build.Evaluation.Project.ProjectImpl.Reevaluate(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)\r\n   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)\r\n   at Microsoft.Build.Evaluation.Project.ProjectImpl.Initialize(IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext, Boolean interactive)\r\n   at Microsoft.Build.Evaluation.Project..ctor(String projectFile, IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext, IDirectoryCacheFactory directoryCacheFactory, Boolean interactive)\r\n   at Microsoft.Build.Evaluation.Project..ctor(String projectFile, IDictionary`2 globalProperties, String toolsVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings)\r\n   at CaptureBooleanObserverV3.Main(String[] args)"
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 0,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      }
+    },
+    {
+      "id": "BOOL-EMPTY-08",
+      "condition": "''==('a'=='a')",
+      "nativeRow": {
+        "id": "BOOL-EMPTY-08",
+        "globals": {},
+        "profile": "Default",
+        "evaluation": {
+          "outcome": "runtime-fault-v3",
+          "type": "System.NullReferenceException",
+          "message": "Object reference not set to an instance of an object.",
+          "hresult": -2147467261,
+          "stack": "   at Microsoft.Build.Evaluation.ConditionEvaluator.UpdateConditionedPropertiesTable(Dictionary`2 conditionedPropertiesTable, String leftValue, String rightValueExpanded)\r\n   at Microsoft.Build.Evaluation.MultipleComparisonNode.UpdateConditionedProperties(IConditionEvaluationState state)\r\n   at Microsoft.Build.Evaluation.MultipleComparisonNode.BoolEvaluate(IConditionEvaluationState state)\r\n   at Microsoft.Build.Evaluation.OperatorExpressionNode.TryBoolEvaluate(IConditionEvaluationState state, Boolean& result)\r\n   at Microsoft.Build.Evaluation.GenericExpressionNode.Evaluate(IConditionEvaluationState state)\r\n   at Microsoft.Build.Evaluation.ConditionEvaluator.EvaluateConditionCollectingConditionedProperties[P,I](String condition, ParserOptions options, Expander`2 expander, ExpanderOptions expanderOptions, Dictionary`2 conditionedPropertiesTable, String evaluationDirectory, ElementLocation elementLocation, IFileSystem fileSystem, LoggingContext loggingContext, ProjectRootElementCacheBase projectRootElementCache)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.EvaluateConditionCollectingConditionedProperties(ProjectElement element, String condition, ExpanderOptions expanderOptions, ParserOptions parserOptions, ProjectRootElementCacheBase projectRootElementCache)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.EvaluatePropertyGroupElement(ProjectPropertyGroupElement propertyGroupElement)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.PerformDepthFirstPass(ProjectRootElement currentProjectOrImport)\r\n   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate()\r\n   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate(IEvaluatorData`4 data, Project project, ProjectRootElement root, ProjectLoadSettings loadSettings, Int32 maxNodeCount, PropertyDictionary`1 environmentProperties, ICollection`1 propertiesFromCommandLine, ILoggingService loggingService, IItemFactory`2 itemFactory, IToolsetProvider toolsetProvider, IDirectoryCacheFactory directoryCacheFactory, ProjectRootElementCacheBase projectRootElementCache, BuildEventContext buildEventContext, ISdkResolverService sdkResolverService, Int32 submissionId, EvaluationContext evaluationContext, Boolean interactive)\r\n   at Microsoft.Build.Evaluation.Project.ProjectImpl.Reevaluate(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)\r\n   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)\r\n   at Microsoft.Build.Evaluation.Project.ProjectImpl.Initialize(IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext, Boolean interactive)\r\n   at Microsoft.Build.Evaluation.Project..ctor(String projectFile, IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext, IDirectoryCacheFactory directoryCacheFactory, Boolean interactive)\r\n   at Microsoft.Build.Evaluation.Project..ctor(String projectFile, IDictionary`2 globalProperties, String toolsVersion, ProjectCollection projectCollection, ProjectLoadSettings loadSettings)\r\n   at CaptureBooleanObserverV3.Main(String[] args)"
+        },
+        "diagnostics": [],
+        "cleanup": {
+          "before": 0,
+          "loaded": 0,
+          "afterUnload": 0,
+          "disposed": true
+        },
+        "taskMarkerAbsent": true
+      }
+    }
+  ],
+  "mappingDecision": "PENDING_ROOT_PRIVATE_CONTRACT_RULING; no ordinary Boolean feature path may be silently dropped or declared native parity",
+  "acceptanceCredit": 0
+}

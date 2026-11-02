@@ -1,0 +1,4 @@
+<Project>
+<PropertyGroup Condition="'-2147483648'=='0x80000000'"><P>yes</P><Q>taken</Q></PropertyGroup>
+<Target Name="Never"><Error Text="must never execute"/><WriteLinesToFile File="must-not-exist.txt" Lines="bad"/></Target>
+</Project>

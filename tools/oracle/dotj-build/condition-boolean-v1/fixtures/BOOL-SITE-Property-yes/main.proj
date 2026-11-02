@@ -1,0 +1,4 @@
+<Project>
+<PropertyGroup><P Condition="$(Gate)">yes</P><Q>visited</Q></PropertyGroup>
+<Target Name="Never"><Error Text="must never execute"/><WriteLinesToFile File="must-not-exist.txt" Lines="bad"/></Target>
+</Project>

@@ -1,0 +1,21 @@
+WHITESPACE	9,10,11,12,13,32,133,160,5760,8192,8193,8194,8195,8196,8197,8198,8199,8200,8201,8202,8232,8233,8239,8287,12288
+CASE	Default	BW01-ascii-whitespace-only	false		
+GLOBAL	SW1wb3J0TmFtZQ==	IAkNCg==
+NOTICE	error	MSB4020	main.proj	-	2	3	0	0	INVALID	-	-	-
+FAILURE	INVALID_IMPORT_EXPRESSION	MSB4020	main.proj	-	2	3	0	0
+END
+CASE	Default	BW02-ascii-padded-path	true	c2VsZWN0ZWQ=	IAkNCm9uZS5wcm9wcyAJDQo=
+GLOBAL	SW1wb3J0TmFtZQ==	IAkNCm9uZS5wcm9wcyAJDQo=
+AVAIL	false
+UNIQUE	main.proj	one.props	2	3
+END
+CASE	Default	BW03-nbsp-whitespace-only	false		
+GLOBAL	SW1wb3J0TmFtZQ==	wqA=
+NOTICE	error	MSB4020	main.proj	-	2	3	0	0	INVALID	-	-	-
+FAILURE	INVALID_IMPORT_EXPRESSION	MSB4020	main.proj	-	2	3	0	0
+END
+CASE	Default	BW04-nbsp-padded-path	true	c2VsZWN0ZWQ=	wqBvbmUucHJvcHPCoA==
+GLOBAL	SW1wb3J0TmFtZQ==	wqBvbmUucHJvcHPCoA==
+AVAIL	false
+UNIQUE	main.proj	one.props	2	3
+END

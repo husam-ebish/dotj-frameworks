@@ -1,0 +1,68 @@
+{
+  "resourceSamples": [
+    {
+      "freePhysicalBytes": 11776581632,
+      "freeVirtualBytes": 95952166912
+    },
+    {
+      "prelaunch": {
+        "freePhysicalBytes": 11776585728,
+        "freeVirtualBytes": 95952166912
+      },
+      "durationSeconds": 3.960000321967527e-05
+    }
+  ],
+  "process": {
+    "argv": [
+      "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\bin\\javac.exe",
+      "-J-Xms16m",
+      "-J-Xmx128m",
+      "-J-XX:ActiveProcessorCount=2",
+      "-J-XX:+UseSerialGC",
+      "-J-Djava.io.tmpdir=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-baseline-red-v1\\tmp",
+      "-J-Duser.home=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-baseline-red-v1\\home",
+      "-J-Duser.language=en",
+      "-J-Duser.country=US",
+      "-J-XX:ErrorFile=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-baseline-red-v1\\tmp\\hs_err_pid%p.log",
+      "-J-XX:HeapDumpPath=D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-baseline-red-v1\\tmp",
+      "--release",
+      "21",
+      "-encoding",
+      "UTF-8",
+      "-implicit:none",
+      "-sourcepath",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-baseline-red-v1\\empty-sourcepath",
+      "--module-path",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2513-has-trailing-slash-product-green-v3\\packaged94\\dotj-build-evaluation-candidate.jar",
+      "--patch-module",
+      "org.dotj.build.evaluation.candidate=D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-boolean-conditions-v1\\tools\\oracle\\dotj-build\\condition-boolean-v1\\java",
+      "-d",
+      "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-baseline-red-v1\\consumer-classes",
+      "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-boolean-conditions-v1\\tools\\oracle\\dotj-build\\condition-boolean-v1\\java\\org\\dotj\\internal\\build\\evaluation\\BooleanBaselineRed.java"
+    ],
+    "cwd": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-baseline-red-v1",
+    "timeoutSeconds": 120,
+    "cleanupLimitSeconds": 5,
+    "launched": true,
+    "timedOut": false,
+    "outputProfile": "compiler",
+    "outputLimitsBytes": {
+      "stdout": 2097152,
+      "stderr": 2097152
+    },
+    "outputPollSeconds": 0.1,
+    "outputLimitExceeded": false,
+    "stdoutPath": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-baseline-red-v1\\compile-java-red.stdout",
+    "stderrPath": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\Batch-2516-baseline-red-v1\\compile-java-red.stderr",
+    "processId": 6748,
+    "jobAssigned": true,
+    "resumed": true,
+    "outputSizesBytes": {
+      "stdout": 0,
+      "stderr": 0
+    },
+    "cleanupSeconds": 0.0001148999945144169,
+    "exitCode": 0,
+    "seconds": 0.8484630999955698
+  }
+}

@@ -1,0 +1,109 @@
+CASE	RecordDuplicateButNotCircularImports	BI01-repeat	true	cm9vdDtvbmU7YmV0d2Vlbg==	
+AVAIL	true
+UNIQUE	main.proj	one.props	1	75
+RECORDED	main.proj	one.props	1	75
+RECORDED	main.proj	one.props	1	154
+NOTICE	warning	MSB4011	main.proj	one.props	1	154	0	0	PREVIOUS	main.proj	1	75
+END
+CASE	RecordDuplicateButNotCircularImports	BI02-diamond	true	cm9vdDtsZWZ0O3NoYXJlZDtyaWdodA==	
+AVAIL	true
+UNIQUE	main.proj	left.props	1	75
+UNIQUE	left.props	shared.props	1	57
+UNIQUE	main.proj	right.props	1	105
+RECORDED	main.proj	left.props	1	75
+RECORDED	left.props	shared.props	1	57
+RECORDED	main.proj	right.props	1	105
+RECORDED	right.props	shared.props	1	58
+NOTICE	warning	MSB4011	right.props	shared.props	1	58	0	0	PREVIOUS	left.props	1	57
+END
+CASE	RecordDuplicateButNotCircularImports	BI03-two-file-cycle	true	cm9vdDtvbmU=	
+AVAIL	true
+UNIQUE	main.proj	one.props	1	75
+RECORDED	main.proj	one.props	1	75
+NOTICE	warning	MSB4210	one.props	main.proj	1	56	0	0	ROOT	-	-	-
+END
+CASE	RecordDuplicateButNotCircularImports	BI04-relative-alias	true	cm9vdDtvbmU=	
+AVAIL	true
+UNIQUE	main.proj	one.props	1	75
+RECORDED	main.proj	one.props	1	75
+RECORDED	main.proj	one.props	1	104
+RECORDED	main.proj	one.props	1	135
+NOTICE	warning	MSB4011	main.proj	one.props	1	104	0	0	PREVIOUS	main.proj	1	75
+NOTICE	warning	MSB4011	main.proj	one.props	1	135	0	0	PREVIOUS	main.proj	1	75
+END
+CASE	RecordDuplicateButNotCircularImports	BI05-false-then-true	true	cm9vdDtvbmU=	
+AVAIL	true
+UNIQUE	main.proj	one.props	1	122
+RECORDED	main.proj	one.props	1	122
+END
+CASE	RecordDuplicateButNotCircularImports	BI06-prior-duplicate	true		
+AVAIL	true
+UNIQUE	main.proj	one.props	1	10
+RECORDED	main.proj	one.props	1	10
+RECORDED	main.proj	one.props	1	39
+NOTICE	warning	MSB4011	main.proj	one.props	1	39	0	0	PREVIOUS	main.proj	1	10
+END
+CASE	RecordDuplicateButNotCircularImports	BI07-prior-cycle	true		
+AVAIL	true
+UNIQUE	main.proj	one.props	1	10
+RECORDED	main.proj	one.props	1	10
+NOTICE	warning	MSB4210	one.props	main.proj	1	10	0	0	ROOT	-	-	-
+END
+CASE	RecordDuplicateButNotCircularImports	BI08-nonroot-cycle	true	cm9vdDtvbmU7dHdv	
+AVAIL	true
+UNIQUE	main.proj	one.props	1	75
+UNIQUE	one.props	two.props	1	56
+RECORDED	main.proj	one.props	1	75
+RECORDED	one.props	two.props	1	56
+NOTICE	warning	NULL	two.props	one.props	1	56	0	0	CIRCULAR	-	-	-
+END
+CASE	RecordDuplicateButNotCircularImports	BI09-missing	false		
+NOTICE	error	MSB4019	main.proj	missing.props	1	10	0	0	MISSING	-	-	-
+FAILURE	MISSING_IMPORT	MSB4019	main.proj	missing.props	1	10	0	0
+END
+CASE	RejectCircularImports	BI01-repeat	true	cm9vdDtvbmU7YmV0d2Vlbg==	
+AVAIL	false
+UNIQUE	main.proj	one.props	1	75
+NOTICE	warning	MSB4011	main.proj	one.props	1	154	0	0	PREVIOUS	main.proj	1	75
+END
+CASE	RejectCircularImports	BI02-diamond	true	cm9vdDtsZWZ0O3NoYXJlZDtyaWdodA==	
+AVAIL	false
+UNIQUE	main.proj	left.props	1	75
+UNIQUE	left.props	shared.props	1	57
+UNIQUE	main.proj	right.props	1	105
+NOTICE	warning	MSB4011	right.props	shared.props	1	58	0	0	PREVIOUS	left.props	1	57
+END
+CASE	RejectCircularImports	BI03-two-file-cycle	true	cm9vdDtvbmU=	
+AVAIL	false
+UNIQUE	main.proj	one.props	1	75
+NOTICE	warning	MSB4210	one.props	main.proj	1	56	0	0	ROOT	-	-	-
+END
+CASE	RejectCircularImports	BI04-relative-alias	true	cm9vdDtvbmU=	
+AVAIL	false
+UNIQUE	main.proj	one.props	1	75
+NOTICE	warning	MSB4011	main.proj	one.props	1	104	0	0	PREVIOUS	main.proj	1	75
+NOTICE	warning	MSB4011	main.proj	one.props	1	135	0	0	PREVIOUS	main.proj	1	75
+END
+CASE	RejectCircularImports	BI05-false-then-true	true	cm9vdDtvbmU=	
+AVAIL	false
+UNIQUE	main.proj	one.props	1	122
+END
+CASE	RejectCircularImports	BI06-prior-duplicate	true		
+AVAIL	false
+UNIQUE	main.proj	one.props	1	10
+NOTICE	warning	MSB4011	main.proj	one.props	1	39	0	0	PREVIOUS	main.proj	1	10
+END
+CASE	RejectCircularImports	BI07-prior-cycle	true		
+AVAIL	false
+UNIQUE	main.proj	one.props	1	10
+NOTICE	warning	MSB4210	one.props	main.proj	1	10	0	0	ROOT	-	-	-
+END
+CASE	RejectCircularImports	BI08-nonroot-cycle	false		
+NOTICE	warning	NULL	two.props	one.props	1	56	0	0	CIRCULAR	-	-	-
+NOTICE	error	NULL	two.props	one.props	1	56	0	0	CIRCULAR	-	-	-
+FAILURE	CIRCULAR_IMPORT	NULL	two.props	one.props	1	56	0	0
+END
+CASE	RejectCircularImports	BI09-missing	false		
+NOTICE	error	MSB4019	main.proj	missing.props	1	10	0	0	MISSING	-	-	-
+FAILURE	MISSING_IMPORT	MSB4019	main.proj	missing.props	1	10	0	0
+END

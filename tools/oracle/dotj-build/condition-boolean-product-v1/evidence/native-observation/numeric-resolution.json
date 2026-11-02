@@ -1,0 +1,1308 @@
+{
+  "status": "ACTUAL_LOCKED_NATIVE_PAIR_SELECTED_NUMERIC_BOUNDARIES_RESOLVED",
+  "requiredCases": 72,
+  "cases": [
+    {
+      "id": "BOOL-NUM-01-0",
+      "condition": "'+1'=='1.0'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-01-0"
+    },
+    {
+      "id": "BOOL-NUM-01-1",
+      "condition": "'1.0'=='+1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-01-1"
+    },
+    {
+      "id": "BOOL-NUM-02-0",
+      "condition": "'-0'=='0'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-02-0"
+    },
+    {
+      "id": "BOOL-NUM-02-1",
+      "condition": "'0'=='-0'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-02-1"
+    },
+    {
+      "id": "BOOL-NUM-03-0",
+      "condition": "'.5'=='0.50'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-03-0"
+    },
+    {
+      "id": "BOOL-NUM-03-1",
+      "condition": "'0.50'=='.5'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-03-1"
+    },
+    {
+      "id": "BOOL-NUM-04-0",
+      "condition": "'0001'=='1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-04-0"
+    },
+    {
+      "id": "BOOL-NUM-04-1",
+      "condition": "'1'=='0001'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-04-1"
+    },
+    {
+      "id": "BOOL-NUM-05-0",
+      "condition": "'0x7fffffff'=='2147483647'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-05-0"
+    },
+    {
+      "id": "BOOL-NUM-05-1",
+      "condition": "'2147483647'=='0x7fffffff'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-05-1"
+    },
+    {
+      "id": "BOOL-NUM-06-0",
+      "condition": "'0x80000000'=='-2147483648'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-06-0"
+    },
+    {
+      "id": "BOOL-NUM-06-1",
+      "condition": "'-2147483648'=='0x80000000'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-06-1"
+    },
+    {
+      "id": "BOOL-NUM-07-0",
+      "condition": "'0xffffffff'=='-1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-07-0"
+    },
+    {
+      "id": "BOOL-NUM-07-1",
+      "condition": "'-1'=='0xffffffff'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-07-1"
+    },
+    {
+      "id": "BOOL-NUM-08-0",
+      "condition": "'0x100000000'=='4294967296'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-08-0"
+    },
+    {
+      "id": "BOOL-NUM-08-1",
+      "condition": "'4294967296'=='0x100000000'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-08-1"
+    },
+    {
+      "id": "BOOL-NUM-09-0",
+      "condition": "'0x000000001'=='1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-09-0"
+    },
+    {
+      "id": "BOOL-NUM-09-1",
+      "condition": "'1'=='0x000000001'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-09-1"
+    },
+    {
+      "id": "BOOL-NUM-10-0",
+      "condition": "'-0x1'=='-1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-10-0"
+    },
+    {
+      "id": "BOOL-NUM-10-1",
+      "condition": "'-1'=='-0x1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-10-1"
+    },
+    {
+      "id": "BOOL-NUM-11-0",
+      "condition": "'1e2'=='100'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-11-0"
+    },
+    {
+      "id": "BOOL-NUM-11-1",
+      "condition": "'100'=='1e2'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-11-1"
+    },
+    {
+      "id": "BOOL-NUM-12-0",
+      "condition": "' 1'=='1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-12-0"
+    },
+    {
+      "id": "BOOL-NUM-12-1",
+      "condition": "'1'==' 1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-12-1"
+    },
+    {
+      "id": "BOOL-NUM-13-0",
+      "condition": "'1 '=='1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-13-0"
+    },
+    {
+      "id": "BOOL-NUM-13-1",
+      "condition": "'1'=='1 '",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-13-1"
+    },
+    {
+      "id": "BOOL-NUM-14-0",
+      "condition": "'NaN'=='NaN'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-14-0"
+    },
+    {
+      "id": "BOOL-NUM-14-1",
+      "condition": "'NaN'=='NaN'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-14-1"
+    },
+    {
+      "id": "BOOL-NUM-15-0",
+      "condition": "'nan'=='NaN'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-15-0"
+    },
+    {
+      "id": "BOOL-NUM-15-1",
+      "condition": "'NaN'=='nan'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-15-1"
+    },
+    {
+      "id": "BOOL-NUM-16-0",
+      "condition": "'+NaN'=='NaN'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-16-0"
+    },
+    {
+      "id": "BOOL-NUM-16-1",
+      "condition": "'NaN'=='+NaN'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-16-1"
+    },
+    {
+      "id": "BOOL-NUM-17-0",
+      "condition": "'Infinity'=='Infinity'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-17-0"
+    },
+    {
+      "id": "BOOL-NUM-17-1",
+      "condition": "'Infinity'=='Infinity'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-17-1"
+    },
+    {
+      "id": "BOOL-NUM-18-0",
+      "condition": "'+Infinity'=='Infinity'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-18-0"
+    },
+    {
+      "id": "BOOL-NUM-18-1",
+      "condition": "'Infinity'=='+Infinity'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-18-1"
+    },
+    {
+      "id": "BOOL-NUM-19-0",
+      "condition": "'-Infinity'=='-Infinity'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-19-0"
+    },
+    {
+      "id": "BOOL-NUM-19-1",
+      "condition": "'-Infinity'=='-Infinity'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-19-1"
+    },
+    {
+      "id": "BOOL-NUM-20-0",
+      "condition": "'1,000'=='1000'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-20-0"
+    },
+    {
+      "id": "BOOL-NUM-20-1",
+      "condition": "'1000'=='1,000'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-20-1"
+    },
+    {
+      "id": "BOOL-NUM-21-0",
+      "condition": "'1.2.3'=='1.2.3'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-21-0"
+    },
+    {
+      "id": "BOOL-NUM-21-1",
+      "condition": "'1.2.3'=='1.2.3'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-21-1"
+    },
+    {
+      "id": "BOOL-NUM-22-0",
+      "condition": "'0xGG'=='0xgg'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-22-0"
+    },
+    {
+      "id": "BOOL-NUM-22-1",
+      "condition": "'0xgg'=='0xGG'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-22-1"
+    },
+    {
+      "id": "BOOL-NUM-23-0",
+      "condition": "'1_0'=='10'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-23-0"
+    },
+    {
+      "id": "BOOL-NUM-23-1",
+      "condition": "'10'=='1_0'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-23-1"
+    },
+    {
+      "id": "BOOL-NUM-24-0",
+      "condition": "'1f'=='1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-24-0"
+    },
+    {
+      "id": "BOOL-NUM-24-1",
+      "condition": "'1'=='1f'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-24-1"
+    },
+    {
+      "id": "BOOL-NUM-25-0",
+      "condition": "'1.00000000000000011102230246251565404236316680908203125'=='1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-25-0"
+    },
+    {
+      "id": "BOOL-NUM-25-1",
+      "condition": "'1'=='1.00000000000000011102230246251565404236316680908203125'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-25-1"
+    },
+    {
+      "id": "BOOL-NUM-26-0",
+      "condition": "'1.00000000000000011102230246251565404236316680908203126'=='1'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-26-0"
+    },
+    {
+      "id": "BOOL-NUM-26-1",
+      "condition": "'1'=='1.00000000000000011102230246251565404236316680908203126'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-26-1"
+    },
+    {
+      "id": "BOOL-NUM-27-0",
+      "condition": "'9007199254740993'=='9007199254740992'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-27-0"
+    },
+    {
+      "id": "BOOL-NUM-27-1",
+      "condition": "'9007199254740992'=='9007199254740993'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-27-1"
+    },
+    {
+      "id": "BOOL-NUM-28-0",
+      "condition": "'0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004'=='0'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-28-0"
+    },
+    {
+      "id": "BOOL-NUM-28-1",
+      "condition": "'0'=='0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-28-1"
+    },
+    {
+      "id": "BOOL-NUM-29-0",
+      "condition": "'0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005'=='0'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-29-0"
+    },
+    {
+      "id": "BOOL-NUM-29-1",
+      "condition": "'0'=='0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-29-1"
+    },
+    {
+      "id": "BOOL-NUM-30-0",
+      "condition": "'9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999'=='9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-30-0"
+    },
+    {
+      "id": "BOOL-NUM-30-1",
+      "condition": "'9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999'=='9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-30-1"
+    },
+    {
+      "id": "BOOL-NUM-MIX-01",
+      "condition": "1e2==100",
+      "evaluation": {
+        "success": false,
+        "type": "Microsoft.Build.Exceptions.InvalidProjectFileException",
+        "code": "MSB4092",
+        "file": "<fixture-root>\\BOOL-NUM-MIX-01\\main.proj",
+        "line": 2,
+        "column": 16,
+        "endLine": 0,
+        "endColumn": 0,
+        "message": "An unexpected token \"e2\" was found at character position 2 in condition \"1e2==100\".  <fixture-root>\\BOOL-NUM-MIX-01\\main.proj",
+        "hresult": -2146233088
+      },
+      "rawNativeCaseId": "BOOL-NUM-MIX-01"
+    },
+    {
+      "id": "BOOL-NUM-MIX-02",
+      "condition": "0x10==16",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-MIX-02"
+    },
+    {
+      "id": "BOOL-NUM-MIX-03",
+      "condition": "NaN==NaN",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-MIX-03"
+    },
+    {
+      "id": "BOOL-NUM-MIX-04",
+      "condition": "'NaN'!='NaN'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-MIX-04"
+    },
+    {
+      "id": "BOOL-NUM-MIX-05",
+      "condition": "'NaN'=='alpha'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-MIX-05"
+    },
+    {
+      "id": "BOOL-NUM-MIX-06",
+      "condition": "'NaN'==true",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-MIX-06"
+    },
+    {
+      "id": "BOOL-NUM-MIX-07",
+      "condition": "'1e2'==true",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-MIX-07"
+    },
+    {
+      "id": "BOOL-NUM-MIX-08",
+      "condition": "true=='1e2'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-MIX-08"
+    },
+    {
+      "id": "BOOL-NUM-MIX-09",
+      "condition": "'Infinity'=='alpha'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-MIX-09"
+    },
+    {
+      "id": "BOOL-NUM-MIX-10",
+      "condition": "'0x80000000'==false",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "",
+          "Q": ""
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-MIX-10"
+    },
+    {
+      "id": "BOOL-NUM-31-0",
+      "condition": "'0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002'=='0'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-31-0"
+    },
+    {
+      "id": "BOOL-NUM-31-1",
+      "condition": "'0'=='0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002'",
+      "evaluation": {
+        "success": true,
+        "properties": {
+          "P": "yes",
+          "Q": "taken"
+        },
+        "imports": [],
+        "duplicateImports": null,
+        "duplicateGetterFailure": {
+          "type": "System.InvalidOperationException",
+          "message": "Project was not loaded with the ProjectLoadSettings.RecordDuplicateButNotCircularImports flag."
+        }
+      },
+      "rawNativeCaseId": "BOOL-NUM-31-1"
+    }
+  ],
+  "interpretation": "P/Q are actual predicate observables; no direct parsed double values or exhaustive conversion parity claimed. Tiny2e-324 compares equal zero in both orders; tiny4e-324 and5e-324 do not. Half-ULP, NaN, signed hex, lexical and overflow cases retained verbatim. Source conversion contract remains authoritative for unenumerated values.",
+  "sourceRequirement": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-boolean-conditions-v1\\tools\\oracle\\dotj-build\\condition-boolean-v1\\numeric-prerequisites.json",
+    "sha256": "7caba046f8619dc27ab668f88abed8e6df67c817fc5a0d36431ccd1c7d8ea7b2",
+    "sizeBytes": 2717
+  },
+  "acceptanceCredit": 0
+}

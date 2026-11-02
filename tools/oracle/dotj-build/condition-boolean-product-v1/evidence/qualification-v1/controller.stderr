@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 177, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 175, in main
+    try:qualify(out,record,run);save()
+        ~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 93, in qualify
+    sources=prepare(out,record);record['sourceInputs']=[c.descriptor(p) for p in sorted((BASE/'src').rglob('*.java'))]
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 59, in prepare
+    cache,cache_rows,and_rows,logic_rows,p,native=foreign()
+                                                  ~~~~~~~^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-boolean-conditions-v1\tools\oracle\dotj-build\condition-boolean-product-v1\verify.py", line 37, in foreign
+    cache_rows=cache.observations();and_rows,logic_rows=cache.v3.native_sets()
+                                                        ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-condition-cache-v1\tools\oracle\dotj-build\condition-product-v3\verify.py", line 112, in native_sets
+    _, native, plan = revision.verify_revision(logic['validationLockSha256'])
+                      ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\Implementation\dotj Frameworks\agents\validation-performance\condition-logic-v2-native-preparation-20261030\native-error-classification-v1\verify.py", line 61, in verify_revision
+    require(lock['oldNativeInputLockSha256']==OLD_LOCK_SHA,'old native identity changed');native,plan=old.verify_inputs(OLD_LOCK_SHA)
+                                                                                                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-evaluation-candidate\tools\oracle\dotj-build\condition-logic-v2\verify.py", line 62, in verify_inputs
+    require(Path(shutil.which('powershell') or '').resolve()==Path(query['path']).resolve(),'resource query PATH resolution changed')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\Implementation\dotj Frameworks\worktrees\dotj-build-evaluation-candidate\tools\oracle\dotj-build\and-conditions-v1\verify.py", line 20, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: resource query PATH resolution changed

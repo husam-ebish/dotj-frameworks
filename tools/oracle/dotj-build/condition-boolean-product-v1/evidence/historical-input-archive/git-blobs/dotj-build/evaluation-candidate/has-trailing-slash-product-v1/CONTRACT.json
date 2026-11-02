@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "status": "PACKAGED_GREEN_PENDING_INDEPENDENT_REVIEW_AND_INTEGRATION",
+  "scope": "Private Windows Default AllowProperties HasTrailingSlash quoted scalar predicate",
+  "nativeReferenceContract": "../has-trailing-slash-v1/CONTRACT.json",
+  "nativeObservationLockSha256": "ddb438c4dbd7661a91b2246371a1c4dac6ba650bc9b6f076f9fbd71a468e2c71",
+  "grammar": "ASCII-case-insensitive HasTrailingSlash('raw argument') as one immutable AST atom; no whitespace between identifier and opening parenthesis, no double-quoted argument, unary !, inequality or general functions",
+  "validation": "Whole-XML reference/grammar validation, including skipped sites, does not expand properties, warm the cache or emit warnings. Existing simple property-name and missing item/metadata/property-function prerequisite boundaries remain.",
+  "conversion": [
+    "On reaching the typed atom only, expand simple properties once using current evaluation state.",
+    "Split on literal semicolons before unescape, trim each token with the already captured .NET whitespace set and discard empty tokens.",
+    "Zero tokens is false. Multiple nonempty tokens raises private CONDITION_PROFILE; native scalar failure ABI is not claimed.",
+    "Decode valid ASCII %XX once, preserving malformed/incomplete percent sequences.",
+    "Do not trim, split, expand or parse again. Last slash or backslash is true; empty string is false.",
+    "Ordinary Unicode, URI/drive spelling, punctuation and expanded quotes/operators are data. No path resolution or filesystem lookup."
+  ],
+  "preservation": "Legacy unescape/Exists/equality/assignment semantics unchanged. Raw exact ordinal AST cache, >3000 flush, first reached parse warnings, 64 groups and 256 nodes unchanged. No public API/export/open/dependency added.",
+  "qualifiedJarSha256": "7aed3a53836005d906247cf7237c38e3afd17b074ab5930bba85fd322c68aff6",
+  "sameJarQualification": {
+    "current94": 94,
+    "andSemantic": 9,
+    "andMalformedBoundary": 1,
+    "andPrivateControls": 24,
+    "conditionSemantic": 26,
+    "conditionNativeParseBoundaries": 5,
+    "conditionDeclaredBoundaries": 4,
+    "conditionWarnings": 4,
+    "cacheSemantic": 8,
+    "cacheWarningVector": [1, 0, 0, 1, 1, 1, 0, 1],
+    "cachePrivateControls": 4,
+    "predicateUniqueCases": 38,
+    "predicateSemantic": 32,
+    "predicatePrivateBoundaries": 6,
+    "predicateWarnings": 4,
+    "predicatePrivateControlGroups": 4,
+    "affectedAdapterControls": 6
+  },
+  "evidence": {
+    "actualRedReceiptSha256": "bdf4ce618cd2b24a1c10750aff1c67fd98626c4d9f5f82fa573c697f6c2aa1cb",
+    "actualGreenReceiptSha256": "adbec83205dfa9f294dee548a147d4996c1981f455c3a350f912b5b4dfb94c3f",
+    "greenArtifactLockSha256": "8f4e5b86e3089504eefd7039c85710016a2dba6ce7514e7adc0970baede2ee5b",
+    "externalAuditSha256": "aa43019ec6e15432a85393926ca9df7eb3efa10f7c7dc56b1f73c61fe7d13f18",
+    "rootBindingAuditSha256": "8ebbd688436edc27fbfe7817f99cec1369e14de977743156b8040bd12fcfe977",
+    "directory": "D:/AI/Implementation/dotj Frameworks/validation/Batch-2513-has-trailing-slash-product-green-v4"
+  },
+  "execution": "One actual product compilation/JAR; eight original build/current94 commands plus seven continuation commands. Original canonical94 run_command alone adapted to reviewed W12 ownership/resource guard and JAR-only explicit consumer source compilation. Original build coordinator snapshot and failed bookkeeping receipt retained. Continuation binds that exact JAR/source/build receipt; no rebuild or native recapture.",
+  "history": "v1/v2 stopped before JDK launch on original-cache lock newline identity and historical PowerShell PATH prerequisites. v3 built product and passed current94, then incorrectly rejected legitimate ProjectEvaluationComponentTest using a prefix check. Exact product/nested-class matching corrected and controlled; v4 completed remaining datasets on the same JAR. Failed runs remain failed.",
+  "limits": ["Windows JDK 21.0.12.1+1 only", "128MiB heap, two processors, SerialGC, 120s per JDK process", "540s inner / 600s parent, five-second owned cleanup", "512MiB physical and 16GiB available commit; wait before guard and <=2s fresh immediate query", "Native boundary error ABI, full condition grammar, Linux, cache concurrency/eviction/live Project reevaluation, general item/metadata/functions, public facade, release and task acceptance remain unqualified"],
+  "acceptedTasksAdded": 0,
+  "frameworkAcceptanceCredit": 0,
+  "numberedBatchCreditBeforeIntegration": 0
+}

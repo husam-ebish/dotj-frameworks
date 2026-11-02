@@ -1,0 +1,350 @@
+{
+    "schemaVersion":  1,
+    "status":  "PASS_QUALIFIED_SOURCE_BASED_PRIVATE_FAULT_ADAPTATION",
+    "reviewKind":  "READ_ONLY_CONTRACT_REVIEW_NO_IMPLEMENTATION_OR_NEW_RUNTIME_EVIDENCE",
+    "verdict":  {
+                    "spec":  "PASS_WITH_EXPLICIT_QUALIFICATION",
+                    "quality":  "PASS_FOR_PROPOSED_CONTRACT_NOT_IMPLEMENTATION",
+                    "decision":  "Adopt the proposed three-case private adaptation. The source directly supports false when conditioned-property collection is disabled; the selected native Project observations remain NullReferenceException faults.",
+                    "coherentVerticalBlockedByTheseFaults":  false,
+                    "coherentVerticalBlockedBySelectedNumericEvidence":  false,
+                    "implementationAccepted":  false,
+                    "acceptanceCredit":  0
+                },
+    "scope":  {
+                  "selectedSourceRevision":  "b44cdcec4c79c50c67560876707d57d4f635fa3b",
+                  "canonicalRepository":  "C:/source/repos/dotj Frameworks",
+                  "candidateWorktree":  "D:/AI/Implementation/dotj Frameworks/worktrees/dotj-build-boolean-conditions-v1",
+                  "publicConditionedPropertiesInventory":  "EXCLUDED",
+                  "allowedActionsPerformed":  [
+                                                  "Read specified requirements and frozen JSON evidence",
+                                                  "Check codebase-memory identity/readiness/coverage",
+                                                  "Read selected upstream source",
+                                                  "Hash review inputs",
+                                                  "Write this report"
+                                              ],
+                  "notPerformed":  [
+                                       "Subagents",
+                                       "Native/compiler/JVM/test/evidence launches",
+                                       "Source or frozen evidence edits",
+                                       "Commits",
+                                       "Index mutation"
+                                   ],
+                  "sessions":  "All owned shell calls completed synchronously; no owned live session remains."
+              },
+    "graph":  {
+                  "listProjectsChecked":  true,
+                  "project":  "dotj-build",
+                  "root":  "C:/source/repos/dotj Frameworks/dotj-build",
+                  "status":  "ready",
+                  "indexedAt":  "2026-10-31T11:13:11Z",
+                  "watched":  false,
+                  "query":  "ProjectEvaluationComponent",
+                  "queryMatches":  0,
+                  "exactPath":  "evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java",
+                  "exactCoverage":  "excluded",
+                  "freshness":  "not_tracked",
+                  "fallback":  "Named direct source reads. No inference of current private implementation behavior from the graph; no scratch indexing."
+              },
+    "frozenEvidence":  {
+                           "observationLockExpectedSha256":  "55e6ce90a9fb85991d216ffc8f2611de54565b13201a4af561053b3b8cabf0e0",
+                           "observationLockHashMatches":  true,
+                           "rowsPerCompleteNativePass":  297,
+                           "successRows":  248,
+                           "projectErrorRows":  46,
+                           "runtimeFaultRows":  3,
+                           "pairStatus":  "Root-frozen complete native pair, consumed as supplied; not rerun or independently recaptured.",
+                           "preservationRule":  "Keep all native observations, exception types, messages, HResult, stacks and producer lineage immutable. A private adaptation is a separately versioned expectation and is never a normalized native success."
+                       },
+    "sourceReasoning":  [
+                            {
+                                "anchorIds":  [
+                                                  "condition-evaluator",
+                                                  "multiple-comparison"
+                                              ],
+                                "finding":  "ConditionEvaluator.EvaluateCondition explicitly calls the collecting overload with conditionedPropertiesTable:null at lines 193-203. MultipleComparisonNode.UpdateConditionedProperties is gated by a nonnull table at lines 115-139. Therefore omitting this excluded inventory is an existing source evaluation mode, not an invented Boolean algorithm."
+                            },
+                            {
+                                "anchorIds":  [
+                                                  "multiple-comparison",
+                                                  "equal",
+                                                  "generic",
+                                                  "string",
+                                                  "operator"
+                                              ],
+                                "finding":  "Both emptiness checks occur first (63-64). If either is empty, the result after inventory update is Compare(leftEmpty,rightEmpty) (65-69). A StringExpressionNode containing empty text or the undefined property is empty; operator nodes use GenericExpressionNode.EvaluatesToEmpty=false. EqualExpressionNode compares these Boolean flags with ==. Thus each exact fault case produces false in the no-inventory mode."
+                            },
+                            {
+                                "anchorIds":  [
+                                                  "condition-evaluator",
+                                                  "multiple-comparison",
+                                                  "operator",
+                                                  "function",
+                                                  "parser"
+                                              ],
+                                "finding":  "For the actual collecting path, the scalar has a nonnull unexpanded representation while the opposite function/comparison operator has null expanded text. UpdateConditionedProperties passes that null to UpdateConditionedPropertiesTable; line 39 accesses rightValueExpanded.Length before checking whether the scalar names a property. This also explains EMPTY-08 despite its left scalar being literal empty text. Grouping returns its child node directly. The actual frozen stacks identify this same call chain."
+                            },
+                            {
+                                "anchorIds":  [
+                                                  "multiple-comparison",
+                                                  "generic",
+                                                  "operator"
+                                              ],
+                                "finding":  "The empty result must be determined without BoolEvaluate of HasTrailingSlash or the nested comparison. Do not flatten operator values to true/false strings, pre-evaluate all operands, translate every NullReferenceException to false, or special-case fixture IDs. Preserve the generic empty/numeric/Boolean/string decision order."
+                            }
+                        ],
+    "exactFaultDispositions":  [
+                                   {
+                                       "id":  "BOOL-EMPTY-06",
+                                       "condition":  "$(Undefined)==HasTrailingSlash(\u0027a/\u0027)",
+                                       "nativeOutcome":  "runtime-fault-v3",
+                                       "nativeException":  "System.NullReferenceException",
+                                       "nativeHResult":  -2147467261,
+                                       "privateDisposition":  "SOURCE_BASED_PRIVATE_ADAPTATION_NO_CONDITIONED_PROPERTIES",
+                                       "leftEmpty":  true,
+                                       "rightEmpty":  false,
+                                       "privateConditionResult":  false,
+                                       "privateFixtureP":  "",
+                                       "privateFixtureQ":  "",
+                                       "privateAssignments":  "P/Q skipped",
+                                       "operatorEvaluation":  "HasTrailingSlash is not evaluated",
+                                       "nativePairedParityEligible":  false
+                                   },
+                                   {
+                                       "id":  "BOOL-EMPTY-07",
+                                       "condition":  "HasTrailingSlash(\u0027a/\u0027)==$(Undefined)",
+                                       "nativeOutcome":  "runtime-fault-v3",
+                                       "nativeException":  "System.NullReferenceException",
+                                       "nativeHResult":  -2147467261,
+                                       "privateDisposition":  "SOURCE_BASED_PRIVATE_ADAPTATION_NO_CONDITIONED_PROPERTIES",
+                                       "leftEmpty":  false,
+                                       "rightEmpty":  true,
+                                       "privateConditionResult":  false,
+                                       "privateFixtureP":  "",
+                                       "privateFixtureQ":  "",
+                                       "privateAssignments":  "P/Q skipped",
+                                       "operatorEvaluation":  "HasTrailingSlash is not evaluated",
+                                       "nativePairedParityEligible":  false
+                                   },
+                                   {
+                                       "id":  "BOOL-EMPTY-08",
+                                       "condition":  "\u0027\u0027==(\u0027a\u0027==\u0027a\u0027)",
+                                       "nativeOutcome":  "runtime-fault-v3",
+                                       "nativeException":  "System.NullReferenceException",
+                                       "nativeHResult":  -2147467261,
+                                       "privateDisposition":  "SOURCE_BASED_PRIVATE_ADAPTATION_NO_CONDITIONED_PROPERTIES",
+                                       "leftEmpty":  true,
+                                       "rightEmpty":  false,
+                                       "privateConditionResult":  false,
+                                       "privateFixtureP":  "",
+                                       "privateFixtureQ":  "",
+                                       "privateAssignments":  "P/Q skipped",
+                                       "operatorEvaluation":  "Nested equality is not evaluated",
+                                       "nativePairedParityEligible":  false
+                                   }
+                               ],
+    "remaining294":  {
+                         "requiredDisposition":  "Retain each ordinary path as a native-comparison candidate or an individually declared inherited private-profile restriction. No ordinary numeric/equality/logical path may disappear to avoid implementation difficulty.",
+                         "counting":  "297 retained native cases = 294 remaining cases + 3 separately labeled source-based adaptations. Do not label the entire corpus 297 native parity; do not assume all 294 are parity if some are declared profile restrictions.",
+                         "nativeErrors":  "The 46 InvalidProjectFileException outcomes remain project errors, distinct from the three runtime faults. Private exception representation is a separately documented mapping, not exact Microsoft.Build ABI parity.",
+                         "qualification":  "This narrow source review does not audit the eventual per-case successor ledger or certify a Java implementation."
+                     },
+    "numericReview":  {
+                          "status":  "SELECTED_OBSERVATION_PREREQUISITES_RESOLVED_IMPLEMENTATION_CONFORMANCE_PENDING",
+                          "requiredIds":  72,
+                          "observedIds":  72,
+                          "uniqueObservedIds":  72,
+                          "missingIds":  [
+
+                                         ],
+                          "extraIds":  [
+
+                                       ],
+                          "successfulEvaluations":  71,
+                          "projectErrors":  1,
+                          "sourceObligations":  [
+                                                    "Try invariant decimal Double conversion with AllowDecimalPoint|AllowLeadingSign, reject infinite results, then try prefixed Int32 hexadecimal. Do not admit Java exponent/suffix/hex-float/whitespace syntax through an unrestricted parseDouble call.",
+                                                    "Retain signed 32-bit hexadecimal semantics, including 0x80000000=-2147483648 and 0xffffffff=-1. Leading zero width alone is not rejection: 0x000000001 compares equal to 1.",
+                                                    "Attempt numeric comparison only if both conversions succeed, then Boolean only if both succeed, then valid expanded string representations. Keep left-to-right short circuit of conversion calls.",
+                                                    "Numeric equality and inequality use primitive double == and !=, including NaN != NaN and signed zero equality; do not use object equality or Double.compare semantics.",
+                                                    "Reject overflow-to-infinity as a numeric conversion so identical overflow text can match through string fallback. Infinity spellings are string fallback rather than accepted infinite numbers.",
+                                                    "Keep numeric token lexing separate from numeric conversion. Bare 1e2==100 is the recorded MSB4092 error; quoted \u00271e2\u0027 versus \u0027100\u0027 succeeds with false. Numeric text survives failed conversion; no Version equality coercion.",
+                                                    "Respect binary64 rounding at the exact half-ULP and its successor, 9007199254740993 versus 9007199254740992, and the observed 2e-324/4e-324/5e-324 full-decimal boundaries.",
+                                                    "Quoted and expanded scalars take the same ordinary numeric conversion path; preserve one-pass expansion/unescape and the declared reserved-property exclusion."
+                                                ],
+                          "selectedFindings":  [
+                                                   "BOOL-NUM-25 in both orders equals 1 at the exact half-ULP; BOOL-NUM-26 in both orders is unequal.",
+                                                   "BOOL-NUM-27 in both orders compares equal after binary64 rounding.",
+                                                   "BOOL-NUM-31 tiny 2e-324 full decimal equals zero; BOOL-NUM-28 and 29 tiny 4e-324 and 5e-324 full decimals do not.",
+                                                   "NaN self-equality is false, case variant equality is false, and NaN inequality is true in the selected observations. +NaN versus NaN is observed false.",
+                                                   "Mixed scalar/numeric/Boolean cases preserve fallback outcomes and the bare-exponent syntax distinction."
+                                               ],
+                          "evidenceLimit":  "P/Q observations establish these predicates, not direct parsed doubles or exhaustive parsing behavior. In particular a false +NaN-versus-NaN predicate alone does not prove which conversion path ran. Source contract remains authoritative for unenumerated values.",
+                          "frozenPrecursorStatus":  "numeric-prerequisites.json still says awaiting native pair and nativeObservations:0 because it is immutable precursor input. A new successor contract should reference numeric-resolution.json as its resolution; do not edit the frozen precursor.",
+                          "blockingFinding":  null
+                      },
+    "blockers":  {
+                     "forAdoptingThisProposedContract":  [
+
+                                                         ],
+                     "forClaimingImplementedOrQualifiedFullVertical":  [
+                                                                           "No implementation or packaged-JAR evidence was reviewed in this task. Typed operands, conversion semantics, ordinary precedence, laziness and bounds still require the authorized implementation and qualification process.",
+                                                                           "The successor ledger/adapters must explicitly retain all 297 IDs and separately encode three adaptations, remaining native comparisons and inherited profile restrictions. They must not rewrite frozen native faults or obtain parity credit for them.",
+                                                                           "All required predecessor transitions, cache/warning/source-site observables and same-JAR regression obligations from task71 remain qualification requirements."
+                                                                       ],
+                     "additionalNativeRunsRequested":  false,
+                     "notNewBlockers":  "No source contradiction or unresolved selected numeric observation prevents the coherent vertical. Existing public API, full Unicode/platform, framework eligibility and product-delivery limitations remain open."
+                 },
+    "recommendedQualificationLabels":  [
+                                           {
+                                               "label":  "SOURCE_BASED_PRIVATE_ADAPTATION_NO_CONDITIONED_PROPERTIES",
+                                               "use":  "Exact EMPTY-06/07/08 successor cases; private false, actual native runtime fault retained; excluded from paired parity numerator and denominator."
+                                           },
+                                           {
+                                               "label":  "FROZEN_NATIVE_RUNTIME_FAULT",
+                                               "use":  "The three immutable native rows, including exact exception observations; no false/success remapping."
+                                           },
+                                           {
+                                               "label":  "NATIVE_OBSERVABLE_COMPARISON_CANDIDATE",
+                                               "use":  "Remaining supported cases until Java comparison actually passes; change to qualified only with the required evidence."
+                                           },
+                                           {
+                                               "label":  "DECLARED_PRIVATE_PROFILE_RESTRICTION",
+                                               "use":  "Individually justified inherited boundaries, never a blanket disposal of ordinary paths."
+                                           },
+                                           {
+                                               "label":  "SELECTED_NUMERIC_PREDICATES_OBSERVED_NOT_EXHAUSTIVE_CONVERSION_PARITY",
+                                               "use":  "All 72 numeric observations and associated source contract."
+                                           },
+                                           {
+                                               "label":  "PRIVATE_CONDITION_VERTICAL_NOT_PUBLIC_MSBUILD_PARITY",
+                                               "use":  "Aggregate capability claim; no ConditionedProperties API, exact exception ABI, general Unicode/platform or framework acceptance claim."
+                                           }
+                                       ],
+    "risksAndLimitations":  [
+                                "Disabling inventory changes the selected native Project-load outcome for these three cases. This is a deliberate documented private adaptation even though the source contains a no-collection evaluation mode.",
+                                "The three observed faults do not prove that no other input can reach the same null inventory path. Implement the source no-inventory semantics generally; retain separate dispositions for any future observed differences.",
+                                "The empty optimization applies to == and != through Boolean emptiness comparison; unequal emptiness makes != true. Do not generalize this review into a rule that every empty comparison is false.",
+                                "Empty scalar alone is non-Boolean; empty Condition attribute remains true. The three false outcomes do not redefine either rule.",
+                                "Skipped P/Q are fixture expectations under their initial state, not an instruction to clear existing properties when a condition is false.",
+                                "All native/helper files are frozen. This report is source review, not independent runtime replication, implementation review, artifact qualification or acceptance."
+                            ],
+    "sourceAnchors":  [
+                          {
+                              "id":  "condition-evaluator",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/ConditionEvaluator.cs",
+                              "lines":  "34-39, 39-106, 180-203, 213-234",
+                              "finding":  "Nullable collection boundary, dereference causing fault, explicit no-collection mode.",
+                              "sha256":  "5ed6af27c735988e413c9d2972f80603b0177581f5e48a0df7652cf00ee28d7c"
+                          },
+                          {
+                              "id":  "multiple-comparison",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/MultipleComparisonExpressionNode.cs",
+                              "lines":  "39-100, 115-139",
+                              "finding":  "Empty-first decision and conditional inventory update.",
+                              "sha256":  "a1eee9cacb457916773bf1062b1b8dcd07e9a10198d94c97dab69b4329217f4d"
+                          },
+                          {
+                              "id":  "equal",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/EqualExpressionNode.cs",
+                              "lines":  "18-36",
+                              "finding":  "Primitive numeric and Boolean equality; OrdinalIgnoreCase string equality.",
+                              "sha256":  "c90c2b241688cf228400b8545564eeeaa21f56806ef1d3eb5bc4156c923d0927"
+                          },
+                          {
+                              "id":  "not-equal",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/NotEqualExpressionNode.cs",
+                              "lines":  "18-36",
+                              "finding":  "Same machinery with primitive inequality.",
+                              "sha256":  "b04470e23762da9c25fcb7cffe793563a84db4d5163a4c7356039af7584291d1"
+                          },
+                          {
+                              "id":  "generic",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/GenericExpressionNode.cs",
+                              "lines":  "27-29, 61-72",
+                              "finding":  "Default operator emptiness false; top-level Boolean conversion error.",
+                              "sha256":  "6b7b2eef7527fb9819d3aa058a3f293a135724d94e3e307c0c53bf0c5fb873ae"
+                          },
+                          {
+                              "id":  "operator",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/OperatorExpressionNode.cs",
+                              "lines":  "15-54",
+                              "finding":  "Boolean operator evaluation; numeric conversion unavailable; null text representations.",
+                              "sha256":  "e54db6fc014dbecce824e5ab9ef9261adb467cc3e319df51dd2d392b02d9754c"
+                          },
+                          {
+                              "id":  "string",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/StringExpressionNode.cs",
+                              "lines":  "33-48, 71-115, 127-150",
+                              "finding":  "Expanded scalar conversion, emptiness and nonnull unexpanded representation.",
+                              "sha256":  "05890a707fc988078db579f18f813e7db660bb234ed591cc06d05976d5b7c8e7"
+                          },
+                          {
+                              "id":  "function",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/FunctionCallExpressionNode.cs",
+                              "lines":  "19, 73-91",
+                              "finding":  "HasTrailingSlash inherits operator representation and emptiness.",
+                              "sha256":  "511ccfa7231ba8c091dc85194029c7676435b50d6399fa03b80556af244608d4"
+                          },
+                          {
+                              "id":  "parser",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/Parser.cs",
+                              "lines":  "270-324",
+                              "finding":  "Function/operator construction; grouping returns child without scalar wrapper.",
+                              "sha256":  "37257c7da59755bfc3795177da20e5a7ee88ae0ce5f58abdec94719eb4af65d9"
+                          },
+                          {
+                              "id":  "numeric",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/NumericExpressionNode.cs",
+                              "lines":  "24-57",
+                              "finding":  "No Boolean conversion; decimal/hex conversion; original text retained.",
+                              "sha256":  "1cb565d648cc513c6aea599f62fac822e682971a09fc148463c4f06119ea395f"
+                          },
+                          {
+                              "id":  "conversion",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Framework/Utilities/ConversionUtilities.cs",
+                              "lines":  "73-123, 161-203",
+                              "finding":  "Boolean aliases, decimal-then-Int32-hex numeric conversion and infinity rejection.",
+                              "sha256":  "9fa5cc60a61f9241b71ceea74200995f814c0c1c653507cef1cdc748ab6e919e"
+                          },
+                          {
+                              "id":  "scanner",
+                              "path":  "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/Build/Evaluation/Conditionals/Scanner.cs",
+                              "lines":  "719-762",
+                              "finding":  "Bare numeric token grammar differs from quoted scalar conversion.",
+                              "sha256":  "7a094db4dda1b40c4f8c444cef1ab037ea9ee88010f015d91fa2b2a062eda323"
+                          }
+                      ],
+    "inputHashes":  [
+                        {
+                            "path":  "D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/task84-build-boolean-fault-contract-brief-v1.txt",
+                            "sha256":  "1b851b05f3e81284b90a37778c917520dfbbe6bff8e3191cbfd3016953bf2500",
+                            "sizeBytes":  2425
+                        },
+                        {
+                            "path":  "D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/task71-next-build-condition-scope-plan-v1.json",
+                            "sha256":  "d6c4e91c739d7727fe05daf8645dadf6a93ad20aa8e75f3499baa543300f76cf",
+                            "sizeBytes":  73434
+                        },
+                        {
+                            "path":  "D:/AI/Implementation/dotj Frameworks/validation/Batch-2516-native-observation-v1/observation-lock.json",
+                            "sha256":  "55e6ce90a9fb85991d216ffc8f2611de54565b13201a4af561053b3b8cabf0e0",
+                            "sizeBytes":  6824
+                        },
+                        {
+                            "path":  "D:/AI/Implementation/dotj Frameworks/validation/Batch-2516-native-observation-v1/runtime-faults.json",
+                            "sha256":  "13b490cadc64e8c693181ad4b07a9058b45c039104e2654733547034d3c76878",
+                            "sizeBytes":  12475
+                        },
+                        {
+                            "path":  "D:/AI/Implementation/dotj Frameworks/validation/Batch-2516-native-observation-v1/numeric-resolution.json",
+                            "sha256":  "bb50389aa249f3449a471afe3be82a8f85e37f5a2686c3c8f0efb122c1e21411",
+                            "sizeBytes":  43969
+                        },
+                        {
+                            "path":  "D:/AI/Implementation/dotj Frameworks/worktrees/dotj-build-boolean-conditions-v1/tools/oracle/dotj-build/condition-boolean-v1/numeric-prerequisites.json",
+                            "sha256":  "7caba046f8619dc27ab668f88abed8e6df67c817fc5a0d36431ccd1c7d8ea7b2",
+                            "sizeBytes":  2717
+                        }
+                    ]
+}
