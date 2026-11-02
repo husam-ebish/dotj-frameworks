@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "status": "FROZEN_BEFORE_FIRST_DEPTH_NATIVE_CAPTURE",
+  "depth": 8192,
+  "rows": [
+    {
+      "id": "D001",
+      "outcome": "success"
+    },
+    {
+      "id": "D002",
+      "outcome": "fault"
+    },
+    {
+      "id": "D003",
+      "outcome": "source-cancel"
+    },
+    {
+      "id": "D004",
+      "outcome": "caller-cancel"
+    }
+  ],
+  "fields": {
+    "depth": "i",
+    "completed": "i",
+    "successful": "i",
+    "faulted": "i",
+    "canceled": "i",
+    "tailCompleted": "b",
+    "tailStatus": "i",
+    "tailCallbacks": "i",
+    "allPayloadsMatch": "b",
+    "rootFailure": "s",
+    "uncaughtFailure": "s",
+    "rootCompleted": "b",
+    "callerRequested": "b",
+    "sourceRequested": "b",
+    "distinctWrappers": "b",
+    "borrowedSourceAfterCallerCancel": "s",
+    "callerAndSourceUsableAfterCompletion": "b",
+    "tokensStableAfterDispose": "b"
+  },
+  "cases": 4,
+  "exactWireFields": 72,
+  "privateControls": [
+    "P01-shallow-and-late-inline-reset",
+    "P02-depth-budget-real-queue-handoff",
+    "P03-runtime-error-and-exception-finally-reset",
+    "P04-worker-budget-reset",
+    "P05-deep-late-runtime-attachment",
+    "P06-handoff-ownership-and-late-loser",
+    "P07-queued-runtime-failure-isolated",
+    "P08-existing-rejection-finally-delivery"
+  ],
+  "applicability": "All8192 wrapper payloads/statuses checked; stored fault identity or synthesized TCE token/task identity as applicable. Borrowed source pending-after-caller-cancel field is not-applicable in other outcomes. No exact CLR/JVM stack threshold, worker count or timing equivalence; private32 policy is not a public depth limit.",
+  "nativeProfile": "Existing pinned10.0.12/128MiB/Disable/60s, default stack",
+  "productProfile": "Existing JDK21/128MiB/default stack",
+  "historicalReferences": "487/10690 and11/159 retained unchanged; no recapture",
+  "red": "Reviewed63b original diagnostic remains RED; original harness0 is not a productPASS"
+}

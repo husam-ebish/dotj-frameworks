@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "18f9b3ffb4fe2d8dcbe5a7d036b557b543a61e2a6507bfd51375420ca7017a99",
+  "jarSha256": "1b3de7eba209fcb45d29f637fa2f1f3835095b51a9b52ac90efe06236383b8d7",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 136,
-  "directNameMatchedCount": 116,
+  "sourceCount": 137,
+  "directNameMatchedCount": 117,
   "directNameMissingCount": 20,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
@@ -2058,17 +2058,22 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Task.java",
-      "productSha256": "f04489439109175afeccb3870e954c05b7c119134e6f2f2e16d36a29e3a5e78e",
+      "productSha256": "b3a2a3b2db2150afea26e62b5745bb5307e504120824f542314ee564af76887a",
       "classEntries": [
-        "System/Threading/Tasks/Task.class",
         "System/Threading/Tasks/Task$1.class",
+        "System/Threading/Tasks/Task$CompletionAction.class",
         "System/Threading/Tasks/Task$CompletionAttempt.class",
+        "System/Threading/Tasks/Task$Continuation.class",
         "System/Threading/Tasks/Task$DelayDefaults.class",
         "System/Threading/Tasks/Task$DelayInfrastructure.class",
         "System/Threading/Tasks/Task$DelayRegistrar.class",
         "System/Threading/Tasks/Task$DelayState.class",
         "System/Threading/Tasks/Task$DelayTimer.class",
-        "System/Threading/Tasks/Task$TimerHandle.class"
+        "System/Threading/Tasks/Task$TimerHandle.class",
+        "System/Threading/Tasks/Task$WaitDefaults.class",
+        "System/Threading/Tasks/Task$WaitInfrastructure.class",
+        "System/Threading/Tasks/Task$WaitState.class",
+        "System/Threading/Tasks/Task.class"
       ],
       "mitSpdxHeaderObserved": true,
       "localIntroductionCommit": "9dc1e0a1bf3d35fde447453b821b3b36b86308d8",
@@ -2190,8 +2195,25 @@
       "supplementalAdjacencyEvidence": null
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/TimeoutException.java",
+      "productSha256": "f56cb8ced7b61fed505b5123ecc1579efabaf67c0865a48647296e41a73cfacd",
+      "classEntries": [
+        "System/TimeoutException.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "63e23992bb45d3465c448399c2eb1b926cc0146e",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/TimeoutException.cs",
+      "upstreamSha256": "cdd8e61e2613af69b3e14a4250e997042bc08884793bc55b99963aac638db767",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "0b3eff3a7b72a4bd1d1261fa29c3be0c1ebde07fde728b3efcce0ee089206fb9",
+      "productSha256": "bfbc0d6a8062b87185241f6514a62bd12204623ff0f0009b8f33b112c4799817",
       "classEntries": [
         "System/Type.class",
         "System/Type$1.class",

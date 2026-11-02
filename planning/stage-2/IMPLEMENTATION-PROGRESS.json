@@ -12355,13 +12355,9 @@
   "nextProposedBatch": {
     "id": null,
     "framework": "dotj-core",
-    "planTaskIds": [
-      "DJ-001-WP-02-T1",
-      "DJ-001-WP-02-T2"
-    ],
-    "outcome": "Root independent specification/quality/whole-branch reviews and terminal integration of the qualified Batch2519 candidate, then select remaining acceptance scope.",
+    "outcome": "Root independent Task119 specification/code/whole-branch reviews and integration of qualified candidate2520; future scope remains unassigned.",
     "requiresContinue": false,
-    "basis": "Exactly one selected Run(Action,CancellationToken) overload qualified; no additional batch number assigned or acceptance credit."
+    "basis": "Selected group remains planned1/done0/remaining1 until required reviews/integration. No acceptance credit or global batch remainder invented."
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
@@ -12618,5 +12614,166 @@
     "associationPrivateControls": 6,
     "fixRound": 1,
     "scopedRereviewPending": true
+  },
+  "batch2519CandidateSemantics": "Historical premerge qualification snapshot retained verbatim; actual integration is reconciled separately below.",
+  "batch2519IntegrationReconciliation": {
+    "status": "ACTUALLY_MERGED_AND_PUSHED",
+    "head": "fffc29c7a9607547be14e8f161530873c11d711d",
+    "receipt": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\batch2519-integration-v1.json",
+      "sha256": "dc102ebf8b3daaa38f3b964e3a12c03e6072de1f085df236a1b36194159ca564",
+      "sizeBytes": 48736
+    },
+    "canonicalJarAbsent": true,
+    "canonicalBuildOrJvmClaim": false
+  },
+  "batch2520Candidate": {
+    "status": "IMPLEMENTATION_QUALIFIED_ROOT_REVIEW_AND_INTEGRATION_PENDING",
+    "framework": "dotj-core",
+    "canonicalIntegratedBatch": "Batch-2519",
+    "canonicalBase": "fffc29c7a9607547be14e8f161530873c11d711d",
+    "selectedGroupsPlanned": 1,
+    "selectedGroupsDone": 0,
+    "selectedGroupsRemaining": 1,
+    "implementationChecksPassed": true,
+    "taskReviewPending": true,
+    "wholeBranchReviewPending": true,
+    "rootMergePushPending": true,
+    "publicTaskOverloads": 3,
+    "publicExceptionClasses": 1,
+    "publicExceptionConstructors": 3,
+    "nativeCases": 487,
+    "nativeFields": 10690,
+    "nativePassesPerMatrix": 2,
+    "privateControls": 27,
+    "negativeControls": 47,
+    "historicalGroups": 16,
+    "actualFoundationChecks": 520,
+    "jar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+      "sha256": "63b46d6509f9f7a78aabee7c1463ec8291b6d7937e57ec2a95be752fb449f72d",
+      "sizeBytes": 871254
+    },
+    "qualification": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-foundation-v1.json",
+      "sha256": "26c6004da1de64e6c0bb441dbf51ac02647f8f0af4caf99bcbc1dd76a016d6f7",
+      "sizeBytes": 5745
+    },
+    "firstIntermediateJarUnavailable": true,
+    "acceptedTasksAdded": 0,
+    "qualifiedFrameworksAdded": 0,
+    "openAcceptanceItems": 1686,
+    "e01Open": 3,
+    "totalProjectBatches": null,
+    "remainingProjectBatches": null,
+    "historicalBatch2500TargetRemaining": 0
+  },
+  "batch2520Fix1": {
+    "status": "FIX1_EVIDENCE_CORRECTION_QUALIFIED_SCOPED_REREVIEW_PENDING",
+    "findings": [
+      "T120-SPEC-I1",
+      "T120-TEST-M1"
+    ],
+    "productUnchanged": true,
+    "jarSha256": "63b46d6509f9f7a78aabee7c1463ec8291b6d7937e57ec2a95be752fb449f72d",
+    "productSourcesUnchanged": 137,
+    "newCases": 11,
+    "newExactWireFields": 159,
+    "newNativePasses": 2,
+    "newSharedObserverControls": 14,
+    "newConsumedProofControls": 16,
+    "finalFivePure": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\final-pure-v4\\receipt.json",
+      "sha256": "499108ff3a93b998b745e294e270966602db98b44db47cb5e3821fbdb95c05ad",
+      "sizeBytes": 51245
+    },
+    "oldCases": 487,
+    "oldExactWireFields": 10690,
+    "oldPrivate": 27,
+    "oldHistoricalGroups": 16,
+    "oldGate2Checks": 520,
+    "oldGate2ExecutedNewCode": false,
+    "old47Controls": "Historical on preserved reviewed reader, not relabeled current-reader execution",
+    "qualification": "Current stricter reader and focused evidence are post-gate strengthening on identical product; full gate2 remains historical on its actual archived code/proofs",
+    "scopedRereviewPending": true,
+    "wholeBranchReviewPending": true,
+    "rootMergePushPending": true,
+    "integratedMainline": 2519,
+    "candidate": 2520,
+    "acceptedTasks": "0/1092 (0%)",
+    "openAcceptanceItems": 1686,
+    "qualifiedFrameworks": "0/66",
+    "e01AllThree": "OPEN",
+    "old2500TargetRemaining": 0,
+    "wholeProjectTotalRemaining": "UNKNOWN/UNKNOWN",
+    "qualificationRecord": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-foundation-v1.json",
+      "sha256": "d527f5a3335d51956067cb8b23735b3da9fd030dcd0d5614d25235e7211db785",
+      "sizeBytes": 11219
+    },
+    "finalMetadataChronology": "Summary pointer updated after final pure; final reader/runner/selected proof bytes unchanged"
+  },
+  "batch2520FinalFixWave": {
+    "status": "FINAL_FIX_WAVE_FULL_FOUNDATION_PASSED_SCOPED_REVIEW_PENDING",
+    "authoritativeOverEarlierCandidateSnapshots": true,
+    "candidateJar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+      "sha256": "1b3de7eba209fcb45d29f637fa2f1f3835095b51a9b52ac90efe06236383b8d7",
+      "sizeBytes": 872158
+    },
+    "productSources": 137,
+    "oldJarHistorical": "63b46d6509f9f7a78aabee7c1463ec8291b6d7937e57ec2a95be752fb449f72d",
+    "existingCases": 498,
+    "originalExactWireFields": 10690,
+    "observerExactWireFields": 159,
+    "depthCases": 4,
+    "depthExactWireFields": 72,
+    "privateControls": 27,
+    "observerControls": 14,
+    "depthControls": 8,
+    "proofControls": 26,
+    "ownedControls": 47,
+    "aggregateControls": 9,
+    "historicalGroups": 16,
+    "old520GateHistorical": true,
+    "currentGatePending": false,
+    "mainline2519": true,
+    "candidate2520Unmerged": true,
+    "scopedFinalWaveReviewPending": true,
+    "acceptedTasks": "0/1092 (0%)",
+    "openAcceptanceItems": 1686,
+    "qualifiedFrameworks": "0/66",
+    "all3E01": "OPEN",
+    "old2500TargetRemaining": 0,
+    "wholeProjectTotalRemaining": "UNKNOWN/UNKNOWN",
+    "actualFoundation": {
+      "status": "ACTUAL_COMPLETE_FOUNDATION_PASS",
+      "phase": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\final-wave\\foundation-gate-v1\\receipt.json",
+        "sha256": "320f59ce493ef24beca3c85b3f395329480315ba2d6dcf1a278f3041afb0152c",
+        "sizeBytes": 538543
+      },
+      "aggregate": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\foundation-public-candidate-gate-v1.json",
+        "sha256": "b58a4bd3af639aa50ef8914c95fc2c24eb43c7335fd5d18a7703f3c5670dc2b3",
+        "sizeBytes": 179101
+      },
+      "executedFourProofs": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\final-wave\\gate-executed-proofs-v1\\manifest.json",
+        "sha256": "a485d3164bff0584772b4fa81c67b46fee778363f4bf5ababf1082a5f660f3c1",
+        "sizeBytes": 4383
+      },
+      "candidateJar": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+        "sha256": "1b3de7eba209fcb45d29f637fa2f1f3835095b51a9b52ac90efe06236383b8d7",
+        "sizeBytes": 872158
+      },
+      "checks": 520,
+      "sourceCount": 137,
+      "classCount": 195,
+      "sourceReaderToolsUnchanged": true,
+      "currentMetadataAddedAfterGate": true
+    },
+    "metadataChronology": "Actual-result summary follows gate; final five pure entrypoints execute after final staged byte/whitespace audit."
   }
 }

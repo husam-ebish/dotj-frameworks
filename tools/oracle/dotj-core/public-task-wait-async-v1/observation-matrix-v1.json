@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "status": "FROZEN_BEFORE_FIRST_OBSERVATION_CAPTURE",
+  "historicalCasesUnchanged": 487,
+  "historicalFieldsUnchanged": 10690,
+  "rows": [
+    {
+      "id": "O001",
+      "group": "callback",
+      "purpose": "Direct wait callback thread and in-Cancel boundary; source slots independent"
+    },
+    {
+      "id": "O002",
+      "group": "value",
+      "shape": "alias",
+      "outcome": "success",
+      "applicability": {
+        "storedIdentity": "fault/timeout only",
+        "tokenAndTask": "source/caller cancellation only",
+        "synthesizedTceObjectIdentity": "not required"
+      },
+      "receiver": "Already completed inner WaitAsync for alias caller/timeout; completed TCS for other aliases; pending TCS for distinct wrappers"
+    },
+    {
+      "id": "O003",
+      "group": "value",
+      "shape": "alias",
+      "outcome": "fault",
+      "applicability": {
+        "storedIdentity": "fault/timeout only",
+        "tokenAndTask": "source/caller cancellation only",
+        "synthesizedTceObjectIdentity": "not required"
+      },
+      "receiver": "Already completed inner WaitAsync for alias caller/timeout; completed TCS for other aliases; pending TCS for distinct wrappers"
+    },
+    {
+      "id": "O004",
+      "group": "value",
+      "shape": "alias",
+      "outcome": "source-cancel",
+      "applicability": {
+        "storedIdentity": "fault/timeout only",
+        "tokenAndTask": "source/caller cancellation only",
+        "synthesizedTceObjectIdentity": "not required"
+      },
+      "receiver": "Already completed inner WaitAsync for alias caller/timeout; completed TCS for other aliases; pending TCS for distinct wrappers"
+    },
+    {
+      "id": "O005",
+      "group": "value",
+      "shape": "alias",
+      "outcome": "caller-cancel",
+      "applicability": {
+        "storedIdentity": "fault/timeout only",
+        "tokenAndTask": "source/caller cancellation only",
+        "synthesizedTceObjectIdentity": "not required"
+      },
+      "receiver": "Already completed inner WaitAsync for alias caller/timeout; completed TCS for other aliases; pending TCS for distinct wrappers"
+    },
+    {
+      "id": "O006",
+      "group": "value",
+      "shape": "alias",
+      "outcome": "timeout",
+      "applicability": {
+        "storedIdentity": "fault/timeout only",
+        "tokenAndTask": "source/caller cancellation only",
+        "synthesizedTceObjectIdentity": "not required"
+      },
+      "receiver": "Already completed inner WaitAsync for alias caller/timeout; completed TCS for other aliases; pending TCS for distinct wrappers"
+    },
+    {
+      "id": "O007",
+      "group": "value",
+      "shape": "wrapper",
+      "outcome": "success",
+      "applicability": {
+        "storedIdentity": "fault/timeout only",
+        "tokenAndTask": "source/caller cancellation only",
+        "synthesizedTceObjectIdentity": "not required"
+      },
+      "receiver": "Already completed inner WaitAsync for alias caller/timeout; completed TCS for other aliases; pending TCS for distinct wrappers"
+    },
+    {
+      "id": "O008",
+      "group": "value",
+      "shape": "wrapper",
+      "outcome": "fault",
+      "applicability": {
+        "storedIdentity": "fault/timeout only",
+        "tokenAndTask": "source/caller cancellation only",
+        "synthesizedTceObjectIdentity": "not required"
+      },
+      "receiver": "Already completed inner WaitAsync for alias caller/timeout; completed TCS for other aliases; pending TCS for distinct wrappers"
+    },
+    {
+      "id": "O009",
+      "group": "value",
+      "shape": "wrapper",
+      "outcome": "source-cancel",
+      "applicability": {
+        "storedIdentity": "fault/timeout only",
+        "tokenAndTask": "source/caller cancellation only",
+        "synthesizedTceObjectIdentity": "not required"
+      },
+      "receiver": "Already completed inner WaitAsync for alias caller/timeout; completed TCS for other aliases; pending TCS for distinct wrappers"
+    },
+    {
+      "id": "O010",
+      "group": "value",
+      "shape": "wrapper",
+      "outcome": "caller-cancel",
+      "applicability": {
+        "storedIdentity": "fault/timeout only",
+        "tokenAndTask": "source/caller cancellation only",
+        "synthesizedTceObjectIdentity": "not required"
+      },
+      "receiver": "Already completed inner WaitAsync for alias caller/timeout; completed TCS for other aliases; pending TCS for distinct wrappers"
+    },
+    {
+      "id": "O011",
+      "group": "value",
+      "shape": "wrapper",
+      "outcome": "timeout",
+      "applicability": {
+        "storedIdentity": "fault/timeout only",
+        "tokenAndTask": "source/caller cancellation only",
+        "synthesizedTceObjectIdentity": "not required"
+      },
+      "receiver": "Already completed inner WaitAsync for alias caller/timeout; completed TCS for other aliases; pending TCS for distinct wrappers"
+    }
+  ],
+  "fields": {
+    "callback": {
+      "waitCallbacks": "i",
+      "waitSameThread": "b",
+      "waitInCancel": "b",
+      "waitInline": "b",
+      "waitSawCanceled": "b",
+      "sourceCallbacks": "i",
+      "sourceSameThread": "b",
+      "sourceInCancel": "b",
+      "waitUnaffectedBySource": "b"
+    },
+    "value": {
+      "receiverAlias": "b",
+      "asTaskIdentity": "b",
+      "preserveIdentity": "b",
+      "normalType": "s",
+      "normalSucceeded": "b",
+      "normalStoredIdentity": "s",
+      "normalTokenMatch": "s",
+      "normalTaskMatch": "s",
+      "normalMatches": "b",
+      "configuredType": "s",
+      "configuredSucceeded": "b",
+      "configuredStoredIdentity": "s",
+      "configuredTokenMatch": "s",
+      "configuredTaskMatch": "s",
+      "configuredMatches": "b"
+    }
+  },
+  "cases": 11,
+  "wireFields": 159,
+  "nonapplicableLiteral": "not-applicable",
+  "countMeaning": "Exact typed wire fields, not independent semantic assertions"
+}

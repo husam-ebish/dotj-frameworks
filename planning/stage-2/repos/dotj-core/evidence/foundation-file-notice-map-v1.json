@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "Built dotj-core foundation candidate JAR, not a release",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "18f9b3ffb4fe2d8dcbe5a7d036b557b543a61e2a6507bfd51375420ca7017a99",
+  "jarSha256": "1b3de7eba209fcb45d29f637fa2f1f3835095b51a9b52ac90efe06236383b8d7",
   "sourceToClasses": {
     "dotj-core/dotj-core-public/src/main/java/System/IDisposable.java": [
       "System/IDisposable.class"
@@ -440,15 +440,20 @@
       "org/dotj/internal/delegates/ActionBody1.class"
     ],
     "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Task.java": [
-      "System/Threading/Tasks/Task.class",
       "System/Threading/Tasks/Task$1.class",
+      "System/Threading/Tasks/Task$CompletionAction.class",
       "System/Threading/Tasks/Task$CompletionAttempt.class",
+      "System/Threading/Tasks/Task$Continuation.class",
       "System/Threading/Tasks/Task$DelayDefaults.class",
       "System/Threading/Tasks/Task$DelayInfrastructure.class",
       "System/Threading/Tasks/Task$DelayRegistrar.class",
       "System/Threading/Tasks/Task$DelayState.class",
       "System/Threading/Tasks/Task$DelayTimer.class",
-      "System/Threading/Tasks/Task$TimerHandle.class"
+      "System/Threading/Tasks/Task$TimerHandle.class",
+      "System/Threading/Tasks/Task$WaitDefaults.class",
+      "System/Threading/Tasks/Task$WaitInfrastructure.class",
+      "System/Threading/Tasks/Task$WaitState.class",
+      "System/Threading/Tasks/Task.class"
     ],
     "dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/TaskCompletionSource.java": [
       "System/Threading/Tasks/TaskCompletionSource.class"
@@ -464,6 +469,9 @@
     ],
     "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/async/TaskBridge.java": [
       "org/dotj/internal/async/TaskBridge.class"
+    ],
+    "dotj-core/dotj-core-public/src/main/java/System/TimeoutException.java": [
+      "System/TimeoutException.class"
     ]
   },
   "manifestEntry": "META-INF/MANIFEST.MF",

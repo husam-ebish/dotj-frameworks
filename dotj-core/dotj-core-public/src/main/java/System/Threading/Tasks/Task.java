@@ -12,6 +12,7 @@ import System.Runtime.CompilerServices.TaskAwaiter;
 import System.Threading.CancellationToken;
 import System.Threading.CancellationTokenRegistration;
 import System.TimeSpan;
+import System.TimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -26,14 +27,18 @@ public final class Task {
     // A synchronous handoff pool gives blocked callbacks independent daemon workers.
     private static final Executor QUEUE = Executors.newCachedThreadPool(body -> daemon(body, "dotj-task-continuation"));
     private static final Task COMPLETED = completedTask();
+    // An internal handoff policy, not a limit on the number of pending waits.
+    private static final int MAX_INLINE_COMPLETION_ACTIONS = 32;
+    private static final ThreadLocal<Integer> COMPLETION_DEPTH = new ThreadLocal<>();
     private final Object lock = new Object();
     private volatile TaskStatus status = TaskStatus.WaitingForActivation;
     private Exception fault;
     private OperationCanceledException cancellationCause;
     private CancellationToken token = CancellationToken.get_None();
-    private List<Action> continuations = new ArrayList<>();
+    private List<Continuation> continuations = new ArrayList<>();
     private volatile boolean delayAsync;
     private Executor delayQueue;
+    private Executor continuationQueue;
     private final TaskBridge access = new TaskBridge() {
         @Override public boolean isCompleted() { return get_IsCompleted(); }
         @Override public void awaitResult() { Task.this.awaitResult(); }
@@ -57,6 +62,187 @@ public final class Task {
         Task task = new Task();
         task.complete(TaskStatus.Canceled, null, cancellationToken);
         return task;
+    }
+
+    public Task WaitAsync(CancellationToken cancellationToken) {
+        return waitAsyncValidated(-1, cancellationToken, null);
+    }
+
+    public Task WaitAsync(TimeSpan timeout) {
+        return waitAsync(timeout, CancellationToken.get_None(), null);
+    }
+
+    public Task WaitAsync(TimeSpan timeout, CancellationToken cancellationToken) {
+        return waitAsync(timeout, cancellationToken, null);
+    }
+
+    // Immutable per-invocation controls exercise these production paths.
+    static final class WaitInfrastructure {
+        final DelayTimer timer;
+        final DelayRegistrar registrar;
+        final Executor executor;
+        final Runnable beforeAttach;
+        final Runnable afterAttach;
+        WaitInfrastructure(DelayTimer timer, DelayRegistrar registrar, Executor executor,
+                Runnable beforeAttach, Runnable afterAttach) {
+            this.timer = timer;
+            this.registrar = registrar;
+            this.executor = executor;
+            this.beforeAttach = beforeAttach;
+            this.afterAttach = afterAttach;
+        }
+    }
+
+    private static final class WaitDefaults {
+        static final WaitInfrastructure INFRASTRUCTURE = new WaitInfrastructure(
+                DelayDefaults.INFRASTRUCTURE.timer, DelayDefaults.INFRASTRUCTURE.registrar,
+                QUEUE, () -> { }, () -> { });
+    }
+
+    Task waitAsync(TimeSpan timeout, CancellationToken cancellationToken, WaitInfrastructure infrastructure) {
+        if (timeout == null) throw new ArgumentNullException("timeout");
+        long milliseconds = (long) timeout.get_TotalMilliseconds();
+        if (milliseconds < -1 || milliseconds > 4294967294L)
+            throw new ArgumentOutOfRangeException("timeout", "The value needs to translate in milliseconds to -1 (signifying an infinite timeout), 0, or a positive integer less than or equal to the maximum allowed timer duration.");
+        return waitAsyncValidated(milliseconds, cancellationToken, infrastructure);
+    }
+
+    private Task waitAsyncValidated(long milliseconds, CancellationToken cancellationToken,
+            WaitInfrastructure infrastructure) {
+        if (cancellationToken == null) throw new ArgumentNullException("cancellationToken");
+        if (get_IsCompleted() || (milliseconds == -1 && !cancellationToken.get_CanBeCanceled())) return this;
+        if (cancellationToken.get_IsCancellationRequested()) return FromCanceled(cancellationToken);
+        if (milliseconds == 0) return FromException(new TimeoutException());
+        WaitState state = new WaitState(this, infrastructure == null ? WaitDefaults.INFRASTRUCTURE : infrastructure);
+        state.start(milliseconds, cancellationToken);
+        return state.task;
+    }
+
+    interface CompletionAction { void invoke(Task source); }
+
+    private static final class Continuation {
+        final Action user;
+        final CompletionAction runtime;
+        Continuation(Action user, CompletionAction runtime) { this.user = user; this.runtime = runtime; }
+    }
+
+    void addCompletion(CompletionAction action) {
+        synchronized (lock) {
+            if (!get_IsCompleted()) {
+                continuations.add(new Continuation(null, action));
+                return;
+            }
+        }
+        // Runtime late attachment retains shallow inline eligibility.
+        invokeCompletion(action);
+    }
+
+    void removeCompletion(CompletionAction action) {
+        synchronized (lock) {
+            if (continuations != null) continuations.removeIf(entry -> entry.runtime == action);
+        }
+    }
+
+    int runtimeActionCount() {
+        synchronized (lock) {
+            int count = 0;
+            if (continuations != null) for (Continuation entry : continuations) if (entry.runtime != null) count++;
+            return count;
+        }
+    }
+
+    private static final class WaitState {
+        final Task task = new Task();
+        final Task source;
+        final WaitInfrastructure infrastructure;
+        final CompletionAction action = this::sourceCompleted;
+        final Object resources = new Object();
+        boolean cleanupRequested;
+        TimerHandle timer;
+        CancellationTokenRegistration registration;
+        WaitState(Task source, WaitInfrastructure infrastructure) {
+            this.source = source;
+            this.infrastructure = infrastructure;
+            task.continuationQueue = infrastructure.executor;
+        }
+        void start(long milliseconds, CancellationToken token) {
+            try {
+                infrastructure.beforeAttach.run();
+                source.addCompletion(action);
+                infrastructure.afterAttach.run();
+                if (milliseconds != -1) publish(infrastructure.timer.schedule(milliseconds,
+                        () -> finish(TaskStatus.Faulted, new TimeoutException(), CancellationToken.get_None(), null)));
+                if (token.get_CanBeCanceled()) publish(infrastructure.registrar.register(token, new Action(
+                        () -> finish(TaskStatus.Canceled, null, token, null))));
+                if (task.get_IsCompleted()) cleanup();
+            } catch (RuntimeException | Error failure) {
+                try { cleanup(); } catch (RuntimeException | Error secondary) {
+                    if (failure != secondary) failure.addSuppressed(secondary);
+                }
+                throw failure;
+            }
+        }
+        void sourceCompleted(Task completed) {
+            TaskStatus terminal;
+            Exception fault;
+            CancellationToken token;
+            OperationCanceledException cause;
+            synchronized (completed.lock) {
+                terminal = completed.status;
+                fault = completed.fault;
+                token = terminal == TaskStatus.Canceled ? completed.token : CancellationToken.get_None();
+                cause = terminal == TaskStatus.Canceled ? completed.cancellationCause : null;
+            }
+            finish(terminal, fault, token, cause);
+        }
+        void finish(TaskStatus terminal, Exception fault, CancellationToken token, OperationCanceledException cause) {
+            CompletionAttempt attempt = new CompletionAttempt();
+            Throwable failure = null;
+            try { task.complete(terminal, fault, token, cause, attempt); }
+            catch (RuntimeException | Error error) { failure = error; }
+            finally {
+                if (attempt.won) try { cleanup(); }
+                catch (RuntimeException | Error error) { failure = collectFailure(failure, error); }
+            }
+            rethrow(failure);
+        }
+        void publish(TimerHandle handle) {
+            boolean dispose;
+            synchronized (resources) {
+                dispose = cleanupRequested || task.get_IsCompleted();
+                if (!dispose) timer = handle;
+            }
+            if (dispose) handle.cancel();
+        }
+        void publish(CancellationTokenRegistration handle) {
+            boolean dispose;
+            synchronized (resources) {
+                dispose = cleanupRequested || task.get_IsCompleted();
+                if (!dispose) registration = handle;
+            }
+            if (dispose) handle.Dispose();
+        }
+        void cleanup() {
+            TimerHandle timerToDispose;
+            CancellationTokenRegistration registrationToDispose;
+            synchronized (resources) {
+                if (cleanupRequested) return;
+                cleanupRequested = true;
+                timerToDispose = timer;
+                registrationToDispose = registration;
+                timer = null;
+                registration = null;
+            }
+            // Dispose can block; no Task or resource monitor is held here.
+            Throwable failure = null;
+            try { if (registrationToDispose != null) registrationToDispose.Dispose(); }
+            catch (RuntimeException | Error error) { failure = error; }
+            try { if (timerToDispose != null) timerToDispose.cancel(); }
+            catch (RuntimeException | Error error) { failure = collectFailure(failure, error); }
+            try { source.removeCompletion(action); }
+            catch (RuntimeException | Error error) { failure = collectFailure(failure, error); }
+            rethrow(failure);
+        }
     }
 
     public static Task Delay(int millisecondsDelay) {
@@ -319,7 +505,7 @@ public final class Task {
 
     private boolean complete(TaskStatus terminal, Exception exception, CancellationToken cancellationToken,
             OperationCanceledException originalCancellation, CompletionAttempt attempt) {
-        List<Action> pending;
+        List<Continuation> pending;
         synchronized (lock) {
             if (get_IsCompleted()) return false;
             if (attempt != null) attempt.won = true;
@@ -331,28 +517,94 @@ public final class Task {
             status = terminal; // Release publication follows all terminal payload writes.
             lock.notifyAll();
         }
-        // Queue every additional callback before the first can block the completing thread.
-        // Even a catastrophic dispatch failure must not prevent attempts for other callbacks.
+        boolean mixed = false;
+        for (Continuation entry : pending) if (entry.runtime != null) { mixed = true; break; }
+        if (!mixed) {
+            dispatchUsers(pending);
+            return true;
+        }
+        // Runtime actions do not consume the first await callback's inline slot.
+        // Queue the other user callbacks before any inline callback can block.
+        Throwable dispatchFailure = null;
+        boolean asynchronous = delayAsync;
+        int firstUser = -1;
+        for (int i = 0; i < pending.size(); i++) {
+            Continuation entry = pending.get(i);
+            if (!asynchronous) {
+                if (entry.runtime != null) continue;
+                if (firstUser == -1) { firstUser = i; continue; }
+            }
+            try {
+                queueEntry(entry);
+            }
+            catch (RuntimeException | Error failure) {
+                dispatchFailure = collectFailure(dispatchFailure, failure);
+            }
+        }
+        if (!asynchronous) for (int i = 0; i < pending.size(); i++) {
+            Continuation entry = pending.get(i);
+            if (entry.runtime == null && i != firstUser) continue;
+            try {
+                if (entry.runtime != null) invokeCompletion(entry.runtime);
+                else if (delayQueue == null) invoke(entry.user);
+                else invokeDelay(entry.user);
+            } catch (RuntimeException | Error failure) {
+                dispatchFailure = collectFailure(dispatchFailure, failure);
+            }
+        }
+        rethrow(dispatchFailure);
+        return true;
+    }
+
+    private void dispatchUsers(List<Continuation> pending) {
+        // Keep the established Action-only dispatch and failure precedence intact.
         Throwable dispatchFailure = null;
         boolean asynchronous = delayAsync;
         for (int i = asynchronous ? 0 : 1; i < pending.size(); i++) {
-            Action continuation = pending.get(i);
-            try {
-                if (delayQueue == null) queueContinuation(continuation, QUEUE);
-                else executeDelay(delayQueue, () -> invokeDelay(continuation));
-            }
+            try { queueEntry(pending.get(i)); }
             catch (RuntimeException | Error failure) {
-                if (dispatchFailure == null) dispatchFailure = failure;
-                else if (dispatchFailure != failure) dispatchFailure.addSuppressed(failure);
+                dispatchFailure = collectFailure(dispatchFailure, failure);
             }
         }
         if (!asynchronous && !pending.isEmpty()) {
-            if (delayQueue == null) invoke(pending.get(0));
-            else invokeDelay(pending.get(0));
+            if (delayQueue == null) invoke(pending.get(0).user);
+            else invokeDelay(pending.get(0).user);
         }
-        if (dispatchFailure instanceof RuntimeException failure) throw failure;
-        if (dispatchFailure instanceof Error failure) throw failure;
-        return true;
+        rethrow(dispatchFailure);
+    }
+
+    private void invokeCompletion(CompletionAction action) {
+        Integer previous = COMPLETION_DEPTH.get();
+        int depth = previous == null ? 0 : previous;
+        if (depth >= MAX_INLINE_COMPLETION_ACTIONS) {
+            // Injected invocation executors may run inline. Use the established
+            // asynchronous pool so the next segment starts on a fresh stack.
+            queueContinuation(new Action(() -> invokeCompletion(action)), QUEUE);
+            return;
+        }
+        COMPLETION_DEPTH.set(depth + 1);
+        try { action.invoke(this); }
+        finally {
+            if (previous == null) COMPLETION_DEPTH.remove();
+            else COMPLETION_DEPTH.set(previous);
+        }
+    }
+
+    private void queueEntry(Continuation entry) {
+        Action continuation = entry.runtime == null ? entry.user : new Action(() -> invokeCompletion(entry.runtime));
+        if (delayQueue == null) queueContinuation(continuation, continuationQueue == null ? QUEUE : continuationQueue);
+        else executeDelay(delayQueue, () -> invokeDelay(continuation));
+    }
+
+    private static Throwable collectFailure(Throwable first, Throwable next) {
+        if (first == null) return next;
+        if (first != next) first.addSuppressed(next);
+        return first;
+    }
+
+    private static void rethrow(Throwable failure) {
+        if (failure instanceof RuntimeException error) throw error;
+        if (failure instanceof Error error) throw error;
     }
 
     private void awaitResult() {
@@ -378,11 +630,11 @@ public final class Task {
         if (continuation == null) throw new ArgumentNullException("continuation");
         synchronized (lock) {
             if (!get_IsCompleted()) {
-                continuations.add(continuation);
+                continuations.add(new Continuation(continuation, null));
                 return;
             }
         }
-        if (delayQueue == null) queueContinuation(continuation, QUEUE);
+        if (delayQueue == null) queueContinuation(continuation, continuationQueue == null ? QUEUE : continuationQueue);
         else executeDelay(delayQueue, () -> invokeDelay(continuation));
     }
 

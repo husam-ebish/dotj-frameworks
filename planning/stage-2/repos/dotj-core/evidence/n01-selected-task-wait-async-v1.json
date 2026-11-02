@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "selectedNativeApis": [
+    "System.Threading.Tasks.Task.WaitAsync(System.Threading.CancellationToken)",
+    "System.Threading.Tasks.Task.WaitAsync(System.TimeSpan)",
+    "System.Threading.Tasks.Task.WaitAsync(System.TimeSpan,System.Threading.CancellationToken)"
+  ],
+  "exception": "System.TimeoutException ordinary class/three public constructors; inherited exception behavior and Type exact/ignore-case lookup",
+  "compiledDeclaredDelta": {
+    "before": 2509,
+    "after": 2516,
+    "added": [
+      "System/Threading/Tasks/Task|M|WaitAsync|(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|1",
+      "System/Threading/Tasks/Task|M|WaitAsync|(LSystem/TimeSpan;)LSystem/Threading/Tasks/Task;|1",
+      "System/Threading/Tasks/Task|M|WaitAsync|(LSystem/TimeSpan;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|1",
+      "System/TimeoutException|C|33",
+      "System/TimeoutException|M|<init>|()V|1",
+      "System/TimeoutException|M|<init>|(Ljava/lang/String;)V|1",
+      "System/TimeoutException|M|<init>|(Ljava/lang/String;LSystem/Exception;)V|1"
+    ],
+    "removed": []
+  },
+  "candidateJar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
+    "sha256": "1b3de7eba209fcb45d29f637fa2f1f3835095b51a9b52ac90efe06236383b8d7",
+    "sizeBytes": 872158
+  },
+  "contract": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-wait-async-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-wait-async-contract-v1.json",
+    "sha256": "db219ad10c419445c3a9b3409ec2e0e5f3e43e3198fb628b2f053ebccf25f3d5",
+    "sizeBytes": 25423
+  },
+  "sourceAndMetadata": "Pinned runtime4271d88 / installedCoreLib1125acc... / native10.0.12; exact selected fields in primary390/8510 plus17/340 and80/1840 supplements",
+  "wholeN01Qualified": false,
+  "acceptanceCredit": 0,
+  "unsupported": [
+    "TimeProvider",
+    "generic Task<TResult>",
+    "obsolete formatter construction",
+    "ambient CLR context/custom scheduler",
+    "public .j execution",
+    "whole Task/.NET and release qualification"
+  ],
+  "postGateObservationCorrection": {
+    "findingIds": [
+      "T120-SPEC-I1",
+      "T120-TEST-M1"
+    ],
+    "cases": 11,
+    "fields": 159,
+    "productUnchanged": true,
+    "wholeN01Qualified": false
+  },
+  "finalWaveStackSafety": {
+    "productChanged": true,
+    "publicSurfaceUnchanged": true,
+    "wholeN01Qualified": false,
+    "acceptanceCredit": 0,
+    "actualFoundation": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\final-wave\\foundation-gate-v1\\receipt.json",
+      "sha256": "320f59ce493ef24beca3c85b3f395329480315ba2d6dcf1a278f3041afb0152c",
+      "sizeBytes": 538543
+    }
+  }
+}

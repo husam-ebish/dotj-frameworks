@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "scope": "Field applicability of unchanged frozen captures; explanatory metadata added after actual gate, not a new observation or schema/capture rewrite",
+  "wireFields": 10690,
+  "independentBehaviorAssertionCount": "NOT_QUANTIFIED; wire count includes derived, vacuous and nonapplicable sentinel fields",
+  "validation": {
+    "rows": 320,
+    "observedFacets": [
+      "Call-time return/throw admission across exact tick/source/caller cells",
+      "Returned identity when accepted",
+      "Synchronous exception type/ParamName/HResult/message",
+      "Original source state after fixture completion"
+    ],
+    "nonOutcomePayload": "Shared payload explicitly marks initial=validation/status=-1; completed/success/faulted/canceled/exceptionNull/associated/before-token and other guarded predicates are nonapplicable sentinels or vacuous in this group. They are not native Task property assertions or evidence of a timing winner.",
+    "timing": "Submillisecond/1ms deadlines have no nondeterministic validation outcome requirement. Dedicated winner/interop/ownership rows observe terminal state/cause/token behavior."
+  },
+  "ordinaryOutcomeGroups": {
+    "groups": [
+      "fast-path",
+      "pending-winners",
+      "token-and-cause-interop",
+      "value-task-consumption"
+    ],
+    "observedFacets": [
+      "Returned alias/wrapper identity",
+      "Held or terminal initial facet; timeout winners label deadline-armed without guessing a return-time status",
+      "Actual terminal predicates/status, fault wrapping, GetResult type/identity and selected tokens",
+      "TaskCanceledException association before/after outcomes"
+    ],
+    "guardedFields": "Original identity applies when a fixture supplied an original error; task/token/aggregate predicates are conditional on the relevant exception/status. Synthesized TCE repeated object identity is not asserted."
+  },
+  "continuations": "Historical W0371 does not independently observe wait-callback caller-inline delivery: IsCanceled publication and source callback were conflated. New O001 records actual wait callback count/thread/in-Cancel/status in separate slots; source callback cannot overwrite them. Other historical source-order/inline/eventual observations retain their original limited applicability.",
+  "ownership": "Two independent waits, source/caller lifetime and nested wait facets, backed by separate deterministic private removal/publication/disposal controls.",
+  "exceptionConstructors": "Eight constructor/message/inner cases with actual thirteen fields: type/base, default/empty/custom/unicode/HResult, identity, prethrow ToString encoded for wire transport, Type lookup and selected GetObjectData outputs. No unstable thrown stack or formatter construction claim.",
+  "supplements": {
+    "sourceDisposal": "17rows/340 actually observed original/returned associations and outcomes around disposing borrowed sources",
+    "adjacentTicks": "80rows/1840 uses the same validation applicability above"
+  },
+  "normalization": "No captured semantic values are rewritten for comparison. Newline splitting and Base64 transport of multiline exception text are transport only. Nonobservation/sentinel fields are explicit producer facets, not independent observations.",
+  "qualificationLimit": "Fresh independent review must assess source/fixture semantics, not infer parity from counts. No acceptance credit.",
+  "postGateObservationCorrection": {
+    "status": "POST_GATE_EVIDENCE_STRENGTHENING",
+    "findings": [
+      "T120-SPEC-I1",
+      "T120-TEST-M1"
+    ],
+    "productUnchanged": true,
+    "freeze": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-freeze-v2.json",
+      "sha256": "4e81b64cc00becfee580dec7bd83a7db94d901e5a7cc25b1bb49471410460679",
+      "sizeBytes": 2063
+    },
+    "native": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-native-v2\\receipt.json",
+      "sha256": "1b924f2d392b426ab7134fa394702e408f3a66b80d065d084d428f0ca40d2508",
+      "sizeBytes": 116818
+    },
+    "paired": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-paired-v2\\receipt.json",
+      "sha256": "9d3e05b1c9cf0d3f75500404dbebff988820c2bface9caf3f2e770cf26ca4f61",
+      "sizeBytes": 40024
+    },
+    "controls": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\fix1\\observation-controls-v2\\receipt.json",
+      "sha256": "1ca0ce855b915fcd4d4447069e49ee2b77e53f4ff74b1d7b649972721a3d3bcd",
+      "sizeBytes": 40847
+    },
+    "cases": 11,
+    "fields": 159,
+    "sharedControls": 14,
+    "gate2ExecutedThisCode": false,
+    "historicalCases": 487,
+    "historicalFields": 10690,
+    "qualificationLimit": "Selected nongeneric default-clock WaitAsync only; no whole Task/ValueTask/N01/WP02/framework/release qualification",
+    "oldW0371": "Historical booleans conflate status and source callback; do not independently observe wait callback inline during Cancel. O001 directly observes callback thread + in-Cancel boundary.",
+    "oldW0381W0390": "Historical ValueTask rows check exception class; direct-Task token/identity fields are not ValueTask observations. O002-O011 independently observe both ValueTask awaiters.",
+    "aliasCallerTimeout": "Alias receiver is an already-completed inner WaitAsync; outer WaitAsync aliases it. Distinct wrapper rows use pending borrowed TCS.",
+    "notApplicable": "Stored identity only fault/timeout; token and TCE.Task only cancellation. Other cells emit literal not-applicable; repeated synthetic TCE object identity is not required."
+  },
+  "valueTaskObservationLimit": "Historical W0381-W0390 directly checked exception classes only. New O002-O011 directly inspect both normal/configured awaiter errors, stored fault/timeout identity, token equality and synthesized TCE.Task identity; explicit nonapplicable literals. 159 new exact wirefields are not independent assertions.",
+  "finalWaveStackSafety": {
+    "depthCases": 4,
+    "exactComparedWireFields": 72,
+    "depth": 8192,
+    "privateControls": 8,
+    "dispatchThreshold": "Internal32-action handoff, not a public chain limit or CLR threshold claim",
+    "applies": "All8192 status/result payloads tested for success, fault, source/caller cancellation. Stored fault identity or token/TCE.Task identity directly asserted as applicable. Borrowed-source-after-caller-cancel is not-applicable in other outcomes.",
+    "oldFieldsUnchanged": true,
+    "independentBehaviorAssertionCount": "Not derived from wire field count",
+    "actualFoundation": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\final-wave\\foundation-gate-v1\\receipt.json",
+      "sha256": "320f59ce493ef24beca3c85b3f395329480315ba2d6dcf1a278f3041afb0152c",
+      "sizeBytes": 538543
+    },
+    "currentMetadataChronology": "This actual-result pointer follows gate execution. Wire fixtures/captures/schema/source/reader bytes are unchanged."
+  }
+}
