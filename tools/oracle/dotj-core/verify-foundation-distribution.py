@@ -17,7 +17,7 @@ def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main():
+def main(run_tool=None):
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
     mapping = json.loads(MAPPING.read_text(encoding="utf-8"))
     jar = ROOT / artifact["jarPath"]
@@ -49,8 +49,9 @@ def main():
         assert notice_entries == mapping["jarNoticeEntries"] == ["META-INF/LICENSE"]
     for reference in mapping["upstreamReferenceEvidenceExcludedFromJar"]:
         assert sha256(ROOT / reference["path"]) == reference["sha256"]
-    dependencies = subprocess.run(["jdeps", "-summary", str(jar)], cwd=ROOT,
-                                  capture_output=True, text=True, check=True).stdout
+    dependencies = (run_tool("jdeps", "-summary", str(jar)) if run_tool else
+                    subprocess.run(["jdeps", "-summary", str(jar)], cwd=ROOT,
+                                   capture_output=True, text=True, check=True).stdout)
     observed = sorted({line.split("->", 1)[1].strip() for line in dependencies.splitlines() if "->" in line})
     assert observed == mapping["observedJdkModuleDependencies"] == ["java.base"]
     assert len(mapping["decisionInputs"]) == 2

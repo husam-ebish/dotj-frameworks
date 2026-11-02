@@ -889,3 +889,12 @@ tools/oracle/dotj-build/has-trailing-slash-product-v1/** text eol=lf
 dotj-build/evaluation-candidate/has-trailing-slash-product-v1/** text eol=lf
 dotj-build/evaluation-candidate/tests/org/dotj/internal/build/evaluation/HasTrailingSlashPackagedTest.java text eol=lf
 dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java text eol=lf
+
+# Batch2514 frozen native and Java-only receipt inputs retain exact bytes.
+tools/oracle/dotj-core/public-worktask-cancelasync-v1/** -text -whitespace
+tools/oracle/dotj-core/public-worktask-cancelasync-product-v1/** -text -whitespace
+planning/stage-2/repos/dotj-core/PUBLIC-WORKTASK-CANCELASYNC-N01-v1.md text eol=lf
+planning/stage-2/repos/dotj-core/evidence/public-worktask-cancelasync-v1.json text eol=lf
+dotj-core/dotj-core-public/src/main/java/System/ObjectDisposedException.java text eol=crlf
+dotj-core/dotj-core-public/src/main/java/System/Threading/CancellationTokenSource.java text eol=crlf
+dotj-core/dotj-core-public/src/main/java/System/Threading/Tasks/Task.java text eol=crlf

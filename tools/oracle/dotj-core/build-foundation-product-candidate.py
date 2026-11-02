@@ -419,6 +419,43 @@ EXPECTED_CLASSES = sorted(EXPECTED_CLASSES + [
     "org/dotj/internal/async/TaskBridge.class"])
 
 
+def build_product(run_tool=run):
+    """Canonical artifact phase; explicit runner permits bounded staged verification.
+
+    Reads authored sources without generating or replacing them. Consumer qualification
+    remains in main(); staged callers must label their evidence accordingly.
+    """
+    type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
+    for output_dir in (CLASSES,):
+        output_dir.mkdir(parents=True, exist_ok=True)
+        for stale_class in output_dir.rglob("*.class"):
+            stale_class.unlink()
+    run_tool("javac", "--release", "21", "-d", str(CLASSES), *(str(path) for path in SOURCES))
+    class_files = sorted(path.relative_to(CLASSES).as_posix() for path in CLASSES.rglob("*.class"))
+    assert class_files == EXPECTED_CLASSES, class_files
+    public_type = run_tool("javap", "-public", "-classpath", str(CLASSES), "System.Type")
+    members = [line.strip() for line in public_type.splitlines() if line.strip().endswith(";")]
+    assert members == type_evidence["publicMembers"]
+    public_disposal = run_tool("javap", "-public", "-classpath", str(CLASSES), "System.IDisposable")
+    assert "public abstract void Dispose();" in public_disposal
+
+    manifest = b"Manifest-Version: 1.0\r\nCreated-By: dotj-core foundation candidate\r\n\r\n"
+    with zipfile.ZipFile(JAR, "w") as archive:
+        for name, data in [("META-INF/MANIFEST.MF", manifest),
+                           ("META-INF/LICENSE", LICENSE.read_bytes()), *[
+            (name, (CLASSES / name).read_bytes()) for name in class_files]]:
+            entry = zipfile.ZipInfo(name, date_time=(2026, 10, 21, 0, 0, 0))
+            entry.compress_type = zipfile.ZIP_STORED
+            entry.create_system = 0
+            entry.external_attr = 0
+            archive.writestr(entry, data)
+    with zipfile.ZipFile(JAR) as archive:
+        assert archive.namelist() == ["META-INF/MANIFEST.MF", "META-INF/LICENSE", *class_files]
+        assert archive.read("META-INF/LICENSE") == LICENSE.read_bytes()
+
+    return class_files
+
+
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))
@@ -3060,32 +3097,10 @@ def main():
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 
-    for output_dir in (CLASSES, CONSUMER_CLASSES):
-        output_dir.mkdir(parents=True, exist_ok=True)
-        for stale_class in output_dir.rglob("*.class"):
-            stale_class.unlink()
-    run("javac", "--release", "21", "-d", str(CLASSES), *(str(path) for path in SOURCES))
-    class_files = sorted(path.relative_to(CLASSES).as_posix() for path in CLASSES.rglob("*.class"))
-    assert class_files == EXPECTED_CLASSES, class_files
-    public_type = run("javap", "-public", "-classpath", str(CLASSES), "System.Type")
-    members = [line.strip() for line in public_type.splitlines() if line.strip().endswith(";")]
-    assert members == type_evidence["publicMembers"]
-    public_disposal = run("javap", "-public", "-classpath", str(CLASSES), "System.IDisposable")
-    assert "public abstract void Dispose();" in public_disposal
-
-    manifest = b"Manifest-Version: 1.0\r\nCreated-By: dotj-core foundation candidate\r\n\r\n"
-    with zipfile.ZipFile(JAR, "w") as archive:
-        for name, data in [("META-INF/MANIFEST.MF", manifest),
-                           ("META-INF/LICENSE", LICENSE.read_bytes()), *[
-            (name, (CLASSES / name).read_bytes()) for name in class_files]]:
-            entry = zipfile.ZipInfo(name, date_time=(2026, 10, 21, 0, 0, 0))
-            entry.compress_type = zipfile.ZIP_STORED
-            entry.create_system = 0
-            entry.external_attr = 0
-            archive.writestr(entry, data)
-    with zipfile.ZipFile(JAR) as archive:
-        assert archive.namelist() == ["META-INF/MANIFEST.MF", "META-INF/LICENSE", *class_files]
-        assert archive.read("META-INF/LICENSE") == LICENSE.read_bytes()
+    class_files = build_product()
+    CONSUMER_CLASSES.mkdir(parents=True, exist_ok=True)
+    for stale_class in CONSUMER_CLASSES.rglob("*.class"):
+        stale_class.unlink()
 
     run("javac", "--release", "21", "-cp", str(JAR), "-d", str(CONSUMER_CLASSES),
         *(str(path) for path in CONSUMERS))

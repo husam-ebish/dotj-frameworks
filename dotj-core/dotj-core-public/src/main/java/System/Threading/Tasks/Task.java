@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
 import org.dotj.internal.async.TaskBridge;
 
-/** Selected nongeneric promise consumer, with default-context continuation dispatch. */
+/** Selected nongeneric promise and computational task, with default-context dispatch. */
 public final class Task {
     // A synchronous handoff pool gives blocked callbacks independent daemon workers.
     private static final Executor QUEUE = Executors.newCachedThreadPool(body -> daemon(body, "dotj-task-continuation"));
@@ -40,8 +40,52 @@ public final class Task {
     }
 
     public static Task get_CompletedTask() { return COMPLETED; }
+
+    public static Task FromException(Exception exception) {
+        if (exception == null) throw new ArgumentNullException("exception");
+        Task task = new Task();
+        task.complete(TaskStatus.Faulted, exception, CancellationToken.get_None());
+        return task;
+    }
+
+    public static Task Run(Action action) { return run(action, QUEUE); }
+
+    // Per-invocation seam: production always uses the asynchronous daemon pool.
+    static Task run(Action action, Executor executor) {
+        if (action == null) throw new ArgumentNullException("action");
+        Task task = new Task();
+        task.status = TaskStatus.WaitingToRun;
+        Runnable work = () -> task.execute(action);
+        try { executor.execute(work); }
+        catch (RejectedExecutionException rejection) {
+            daemon(() -> {
+                try { reportOnCurrentThread(rejection); }
+                finally { work.run(); }
+            }, "dotj-task-work-rejection").start();
+        }
+        return task;
+    }
+
+    private void execute(Action action) {
+        status = TaskStatus.Running;
+        Exception failure = null;
+        try { action.Invoke(); }
+        catch (Exception original) { failure = original; }
+        catch (Throwable foreign) {
+            failure = new Exception("Java task action failed.");
+            failure.initCause(foreign);
+        }
+        // Completion dispatch is outside the action catch scope.
+        complete(failure == null ? TaskStatus.RanToCompletion : TaskStatus.Faulted,
+                failure, CancellationToken.get_None());
+    }
+
     public TaskStatus get_Status() { return status; }
-    public boolean get_IsCompleted() { return status != TaskStatus.WaitingForActivation; }
+    public boolean get_IsCompleted() {
+        TaskStatus current = status;
+        return current == TaskStatus.RanToCompletion || current == TaskStatus.Canceled
+                || current == TaskStatus.Faulted;
+    }
     public boolean get_IsCompletedSuccessfully() { return status == TaskStatus.RanToCompletion; }
     public boolean get_IsFaulted() { return status == TaskStatus.Faulted; }
     public boolean get_IsCanceled() { return status == TaskStatus.Canceled; }

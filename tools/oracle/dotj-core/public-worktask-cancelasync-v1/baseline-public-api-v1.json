@@ -1,0 +1,54 @@
+{
+  "kind": "PURE_PYTHON_CLASSFILE_BASELINE_PUBLIC_API",
+  "baselineJarSha256": "e943fe761896fcee0e204d3d03ebc8b4c27fbdcac944c402d81e33f6891ec31e",
+  "baseline": {
+    "System.Threading.Tasks.Task": [
+      "method|public|instance|GetAwaiter|()LSystem/Runtime/CompilerServices/TaskAwaiter;",
+      "method|public|instance|get_Exception|()LSystem/AggregateException;",
+      "method|public|instance|get_IsCanceled|()Z",
+      "method|public|instance|get_IsCompletedSuccessfully|()Z",
+      "method|public|instance|get_IsCompleted|()Z",
+      "method|public|instance|get_IsFaulted|()Z",
+      "method|public|instance|get_Status|()LSystem/Threading/Tasks/TaskStatus;",
+      "method|public|static|get_CompletedTask|()LSystem/Threading/Tasks/Task;"
+    ],
+    "System.Threading.CancellationTokenSource": [
+      "method|public|instance|<init>|()V",
+      "method|public|instance|<init>|(I)V",
+      "method|public|instance|<init>|(LSystem/TimeSpan;)V",
+      "method|public|instance|CancelAfter|(I)V",
+      "method|public|instance|CancelAfter|(LSystem/TimeSpan;)V",
+      "method|public|instance|Cancel|()V",
+      "method|public|instance|Cancel|(Z)V",
+      "method|public|instance|Dispose|()V",
+      "method|public|instance|TryReset|()Z",
+      "method|public|instance|get_IsCancellationRequested|()Z",
+      "method|public|instance|get_Token|()LSystem/Threading/CancellationToken;",
+      "method|public|static|CreateLinkedTokenSource|([LSystem/Threading/CancellationToken;)LSystem/Threading/CancellationTokenSource;"
+    ],
+    "System.ObjectDisposedException": [
+      "method|public|instance|<init>|(Ljava/lang/String;)V",
+      "method|public|instance|<init>|(Ljava/lang/String;Ljava/lang/String;)V",
+      "method|public|instance|get_ObjectName|()Ljava/lang/String;"
+    ],
+    "org.dotj.internal.async.TaskBridge": [
+      "method|public|instance|awaitResult|()V",
+      "method|public|instance|isCompleted|()Z",
+      "method|public|instance|register|(LSystem/Action;)V"
+    ]
+  },
+  "allowedSelectedAdditions": {
+    "System.Threading.Tasks.Task": [
+      "method|public|static|Run|(LSystem/Action;)LSystem/Threading/Tasks/Task;",
+      "method|public|static|FromException|(LSystem/Exception;)LSystem/Threading/Tasks/Task;"
+    ],
+    "System.Threading.CancellationTokenSource": [
+      "method|public|instance|CancelAsync|()LSystem/Threading/Tasks/Task;"
+    ],
+    "System.ObjectDisposedException": [
+      "method|public|instance|get_Message|()Ljava/lang/String;"
+    ],
+    "org.dotj.internal.async.TaskBridge": []
+  },
+  "privateConstructorsAndSeams": "not public surface; allowed"
+}

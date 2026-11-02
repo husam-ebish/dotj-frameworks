@@ -9,11 +9,13 @@ import System.Exception;
 import System.IDisposable;
 import System.ObjectDisposedException;
 import System.TimeSpan;
+import System.Threading.Tasks.Task;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 /** Selected System.Threading.CancellationTokenSource candidate. */
 public class CancellationTokenSource implements IDisposable {
@@ -97,6 +99,37 @@ public class CancellationTokenSource implements IDisposable {
             callbacks = new ArrayList<>(registrations);
             registrations.clear();
         }
+        invokeCallbacks(callbacks, throwOnFirstException);
+    }
+
+    public Task CancelAsync() { return cancelAsync(Task::Run); }
+
+    // Per-call private control; public cancellation always dispatches with Task.Run.
+    Task cancelAsync(Function<Action, Task> dispatcher) {
+        synchronized (lock) {
+            if (disposed) {
+                return Task.FromException(new ObjectDisposedException(
+                        "System.Threading.CancellationTokenSource",
+                        "The CancellationTokenSource has been disposed."));
+            }
+            if (requested) return Task.get_CompletedTask();
+            requested = true;
+            stopTimer();
+            if (registrations.isEmpty()) return Task.get_CompletedTask();
+        }
+        return dispatcher.apply(new Action(() -> {
+            List<CancellationTokenRegistration> callbacks;
+            synchronized (lock) {
+                // Source disposal may clear registrations until this worker claims them.
+                callbacks = new ArrayList<>(registrations);
+                registrations.clear();
+            }
+            invokeCallbacks(callbacks, false);
+        }));
+    }
+
+    private static void invokeCallbacks(List<CancellationTokenRegistration> callbacks,
+            boolean throwOnFirstException) {
         List<Exception> failures = new ArrayList<>();
         for (int index = callbacks.size() - 1; index >= 0; index--) {
             try {
@@ -176,7 +209,7 @@ public class CancellationTokenSource implements IDisposable {
         }
         // Requested cancellation still runs late callbacks after disposal.
         registration.invoke();
-        return registration;
+        return new CancellationTokenRegistration();
     }
 
     void remove(CancellationTokenRegistration registration) {

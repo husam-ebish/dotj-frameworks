@@ -1,0 +1,1315 @@
+{
+  "schemaVersion": 1,
+  "status": "UNOBSERVED",
+  "pairedRows": [
+    {
+      "id": "R01",
+      "scenario": "Task.Run(null)",
+      "control": "Synchronous call with explicitly typed null Action.",
+      "stableFields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "param": "s",
+        "synchronousThrow": "b"
+      },
+      "sourcePrediction": "ArgumentNullException(action), synchronous.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R02",
+      "scenario": "Run held successful action",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "heldStatus": "i",
+        "heldCompleted": "b",
+        "heldAwaiterCompleted": "b",
+        "entered": "b",
+        "calls": "i",
+        "differentFromSubmittingThread": "b"
+      },
+      "sourcePrediction": "Entered action gives Running=3, incomplete; release then success=5; never inline on submitting call.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R03",
+      "scenario": "Run throws ordinary System.Exception",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      },
+      "sourcePrediction": "Faulted=7, never Canceled; original exception identity on await, one outer Task.Exception inner, no flattening.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R04",
+      "scenario": "Run throws default-token OperationCanceledException",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      },
+      "sourcePrediction": "Faulted=7, never Canceled; original exception identity on await, one outer Task.Exception inner, no flattening.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R05",
+      "scenario": "Run throws requested foreign-token OperationCanceledException",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      },
+      "sourcePrediction": "Faulted=7, never Canceled; original exception identity on await, one outer Task.Exception inner, no flattening.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R06",
+      "scenario": "Run throws nested AggregateException",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      },
+      "sourcePrediction": "Faulted=7, never Canceled; original exception identity on await, one outer Task.Exception inner, no flattening.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R07",
+      "scenario": "Run multicast Action succeeds",
+      "control": "Two ordered delegate entries.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "order": "s",
+        "calls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R08",
+      "scenario": "Run multicast Action stops at first throwing entry",
+      "control": "Three delegate entries, middle throws known object.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "order": "s",
+        "laterCalled": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R09",
+      "scenario": "Nested Run remains independent",
+      "control": "Parent queues held child and returns; parent result consumed while child entered and held.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "parentDoneChildHeld": "b",
+        "childEventuallySucceeds": "b"
+      },
+      "sourcePrediction": "No implicit child attachment/wait for nested selected Run.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R10",
+      "scenario": "Pending GetResult waiter released by Run success",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "waiterEntered": "b",
+        "waiterCompletedBeforeRelease": "b",
+        "waiterSucceeded": "b",
+        "waiterOriginalFault": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R11",
+      "scenario": "Pending GetResult waiter released by Run fault",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "waiterEntered": "b",
+        "waiterCompletedBeforeRelease": "b",
+        "waiterSucceeded": "b",
+        "waiterOriginalFault": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R12",
+      "scenario": "OnCompleted registered while Run held; success",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "payloadVisible": "b",
+        "notCalledWhileHeld": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R13",
+      "scenario": "UnsafeOnCompleted registered while Run held; success",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "payloadVisible": "b",
+        "notCalledWhileHeld": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R14",
+      "scenario": "OnCompleted registered while Run held; fault",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "payloadVisible": "b",
+        "notCalledWhileHeld": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R15",
+      "scenario": "UnsafeOnCompleted registered while Run held; fault",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "payloadVisible": "b",
+        "notCalledWhileHeld": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R16",
+      "scenario": "Both continuation methods registered after Run success",
+      "control": "Await terminal first; register and bounded join both.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "onCalls": "i",
+        "unsafeCalls": "i",
+        "lateCallsQueued": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R17",
+      "scenario": "Both continuation methods registered after Run fault",
+      "control": "Consume original fault first; then register both.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "onCalls": "i",
+        "unsafeCalls": "i",
+        "lateCallsQueued": "b",
+        "faultVisible": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R18",
+      "scenario": "OnCompleted null while Run is Running",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "param": "s",
+        "stillIncomplete": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R19",
+      "scenario": "UnsafeOnCompleted null while Run is Running",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "param": "s",
+        "stillIncomplete": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "R20",
+      "scenario": "Register versus Run completion race",
+      "control": "32 bounded rounds; alternate both awaiter registration methods; barrier start, counts joined.",
+      "stableFields": {
+        "rounds": "i",
+        "allExactlyOnce": "b",
+        "allPayloadVisible": "b"
+      },
+      "sourcePrediction": "Compare derived invariants only, no winner, schedule, timing or thread-ID equality.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "F01",
+      "scenario": "FromException(null)",
+      "control": "Synchronous typed null.",
+      "stableFields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "param": "s",
+        "synchronousThrow": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "F02",
+      "scenario": "FromException ordinary exception",
+      "control": "Use known original object; repeated await and Exception reads.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "F03",
+      "scenario": "FromException OperationCanceledException",
+      "control": "Use known original object; repeated await and Exception reads.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "F04",
+      "scenario": "FromException nested AggregateException",
+      "control": "Use known original object; repeated await and Exception reads.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "F05",
+      "scenario": "Two FromException calls with same exception",
+      "control": "Independent calls, compare references relationally.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "tasksDistinct": "b",
+        "bothRetainOriginal": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "F06",
+      "scenario": "FromException late continuation methods",
+      "control": "Register both after creation; bounded joins.",
+      "stableFields": {
+        "calls": "i",
+        "payloadVisible": "b",
+        "onCalls": "i",
+        "unsafeCalls": "i",
+        "lateQueued": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C01",
+      "scenario": "First CancelAsync without callbacks",
+      "control": "Read saved token immediately after returning, then await.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "tokenRequestedBeforeReturn": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C02",
+      "scenario": "All callbacks unregistered before first CancelAsync",
+      "control": "Register/remove two callbacks; then cancel.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "tokenRequested": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C03",
+      "scenario": "First held CancelAsync plus repeated call",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "heldStatus": "i",
+        "heldCompleted": "b",
+        "heldAwaiterCompleted": "b",
+        "entered": "b",
+        "tokenRequestedBeforeReturn": "b",
+        "repeatCompletedWhileFirstHeld": "b",
+        "repeatSuccess": "b",
+        "firstAndRepeatDistinct": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C04",
+      "scenario": "CancelAsync after successful synchronous Cancel",
+      "control": "Complete Cancel then call CancelAsync.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "callbackCalls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C05",
+      "scenario": "CancelAsync on disposed uncanceled source",
+      "control": "Dispose first; save token before Dispose; catch synchronous failure separately.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "awaitOriginal": "b",
+        "repeatAwaitOriginal": "b",
+        "outerInnerCount": "i",
+        "outerInnerOriginal": "b",
+        "nestedPreserved": "b",
+        "synchronousThrow": "b",
+        "objectName": "s",
+        "savedTokenRequested": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C06",
+      "scenario": "CancelAsync on disposed already-requested source",
+      "control": "Cancel then Dispose then CancelAsync.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "synchronousThrow": "b",
+        "objectName": "s"
+      },
+      "sourcePrediction": "Disposed check wins over repeat fast path; returned task faults.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C07",
+      "scenario": "Three callbacks serial LIFO",
+      "control": "Last registered callback held; ensure earlier callbacks enter only after release; record sequence.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "order": "s",
+        "maxActive": "i",
+        "calls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C08",
+      "scenario": "One callback throws ordinary exception",
+      "control": "Hold then release known failing callback.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "awaitAggregate": "b",
+        "outerCount": "i",
+        "innerCount": "i",
+        "originalLeaf": "b",
+        "repeatSameAggregate": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C09",
+      "scenario": "Multiple callback failures retain order and identities",
+      "control": "Three registrations, two fail, record LIFO callback/failure ordering.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "calls": "i",
+        "callbackOrder": "s",
+        "failureOrder": "s",
+        "allLeafIdentities": "b",
+        "outerCount": "i",
+        "innerCount": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C10",
+      "scenario": "Callback throws OperationCanceledException",
+      "control": "Known requested-token OCE callback.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "operationFaultNotCanceled": "b",
+        "aggregateContainsOriginalOce": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C11",
+      "scenario": "Callback throws nested AggregateException",
+      "control": "Known aggregate with two known leaves.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "nestedAggregatePreserved": "b",
+        "outerCount": "i",
+        "callbackAggregateCount": "i",
+        "innerIdentity": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C12",
+      "scenario": "Late registration while initial callback held",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "registrationTokenNone": "b",
+        "unregisterResult": "b",
+        "lateRanBeforeRegisterReturned": "b",
+        "sameRegisteringThread": "b",
+        "firstStillIncomplete": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C13",
+      "scenario": "Late registration throws while initial callback held",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "synchronousOriginal": "b",
+        "firstUnaffected": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C14",
+      "scenario": "Late registration after requested source Dispose",
+      "control": "Saved token, source canceled/disposed; register known action.",
+      "stableFields": {
+        "registrationTokenNone": "b",
+        "unregisterResult": "b",
+        "synchronousCalls": "i",
+        "savedTokenIdentityPreserved": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C15",
+      "scenario": "Callback disposes its own registration",
+      "control": "Publish registration before CancelAsync; callback self-Dispose.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "returnedFromSelfDispose": "b",
+        "calls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C16",
+      "scenario": "Unregister pending callback behind held callback",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "unregisterWon": "b",
+        "skippedCalls": "i",
+        "runningCalls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C17",
+      "scenario": "Dispose pending callback behind held callback",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "disposeReturned": "b",
+        "skippedCalls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C18",
+      "scenario": "Dispose executing registration waits",
+      "control": "Held callback, dedicated disposer and known invocation handoff; after release bounded join.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "disposeReturnedBeforeRelease": "b",
+        "disposeReturnedAfterRelease": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C19",
+      "scenario": "Unregister executing registration does not wait",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "unregisterResult": "b",
+        "returnedWhileHeld": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C20",
+      "scenario": "Source Dispose after worker has claimed callbacks",
+      "control": "Hold newest callback; Dispose source; release and observe older callback.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "disposeReturnedWhileHeld": "b",
+        "olderCalled": "b",
+        "savedTokenRequested": "b"
+      },
+      "sourcePrediction": "Source Dispose does not revoke worker-owned callback list; registration Dispose still can.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C21",
+      "scenario": "Callback reenters CancelAsync",
+      "control": "Inside callback inspect repeated return then finish.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "innerCompleted": "b",
+        "innerSucceeded": "b",
+        "calls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C22",
+      "scenario": "Callback reenters synchronous Cancel",
+      "control": "Inside callback Cancel(false); finish.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "reentrantReturned": "b",
+        "calls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C23",
+      "scenario": "Synchronous Cancel during held CancelAsync",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "syncReturnedWhileHeld": "b",
+        "calls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C24",
+      "scenario": "CancelAsync during held synchronous Cancel",
+      "control": "Dedicated sync Cancel thread entered callback; invoke async on test thread.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "asyncCompletedWhileSyncHeld": "b",
+        "calls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C25",
+      "scenario": "Two concurrent CancelAsync calls",
+      "control": "Two dedicated callers barrier-start; held callback. No compare of winning caller.",
+      "stableFields": {
+        "onePendingOneCompleted": "b",
+        "callbackCalls": "i",
+        "bothEventuallySucceeded": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C26",
+      "scenario": "Registration versus first CancelAsync race",
+      "control": "32 rounds; register and cancel on dedicated callers; await registration return and task, then join.",
+      "stableFields": {
+        "rounds": "i",
+        "allExactlyOnce": "b",
+        "allCompleted": "b",
+        "allTokensRequested": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C27",
+      "scenario": "Cancel versus CancelAsync race",
+      "control": "32 rounds with a nonthrowing callback, barrier-start.",
+      "stableFields": {
+        "rounds": "i",
+        "allExactlyOnce": "b",
+        "allCompleted": "b",
+        "allRequested": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C28",
+      "scenario": "Parent CancelAsync propagates to linked source",
+      "control": "Linked child's callback held; parent task remains incomplete until link callback returns.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "childRequested": "b",
+        "parentPendingWhileChildHeld": "b",
+        "childCalls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C29",
+      "scenario": "Disposed linked source unlinks before parent CancelAsync",
+      "control": "Dispose child before parent request.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "childCalls": "i",
+        "childTokenRequested": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C30",
+      "scenario": "CancelAsync wins over scheduled timer",
+      "control": "Arm bounded timer, hold callback entered through async path; cancel disables timer; release and cleanup.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "callbacksExactlyOnce": "b",
+        "tryResetAfterRequest": "b"
+      },
+      "sourcePrediction": "No deadline-time equality. Single transition/source inspection plus eventual bounded cleanup; do not use a sleep to assert timer absence.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C31",
+      "scenario": "Timer has already requested cancellation before CancelAsync",
+      "control": "Timer callback signals entered and remains held; call CancelAsync on dedicated main thread.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "repeatCompletedWhileTimerHeld": "b",
+        "callbackCalls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C32",
+      "scenario": "TryReset before CancelAsync removes stale callbacks",
+      "control": "Register stale callback; TryReset; register new callback; then CancelAsync.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "resetSucceeded": "b",
+        "staleCalls": "i",
+        "newCalls": "i"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C33",
+      "scenario": "TryReset while async callback held",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "resetResult": "b",
+        "stillRequested": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C34",
+      "scenario": "CancelAsync pending continuation and direct waiter success",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "onCalls": "i",
+        "unsafeCalls": "i",
+        "waiterSuccess": "b",
+        "noneCompletedBeforeRelease": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C35",
+      "scenario": "CancelAsync pending continuation and direct waiter aggregate fault",
+      "control": "Dedicated caller plus entered/release handshakes; no sleep-based success; release every gate in finally; bounded joins.",
+      "stableFields": {
+        "status": "i",
+        "completed": "b",
+        "success": "b",
+        "faulted": "b",
+        "canceled": "b",
+        "exceptionNull": "b",
+        "awaiterCompleted": "b",
+        "onCalls": "i",
+        "unsafeCalls": "i",
+        "waiterOriginalAggregate": "b",
+        "payloadVisible": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C36",
+      "scenario": "CancelAsync late continuations after success and fault",
+      "control": "Two source instances, await each first; register both methods.",
+      "stableFields": {
+        "allFourExactlyOnce": "b",
+        "allQueued": "b",
+        "allPayloadVisible": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "C37",
+      "scenario": "Late Register after ordinary synchronous Cancel returns empty registration",
+      "control": "Cancel source; register known callback.",
+      "stableFields": {
+        "registrationTokenNone": "b",
+        "unregisterResult": "b",
+        "calledSynchronously": "b"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "E01",
+      "scenario": "ObjectDisposedException named Message",
+      "control": "Construct nonempty named exception with explicit base message.",
+      "stableFields": {
+        "type": "s",
+        "message": "s",
+        "hresult": "i",
+        "objectName": "s"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "E02",
+      "scenario": "ObjectDisposedException empty and null object-name Message",
+      "control": "Construct both; compare base text preserved.",
+      "stableFields": {
+        "emptyName": "s",
+        "nullName": "s",
+        "emptyMessage": "s",
+        "nullMessage": "s"
+      },
+      "sourcePrediction": "Source-supported expectation only; freeze actual native values after reviewed capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    },
+    {
+      "id": "E03",
+      "scenario": "ObjectDisposedException null message uses ObjectDisposed default",
+      "control": "Construct named and unnamed exceptions with explicitly null message; no InvalidOperationException changes.",
+      "stableFields": {
+        "namedMessage": "s",
+        "unnamedMessage": "s",
+        "hresult": "i",
+        "objectName": "s"
+      },
+      "sourcePrediction": "Native constructor substitutes ObjectDisposed_Generic before base; prediction pending capture.",
+      "evidenceKind": "PLANNED_PAIRED_NATIVE_JAVA_UNOBSERVED"
+    }
+  ],
+  "pairedRowCount": 66,
+  "typedScalarCount": 612,
+  "javaPrivateRows": [
+    {
+      "id": "J01",
+      "case": "Held-before-execute Task dispatcher",
+      "control": "Package-private Task run(Action, Executor) overload takes a test executor which retains runnable; inspect WaitingToRun=2/incomplete, register continuation, release runnable, action observes Running=3, then success.",
+      "checks": [
+        "all nonterminal states are incomplete",
+        "awaiter waits in queued/running states",
+        "completion publishes once"
+      ],
+      "classification": "JAVA_PRIVATE_CONTROL_SOURCE_SUPPORTED_NOT_NATIVE_OBSERVATION"
+    },
+    {
+      "id": "J02",
+      "case": "Dispose before CancelAsync worker claims registrations",
+      "control": "Package-private CTS cancelAsync(Function<Action,Task>) dispatcher runs Task.Run wrapping a barrier before invoking the supplied drain action; dispose source before release. No replaceable global executor.",
+      "checks": [
+        "no callbacks execute",
+        "operation eventually succeeds",
+        "request stays true"
+      ],
+      "classification": "JAVA_PRIVATE_CONTROL_SOURCE_SUPPORTED_NOT_NATIVE_OBSERVATION"
+    },
+    {
+      "id": "J03",
+      "case": "Unregister all while callback work is queued",
+      "control": "Same nonpublic dispatcher; unregister pending registrations before releasing worker.",
+      "checks": [
+        "queued operation still succeeds",
+        "zero callback calls"
+      ],
+      "classification": "JAVA_PRIVATE_CONTROL_SOURCE_SUPPORTED_NOT_NATIVE_OBSERVATION"
+    },
+    {
+      "id": "J04",
+      "case": "Java interruption of work-task/CancelAsync waiters",
+      "control": "Interrupt dedicated GetResult waiter while action/callback held; release success/fault variants.",
+      "checks": [
+        "no early completion",
+        "interrupt flag restored after result or throw",
+        "original fault retained"
+      ],
+      "classification": "JAVA_REPRESENTATION_ONLY"
+    },
+    {
+      "id": "J05",
+      "case": "Foreign Java throwable from Run",
+      "control": "Throw known java.lang.IllegalStateException and AssertionError in separate held actions.",
+      "checks": [
+        "task does not remain permanently Running",
+        "documented System.Exception wrapper is fault",
+        "original Java cause retained"
+      ],
+      "classification": "JAVA_REPRESENTATION_ONLY"
+    },
+    {
+      "id": "J06",
+      "case": "Work submission rejection",
+      "control": "Private Task executor seam rejects; test documented fallback or synchronous-failure policy without mutating static executor.",
+      "checks": [
+        "never inline on submitting call",
+        "no reachable permanently pending task",
+        "original rejection remains observable"
+      ],
+      "classification": "JAVA_REPRESENTATION_ONLY"
+    },
+    {
+      "id": "J07",
+      "case": "Artifact/API authority",
+      "control": "Fixture-only compile and Class.getProtectionDomain/CodeSource plus compiled public API snapshot.",
+      "checks": [
+        "every product class from exact supplied JAR",
+        "no public Task constructor/completion mutator added",
+        "TaskBridge still read-only",
+        "exact three selected public APIs",
+        "no fixture classes in JAR"
+      ],
+      "classification": "JAVA_PACKAGING_ONLY"
+    },
+    {
+      "id": "J08",
+      "case": "Resource-safe callback and continuation dispatch",
+      "control": "Reuse frozen Task49 boundary suite plus held work with independent queued continuation.",
+      "checks": [
+        "blocked callback does not starve unrelated continuation",
+        "continuation error does not change work terminal payload",
+        "existing rejection-handler throw control preserved"
+      ],
+      "classification": "JAVA_REPRESENTATION_ONLY"
+    }
+  ],
+  "javaPrivateRowCount": 8,
+  "values": "UNOBSERVED",
+  "nativeCaptureCount": 0,
+  "samplingQualification": {
+    "R10.waiterCompletedBeforeRelease": "negative at sample; intent does not prove waiter is blocked",
+    "R11.waiterCompletedBeforeRelease": "negative at sample; intent does not prove waiter is blocked",
+    "C18.disposeReturnedBeforeRelease": "negative at sample; invocation handoff followed directly by Dispose, no assertion that scheduler has entered monitor wait",
+    "C34.noneCompletedBeforeRelease": "negative at sample, after direct waiter intent; callbacks definitely registered before release"
+  },
+  "beforeWorkerDispose": "source invariant plus Java J02 only; C20 is after-claim paired schedule"
+}
