@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "batch": 2519,
   "selectedApi": "public static System.Threading.Tasks.Task Run(System.Action action, System.Threading.CancellationToken cancellationToken)",
   "publicDelta": "System/Threading/Tasks/Task|M|Run|(LSystem/Action;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;|9",
@@ -69,10 +69,26 @@
       "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\TaskRunTokenControls.java",
       "sha256": "9ad464f1e049c4aceea8fd267410759207c731f068ffabb32067ecb55c45acd2",
       "sizeBytes": 15068
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\TaskRunTokenAssociationOracle.cs",
+      "sha256": "746cdbc55598e50b6410657425e906a9b148d45c20999bb90f51149f518ee6e6",
+      "sizeBytes": 3354
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\TaskRunTokenAssociationFixtures.java",
+      "sha256": "a5450c6c0baf539f9f19dd305edcf67e9cac03d36f6e41e4ad7654755081489a",
+      "sizeBytes": 4395
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\TaskRunTokenAssociationControls.java",
+      "sha256": "d7e7b5a4a74585f070ca4386ffd926eb2f545aca70f6c85f30d7a55c688fbbba",
+      "sizeBytes": 3728
     }
   ],
   "semantics": [
     "Validate action before Java token null",
+    "Run-associated token is initialized before queue publication and retained on success/fault/cancellation; existing TaskCanceledException(Task) observes it while queued/running/terminal. Old Run(Action) remains None; unrelated promise/Delay policy unchanged.",
     "Always queue including requested tokens; no return-time status contract",
     "Worker checks requested token once before invoking action",
     "Cancellation after entry neither interrupts nor forces cancellation",
@@ -109,5 +125,16 @@
   "openAcceptanceItems": 1686,
   "qualifiedFrameworks": "0/66",
   "wholeProjectRemainingBatches": "UNKNOWN",
-  "e01Decisions": "All three OPEN"
+  "e01Decisions": "All three OPEN",
+  "fixRound": 1,
+  "associationNative": {
+    "cases": 14,
+    "fields": 224,
+    "receipt": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\association-native-v1\\receipt.json",
+      "sha256": "b2b27be43c8d9fd7b2b53638220b60a246a1c6b38b89e58eb32d53401c795205",
+      "sizeBytes": 1884515
+    },
+    "nativeQueuedObservationClaim": false
+  }
 }

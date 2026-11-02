@@ -112,7 +112,7 @@ def payload(s,native=False):
     c.require(any(Path(x['path'])==p.PYTHON for x in pins),'actual Python executable pin')
     s.data['payloadManifest']=c.descriptor(p.FROZEN/'toolchain-payload-lock.json');s.data['payload']=pins;s.save()
 
-def native(s,supplement=False):
+def native(s,supplement=False,source_name=None):
     payload(s,True)
     dotnet=p.B/'toolchains/dotnet';refs=sorted((dotnet/'packs/Microsoft.NETCore.App.Ref/10.0.12/ref/net10.0').glob('*.dll'))
     c.require(refs,'locked reference assemblies')
@@ -123,7 +123,7 @@ def native(s,supplement=False):
     s.save()
     s.step('sdk-version',[str(dotnet/'dotnet.exe'),'--version'])
     c.require(Path(s.data['commands'][-1]['stdoutPath']).read_text().strip()=='10.0.401','actual pinned SDK')
-    s.step('compile-native',[str(dotnet/'dotnet.exe'),'exec',str(dotnet/'sdk/10.0.401/Roslyn/bincore/csc.dll'),'-nologo','-noconfig','-nostdlib','-target:exe','-deterministic','-nullable:enable','-langversion:14','-warnaserror','-out:'+str(s.out/'PublicTaskRunTokenOracle.dll'),*['-r:'+str(x) for x in refs],str(HERE/('SupplementRunTokenOracle.cs' if supplement else 'PublicTaskRunTokenOracle.cs'))])
+    s.step('compile-native',[str(dotnet/'dotnet.exe'),'exec',str(dotnet/'sdk/10.0.401/Roslyn/bincore/csc.dll'),'-nologo','-noconfig','-nostdlib','-target:exe','-deterministic','-nullable:enable','-langversion:14','-warnaserror','-out:'+str(s.out/'PublicTaskRunTokenOracle.dll'),*['-r:'+str(x) for x in refs],str(HERE/(source_name or ('SupplementRunTokenOracle.cs' if supplement else 'PublicTaskRunTokenOracle.cs')))])
     s.data['compiledNative']=[c.descriptor(s.out/name) for name in ['PublicTaskRunTokenOracle.dll','PublicTaskRunTokenOracle.runtimeconfig.json']];s.save()
     passes=[]
     for n in [1,2]:
@@ -150,11 +150,11 @@ def build(s):
     p.load('run_token_bind_map',HERE.parent/'bind-foundation-file-map.py').main()
     p.load('run_token_distribution',HERE.parent/'verify-foundation-distribution.py').main(s.jdk)
 
-def paired(s,jar,native_receipt,supplement=False):
+def paired(s,jar,native_receipt,supplement=False,owner_override=None,native_status=None):
     payload(s);s.data['surface']=surface(jar);native_data=c.read(native_receipt)
-    c.require(native_data['status']==('PASS_NATIVE-SUPPLEMENT' if supplement else 'PASS_NATIVE'),'qualified actual native phase')
+    c.require(native_data['status']==(native_status or ('PASS_NATIVE-SUPPLEMENT' if supplement else 'PASS_NATIVE')),'qualified actual native phase')
     native_runs=[x for x in native_data['commands'] if x['label'].startswith('native-pass')]
-    owner='SupplementRunTokenFixtures' if supplement else 'PublicTaskRunTokenFixtures'
+    owner=owner_override or ('SupplementRunTokenFixtures' if supplement else 'PublicTaskRunTokenFixtures')
     group,records=s.java_group('paired',[HERE/(owner+'.java')],owner,[(owner,[str(jar)])],jar,module=True)
     actual=wire(Path(records[0]['stdoutPath']).read_bytes())
     for rec in native_runs:
@@ -168,12 +168,18 @@ def inner(args):
         if args.mode=='baseline':baseline(s)
         elif args.mode=='native':native(s)
         elif args.mode=='native-supplement':native(s,True)
+        elif args.mode=='association-native':native(s,source_name='TaskRunTokenAssociationOracle.cs')
+        elif args.mode=='association-red':s.java_group('association',[HERE/'TaskRunTokenAssociationFixtures.java'],'TaskRunTokenAssociationFixtures',[('TaskRunTokenAssociationFixtures',[str(args.jar)])],args.jar,module=True)
         elif args.mode=='build':build(s)
         elif args.mode=='paired':paired(s,args.jar,args.native_receipt)
         elif args.mode=='paired-supplement':paired(s,args.jar,args.native_receipt,True)
+        elif args.mode=='paired-association':paired(s,args.jar,args.native_receipt,owner_override='TaskRunTokenAssociationFixtures',native_status='PASS_ASSOCIATION-NATIVE')
         elif args.mode=='private':
             payload(s);group,records=s.java_group('private',[HERE/'TaskRunTokenControls.java'],'System.Threading.Tasks.TaskRunTokenControls',[('System.Threading.Tasks.TaskRunTokenControls',[str(args.jar)])],args.jar)
             markers=Path(records[0]['stdoutPath']).read_text().splitlines();c.require(markers and all(line.endswith('\tb\ttrue') for line in markers) and len(markers)==len(set(markers)),'unique private controls');group['controls']=len(markers)
+        elif args.mode=='private-association':
+            group,records=s.java_group('private-association',[HERE/'TaskRunTokenAssociationControls.java'],'System.Threading.Tasks.TaskRunTokenAssociationControls',[('System.Threading.Tasks.TaskRunTokenAssociationControls',[str(args.jar)])],args.jar)
+            markers=Path(records[0]['stdoutPath']).read_text().splitlines();c.require(markers and all(x.endswith('\tb\ttrue') for x in markers),'association controls');group['controls']=len(markers)
         elif args.mode=='sample':
             payload(s);s.java_group('sample',[p.HERE/'DelayCancellationSample.java'],'DelayCancellationSample',[('DelayCancellationSample',[str(args.jar)])],args.jar)
         elif args.mode=='pure-verifiers':
@@ -218,7 +224,7 @@ def inner(args):
 
 def main():
     parser=argparse.ArgumentParser(allow_abbrev=False)
-    parser.add_argument('--mode',choices=['baseline','native','native-supplement','build','paired','paired-supplement','private','sample','pure-verifiers','historical','audits','metadata-diagnostic','metadata-corrected','gate'],required=True)
+    parser.add_argument('--mode',choices=['baseline','native','native-supplement','association-native','association-red','build','paired','paired-supplement','paired-association','private','private-association','sample','pure-verifiers','historical','audits','metadata-diagnostic','metadata-corrected','gate'],required=True)
     parser.add_argument('--out',type=Path,required=True);parser.add_argument('--jar',type=Path);parser.add_argument('--native-receipt',type=Path);parser.add_argument('--inner',action='store_true')
     parser.add_argument('--only')
     args=parser.parse_args();c.confined(args.out)

@@ -246,6 +246,8 @@ public final class Task {
     private static Task schedule(Action action, CancellationToken cancellationToken, Executor executor,
             Runnable afterEntryCheck) {
         Task task = new Task();
+        // TaskCanceledException(Task) observes this association in every state.
+        task.token = cancellationToken == null ? CancellationToken.get_None() : cancellationToken;
         task.status = TaskStatus.WaitingToRun;
         Runnable work = () -> task.execute(action, cancellationToken, afterEntryCheck);
         try { executor.execute(work); }
@@ -283,7 +285,7 @@ public final class Task {
         // Completion dispatch is outside the action catch scope.
         if (cancellation != null) completeCanceled(cancellation);
         else complete(failure == null ? TaskStatus.RanToCompletion : TaskStatus.Faulted,
-                    failure, CancellationToken.get_None());
+                    failure, cancellationToken == null ? CancellationToken.get_None() : cancellationToken);
     }
 
     public TaskStatus get_Status() { return status; }

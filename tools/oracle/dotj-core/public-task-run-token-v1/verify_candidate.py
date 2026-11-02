@@ -6,11 +6,38 @@ import qualify as q
 p=q.p;c=p.c
 EXECUTED_PROFILE=p.B/'worktrees/dotj-core-task-run-cancellation-v1/tools/oracle/dotj-core/public-task-run-token-v1'
 
-def qualified_artifact(artifact,qualified,source_root,canonical_root=Path('C:/source/repos/dotj Frameworks')):
+def compiled_source_inventory(artifact,qualified,build_pin):
+    c.validate_pin(build_pin);build=c.read(build_pin['path'])
+    c.require(build['status']=='PASS_BUILD' and build['finalized'] is True and build['candidateJar']==qualified,'successful same-JAR build receipt')
+    for rec in build['commands']:command(rec)
+    compiled_root=EXECUTED_PROFILE.parents[3]
+    def relative(path,absolute):
+        value=Path(path)
+        c.require(value.is_absolute()==absolute,'compiled source inventory path kind')
+        resolved=value.resolve() if absolute else (compiled_root/value).resolve()
+        c.require(resolved.is_relative_to(compiled_root),'compiled source inventory path escapes root')
+        return resolved.relative_to(compiled_root).as_posix()
+    def inventory(rows,absolute):
+        values={}
+        for row in rows:
+            name=relative(row['path'],absolute)
+            c.require(name not in values,'duplicate compiled source inventory path '+name)
+            values[name]=row['sha256']
+        c.require(values,'empty compiled source inventory')
+        return values
+    trusted=inventory(build['sourceClosure'],True);declared=inventory(artifact['productSources'],False)
+    c.require(declared==trusted,'compiled source inventory membership/hash mismatch')
+    compiler=build['commands'][0];paths=[x['path'] for x in build['sourceClosure']]
+    c.require(compiler['argv']==[str(p.JDK/'bin/javac.exe'),*['-J'+x for x in p.frozen_phases.jvm(Path(compiler['cwd']))],'-encoding','UTF-8','--release','21','-d',str(compiled_root/'dotj-core/dotj-core-public/build/foundation-v1/classes'),*paths],'compiled source inventory must match actual compiler argv')
+    for pin in build['sourceClosure']:c.validate_pin(pin)
+    return trusted
+
+def qualified_artifact(artifact,qualified,source_root,build_pin,canonical_root=Path('C:/source/repos/dotj Frameworks')):
+    inventory=compiled_source_inventory(artifact,qualified,build_pin)
     root=Path(source_root).resolve();current=root/artifact['jarPath']
     c.require(artifact['jarSha256']==qualified['sha256'],'qualified artifact identity')
-    for pin in artifact['productSources']:
-        c.require(c.sha(root/pin['path'])==pin['sha256'],'complete current product source closure '+pin['path'])
+    for path,digest in inventory.items():
+        c.require(c.sha(root/path)==digest,'complete current product source closure '+path)
     if current.is_file():
         c.require(c.sha(current)==qualified['sha256'],'present current JAR mismatches; no archive fallback')
         return current,'ACTUAL_CURRENT_D_OR_GATE_ARTIFACT'
@@ -62,6 +89,7 @@ def groups(r):
         modes={
             'paired':[(paired_owner,[jar])],
             'private':[('System.Threading.Tasks.TaskRunTokenControls',[jar])],
+            'private-association':[('System.Threading.Tasks.TaskRunTokenAssociationControls',[jar])],
             'sample':[('DelayCancellationSample',[jar])],
             'valuetask-task':[('PublicValueTaskTaskFixtures',[jar])],
             'valuetask-boundaries':[('ValueTaskTaskBoundaryControls',[mode,jar,str(expected)]) for mode in ['controls','task-first','configured-first','conversion-first']],
@@ -83,10 +111,10 @@ def groups(r):
             c.require(group['payloads']==[c.descriptor(out/'observations.txt')],'legacy payload is actual output argument')
         else:c.require(group['payloads']==[rec['streams']['stdout'] for rec in records[1:]],'payloads bind actual runtime stdout')
 
-def validate(e):
+def validate(e,artifact_override=None):
     c.require(e['status']=='SELECTED_BEHAVIOR_CHECKS_PASSED','selected workload status')
-    jar=e['candidateJar'];c.validate_pin(jar);artifact=c.read(p.E/'foundation-product-candidate-v1.json')
-    chosen,provenance=qualified_artifact(artifact,jar,p.ROOT)
+    jar=e['candidateJar'];c.validate_pin(jar);artifact=artifact_override if artifact_override is not None else c.read(p.E/'foundation-product-candidate-v1.json')
+    chosen,provenance=qualified_artifact(artifact,jar,p.ROOT,e['build'])
     c.require(q.surface(Path(jar['path']))==e['publicSurface'],'compiled one-overload delta')
     c.validate_pin(e['contract']);contract=c.read(e['contract']['path'])
     c.validate_pin(contract['runtimeSource']);c.validate_pin(contract['upstreamTests'])
@@ -100,9 +128,11 @@ def validate(e):
     for rec in build['commands']:command(rec)
     for pin in build['sourceClosure']:c.validate_pin(pin)
     cases=fields=0
-    for key,suffix in [('paired',''),('pairedSupplement','-SUPPLEMENT')]:
-        paired=receipt(e[key],'PASS_PAIRED'+suffix,jar);groups(paired)
-        native=receipt(e['native' if not suffix else 'nativeSupplement'],'PASS_NATIVE'+suffix)
+    matrices=[('paired','native','PASS_PAIRED','PASS_NATIVE'),('pairedSupplement','nativeSupplement','PASS_PAIRED-SUPPLEMENT','PASS_NATIVE-SUPPLEMENT')]
+    if 'pairedAssociation' in e:matrices.append(('pairedAssociation','nativeAssociation','PASS_PAIRED-ASSOCIATION','PASS_ASSOCIATION-NATIVE'))
+    for key,native_key,paired_status,native_status in matrices:
+        paired=receipt(e[key],paired_status,jar);groups(paired)
+        native=receipt(e[native_key],native_status)
         for pin in native['compiledNative']+native['references']+native['bootstrapInputs']:c.validate_pin(pin)
         for rec in native['commands']:command(rec)
         config=c.read(next(x['path'] for x in native['bootstrapInputs'] if x['path'].endswith('runtimeconfig.json')))
@@ -115,8 +145,15 @@ def validate(e):
     private=receipt(e['private'],'PASS_PRIVATE',jar);groups(private)
     markers=Path(private['groups'][0]['payloads'][0]['path']).read_text().splitlines()
     c.require(len(markers)==23 and len(set(markers))==23 and all(x.endswith('\tb\ttrue') for x in markers),'23 real private groups')
+    association_controls=0
+    if 'privateAssociation' in e:
+        association=receipt(e['privateAssociation'],'PASS_PRIVATE-ASSOCIATION',jar);groups(association)
+        extra=Path(association['groups'][0]['payloads'][0]['path']).read_text().splitlines()
+        c.require(extra and len(extra)==len(set(extra)) and all(x.endswith('\tb\ttrue') for x in extra),'association private controls')
+        association_controls=len(extra)
     historical=[]
-    for pin,status in [(e['historicalPartial'],'FAILED_RETAINED'),(e['historicalTail'],'PASS_HISTORICAL')]:
+    histories=[(e['historicalCurrent'],'PASS_HISTORICAL')] if 'historicalCurrent' in e else [(e['historicalPartial'],'FAILED_RETAINED'),(e['historicalTail'],'PASS_HISTORICAL')]
+    for pin,status in histories:
         r=receipt(pin,status,jar);groups(r);historical.extend(r['groups'])
         for rec in r['commands']:command(rec,1 if rec['label']=='compile-task-boundaries' and status=='FAILED_RETAINED' else 0)
     expected=['valuetask-task','valuetask-boundaries','task','task-boundaries','worktask','worktask-boundaries','delegate-action-v1','public-cancellation-v1','public-valuetask-v1','delay','delay-private']
@@ -166,8 +203,8 @@ def validate(e):
     packet=c.read(p.E/'foundation-e01-review-packet-v1.json')
     c.require(packet['candidateJarSha256']==jar['sha256'] and len(packet['openDecisions'])==3 and all(x['status']=='OPEN' for x in packet['openDecisions']),'same candidate all three E01 OPEN')
     c.require(e['acceptanceCredit']==0,'no bounded-work acceptance credit')
-    c.require(cases==e['nativeCases']==25 and fields==e['nativeFields']==300,'complete selected native matrix inventory')
-    return dict(cases=cases,fields=fields,nativePassesPerMatrix=2,privateControls=len(markers),historicalGroups=len(historical),jarSha256=jar['sha256'],artifactProvenance=provenance)
+    c.require(cases==e['nativeCases'] and fields==e['nativeFields'],'complete selected native matrix inventory')
+    return dict(cases=cases,fields=fields,nativePassesPerMatrix=2,privateControls=len(markers),associationPrivateControls=association_controls,historicalGroups=len(historical),jarSha256=jar['sha256'],artifactProvenance=provenance)
 
 def main():
     result=validate(c.read(p.E/'public-task-run-token-v1.json'))

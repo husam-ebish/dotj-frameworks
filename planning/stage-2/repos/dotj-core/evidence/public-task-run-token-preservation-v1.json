@@ -1,10 +1,10 @@
 {
-  "version": 1,
+  "version": 2,
   "status": "RETAINED_PREREQUISITES_AND_CHANGED_PREDICATES_CHECKED",
   "candidateJar": {
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
-    "sha256": "5774616ea8d36568de3b4df6078e45da6e486b64b963cd59176c31f5bb568a16",
-    "sizeBytes": 854899
+    "sha256": "18f9b3ffb4fe2d8dcbe5a7d036b557b543a61e2a6507bfd51375420ca7017a99",
+    "sizeBytes": 855051
   },
   "retainedMetadata": [
     {
@@ -128,19 +128,19 @@
     }
   ],
   "sameJarSample": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\sample-v1\\receipt.json",
-    "sha256": "eefd6dd10c09f2c0483183ecc58e50eb1df7c26df1028303610a204968570ac6",
-    "sizeBytes": 159702
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\sample-v1\\receipt.json",
+    "sha256": "56334c6bacbe1540fbc701d8313a345d782c1053852cc350df8ffc38637bec27",
+    "sizeBytes": 162096
   },
   "changedPredicateControls": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\changed-predicate-controls-v2.json",
-    "sha256": "f71b28e9c941f4eddc1e0bda0f12a4c09e4c73c2604be70028430f965abde461",
-    "sizeBytes": 4046
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\changed-predicate-controls-v1.json",
+    "sha256": "7aa4110afb63b4f3883715dbf680a2edfc7c99b0eabbf0155bf17a4433627c12",
+    "sizeBytes": 4062
   },
   "projectionControls": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\canonical-projection-controls-v2\\receipt.json",
-    "sha256": "3ac391ddebfc259c210d8fc3005a930a8597747be262913908a15f29e60402dd",
-    "sizeBytes": 4463
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\source-inventory-controls-v1\\receipt.json",
+    "sha256": "cecf7ea8a83020b8ade994a38ebcc1d9dd566aecc021a68afbb6d71dc87edc86",
+    "sizeBytes": 4238
   },
   "guaranteeDispositions": [
     {
@@ -159,60 +159,46 @@
       "guarantee": "Delay113/3955 x2 native passes",
       "disposition": "Frozen native/static prerequisite proof retained; new same-JAR ordinary+async output reparsed and compared to exact old qualified raw113/3955 payload. No native recapture or oldSDK graph replay",
       "proof": {
-        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-tail-v2\\receipt.json",
-        "sha256": "3c93427b853e434bfcfa60dc3e390ada7b82c692c2060f8e910740ea0350e87d",
-        "sizeBytes": 357597
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\historical-v1\\receipt.json",
+        "sha256": "8ad13093df1892612c285e56e1c8c212aeff36ed1551f8b7cdb56f1a8e0a4ccd",
+        "sizeBytes": 440174
       }
     },
     {
       "guarantee": "Delay30 private controls/9 groups",
       "disposition": "Actual nine new-JAR JVMs, all30 exact markers reparsed",
       "proof": {
-        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-tail-v2\\receipt.json",
-        "sha256": "3c93427b853e434bfcfa60dc3e390ada7b82c692c2060f8e910740ea0350e87d",
-        "sizeBytes": 357597
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\historical-v1\\receipt.json",
+        "sha256": "8ad13093df1892612c285e56e1c8c212aeff36ed1551f8b7cdb56f1a8e0a4ccd",
+        "sizeBytes": 440174
       }
     },
     {
       "guarantee": "Task/ValueTaskTask/WorkTask/CancelAsync/delegate/cancellation/ValueTask historical3475 fields/controls",
       "disposition": "Actual new-JAR11group corpus includes these9groups; retained raw native captures reparsed with pinned pure readers; public guards use only exact one-overload successors",
-      "proof": [
-        {
-          "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-v1\\receipt.json",
-          "sha256": "1994972b03c7851cb54eaa98d8013100ec3de553db8e7bf40425457951b65fad",
-          "sizeBytes": 223749
-        },
-        {
-          "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\historical-tail-v2\\receipt.json",
-          "sha256": "3c93427b853e434bfcfa60dc3e390ada7b82c692c2060f8e910740ea0350e87d",
-          "sizeBytes": 357597
-        }
-      ]
+      "proof": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\historical-v1\\receipt.json",
+        "sha256": "8ad13093df1892612c285e56e1c8c212aeff36ed1551f8b7cdb56f1a8e0a4ccd",
+        "sizeBytes": 440174
+      }
     },
     {
       "guarantee": "Packaged migration sample",
       "disposition": "Original sample compiled alone and both success/canceled assertions executed on the same577 JAR after gate",
       "proof": {
-        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\sample-v1\\receipt.json",
-        "sha256": "eefd6dd10c09f2c0483183ecc58e50eb1df7c26df1028303610a204968570ac6",
-        "sizeBytes": 159702
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\sample-v1\\receipt.json",
+        "sha256": "56334c6bacbe1540fbc701d8313a345d782c1053852cc350df8ffc38637bec27",
+        "sizeBytes": 162096
       }
     },
     {
       "guarantee": "Product build/source/class/license/dependency closure",
       "disposition": "Actual selected build plus complete519-check gate on136 sources/189 classes and identical577 JAR; fixture isolation and exact consumer argv retained",
-      "proof": [
-        {
-          "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\build-v2\\receipt.json",
-          "sha256": "51e6ccf5cafb31825e7bc05c34a36ce7442dfd895012246658aec6601ea7f50b",
-          "sizeBytes": 233111
-        },
-        {
-          "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\foundation-gate-v2\\receipt.json",
-          "sha256": "f3862d1e2ce793f959145808860c010537d8c2b9df77ea8ad6aa3bc31b6e8d81",
-          "sizeBytes": 661428
-        }
-      ]
+      "proof": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\build-v1\\receipt.json",
+        "sha256": "c2ca0d433624a7257511da949d9b48b831911d0af5892256a7532fe691c2e807",
+        "sizeBytes": 240460
+      }
     },
     {
       "guarantee": "Historical archive audit, exact exports and forensic recovery",
@@ -253,28 +239,44 @@
       "guarantee": "Old17 changed-contract and3 payload/class forgery controls",
       "disposition": "Requalified against current receipts with23 focused controls: exact ownership/types/bounds/environment/argv/payload/class identity plus all4 Delay wrapper forwards. No old69 mock replay",
       "proof": {
-        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\changed-predicate-controls-v2.json",
-        "sha256": "f71b28e9c941f4eddc1e0bda0f12a4c09e4c73c2604be70028430f965abde461",
-        "sizeBytes": 4046
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\changed-predicate-controls-v1.json",
+        "sha256": "7aa4110afb63b4f3883715dbf680a2edfc7c99b0eabbf0155bf17a4433627c12",
+        "sizeBytes": 4062
       }
     },
     {
       "guarantee": "Canonical-only archival resolution",
-      "disposition": "Eight current direct-W/modelprojection/wrongsource/wrongJar/present-mismatch/missingD/actualoldC-refusal controls. No actual positive C/JVM claim before merge",
+      "disposition": "Same-JAR successful build/sourceClosure/actualcompilerargv inventory bound exactly and duplicate-free before current source checks; omitted/refreshed/substituted/duplicate/extra manifests rejected through helper and full validate. Canonical-only projection and presentwrong/missingD JAR guards retained.",
       "proof": {
-        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\canonical-projection-controls-v2\\receipt.json",
-        "sha256": "3ac391ddebfc259c210d8fc3005a930a8597747be262913908a15f29e60402dd",
-        "sizeBytes": 4463
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\source-inventory-controls-v1\\receipt.json",
+        "sha256": "cecf7ea8a83020b8ade994a38ebcc1d9dd566aecc021a68afbb6d71dc87edc86",
+        "sizeBytes": 4238
       }
     },
     {
       "guarantee": "Source/notice/rights packet and all3 E01 OPEN",
-      "disposition": "Actual new-JAR full-gate source/notice/provenance/rights audits; no acceptance or release credit",
+      "disposition": "Current new-JAR focused source/notice/provenance/rights audits pass; new final full gate is recorded separately after completion. No old577 gate qualification credited to newJar.",
       "proof": {
-        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\foundation-gate-v2\\receipt.json",
-        "sha256": "f3862d1e2ce793f959145808860c010537d8c2b9df77ea8ad6aa3bc31b6e8d81",
-        "sizeBytes": 661428
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\audits-v1\\receipt.json",
+        "sha256": "8fd0445df80c6905a5868a93a17d6e46ad8c7e78526753fe4469a995bb70650c",
+        "sizeBytes": 57148
       }
+    },
+    {
+      "guarantee": "Run token association for existing TaskCanceledException(Task)",
+      "disposition": "Paired running/terminal lifetime observations and held-executor queued controls retain associated source/value token; old Run None and original OCE identity preserved",
+      "proof": [
+        {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\paired-association-v1\\receipt.json",
+          "sha256": "cc52166781d322b381401fdc43e1ff420aa7f7a1ed78f66bbd5a410ff761bf52",
+          "sizeBytes": 163726
+        },
+        {
+          "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\private-association-v1\\receipt.json",
+          "sha256": "692e38a59dc7abec4d97f127e2f5fa44bdb5ea7a854094906c62df315373de55",
+          "sizeBytes": 32078
+        }
+      ]
     }
   ],
   "oldGateReader": {
@@ -284,10 +286,20 @@
   },
   "currentReader": {
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\verify_candidate.py",
-    "sha256": "c312b14aeaf7cf33e8f7d6f3e9f3f319ad8a2d46ef102fef3ac090ff96dafbb7",
-    "sizeBytes": 15971
+    "sha256": "0719a9784adcab590e5ac3dd4e2a168df4c6e7814f8660c3ee85b49bb45df458",
+    "sizeBytes": 18787
   },
-  "sourceTransition": "Full gate2 executed oldGateReader and all519 checks. CurrentReader is a post-gate pure verification correction; futurecode execution is not attributed to gate2. Four affected wrapper entrypoints are separately executed and recorded after this preservation input proof.",
+  "sourceTransition": "Fix1 final reader and same-build source inventory are qualified before the new final gate; old577/oldgate64f304->c312 evidence remains archived historical, not finalcandidate qualification.",
   "oldSDKNativeOr69ControlsReexecuted": false,
-  "acceptanceCredit": 0
+  "acceptanceCredit": 0,
+  "previous": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\reviewed-029630977-archive-v1\\worktree\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-run-token-preservation-v1.json",
+    "sha256": "b28c761b34d224f9831d6d82367232bcc963463616f807581c88be6038d2657e",
+    "sizeBytes": 16257
+  },
+  "priorArchive": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\reviewed-029630977-archive-v1\\manifest.json",
+    "sha256": "2ec5834c023a903e40cea76c5827a869d09386fe095c5ee633faa01911a5d069",
+    "sizeBytes": 765529
+  }
 }

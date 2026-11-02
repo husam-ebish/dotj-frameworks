@@ -1,72 +1,51 @@
 {
-  "version": 1,
-  "status": "POST_GATE_PURE_READER_AND_SAMPLE_VERIFIED",
-  "oldGateReader": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\foundation-gate-v2\\inputs\\verify_candidate.py",
-    "sha256": "64f304802676989c11414d669ade0a1148affbdeaea38eeeecea60d0e0b18c0e",
-    "sizeBytes": 9873
-  },
-  "finalReader": {
+  "version": 2,
+  "status": "FIX1_FINAL_READER_QUALIFIED_BEFORE_NEW_FULL_GATE",
+  "currentReader": {
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\tools\\oracle\\dotj-core\\public-task-run-token-v1\\verify_candidate.py",
-    "sha256": "c312b14aeaf7cf33e8f7d6f3e9f3f319ad8a2d46ef102fef3ac090ff96dafbb7",
-    "sizeBytes": 15971
+    "sha256": "0719a9784adcab590e5ac3dd4e2a168df4c6e7814f8660c3ee85b49bb45df458",
+    "sizeBytes": 18787
+  },
+  "currentBuild": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\build-v1\\receipt.json",
+    "sha256": "c2ca0d433624a7257511da949d9b48b831911d0af5892256a7532fe691c2e807",
+    "sizeBytes": 240460
   },
   "candidateJar": {
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\dotj-core\\dotj-core-public\\build\\foundation-v1\\dotj-core-foundation-v1.jar",
-    "sha256": "5774616ea8d36568de3b4df6078e45da6e486b64b963cd59176c31f5bb568a16",
-    "sizeBytes": 854899
+    "sha256": "18f9b3ffb4fe2d8dcbe5a7d036b557b543a61e2a6507bfd51375420ca7017a99",
+    "sizeBytes": 855051
   },
-  "actualFullGate": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\foundation-gate-v2\\receipt.json",
-    "sha256": "f3862d1e2ce793f959145808860c010537d8c2b9df77ea8ad6aa3bc31b6e8d81",
-    "sizeBytes": 661428
+  "fullGate": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\foundation-gate-v1\\receipt.json",
+    "sha256": "0741d8e7f12f24c56b396936effb952f726edac75eb32b375c68dabd328942d9",
+    "sizeBytes": 664487
   },
-  "actualFullGateAggregate": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\foundation-public-candidate-gate-v1.json",
-    "sha256": "caa7b4fa8021ce5e153b021378b4ea96e20d75254d5dd6297938393d68d9fc02",
-    "sizeBytes": 178500
+  "preGateAllFourWrappers": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\pure-verifiers-v1\\receipt.json",
+    "sha256": "ed25d65abd29d6ab1c7f8978b671ed1885521b99148af3866c34070a66e81152",
+    "sizeBytes": 39797
   },
-  "pureWrapperPhase": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\pure-verifiers-v1\\receipt.json",
-    "sha256": "5834b3d7b19d65da1827e56f4a9a4fc38a6e78d9c7d2ec8a431d44a65a6aee2a",
-    "sizeBytes": 36564
-  },
-  "pureWrapperOwnedOuter": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\pure-verifiers-v1-outer\\controller.json",
-    "sha256": "b346a3af3def359904b5c65d47aff8dccadf3dab5245a5b1a5b87e90911cd9ae",
-    "sizeBytes": 5887
-  },
-  "sameJarSample": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\sample-v1\\receipt.json",
-    "sha256": "eefd6dd10c09f2c0483183ecc58e50eb1df7c26df1028303610a204968570ac6",
-    "sizeBytes": 159702
+  "sourceInventoryControls": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\source-inventory-controls-v1\\receipt.json",
+    "sha256": "cecf7ea8a83020b8ade994a38ebcc1d9dd566aecc021a68afbb6d71dc87edc86",
+    "sizeBytes": 4238
   },
   "changedPredicateControls": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\changed-predicate-controls-v2.json",
-    "sha256": "f71b28e9c941f4eddc1e0bda0f12a4c09e4c73c2604be70028430f965abde461",
-    "sizeBytes": 4046
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\changed-predicate-controls-v1.json",
+    "sha256": "7aa4110afb63b4f3883715dbf680a2edfc7c99b0eabbf0155bf17a4433627c12",
+    "sizeBytes": 4062
   },
-  "projectionControls": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\canonical-projection-controls-v2\\receipt.json",
-    "sha256": "3ac391ddebfc259c210d8fc3005a930a8597747be262913908a15f29e60402dd",
-    "sizeBytes": 4463
+  "supersededHistorical577PostGate": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\reviewed-029630977-archive-v1\\worktree\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-run-token-post-gate-v1.json",
+    "sha256": "cafcf007f45fe445d480934730bf05c2420cc5f114f9ff10fe9f9fe77d4fe1c0",
+    "sizeBytes": 4475
   },
-  "preservation": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-core-task-run-cancellation-v1\\planning\\stage-2\\repos\\dotj-core\\evidence\\public-task-run-token-preservation-v1.json",
-    "sha256": "b28c761b34d224f9831d6d82367232bcc963463616f807581c88be6038d2657e",
-    "sizeBytes": 16257
+  "priorArchive": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2519-task-run-cancellation-implementation-v1\\fix1\\reviewed-029630977-archive-v1\\manifest.json",
+    "sha256": "2ec5834c023a903e40cea76c5827a869d09386fe095c5ee633faa01911a5d069",
+    "sizeBytes": 765529
   },
-  "changes": [
-    "Complete current product-source closure and canonical-only archived-JAR projection; present mismatched canonical JAR fails",
-    "Exact current receipt ownership/environment/limits/argv/fixture-class/payload binding; four preserved Delay forwards",
-    "Direct bounded retained-native raw parsing and pinned reviewed static/archive/export/forensic evidence; no oldSDK graph or69mock replay",
-    "Stable actual executed D fixture-input paths in canonical read-only projection"
-  ],
-  "coverage": "Actual gate2 ran oldGateReader and passed519. FinalReader is explicitly later; all four W wrapper entrypoints,23 changed-predicate controls and8 projection controls pass separately. Original oldsample also executes on same577 JAR. No claim gate2 executed future reader code.",
-  "actualCanonicalSourcePositiveClaim": false,
-  "canonicalBeforeMerge": "Actual old source refuses new feature, as required. Root performs actual positive canonical projection after merge.",
-  "productSourceChangesAfterGate": 0,
-  "nativeReexecutionsAfterGate": 0,
-  "old69ControlReexecutions": 0,
-  "acceptanceCredit": 0
+  "historicalTransition": "Original64f304->c312/577 records remain exact archived historical evidence. Fix1 final reader and strict build inventory were finalized and tested BEFORE this new final gate; no new postgate reader edit is qualified here.",
+  "actualCanonicalPositiveClaim": false
 }
