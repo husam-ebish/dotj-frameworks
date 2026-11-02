@@ -101,8 +101,9 @@ def runtime_modes(name,out,jar,group):
     expected=str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/expected-public-surface-v1.txt')
     if name=='paired':return [(owner,[jar,str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/matrix-v2.tsv')])]
     if name=='paired-validation':return [(owner,[jar,str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/validation-boundary-v1.tsv')])]
-    if name in ['paired-supplement','observation-paired']:return [(owner,[jar])]
+    if name in ['paired-supplement','observation-paired','depth-paired']:return [(owner,[jar])]
     if name=='observation-controls':return [('WaitAsyncObservationControls',[jar])]
+    if name=='depth-controls':return [('System.Threading.Tasks.WaitAsyncDepthControls',[jar])]
     if name=='private':return [('System.Threading.Tasks.TaskWaitAsyncControls',[jar]),('System.Threading.Tasks.TaskWaitAsyncControls',[jar,'fresh'])]
     if name in ['run-token','run-token-supplement','run-token-association','valuetask-task','task','worktask','sample']:return [(owner,[jar])]
     if name in ['run-token-private','run-token-association-private','task-boundaries']:return [('System.Threading.Tasks.'+owner,[jar])]
@@ -206,11 +207,13 @@ def observation_payload(payload):
             field(id,prefix+'TokenMatch','s','equal' if cancel else 'not-applicable');field(id,prefix+'TaskMatch','s','same' if cancel else 'not-applicable');field(id,prefix+'Matches','b',True)
 
 def observations(e,jar):
-    correction=e['observationCorrection'];c.require(correction['status']=='POST_GATE_EVIDENCE_STRENGTHENING' and correction['productUnchanged'] is True,'explicit post-gate observation correction')
+    correction=e['observationCorrection'];status='REQUALIFIED_REFERENCE_REUSE' if 'finalWave' in e else 'POST_GATE_EVIDENCE_STRENGTHENING';flag='historicalOriginProductUnchanged' if 'finalWave' in e else 'productUnchanged'
+    c.require(correction['status']==status and correction[flag] is True,'explicit observation correction/reference chronology')
     c.validate_pin(correction['freeze']);lock=c.read(correction['freeze']['path'])
-    c.require(lock['candidateJar']==jar,'frozen same product JAR')
+    reference_jar=e['finalWave']['reviewedJar']['original'] if 'finalWave' in e else jar
+    c.require(lock['candidateJar']==reference_jar,'frozen native-reference product chronology')
     for pin in lock['files']:c.validate_pin(pin)
-    native=phase(correction['native'],'PASS_OBSERVATION-NATIVE',jar);paired=phase(correction['paired'],'PASS_OBSERVATION-PAIRED',jar);controls=phase(correction['controls'],'PASS_OBSERVATION-CONTROLS',jar)
+    native=phase(correction['native'],'PASS_OBSERVATION-NATIVE',reference_jar);paired=phase(correction['paired'],'PASS_OBSERVATION-PAIRED',jar);controls=phase(correction['controls'],'PASS_OBSERVATION-CONTROLS',jar)
     groups(paired);groups(controls)
     for r in [native,paired,controls]:
         c.require(r['matrixFreeze']==correction['freeze'],'executed observation freeze')
@@ -229,7 +232,42 @@ def observations(e,jar):
     observed=q.prior.wire(Path(controls['groups'][0]['payloads'][0]['path']).read_bytes());wanted={'actual-positive-shared-observer','queued-published-canceled','queued-before-return-not-inline','source-inline-cannot-overwrite-queued-wait','late-published-before-observation','same-thread-after-return-not-inline','source-cannot-overwrite-late-wait','wrong-token-rejected','wrong-task-rejected','actual-valuetask-stored-fault-accepted','same-class-wrong-fault-object-rejected','wrong-timeout-object-rejected','success-with-error-rejected','nonapplicable-facets-explicit'}
     c.require(set(observed)==wanted|{key for key in actual if key.startswith('O001.')} and all(observed[key]==('b','true') for key in wanted),'actual shared observation controls complete')
     c.require(all(observed[key]==value for key,value in actual.items() if key.startswith('O001.')),'controls use actual positive observer')
-    return dict(cases=11,fields=159,sharedControls=14,chronology='POST_GATE_EVIDENCE_STRENGTHENING')
+    return dict(cases=11,fields=159,sharedControls=14,chronology='IMMUTABLE_NATIVE_REFERENCE_CURRENT_JAVA_REQUALIFIED' if 'finalWave' in e else 'POST_GATE_EVIDENCE_STRENGTHENING')
+
+def depth_payload(payload):
+    q.depth_schema(payload)
+    def field(id,name,kind,value):c.require(payload[id+'.'+name]==(kind,str(value).lower() if type(value) is bool else str(value)),'depth observation '+id+'.'+name)
+    for row in c.read(HERE/'depth-matrix-v1.json')['rows']:
+        id=row['id'];outcome=row['outcome']
+        for name in ['depth','completed']:field(id,name,'i',8192)
+        field(id,'successful','i',8192 if outcome=='success' else 0);field(id,'faulted','i',8192 if outcome=='fault' else 0);field(id,'canceled','i',8192 if outcome.endswith('cancel') else 0)
+        field(id,'tailStatus','i',5 if outcome=='success' else 7 if outcome=='fault' else 6);field(id,'tailCallbacks','i',1)
+        for name in ['tailCompleted','allPayloadsMatch','rootCompleted','distinctWrappers','callerAndSourceUsableAfterCompletion','tokensStableAfterDispose']:field(id,name,'b',True)
+        field(id,'rootFailure','s','null');field(id,'uncaughtFailure','s','none');field(id,'callerRequested','b',outcome=='caller-cancel');field(id,'sourceRequested','b',outcome=='source-cancel');field(id,'borrowedSourceAfterCallerCancel','s','pending' if outcome=='caller-cancel' else 'not-applicable')
+
+def depths(e,jar):
+    wave=e['finalWave'];c.require(wave['status']=='CURRENT_REPLACEMENT_PRODUCT_QUALIFIED' and wave['productChanged'] is True,'current replacement product qualification')
+    previous=wave['reviewedJar'];c.validate_pin(previous['durable']);c.require(all(previous['original'][key]==previous['durable'][key] for key in ['sha256','sizeBytes']) and previous['original']['sha256']!=jar['sha256'],'actual preserved reviewed artifact differs from replacement')
+    c.validate_pin(wave['reviewedPreservation']);c.validate_pin(wave['productFreeze']);frozen=c.read(wave['productFreeze']['path']);c.require(frozen['candidateJar']==jar,'frozen executed replacement artifact')
+    for pair in frozen['entries']:
+        c.validate_pin(pair['durable']);c.require(all(pair['original'][key]==pair['durable'][key] for key in ['sha256','sizeBytes']),'actual replacement source/artifact copy equality')
+    c.validate_pin(wave['redDiagnostic']);c.require(c.read(wave['redDiagnostic']['path'])['status']=='DIAGNOSTIC_RED','original diagnostic remains RED; harness0 is not productPASS')
+    c.validate_pin(wave['depthFreeze']);lock=c.read(wave['depthFreeze']['path'])
+    for pin in lock['files']:c.validate_pin(pin)
+    native=phase(wave['depthNative'],'PASS_DEPTH-NATIVE');paired=phase(wave['depthPaired'],'PASS_DEPTH-PAIRED',jar);controls=phase(wave['depthControls'],'PASS_DEPTH-CONTROLS',jar);groups(paired);groups(controls)
+    for record in [native,paired,controls]:
+        c.require(record['depthFreeze']==wave['depthFreeze'],'same frozen finite depth inputs')
+        for pin in lock['files']:input_pin(record,pin)
+    for pin in native['references']+[native['runtimeConfig'],native['compiledNative'],native['inheritedInstalledPayload']]:c.validate_pin(pin)
+    inherited=c.read(native['inheritedInstalledPayload']['path']);c.require(native['inheritedInstalledPayload']==e['native'] and native['references']==inherited['references'] and c.read(native['runtimeConfig']['path'])==c.read(inherited['compiledNative'][1]['path']),'same installed reference/runtime Disable profile')
+    out=Path(wave['depthNative']['path']).parent;dotnet=p.B/'toolchains/dotnet';launcher=str(dotnet/'dotnet.exe')
+    compiler=[launcher,'exec',str(dotnet/'sdk/10.0.401/Roslyn/bincore/csc.dll'),'-nologo','-noconfig','-nostdlib','-target:exe','-deterministic','-nullable:enable','-langversion:14','-warnaserror','-out:'+str(out/'WaitAsyncDepthOracle.dll'),*['-r:'+pin['path'] for pin in native['references']],str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/WaitAsyncDepthOracle.cs')]
+    c.require([rec['label'] for rec in native['commands']]==['compile-native','native-pass1','native-pass2'] and native['commands'][0]['argv']==compiler,'actual closed depth native compiler plan')
+    runtime=[launcher,'exec','--runtimeconfig',str(out/'WaitAsyncDepthOracle.runtimeconfig.json'),str(out/'WaitAsyncDepthOracle.dll')]
+    actual=q.prior.wire(Path(paired['groups'][0]['payloads'][0]['path']).read_bytes());depth_payload(actual)
+    for rec in native['commands'][1:]:c.require(rec['argv']==runtime and Path(rec['stderrPath']).read_bytes()==b'' and q.prior.wire(Path(rec['stdoutPath']).read_bytes())==actual,'two actual typed depth native comparisons')
+    observed=q.prior.wire(Path(controls['groups'][0]['payloads'][0]['path']).read_bytes());wanted=c.read(HERE/'depth-matrix-v1.json')['privateControls'];c.require(set(observed)==set(wanted) and all(value==('b','true') for value in observed.values()),'complete actual depth private controls')
+    return dict(cases=4,fields=72,privateControls=8,depth=8192,publicDepthLimit=False)
 
 def validate(e,artifact_override=None,source_root=None,canonical_root=Path('C:/source/repos/dotj Frameworks')):
     c.require(e['status']=='SELECTED_BEHAVIOR_CHECKS_PASSED','selected evidence status');jar=e['candidateJar'];c.validate_pin(jar)
@@ -267,12 +305,14 @@ def validate(e,artifact_override=None,source_root=None,canonical_root=Path('C:/s
     wanted={'J01-fresh-context','J02-validation-resource-free',*{'J03-publication-'+str(n) for n in range(6)},'J04-all-20-ordered-pairs','J05-eight-bounded-three-way-races','J06-exact-removal-and-late','J07-after-detach-loser-harmless','J08-mixed-original-order','J09-blocked-first-and-later-user','J10-terminal-before-cleanup','J11-blocking-disposal-no-task-lock','J12-self-disposal','J13-timer-construction-before-after-winner','J14-partial-construction-cleanup-failure','J15-delay-async-source-normal-wrapper','J16-held-run-token-ownership','J17-rejection-handler-finally-context','J18-dispatch-failure-preserves-winner','J19-dispatch-and-cleanup-failure','J20-mixed-runtime-failure-isolation','J21-five-contender-bounded-race','J22-registrar-failure-after-source-or-timeout-winner'}
     c.require(len(markers)==len(wanted) and set(markers)=={name+'\tb\ttrue' for name in wanted},'complete private control inventory')
     c.validate_pin(e['predecessorEvidence']);historical=history(e,jar)
-    sample=phase(e['sample'],'PASS_SAMPLE',jar);groups(sample);sample_actual=q.prior.wire(Path(sample['groups'][0]['payloads'][0]['path']).read_bytes())
-    for pin in sample['sampleNativeInputs']:c.validate_pin(pin)
-    c.validate_pin(sample['sampleNativeAssembly']);sample_out=Path(sample['sampleNativeAssembly']['path']).parent;dotnet=p.B/'toolchains/dotnet'
-    sample_refs=sample['sampleNativeInputs'][2:]
-    c.require(sample['commands'][0]['argv']==[str(dotnet/'dotnet.exe'),'exec',str(dotnet/'sdk/10.0.401/Roslyn/bincore/csc.dll'),'-nologo','-noconfig','-nostdlib','-target:exe','-deterministic','-nullable:enable','-langversion:14','-warnaserror','-out:'+str(sample_out/'WaitAsyncSample.dll'),*['-r:'+pin['path'] for pin in sample_refs],str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/WaitAsyncSample.cs')],'exact paired sample native compiler argv')
-    sample_captures=[rec for rec in sample['commands'] if rec['label'].startswith('sample-native-pass')];c.require(len(sample_captures)==2 and len(sample_actual)==6,'paired sample inventory')
+    sample=phase(e['sample'],'PASS_SAMPLE-REFERENCE' if 'finalWave' in e else 'PASS_SAMPLE',jar);groups(sample);sample_actual=q.prior.wire(Path(sample['groups'][0]['payloads'][0]['path']).read_bytes());sample_native=sample
+    if 'finalWave' in e:
+        c.require(sample['importedSampleNative']==e['finalWave']['reviewedSample'],'actual retained sample reference producer');sample_native=phase(sample['importedSampleNative'],'PASS_SAMPLE',e['finalWave']['reviewedJar']['original'])
+    for pin in sample_native['sampleNativeInputs']:c.validate_pin(pin)
+    c.validate_pin(sample_native['sampleNativeAssembly']);sample_out=Path(sample_native['sampleNativeAssembly']['path']).parent;dotnet=p.B/'toolchains/dotnet'
+    sample_refs=sample_native['sampleNativeInputs'][2:]
+    c.require(sample_native['commands'][0]['argv']==[str(dotnet/'dotnet.exe'),'exec',str(dotnet/'sdk/10.0.401/Roslyn/bincore/csc.dll'),'-nologo','-noconfig','-nostdlib','-target:exe','-deterministic','-nullable:enable','-langversion:14','-warnaserror','-out:'+str(sample_out/'WaitAsyncSample.dll'),*['-r:'+pin['path'] for pin in sample_refs],str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/WaitAsyncSample.cs')],'exact paired sample native compiler argv')
+    sample_captures=[rec for rec in sample_native['commands'] if rec['label'].startswith('sample-native-pass')];c.require(len(sample_captures)==2 and len(sample_actual)==6,'paired sample inventory')
     for rec in sample_captures:
         c.require(rec['argv']==[str(dotnet/'dotnet.exe'),'exec','--runtimeconfig',str(sample_out/'WaitAsyncSample.runtimeconfig.json'),str(sample_out/'WaitAsyncSample.dll')],'exact paired sample native runtime argv')
         c.require(sample_actual==q.prior.wire(Path(rec['stdoutPath']).read_bytes()),'paired sample exact native fields')
@@ -292,19 +332,23 @@ def validate(e,artifact_override=None,source_root=None,canonical_root=Path('C:/s
     if 'negativeControls' in e:
         c.validate_pin(e['negativeControls']);controls=c.read(e['negativeControls']['path']);c.require(controls['status']=='PASS' and len(controls['controls'])==47 and all(row['passed'] for row in controls['controls']),'actual new consumed predicate/source/artifact negative controls')
         previous=e['reviewedReader'];c.validate_pin(previous['durable']);c.require(all(previous['original'][k]==previous['durable'][k] for k in ['sha256','sizeBytes']),'actual reviewed reader retained')
-        c.require(controls['reader']==previous['original'] and controls['source']['sha256']==c.sha(HERE/'verify-negative-controls.py'),'historical 47 controls retain actual reviewed source/reader version')
-        owned=phase(e['negativePhase'],'PASS_NEGATIVE',jar);c.validate_pin(owned['selectedEvidenceInput']);c.require([rec['label'] for rec in owned['commands']]==['negative-controls'],'owned pure-control command plan')
+        expected_reader=e['reader'] if e.get('finalWave',{}).get('currentNegativeControls') is True else previous['original']
+        c.require(controls['reader']==expected_reader and controls['source']['sha256']==c.sha(HERE/'verify-negative-controls.py'),'actual current or explicitly retained historical47 source/reader version')
+        control_jar=e['finalWave']['reviewedJar']['original'] if 'finalWave' in e and not e['finalWave']['currentNegativeControls'] else jar
+        owned=phase(e['negativePhase'],'PASS_NEGATIVE',control_jar);c.validate_pin(owned['selectedEvidenceInput']);c.require([rec['label'] for rec in owned['commands']]==['negative-controls'],'owned pure-control command plan')
         c.require(owned['commands'][0]['argv']==[str(p.PYTHON),'-B',str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/verify-negative-controls.py'),str(Path(e['negativeControls']['path']).parent)],'actual owned pure-control argv')
     observation=observations(e,jar)
+    depth=depths(e,jar) if 'finalWave' in e else None
     proof=phase(e['observationCorrection']['proofControlsPhase'],'PASS_OBSERVATION-PROOF-CONTROLS',jar)
     c.require([r['label'] for r in proof['commands']]==['observation-proof-controls'],'owned observation proof control command')
     proof_out=Path(e['observationCorrection']['proofControlsPhase']['path']).parent
     c.require(proof['commands'][0]['argv']==[str(p.PYTHON),'-B',str(COMPILED_ROOT/'tools/oracle/dotj-core/public-task-wait-async-v1/verify_candidate.py'),'--observation-controls',str(proof_out/'controls')],'actual observation proof controls argv')
     c.validate_pin(e['observationCorrection']['proofControls']);proof_result=c.read(e['observationCorrection']['proofControls']['path'])
-    c.require(proof_result['status']=='PASS' and proof_result['reader']==e['reader'] and len(proof_result['controls'])==16 and all(row['passed'] for row in proof_result['controls']),'current actual observation proof controls')
+    c.require(proof_result['status']=='PASS' and proof_result['reader']==e['reader'] and len(proof_result['controls'])==(26 if depth else 16) and all(row['passed'] for row in proof_result['controls']),'current actual observation/depth proof controls')
     c.require(proof_result['inputs']=={key:e['observationCorrection'][key] for key in ['native','paired','controls']},'proof controls consume these exact current observations')
     executed=proof_result['selectedEvidenceAtExecution'];c.validate_pin(executed['durable']);c.require(all(executed['original'][key]==executed['durable'][key] for key in ['sha256','sizeBytes']),'actual consumed selected evidence preserved')
-    return dict(cases=e['nativeCases'],fields=e['nativeFields'],nativePassesPerMatrix=2,observationCorrection=observation,privateControls=len(markers),historicalGroups=historical,jarSha256=jar['sha256'],artifactProvenance=provenance)
+    if depth:c.require(proof_result['depthInputs']=={key:e['finalWave'][key] for key in ['depthNative','depthPaired','depthControls','productFreeze']},'proof controls consume exact current depth/artifact proofs')
+    return dict(cases=e['nativeCases'],fields=e['nativeFields'],nativePassesPerMatrix=2,observationCorrection=observation,depth=depth,privateControls=len(markers),historicalGroups=historical,jarSha256=jar['sha256'],artifactProvenance=provenance)
 
 def observation_proof_controls(out):
     import copy
@@ -321,10 +365,18 @@ def observation_proof_controls(out):
         changed=dict(actual);changed[key]=value;refused('reject-'+key,lambda changed=changed:observation_payload(changed))
     changed=dict(actual);changed.pop('O001.waitInCancel');refused('missing-direct-boundary-refused',lambda:observation_payload(changed))
     changed=dict(actual);changed['O001.waitInCancel']=('s','true');refused('wrong-typed-boundary-refused',lambda:observation_payload(changed))
-    for key,value in [('productUnchanged',False),('status','PASS')]:
+    flag='historicalOriginProductUnchanged' if 'finalWave' in e else 'productUnchanged'
+    for key,value in [(flag,False),('status','PASS')]:
         changed=copy.deepcopy(e);changed['observationCorrection'][key]=value;refused('reject-correction-'+key,lambda changed=changed:observations(changed,changed['candidateJar']))
     changed=copy.deepcopy(e);changed['observationCorrection']['freeze']['sha256']='0'*64;refused('changed-frozen-source-proof-refused',lambda:observations(changed,changed['candidateJar']))
-    p.write(out/'receipt.json',dict(status='PASS',reader=c.descriptor(__file__),selectedEvidenceAtExecution=dict(original=c.descriptor(selected),durable=c.descriptor(snapshot)),controls=rows,inputs=dict(native=e['observationCorrection']['native'],paired=e['observationCorrection']['paired'],controls=e['observationCorrection']['controls']),acceptanceCredit=0))
+    proof=dict(status='PASS',reader=c.descriptor(__file__),selectedEvidenceAtExecution=dict(original=c.descriptor(selected),durable=c.descriptor(snapshot)),controls=rows,inputs=dict(native=e['observationCorrection']['native'],paired=e['observationCorrection']['paired'],controls=e['observationCorrection']['controls']),acceptanceCredit=0)
+    if 'finalWave' in e:
+        depths(e,e['candidateJar']);rows.append(dict(name='actual-current-depth-proof-accepted',passed=True));record=c.read(e['finalWave']['depthPaired']['path']);payload=q.prior.wire(Path(record['groups'][0]['payloads'][0]['path']).read_bytes())
+        for key,value in [('D001.completed',('i','8191')),('D001.tailCompleted',('b','false')),('D001.rootFailure',('s','java.lang.StackOverflowError')),('D002.allPayloadsMatch',('b','false')),('D001.depth',('i','8191')),('D001.tailCallbacks',('i','0')),('D003.canceled',('i','8191')),('D004.borrowedSourceAfterCallerCancel',('s','completed'))]:
+            changed=dict(payload);changed[key]=value;refused('reject-depth-'+key,lambda changed=changed:depth_payload(changed))
+        changed=copy.deepcopy(e);changed['finalWave']['depthPaired']=changed['finalWave']['redDiagnostic'];refused('RED-diagnostic-cannot-qualify-current-product',lambda:depths(changed,changed['candidateJar']))
+        proof['depthInputs']={key:e['finalWave'][key] for key in ['depthNative','depthPaired','depthControls','productFreeze']}
+    p.write(out/'receipt.json',proof)
     print('PASS current observation proof controls',len(rows))
 
 def main():

@@ -27,6 +27,9 @@ public final class Task {
     // A synchronous handoff pool gives blocked callbacks independent daemon workers.
     private static final Executor QUEUE = Executors.newCachedThreadPool(body -> daemon(body, "dotj-task-continuation"));
     private static final Task COMPLETED = completedTask();
+    // An internal handoff policy, not a limit on the number of pending waits.
+    private static final int MAX_INLINE_COMPLETION_ACTIONS = 32;
+    private static final ThreadLocal<Integer> COMPLETION_DEPTH = new ThreadLocal<>();
     private final Object lock = new Object();
     private volatile TaskStatus status = TaskStatus.WaitingForActivation;
     private Exception fault;
@@ -130,8 +133,8 @@ public final class Task {
                 return;
             }
         }
-        // Runtime attachment is synchronous even when user late attachment queues.
-        action.invoke(this);
+        // Runtime late attachment retains shallow inline eligibility.
+        invokeCompletion(action);
     }
 
     void removeCompletion(CompletionAction action) {
@@ -542,7 +545,7 @@ public final class Task {
             Continuation entry = pending.get(i);
             if (entry.runtime == null && i != firstUser) continue;
             try {
-                if (entry.runtime != null) entry.runtime.invoke(this);
+                if (entry.runtime != null) invokeCompletion(entry.runtime);
                 else if (delayQueue == null) invoke(entry.user);
                 else invokeDelay(entry.user);
             } catch (RuntimeException | Error failure) {
@@ -570,8 +573,25 @@ public final class Task {
         rethrow(dispatchFailure);
     }
 
+    private void invokeCompletion(CompletionAction action) {
+        Integer previous = COMPLETION_DEPTH.get();
+        int depth = previous == null ? 0 : previous;
+        if (depth >= MAX_INLINE_COMPLETION_ACTIONS) {
+            // Injected invocation executors may run inline. Use the established
+            // asynchronous pool so the next segment starts on a fresh stack.
+            queueContinuation(new Action(() -> invokeCompletion(action)), QUEUE);
+            return;
+        }
+        COMPLETION_DEPTH.set(depth + 1);
+        try { action.invoke(this); }
+        finally {
+            if (previous == null) COMPLETION_DEPTH.remove();
+            else COMPLETION_DEPTH.set(previous);
+        }
+    }
+
     private void queueEntry(Continuation entry) {
-        Action continuation = entry.runtime == null ? entry.user : new Action(() -> entry.runtime.invoke(this));
+        Action continuation = entry.runtime == null ? entry.user : new Action(() -> invokeCompletion(entry.runtime));
         if (delayQueue == null) queueContinuation(continuation, continuationQueue == null ? QUEUE : continuationQueue);
         else executeDelay(delayQueue, () -> invokeDelay(continuation));
     }

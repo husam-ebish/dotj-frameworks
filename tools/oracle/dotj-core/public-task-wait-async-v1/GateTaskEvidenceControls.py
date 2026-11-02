@@ -14,10 +14,10 @@ def main():
         return name,gate.read(name)
     def bind(directory,expected):
         name,data=selected(directory);assert data['candidateJar']['sha256']==expected;return name
-    current=c.read(p.E/'foundation-product-candidate-v1.json')['jarSha256'];c.require(current=='63b46d6509f9f7a78aabee7c1463ec8291b6d7937e57ec2a95be752fb449f72d','actual final artifact');c.require(bind(original,current)=='public-task-wait-async-v1.json','real current selection');mark('actual-current-Wait-record-63b')
+    current=c.read(p.E/'foundation-product-candidate-v1.json')['jarSha256'];c.require(current=='1b3de7eba209fcb45d29f637fa2f1f3835095b51a9b52ac90efe06236383b8d7','actual final artifact');c.require(bind(original,current)=='public-task-wait-async-v1.json','real current selection');mark('actual-current-Wait-record-replacement')
     previous=p.B/'worktrees/dotj-core-task-run-cancellation-v1/planning/stage-2/repos/dotj-core/evidence';c.require(bind(previous,q.BASELINE_SHA)=='public-task-run-token-v1.json','actual retained predecessor selection');mark('actual-retained-Run-record-18f9')
     try:bind(previous,current)
-    except AssertionError:mark('legacy-record-cannot-qualify-current-63b')
+    except AssertionError:mark('legacy-record-cannot-qualify-current-replacement')
     else:raise AssertionError('legacy qualified current')
     model=out/'model';model.mkdir();shutil.copyfile(previous/'public-task-run-token-v1.json',model/'public-task-run-token-v1.json');c.require(bind(model,q.BASELINE_SHA)=='public-task-run-token-v1.json','actual legacy-only bytes');mark('legacy-only-fallback')
     shutil.copyfile(original/'public-task-wait-async-v1.json',model/'public-task-wait-async-v1.json');c.require(bind(model,current)=='public-task-wait-async-v1.json','current takes precedence');mark('both-real-records-prefer-current')

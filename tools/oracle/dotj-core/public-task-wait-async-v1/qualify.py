@@ -173,10 +173,45 @@ def observation(s,mode):
             for rec in native['commands'][1:]:c.require(actual==prior.wire(Path(rec['stdoutPath']).read_bytes()),'exact observation native comparison')
             group.update(cases=11,fields=len(actual),nativePasses=2)
 
+def depth_schema(payload):
+    matrix=c.read(HERE/'depth-matrix-v1.json');expected={row['id']+'.'+name:kind for row in matrix['rows'] for name,kind in matrix['fields'].items()}
+    c.require(set(payload)==set(expected) and all(payload[key][0]==kind for key,kind in expected.items()),'exact finite depth schema')
+
+def depth_phase(s,mode):
+    root=A/'final-wave';lock=root/'depth-freeze-v1.json'
+    for pin in c.read(lock)['files']:c.validate_pin(pin)
+    s.data['depthFreeze']=c.descriptor(lock)
+    if mode=='depth-native':
+        old=c.read(A/'native-v2/receipt.json');dotnet=p.B/'toolchains/dotnet';refs=old['references']
+        for pin in refs:c.validate_pin(pin)
+        s.data['references']=refs;s.data['inheritedInstalledPayload']=c.descriptor(A/'native-v2/receipt.json')
+        target=s.out/'WaitAsyncDepthOracle.runtimeconfig.json';shutil.copyfile(A/'native-v2/PublicTaskWaitAsyncOracle.runtimeconfig.json',target);s.data['runtimeConfig']=c.descriptor(target);s.save()
+        s.step('compile-native',[str(dotnet/'dotnet.exe'),'exec',str(dotnet/'sdk/10.0.401/Roslyn/bincore/csc.dll'),'-nologo','-noconfig','-nostdlib','-target:exe','-deterministic','-nullable:enable','-langversion:14','-warnaserror','-out:'+str(s.out/'WaitAsyncDepthOracle.dll'),*['-r:'+pin['path'] for pin in refs],str(HERE/'WaitAsyncDepthOracle.cs')])
+        s.data['compiledNative']=c.descriptor(s.out/'WaitAsyncDepthOracle.dll');s.save();passes=[]
+        for n in [1,2]:
+            rec=s.step('native-pass'+str(n),[str(dotnet/'dotnet.exe'),'exec','--runtimeconfig',str(target),str(s.out/'WaitAsyncDepthOracle.dll')],timeout=60);c.require(Path(rec['stderrPath']).read_bytes()==b'','depth native stderr');passes.append(prior.wire(Path(rec['stdoutPath']).read_bytes()))
+        depth_schema(passes[0]);c.require(passes[0]==passes[1],'two exact depth native references');s.data.update(cases=4,fields=len(passes[0]),nativePasses=2)
+    elif mode=='depth-paired':
+        group,records=s.java_group(mode,[HERE/'WaitAsyncDepthFixtures.java'],'WaitAsyncDepthFixtures',[('WaitAsyncDepthFixtures',[str(s.jar)])],s.jar)
+        actual=prior.wire(Path(records[0]['stdoutPath']).read_bytes());depth_schema(actual);native_path=root/'depth-native-v1/receipt.json';native=c.read(native_path);c.require(native['status']=='PASS_DEPTH-NATIVE','actual completed depth reference');s.data['nativeReceipt']=c.descriptor(native_path)
+        for rec in native['commands'][1:]:c.require(actual==prior.wire(Path(rec['stdoutPath']).read_bytes()),'all actual typed depth reference fields')
+        group.update(cases=4,fields=len(actual),nativePasses=2)
+    elif mode=='depth-controls':
+        group,records=s.java_group(mode,[HERE/'WaitAsyncDepthControls.java'],None,[('System.Threading.Tasks.WaitAsyncDepthControls',[str(s.jar)])],s.jar)
+        actual=prior.wire(Path(records[0]['stdoutPath']).read_bytes());wanted=c.read(HERE/'depth-matrix-v1.json')['privateControls'];c.require(set(actual)==set(wanted) and all(value==('b','true') for value in actual.values()),'actual finite depth private controls');group['controls']=len(wanted)
+
+def sample_reference(s,jar):
+    source=A/'sample-v1/receipt.json';old=c.read(source);c.require(old['status']=='PASS_SAMPLE','actual retained sample reference')
+    c.require(c.sha(HERE/'WaitAsyncSample.cs')==old['sampleNativeInputs'][0]['sha256'],'unchanged native sample fixture')
+    s.data['importedSampleNative']=c.descriptor(source)
+    s.java_group('sample',[HERE/'WaitAsyncSample.java'],None,[('WaitAsyncSample',[str(jar)])],jar,module=True)
+    s.java_group('retained-delay-sample',[p.HERE/'DelayCancellationSample.java'],None,[('DelayCancellationSample',[str(jar)])],jar)
+
 def inner(args):
     s=Session(args.out,args.mode,args.jar);s.jar=args.jar
     try:
-        if args.mode in ['observation-native','observation-paired','observation-controls']:observation(s,args.mode)
+        if args.mode in ['depth-native','depth-paired','depth-controls']:depth_phase(s,args.mode)
+        elif args.mode in ['observation-native','observation-paired','observation-controls']:observation(s,args.mode)
         elif args.mode=='observation-proof-controls':
             s.step('observation-proof-controls',[str(p.PYTHON),'-B',str(HERE/'verify_candidate.py'),'--observation-controls',str(s.out/'controls')])
         elif args.mode=='native':native(s)
@@ -195,6 +230,7 @@ def inner(args):
             p.load('batch2520_historical_replay',HERE/'historical.py').replay(s,args.jar,args.only)
             inherited_run(s,args.jar)
         elif args.mode=='sample':sample(s,args.jar)
+        elif args.mode=='sample-reference':sample_reference(s,args.jar)
         elif args.mode=='audits':
             for name in ['audit-foundation-rights-inputs.py','audit-foundation-source-provenance.py','compare-foundation-upstream-text.py','build-foundation-notice-review-queue.py','audit-throw-site-upstream-adjacency.py','build-foundation-e01-review-packet.py','verify-differential-oracle-provenance.py']:
                 if args.only and name not in args.only.split(','):continue

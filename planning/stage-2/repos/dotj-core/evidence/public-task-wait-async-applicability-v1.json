@@ -77,5 +77,21 @@
     "aliasCallerTimeout": "Alias receiver is an already-completed inner WaitAsync; outer WaitAsync aliases it. Distinct wrapper rows use pending borrowed TCS.",
     "notApplicable": "Stored identity only fault/timeout; token and TCE.Task only cancellation. Other cells emit literal not-applicable; repeated synthetic TCE object identity is not required."
   },
-  "valueTaskObservationLimit": "Historical W0381-W0390 directly checked exception classes only. New O002-O011 directly inspect both normal/configured awaiter errors, stored fault/timeout identity, token equality and synthesized TCE.Task identity; explicit nonapplicable literals. 159 new exact wirefields are not independent assertions."
+  "valueTaskObservationLimit": "Historical W0381-W0390 directly checked exception classes only. New O002-O011 directly inspect both normal/configured awaiter errors, stored fault/timeout identity, token equality and synthesized TCE.Task identity; explicit nonapplicable literals. 159 new exact wirefields are not independent assertions.",
+  "finalWaveStackSafety": {
+    "depthCases": 4,
+    "exactComparedWireFields": 72,
+    "depth": 8192,
+    "privateControls": 8,
+    "dispatchThreshold": "Internal32-action handoff, not a public chain limit or CLR threshold claim",
+    "applies": "All8192 status/result payloads tested for success, fault, source/caller cancellation. Stored fault identity or token/TCE.Task identity directly asserted as applicable. Borrowed-source-after-caller-cancel is not-applicable in other outcomes.",
+    "oldFieldsUnchanged": true,
+    "independentBehaviorAssertionCount": "Not derived from wire field count",
+    "actualFoundation": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2520-task-wait-async-implementation-v1\\final-wave\\foundation-gate-v1\\receipt.json",
+      "sha256": "320f59ce493ef24beca3c85b3f395329480315ba2d6dcf1a278f3041afb0152c",
+      "sizeBytes": 538543
+    },
+    "currentMetadataChronology": "This actual-result pointer follows gate execution. Wire fixtures/captures/schema/source/reader bytes are unchanged."
+  }
 }
