@@ -214,6 +214,8 @@ def inner(args):
         elif args.mode in ['observation-native','observation-paired','observation-controls']:observation(s,args.mode)
         elif args.mode=='observation-proof-controls':
             s.step('observation-proof-controls',[str(p.PYTHON),'-B',str(HERE/'verify_candidate.py'),'--observation-controls',str(s.out/'controls')])
+        elif args.mode=='canonical-controls':
+            s.step('canonical-controls',[str(p.PYTHON),'-B',str(HERE/'CanonicalProjectionControls.py'),str(s.out/'controls')])
         elif args.mode=='native':native(s)
         elif args.mode=='native-supplement':native_supplement(s)
         elif args.mode=='native-validation':native_supplement(s,True)
