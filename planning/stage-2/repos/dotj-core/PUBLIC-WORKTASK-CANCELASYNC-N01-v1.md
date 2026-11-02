@@ -1,6 +1,6 @@
 # Selected computational Task and CancelAsync
 
-Status: selected group 1/1 implemented and verified candidate. Independent task review approved; root canonical gate passed 516/516 checks and verified the identical final JAR. Whole-branch review and root integration/merge/push remain pending. No task or framework acceptance credit.
+Status: implemented candidate with targeted same-JAR verification. Independent task review, root full gate, final-artifact qualification, whole-branch review and integration remain pending. No task or framework acceptance credit.
 
 Exactly three public APIs are added: `Task.Run(System.Action)`, `Task.FromException(System.Exception)` and `CancellationTokenSource.CancelAsync()`. ObjectDisposedException overrides the inherited Message getter. No public Task producer mutation or test seam is exposed.
 
@@ -16,4 +16,4 @@ The historical 49-control fixture rejected the new legitimate Task methods. A se
 
 Java-only adaptations: other java.lang.Throwable instances become System.Exception with the original Java cause; executor rejection is reported on a new daemon and the action runs in finally, never inline on the submitting call. Catastrophic inability to allocate/start a worker remains outside the completion guarantee. Private per-invocation executor/dispatcher controls contain no mutable global injection. CLR scheduler/context flow, generic tasks, additional Run overloads, true AttachedToParent, Wait/WhenAll/Delay, configured awaiting, async builders, Task-backed ValueTask, reflection parity and broad framework qualification remain open.
 
-Evidence: [retained targeted same-JAR record](evidence/public-worktask-cancelasync-v1.json) and [current canonical gate](evidence/foundation-public-candidate-gate-v1.json). The targeted record preserves its historical pending-stage status; the canonical gate and root verification establish the current passed status. Root verified 516/516 checks, 136 sources, 181 classes and 976 evidence hashes; the final JAR SHA-256 is `356b4c53709a35ad3eeb79e569581b8432ebabf7b8364b9cf7afdc934e0c150d`, identical to the selected-suite JAR. The native input closure, original capture and genuine baseline compile failure are immutable. Full-gate integration is verify-only and never recaptures native. Product dependencies remain JDK-only; Python and .NET are development/reference tools. All three E01 decisions remain OPEN.
+Evidence: [current same-JAR record](evidence/public-worktask-cancelasync-v1.json). The native input closure, original capture and genuine baseline compile failure are immutable. Full-gate integration is verify-only and never recaptures native. Product dependencies remain JDK-only; Python and .NET are development/reference tools. All three E01 decisions remain OPEN.
