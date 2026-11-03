@@ -17,6 +17,8 @@ final class ProjectEvaluationComponent {
     private ProjectEvaluationComponent() { }
     public static final class ProfileRejected extends IllegalArgumentException {
         public final String code;
+        public List<ConditionWarning> conditionWarnings=List.of();
+        public ConditionWarning conditionSite;
         ProfileRejected(String code, String message) { super(message); this.code = code; }
     }
     enum ImportProfile { DEFAULT, RECORD_DUPLICATES, REJECT_CIRCULAR }
@@ -58,22 +60,32 @@ final class ProjectEvaluationComponent {
     public record ConditionWarning(String referenceCode, Path file, int line, int column, String condition) { }
     public record Result(Map<String, String> escapedProperties, List<Path> evaluatedFiles,
                          List<DuplicateImport> duplicateImports, List<ImportEdge> imports,
-                         List<ImportEdge> importsIncludingDuplicates, List<ConditionWarning> conditionWarnings) {
+                         List<ImportEdge> importsIncludingDuplicates, List<ConditionWarning> conditionWarnings,
+                         ItemEvaluator.Output itemState) {
         public Result {
             conditionWarnings = List.copyOf(conditionWarnings);
             escapedProperties = Map.copyOf(escapedProperties); evaluatedFiles = List.copyOf(evaluatedFiles);
             duplicateImports = List.copyOf(duplicateImports); imports = List.copyOf(imports);
             // Null explicitly means unavailable for this profile; an available empty list stays empty.
             if (importsIncludingDuplicates != null) importsIncludingDuplicates = List.copyOf(importsIncludingDuplicates);
+            Objects.requireNonNull(itemState);
+        }
+        // Preserve the retained compiled consumer's original six-argument descriptor.
+        public Result(Map<String,String> properties,List<Path> files,List<DuplicateImport> duplicates,
+                      List<ImportEdge> imports,List<ImportEdge> recorded,List<ConditionWarning> warnings) {
+            this(properties,files,duplicates,imports,recorded,warnings,ItemEvaluator.Output.empty());
         }
         public String property(String name) { return unescape(escapedProperties.getOrDefault(key(name), "")); }
+        public List<ItemSnapshot> items() { return itemState.items(); }
+        public List<ItemSnapshot> items(String type) { return itemState.items(type); }
+        public Map<String,ItemSnapshot.Definition> itemDefinitions() { return itemState.definitions(); }
     }
     private static final Pattern NAME = Pattern.compile("[A-Za-z_][A-Za-z0-9_]*");
     private static final Pattern EXISTS = Pattern.compile("Exists\\('([^']*)'\\)");
     private static final Pattern HAS_TRAILING_SLASH = Pattern.compile("HasTrailingSlash\\('([^']*)'\\)", Pattern.CASE_INSENSITIVE);
     private static final Pattern REFERENCE = Pattern.compile("\\$\\(([^)]*)\\)");
     private static ProfileRejected reject(String code, String why) { return new ProfileRejected(code, why); }
-    private static String key(String input) {
+    static String key(String input) {
         if (!NAME.matcher(input).matches()) throw reject("ASCII_PROPERTY_NAME", "Only explicit ASCII property identifiers are supported");
         String folded = asciiFold(input);
         if (folded.startsWith("MSBUILD")) throw reject("RESERVED_PROPERTY_UNQUALIFIED", "MSBuild reserved-property prelude is not implemented");
@@ -107,10 +119,11 @@ final class ProjectEvaluationComponent {
         if (profile == null) throw reject("IMPORT_PROFILE", "An explicit supported import profile is required");
         State state = new State(sandbox, globals, profile);
         state.read(project.toAbsolutePath().normalize(), true);
+        ItemEvaluator.Output items=state.itemEvaluator.evaluate();
         return new Result(state.properties, state.files, state.duplicates, state.imports,
-                          profile == ImportProfile.RECORD_DUPLICATES ? state.recordedImports : null, state.conditionWarnings);
+                          profile == ImportProfile.RECORD_DUPLICATES ? state.recordedImports : null, state.conditionWarnings,items);
     }
-    private static final class State {
+    static final class State {
         final Path sandbox;
         Path rootProject;
         final ImportProfile profile;
@@ -126,17 +139,33 @@ final class ProjectEvaluationComponent {
         final Map<Element,ImportSite> conditionSites = new IdentityHashMap<>();
         final Map<Element,ImportSite> sourceSites = new IdentityHashMap<>();
         final Map<Path,ImportSite> firstImports = new HashMap<>();
+        final ItemEvaluator itemEvaluator=new ItemEvaluator(this);
+        private java.util.function.Function<String,String> itemExpansion;
+        private Runnable itemAdmission;
+        private int itemConditionOptions;
         State(Path sandbox, Map<String,String> globals, ImportProfile profile) throws IOException {
             this.profile = profile;
             this.sandbox = sandbox.toRealPath();
             for (var entry : globals.entrySet()) {
                 String name = key(entry.getKey());
                 if (!globalNames.add(name)) throw reject("GLOBAL_COLLISION", "Case-colliding global properties");
-                verifyScalar(entry.getValue()); properties.put(name, entry.getValue());
+                verifyPropertyData(entry.getValue()); properties.put(name, entry.getValue());
             }
         }
         void verifyScalar(String value) {
             if (value.contains("$([") || value.contains("@(") || value.contains("%(")) throw reject("PROPERTY_FUNCTION", "Property function evaluation is not implemented");
+        }
+        void verifyPropertyData(String value) {
+            // IP05 alone widens property DATA. Conditions and import paths retain verifyScalar.
+            StringBuilder ordinary=new StringBuilder();int cursor=0;
+            while(cursor<value.length()) {
+                int start=value.indexOf("@(",cursor);
+                if(start<0){ordinary.append(value,cursor,value.length());break;}
+                ordinary.append(value,cursor,start);int end=value.indexOf(')',start+2);
+                if(end<0)throw reject("ITEM_REFERENCE","Unclosed item reference in property data");
+                ItemExpressions.key(value.substring(start+2,end));cursor=end+1;
+            }
+            verifyScalar(ordinary.toString());
         }
         Path inside(Path value) throws IOException {
             Path normalized = value.toAbsolutePath().normalize();
@@ -218,7 +247,7 @@ final class ProjectEvaluationComponent {
                         attrs(child, Set.of("Condition"));
                         for (Element property : elements(child)) {
                             key(property.getTagName()); attrs(property, Set.of("Condition"));
-                            verifyScalar(property.getTextContent());
+                            verifyPropertyData(property.getTextContent());
                             if (property.getElementsByTagName("*").getLength()!=0)
                                 throw reject("PROPERTY_XML", "Nested property XML unsupported even in skipped groups");
                         }
@@ -232,6 +261,7 @@ final class ProjectEvaluationComponent {
                         }
                     }
                     case "Target" -> inertTarget(child);
+                    case "ItemGroup", "ItemDefinitionGroup" -> itemEvaluator.validateGroup(child);
                     default -> throw reject("UNSUPPORTED_ELEMENT", "Feature outside selected profile: " + child.getTagName());
                 }
             }
@@ -270,6 +300,7 @@ final class ProjectEvaluationComponent {
                         }
                     }
                     case "Target" -> inertTarget(child);
+                    case "ItemGroup", "ItemDefinitionGroup" -> itemEvaluator.record(child,owner);
                     default -> throw reject("UNSUPPORTED_ELEMENT", "Evaluation feature outside selected profile: "+child.getTagName());
                 }
             }
@@ -284,7 +315,8 @@ final class ProjectEvaluationComponent {
                 // conditions and Import Project resolution retain their defining-file owner.
                 if (!condition(property,rootProject)) continue;
                 if (property.getElementsByTagName("*").getLength()!=0) throw reject("PROPERTY_XML", "Nested property XML not supported");
-                String value=expand(property.getTextContent());unescape(value);properties.put(name,value);
+                String raw=property.getTextContent();verifyPropertyData(raw);
+                String value=expandProperties(raw);unescape(value);properties.put(name,value);
             }
         }
         private static boolean importWhiteSpace(char c) {
@@ -364,7 +396,10 @@ final class ProjectEvaluationComponent {
             return false;
         }
         String expand(String value) {
-            verifyScalar(value);StringBuilder result=new StringBuilder();int cursor=0;
+            verifyScalar(value);return expandProperties(value);
+        }
+        String expandProperties(String value) {
+            StringBuilder result=new StringBuilder();int cursor=0;
             while(cursor<value.length()) {
                 int start=value.indexOf("$(",cursor);
                 if(start<0){result.append(value,cursor,value.length());break;}
@@ -397,9 +432,12 @@ final class ProjectEvaluationComponent {
         private record ConditionAnd(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
         private record ConditionOr(ConditionExpression left, ConditionExpression right) implements ConditionExpression { }
         private record ParsedCondition(ConditionExpression expression, boolean mixedAndOr) { }
-        // All supported sites use AllowProperties. Exact raw spelling is the cache key.
+        // Exact raw spelling is the cache key; admission is repeated at the current site.
         // Retain immutable syntax only: no State, owner, globals or expanded values.
         private static final Map<String,ParsedCondition> CONDITIONS = new HashMap<>();
+        // Native ConditionEvaluator partitions by ParserOptions. Preserve the historical
+        // properties-only map (including its test instrumentation), and raw syntax per new set.
+        private static final Map<Integer,Map<String,ParsedCondition>> ITEM_CONDITIONS = new HashMap<>();
         private static final int CONDITION_CACHE_THRESHOLD = 3000;
         private final class ConditionParser {
             final String raw;
@@ -495,10 +533,10 @@ final class ProjectEvaluationComponent {
                     while(cursor<raw.length()&&raw.charAt(cursor)!='\'')cursor++;
                     if(cursor==raw.length())throw reject("CONDITION_PROFILE","Unclosed quoted operand");
                     text=raw.substring(start,cursor++);
-                } else if(raw.startsWith("$(",cursor)) {
+                } else if(raw.startsWith("$(",cursor)||raw.startsWith("@(",cursor)||raw.startsWith("%(",cursor)) {
                     int end=raw.indexOf(')',cursor+2);
                     if(end<0)throw reject("PROPERTY_REFERENCE","Unclosed property reference");
-                    key(raw.substring(cursor+2,end));cursor=end+1;text=raw.substring(start,cursor);
+                    cursor=end+1;text=raw.substring(start,cursor);
                 } else if(first>='0'&&first<='9'||first=='+'||first=='-'||first=='.') {
                     numeric=true;
                     if(raw.startsWith("0x",cursor)||raw.startsWith("0X",cursor)) {
@@ -521,17 +559,20 @@ final class ProjectEvaluationComponent {
 
         boolean condition(Element element, Path owner) throws IOException {
             String raw=element.getAttribute("Condition");
+            if(itemAdmission==null)verifyScalar(raw);else itemAdmission.run();
             if(raw.isEmpty())return true;
             ParsedCondition parsed;
             boolean warn=false;
             synchronized(CONDITIONS) {
+                Map<String,ParsedCondition> cache=itemConditionOptions==0?CONDITIONS:
+                    ITEM_CONDITIONS.computeIfAbsent(itemConditionOptions,unused->new HashMap<>());
                 // Source-derived bounded retention; native eviction/concurrency remain unqualified.
-                if(CONDITIONS.size()>CONDITION_CACHE_THRESHOLD)CONDITIONS.clear();
-                parsed=CONDITIONS.get(raw);
+                if(cache.size()>CONDITION_CACHE_THRESHOLD)cache.clear();
+                parsed=cache.get(raw);
                 if(parsed==null) {
                     ConditionParser parser=new ConditionParser(raw);
                     parsed=new ParsedCondition(parser.parse(),parser.mixedAndOr);
-                    CONDITIONS.put(raw,parsed);
+                    cache.put(raw,parsed);
                     warn=parsed.mixedAndOr();
                 }
             }
@@ -540,14 +581,30 @@ final class ProjectEvaluationComponent {
                 if(site==null)throw reject("XML_SOURCE_INDEX","Missing condition source identity");
                 conditionWarnings.add(new ConditionWarning("MSB4130",site.owner(),site.line(),site.column(),raw));
             }
-            return requireBoolean(parsed.expression(),owner,true);
+            try { return requireBoolean(parsed.expression(),owner,true); }
+            catch(ProfileRejected failure) {
+                if(itemAdmission!=null) {
+                    ImportSite site=conditionSites.get(element);
+                    failure.conditionWarnings=List.copyOf(conditionWarnings);
+                    failure.conditionSite=new ConditionWarning(failure.code,site.owner(),site.line(),site.column(),raw);
+                }
+                throw failure;
+            }
         }
+        boolean itemCondition(Element element,Path owner,int options,java.util.function.Function<String,String> expansion,Runnable admission) throws IOException {
+            var previousExpansion=itemExpansion;var previousAdmission=itemAdmission;
+            int previousOptions=itemConditionOptions;
+            itemExpansion=expansion;itemAdmission=admission;itemConditionOptions=options;
+            try { return condition(element,owner); }
+            finally { itemExpansion=previousExpansion;itemAdmission=previousAdmission;itemConditionOptions=previousOptions; }
+        }
+        private String expandCondition(String raw) { return itemExpansion==null?expand(raw):itemExpansion.apply(raw); }
         // Each conversion is evaluation-local. Cached records contain only raw syntax.
         // In particular, emptiness checks never execute Boolean operators.
         private boolean empty(ConditionExpression expression) {
             return expression instanceof ConditionScalar scalar && !scalar.numeric() && scalarText(scalar).isEmpty();
         }
-        private String scalarText(ConditionScalar scalar) { return decodeConditionScalar(expand(scalar.raw())); }
+        private String scalarText(ConditionScalar scalar) { return decodeConditionScalar(expandCondition(scalar.raw())); }
         private String text(ConditionExpression expression) {
             if(expression instanceof ConditionScalar scalar)return scalarText(scalar);
             if(expression instanceof ConditionNot not) {
@@ -569,7 +626,7 @@ final class ProjectEvaluationComponent {
             if(expression instanceof HasTrailingSlashAtom slash)return hasTrailingSlash(slash.rawArgument());
             if(expression instanceof ExistsAtom exists) {
                 // Retain the separately qualified Exists path conversion and source directory.
-                String argument=unescape(expand(exists.rawArgument()));
+                String argument=itemExpansion==null?unescape(expand(exists.rawArgument())):ItemExpressions.decode(expandCondition(exists.rawArgument()));
                 return Files.exists(relative(owner,argument));
             }
             if(expression instanceof ConditionOrdering ordering)return ordering(ordering);
@@ -714,7 +771,7 @@ final class ProjectEvaluationComponent {
             // MSBuild's scalar conversion splits and trims before a single unescape.
             // Expanded syntax remains data; nothing here reparses or resolves a path.
             String scalar=null;
-            for(String token:expand(rawArgument).split(";",-1)) {
+            for(String token:expandCondition(rawArgument).split(";",-1)) {
                 token=trimImportWhiteSpace(token);
                 if(token.isEmpty())continue;
                 if(scalar!=null)throw reject("CONDITION_PROFILE","HasTrailingSlash requires at most one nonempty scalar token");
@@ -741,13 +798,16 @@ final class ProjectEvaluationComponent {
             if (!raw.isEmpty()) new ConditionParser(raw).parse();
         }
         String conditionReferences(String raw) {
-            Matcher references = REFERENCE.matcher(raw);
+            Matcher references = Pattern.compile("([$@%])\\(([^)]*)\\)").matcher(raw);
             StringBuilder template = new StringBuilder();
             while (references.find()) {
-                key(references.group(1));references.appendReplacement(template, "");
+                if(references.group(1).equals("$"))key(references.group(2));
+                else for(String part:references.group(2).split("\\.",-1))ItemExpressions.key(part);
+                references.appendReplacement(template, "");
             }
             references.appendTail(template);
-            if (template.indexOf("$(") >= 0) throw reject("PROPERTY_REFERENCE", "Unclosed property reference");
+            if (template.indexOf("$(") >= 0 || template.indexOf("@(")>=0 || template.indexOf("%(")>=0)
+                throw reject("PROPERTY_REFERENCE", "Unclosed reference");
             return template.toString();
         }
         void inertTarget(Element target) {

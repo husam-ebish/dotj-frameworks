@@ -1,5 +1,12 @@
 # Internal project evaluation candidate
 
+The [Batch2521 item candidate](items-evaluation-v1/README.md) supersedes the
+historical item-refusal profile below for the selected deferred item/default/
+metadata/glob feature. Its same-JAR Windows/Linux and historical qualification
+is complete on the feature branch; independent review and integration remain
+pending. Use its retained proof reader for this artifact. The older verifiers
+below preserve earlier contracts and are not the Batch2521 qualification command.
+
 This is a checked-in, executable prerequisite for a bounded part of
 `DJ-005-WP-01-T1`. It is **not a supported Microsoft.Build API or qualified
 dotj-build product**. It adds no accepted task or numbered batch credit.

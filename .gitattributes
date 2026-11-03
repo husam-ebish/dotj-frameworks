@@ -1432,3 +1432,6 @@ tools/oracle/dotj-core/public-task-wait-async-v1/* whitespace=blank-at-eol,blank
 tools/oracle/dotj-core/public-task-wait-async-v1/*.tsv whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Preserve immutable native-capture bytes, including the space-only Oracle line 153.
 tools/oracle/dotj-core/public-task-wait-async-v1/PublicTaskWaitAsyncOracle.cs whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Keep the selected Linux reference/product scripts executable after Windows checkout.
+tools/oracle/dotj-build/items-evaluation-v1/*.sh text eol=lf

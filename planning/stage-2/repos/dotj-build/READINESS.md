@@ -1,5 +1,14 @@
 # DJ-005 .j Build: readiness
 
+Candidate2521 now has a qualified private deferred item/default/metadata/glob
+implementation, with42 selected scenarios on both measured Windows/Linux
+profiles,14 private groups and all affected historical Build consumers on one
+JAR. [Evidence](evidence/private-items-evaluation-v1.json) and the
+[contract](../../../../dotj-build/evaluation-candidate/items-evaluation-v1/README.md)
+supersede the historical unchanged-candidate status below for this selected
+feature. Independent review, canonical integration and publication are pending;
+public API, full task acceptance and release readiness remain open.
+
 **Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
 
 | Dimension | Status |

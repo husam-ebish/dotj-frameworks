@@ -96,6 +96,15 @@ Observed root metadata/license text is evidence, not a completed eligibility rev
 
 ## Dependency closure deliverable
 
+Candidate2521's item evaluator adds no external Java runtime library: its complete
+product module requires only java.base/java.xml. Pinned JDK21, Python3.13.9,
+Windows SDK10.0.401/Roslyn, .NET10.0.12, the locked managed MSBuild assembly closure
+and exact local Docker image are development/reference inputs. Their actual
+identity and role are pinned in the [selected contract](../../../../dotj-build/evaluation-candidate/items-evaluation-v1/contract.json)
+and [qualification](evidence/private-items-evaluation-v1.json). No upstream
+implementation source or third-party runtime library is embedded in the JAR.
+This does not close E01, redistribution or the recursive dependency graph.
+
 E02 must produce one row per effective dependency: consuming module; declaration and condition; resolved version/hash; runtime/dev/test/native/asset role; canonical source; license/notice evidence; proposed JDK/owned/optional-external disposition; required redistribution files; unresolved eligibility and owner role. Track missing upstreams as UD-build-NNN. Do not increase the 66 target count merely because an additional source is required.
 
 [Shared ownership and discovery ledger](../../04-OWNERSHIP-AND-DEPENDENCIES.md)

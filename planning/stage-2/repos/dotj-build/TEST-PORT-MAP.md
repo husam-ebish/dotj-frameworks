@@ -68,6 +68,20 @@ Source method rows below are lexical candidates from retrieved files. They are n
 | DJ-005-F05-02 | WP-05 | cancellation closes child processes | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-005-F05-03 | WP-05 | clean rebuild requires no private machine state | Designed; map actual upstream case or specify independent oracle in E03 |
 
+## Candidate2521 item evaluation evidence
+
+The [selected contract](../../../../dotj-build/evaluation-candidate/items-evaluation-v1/contract.json)
+maps IP01-06, IO01-06, IM01-06, ID01-05, IC01-06, IG01-10 and IS01-03 to
+source-derived cases and actual native observations. Forty-two definitions have
+two native passes per OS,168 repeated rows total; four supplemental definitions
+have16 repeated rows. This adapts selected upstream item/default/glob tests to
+evaluation-only operation, not a claim that the upstream suite ran. Fourteen
+private groups cover grammar, bounds, ownership, cache/site admission and real
+Windows junction/Linux symlink and case-collision capabilities. See the
+[qualification](evidence/private-items-evaluation-v1.json) for final-artifact
+historical consumers and the sole `NEG-items` transition. No designed full task
+or public compatibility case is accepted by this bounded private evidence.
+
 ## Differential runner design
 
 Use a versioned, language-neutral fixture envelope: fixture ID; input bytes/value schema; options; seed; clock/culture/timezone; platform requirements; expected output/errors/events/resource counters; allowed normalization; source pin; oracle/toolchain identity. Encode decimal and 64-bit integers as strings when transport would lose precision. Keep binary payloads exact with checksums. Run C# oracle and future Java implementation as separate processes, compare only approved normalized observables, preserve raw outputs, and classify mismatch as regression, documented adaptation or unresolved investigation. Do not normalize away ordering, precision, security failures or resource leaks.

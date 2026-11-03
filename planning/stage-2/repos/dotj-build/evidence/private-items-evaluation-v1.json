@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "batchCandidate": 2521,
+  "status": "IMPLEMENTED_QUALIFIED_PENDING_ROOT_REVIEW_INTEGRATION",
+  "jar": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\product-build-v3\\dotj-build-evaluation-candidate.jar",
+    "bytes": 79267,
+    "sha256": "704262c0a416bd1b79cf0734a69569dd1e3929da67b70cf4f6a657932b805b94"
+  },
+  "proof": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\qualification-proof-v3.json",
+    "bytes": 102725,
+    "sha256": "15cfca4f46b84ad38b36b51eeb30b248cca4fd80861b2bb619e870193cc667db"
+  },
+  "proofControls": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\proof-controls-v1\\receipt.json",
+    "bytes": 14990,
+    "sha256": "9570acfea01d05d7890c75efbd84ab1082edf44a4939bea1a010452d7ff3091b"
+  },
+  "proofControlDetails": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\proof-controls-v1\\controls.json",
+    "bytes": 2342,
+    "sha256": "b13b8986323b12bd5d098f4f7d1627dd0660d9c73110300b44a90f5a659d3ef5"
+  },
+  "nativeContract": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\native-contract-v1.json",
+    "bytes": 604053,
+    "sha256": "a1af749f1f1016ffdb8c9f87ef0d025170aea57d07732eb77afe5a4e7366118a"
+  },
+  "nativeCompiledInventory": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\native-prerequisite-v3\\compiled-inventory.stdout",
+    "bytes": 326335,
+    "sha256": "6fcb44256cb61f34c47443e4a8e8a9f3a3525c845a07e3dd8c2398d7528d169e"
+  },
+  "coverage": {
+    "semanticScenarios": 42,
+    "platforms": [
+      "Windows",
+      "Linux Docker case-enabled9p/NTFS"
+    ],
+    "nativePassesPerPlatform": 2,
+    "nativeRepeatedRows": 168,
+    "supplementalDefinitions": 4,
+    "supplementalRepeatedRows": 16,
+    "privateGroups": 14,
+    "privateRows": 61,
+    "orderingCases": 308,
+    "booleanCases": 297,
+    "booleanPrivateInputs": 16,
+    "booleanControlGroups": 14,
+    "historicalPackagedGroups": 12,
+    "stableRows": 94,
+    "allowedTransition": "NEG-items only; prior file-specific duplicate NEG-dynamic-import exclusion retained"
+  },
+  "counters": {
+    "publishedBatches": 2520,
+    "candidate": 2521,
+    "selectedPlanned": 1,
+    "selectedDone": 0,
+    "selectedRemaining": 1,
+    "acceptedTasks": 0,
+    "totalTasks": 1092,
+    "openAcceptanceItems": 1686,
+    "qualifiedFrameworks": 0,
+    "totalFrameworks": 66,
+    "wholeProjectBatchTotal": null,
+    "wholeProjectBatchesRemaining": null
+  },
+  "runtimeDependencies": [
+    "java.base",
+    "java.xml"
+  ],
+  "thirdPartyJavaRuntimeLibraries": [],
+  "limitations": [
+    "Bounded private evaluator, not public Microsoft.Build ABI",
+    "Linux qualification is the observed case-enabled Windows-backed9p/NTFS mount, not universal Linux/ext4",
+    "Native exception class/message/HResult, mutable ICollection identity and toolsets are not represented as Java ABI",
+    "Private limits/refusals are adaptations; lazy performance and I/O read-set equivalence are not claimed",
+    "E01, recursive dependency/API mapping, exact .j representations, SDK integration and full end-to-end chains remain OPEN"
+  ]
+}
