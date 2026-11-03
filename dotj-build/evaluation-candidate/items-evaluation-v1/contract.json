@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 1,
+  "batchCandidate": 2521,
+  "status": "SELECTED_PRIVATE_IMPLEMENTATION_QUALIFIED_PENDING_INDEPENDENT_REVIEW",
+  "selectedFeature": {
+    "name": "Bounded explicit project item evaluation with defaults, metadata and filesystem globs",
+    "reason": "One usable evaluation-only item pipeline closes the actual ItemGroup refusal across precedence, imports, item copies, ordered mutation and platform-sensitive globs. A parser-only ItemGroup addition would not meet the semantic objective.",
+    "profile": "Private SDK-less, namespace-free, controlled immutable fixture profile; ASCII identifiers and reached item data; Windows and Linux separately native-qualified; no public Microsoft.Build facade",
+    "admission": "Retain all existing property/import/condition restrictions except individually native-backed item-related transitions. Namespace, SDK resolver, implicit SDK imports and ambient environment remain excluded.",
+    "passes": [
+      "Pass 1: validate/parse each reached project; preserve existing property/import evaluation and duplicate/cycle profiles. Record encountered ItemDefinitionGroup and ItemGroup sites with their real defining file and source coordinates in depth-first import order; do not evaluate their conditions or contents inline. Unimported files are not loaded.",
+      "Pass 2: after property/import evaluation completes, evaluate recorded ItemDefinitionGroup definitions in order against final properties and current per-item-type custom defaults. Definition-group conditions allow properties; definition/metadata conditions and values allow properties and current-type custom metadata. Item references and built-in metadata in definitions are explicitly outside this selected profile.",
+      "Pass 3: evaluate recorded ItemGroups and operations in order. Each operation reads an immutable snapshot of item state immediately before the operation, including self references. Publish its ordered result before the next operation. Final output retains surviving include-element order and multiplicity."
+    ],
+    "operations": {
+      "Include": "Expand properties once while leaving escapes intact; split raw semicolons with source trimming/empty-fragment rules; each fragment is a literal, a whole @(ItemType) reference, or an admitted glob. Preserve duplicates. Undefined/empty item lists contribute no items. Literal identities need not exist. Copy item references with metadata, then subtract operation-local Exclude and apply inline metadata.",
+      "Exclude": "Only on Include. Properties, semicolon lists, whole item references and selected patterns; references observe pre-operation state. Exclude removes only this Include's candidates, not earlier items. Same wildcard with different excludes must remain independent.",
+      "Update": "Select current items by literal/list/reference/glob matcher, without enumerating the filesystem; update every selected duplicate and no new items. Copy-on-write preserves already copied destination items and original include order/defining source. Inline metadata evaluates per selected item.",
+      "Remove": "Select current items using literal/list/reference/glob matcher, without enumerating the filesystem; remove all matched occurrences and preserve survivor order. No MatchOnMetadata in this profile.",
+      "references": "Whole @(Name) fragments and plain @(Name) expansion in admitted item/metadata scalar contexts. No transforms, functions, custom separators or mixed prefix/suffix item expressions. A property may contain a plain item-reference token: property pass leaves it unevaluated, item pass interprets it once at its proper expansion stage. Do not recursively reparse substituted property syntax.",
+      "names": "Case-insensitive ASCII lookup for item types/custom metadata, but preserve native-observed ItemType and metadata-name spelling in results. XML attribute/element structural names remain case-sensitive; do not reuse reserved-property key validation for metadata."
+    },
+    "metadata": {
+      "storage": "Keep escaped identity and custom metadata until retrieval. Preserve distinction between absent and explicitly empty custom metadata. Source-derived effective metadata precedence: source direct metadata, accumulated inherited definitions, source item-type defaults, destination item-type defaults; new inline destination metadata overrides these. Preserve ordered default provenance until effective lookup, rather than flattening then accidentally overwriting source defaults.",
+      "references": "Inline values/conditions support $(Property), @(ItemType), %(MetadataName) and %(CurrentItemType.MetadataName). Cross-item qualified metadata captures are refused; they are a separate Update batching semantic family. Evaluate each metadata child in declaration order; later siblings observe prior assignments. Built-in names cannot be assigned.",
+      "selectedBuiltIns": [
+        "Identity",
+        "FullPath",
+        "RootDir",
+        "Filename",
+        "Extension",
+        "RelativeDir",
+        "Directory",
+        "RecursiveDir",
+        "DefiningProjectFullPath",
+        "DefiningProjectDirectory",
+        "DefiningProjectName",
+        "DefiningProjectExtension"
+      ],
+      "builtInRules": "Identity is evaluated include; path-derived values use root project directory and source path rules, not current process working directory. RecursiveDir needs the original wildcard expression, and survives copied item references. DefiningProject* belongs to the Include that produced the destination item; Update retains original Include ownership. Request built-ins on demand; do not force invalid-path conversions for all literal identities. Native fixtures must fix exact strings, separators and copy behavior.",
+      "notSelected": [
+        "ModifiedTime",
+        "CreatedTime",
+        "AccessedTime",
+        "metadata attribute shorthand",
+        "KeepMetadata",
+        "RemoveMetadata",
+        "KeepDuplicates",
+        "MatchOnMetadata",
+        "MatchOnMetadataOptions",
+        "public metadata Predecessor/Xml mutation and object identity"
+      ],
+      "escapes": "Item-specific scanner supports the ordinary reserved-character escapes %25 %2A %3F %40 %24 %28 %29 %3B %27, case-insensitive hex, decoded once after structural splitting. Escaped semicolon stays within one identity; escaped wildcard does not become a filesystem wildcard. Other percent escapes, control/non-ASCII item data and residual malformed expressions refuse in this profile. Do not globally widen the old property/import escape contract."
+    },
+    "conditions": {
+      "grammar": "Reuse selected Boolean/equality/ordering/And/Or/Not/Exists/HasTrailingSlash syntax and bounds. Extend raw scalar reference recognition only at eligible item/metadata sites; condition expansion remains local to current properties/items/current metadata.",
+      "pathAndOwner": "ItemGroup, item and metadata Exists paths use root project directory, even inside imports. Warning/error source owner and line remain the defining XML site. PropertyGroup/Import/ImportGroup paths retain their old defining-file rules.",
+      "cache": "Keep immutable raw AST cache and exact-raw warning ownership behavior. Cache must never capture item lists, metadata tables, State, root or owner. Apply allowed-reference-kind validation at each site even on a cache hit; identical text accepted at an item site must not become accepted at a prohibited property/import site. Preserve >3000 eviction and existing group64/node256 limits.",
+      "falseSites": "Static syntax/structure checks remain fail-closed for skipped sites; false item/group conditions skip expansion, glob traversal and metadata evaluation. This is a private adaptation wherever native skipped-input behavior differs."
+    },
+    "globs": {
+      "admitted": "Relative slash patterns: * and ? within path segments; ** only as an entire path segment, including zero/multiple directory levels and **/x/** shapes. Literal fixed prefixes and ./ allowed; no rooted/drive/UNC/URI/backslash or parent-traversal patterns.",
+      "enumeration": "Enumerate only beneath the explicit root project directory within the declared sandbox. Distinguish filesystem enumeration from pure item identity matching used by Exclude/Update/Remove. Return file identities in native-observed representation and per-glob OrdinalIgnoreCase order, then preserve include-fragment/element order and duplicates. No global post-sort/deduplication.",
+      "case": "No universal Windows-fold/Linux-exact switch. FileMatcher.GetFilesForStep delegates simple patterns to platform enumeration, but DirectoryPattern shapes force per-file case-insensitive matching on Linux. Fixed-prefix directory lookup, wildcard directory lookup, recursive filename matching and exclusion matching need distinct captured expectations. Reject case-colliding sibling names in the private portable corpus/profile to avoid unqualified equal-key sorting order; ordinary mixed-case spelling remains covered.",
+      "resourceAdaptation": "Proposed private limits: at most 512 item/definition operations, 1024 live item occurrences, 64 metadata entries per item, 4096 visited filesystem entries per evaluation, traversal depth 32 and 64 path segments per pattern. Keep 16 project/import files and 65536 bytes per file. Limits are bounded-profile resource policy, not MSBuild limits; exercise limit and limit+1 controls, without expanding native parity totals.",
+      "filesystemAdaptation": "No symlink/junction/reparse traversal, including an apparently in-sandbox alias. Check every traversed directory and selected entry; refuse escapes and links, close DirectoryStreams on success/failure. Inputs are immutable fixtures, not a hostile concurrent filesystem security guarantee. No filesystem-result cache across evaluations. Source laziness/performance/read-set equivalence is not claimed for the eager bounded implementation.",
+      "nativeCapture": "Capture OS-specific results before implementation. Preserve actual * versus *.* behavior, ? behavior, missing directories and empty matches; do not replace native results with java.nio glob expectations."
+    },
+    "outputAndExecution": {
+      "model": "Extend package-private Result with immutable ordered item snapshots and a case-insensitive type index, keeping existing property/import/diagnostic accessors and their types. Deep-copy lists/maps; later Update/evaluation or caller mutation cannot alter earlier snapshots. Store item operation/source provenance privately.",
+      "compatibility": "Result is internal, not a substitute public EvaluationResult API. Preserve old six-argument construction if retained compiled consumers actually use it; inspect ABI before changing record components. Prefer additive accessors/helper immutable types over breaking old constructor descriptors.",
+      "noTaskExecution": "Evaluation ends after selected passes. Targets remain inert under existing allowlist; DefaultTargets/InitialTargets never schedule work. Refuse UsingTask, task factories, SDK resolution, target-local ItemGroups, task outputs and execution requests. Native observer uses Project evaluation/GetItems only: no Build, restore or target switch."
+    },
+    "outsideAndWhy": [
+      "Full MSBuild and SDK-style projects, solution handling, Choose/When/Otherwise, import wildcards, toolset/environment/resolver prelude: independent deferred evaluation/configuration families; existing refusals remain.",
+      "Item transforms/functions/custom separators, mixed text/vector fragments, cross-item qualified Update metadata and MatchOnMetadata: distinct expansion/batching contracts; explicitly refused, not silently flattened.",
+      "Timestamp metadata, arbitrary Unicode/escapes, native exception/HResult/message ABI and hostile-filesystem race safety: not covered by the selected ASCII controlled-fixture profile.",
+      "Exact public Project/ProjectItem/ProjectMetadata facade, mutation/reevaluation/lifecycle identity, design-time ItemsIgnoringCondition/AllEvaluatedItems and paired .j workflow: open N01/Core representation work, not credited by internal snapshots.",
+      "Full cycle-chain diagnostics, complete platform matrix, full source reuse/release rights and distribution: remain acceptance gaps."
+    ]
+  },
+  "exactApiMapping": {
+    "publicNamespace": "Microsoft.Build.Evaluation",
+    "selectedSourceAnchors": [
+      {
+        "identity": "Project.GetItems(System.String itemType)",
+        "source": "src/Build/Definition/Project.cs:1255",
+        "returnConcept": "System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.ProjectItem>",
+        "privateMapping": "Internal items-of-type immutable view; do not advertise as exact ICollection"
+      },
+      {
+        "identity": "Project.Items",
+        "source": "src/Build/Definition/Project.cs:671",
+        "returnConcept": "ICollection<ProjectItem>",
+        "privateMapping": "Final ordered surviving item observations"
+      },
+      {
+        "identity": "Project.ItemDefinitions",
+        "source": "src/Build/Definition/Project.cs:665",
+        "returnConcept": "System.Collections.Generic.IDictionary<System.String, Microsoft.Build.Evaluation.ProjectItemDefinition>",
+        "privateMapping": "Pass-2 private definition table; confirm source signature against actual compiled metadata before freezing observer mapping"
+      },
+      {
+        "identity": "ProjectItem.ItemType / EvaluatedInclude",
+        "source": "src/Build/Definition/ProjectItem.cs:165,204",
+        "returnConcept": "System.String",
+        "privateMapping": "Preserved type spelling and one-pass unescaped evaluated identity"
+      },
+      {
+        "identity": "ProjectItem.GetMetadataValue(System.String name) / HasMetadata(System.String name)",
+        "source": "src/Build/Definition/ProjectItem.cs:434,445",
+        "returnConcept": "System.String / System.Boolean",
+        "privateMapping": "Effective value plus presence; built-ins queried on demand"
+      },
+      {
+        "identity": "ProjectItem.Metadata / DirectMetadata",
+        "source": "src/Build/Definition/ProjectItem.cs:263,288",
+        "returnConcept": "ICollection<ProjectMetadata> / IEnumerable<ProjectMetadata>",
+        "privateMapping": "Effective and direct metadata/provenance observations; private maps are not qualified public collections"
+      },
+      {
+        "identity": "ProjectMetadata.Name / EvaluatedValue",
+        "source": "src/Build/Definition/ProjectMetadata.cs:88,100",
+        "returnConcept": "System.String",
+        "privateMapping": "Preserved name and unescaped value"
+      },
+      {
+        "identity": "ProjectItemDefinition.GetMetadataValue(System.String name)",
+        "source": "src/Build/Definition/ProjectItemDefinition.cs:130",
+        "returnConcept": "System.String",
+        "privateMapping": "Default lookup and metadata inheritance"
+      }
+    ],
+    "markup": "Project, ItemDefinitionGroup, ItemGroup, Include, Exclude, Update, Remove, Condition, and all selected built-in names retain exact upstream spelling and concepts. Do not publish ProjectModel/ItemSpec/EvaluationResult as replacement APIs.",
+    "compiledInventoryGap": "Existing compiled lifecycle inventory contains Project constructors/GetPropertyValue and ProjectCollection lifecycle families, not a completed compiled item/metadata surface. Extend existing MetadataLoadContext reader's selected scope to these exact anchors and directly consumed collection/string/bool/metadata identities, including visibility, accessor metadata, assembly/MVID/token and overloads; do not promote internal IItem/ItemSpec/FileMatcher to public contracts.",
+    "beforeImplementation": "Before product editing, freeze the selected semantic field mapping and native observer's actual compiled signatures/dependencies; this can be one bounded prerequisite phase of the same feature task. Existing public representation gaps do not block private behavior implementation, but do block public facade implementation and N01 acceptance.",
+    "stillBlocked": "System.String, ICollection<T>/IEnumerable<T>/IDictionary<T,U> variance/identity, property syntax, ProjectItem/ProjectMetadata object identity/mutation, InvalidProjectFileException/HResult, actual .j/Core representation and paired compiled C#/.j examples remain unresolved."
+  },
+  "sourceFindings": [
+    {
+      "path": "src/Build/Evaluation/Evaluator.cs",
+      "lines": "689-746; 1032-1052; 1339-1405",
+      "finding": "Definitions and items are separate passes after all properties/imports; group/item conditions use current lazy item state; ProcessItemElement receives root directory; definition expansion allows properties/custom metadata."
+    },
+    {
+      "path": "src/Build/Evaluation/LazyItemEvaluator.cs",
+      "lines": "65-116; 127-139; 499-635",
+      "finding": "Root paths for item/metadata conditions; cloned updates preserve originating item element; ordered operation chains and intermediary item-reference capture; final items ordered by ElementOrder."
+    },
+    {
+      "path": "src/Build/Evaluation/ItemSpec.cs",
+      "lines": "175-274; MatchesItem and fragment types",
+      "finding": "Property expansion precedes raw-semicolon split; item-expression fragments precede literal/glob classification; escaped wildcard handling differs from real glob; operation matcher is not enumeration."
+    },
+    {
+      "path": "src/Build/Evaluation/ExpressionShredder.cs",
+      "lines": "45-61",
+      "finding": "Semicolon tokenizer trims and discards empty fragments; percent unescape must follow splitting."
+    },
+    {
+      "path": "src/Build/Evaluation/LazyItemEvaluator.IncludeOperation.cs",
+      "lines": "37-174",
+      "finding": "Snapshot Exclude expansion; copies versus literals versus actual glob enumeration; source Include owns created destination; excludes occur before metadata."
+    },
+    {
+      "path": "src/Build/Evaluation/LazyItemEvaluator.UpdateOperation.cs",
+      "lines": "34-99; 110-161",
+      "finding": "Update clones selected items and applies per-item metadata; qualified cross-item metadata uses captured match state and cannot be guessed."
+    },
+    {
+      "path": "src/Build/Evaluation/LazyItemEvaluator.RemoveOperation.cs",
+      "lines": "45-92",
+      "finding": "Remove matches current item identities; MatchOnMetadata is separate machinery."
+    },
+    {
+      "path": "src/Build/Evaluation/LazyItemEvaluator.LazyItemOperation.cs",
+      "lines": "164-295",
+      "finding": "Inline metadata values and conditions use per-item context, sequential sibling state, root condition directory; MaybeAdjustFilePath is platform-sensitive and must be checked on imported/path metadata fixtures."
+    },
+    {
+      "path": "src/Build/Definition/ProjectItem.cs",
+      "lines": "165-302; 434-500; 1000-1087",
+      "finding": "Exact item/value/metadata API anchors; direct/built-in/default lookup; source direct/inherited/source-definition precedence over destination defaults; copy ownership differs from update ownership."
+    },
+    {
+      "path": "src/Framework/Utilities/FileMatcher.cs",
+      "lines": "1057-1081 and recursion/pattern helpers",
+      "finding": "Pattern-shape-dependent Linux case semantics, not one global case rule."
+    },
+    {
+      "path": "src/Build/Utilities/EngineFileUtilities.cs",
+      "lines": "371-385",
+      "finding": "Per-glob files sorted with StringComparer.OrdinalIgnoreCase and reescaped before engine storage."
+    },
+    {
+      "path": "src/Build/Globbing/MSBuildGlob.cs",
+      "lines": "102-211",
+      "finding": "Pure glob matcher normalizes input/root and uses FileMatcher regex; does not imply filesystem enumeration behavior."
+    },
+    {
+      "path": "src/Framework/ItemSpecModifiers.cs",
+      "lines": "18-52 and path modifier implementations",
+      "finding": "Exact built-in names; timestamps distinguished from stable path/defining-project metadata."
+    },
+    {
+      "path": "src/Directory.BeforeCommon.targets",
+      "lines": "65-80",
+      "finding": "Non-source-only managed build enables Windows interop independent of host OS and uses runtime platform checks; presence of those compiled branches does not itself prove DLLs cannot run on Linux. Actual execution remains required."
+    }
+  ],
+  "privateRefusals": [
+    {
+      "id": "IR01",
+      "case": "Transforms, item functions and custom separators",
+      "basis": "Outside selected grammar"
+    },
+    {
+      "id": "IR02",
+      "case": "Mixed text/vector fragment and cross-item qualified metadata",
+      "basis": "Outside selected expansion/batching"
+    },
+    {
+      "id": "IR03",
+      "case": "Item references in definition conditions/values or prohibited property/import conditions",
+      "basis": "Native syntax/error capture plus explicit profile restriction"
+    },
+    {
+      "id": "IR04",
+      "case": "MatchOnMetadata/KeepMetadata/RemoveMetadata/KeepDuplicates/metadata attributes",
+      "basis": "Outside selected operation families"
+    },
+    {
+      "id": "IR05",
+      "case": "Attempted reserved built-in assignment and timestamp lookup",
+      "basis": "Capture native reserved-name error; timestamp is private exclusion"
+    },
+    {
+      "id": "IR06",
+      "case": "Malformed item/metadata references, unselected percent escapes and reached non-ASCII",
+      "basis": "Private grammar/ASCII boundary, including skipped syntax policy"
+    },
+    {
+      "id": "IR07",
+      "case": "Absolute, drive, UNC, URI, backslash and parent-traversal item globs",
+      "basis": "Private filesystem boundary; do not scan native outside corpus"
+    },
+    {
+      "id": "IR08",
+      "case": "In-root symlink/junction and link to outside sandbox",
+      "basis": "Private refusal; capability-qualified fixture creation required, otherwise BLOCKED control"
+    },
+    {
+      "id": "IR09",
+      "case": "Item/definition operation count at512/513",
+      "basis": "Private resource limit"
+    },
+    {
+      "id": "IR10",
+      "case": "Live item occurrence count at1024/1025 and per-item metadata64/65",
+      "basis": "Private resource limit, two named subcontrols not parity inflation"
+    },
+    {
+      "id": "IR11",
+      "case": "Traversal entry4096/4097, depth32/33 and pattern segments64/65",
+      "basis": "Private resource limit; fixed tree generator and short timeout"
+    },
+    {
+      "id": "IR12",
+      "case": "Case-colliding sibling names and unsupported ** within a segment",
+      "basis": "Private portable-profile boundary; Linux-only name-collision creation"
+    },
+    {
+      "id": "IR13",
+      "case": "UsingTask/task factory/target-local ItemGroup/SDK attribute",
+      "basis": "Strict no-task boundary and unchanged structural refusals"
+    },
+    {
+      "id": "IR14",
+      "case": "Cached condition used at forbidden site and oversized new expression raw tree",
+      "basis": "Context-sensitive validation and retained AST bounds"
+    }
+  ],
+  "legacyTransition": {
+    "id": "NEG-items",
+    "exactXml": "<Project><ItemGroup><Compile Include=\"*.java\"/></ItemGroup></Project>",
+    "oldDisposition": "UNSUPPORTED_ELEMENT",
+    "newDisposition": "Native-backed successful empty item list for historical fixture tree with no .java files (must confirm actual copied tree before capture)",
+    "sources": [
+      "dotj-build/evaluation-candidate/tests/org/dotj/internal/build/evaluation/ProjectEvaluationComponentTest.java:44",
+      "tools/oracle/dotj-build/condition-boolean-product-v1/java/org/dotj/internal/build/evaluation/EvaluationBooleanProductTest.java:44"
+    ],
+    "policy": "Capture identical old fixture bytes/tree natively twice. Preserve old input/expected/output artifacts and old test sources. Add narrow versioned successor consumer/transition allowlist only for affected rows; do not rewrite old golden bytes or broadly filter failures. Search all exact item/metadata related old refusals before freeze; each newly admitted one requires separate identity-backed transition."
+  },
+  "sourcePlan": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task127-build-item-scope-plan-v1.json",
+    "bytes": 78954,
+    "sha256": "04df2d59740285020603104383d73c1cfe14a3cb2fb24fdec10ad77cc77d70fb"
+  },
+  "nativeContract": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\native-contract-v1.json",
+    "bytes": 604053,
+    "sha256": "a1af749f1f1016ffdb8c9f87ef0d025170aea57d07732eb77afe5a4e7366118a"
+  },
+  "productProof": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\qualification-proof-final-wave-v1.json",
+    "bytes": 131619,
+    "sha256": "1165c51b1c2d6f2fcc952d26dc6a7e8ee242696d483238a4bfe1ee8cb8738aa5"
+  },
+  "nativeCompiledInventory": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\native-prerequisite-v3\\compiled-inventory.stdout",
+    "bytes": 326335,
+    "sha256": "6fcb44256cb61f34c47443e4a8e8a9f3a3525c845a07e3dd8c2398d7528d169e"
+  },
+  "dependencyRoles": {
+    "product": "Continue owned implementation on java.base and java.xml only. No third-party Java runtime library, no MSBuild binary loaded as Java task, no Gradle/Maven/MSBuild runtime product dependency. Proposed product edge core remains architecture-level; actual private candidate is JDK-only.",
+    "development": "Installed Python3.13.9, qualified Microsoft JDK21.0.12.1+1, .NET SDK10.0.401/runtime10.0.12 and selected MSBuild assemblies are development/reference tools. Do not conflate their platform packages with product dependencies.",
+    "windows": "Named installed paths/config/release files read; current retained receipts demonstrate successful compiler/native/JVM use. No missing Windows download established. Hash actual binaries before future execution; do not force old-PC paths. Read-only PE version metadata independently reports python.exe3.13.9 and dotnet.exe10.0.1226.42308, commit95017c711e6afc1085133d440e42b4bd78155701; JDK release reports21.0.12.1+1-LTS. These reads are not new executable-version probes.",
+    "linux": {
+      "existingImage": "mcr.microsoft.com/dotnet/aspnet@sha256:222759b391a1aaf241166672c8f99b2d4ada452e7b5319f3c6e8f265a37b5ad4",
+      "evidenceLevel": "Seed/root prior inspect evidence only: linux/amd64, DOTNET_VERSION and ASPNET_VERSION10.0.12. Worker did not inspect/run Docker or qualify runtime binaries.",
+      "storage": "Existing Docker CustomWslDistroDir D:/AI/Docker/wsl/DockerDesktopWSL is app configuration; all new project inputs/output/download/cache remain beneath B. Case-sensitive fixture filesystem must be observed; a Windows bind mount cannot be assumed to have Linux case behavior. Do not silently put fixtures in Docker's unrelated writable layer. If the B bind mount cannot demonstrate required case behavior, keep F01-03 blocked until root establishes an appropriate B-contained backing/storage arrangement and records its actual filesystem semantics; OS=linux alone earns no platform credit.",
+      "reuseProposal": "Compile one portable net10.0 observer DLL on installed Windows csc with locked reference assemblies; stage its actual managed MSBuild/runtime dependency closure and runtimeconfig with rollForward Disable. Use existing Linux runtime image to execute that DLL with explicit ToolsetDefinitionLocations.None/isolated collection and no task build. MSBuild source uses runtime OS behavior; Windows interop branches alone do not prove Windows-only IL. Preserve exact assembly hashes/versions and loading failures. A Linux SDK is not required merely to run already compiled IL.",
+      "finitePreflight": "Before semantic captures, one owned bounded container invocation: record dotnet runtime version/loaded binaries and filesystem case probe; load portable observer and evaluate one empty project plus one simple glob without SDK/imports. Reuse a status mode in the same observer. Stop on dependency/native-load failure and diagnose exact missing input, not repeated broad install attempts.",
+      "java": "Root independently acquired and safely staged official Microsoft OpenJDK21.0.12.1+1-LTS Linux x64 during Task127. Archive 206564406 bytes, published/readback SHA256 4c0c7f5cd0b6bb81109d01f13a1678ee0f73f36c1020080d97c4de3ce3cac207; 538 archive members, 450 regular files, 361168616 staged bytes independently readback-verified by root, no links. Actual ELF java/javac/jar headers and release Microsoft/Linux/x86_64/libc gnu inspected, but no runtime execution/dependency qualification. Reuse B/toolchains/jdk-linux21/jdk-21.0.12.1+1; Windows javac compiles the one final portable JAR.",
+      "downloadDecision": "Task127 performed no download. Root's separately acquired Linux JDK archive is now available, hash-verified; execution remains a prerequisite. No Linux SDK download is established as necessary. First test portable observer/managed MSBuild reuse; only actual dependency failures justify a further exact official artifact/checksum acquisition.",
+      "crossPlatformCompletionGate": "Both native passes and new same-final-JAR corpus must complete on Linux with actual runtime/hash/filesystem provenance before this candidate advertises the planned cross-platform item/glob profile. A Windows-only result may be retained as partial evidence but cannot silently satisfy F01-03.",
+      "jdkAcquisition": {
+        "owner": "root, separate from read-only Task127",
+        "expectation": "D:/AI/Implementation/dotj Frameworks/toolchains/linux-jdk-acquisition-v1/expected-manifest-v1.json",
+        "expectationSha256": "a3f0e66de7be36ebd8ae26c41f843c8267845a8cf14e55c13f1df6957356548d",
+        "receipt": "D:/AI/Implementation/dotj Frameworks/toolchains/linux-jdk-acquisition-v1/download-receipt-v1.json",
+        "receiptSha256": "575d0045521226db35d69e81795acb1be1c2853850f9f05830cbe9c4e8b7e1ca",
+        "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/microsoft-jdk-21.0.12.1-linux-x64.tar.gz",
+        "officialVersionPage": "https://learn.microsoft.com/en-us/java/openjdk/older-releases",
+        "officialArchiveUrl": "https://aka.ms/download-jdk/microsoft-jdk-21.0.12.1-linux-x64.tar.gz",
+        "officialChecksumUrl": "https://aka.ms/download-jdk/microsoft-jdk-21.0.12.1-linux-x64.tar.gz.sha256sum.txt",
+        "status": "ARCHIVE_AND_STAGED_FILES_VERIFIED_RUNTIME_NOT_EXECUTED",
+        "stagedRoot": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1",
+        "extractionReceipt": "D:/AI/Implementation/dotj Frameworks/toolchains/linux-jdk-acquisition-v1/extraction-receipt-v1.json",
+        "extractionReceiptSha256": "ffa27c5c8a3d0c46502505c1394de894a7d4cf9e8c97b14aacb0a975c19b7b2d",
+        "runtimeExecutionVerified": false
+      }
+    },
+    "rights": "MIT source headers/root license are evidence only. Extend dependency/notice ledger for any adapted upstream test/source excerpt and actual redistributed binaries. Prefer owned reimplementation and independently authored fixtures mapped to genuine test IDs. Existing E01 decisions stay OPEN.",
+    "prerequisitesToCloseBeforeEditing": [
+      "Freeze/review selected native semantic corpus and every observed error disposition",
+      "Extend selected compiled item/metadata observer signature/dependency inventory",
+      "Establish Linux runtime reuse and Java runtime/filesystem capability or explicitly block cross-platform completion",
+      "Read D:/AI/Skills/csharp-expert/SKILL.md before any C# editing",
+      "Verify current source/tool hashes and old JAR retained; root creates feature branch after fresh fetch"
+    ]
+  },
+  "publicPromotion": "OPEN: exact public .j representations, API facade, recursive dependency/rights closure, SDK/workflows and complete acceptance",
+  "fixRound1": {
+    "finding": "T129-IMPORTANT-01",
+    "resolution": "Per-glob sort key is the once-decoded raw identity, ASCII case-folded. Escaped storage, fragment order and multiplicity unchanged.",
+    "source": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Utilities\\EngineFileUtilities.cs",
+      "bytes": 34090,
+      "sha256": "ce5a8639da36d69c03195e1bad7163f7f816d0c771d4dd63ffb30f8a8b4252d7"
+    },
+    "sourceLines": "376-386",
+    "red": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task129-focused-v3\\focused-jvm-receipt.json",
+      "bytes": 7327,
+      "sha256": "76b416977d0435f1c8075c11507b3c85f7ed083cedfbefcfaaab03ed8e0bb635"
+    },
+    "separateRegressions": {
+      "windows": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\sort-windows-v1\\raw-sort.stdout",
+        "bytes": 359,
+        "sha256": "82cd92c3be1f9b7bc3520e3dfaf99adf498fc462d220bb53dc9305fec0ded87c"
+      },
+      "linux": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\sort-linux-v2\\retained-output\\raw-sort.stdout",
+        "bytes": 358,
+        "sha256": "08d969ef11a80ffc8ac23bf51a74d46d2ee5b7725c19d19d2398b7e6f6c09934"
+      }
+    },
+    "priorProductDisposition": "704JAR and proof-v3 are historical retained evidence with confirmed uncovered sorting defect; not current qualification"
+  },
+  "finalWave": {
+    "findings": [
+      "T130-IMPORTANT-01",
+      "T130-IMPORTANT-02",
+      "T130-IMPORTANT-03"
+    ],
+    "status": "FIXED_QUALIFIED_PENDING_ONE_SCOPED_REREVIEW",
+    "fixes": [
+      "Decode fixed glob prefix once before escaping stored identity once",
+      "Normalize literal/list/vector comparison keys lexically against root project directory; keep original stored spelling and no filesystem lookup",
+      "Terminal-dot extension is empty for item and defining-project metadata"
+    ],
+    "priorJar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\product-build-v4\\dotj-build-evaluation-candidate.jar",
+      "bytes": 79271,
+      "sha256": "c5e838cd2f344f0cefc7123920a43bf60181843c55168c851c7beafe29a87a38"
+    },
+    "priorProof": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\qualification-proof-fix1-v1.json",
+      "bytes": 117091,
+      "sha256": "8716d8d75f0d4117bbcf2fc18d9eb0f299fb792521c49a59a3304732d2e12689"
+    },
+    "priorDisposition": "HISTORICAL_CONFIRMED_UNCOVERED_TASK130_DEFECTS; c5e and704 evidence retained, not current qualification",
+    "red": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task130-focused-v1\\focused-jvm-receipt.json",
+      "bytes": 8764,
+      "sha256": "e5e38490641475149c273b8ff472b55723e5e949ceaf1df8b6ee6630b3cd59d2"
+    },
+    "regressions": {
+      "windows": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\boundary-windows-v1\\boundaries.stdout",
+        "bytes": 1157,
+        "sha256": "edb324c21c33e2e83e954b836ceba77d3d43b9118b6005051bec1ad0da45b5ca"
+      },
+      "linux": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\boundary-linux-v2\\retained-output\\boundaries.stdout",
+        "bytes": 1139,
+        "sha256": "f848fc07e67c0f8ec7cf6a34cb98741f99485dd1097069ed1257b4e6432ab870"
+      }
+    },
+    "rawSortRegressions": {
+      "windows": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\sort-windows-v2\\raw-sort.stdout",
+        "bytes": 359,
+        "sha256": "9dfd2757ed724419a87ca0b0f2a938c294ccc3fb0b74c93f5c0aaca9c68be141"
+      },
+      "linux": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\sort-linux-v3\\retained-output\\raw-sort.stdout",
+        "bytes": 358,
+        "sha256": "c377dec71b073a5c9d0fa8c10dd33c466b319ba1ee4fbbdc72d4119485513d9a"
+      }
+    },
+    "lateContainerCheck": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\final-wave-late-container-check-v1\\receipt.json",
+      "bytes": 4515,
+      "sha256": "733d05914366e04cbbc339a6af29a01490b2683764e714d67864df72acbd51a0"
+    },
+    "nativeCorpus": "Unchanged42 and4 supplements reused; three source-backed boundary families separately executed per OS",
+    "declinedBoundaries": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task130-declined-dispositions-v1.json",
+      "bytes": 7897,
+      "sha256": "5148a19d8bb012d4ff558dcc74b2c92a48128ebd1411d0f945046d92a41b6a88"
+    },
+    "remaining": "All15 broad-review declined families remain OPEN/full goal unchanged. Canonical C verification, integration and publication remain root-owned mandatory steps."
+  }
+}
