@@ -1,4 +1,23 @@
-# Candidate Batch2521: selected Build item evaluation
+# Batch2521: selected Build item evaluation
+
+Status: **implemented, independently reviewed, canonical proof passed, merged and pushed**. Source publication master: `1269a1bb1181cda169b5cb9be57a0ff5ad6ef2f0`; source feature `feature/batch-2521-build-items-evaluation-v1` at `72480482dbdca5a5455fb7151d8affd2f3d21292`. The root completion receipt verifies both remote refs and actual C proof; later status-only commits may advance master.
+
+Final artifact: `303dc40dbb1a5db310a06e82b73038e2649d18d72ca19b79fa7df5eaaa879fea` (79712B/six sources/41classes). Selected42 per platform, prior raw-sort and three final boundary families bothOS, private14/61rows, supplements4, required ordering/Boolean/history groups and stable94 transition passed on this same artifact. Canonical C pure proof passed1760; retained D JAR/source closure only, no C build/JVM. Task129 review/fix and Task130 broad review/one complete fix wave/scoped rereview resolved all Important findings. Root restored T130-FINAL-MINOR-01 historical UTF-8 text in the status reconciliation; no product change or runtime replay.
+
+| Measure | Done | Remaining |
+| --- | --- | --- |
+| Numbered batches | 2521 | Project total/remaining UNKNOWN |
+| Historical2500 target | 2500/2500 | 0 |
+| This selected group | 1/1 | 0 |
+| Accepted implementation tasks | 0/1092 (0%) | 1092 |
+| Open acceptance items | no closure credit | 1686 |
+| Qualified frameworks | 0/66 | 66 |
+| Git | source merge/push/remote refs verified | status-only Git state in root receipt |
+| Next | Remaining WP01 cycle-trace/public representation acceptance review | new source-derived plan before next numbering |
+
+All15 deferred families remain OPEN and no full public .NET/API or framework parity is claimed. JDK APIs are product dependencies; Python/.NET are validation tools; broader package/feed/SDK distribution remains a plan. Preserve the candidate-era record below as historical, superseded by this actual publication reconciliation.
+
+### Historical feature-branch candidate report (superseded)
 
 Status: implemented and qualified on the feature branch; independent reviews,
 canonical integration and publication pending. This is one selected candidate,

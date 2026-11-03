@@ -1,6 +1,27 @@
 # Stage 2 implementation state
 
-## Candidate Batch2521 awaiting review and integration
+## Verified Batch2521 publication
+
+Batch2521 is implemented, independently reviewed, canonically verified, merged and pushed at `1269a1bb1181cda169b5cb9be57a0ff5ad6ef2f0`. The source feature ref was also verified remotely. Publication receipt: `D:/AI/Implementation/dotj Frameworks/verification/batch2521-integration-completion-v1/receipt.json`.
+
+The private Build evaluator adds deferred item/default evaluation, immutable metadata, ordered Include/Exclude/Update/Remove and selected Windows/Linux globs. Final JAR `303dc40dbb1a5db310a06e82b73038e2649d18d72ca19b79fa7df5eaaa879fea` is79712 bytes (six sources,41 classes). Its actual canonical C proof passed1760 evidence checks using the retained D JAR; no C build or JVM run is claimed. Windows/Linux42 each, separate raw-sort and three boundary regression families on both profiles, private14/61rows, supplements4, ordering308/M1, Boolean297/private16/control14 and12 historical groups passed. Stable94 retains exactly the native-backed NEG-items transition. Earlier704/c5e candidates remain historical with documented defects; the corrected final artifact and review records supersede them.
+
+| Measure | Done | Remaining |
+| --- | --- | --- |
+| Numbered candidate batches | 2521 | Whole-project total/remaining UNKNOWN |
+| Historical2500 target | 2500/2500 | 0 to that target |
+| Selected Build items group | 1/1 | 0 |
+| Accepted implementation tasks | 0/1092 (0%) | 1092 unaccepted |
+| Open acceptance items | no closure credit | 1686 |
+| Qualified frameworks | 0/66 | 66 |
+| Git source publication | merge/push/remote refs verified | Later factual status commits may advance master |
+| Next concrete task | Review remaining full WP01 cycle-trace/public representation acceptance work | Source-derived next plan; new number/total unassigned |
+
+The candidate uses JDK java.base/java.xml only. Python and .NET are validation tools. Full dependency/distribution, public/API/Core representations, E01 rights and all15 review-declined families remain OPEN; no public SDK installer/feed or framework acceptance is claimed. The nonblocking historical Batch1283 UTF-8 multiplication sign was restored from the reviewed base during this factual reconciliation.
+
+
+
+## Historical Batch2521 candidate snapshot (superseded)
 
 The selected Build item/default/metadata/glob evaluator is implemented and qualified on retained JAR `303dc40dbb1a5db310a06e82b73038e2649d18d72ca19b79fa7df5eaaa879fea`: 42 selected native scenarios per platform, 14 private groups, ordering308, Boolean297/private16/control14 and all12 affected historical groups. The stable94 suite changes only the native-backed NEG-items row. Linux evidence covers the measured case-enabled9p/NTFS profile. [Candidate details](implementation/batches/Batch-2521.md) retain proof and scope limits. Task130 final-wave fixes have three separate regression families per OS on the same final artifact; all15 declined boundaries remain OPEN. One scoped final-wave rereview, canonical integration and publication remain pending; published counters stay2520, selected planned1/done0/remaining1, accepted0/1092, open1686, frameworks0/66 and whole-project total/remainingUNKNOWN.
 
@@ -1303,7 +1324,7 @@ Updated: 2026-11-02. Baseline: `stage-2-2026-10-20-v2`.
 - Batch-1280: Added selected Int32 custom zero-padding, grouped and fixed numeric patterns. General custom pattern grammar, sections, escaping and provider-specific separators remain open.
 - Batch-1281: Added selected Int32 positive, negative and zero custom-section behavior. General section parsing, conditions, escaping and custom grammar remain open.
 - Batch-1282: Distinguished selected escaped percent literals from active custom percent scaling. General escape and placeholder grammar remain open.
-- Batch-1283: Distinguished selected escaped per-mille literal from active Ã—1000 placeholder. General escaping, localization and custom placeholder grammar remain open.
+- Batch-1283: Distinguished selected escaped per-mille literal from active ×1000 placeholder. General escaping, localization and custom placeholder grammar remain open.
 - Batch-1284: Pinned and implemented selected custom trailing-comma scaling and whole-number rounding. General custom numeric grammar and provider localization remain open.
 - Batch-1285: Pinned and implemented selected scaled fractional custom numeric patterns. General custom pattern grammar, negative zero and provider localization remain open.
 - Batch-1286: Pinned and implemented selected optional fractional placeholders after scaling. Broad placeholder grammar, provider localization and other rounding boundaries remain open.
