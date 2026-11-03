@@ -10636,16 +10636,18 @@
     "repo": "dotj-sdk",
     "wp": "SDK-I01",
     "task": "Lock the concrete .NET 10 SDK artifact, matching source revision, OS images and invocation environment; reconcile the older analysis pins without overwriting them.",
-    "status": "not-started",
+    "status": "complete",
     "required_naming_policy": "DOTNET-API-EXACT-001",
-    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001",
+    "completion_evidence": "planning/stage-2/implementation/acceptance/Batch-2523-accepted-tasks.json",
+    "completed_in_batch": "Batch-2523"
   },
   {
     "id": "SDK-I01-T2",
     "repo": "dotj-sdk",
     "wp": "SDK-I01",
     "task": "Extract every CLI token, option, alias, default and source test identity into a versioned command contract ledger; mark unimplemented commands explicitly.",
-    "status": "not-started",
+    "status": "in-progress",
     "required_naming_policy": "DOTNET-API-EXACT-001",
     "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
   },
@@ -10654,7 +10656,7 @@
     "repo": "dotj-sdk",
     "wp": "SDK-I01",
     "task": "Map SDK project/configuration names and framework public identities to the N01 ledger; separate source-verified identities from internal helper vocabulary.",
-    "status": "not-started",
+    "status": "in-progress",
     "required_naming_policy": "DOTNET-API-EXACT-001",
     "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
   },
@@ -10672,7 +10674,7 @@
     "repo": "dotj-sdk",
     "wp": "SDK-I01",
     "task": "Capture raw reference results for positive and negative command fixtures, define an auditable normalization allowlist and publish the baseline lock with hashes.",
-    "status": "not-started",
+    "status": "in-progress",
     "required_naming_policy": "DOTNET-API-EXACT-001",
     "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
   },
@@ -10681,7 +10683,7 @@
     "repo": "dotj-build",
     "wp": "SDK-I02",
     "task": "Pin an eligible JDK vendor/build and minimal core slice; record archive hashes, platform prerequisites and redistribution evidence for each proposed platform.",
-    "status": "not-started",
+    "status": "in-progress",
     "required_naming_policy": "DOTNET-API-EXACT-001",
     "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
   },
@@ -10690,18 +10692,22 @@
     "repo": "dotj-build",
     "wp": "SDK-I02",
     "task": "Create the JDK-only seed build using javac/jar and owned foundation code, without an installed dotj SDK, Maven, Gradle or replacement framework.",
-    "status": "not-started",
+    "status": "complete",
     "required_naming_policy": "DOTNET-API-EXACT-001",
-    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001",
+    "completion_evidence": "planning/stage-2/implementation/acceptance/Batch-2523-accepted-tasks.json",
+    "completed_in_batch": "Batch-2523"
   },
   {
     "id": "SDK-I02-T3",
     "repo": "dotj-build",
     "wp": "SDK-I02",
     "task": "Build a minimal launcher that discovers its own root, selects the qualified toolchain and reports actual product versions and architecture.",
-    "status": "not-started",
+    "status": "complete",
     "required_naming_policy": "DOTNET-API-EXACT-001",
-    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001",
+    "completion_evidence": "planning/stage-2/implementation/acceptance/Batch-2523-accepted-tasks.json",
+    "completed_in_batch": "Batch-2523"
   },
   {
     "id": "SDK-I02-T4",
@@ -10726,7 +10732,7 @@
     "repo": "dotj-build",
     "wp": "SDK-I03",
     "task": "Implement the qualified XML property/item/import/condition evaluation slice with source-derived ordering and exact public names; diagnose unsupported tasks at their import origin.",
-    "status": "not-started",
+    "status": "in-progress",
     "required_naming_policy": "DOTNET-API-EXACT-001",
     "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
   },

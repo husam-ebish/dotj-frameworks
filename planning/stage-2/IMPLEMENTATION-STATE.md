@@ -1,6 +1,27 @@
 # Stage 2 implementation state
 
-## Verified Batch2522 publication
+## Verified Batch2523 publication and named-task acceptance
+
+Source publication master: 08da8bf96a48f37a2ecef9df86d0bc0232bdfb0e. Feature `feature/batch-2523-sdk-seed-launcher-v1` at `04347721b3e4e16caddbb6c34394910eebe94a18`. Actual canonical C product-source proof passed using a D execution copy of six current C reader/helper sources verified against reviewed Git blobs; no C build, JVM or temporary output. Source master/feature pushes and remote refs succeeded. Later factual status merges may advance master.
+
+Usable bounded evaluation SDK0.1.100-dev.1: JDK/source/OS-shell-only seed, relocatable own-root launcher, help/version/info and explicit `msbuild <project> -getProperty:<names>` through the same private evaluator. Four independent builds across Windows/Linux produced identical JAR `ecc7b14562a9bd2ae6108083369a32b7163864f649f233fc34b08386c9b33c2e` (93942B). Both native and candidate command suites cover32cohorts/68invocations each. All affected inherited semantics and154 reader negatives passed; root task and broad reviews plus scoped fixes are approved. Source/SDK/sibling preservation is required and checked.
+
+| Measure | Done | Remaining |
+| --- | --- | --- |
+| Numbered batches | 2523 | Whole-project total/remaining UNKNOWN |
+| Historical2500 milestone | 2500/2500 | 0 to that milestone |
+| SDK seed/launcher/query feature group | 1/1 | 0 in this selected group |
+| Accepted implementation tasks | 3/1092 (0.27%) | 1089 |
+| Open acceptance items | 3 slots closed | 1683 |
+| Fully qualified frameworks | 0/66 | 66 |
+| Git source publication | No-ff merge/push/remote verified | Factual status branch reconciliation |
+| Next concrete task | Source-review/finite plan SDK-I02-T4 owned-process lifecycle | No new batch number assigned until plan |
+
+Accepted full named tasks: `SDK-I01-T1` concrete artifact/source/environment lock; `SDK-I02-T2` JDK-only seed; `SDK-I02-T3` minimal own-root/toolchain/identity launcher. Evidence: `implementation/acceptance/Batch-2523-accepted-tasks.json`. Full packages, generic process ownership, SDK self-rebuild, Java25, public release/distribution and unrelated gates remainOPEN. Windows JDK homes printableASCII-only, encoded-command limit30000UTF16, Windows network-isolated offline unqualified; source seed outputs absolute-only qualified; Linux C.UTF-8/case-enabled9p/NTFS measured. No full.NET/publicSDK parity or installation/feed release claimed.
+
+Product uses qualified JDK APIs only; Python and pinned.NETSDK/runtime are development/reference-validation tools. Complete66-framework dependency graph and public installer/feed remain unresolved. All failed/superseded artifacts/worktrees/branches retained.
+
+## Historical verified Batch2522 publication
 
 Source publication master: 70f7b9f91f65abd5ca9e0d6ce9dedf4c6f81a315; feature feature/batch-2522-build-import-cycle-traces-v1 at 29712106209c5f642ccb4716224ec004f896bf17. Root receipt: D:\AI\Implementation\dotj Frameworks\verification\batch2522-integration-v1\receipt.json.
 
