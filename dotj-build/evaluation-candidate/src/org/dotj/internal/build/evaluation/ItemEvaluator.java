@@ -180,9 +180,24 @@ final class ItemEvaluator {
     private boolean selected(List<String> selectors,ItemSnapshot item) {
         for(String pattern:selectors) {
             if(ItemGlobs.wildcard(pattern)) { if(ItemGlobs.matches(pattern,item.evaluatedInclude()))return true; }
-            else if(ItemExpressions.decode(pattern).replace('\\','/').equalsIgnoreCase(item.evaluatedInclude().replace('\\','/')))return true;
+            else if(comparisonPath(ItemExpressions.decode(pattern)).equalsIgnoreCase(comparisonPath(item.evaluatedInclude())))return true;
         }
         return false;
+    }
+    private String comparisonPath(String identity) {
+        // FileSpecMatchTester compares lexical full paths relative to the root
+        // project. Do not consult the filesystem or alter stored item spelling.
+        // FileUtilities.PathIsInvalid uses this union on both operating systems.
+        int last=Math.max(identity.lastIndexOf('/'),identity.lastIndexOf('\\'))+1;
+        for(int i=0;i<identity.length();i++) {
+            char c=identity.charAt(i);
+            if(c<32||c=='|'||i>=last&&"\"<>:*?".indexOf(c)>=0)return identity;
+        }
+        Path root=state.rootProject.getParent();
+        String value=identity.replace("\\",root.getFileSystem().getSeparator()).replace("/",root.getFileSystem().getSeparator());
+        while(value.endsWith(root.getFileSystem().getSeparator()))value=value.substring(0,value.length()-1);
+        try { return root.resolve(value).toAbsolutePath().normalize().toString(); }
+        catch(java.nio.file.InvalidPathException ex) { return identity; }
     }
     private ItemSnapshot metadata(Element element,ItemSnapshot item,List<ItemSnapshot> prior) throws IOException {
         for(Element child:state.elements(element)) {

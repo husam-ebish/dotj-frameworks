@@ -19,7 +19,7 @@ precede items, and imported item declarations retain defining-project ownership.
 Metadata expands before properties and items without recursive syntax expansion.
 
 The final JAR is SHA256
-`c5e838cd2f344f0cefc7123920a43bf60181843c55168c851c7beafe29a87a38`.
+`303dc40dbb1a5db310a06e82b73038e2649d18d72ca19b79fa7df5eaaa879fea`.
 It matches all42 selected scenario models on Windows and Linux, backed by two
 native passes per platform (168 repeated rows, not168 independent scenarios).
 Four supplemental definitions have16 retained native rows. The same JAR passes
@@ -40,21 +40,21 @@ The retained proof is read without rebuilding or replaying native observers:
 
 ```powershell
 & 'D:/AI/Implementation/dotj Frameworks/toolchains/python-3.13.9/python.exe' -B `
-  tools/oracle/dotj-build/items-evaluation-v1/read_proof_fix1.py `
-  --proof 'D:/AI/Implementation/dotj Frameworks/agents/batch2521-build-items-evaluation-v1/qualification-proof-fix1-v1.json' `
-  --sha256 8716d8d75f0d4117bbcf2fc18d9eb0f299fb792521c49a59a3304732d2e12689 `
-  --jar 'D:/AI/Implementation/dotj Frameworks/agents/batch2521-build-items-evaluation-v1/product-build-v4/dotj-build-evaluation-candidate.jar' `
+  tools/oracle/dotj-build/items-evaluation-v1/read_proof_final_wave.py `
+  --proof 'D:/AI/Implementation/dotj Frameworks/agents/batch2521-build-items-evaluation-v1/qualification-proof-final-wave-v1.json' `
+  --sha256 1165c51b1c2d6f2fcc952d26dc6a7e8ee242696d483238a4bfe1ee8cb8738aa5 `
+  --jar 'D:/AI/Implementation/dotj Frameworks/agents/batch2521-build-items-evaluation-v1/product-build-v5/dotj-build-evaluation-candidate.jar' `
   --source-root $PWD
 ```
 
-The reader checks1518 evidence files, exact executed command/source/JAR identities,
+The reader checks1760 evidence files, exact executed command/source/JAR identities,
 container terminal/cleanup state, the declared corpus mutations and retained
-historical rows. Physical relocation and eleven negative checks passed. A present
+historical rows. Physical relocation and fourteen negative checks passed. A present
 wrong JAR or missing JAR is refused. LF canonicalization admits only Git newline
 conversion in the six-file source closure. Producer tools require fresh owned
 attempt directories and must not be recursively replayed by a proof reader.
 
-Independent review, canonical integration and publication are pending. Published
+The final-wave scoped rereview, canonical integration and publication are pending. Published
 batch counters remain2520; candidate2521 planned1/done0/remaining1 earns no task
 or framework acceptance. E01, recursive dependency/API mapping, exact public .j
 representations, SDK integration and full end-to-end chains remain open.
@@ -66,3 +66,13 @@ platforms, literal percent preservation, fragment order, duplicates and vectors.
 The42 native scenario definitions remain unchanged. The previous704 JAR and
 proof-v3 are historical evidence with this confirmed uncovered defect; all
 required obligations above were rerun on the replacement artifact.
+
+Final wave addresses T130-IMPORTANT-01/02/03 together: fixed glob prefixes use
+raw decoded names before a single escape; literal/list/vector selection compares
+lexically normalized paths while preserving stored spelling; trailing-dot
+Extension metadata is empty. Three separately named families pass on each OS,
+including percent-literal/copy/metadata controls, normalized nonexistent paths,
+duplicates and direct/inline extension controls. All existing obligations above
+ran on the same303dc40 JAR. Prior c5e/proof-fix1 and704/proof-v3 remain historical
+evidence with confirmed uncovered defects. All15 broad-review declined boundary
+families remain OPEN; the full goal and acceptance counters are unchanged.

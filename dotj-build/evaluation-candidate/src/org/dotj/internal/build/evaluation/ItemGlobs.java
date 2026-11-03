@@ -55,7 +55,9 @@ final class ItemGlobs {
         validate(raw);
         String[] parts=raw.split("/",-1);int first=0;
         while(first<parts.length&&!wildcard(parts[first]))first++;
-        String prefix=String.join("/",Arrays.copyOfRange(parts,0,first));
+        // Lookup and returned identities use raw names; the stored identity is
+        // escaped once by walk, including literal percent sequences.
+        String prefix=ItemExpressions.decode(String.join("/",Arrays.copyOfRange(parts,0,first)));
         Path start=root;
         check(start);
         for(int i=0;i<first;i++) {

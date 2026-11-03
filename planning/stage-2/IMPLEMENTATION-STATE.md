@@ -2,7 +2,7 @@
 
 ## Candidate Batch2521 awaiting review and integration
 
-The selected Build item/default/metadata/glob evaluator is implemented and qualified on retained JAR `c5e838cd2f344f0cefc7123920a43bf60181843c55168c851c7beafe29a87a38`: 42 selected native scenarios per platform, 14 private groups, ordering308, Boolean297/private16/control14 and all12 affected historical groups. The stable94 suite changes only the native-backed NEG-items row. Linux evidence covers the measured case-enabled9p/NTFS profile. [Candidate details](implementation/batches/Batch-2521.md) retain proof and scope limits. Independent reviews, canonical integration and publication remain pending; published counters stay2520, selected planned1/done0/remaining1, accepted0/1092, open1686, frameworks0/66 and whole-project total/remainingUNKNOWN.
+The selected Build item/default/metadata/glob evaluator is implemented and qualified on retained JAR `303dc40dbb1a5db310a06e82b73038e2649d18d72ca19b79fa7df5eaaa879fea`: 42 selected native scenarios per platform, 14 private groups, ordering308, Boolean297/private16/control14 and all12 affected historical groups. The stable94 suite changes only the native-backed NEG-items row. Linux evidence covers the measured case-enabled9p/NTFS profile. [Candidate details](implementation/batches/Batch-2521.md) retain proof and scope limits. Task130 final-wave fixes have three separate regression families per OS on the same final artifact; all15 declined boundaries remain OPEN. One scoped final-wave rereview, canonical integration and publication remain pending; published counters stay2520, selected planned1/done0/remaining1, accepted0/1092, open1686, frameworks0/66 and whole-project total/remainingUNKNOWN.
 
 ## Verified Batch2520 publication
 
@@ -1303,7 +1303,7 @@ Updated: 2026-11-02. Baseline: `stage-2-2026-10-20-v2`.
 - Batch-1280: Added selected Int32 custom zero-padding, grouped and fixed numeric patterns. General custom pattern grammar, sections, escaping and provider-specific separators remain open.
 - Batch-1281: Added selected Int32 positive, negative and zero custom-section behavior. General section parsing, conditions, escaping and custom grammar remain open.
 - Batch-1282: Distinguished selected escaped percent literals from active custom percent scaling. General escape and placeholder grammar remain open.
-- Batch-1283: Distinguished selected escaped per-mille literal from active ×1000 placeholder. General escaping, localization and custom placeholder grammar remain open.
+- Batch-1283: Distinguished selected escaped per-mille literal from active Ã—1000 placeholder. General escaping, localization and custom placeholder grammar remain open.
 - Batch-1284: Pinned and implemented selected custom trailing-comma scaling and whole-number rounding. General custom numeric grammar and provider localization remain open.
 - Batch-1285: Pinned and implemented selected scaled fractional custom numeric patterns. General custom pattern grammar, negative zero and provider localization remain open.
 - Batch-1286: Pinned and implemented selected optional fractional placeholders after scaling. Broad placeholder grammar, provider localization and other rounding boundaries remain open.

@@ -100,5 +100,5 @@ final class ItemSnapshot {
     private static String last(String text) { return text.substring(Math.max(text.lastIndexOf('/'),text.lastIndexOf('\\'))+1); }
     private static String directory(String text) { return text.substring(0,Math.max(text.lastIndexOf('/'),text.lastIndexOf('\\'))+1); }
     private static String stem(String text) { int dot=text.lastIndexOf('.');return dot<0?text:text.substring(0,dot); }
-    private static String extension(String text) { int dot=text.lastIndexOf('.');return dot<0?"":text.substring(dot); }
+    private static String extension(String text) { int dot=text.lastIndexOf('.');return dot<0||dot==text.length()-1?"":text.substring(dot); }
 }

@@ -3,24 +3,24 @@
   "batchCandidate": 2521,
   "status": "IMPLEMENTED_QUALIFIED_PENDING_ROOT_REVIEW_INTEGRATION",
   "jar": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\product-build-v4\\dotj-build-evaluation-candidate.jar",
-    "bytes": 79271,
-    "sha256": "c5e838cd2f344f0cefc7123920a43bf60181843c55168c851c7beafe29a87a38"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\product-build-v5\\dotj-build-evaluation-candidate.jar",
+    "bytes": 79712,
+    "sha256": "303dc40dbb1a5db310a06e82b73038e2649d18d72ca19b79fa7df5eaaa879fea"
   },
   "proof": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\qualification-proof-fix1-v1.json",
-    "bytes": 117091,
-    "sha256": "8716d8d75f0d4117bbcf2fc18d9eb0f299fb792521c49a59a3304732d2e12689"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\qualification-proof-final-wave-v1.json",
+    "bytes": 131619,
+    "sha256": "1165c51b1c2d6f2fcc952d26dc6a7e8ee242696d483238a4bfe1ee8cb8738aa5"
   },
   "proofControls": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\proof-controls-fix1-v1\\receipt.json",
-    "bytes": 15237,
-    "sha256": "b49841e7979e1bf472b00ecffc45a90b0e9e95275216b4cc424c40fba6ab026a"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\proof-controls-final-wave-v1\\receipt.json",
+    "bytes": 15524,
+    "sha256": "d8b2364ffe22d82fb8da737088c7951b9179c561ef23672e57c613b1021313eb"
   },
   "proofControlDetails": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\proof-controls-fix1-v1\\controls.json",
-    "bytes": 2480,
-    "sha256": "64df3a069ed5b979e9981080a2061ec68f8c1c519108d56c2a0f77205f74d93c"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\proof-controls-final-wave-v1\\controls.json",
+    "bytes": 2867,
+    "sha256": "d4201d290e0cd740e32413d1be07984e352c6d6cba694ac45014654e60049001"
   },
   "nativeContract": {
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\native-contract-v1.json",
@@ -51,7 +51,8 @@
     "historicalPackagedGroups": 12,
     "stableRows": 94,
     "allowedTransition": "NEG-items only; prior file-specific duplicate NEG-dynamic-import exclusion retained",
-    "separateRawSortRegressionPlatforms": 2
+    "separateRawSortRegressionPlatforms": 2,
+    "separateFinalWaveFamiliesPerPlatform": 3
   },
   "counters": {
     "publishedBatches": 2520,
@@ -81,7 +82,7 @@
   ],
   "fixRound1": {
     "finding": "T129-IMPORTANT-01",
-    "status": "FIXED_QUALIFIED_PENDING_SCOPED_REVIEW",
+    "status": "HISTORICAL_ROUND1_SCOPED_REVIEW_PASSED; raw-sort requalified on current JAR",
     "priorEvidence": {
       "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\fix1-predecessor-sources-v1\\private-items-evaluation-v1.json",
       "bytes": 3418,
@@ -95,5 +96,70 @@
       "bytes": 4443,
       "sha256": "911da9a817cfdbbb754de4e9b1df5c50af50cd3537b2f46708cd77070303406e"
     }
+  },
+  "finalWave": {
+    "findings": [
+      "T130-IMPORTANT-01",
+      "T130-IMPORTANT-02",
+      "T130-IMPORTANT-03"
+    ],
+    "status": "FIXED_QUALIFIED_PENDING_ONE_SCOPED_REREVIEW",
+    "fixes": [
+      "Decode fixed glob prefix once before escaping stored identity once",
+      "Normalize literal/list/vector comparison keys lexically against root project directory; keep original stored spelling and no filesystem lookup",
+      "Terminal-dot extension is empty for item and defining-project metadata"
+    ],
+    "priorJar": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\product-build-v4\\dotj-build-evaluation-candidate.jar",
+      "bytes": 79271,
+      "sha256": "c5e838cd2f344f0cefc7123920a43bf60181843c55168c851c7beafe29a87a38"
+    },
+    "priorProof": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\qualification-proof-fix1-v1.json",
+      "bytes": 117091,
+      "sha256": "8716d8d75f0d4117bbcf2fc18d9eb0f299fb792521c49a59a3304732d2e12689"
+    },
+    "priorDisposition": "HISTORICAL_CONFIRMED_UNCOVERED_TASK130_DEFECTS; c5e and704 evidence retained, not current qualification",
+    "red": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task130-focused-v1\\focused-jvm-receipt.json",
+      "bytes": 8764,
+      "sha256": "e5e38490641475149c273b8ff472b55723e5e949ceaf1df8b6ee6630b3cd59d2"
+    },
+    "regressions": {
+      "windows": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\boundary-windows-v1\\boundaries.stdout",
+        "bytes": 1157,
+        "sha256": "edb324c21c33e2e83e954b836ceba77d3d43b9118b6005051bec1ad0da45b5ca"
+      },
+      "linux": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\boundary-linux-v2\\retained-output\\boundaries.stdout",
+        "bytes": 1139,
+        "sha256": "f848fc07e67c0f8ec7cf6a34cb98741f99485dd1097069ed1257b4e6432ab870"
+      }
+    },
+    "rawSortRegressions": {
+      "windows": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\sort-windows-v2\\raw-sort.stdout",
+        "bytes": 359,
+        "sha256": "9dfd2757ed724419a87ca0b0f2a938c294ccc3fb0b74c93f5c0aaca9c68be141"
+      },
+      "linux": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\sort-linux-v3\\retained-output\\raw-sort.stdout",
+        "bytes": 358,
+        "sha256": "c377dec71b073a5c9d0fa8c10dd33c466b319ba1ee4fbbdc72d4119485513d9a"
+      }
+    },
+    "lateContainerCheck": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\final-wave-late-container-check-v1\\receipt.json",
+      "bytes": 4515,
+      "sha256": "733d05914366e04cbbc339a6af29a01490b2683764e714d67864df72acbd51a0"
+    },
+    "nativeCorpus": "Unchanged42 and4 supplements reused; three source-backed boundary families separately executed per OS",
+    "declinedBoundaries": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task130-declined-dispositions-v1.json",
+      "bytes": 7897,
+      "sha256": "5148a19d8bb012d4ff558dcc74b2c92a48128ebd1411d0f945046d92a41b6a88"
+    },
+    "remaining": "All15 broad-review declined families remain OPEN/full goal unchanged. Canonical C verification, integration and publication remain root-owned mandatory steps."
   }
 }

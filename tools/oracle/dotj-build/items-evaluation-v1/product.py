@@ -42,7 +42,7 @@ def main():
     receipt=dict(status='RUNNING',mode=mode,script=descriptor(out/'product.py'),guard=descriptor(GUARD),
         operations=[],resources=[],inputs=[],outputs=[],environmentOverrides={k:v for k,v in env.items() if os.environ.get(k)!=v})
     def save(): (out/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
-    deadline=time.monotonic()+180 if mode in ('capture-linux','private-linux','sort-linux') else None
+    deadline=time.monotonic()+180 if mode in ('capture-linux','private-linux','sort-linux','boundary-linux') else None
     def run(label,argv,seconds=120,check=True,cleanup=False):
         operation=dict(label=label);receipt['operations'].append(operation);save()
         if deadline:
@@ -74,8 +74,8 @@ def main():
             run('module',[JDK/'jar.exe',*['-J'+v for v in vm],'--describe-module','--file',jar])
             run('result-abi',[JDK/'javap.exe',*['-J'+v for v in vm],'-classpath',jar,'-p','-s','org.dotj.internal.build.evaluation.ProjectEvaluationComponent$Result'])
             receipt['outputs']=[descriptor(jar)]+[descriptor(p) for p in sorted((out/'classes').rglob('*.class'))]
-        elif mode=='container-late-check':
-            name='dotj-task128-sort-linux-v1'
+        elif mode in ('container-late-check','container-late-check-final-wave'):
+            name='dotj-task128-boundary-linux-v1' if mode=='container-late-check-final-wave' else 'dotj-task128-sort-linux-v1'
             raw=run('late-inspect',[DOCKER,'inspect','--type','container',name],10,False)
             if receipt['operations'][-1]['process']['exitCode']==0:
                 values=json.loads(raw)
@@ -90,6 +90,11 @@ def main():
             if receipt['operations'][-1]['process']['exitCode']==0 or 'No such' not in (out/(label+'.stderr')).read_text():
                 raise ValueError('Late container absence unproven')
             receipt['lateOwnedContainerAbsent']=True
+        elif mode=='proof-final-wave':
+            shutil.copyfile(HERE/'proof_controls_final_wave.py',out/'proof_controls_final_wave.py')
+            sys.path.insert(0,str(HERE))
+            import proof_controls_final_wave
+            proof_controls_final_wave.execute(run,out,receipt)
         elif mode=='proof-fix1':
             shutil.copyfile(HERE/'proof_controls_fix1.py',out/'proof_controls_fix1.py')
             sys.path.insert(0,str(HERE))
@@ -107,11 +112,11 @@ def main():
             sys.path.insert(0,str(HERE))
             import history
             history.execute(run,out,vm,receipt,jar)
-        elif mode in ('capture-windows','private-windows','supplement-windows','junction-windows','sort-windows'):
+        elif mode in ('capture-windows','private-windows','supplement-windows','junction-windows','sort-windows','boundary-windows'):
             jar=(A/sys.argv[3]/'dotj-build-evaluation-candidate.jar').resolve()
             receipt['inputs'].append(descriptor(jar))
             src=out/'src';src.mkdir()
-            extra={'private-windows':('ItemsPrivateTest.java',),'supplement-windows':('ItemsSupplementTest.java',),'junction-windows':('ItemsJunctionTest.java',),'sort-windows':('ItemsRawGlobOrderTest.java',)}.get(mode,())
+            extra={'private-windows':('ItemsPrivateTest.java',),'supplement-windows':('ItemsSupplementTest.java',),'junction-windows':('ItemsJunctionTest.java',),'sort-windows':('ItemsRawGlobOrderTest.java',),'boundary-windows':('ItemsFinalWaveTest.java',)}.get(mode,())
             for name in ('ItemsJson.java','ItemsProductCapture.java')+extra:
                 shutil.copyfile(HERE/name,src/name);receipt['inputs'].append(descriptor(src/name))
             shutil.copytree(A/('supplemental-input-v1' if mode=='supplement-windows' else 'corpus-input-v1'),out/'fixtures')
@@ -121,6 +126,12 @@ def main():
             consumer=out/'consumer.jar'
             run('consumer-jar',[JDK/'jar.exe',*['-J'+v for v in vm],'--create','--file',consumer,'--date=2020-01-01T00:00:00Z','-C',out/'classes','.'])
             receipt['consumer']=descriptor(consumer)
+            if mode=='boundary-windows':
+                run('boundaries',[JDK/'java.exe',*vm,'--limit-modules','java.base,java.xml,'+MODULE,'--module-path',jar,
+                    '--patch-module',MODULE+'='+str(consumer),'-m',MODULE+'/org.dotj.internal.build.evaluation.ItemsFinalWaveTest',
+                    out/'boundary-fixtures',jar,descriptor(jar)['sha256']],30)
+                receipt['outputs']=[descriptor(consumer),descriptor(out/'boundaries.stdout')]
+                receipt['status']='PASS';return
             if mode=='sort-windows':
                 run('raw-sort',[JDK/'java.exe',*vm,'--limit-modules','java.base,java.xml,'+MODULE,'--module-path',jar,
                     '--patch-module',MODULE+'='+str(consumer),'-m',MODULE+'/org.dotj.internal.build.evaluation.ItemsRawGlobOrderTest',
@@ -159,14 +170,14 @@ def main():
                 out/'fixtures',out/'fixtures/manifest.json',jar,descriptor(jar)['sha256']],30)
             receipt['fixtureAfter']=[descriptor(p) for p in sorted((out/'fixtures').rglob('*')) if p.is_file()]
             receipt['outputs']=[descriptor(consumer),descriptor(out/'capture.stdout')]
-        elif mode in ('capture-linux','private-linux','sort-linux'):
+        elif mode in ('capture-linux','private-linux','sort-linux','boundary-linux'):
             build=A/sys.argv[3];consumer_dir=A/sys.argv[4];slot=sys.argv[5]
             if not re.fullmatch('product-v[0-9]+',slot):raise ValueError('Declared product slot required')
             jar=build/'dotj-build-evaluation-candidate.jar';consumer=consumer_dir/'consumer.jar'
             work=A/'native-linux-corpus-root-v1';source=A/'corpus-input-v1'
             if not work.is_dir() or (work/slot).exists():raise ValueError('Fresh case-enabled slot required')
             jdk=B/'toolchains/jdk-linux21/jdk-21.0.12.1+1';script=out/'product-capture.sh'
-            shutil.copyfile(HERE/({'private-linux':'private-linux.sh','sort-linux':'sort-linux.sh'}.get(mode,'product-capture.sh')),script)
+            shutil.copyfile(HERE/({'private-linux':'private-linux.sh','sort-linux':'sort-linux.sh','boundary-linux':'boundary-linux.sh'}.get(mode,'product-capture.sh')),script)
             receipt['inputs'] += [descriptor(p) for p in (jar,consumer,script,source/'manifest.json',DOCKER,jdk/'bin/java')]
             receipt['fixtureInputs']=[descriptor(p) for p in sorted(source.rglob('*')) if p.is_file()]
             name='dotj-task128-'+out.name
