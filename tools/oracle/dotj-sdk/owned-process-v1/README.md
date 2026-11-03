@@ -96,3 +96,27 @@ inline result and descriptor-verified inline effects. Preservation targets are
 the existing `effects.after.source`, `priorSDK` and `siblings` inventories.
 Pure synthetic checks exercise all60 pointer mutations and their intended binding
 assertions. These checks establish contract coherence, not native behavior.
+
+## Native fixture wire and capture ownership
+
+The native fixture emits one UTF8 `dotj.owned-process.fixture-observation/1`
+JSON object plus LF on stdout, including in exit17 mode. It reports actual Main
+payload, cwd/environment and its API-child operations. It never declares capture
+completion or fabricates driver streams, effects, guard, network or container
+facts. The driver independently observes outer exit17 and retains the whole
+stdout JSON as `stdout.bin`; API-child bytes stay in verified base64/length/SHA256
+fields inside the subordinate observation. They never replace outer raw streams.
+The final result retains this subordinate object and explicitly identifies the
+driver, fixture and API-child actors. Parent environment snapshots belong to the
+named actor. Request digests still bind exact retained prelaunch bytes.
+
+`environment.baseline` is exactly `{values: complete string-to-string map}`.
+Apply baseline to a child-local map, then remove names, then set names in ordinal
+key order. Linux names are case-sensitive; Windows uses native case-insensitive
+name equivalence. Preserve case-distinct request keys and record actual native
+outcomes independently. Neither process changes global environment, cwd or console
+encoding. The full field and merge rules are in `contract.json`.
+New captures use controlled minimal environments containing only required OS/tool
+settings and synthetic sentinels. Observe the actual controlled caller maps;
+never copy unrelated host credentials into captures or substitute the requested
+map for observed state. Historical private failed receipts remain preserved.

@@ -224,7 +224,7 @@
       "executable": "absolute selected path plus sha256",
       "argv": "ordered string array, exact UTF16 and Unicode scalar arrays retained",
       "cwd": "absolute child working directory",
-      "environment": "explicit inherited baseline descriptor plus set map/remove array; no ambient unknown baseline",
+      "environment": "Exactly {baseline:{values: complete case-preserving string-to-string map}, set: string-to-string map, remove: string array}; environmentWire defines validation/application. Whole exact requestSha256 binds all values; no secondary baseline descriptor/hash.",
       "stdin": "base64 bytes plus sha256/length",
       "secrets": "synthetic sentinel labels and values from fixtures only",
       "deadlineMillis": "integer <= typedBounds.operationMillis including cleanup",
@@ -247,7 +247,7 @@
       "handles": "launchSlot, pid, startIdentity, retained, cancel/destroy/force events, observedExit, exitCode, terminal",
       "workers": "stdin/stdout/stderr started, closed, terminal, joined, errorCategory",
       "timing": "monotonic start/end/deadline/cleanup timestamps",
-      "streams": "stdout/stderr byte length sha256 path and truncation boolean",
+      "streams": "Raw tested-process stdout/stderr byte length sha256 path and truncation boolean. For native reference fixture rows these are driver-observed outer streams: fixture stdout JSON remains stdout.bin and API-child streams stay embedded. Product/helper rows retain tested-process stream semantics.",
       "diagnostics": "SDK-owned categorical diagnostic bytes and redaction checks, separate from raw streams",
       "effects": "effects.json descriptor",
       "outerGuard": "used boolean, actions, observed terminal; intervention forces failed capture",
@@ -256,8 +256,10 @@
       "status": "CAPTURE_COMPLETE|CAPTURE_FAILED; no invented product PASS",
       "argvCodepoints": "Mandatory ordered arrays of integer Unicode scalars derived independently from received payload argv, excluding fixture controls; never copied from request argv. Empty token is an empty scalar array.",
       "argvUtf16Lengths": "Mandatory per-received-payload-token UTF16 code-unit lengths, including zero for an empty token.",
-      "parentEnvironmentBefore": "Mandatory complete case-preserving parent environment map captured before launching child.",
-      "parentEnvironmentAfter": "Mandatory complete case-preserving parent environment map after termination/cleanup; equals parentEnvironmentBefore. Child environment observations are separate."
+      "parentEnvironmentBefore": "Complete actual process-owning caller environment map before launch. For native reference fixture rows this is the driver; nested fixtureObservation parent snapshots separately belong to fixture. Product rows retain the actual tested helper caller as actor, not an unrelated outer Python driver.",
+      "parentEnvironmentAfter": "Complete actual same-caller environment map after cleanup; equals its before snapshot. For native fixture rows driver snapshots never substitute fixture/API-child maps. Product helper nonmutation still requires its actual caller snapshots.",
+      "fixtureObservation": "Verified subordinate fixtureStdout object for native reference fixture rows; null for engines without this fixture. Embedded API-child facts remain nested and actor-scoped.",
+      "observationActors": "Explicit actor map defined by fixtureToDriver.actorMap; prevents driver parent snapshots or outer streams from being mistaken for fixture/API-child facts."
     },
     "effectsFields": {
       "schema": "constant dotj.owned-process.effects/1",
@@ -273,7 +275,7 @@
       "cleanup": "product and outer-guard actions separately"
     },
     "aggregateRule": "After completion, reference request.json becomes the row envelope defined by requestRetention, retaining exact prelaunch request bytes as base64. Product observation.json uses the same envelope. Four per-row files remain unchanged. Boundary observation.json contains ordered per-mode envelopes with raw stream offsets and actual invocations; all modes mandatory.",
-    "framing": "UTF8 JSON, duplicate keys forbidden, finite numbers only; raw binary stdout/stderr unmodified. Echo emits actual received payload tokens, independently derived scalar arrays/UTF16 lengths, cwd and env. Request byte retention follows requestRetention exactly. READY events carry rowId and handle identity. File descriptors carry relative path, byte length and lowercase SHA256.",
+    "framing": "UTF8 JSON, duplicate keys forbidden, finite numbers only; raw outer stdout/stderr unmodified. Native fixture stdout follows fixtureStdout subordinate schema, then fixtureToDriver constructs the final observation. Request byte retention remains requestRetention unchanged. Fixture READY events are subordinate actor-scoped event records. File descriptors carry relative path, byte length and lowercase SHA256.",
     "channels": "Raw child protocol and TRACE/JFR/OS data retained in explicitly separate objects, never replayed as SDK-owned diagnostics. Only synthetic secret fixtures allowed.",
     "guard": "Outer owned-process guard must record direct processes/container and terminal cleanup. It protects the capture host only. Any guard cleanup needed for a product case makes that case/capture non-success; retain evidence and do not publish a complete proof.",
     "normalization": "Only explicit product names, fixture roots, timestamps and platform artifact representations may be compared with reviewed mappings. Never normalize exit status, codepoint loss, effects, missing warning, cancellation or telemetry exposure.",
@@ -290,6 +292,108 @@
       "hashDomain": "requestSha256 = lowercase SHA256(base64-decode(requestBytesBase64)), over the exact prelaunch bytes R, including whitespace and optional final newline. requestBytesLength = len(R). Result and effects requestSha256 must equal this digest. No parse/reserialize normalization is permitted.",
       "roundTrip": "Reader strictly base64-decodes R, validates its length/hash and UTF8 JSON, then uses that parsed object as the request. There is no separately authoritative nested request object.",
       "finalEnvelopeDigest": "The descriptor in the aggregate/proof hashes final envelope file bytes E independently, after result insertion. No digest of E is stored inside E. The graph is aggregate -> E -> R and result/effects -> SHA256(R), never E -> SHA256(E)."
+    },
+    "environmentWire": {
+      "shape": {
+        "baseline": {
+          "values": "complete string-to-string map"
+        },
+        "set": "string-to-string map",
+        "remove": "string array"
+      },
+      "validation": "All three environment members and baseline.values are mandatory, even when empty. baseline has exactly values, never path/sha256/bytes. JSON duplicate keys forbidden; case-distinct keys remain distinct in JSON. Names are nonempty strings without NUL or =; values are strings without NUL; remove entries obey name rules. Reject malformed Unicode. No implicit ambient-map merge.",
+      "application": "Create a child-local environment from baseline.values, apply remove entries in array order, then apply set entries in ordinal Unicode-scalar key order (JSON member order never controls precedence). Use the same ordinal order to apply baseline keys. Values are not shell expanded. On Linux names compare case-sensitively; on Windows the native environment compares names case-insensitively using ordinal-ignore-case semantics. Later applied equivalent names replace the value; retain the spelling of the later entry in the requested map, but record actual OS-returned spelling independently.",
+      "caseCorpus": "Dotj_Case and dotj_case both remain in the request. Linux expects two distinct names; Windows application collapses their equivalence class in the specified order. Do not claim both survive Windows or normalize away the observed key spelling/value. Native API/OS-added entries are retained as actual observations and explicitly compared, not rewritten to the requested map.",
+      "actors": "Driver applies request.environment to the launched fixture/SDK process using its child-only start configuration. Fixture observes its own actual environment independently. For an API child, fixture applies that same explicit environment to the child-only ProcessStartInfo and separately observes any child-reported environment; its own environment is the parent of that API child. Driver parent snapshots describe the driver, not the fixture.",
+      "nonmutation": "Neither driver nor fixture may mutate process-global environment, current directory or console encoding to configure a child. Child cwd and UTF8 I/O encoding are configured per child/stream; snapshot/report actors separately.",
+      "captureSetup": "New capture driver and native fixtures run under a complete controlled minimal environment: only required OS/toolchain paths/settings and synthetic sentinels from a reviewed per-profile allowlist. Never copy unrelated host environment/credentials into baseline or snapshots. Full before/after maps are independently observed from the actual controlled caller, not substituted from request. SDK-command route final parent snapshots belong to capture driver; API-harness route additionally records fixture-as-API-parent snapshots independently. Preserve historical failed private receipts without dumping/publishing host environment. This harness setup rule does not prohibit secret argv fixtures or weaken product diagnostic redaction."
+    },
+    "fixtureStdout": {
+      "schema": "dotj.owned-process.fixture-observation/1",
+      "framing": "Exactly one UTF8 JSON object followed by one LF on fixture stdout on normal fixture completion, including exit17; no BOM, leading text or multiple JSON values. Strict duplicate-key/nonfinite-number rejection. Fixture stderr remains separate raw bytes. A missing/malformed observation is a driver capture failure, never a fabricated observation.",
+      "requiredFields": {
+        "schema": "constant dotj.owned-process.fixture-observation/1",
+        "rowId": "exact request rowId",
+        "requestSha256": "lowercase SHA256 of exact prelaunch request file bytes R, before parsing; same retained R as final driver envelope",
+        "mode": "exact fixed fixture mode",
+        "actor": "{kind:reference-fixture,pid:positive integer}; PID belongs to fixture itself, not driver or API child",
+        "receivedPayload": "{argv:string array,argvCodepoints:integer scalar arrays,argvUtf16Lengths:integer array}; independently derived from actual Main payload suffix",
+        "cwd": "actual fixture current directory string",
+        "environment": "{values:complete actual fixture environment string-map}; not copied from requested baseline",
+        "parentEnvironmentBefore": "complete actual fixture environment map before API-child operations; actor is fixture, not driver",
+        "parentEnvironmentAfter": "complete actual fixture environment map after API-child cleanup; equals fixture before snapshot",
+        "apiOperations": "array of apiOperation objects below; empty for SDK-command-only modes",
+        "events": "array of {kind:READY|EXIT_OBSERVED|CLEANUP,rowId:string,actorPid:integer}; observations of fixture/API lifecycle only, never outer capture claims",
+        "expectedOuterExitCode": "17 for exit17;0 for successfully completed other fixture modes; nonzero for fixture failure. This is declared intent, not proof of actual outer exit; driver independently records actual process exit.",
+        "errors": "array of {category:string,actorPid:integer}; fixture-owned bounded error categories only; no raw request/secrets or fabricated driver diagnostics"
+      },
+      "apiOperation": {
+        "requiredFields": [
+          "id",
+          "parentActorPid",
+          "childPid",
+          "invocation",
+          "disposition",
+          "exitCode",
+          "handles",
+          "workers",
+          "timing",
+          "streams",
+          "childObservation"
+        ],
+        "identity": "id unique within fixture; parentActorPid equals fixture actor.pid; childPid is actual child PID or null on failed start. All handle/worker facts refer only to this API operation.",
+        "invocation": "{executable:absolute string,argv:string array,cwd:absolute string,environment:environmentWire}; actual child-only ProcessStartInfo values, not outer SDK invocation",
+        "outcome": "disposition uses final process-disposition enum but describes only API child; exitCode is actual observed child exit or null; handles/workers/timing use existing field definitions scoped to API child. Cancellation of wait is recorded separately from destroy/force/actual exit.",
+        "streams": "Exactly {stdout:embeddedBytes,stderr:embeddedBytes}; bytes are raw API-child bytes, not fixture outer stdout JSON. No invented empty bytes when unavailable: {base64:null,bytes:null,sha256:null,available:false}; otherwise available:true and embeddedBytes checks mandatory.",
+        "childObservation": "null when no child protocol observation exists, otherwise {pid,receivedPayload,cwd,environment:{values}} independently reported by child and bound to API child identity; never filled from request."
+      },
+      "embeddedBytes": {
+        "requiredFields": [
+          "available",
+          "base64",
+          "bytes",
+          "sha256"
+        ],
+        "rule": "If available=true, strict base64 decodes exact bytes B, bytes=len(B), sha256=lowercase SHA256(B). Apply existing stream byte caps. Parsed content does not replace B. Driver/reader materializes B in memory from these fields; no extra per-row files are required. Retain outer stdout.bin/stderr.bin unchanged."
+      },
+      "ownership": "Fixture emits no CAPTURE_COMPLETE/status, effects snapshot, outer streams descriptor, outerGuard, network or container assertions. It does not emit the final dotj.owned-process.observation/1 object."
+    },
+    "fixtureToDriver": {
+      "scope": "This merge applies only to native reference fixture rows. It does not redefine product/helper observation ownership: product rows still report the tested owned process and its actual caller, with explicit actor attribution.",
+      "verify": "Driver retains all outer stdout/stderr bytes first, parses the single fixture observation from raw stdout only after observing process termination, verifies schema/rowId/mode/requestSha256/actor identities, embedded byte hashes and independent received-payload consistency. A valid exit17 observation plus observed actual exit17 is complete reference capture, not a successful child exit.",
+      "preserve": "Final result.fixtureObservation contains the exact parsed subordinate object from outer stdout; descriptor binding to outer stdout bytes preserves its raw representation. Never flatten API-child streams/lifecycle into outer fields, never replace stdout.bin JSON with embedded API-child stdout.",
+      "driverOwnedFields": [
+        "schema",
+        "rowId",
+        "requestSha256",
+        "engine",
+        "platform",
+        "invocation",
+        "disposition",
+        "exitCode",
+        "launched",
+        "handles",
+        "workers",
+        "timing",
+        "streams",
+        "diagnostics",
+        "effects",
+        "outerGuard",
+        "network",
+        "container",
+        "status",
+        "parentEnvironmentBefore",
+        "parentEnvironmentAfter",
+        "observationActors"
+      ],
+      "fixtureDerivedFields": {
+        "argvCodepoints": "verified fixture.receivedPayload.argvCodepoints",
+        "argvUtf16Lengths": "verified fixture.receivedPayload.argvUtf16Lengths",
+        "fixtureObservation": "verified entire subordinate fixture object"
+      },
+      "driverFacts": "Final invocation/exit/handles/workers/timing/streams refer to driver-owned outer SDK/fixture process. Final parentEnvironmentBefore/After describe the driver process. Driver alone records complete effects snapshots, raw outer streams descriptors, actual exit, guard actions, network/container evidence, and creates retained request/final envelope. Fields must come from real driver observations, never defaults supplied by fixture.",
+      "actorMap": "observationActors is exactly {outerProcess:driver-owned-outer,parentEnvironment:driver,payload:reference-fixture,apiOperations:reference-fixture-child-operations} for reference fixture rows. Nested fixture.parentEnvironmentBefore/After belong to fixture; nested childObservation.environment belongs to API child. Other engines set payload to product-child or jdk-probe and fixtureObservation:null.",
+      "failure": "Driver sets CAPTURE_FAILED for malformed/missing subordinate object, mismatched binding, unavailable mandatory evidence, guard intervention or cleanup failure. Fixture cannot declare capture completion. expectedOuterExitCode must match independently observed actual exit; a nonzero intentional fixture code does not alone make the capture fail."
     }
   },
   "proofEnvelope": {
