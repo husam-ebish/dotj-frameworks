@@ -121,6 +121,14 @@ def main():
   for key in ['windows-normal','windows-unicode']:
    add('C05',key+'-build-argv',lambda b,key=key:document(b,build_entry(b,key)['receipt'],lambda r:r['operations'][1]['process']['argv'].__setitem__(-1,base64.b64encode(b'wrong invocation'.decode().encode('utf-16-le')).decode())))
   add('C05','windows-transport-script',lambda b:replace_raw(b,build_entry(b,'windows-unicode')['evidence']['transportScript'],b'exit 0\n'))
+  def ambient_after(b,remove):
+   entry=build_entry(b,'windows-unicode');after=copy.deepcopy(entry['evidence']['sourceAfter']);name='dotj-sdk/src/org/dotj/internal/build/evaluation/Ambient.java'
+   if remove:after.pop(name)
+   else:replace_raw(b,after[name],b.raw(after[name])+b'\n// changed after build\n')
+   entry['evidence']['sourceAfter']=after
+   document(b,entry['receipt'],lambda r:r.__setitem__('sourceAfter',copy.deepcopy(after)))
+  add('C07','windows-unicode-ambient-content-change',lambda b:ambient_after(b,False))
+  add('C07','windows-unicode-ambient-removal',lambda b:ambient_after(b,True))
   for number,(cohort,name,mutate) in enumerate(cases):
    candidate=copy.copy(base);candidate.proof=copy.deepcopy(base.proof);candidate.cache=dict(base.cache);mutate(candidate)
    folder=r.out/(f'{number:02}-'+name.replace('/','__'));folder.mkdir();(folder/'objects').mkdir();save(folder/'proof.json',candidate.proof)
@@ -132,6 +140,7 @@ def main():
     candidate.proof=m.unique_json((folder/'proof.json').read_text(encoding='utf-8'));m.check_loaded(candidate,a.jar,a.source_root)
    except (ValueError,KeyError,AssertionError,zipfile.BadZipFile) as caught:reason=str(caught)
    if not reason:raise AssertionError('Negative accepted: '+name)
+   if name.startswith('windows-unicode-ambient-'):assert reason=='Build full source-tree immutability',reason
    result['negatives'].append(dict(id=name,cohort=cohort,rejected=True,reason=reason,mutant=descriptor(folder/'proof.json'),overlay=[descriptor(p) for p in (folder/'objects').iterdir()]))
    save(r.out/'result.json',result)
   # Complete physical copies; no links to the original source, SDK or reader.

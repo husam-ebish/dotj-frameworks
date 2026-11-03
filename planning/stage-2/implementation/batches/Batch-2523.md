@@ -46,10 +46,14 @@ acceptance items 1686, qualified frameworks 0/66, historical2500 remaining0,
 project batch total/remaining UNKNOWN. Root owns all publication/counter changes.
 
 The [exact qualification record](../../repos/dotj-sdk/evidence/sdk-seed-v1.json)
-binds the Task137 round1 proof, 2636 bundled objects and 119 executed
-reader variants. Initial proof v9 (2520 objects/41 variants) is retained and
-explicitly superseded. The repair requires all six reader dependencies, current
+binds the Task137 round2 proof, 2640 bundled objects and 121 executed
+reader variants. Initial proof v9 (2520 objects/41 variants) and round1
+(2636 objects/119 variants) are retained and explicitly superseded. The repair
+requires all six reader dependencies, current
 reader/base scope ancestry, actual relocation invocation/summary, and semantic
-outputs for all four source-build profiles. Product sources and JAR are unchanged.
+outputs for all four source-build profiles. Round2 restores complete Windows
+Unicode 15-file source-tree preservation, including uncompiled Ambient.java,
+with two focused change/removal controls. The 14 declared-input and seven
+staged-source checks remain separate. Product sources and JAR are unchanged.
 FINAL_QUALIFICATION requires the complete control record; removing it fails.
 Base-for-controls proofs emit an explicitly nonfinal status.

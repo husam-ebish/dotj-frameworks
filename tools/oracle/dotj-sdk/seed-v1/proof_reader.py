@@ -13,7 +13,7 @@ INHERITED_NAMES={f'{mode}-{os}-final-v1' for os in ['windows','linux'] for mode 
 READER_FILES=('proof_reader.py','inherited/read_proof.py','inherited/compare.py','inherited/corpus.py','inherited/native_lock.py','inherited/inherited_models.py')
 SCOPE_FIELDS=('schema','artifact','sources','expectedSources','classes','entries','readers','baseline','contract','consumedContract','profile','native','builds','queries','recoveryWindows','recoveryLinux','inherited','scenarios','gaps','supplementalEvidence','featureRed','rulings')
 BINDING_CONTROL_IDS={'controls-reader-missing','controls-reader-wrong','controls-base-missing','controls-base-wrong','controls-scope-missing','controls-scope-wrong','relocation-argv-wrong','relocation-summary-wrong','relocation-reader-missing','relocation-source-missing'}|{'controls-scope-'+name for name in ('artifact','sources','contract','builds','queries','recoveryWindows','recoveryLinux','inherited')}
-BUILD_CONTROL_IDS={key+'-'+kind for key in BUILD_IDS for kind in ('output-omission','output-binding','output-data','staged-omission','provider-omission','source-omission','provider-data')}|{'linux-unicode-empty-data','linux-unicode-empty-exit','linux-unicode-stderr','linux-normal-help-data','windows-normal-exit','windows-normal-build-argv','windows-unicode-build-argv','windows-transport-script'}
+BUILD_CONTROL_IDS={key+'-'+kind for key in BUILD_IDS for kind in ('output-omission','output-binding','output-data','staged-omission','provider-omission','source-omission','provider-data')}|{'linux-unicode-empty-data','linux-unicode-empty-exit','linux-unicode-stderr','linux-normal-help-data','windows-normal-exit','windows-normal-build-argv','windows-unicode-build-argv','windows-transport-script','windows-unicode-ambient-content-change','windows-unicode-ambient-removal'}
 def require(ok,message):
  if not ok:raise ValueError(message)
 def sha(raw):return hashlib.sha256(raw).hexdigest()
@@ -104,6 +104,7 @@ def check_build(b,entry,declared):
  labels=CONTAINER_OPS if linux else ({'seed-build','help','query'} if not unicode else {'build','unicode-scalar-0','unicode-scalar-1','empty-token','transport-bound'})
  r=receipt(b,entry['receipt'],labels);require(r['jar']['sha256']==p['artifact']['sha256'],'Reproducible JAR')
  e=entry['evidence'];require(set(e)=={'provider','stagedSources','sourceBefore','sourceAfter','outputs'}|({'transportScript'} if key=='windows-unicode' else set()),'Mandatory build evidence inventory')
+ if key=='windows-unicode':require(digests(r['sourceBefore'])==digests(r['sourceAfter']),'Build full source-tree immutability')
  source_names=set(p['sources']);require(source_names<=set(e['sourceBefore']) and source_names<=set(e['sourceAfter']),'Build source input inventory')
  for name in source_names:
   require(e['sourceBefore'][name]['sha256']==e['sourceAfter'][name]['sha256']==p['sources'][name]['sha256'],'Build declared source identity')
