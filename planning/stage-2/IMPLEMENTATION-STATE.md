@@ -1,6 +1,30 @@
 # Stage 2 implementation state
 
-## Verified Batch2521 publication
+## Verified Batch2522 publication
+
+Source publication master: 70f7b9f91f65abd5ca9e0d6ce9dedf4c6f81a315; feature feature/batch-2522-build-import-cycle-traces-v1 at 29712106209c5f642ccb4716224ec004f896bf17. Root receipt: D:\AI\Implementation\dotj Frameworks\verification\batch2522-integration-v1\receipt.json.
+
+The private evaluator adds immutable full root-prefix cycle witnesses and an unchanged-result/original-failure sidecar. Legacy Result six/seven constructors, DuplicateImport and failure ABI remain unchanged. Root-first and three individual import-profile semantics are preserved. No native public Chain parity is claimed.
+
+Final JAR 87603c578e40f70f62289abbb35ed370abbf176204b5c3b1d763acacb8edfe27 is 83540 bytes, six sources and43 classes. Selected19graphs x3profiles on both measured OS, 228 full-field native row-passes, fourteen private groups, ABI and all inherited items42/private61/supplements4/sort/boundary/ordering/Boolean/history14/stable94 obligations passed on this artifact. Actual canonical C pure proof passed 1369 content-addressed objects using retained D JAR/bundle; no C build or JVM. Independent task and broad reviews, scoped fixes and exact final proof/reader are bound by the root integration approval. All superseded proofs and failed attempts remain historical. Linux is measured case-enabled Windows-backed Docker9p/NTFS, not genericext4.
+
+| Measure | Done | Remaining |
+| --- | --- | --- |
+| Numbered candidate batches | 2522 | Project total/remaining UNKNOWN |
+| Historical2500 milestone | 2500/2500 | 0 to that milestone |
+| Selected import-cycle feature | 1/1 | 0 in this group |
+| Native row-pass observations, not batches | 228/228 | 0 |
+| Accepted implementation tasks | 0/1092 (0%) | 1092 |
+| Open acceptance items | no closure credit | 1686 |
+| Qualified frameworks | 0/66 | 66 |
+| Git source publication | Merge/push/remote refs verified | Factual status commits may advance master |
+| Next concrete task | SDK-I01 source baseline and finite seed/launcher/CLI plan | Next batch unassigned until adoption |
+
+JDK java.base/java.xml are product APIs; Python/.NET are validation tools. Full WP01/E01/E02/E03/N01/public API/SDK acceptance, the complete dependency graph and public SDK/feed distribution remain OPEN. No accepted-task or framework credit was added.
+
+
+
+## Historical verified Batch2521 publication
 
 Batch2521 is implemented, independently reviewed, canonically verified, merged and pushed at `1269a1bb1181cda169b5cb9be57a0ff5ad6ef2f0`. The source feature ref was also verified remotely. Publication receipt: `D:/AI/Implementation/dotj Frameworks/verification/batch2521-integration-completion-v1/receipt.json`.
 
