@@ -2,7 +2,7 @@
 
 ## Candidate Batch2521 awaiting review and integration
 
-The selected Build item/default/metadata/glob evaluator is implemented and qualified on retained JAR `704262c0a416bd1b79cf0734a69569dd1e3929da67b70cf4f6a657932b805b94`: 42 selected native scenarios per platform, 14 private groups, ordering308, Boolean297/private16/control14 and all12 affected historical groups. The stable94 suite changes only the native-backed NEG-items row. Linux evidence covers the measured case-enabled9p/NTFS profile. [Candidate details](implementation/batches/Batch-2521.md) retain proof and scope limits. Independent reviews, canonical integration and publication remain pending; published counters stay2520, selected planned1/done0/remaining1, accepted0/1092, open1686, frameworks0/66 and whole-project total/remainingUNKNOWN.
+The selected Build item/default/metadata/glob evaluator is implemented and qualified on retained JAR `c5e838cd2f344f0cefc7123920a43bf60181843c55168c851c7beafe29a87a38`: 42 selected native scenarios per platform, 14 private groups, ordering308, Boolean297/private16/control14 and all12 affected historical groups. The stable94 suite changes only the native-backed NEG-items row. Linux evidence covers the measured case-enabled9p/NTFS profile. [Candidate details](implementation/batches/Batch-2521.md) retain proof and scope limits. Independent reviews, canonical integration and publication remain pending; published counters stay2520, selected planned1/done0/remaining1, accepted0/1092, open1686, frameworks0/66 and whole-project total/remainingUNKNOWN.
 
 ## Verified Batch2520 publication
 

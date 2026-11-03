@@ -302,9 +302,9 @@
     "sha256": "a1af749f1f1016ffdb8c9f87ef0d025170aea57d07732eb77afe5a4e7366118a"
   },
   "productProof": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\qualification-proof-v3.json",
-    "bytes": 102725,
-    "sha256": "15cfca4f46b84ad38b36b51eeb30b248cca4fd80861b2bb619e870193cc667db"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\qualification-proof-fix1-v1.json",
+    "bytes": 117091,
+    "sha256": "8716d8d75f0d4117bbcf2fc18d9eb0f299fb792521c49a59a3304732d2e12689"
   },
   "nativeCompiledInventory": {
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\native-prerequisite-v3\\compiled-inventory.stdout",
@@ -350,5 +350,33 @@
       "Verify current source/tool hashes and old JAR retained; root creates feature branch after fresh fetch"
     ]
   },
-  "publicPromotion": "OPEN: exact public .j representations, API facade, recursive dependency/rights closure, SDK/workflows and complete acceptance"
+  "publicPromotion": "OPEN: exact public .j representations, API facade, recursive dependency/rights closure, SDK/workflows and complete acceptance",
+  "fixRound1": {
+    "finding": "T129-IMPORTANT-01",
+    "resolution": "Per-glob sort key is the once-decoded raw identity, ASCII case-folded. Escaped storage, fragment order and multiplicity unchanged.",
+    "source": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Utilities\\EngineFileUtilities.cs",
+      "bytes": 34090,
+      "sha256": "ce5a8639da36d69c03195e1bad7163f7f816d0c771d4dd63ffb30f8a8b4252d7"
+    },
+    "sourceLines": "376-386",
+    "red": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task129-focused-v3\\focused-jvm-receipt.json",
+      "bytes": 7327,
+      "sha256": "76b416977d0435f1c8075c11507b3c85f7ed083cedfbefcfaaab03ed8e0bb635"
+    },
+    "separateRegressions": {
+      "windows": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\sort-windows-v1\\raw-sort.stdout",
+        "bytes": 359,
+        "sha256": "82cd92c3be1f9b7bc3520e3dfaf99adf498fc462d220bb53dc9305fec0ded87c"
+      },
+      "linux": {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\sort-linux-v2\\retained-output\\raw-sort.stdout",
+        "bytes": 358,
+        "sha256": "08d969ef11a80ffc8ac23bf51a74d46d2ee5b7725c19d19d2398b7e6f6c09934"
+      }
+    },
+    "priorProductDisposition": "704JAR and proof-v3 are historical retained evidence with confirmed uncovered sorting defect; not current qualification"
+  }
 }

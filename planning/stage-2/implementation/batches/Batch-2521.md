@@ -9,7 +9,7 @@ frameworks0/66 and project total/remainingUNKNOWN are unchanged.
 The [private contract](../../../../dotj-build/evaluation-candidate/items-evaluation-v1/README.md)
 adds deferred item/default evaluation, ordered operations, metadata and bounded
 globs using only java.base/java.xml. Product JAR SHA256 is
-`704262c0a416bd1b79cf0734a69569dd1e3929da67b70cf4f6a657932b805b94`.
+`c5e838cd2f344f0cefc7123920a43bf60181843c55168c851c7beafe29a87a38`.
 The [qualification record](../../repos/dotj-build/evidence/private-items-evaluation-v1.json)
 pins actual native captures, compiled inventory, final product receipts and proof.
 
@@ -19,7 +19,7 @@ and12 historical packaged groups on the same final artifact. Stable94 has only
 the native-backed `NEG-items` transition. Windows54, Linux4 and Windows junction3
 private rows are controls, not extra semantic scenarios or acceptance credit.
 Linux uses the qualified case-enabled9p/NTFS profile. Physical reader/source/JAR
-relocation, present-wrong/missing-JAR refusals and8 actual negative predicate
+relocation, present-wrong/missing-JAR refusals and9 actual negative predicate
 controls passed. Prior failed builds, runner attempts and proof versions remain
 retained under the feature's D artifact directory.
 
@@ -27,3 +27,9 @@ Public API exposure, .j representations, E01, recursive source/dependency
 mapping, SDK/workflows, complete end-to-end chains and full task acceptance
 remain open. The parent controller owns reviews, merge, push and publication
 reconciliation. No unrelated Core foundation gate was replayed.
+
+Fix round1: T129-IMPORTANT-01 corrected raw per-glob ordering before escape
+representation. Two separately counted Windows/Linux regression executions
+passed; the frozen42 corpus is unchanged. All required groups above were
+requalified on the replacement JAR. Prior704/proof-v3 evidence is historical
+with the known sorting defect. Scoped rereview remains pending.

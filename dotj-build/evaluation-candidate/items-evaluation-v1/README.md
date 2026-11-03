@@ -19,7 +19,7 @@ precede items, and imported item declarations retain defining-project ownership.
 Metadata expands before properties and items without recursive syntax expansion.
 
 The final JAR is SHA256
-`704262c0a416bd1b79cf0734a69569dd1e3929da67b70cf4f6a657932b805b94`.
+`c5e838cd2f344f0cefc7123920a43bf60181843c55168c851c7beafe29a87a38`.
 It matches all42 selected scenario models on Windows and Linux, backed by two
 native passes per platform (168 repeated rows, not168 independent scenarios).
 Four supplemental definitions have16 retained native rows. The same JAR passes
@@ -40,16 +40,16 @@ The retained proof is read without rebuilding or replaying native observers:
 
 ```powershell
 & 'D:/AI/Implementation/dotj Frameworks/toolchains/python-3.13.9/python.exe' -B `
-  tools/oracle/dotj-build/items-evaluation-v1/read_proof.py `
-  --proof 'D:/AI/Implementation/dotj Frameworks/agents/batch2521-build-items-evaluation-v1/qualification-proof-v3.json' `
-  --sha256 15cfca4f46b84ad38b36b51eeb30b248cca4fd80861b2bb619e870193cc667db `
-  --jar 'D:/AI/Implementation/dotj Frameworks/agents/batch2521-build-items-evaluation-v1/product-build-v3/dotj-build-evaluation-candidate.jar' `
+  tools/oracle/dotj-build/items-evaluation-v1/read_proof_fix1.py `
+  --proof 'D:/AI/Implementation/dotj Frameworks/agents/batch2521-build-items-evaluation-v1/qualification-proof-fix1-v1.json' `
+  --sha256 8716d8d75f0d4117bbcf2fc18d9eb0f299fb792521c49a59a3304732d2e12689 `
+  --jar 'D:/AI/Implementation/dotj Frameworks/agents/batch2521-build-items-evaluation-v1/product-build-v4/dotj-build-evaluation-candidate.jar' `
   --source-root $PWD
 ```
 
-The reader checks1276 evidence files, exact executed command/source/JAR identities,
+The reader checks1518 evidence files, exact executed command/source/JAR identities,
 container terminal/cleanup state, the declared corpus mutations and retained
-historical rows. Physical relocation and ten negative checks passed. A present
+historical rows. Physical relocation and eleven negative checks passed. A present
 wrong JAR or missing JAR is refused. LF canonicalization admits only Git newline
 conversion in the six-file source closure. Producer tools require fresh owned
 attempt directories and must not be recursively replayed by a proof reader.
@@ -58,3 +58,11 @@ Independent review, canonical integration and publication are pending. Published
 batch counters remain2520; candidate2521 planned1/done0/remaining1 earns no task
 or framework acceptance. E01, recursive dependency/API mapping, exact public .j
 representations, SDK integration and full end-to-end chains remain open.
+
+Fix round1 addresses T129-IMPORTANT-01: per-glob ordering now uses the raw
+filename before percent-escape representation can reorder reserved characters.
+The source-backed regression separately checks actual a0.cs/a@.cs files on both
+platforms, literal percent preservation, fragment order, duplicates and vectors.
+The42 native scenario definitions remain unchanged. The previous704 JAR and
+proof-v3 are historical evidence with this confirmed uncovered defect; all
+required obligations above were rerun on the replacement artifact.

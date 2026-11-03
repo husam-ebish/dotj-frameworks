@@ -71,7 +71,9 @@ final class ItemGlobs {
         int levels=recursive?Integer.MAX_VALUE:parts.length-first;
         List<Match> result=new ArrayList<>();
         walk(start,start,prefix,filter,levels,0,result);
-        result.sort(Comparator.comparing(m->m.escapedIdentity().toUpperCase(Locale.ROOT)));
+        // EngineFileUtilities sorts raw names before escaping. Decode our stored
+        // representation once to recover that raw ASCII key (including literal %).
+        result.sort(Comparator.comparing(m->ItemExpressions.decode(m.escapedIdentity()).toUpperCase(Locale.ROOT)));
         return List.copyOf(result);
     }
     private void walk(Path start,Path directory,String prefix,Pattern filter,int levels,int level,List<Match> result) throws IOException {
