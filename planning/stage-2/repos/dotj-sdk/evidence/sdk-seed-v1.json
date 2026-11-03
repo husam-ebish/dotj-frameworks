@@ -8,24 +8,24 @@
     "sha256": "ecc7b14562a9bd2ae6108083369a32b7163864f649f233fc34b08386c9b33c2e"
   },
   "proof": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\qualification-v9\\proof.json",
-    "bytes": 2328906,
-    "sha256": "d15368ac4519f18f068144cb552fc31f70f0c3cba8a01eea95fe63db77085ff7"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\task137-fix1-final-v1\\proof.json",
+    "bytes": 2465800,
+    "sha256": "08d5677f95111446e306382f6bc68f7d46896ddf0d567854d4aefb3ea6344a45"
   },
   "reader": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\qualification-v9\\reader\\proof_reader.py",
-    "bytes": 20053,
-    "sha256": "70f0e01c39e9e81774072701d4220d62de89ec64835a1b0e24b5bd51fd871e68"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\task137-fix1-final-v1\\reader\\proof_reader.py",
+    "bytes": 34315,
+    "sha256": "9938e4432401505d11e95a7b11f1caaead62a9c14f89cbcce6838d015a618d7e"
   },
   "finalRead": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\final-proof-read-v2\\receipt.json",
-    "bytes": 6828,
-    "sha256": "5ae8915eba3d9f2fafb7ccd8ef43f266429f81cc28ce81f10a5fef6316c6a29a"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\task137-fix1-validation-v3\\receipt.json",
+    "bytes": 12529,
+    "sha256": "b1beba81652d0b5475e20fbd108e8aebbf267a6abb06c2ec5bf5830493b0562e"
   },
   "controls": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\reader-controls-v3\\result.json",
-    "bytes": 33218,
-    "sha256": "285c0570d71a5b436fe74f9cb2606c0726dd2d1ca82fe463f6cfa91da988fa11"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\task137-fix1-bindings-v2\\result.json",
+    "bytes": 94611,
+    "sha256": "08ad2a6756dabf526bb0362bdb413b15d0493429cf0567e7e7a8d39cbffa7232"
   },
   "sourceFingerprint": "414e04c987d4c6a928a71d8bb78e61448ef0f453146fa4ade3ef67f9aaa4ab0e",
   "sourceFiles": 7,
@@ -38,8 +38,8 @@
   "productQueryCohorts": 32,
   "productQueryInvocations": 68,
   "designedSQCDefinitions": 64,
-  "readerNegativeVariants": 41,
-  "readerObjects": 2520,
+  "readerNegativeVariants": 119,
+  "readerObjects": 2636,
   "inherited": {
     "traceGraphs": 19,
     "traceProfiles": 3,
@@ -73,5 +73,40 @@
   "taskStatus": "SDK-I01-T1 and SDK-I02-T2/T3 submitted independently; no automatic closure",
   "acceptedTasksAdded": 0,
   "qualifiedFrameworksAdded": 0,
-  "publication": "Feature branch only; root reviews/canonical proof/merge/push remain pending"
+  "publication": "Feature branch only; root reviews/canonical proof/merge/push remain pending",
+  "supersededQualification": {
+    "reason": "Task137 round1 repairs mandatory reader closure, control ancestry, and build semantic validation.",
+    "proof": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\qualification-v9\\proof.json",
+      "bytes": 2328906,
+      "sha256": "d15368ac4519f18f068144cb552fc31f70f0c3cba8a01eea95fe63db77085ff7"
+    },
+    "reader": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\qualification-v9\\reader\\proof_reader.py",
+      "bytes": 20053,
+      "sha256": "70f0e01c39e9e81774072701d4220d62de89ec64835a1b0e24b5bd51fd871e68"
+    },
+    "finalRead": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\final-proof-read-v2\\receipt.json",
+      "bytes": 6828,
+      "sha256": "5ae8915eba3d9f2fafb7ccd8ef43f266429f81cc28ce81f10a5fef6316c6a29a"
+    },
+    "controls": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\reader-controls-v3\\result.json",
+      "bytes": 33218,
+      "sha256": "285c0570d71a5b436fe74f9cb2606c0726dd2d1ca82fe463f6cfa91da988fa11"
+    },
+    "readerNegativeVariants": 41,
+    "readerObjects": 2520
+  },
+  "readerDependencies": {
+    "inherited/read_proof.py": "b92df1fdcbf0475a5bfe6341712b66a8cabe819c0fbc0063c37e9a1c475b525d",
+    "inherited/compare.py": "4e906e4a7c904e3fc01dc7019d760651931fc1fb221c0ebd2879eb9b76f8a1d5",
+    "inherited/corpus.py": "3fd2b4d6f56adc7b0ba1e121996820680d319ef2f06f91327e52879c5c666103",
+    "inherited/native_lock.py": "a0da2432d9cccfab164f384ce51323f380f657a532b2be9cfce42e4e8fddbfac",
+    "inherited/inherited_models.py": "fa4b47d43adc53114bcccdf2704d57289198fd5017d2182837559c677ba6cf47",
+    "proof_reader.py": "9938e4432401505d11e95a7b11f1caaead62a9c14f89cbcce6838d015a618d7e"
+  },
+  "controlScopeSha256": "125c7797359fcc38660b91909fb77e3183cdbad555ba1f029bf5b75ced33cd23",
+  "fixRound": 1
 }

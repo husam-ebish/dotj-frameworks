@@ -46,6 +46,10 @@ acceptance items 1686, qualified frameworks 0/66, historical2500 remaining0,
 project batch total/remaining UNKNOWN. Root owns all publication/counter changes.
 
 The [exact qualification record](../../repos/dotj-sdk/evidence/sdk-seed-v1.json)
-binds final proof v9, 2520 bundled objects and 41 executed reader variants.
+binds the Task137 round1 proof, 2636 bundled objects and 119 executed
+reader variants. Initial proof v9 (2520 objects/41 variants) is retained and
+explicitly superseded. The repair requires all six reader dependencies, current
+reader/base scope ancestry, actual relocation invocation/summary, and semantic
+outputs for all four source-build profiles. Product sources and JAR are unchanged.
 FINAL_QUALIFICATION requires the complete control record; removing it fails.
 Base-for-controls proofs emit an explicitly nonfinal status.

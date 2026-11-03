@@ -12,7 +12,7 @@ def main():
  try:
   reader=a.proof.parent/'reader/proof_reader.py';spec=importlib.util.spec_from_file_location('sdk_bound_reader',reader);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
   base=m.Bundle(a.proof,a.sha256);m.check_loaded(base,a.jar,a.source_root)
-  result=dict(status='RUNNING',producer=descriptor(__file__),baseProof=descriptor(a.proof),reader=descriptor(reader),negatives=[])
+  result=dict(status='RUNNING',producer=descriptor(__file__),baseProof=descriptor(a.proof),reader=descriptor(reader),scopeSha256=m.scope_digest(base.proof),negatives=[])
   def replace_raw(b,d,raw):
    key=hashlib.sha256(raw).hexdigest();b.cache[key]=raw;d.update(bytes=len(raw),sha256=key);b.proof['objects'][key]=dict(relative='objects/'+key,bytes=len(raw))
   def document(b,d,fn):
@@ -87,12 +87,49 @@ def main():
   add('C08','wrong-semantic-binding',lambda b:iv(b,lambda v:v['inherited']['items'][0].update(raw=v['inherited']['items'][1]['raw'])))
   add('C08','final-controls-omission',lambda b:b.proof.update(phase='FINAL_QUALIFICATION'))
   add('C08','proof-phase-omission',lambda b:b.proof.pop('phase'))
+  for name in m.READER_FILES:
+   add('C01','reader-omission/'+name,lambda b,name=name:b.proof['readers'].pop(name))
+   add('C01','reader-wrong-path/'+name,lambda b,name=name:b.proof['readers'].__setitem__(name+'-copy',b.proof['readers'].pop(name)))
+   add('C01','reader-hash/'+name,lambda b,name=name:b.proof['readers'].__setitem__(name,'0'*64))
+   add('C01','reader-duplicate-key/'+name,lambda b:None)
+  def build_entry(b,key):return next(e for e in b.proof['builds'] if e['id']==key)
+  def build_data(b,key,name,raw):
+   entry=build_entry(b,key);d=copy.deepcopy(entry['evidence']['outputs'][name]);replace_raw(b,d,raw);entry['evidence']['outputs'][name]=d
+   def edit(r):
+    if key.startswith('linux'):r['outputs'][name]=d
+    else:
+     label,stream=name.rsplit('.',1);next(o for o in r['operations'] if o['label']==label)[stream]=d
+   document(b,entry['receipt'],edit)
+  def provider_data(b,key):
+   entry=build_entry(b,key);d=copy.deepcopy(entry['evidence']['provider']);raw=b.raw(d).replace(b'javac.module=jdk.compiler',b'javac.module=wrong.module');replace_raw(b,d,raw);entry['evidence']['provider']=d
+   if key.startswith('linux'):
+    document(b,entry['receipt'],lambda r:r['outputs'].__setitem__(Path(d['path']).relative_to(Path(r['work'])).as_posix(),d))
+  for key in sorted(m.BUILD_IDS):
+   first='unicode-0.stdout' if key=='linux-unicode' else 'unicode-scalar-0.stdout' if key=='windows-unicode' else 'query.stdout'
+   add('C05',key+'-output-omission',lambda b,key=key,first=first:build_entry(b,key)['evidence']['outputs'].pop(first))
+   add('C05',key+'-output-binding',lambda b,key=key,first=first:build_entry(b,key)['evidence']['outputs'].__setitem__(first,build_entry(b,key)['evidence']['outputs'][first.replace('.stdout','.stderr')]))
+   add('C05',key+'-output-data',lambda b,key=key,first=first:build_data(b,key,first,b'CORRUPTED UNICODE RESULT\n'))
+   add('C07',key+'-staged-omission',lambda b,key=key:build_entry(b,key)['evidence']['stagedSources'].pop('module-info.java'))
+   add('C07',key+'-provider-omission',lambda b,key=key:build_entry(b,key)['evidence'].pop('provider'))
+   add('C07',key+'-source-omission',lambda b,key=key:build_entry(b,key)['evidence']['sourceBefore'].pop('dotj-sdk/seed/Bootstrap.java'))
+   add('C07',key+'-provider-data',lambda b,key=key:provider_data(b,key))
+  add('C05','linux-unicode-empty-data',lambda b:build_data(b,'linux-unicode','unicode-1.stdout',b'not empty\n'))
+  add('C06','linux-unicode-empty-exit',lambda b:build_data(b,'linux-unicode','empty.exit',b'0\n'))
+  add('C05','linux-unicode-stderr',lambda b:build_data(b,'linux-unicode','unicode-0.stderr',b'unexpected diagnostic\n'))
+  add('C05','linux-normal-help-data',lambda b:build_data(b,'linux-normal','help.stdout',b'Usage: dotj Evaluation-only WRONG\n'))
+  add('C06','windows-normal-exit',lambda b:document(b,build_entry(b,'windows-normal')['receipt'],lambda r:next(o for o in r['operations'] if o['label']=='query')['process'].update(exitCode=1)))
+  for key in ['windows-normal','windows-unicode']:
+   add('C05',key+'-build-argv',lambda b,key=key:document(b,build_entry(b,key)['receipt'],lambda r:r['operations'][1]['process']['argv'].__setitem__(-1,base64.b64encode(b'wrong invocation'.decode().encode('utf-16-le')).decode())))
+  add('C05','windows-transport-script',lambda b:replace_raw(b,build_entry(b,'windows-unicode')['evidence']['transportScript'],b'exit 0\n'))
   for number,(cohort,name,mutate) in enumerate(cases):
    candidate=copy.copy(base);candidate.proof=copy.deepcopy(base.proof);candidate.cache=dict(base.cache);mutate(candidate)
-   folder=r.out/f'{number:02}-{name}';folder.mkdir();(folder/'objects').mkdir();save(folder/'proof.json',candidate.proof)
+   folder=r.out/(f'{number:02}-'+name.replace('/','__'));folder.mkdir();(folder/'objects').mkdir();save(folder/'proof.json',candidate.proof)
+   if name.startswith('reader-duplicate-key/'):
+    field=name.split('/',1)[1];token=json.dumps(field)+': '+json.dumps(candidate.proof['readers'][field]);text=(folder/'proof.json').read_text(encoding='utf-8');(folder/'proof.json').write_text(text.replace(token,token+', '+token,1),encoding='utf-8',newline='\n')
    for key in candidate.cache.keys()-base.cache.keys():(folder/'objects'/key).write_bytes(candidate.cache[key])
-   candidate.proof=json.loads((folder/'proof.json').read_text(encoding='utf-8'));reason=None
-   try:m.check_loaded(candidate,a.jar,a.source_root)
+   reason=None
+   try:
+    candidate.proof=m.unique_json((folder/'proof.json').read_text(encoding='utf-8'));m.check_loaded(candidate,a.jar,a.source_root)
    except (ValueError,KeyError,AssertionError,zipfile.BadZipFile) as caught:reason=str(caught)
    if not reason:raise AssertionError('Negative accepted: '+name)
    result['negatives'].append(dict(id=name,cohort=cohort,rejected=True,reason=reason,mutant=descriptor(folder/'proof.json'),overlay=[descriptor(p) for p in (folder/'objects').iterdir()]))
@@ -104,12 +141,12 @@ def main():
    target=source/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(a.source_root/name,target)
   sdk=r.out/'relocated sdk';shutil.copytree(a.jar.parent.parent.parent,sdk);newjar=sdk/'versions'/a.jar.parent.name/'dotj.jar'
   command=[B/'toolchains/python-3.13.9/python.exe','-B',relocated/'reader/proof_reader.py','--proof',relocated/'proof.json','--sha256',a.sha256,'--jar',newjar,'--source-root',source]
-  r('physical-relocation',command,120);result['relocation']=dict(status='PASS',operation='physical-relocation',proof=descriptor(relocated/'proof.json'),jar=descriptor(newjar))
+  r('physical-relocation',command,120);result['relocation']=dict(status='PASS',operation='physical-relocation',proof=descriptor(relocated/'proof.json'),jar=descriptor(newjar),sourceRoot=str(source),sources={name:descriptor(source/name) for name in base.proof['sources']},readerFiles={name:descriptor(relocated/'reader'/name) for name in m.READER_FILES},semanticSummary=json.loads((r.out/'physical-relocation.stdout').read_text(encoding='utf-8')))
   victim=relocated/base.proof['objects'][base.proof['artifact']['sha256']]['relative'];victim.rename(victim.with_suffix('.withheld'))
   r('no-original-fallback',command,120,False);require_failure=r.receipt['operations'][-1]['process']['exitCode']!=0
   if not require_failure:raise AssertionError('Original path fallback accepted missing relocated object')
   result['noFallback']=dict(rejected=True,operation='no-original-fallback',originalArtifactStillPresent=a.jar.is_file())
-  result.update(status='PASS',negativeCount=len(result['negatives']),cohorts=8);save(r.out/'result.json',result)
+  result.update(status='BASE_MUTATIONS_COMPLETE',negativeCount=len(result['negatives']),cohorts=8);save(r.out/'result.json',result)
  except BaseException as caught:error=caught
  r.finish(error)
  if error:raise error

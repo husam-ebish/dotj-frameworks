@@ -3,7 +3,7 @@ import argparse,json,hashlib,shutil,zipfile,sys
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
 sys.path.insert(0,str(HERE))
-from capture_native import descriptor,save
+from capture_native import descriptor,save,inventory
 B=Path('D:/AI/Implementation/dotj Frameworks')
 def descriptors(v):
  if isinstance(v,dict):
@@ -25,6 +25,19 @@ def main():
  for key,name in [('contract','contract.json'),('consumedContract','consumed-contract-v2.json'),('profile','implementation-profile-v3.json'),('baseline','baseline-lock.json')]:v[key]=descriptor(HERE/name)
  v['native']=descriptor(A/'native-observations-v2/observations.json');v['inherited']=descriptor(A/'inherited-semantics-v1.json')
  for key,name in [('windows-normal','seed-windows-final-v1'),('windows-unicode','paths-windows-final-v1'),('linux-normal','seed-linux-final-v1'),('linux-unicode','paths-linux-final-v2')]:v['builds'].append(dict(id=key,receipt=descriptor(A/name/'receipt.json')))
+ providers=json.loads((A/'source-build-provider-provenance-v1.json').read_text(encoding='utf-8'))['builds']
+ for entry in v['builds']:
+  key=entry['id'];r=json.loads(Path(entry['receipt']['path']).read_text(encoding='utf-8'));provider=next(x for x in providers if x['id']==key)
+  if key=='windows-normal':
+   before={x['relative']:x['file'] for x in r['sourceInputs']};after=inventory(A/'seed-windows-final-v1/source-root')
+  elif key=='windows-unicode':before=r['sourceBefore'];after=r['sourceAfter']
+  else:
+   before=r['sourceInputs'];prefix='source-root/' if key=='linux-normal' else 'source spaces \u6771\u4eac & (owned)/';after={name[len(prefix):]:d for name,d in r['outputs'].items() if name.startswith(prefix)}
+  if key.startswith('windows'):outputs={o['label']+'.'+stream:o[stream] for o in r['operations'] for stream in ['stdout','stderr']}
+  else:
+   names=['build','help','query'] if key=='linux-normal' else ['build','unicode-0','unicode-1','empty'];wanted={name+'.'+stream for name in names for stream in ['stdout','stderr']}|({'empty.exit'} if key=='linux-unicode' else set());outputs={name:r['outputs'][name] for name in sorted(wanted)}
+  entry['evidence']=dict(provider=provider['operations'],stagedSources=provider['stagedSources'],sourceBefore=before,sourceAfter=after,outputs=outputs)
+  if key=='windows-unicode':entry['evidence']['transportScript']=descriptor(A/'paths-windows-final-v1/bound.ps1')
  v['queries']=[dict(platform='windows',receipt=descriptor(A/'commands-windows-final-v1/receipt.json')),dict(platform='linux',manifest=descriptor(A/'commands-linux-final-v1/manifest.json'))]
  v['recoveryWindows']=descriptor(A/'recovery-windows-v1/receipt.json');v['recoveryLinux']=descriptor(A/'recovery-linux-v2/manifest.json')
  v['gaps']=['Windows network-isolated offline','Windows arbitrary Unicode JDK installation','Linux locales other than C.UTF-8','T4/F04','T5/F05','full SDK-I01','full SDK-I03','Java25','public redistribution/release']
