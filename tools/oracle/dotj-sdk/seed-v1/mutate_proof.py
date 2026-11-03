@@ -129,6 +129,19 @@ def main():
    document(b,entry['receipt'],lambda r:r.__setitem__('sourceAfter',copy.deepcopy(after)))
   add('C07','windows-unicode-ambient-content-change',lambda b:ambient_after(b,False))
   add('C07','windows-unicode-ambient-removal',lambda b:ambient_after(b,True))
+  def sibling(b,platform,group,kind):
+   def change(r):
+    inventory=r['siblingAfter'] if platform=='windows' else r['outputs'];name='sentinel' if platform=='windows' else 'sibling/sentinel'
+    if kind=='omitted':inventory.pop(name)
+    elif kind=='binding':inventory[name]['path']=str(Path(inventory[name]['path']).parent.parent/'wrong-sibling/sentinel')
+    else:replace_raw(b,inventory[name],b'CHANGED SIBLING SENTINEL\n')
+   if platform=='windows':document(b,b.proof['recoveryWindows'],change)
+   else:
+    def manifest(v):document(b,next(d for d in v['groups'] if Path(d['path']).parent.name==group),change)
+    document(b,b.proof['recoveryLinux'],manifest)
+  for kind in ['changed','omitted','binding']:
+   add('C07','recovery-windows-sibling-'+kind,lambda b,kind=kind:sibling(b,'windows',None,kind))
+   for group in sorted(m.LINUX_GROUPS):add('C07','recovery-linux-'+group+'-sibling-'+kind,lambda b,group=group,kind=kind:sibling(b,'linux',group,kind))
   for number,(cohort,name,mutate) in enumerate(cases):
    candidate=copy.copy(base);candidate.proof=copy.deepcopy(base.proof);candidate.cache=dict(base.cache);mutate(candidate)
    folder=r.out/(f'{number:02}-'+name.replace('/','__'));folder.mkdir();(folder/'objects').mkdir();save(folder/'proof.json',candidate.proof)
@@ -141,6 +154,7 @@ def main():
    except (ValueError,KeyError,AssertionError,zipfile.BadZipFile) as caught:reason=str(caught)
    if not reason:raise AssertionError('Negative accepted: '+name)
    if name.startswith('windows-unicode-ambient-'):assert reason=='Build full source-tree immutability',reason
+   if name in m.SIBLING_CONTROL_IDS:assert reason=='Recovery sibling preservation '+{'changed':'bytes','omitted':'inventory','binding':'path'}[name.rsplit('-',1)[1]],reason
    result['negatives'].append(dict(id=name,cohort=cohort,rejected=True,reason=reason,mutant=descriptor(folder/'proof.json'),overlay=[descriptor(p) for p in (folder/'objects').iterdir()]))
    save(r.out/'result.json',result)
   # Complete physical copies; no links to the original source, SDK or reader.

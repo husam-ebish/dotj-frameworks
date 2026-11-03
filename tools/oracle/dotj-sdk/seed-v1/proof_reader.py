@@ -7,6 +7,9 @@ import read_proof as inherited
 
 BUILD_IDS={'windows-normal','windows-unicode','linux-normal','linux-unicode'}
 LINUX_GROUPS={'preflight','source','manifest','jdk-release','jdk-javac','jdk-jar','provider','compiler','interrupt','boundary'}
+SIBLING_CONTROL_IDS={prefix+'-sibling-'+kind for prefix in ['recovery-windows',*['recovery-linux-'+group for group in LINUX_GROUPS]] for kind in ['changed','omitted','binding']}
+# Retained recovery producers prescribe these sentinels before any product call.
+RECOVERY_PRODUCERS={'windows':'fb61edec7bd03f3def6b7e4bda7384bf5ab68bec715ccdf41ca8299d98ac9685','linux':'2dbf8ac5e2ee3da8978ab8698260b17257dda74d2407d900663c5074c39848e3'}
 CONTAINER_OPS={'container-initial','container-create','container-created','container-start','container-wait','container-logs','container-terminal','container-cleanup-owned','container-remove','container-absence','container-late-absence'}
 RECOVERY_OPS={'missing-java-home','missing-java','unicode-jdk-admission','ambient-classpath','build-root-conflict','runtime-root-conflict','build-global-json','runtime-global-json','source-mutation','manifest-mutation','jdk-mutation-release','jdk-mutation-javac','jdk-mutation-jar','missing-jar-provider','compile-failure','prior-after-compile-failure','controlled-interrupt','prior-after-interrupt','sdk-style','make-owned-junction','junction-root'}
 INHERITED_NAMES={f'{mode}-{os}-final-v1' for os in ['windows','linux'] for mode in ['selected','private']}|{'abi-v1'}|{f'inherited-{g}-windows-v1' for g in ['items','private','junction','supplement','sort','boundary','history']}|{f'inherited-{g}-linux-v1' for g in ['items','private','sort','boundary']}
@@ -218,6 +221,14 @@ def check_control_bindings(b,controls):
  require(positive['process']['exitCode']==0 and negative['process']['exitCode']!=0 and rel['operation']=='physical-relocation' and rel['status']=='PASS','Actual relocation exits')
  require(controls['noFallback']['operation']=='no-original-fallback' and controls['noFallback']['rejected'] and controls['noFallback']['originalArtifactStillPresent'],'No fallback evidence')
 
+def check_recovery_sibling(b,r,platform,work):
+ require(r['producer']['sha256']==RECOVERY_PRODUCERS[platform],'Recovery sibling producer expectation');b.raw(r['producer'])
+ inventory=r.get('siblingAfter') if platform=='windows' else r.get('outputs')
+ name='sentinel' if platform=='windows' else 'sibling/sentinel'
+ require(isinstance(inventory,dict) and (set(inventory) if platform=='windows' else {key for key in inventory if key=='sibling' or key.startswith('sibling/')})=={name},'Recovery sibling preservation inventory')
+ d=inventory[name];require(d['path']==str(work/'sibling/sentinel'),'Recovery sibling preservation path')
+ require(b.raw(d)==(b'preserve' if platform=='windows' else b'sentinel'),'Recovery sibling preservation bytes')
+
 def check_loaded(b,jar,source_root):
  p=b.proof;require(p['schema']==1,'Schema')
  require(p.get('phase') in ['BASE_FOR_READER_CONTROLS','FINAL_QUALIFICATION'],'Explicit proof phase')
@@ -276,7 +287,9 @@ def check_loaded(b,jar,source_root):
     reference=refs[(platform,case['id'],case['variant'])]
     query(case,row['exitCode'],b.raw(row['stdout']),b.raw(row['stderr']),b.raw(reference['stdout']),platform)
   require(len(seen)==34 and len(set(seen))==34,'Complete Q invocation inventory')
- r=receipt(b,p['recoveryWindows'],RECOVERY_OPS);require(digests(r['sdkBefore'])==digests(r['sdkAfter']) and digests(r['sourceBefore'])==digests(r['sourceAfter']),'Recovery immutable prior/source')
+ r=receipt(b,p['recoveryWindows'],RECOVERY_OPS);work=Path(p['recoveryWindows']['path']).parent
+ require(all(Path(item['process']['cwd'])==work for item in r['operations']),'Windows recovery sibling work binding');check_recovery_sibling(b,r,'windows',work)
+ require(digests(r['sdkBefore'])==digests(r['sdkAfter']) and digests(r['sourceBefore'])==digests(r['sourceAfter']),'Recovery immutable prior/source')
  exact(r['cases'],'label',RECOVERY_OPS-{'prior-after-compile-failure','prior-after-interrupt','controlled-interrupt','make-owned-junction'},'Recovery negative case')
  require(r['controlledInterruption']['observedStages'] and op(r,'controlled-interrupt')['process']['exitCode']==125,'Controlled owned interruption')
  for case in r['cases']:
@@ -287,6 +300,13 @@ def check_loaded(b,jar,source_root):
   r=receipt(b,d,CONTAINER_OPS);group=Path(d['path']).parent.name;groups.append(group)
   labels={'preflight':{'missing-home','ambient-classpath','root-conflict','build-global'},'source':{'mutated-source'},'manifest':{'mutated-manifest'},'jdk-release':{'jdk-release'},'jdk-javac':{'jdk-javac'},'jdk-jar':{'jdk-jar'},'provider':{'missing-jar-provider'},'compiler':{'compiler-failure'},'interrupt':set(),'boundary':{'runtime-global','runtime-root-conflict','symlink-root','sdk-style'}}
   require(group in labels,'Unknown recovery group');exact(r['rows'],'label',labels[group]|{'prior-after'},'Linux recovery case')
+  work=Path(r['work']);slot=Path(p['recoveryLinux']['path']).parent.name+'-'+group
+  check_recovery_sibling(b,r,'linux',work)
+  require(r['producer']==m['producer'] and work.name==slot,'Linux recovery sibling producer/work binding')
+  script=b.text(r['script']);create=op(r,'container-create')['process']['argv'];internal='/work/'+slot
+  require(create[-3:]==['/bin/sh','-c',script] and script.startswith('set -eu\nmkdir '+internal+'\ncd '+internal+'\nmkdir home tmp sibling\nprintf sentinel > sibling/sentinel\ncp -R /prior sdk\n'),'Linux recovery sibling recipe/work binding')
+  mounts=[x for x in r['container']['createdInspect']['Mounts'] if x['Destination']=='/work']
+  require(len(mounts)==1 and mounts[0]['Type']=='bind' and mounts[0]['RW'] and Path(mounts[0]['Source'])==work.parent and any(create[i]=='--mount' and create[i+1]=='type=bind,source='+str(work.parent)+',target=/work' for i in range(len(create)-1)),'Linux recovery sibling actual work mount')
   require(digests(r['sdkBefore'])==digests(r['sdkAfter']) and digests(r['sourceBefore'])==digests(r['sourceAfter']),'Linux immutable prior/source')
   for row in r['rows']:
    require(int(b.text(row['exit']))==row['exitCode'] and (row['exitCode']==0)==row['success'],'Linux recovery exit binding')
@@ -323,7 +343,7 @@ def check_loaded(b,jar,source_root):
   expected_controls={'artifact-digest','class-omission','class-substitution','module-content','reader-digest','source-binding','windows-second-evaluator','linux-second-evaluator','native-row-omission','native-reference-id','native-platform','native-case-binding','unicode-truncation','actual-windows-argv','token-omission','actual-linux-argv','json-schema','scalar-newline','warning-channel','error-channel','swallowed-nonzero','hidden-timeout','failed-receipt','missing-operation','fixture-mutation','source-mutation','prior-sdk-mutation','container-not-absent','build-omission','build-duplicate','artifact-reproducibility','scenario-omission','scenario-duplicate','inherited-platform-omission','history-operation-omission','wrong-semantic-binding'}
   check_control_bindings(b,controls)
   expected_controls|={kind+'/'+name for kind in ('reader-omission','reader-wrong-path','reader-duplicate-key','reader-hash') for name in READER_FILES}
-  expected_controls|=BUILD_CONTROL_IDS|BINDING_CONTROL_IDS
+  expected_controls|=BUILD_CONTROL_IDS|BINDING_CONTROL_IDS|SIBLING_CONTROL_IDS
   expected_controls|={'reference-sdk-digest','reference-source-digest','swallowed-compiler-exit','final-controls-omission','proof-phase-omission'}
   exact(controls['negatives'],'id',expected_controls,'Reader negative variant')
   cr=receipt(b,controls['executionReceipt'],{'physical-relocation','no-original-fallback'})
