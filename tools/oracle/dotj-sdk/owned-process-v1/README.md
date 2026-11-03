@@ -120,3 +120,22 @@ New captures use controlled minimal environments containing only required OS/too
 settings and synthetic sentinels. Observe the actual controlled caller maps;
 never copy unrelated host credentials into captures or substitute the requested
 map for observed state. Historical private failed receipts remain preserved.
+
+## OP02B executable wire supplement
+
+ROOT task147 ruling prospectively expands OP02B to five tracked files to freeze
+the previously missing JDK wire and adapter API. `ProcessProbe` uses
+`--mode MODE --request ABSOLUTE_PATH -- PAYLOAD...` and emits the subordinate
+`dotj.owned-process.jdk-probe-observation/1` object. Actual direct Process
+observations, raw embedded child streams, independent received Unicode and
+TRACE/JFR artifacts remain separate from outer driver facts. The java-argv mode
+also cancels an onExit future for a separate bounded hold child, observes whether
+it remains alive, then terminates and joins its owned workers. This establishes
+no product or descendant guarantee. See `protocol.jdk.wire` for exact fields.
+
+Platform modules expose `run_capture(contract, fixtures, output)`; the common
+driver creates the fresh assigned D scratch output and validates the returned
+structured receipt and frozen inventory. Adapters own pinned native launches,
+guards, controlled caller setup and actual effects. Missing adapters retain a
+failed receipt. `protocol.platformAdapter` freezes directory ownership and return
+shape. Complete two-OS capture remains OP02C work.

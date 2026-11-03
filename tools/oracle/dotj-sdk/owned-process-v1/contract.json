@@ -213,7 +213,57 @@
         "jdk-trace",
         "jdk-jfr"
       ],
-      "transport": "UNRESOLVED pending OP02C: record exact native argv and codepoints for actual java/javac, child cwd and result. No inherited launcher equivalence assertion."
+      "transport": "UNRESOLVED pending OP02C: record exact native argv and codepoints for actual java/javac, child cwd and result. No inherited launcher equivalence assertion.",
+      "cli": [
+        "--mode",
+        "MODE",
+        "--request",
+        "ABSOLUTE_REQUEST_PATH",
+        "--",
+        "PAYLOAD..."
+      ],
+      "wire": {
+        "schema": "dotj.owned-process.jdk-probe-observation/1",
+        "framing": "One strict UTF8 JSON object plus LF. Exact same positional control grammar as native fixture. Request engine jdk-probe, mode from frozen enum, rowId from corresponding boundary group. No capture status or outer guard/network/container assertions.",
+        "requiredFields": [
+          "schema",
+          "rowId",
+          "requestSha256",
+          "mode",
+          "actor",
+          "receivedPayload",
+          "cwd",
+          "environment",
+          "parentEnvironmentBefore",
+          "parentEnvironmentAfter",
+          "operations",
+          "telemetry",
+          "errors",
+          "expectedOuterExitCode",
+          "transportComparison"
+        ],
+        "actors": "actor is {kind:jdk-probe,pid:actual probe PID}; receivedPayload independently observes actual main suffix; environment and parentEnvironment maps belong to probe. Each operations element owns one actual Process and its independently observed child streams/payload. Never infer driver or JDK internal thread joins. Final result.observationActors is exactly {outerProcess:driver-owned-outer,parentEnvironment:driver,payload:jdk-probe,apiOperations:jdk-probe-child-operations} for these rows.",
+        "operationFields": [
+          "id",
+          "parentActorPid",
+          "childPid",
+          "invocation",
+          "disposition",
+          "exitCode",
+          "handles",
+          "workers",
+          "timing",
+          "streams",
+          "childObservation"
+        ],
+        "operationWire": "Use fixtureStdout.apiOperation field semantics with probe as parentActorPid. Streams use unchanged embeddedBytes. handles additionally records onExitFutureCanceled and aliveAfterFutureCancel for the separate hold-child lifecycle operation. Child protocol schema dotj.owned-process.probe-child/1 contains pid, receivedPayload, cwd, environment and stdin embeddedBytes; independently parsed and bound to Process PID.",
+        "paths": "Probe artifacts only under request.cwd. java-argv uses selected pinned java and compiled ProbeChild. javac-unicode selects pinned javac, writes fixed UnicodeApp.java in Unicode cwd, compiles with --release21/UTF8/proc:none to cwd/classes, then launches pinned sibling java with cwd/classes plus probe classpath. Tool descriptors for java/javac must be in request.inputs, all verified before launch.",
+        "bounds": "Each child <=20s including cleanup; entire probe uses request deadline <=120s. Both pipes drained concurrently <=1MiB each, stdin<=65536, categorical errors only, actual observed exit and worker joins. Every launch uses bounded JVM options, explicit child environment and cwd; no global configuration mutation.",
+        "telemetry": "jdk-trace configures java.util.logging programmatically in the probe before ProcessBuilder creation and retains trace.log under cwd; jdk-jfr programmatically records enabled jdk.ProcessStart events and retains recording.jfr under cwd. telemetry is array of relative path/bytes/sha256 plus observed synthetic argv exposure boolean and event commands where applicable. These are raw telemetry separate from SDK diagnostics.",
+        "failure": "errors nonempty/expectedOuterExitCode nonzero means failed probe. Missing evidence is null or explicit failure, never manufactured terminal facts. Actual transport codepoint differences are observations, not normalized success/parity claims.",
+        "rootRuling": "task147-op02b-wire-native-ruling-v1.json; prospective five-file OP02B inventory, no product credit",
+        "transportComparison": "Mandatory {roundTrip:boolean,differences:[{index,requested,observed}]} compares requested argv with independently received Main suffix; missing tokens use null. Each child operation with childObservation has analogous comparison against actual selected command payload. Measured loss is a valid boundary observation; roundTrip=false is never semantic parity. U01 remains pending OP02C root checkpoint; no C# or product rule weakened."
+      }
     },
     "requestFields": {
       "schema": "constant dotj.owned-process.request/1",
@@ -259,7 +309,8 @@
       "parentEnvironmentBefore": "Complete actual process-owning caller environment map before launch. For native reference fixture rows this is the driver; nested fixtureObservation parent snapshots separately belong to fixture. Product rows retain the actual tested helper caller as actor, not an unrelated outer Python driver.",
       "parentEnvironmentAfter": "Complete actual same-caller environment map after cleanup; equals its before snapshot. For native fixture rows driver snapshots never substitute fixture/API-child maps. Product helper nonmutation still requires its actual caller snapshots.",
       "fixtureObservation": "Verified subordinate fixtureStdout object for native reference fixture rows; null for engines without this fixture. Embedded API-child facts remain nested and actor-scoped.",
-      "observationActors": "Explicit actor map defined by fixtureToDriver.actorMap; prevents driver parent snapshots or outer streams from being mistaken for fixture/API-child facts."
+      "observationActors": "Explicit actor map defined by fixtureToDriver.actorMap; prevents driver parent snapshots or outer streams from being mistaken for fixture/API-child facts.",
+      "jdkProbeObservation": "Conditional: required verified complete subordinate JDK wire object on jdk-probe rows, null otherwise. fixtureObservation stays null for JDK rows. Raw outer streams remain driver-observed."
     },
     "effectsFields": {
       "schema": "constant dotj.owned-process.effects/1",
@@ -394,6 +445,15 @@
       "driverFacts": "Final invocation/exit/handles/workers/timing/streams refer to driver-owned outer SDK/fixture process. Final parentEnvironmentBefore/After describe the driver process. Driver alone records complete effects snapshots, raw outer streams descriptors, actual exit, guard actions, network/container evidence, and creates retained request/final envelope. Fields must come from real driver observations, never defaults supplied by fixture.",
       "actorMap": "observationActors is exactly {outerProcess:driver-owned-outer,parentEnvironment:driver,payload:reference-fixture,apiOperations:reference-fixture-child-operations} for reference fixture rows. Nested fixture.parentEnvironmentBefore/After belong to fixture; nested childObservation.environment belongs to API child. Other engines set payload to product-child or jdk-probe and fixtureObservation:null.",
       "failure": "Driver sets CAPTURE_FAILED for malformed/missing subordinate object, mismatched binding, unavailable mandatory evidence, guard intervention or cleanup failure. Fixture cannot declare capture completion. expectedOuterExitCode must match independently observed actual exit; a nonzero intentional fixture code does not alone make the capture fail."
+    },
+    "platformAdapter": {
+      "entry": "capture_windows.py or capture_linux.py: run_capture(contract, fixtures, output)",
+      "arguments": "Validated parsed contract and fixtures dictionaries, absolute fresh D-owned output pathlib.Path. Common driver creates output immediately before module import. Adapter must not create/reuse another output root.",
+      "responsibility": "Adapter selects pinned tools, validates source-map/tool/fixture digests and platform identity, enforces controlled caller environment, owns guard/native launch/effects facts, calls common capture_row to seal rows; never reads unrelated host secrets. Common driver does not launch native processes.",
+      "return": "{status:CAPTURE_COMPLETE|CAPTURE_FAILED, referenceRows:{frozen rowId: descriptor of final request.json}, boundaryGroups:{frozen groupId: descriptor of observation.json}, inputs:{contract:descriptor,fixtures:descriptor,sourceMap:descriptor}, platform:windows|linux}. Descriptors use path/bytes/sha256, paths relative to output; inputs are retained exact byte copies under output/inputs. Common driver verifies complete row/group inventories, file descriptors and envelopes, all required fields. Four frozen reference aggregates remain mandatory; capture-receipt.json is additional coordinator receipt.",
+      "failure": "Missing module or any unavailable required evidence produces retained capture-failure.json and exit1. No empty complete receipt; failed artifacts remain. CLI exit2 reserved argparse usage failures.",
+      "boundaryWire": "Boundary observation.json is {rowId:groupId,status:CAPTURE_COMPLETE|CAPTURE_FAILED,modes:[ordered row-envelope/1]}. Per-mode result.streams descriptors include offset into shared stdout.bin/stderr.bin, plus bytes/sha256/truncated. effects.json is {modes:{mode:effects/1}}; each per-mode result.effects descriptor binds the whole file and selects its mode by request.mode. Request.json retains the ordered exact prelaunch request byte envelopes. No invented terminal fields for unsupported SDK signal/parent-death boundaries.",
+      "aggregates": "Each platform capture supplies reference/observations-<platform>.json, reference/manifest.json and reference/summary.json. Opposite-platform observations join at OP02C; the full frozen four-aggregate set remains required at checkpoint. Common driver retains exact inputs/contract.json, inputs/fixtures.json, inputs/source-map.json before adapter import."
     }
   },
   "proofEnvelope": {
@@ -453,7 +513,7 @@
   ],
   "referenceSliceOwnership": {
     "OP02A": "Only native C# fixture/offline config plus focused Windows build/smoke; no capture_reference.py dependency or two-OS capture claim.",
-    "OP02B": "Only Java probes and capture protocol implementation.",
+    "OP02B": "Java probes and capture protocol implementation; ROOT task147 prospective wire ruling expands this slice to five tracked files including contract.json and README.md, with no new distinct task-group sources or credit.",
     "OP02C": "Platform capture adapters and actual two-OS reference observations; aggregate three reference acceptance bullets adjudicated here.",
     "authority": "Root clarification during OP01: duplicated final-plan OP02A/B/C acceptance bullets apply to group checkpoint after OP02C."
   },
@@ -487,7 +547,9 @@
       "files": [
         "tools/oracle/dotj-sdk/owned-process-v1/java/ProcessProbe.java",
         "tools/oracle/dotj-sdk/owned-process-v1/java/ProbeChild.java",
-        "tools/oracle/dotj-sdk/owned-process-v1/capture_reference.py"
+        "tools/oracle/dotj-sdk/owned-process-v1/capture_reference.py",
+        "tools/oracle/dotj-sdk/owned-process-v1/contract.json",
+        "tools/oracle/dotj-sdk/owned-process-v1/README.md"
       ]
     },
     {
