@@ -21,3 +21,17 @@ API spelling compatibility, behavioral compatibility, protocol/file-format inter
 How much .csproj ingestion is useful, and which workloads are out of scope until platform backends exist? Inspect workload manifests and bundled source boundaries.
 
 Full source-to-feature coverage and semantic overload mapping are E02 outputs. This matrix covers the planned capability families; it is not a false claim that every upstream public member has already been semantically audited.
+
+## Candidate Batch 2523 consumed profile
+
+The [source seed](../../../../dotj-sdk/README.md) implements a bounded existing-JDK21
+seed, own-root launcher and SDK-less explicit property queries. The resulting
+0.1.100-dev.1 artifact reuses the internal Build evaluator once; there is no Core
+JAR prerequisite or public Java facade. Two fresh builds per OS reproduce the
+complete JAR. Native reference32 cohorts/68 calls and product32 cohorts/68 calls
+are distinct inventories. This advances selected implementation evidence only.
+
+Windows offline isolation, arbitrary Unicode Windows JDK installation, other
+Linux locales, full selection/coexistence, SDK-driven self-rebuild and arbitrary
+child ownership remain unqualified. T4/T5 and whole-package acceptance remain
+open. Concrete I01-T1/I02-T2/I02-T3 evidence awaits independent named-task review.
