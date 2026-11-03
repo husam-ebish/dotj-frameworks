@@ -1435,3 +1435,7 @@ tools/oracle/dotj-core/public-task-wait-async-v1/PublicTaskWaitAsyncOracle.cs wh
 
 # Keep the selected Linux reference/product scripts executable after Windows checkout.
 tools/oracle/dotj-build/items-evaluation-v1/*.sh text eol=lf
+
+# Preserve executed Python successor bytes while recognizing their CRLF line endings.
+tools/oracle/dotj-build/items-evaluation-v1/freeze_proof_fix1.py whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/oracle/dotj-build/items-evaluation-v1/proof_controls_fix1.py whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
