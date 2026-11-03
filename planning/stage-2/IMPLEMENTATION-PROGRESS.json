@@ -2,12 +2,13 @@
   "schemaVersion": 1,
   "pendingBuildItemsCandidate": {
     "batch": "Batch-2521",
-    "status": "IMPLEMENTED_QUALIFIED_PENDING_INDEPENDENT_REVIEW_AND_INTEGRATION",
+    "status": "HISTORICAL_CANDIDATE_SNAPSHOT_SUPERSEDED_BY_VERIFIED_BATCH2521_PUBLICATION",
     "selectedPlanned": 1,
     "selectedDone": 0,
     "selectedRemaining": 1,
     "acceptedTasksAdded": 0,
-    "evidence": "repos/dotj-build/evidence/private-items-evaluation-v1.json"
+    "evidence": "repos/dotj-build/evidence/private-items-evaluation-v1.json",
+    "historicalSnapshot": true
   },
   "baselineVersion": "stage-2-2026-10-20-v2",
   "baselineDate": "2026-10-20",
@@ -22,7 +23,7 @@
     "totalUniqueNamedTasks": 1356,
     "sdkIntegrationTasks": 60
   },
-  "currentBatch": "Batch-2522",
+  "currentBatch": "Batch-2523",
   "completedBatches": [
     "Batch-001",
     "Batch-002",
@@ -2545,19 +2546,20 @@
     "Batch-2519",
     "Batch-2520",
     "Batch-2521",
-    "Batch-2522"
+    "Batch-2522",
+    "Batch-2523"
   ],
   "overall": {
     "frameworkCount": 66,
     "frameworksFullyImplementedAndQualified": 0,
-    "frameworksWithImplementationInProgress": 2,
-    "frameworksWithNoImplementationStarted": 64,
+    "frameworksWithImplementationInProgress": 3,
+    "frameworksWithNoImplementationStarted": 63,
     "blockedFrameworkCount": 0,
-    "completedImplementationTaskCount": 0,
+    "completedImplementationTaskCount": 3,
     "totalBaselinedImplementationTaskCount": 1092,
-    "implementedPercent": 0.0,
-    "remainingPercent": 100.0,
-    "progressGainedInLastBatchPercentagePoints": 0.0
+    "implementedPercent": 0.274725,
+    "remainingPercent": 99.725275,
+    "progressGainedInLastBatchPercentagePoints": 0.274725
   },
   "frameworks": [
     {
@@ -2877,17 +2879,20 @@
         },
         {
           "id": "SDK-I01-T1",
-          "status": "NOT STARTED",
-          "classification": "SDK integration implementation"
+          "status": "COMPLETE",
+          "classification": "SDK integration implementation",
+          "completionEvidence": "planning/stage-2/implementation/acceptance/Batch-2523-accepted-tasks.json",
+          "completedInBatch": "Batch-2523",
+          "qualificationScope": "Complete named task within independently reviewed existing-JDK21/internal evaluation SDK profile; broader package remains open"
         },
         {
           "id": "SDK-I01-T2",
-          "status": "NOT STARTED",
+          "status": "IN PROGRESS",
           "classification": "SDK integration implementation"
         },
         {
           "id": "SDK-I01-T3",
-          "status": "NOT STARTED",
+          "status": "IN PROGRESS",
           "classification": "SDK integration implementation"
         },
         {
@@ -2897,7 +2902,7 @@
         },
         {
           "id": "SDK-I01-T5",
-          "status": "NOT STARTED",
+          "status": "IN PROGRESS",
           "classification": "SDK integration implementation"
         },
         {
@@ -3051,20 +3056,29 @@
           "classification": "SDK integration implementation"
         }
       ],
-      "taskStatus": "NOT STARTED",
-      "completedImplementationTaskCount": 0,
+      "taskStatus": "IN PROGRESS",
+      "completedImplementationTaskCount": 1,
       "totalBaselinedImplementationTaskCount": 50,
-      "implementedPercent": 0.0,
-      "remainingPercent": 100.0,
-      "completionEvidence": [],
+      "implementedPercent": 2.0,
+      "remainingPercent": 98.0,
+      "completionEvidence": [
+        {
+          "batch": "Batch-2523",
+          "taskIds": [
+            "SDK-I01-T1"
+          ],
+          "evidence": "planning/stage-2/implementation/acceptance/Batch-2523-accepted-tasks.json",
+          "sourcePublicationMaster": "08da8bf96a48f37a2ecef9df86d0bc0232bdfb0e"
+        }
+      ],
       "outstandingPreparationAndQualificationGates": {
-        "E01": "NOT STARTED",
-        "E02": "NOT STARTED",
-        "E03": "NOT STARTED",
-        "N01": "NOT STARTED",
+        "E01": "IN PROGRESS",
+        "E02": "IN PROGRESS",
+        "E03": "IN PROGRESS",
+        "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": null,
+      "lastUpdatedBatch": "Batch-2523",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -3505,18 +3519,24 @@
         },
         {
           "id": "SDK-I02-T1",
-          "status": "NOT STARTED",
+          "status": "IN PROGRESS",
           "classification": "SDK integration implementation"
         },
         {
           "id": "SDK-I02-T2",
-          "status": "NOT STARTED",
-          "classification": "SDK integration implementation"
+          "status": "COMPLETE",
+          "classification": "SDK integration implementation",
+          "completionEvidence": "planning/stage-2/implementation/acceptance/Batch-2523-accepted-tasks.json",
+          "completedInBatch": "Batch-2523",
+          "qualificationScope": "Complete named task within independently reviewed existing-JDK21/internal evaluation SDK profile; broader package remains open"
         },
         {
           "id": "SDK-I02-T3",
-          "status": "NOT STARTED",
-          "classification": "SDK integration implementation"
+          "status": "COMPLETE",
+          "classification": "SDK integration implementation",
+          "completionEvidence": "planning/stage-2/implementation/acceptance/Batch-2523-accepted-tasks.json",
+          "completedInBatch": "Batch-2523",
+          "qualificationScope": "Complete named task within independently reviewed existing-JDK21/internal evaluation SDK profile; broader package remains open"
         },
         {
           "id": "SDK-I02-T4",
@@ -3530,7 +3550,7 @@
         },
         {
           "id": "SDK-I03-T1",
-          "status": "NOT STARTED",
+          "status": "IN PROGRESS",
           "classification": "SDK integration implementation"
         },
         {
@@ -3555,11 +3575,21 @@
         }
       ],
       "taskStatus": "IN PROGRESS",
-      "completedImplementationTaskCount": 0,
+      "completedImplementationTaskCount": 2,
       "totalBaselinedImplementationTaskCount": 25,
-      "implementedPercent": 0.0,
-      "remainingPercent": 100.0,
-      "completionEvidence": [],
+      "implementedPercent": 8.0,
+      "remainingPercent": 92.0,
+      "completionEvidence": [
+        {
+          "batch": "Batch-2523",
+          "taskIds": [
+            "SDK-I02-T2",
+            "SDK-I02-T3"
+          ],
+          "evidence": "planning/stage-2/implementation/acceptance/Batch-2523-accepted-tasks.json",
+          "sourcePublicationMaster": "08da8bf96a48f37a2ecef9df86d0bc0232bdfb0e"
+        }
+      ],
       "outstandingPreparationAndQualificationGates": {
         "E01": "IN PROGRESS",
         "E02": "IN PROGRESS",
@@ -3567,7 +3597,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2522",
+      "lastUpdatedBatch": "Batch-2523",
       "currentPartialEvidence": {
         "path": "planning/stage-2/repos/dotj-build/evidence/private-cycle-trace-v1.json",
         "status": "VERIFIED_PRIVATE_FEATURE_INTEGRATED_PUSH_VERIFIED",
@@ -12406,22 +12436,25 @@
       ]
     }
   ],
-  "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
+  "measurementNote": "0.27% is completed-task share (3/1092), not engineering effort elapsed. Equal-weight WP/SDK integration tasks only;264 N01 prerequisites and E01-E03/Q01 gates excluded from percentage. In-progress/partial tasks earn0 completion credit. Framework qualification separate.",
   "nextProposedBatch": {
     "id": null,
-    "framework": "dotj-sdk",
-    "outcome": "Establish source-qualified SDK-I01 reference baseline and finite JDK-only SDK-I02 seed/launcher then SDK-I03 evaluation-only msbuild CLI plan.",
+    "framework": "dotj-build / dotj-sdk",
+    "planTaskIds": [
+      "SDK-I02-T4"
+    ],
+    "outcome": "Source-review and establish a finite qualified owned-process lifecycle implementation plan; inspect actual JDK/.NET contracts, ownership/cancellation/environment/redaction limitations before assigning the next batch.",
     "requiresContinue": false,
-    "basis": "Adopted Task131 laterSdkAcceptancePath; actual consumed-slice gates remain. No invented public facade or automatic all-Core/Project prerequisite. Number only after concrete plan."
+    "basis": "Remaining named SDK bootstrap task after accepted baseline/seed/minimal launcher; T4/F04 and T5/F05 remainopen. No invented whole-project batch total."
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2522,
-    "countContext": "2522 numbered candidate records integrated through verified import-cycle publication 70f7b9f91f65abd5ca9e0d6ce9dedf4c6f81a315. Private feature and inherited Build qualification passed; accepted0/1092, open1686, qualified0/66, project batch total/remaining UNKNOWN.",
+    "completedBatches": 2523,
+    "countContext": "2523 numbered candidate batches published; three complete named SDK tasks accepted after independent task/broad/scoped reviews and actual canonical-source verification. Whole-project batch total/remaining UNKNOWN; historical2500 target unchanged.",
     "remainingPlannedBatches": null,
-    "outstandingAcceptanceItems": 1686,
+    "outstandingAcceptanceItems": 1683,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
   },
   "authorizedRunTarget": {
@@ -12920,5 +12953,37 @@
     "projectBatchTotal": null,
     "projectBatchesRemaining": null,
     "statusOnlyFeature": "feature/batch-2522-integration-status-v1"
+  },
+  "batch2523IntegrationReconciliation": {
+    "status": "SOURCE_MERGE_PUSH_REMOTE_AND_CANONICAL_SOURCE_PROOF_VERIFIED",
+    "sourcePublicationMaster": "08da8bf96a48f37a2ecef9df86d0bc0232bdfb0e",
+    "featureHead": "04347721b3e4e16caddbb6c34394910eebe94a18",
+    "featureTree": "dd6bfb6d57db0ef8db13be97090946b7381909ce",
+    "sourceReceipt": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\verification\\batch2523-integration-v1\\receipt.json",
+      "bytes": 24889,
+      "sha256": "e50c775319e23f97cce3098aae758d0a8313e13778391205b8b81275c837fb6b"
+    },
+    "acceptedTaskIds": [
+      "SDK-I01-T1",
+      "SDK-I02-T2",
+      "SDK-I02-T3"
+    ],
+    "acceptedTasksAdded": 3,
+    "acceptedImplementationTasks": 3,
+    "implementationTotal": 1092,
+    "implementedPercent": 0.274725,
+    "openAcceptanceItems": 1683,
+    "qualifiedFrameworks": 0,
+    "totalFrameworks": 66,
+    "selectedFeatureGroup": {
+      "planned": 1,
+      "done": 1,
+      "remaining": 0
+    },
+    "historical2500Remaining": 0,
+    "projectBatchesRemaining": null,
+    "canonicalReaderMode": "D execution copy of six actual C sources verified against reviewed Git blobs/hash; actual C product source root; no C build/JVM/temp",
+    "allOtherPackageAndProfileGapsRemainOpen": true
   }
 }
