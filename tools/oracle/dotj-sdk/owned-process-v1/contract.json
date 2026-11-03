@@ -73,8 +73,8 @@
     },
     "fixtures.json": {
       "path": "fixtures.json",
-      "bytes": 123315,
-      "sha256": "cad38df02994e7079891dcae82866ebadd3a0eb5d7f5eb33bd353525c7d0f270"
+      "bytes": 123764,
+      "sha256": "c194090621504ae9daf850617457f2183005ce06f1d8677f52a1807942c3687c"
     }
   },
   "trustRule": "Capture checks the two exact sibling manifest digests against this contract before any launch. Proof readers must anchor the reviewed contract digest outside producer-selected proof data; rehashing a reduced fixture/expected inventory does not change trusted requirements. Final source/class digest freeze is a separately reviewed OP07 extension, not an observation selected as its own expectation.",
@@ -177,7 +177,8 @@
         "--mode",
         "mode",
         "--request",
-        "request.json"
+        "request.json",
+        "--"
       ],
       "modeEnum": [
         "exit0",
@@ -187,8 +188,14 @@
         "cooperative-cancel",
         "wait-cancel-force"
       ],
-      "resolution": "dotnet and project tokens are resolved from selected pinned absolute tool path and staged fixture project; mode is the cohort fixed enum; request is row absolute UTF8 JSON path. No literal placeholder token is passed.",
-      "apiHarness": "For R06/R07/R08 the run command only hosts the fixture. Record child ProcessStartInfo/ArgumentList invocation separately; do not attribute API wait or kill behavior to SDK Command/ProcessReaper."
+      "resolution": "Resolve dotnet/project/mode/request tokens to pinned executable, staged absolute project, fixed cohort mode and prelaunch request path; retain the literal final --. Append request.argv according to payloadRule. No unexpanded placeholder token is passed.",
+      "apiHarness": "For R06/R07/R08 the run command only hosts the fixture. Record child ProcessStartInfo/ArgumentList invocation separately; do not attribute API wait or kill behavior to SDK Command/ProcessReaper.",
+      "payloadRule": {
+        "assembly": "Resolve the fixed command prefix tokens first, then append every request.argv token unchanged as a distinct argument after the final --. In R03 request.argv is exactly fixtures.corpus.argv. All SDK-command cohorts use this vector rule; other cases may have an empty payload array.",
+        "controlGrammar": "After dotnet consumes its first --, fixture Main receives exactly --mode, mode, --request, absoluteRequestPath, --, then payload. Validate the first five tokens positionally; the fifth token is the fixture delimiter. Every token after it is payload, even empty strings, --mode, --request or --. Never scan payload for controls.",
+        "observation": "Fixture derives received payload from its actual Main(string[] args) suffix after index4, and emits independently computed tokens, Unicode scalar arrays and UTF16 lengths. It reads request.json only for requested comparison/configuration, never as the received observation.",
+        "transport": "Use the selected native SDK process argument array, no shell joining. Record the entire resolved actual SDK argv vector separately from the requested payload and the child-observed payload. An API-harness child does not replace this sdk-command observation."
+      }
     },
     "jdk": {
       "probe": "tools/oracle/dotj-sdk/owned-process-v1/java/ProcessProbe.java",
@@ -223,7 +230,9 @@
       "deadlineMillis": "integer <= typedBounds.operationMillis including cleanup",
       "limits": "exact typed bounds and platform caps",
       "inputs": "exact mandatory source/tool/fixture digest descriptors",
-      "effectsRoots": "explicit owned staging, prior SDK, source and sibling sentinel paths"
+      "effectsRoots": "explicit owned staging, prior SDK, source and sibling sentinel paths",
+      "argvCodepoints": "Mandatory scalar arrays computed from requested payload argv before launch; compared to independently observed result.argvCodepoints.",
+      "argvUtf16Lengths": "Mandatory UTF16 code-unit lengths computed from requested payload argv before launch."
     },
     "resultFields": {
       "schema": "constant dotj.owned-process.observation/1",
@@ -244,14 +253,18 @@
       "outerGuard": "used boolean, actions, observed terminal; intervention forces failed capture",
       "network": "actual isolation/observation and unqualified scope",
       "container": "identity, caps, exit, removal/absence observation; null on Windows",
-      "status": "CAPTURE_COMPLETE|CAPTURE_FAILED; no invented product PASS"
+      "status": "CAPTURE_COMPLETE|CAPTURE_FAILED; no invented product PASS",
+      "argvCodepoints": "Mandatory ordered arrays of integer Unicode scalars derived independently from received payload argv, excluding fixture controls; never copied from request argv. Empty token is an empty scalar array.",
+      "argvUtf16Lengths": "Mandatory per-received-payload-token UTF16 code-unit lengths, including zero for an empty token.",
+      "parentEnvironmentBefore": "Mandatory complete case-preserving parent environment map captured before launching child.",
+      "parentEnvironmentAfter": "Mandatory complete case-preserving parent environment map after termination/cleanup; equals parentEnvironmentBefore. Child environment observations are separate."
     },
     "effectsFields": {
       "schema": "constant dotj.owned-process.effects/1",
       "rowId": "request identity",
       "requestSha256": "exact request binding",
-      "before": "complete path/type/size/sha256 inventory for source, priorSDK, siblings, staging",
-      "after": "same roots complete inventory",
+      "before": "Mandatory object with exactly source, priorSDK, siblings, staging keys; each is a complete relative-path map to type,bytes,sha256 descriptors, captured before operation.",
+      "after": "Mandatory object with exactly source, priorSDK, siblings, staging keys; each has same inventory shape as before. source/priorSDK/siblings equal their respective before maps for preservation cases.",
       "delta": "added/removed/changed relative paths and hashes",
       "publication": "boolean plus success marker inventory",
       "priorSdkSmoke": "actual invocation streams exit after failure/cancel when required; not just hashes",
@@ -259,11 +272,25 @@
       "network": "observation descriptor",
       "cleanup": "product and outer-guard actions separately"
     },
-    "aggregateRule": "Each reference request.json contains request plus result envelope after capture so four per-row files remain exact. Product observation.json contains request plus result. Boundary observation.json contains ordered per-mode subobservations and their actual invocations; raw stream offsets bind each subobservation. No capture may omit a mode.",
-    "framing": "UTF8 JSON, duplicate keys forbidden, finite numbers only; raw binary stdout/stderr unmodified. Fixture echo emits one UTF8 JSON object with argv codepoints/cwd/env; lifecycle READY events carry rowId and handle identity. File descriptors carry relative path, byte length and lowercase SHA256.",
+    "aggregateRule": "After completion, reference request.json becomes the row envelope defined by requestRetention, retaining exact prelaunch request bytes as base64. Product observation.json uses the same envelope. Four per-row files remain unchanged. Boundary observation.json contains ordered per-mode envelopes with raw stream offsets and actual invocations; all modes mandatory.",
+    "framing": "UTF8 JSON, duplicate keys forbidden, finite numbers only; raw binary stdout/stderr unmodified. Echo emits actual received payload tokens, independently derived scalar arrays/UTF16 lengths, cwd and env. Request byte retention follows requestRetention exactly. READY events carry rowId and handle identity. File descriptors carry relative path, byte length and lowercase SHA256.",
     "channels": "Raw child protocol and TRACE/JFR/OS data retained in explicitly separate objects, never replayed as SDK-owned diagnostics. Only synthetic secret fixtures allowed.",
     "guard": "Outer owned-process guard must record direct processes/container and terminal cleanup. It protects the capture host only. Any guard cleanup needed for a product case makes that case/capture non-success; retain evidence and do not publish a complete proof.",
-    "normalization": "Only explicit product names, fixture roots, timestamps and platform artifact representations may be compared with reviewed mappings. Never normalize exit status, codepoint loss, effects, missing warning, cancellation or telemetry exposure."
+    "normalization": "Only explicit product names, fixture roots, timestamps and platform artifact representations may be compared with reviewed mappings. Never normalize exit status, codepoint loss, effects, missing warning, cancellation or telemetry exposure.",
+    "requestRetention": {
+      "wireFile": "Before launch request.json contains only the exact UTF8 request bytes R, with duplicate keys forbidden. The fixture reads R before completing; capture must retain R in memory until it writes the final envelope after fixture termination.",
+      "envelopeFields": [
+        "schema",
+        "requestBytesBase64",
+        "requestBytesLength",
+        "requestSha256",
+        "result"
+      ],
+      "schema": "dotj.owned-process.row-envelope/1",
+      "hashDomain": "requestSha256 = lowercase SHA256(base64-decode(requestBytesBase64)), over the exact prelaunch bytes R, including whitespace and optional final newline. requestBytesLength = len(R). Result and effects requestSha256 must equal this digest. No parse/reserialize normalization is permitted.",
+      "roundTrip": "Reader strictly base64-decodes R, validates its length/hash and UTF8 JSON, then uses that parsed object as the request. There is no separately authoritative nested request object.",
+      "finalEnvelopeDigest": "The descriptor in the aggregate/proof hashes final envelope file bytes E independently, after result insertion. No digest of E is stored inside E. The graph is aggregate -> E -> R and result/effects -> SHA256(R), never E -> SHA256(E)."
+    }
   },
   "proofEnvelope": {
     "status": "PLANNED_SCHEMA_NOT_PRODUCED",
@@ -284,9 +311,23 @@
       "relocation",
       "inheritedQualification"
     ],
-    "keying": "referenceRows/productRows/boundaryGroups maps keyed by exact frozen IDs; sources by repo-relative path; artifact.classes by full JAR entry; readers by closure relative path. Control targets use JSON Pointer; pointer reader name evidence_schema.py resolves in owned-process reader root.",
+    "keying": "referenceRows/productRows/boundaryGroups maps keyed by frozen IDs; sources by repo-relative path; artifact.classes by full JAR entry. readers uses exactly read_proof.py,evidence_schema.py,seed/proof_reader.py and seed/inherited/{read_proof.py,compare.py,corpus.py,native_lock.py,inherited_models.py}, corresponding to readerBundleMapping after removing leading reader/. JSON Pointer applies to the materialized projection described below.",
     "controls": "baseProof,currentReader,scopeSha256,60 exact negative IDs and execution receipts; final proof references nonfinal base to avoid cyclic hash. Old154 scope remains separate.",
-    "completeness": "Exact fixed key sets from fixtures, immutable reviewed final class set from OP07, actual byte hashes. Missing keys, unexpected members, duplicate JSON keys, unresolved observed digests, failed receipts or wrong-row objects reject."
+    "completeness": "Exact fixed key sets from fixtures, immutable reviewed final class set from OP07, actual byte hashes. Missing keys, unexpected members, duplicate JSON keys, unresolved observed digests, failed receipts or wrong-row objects reject.",
+    "rowProjection": {
+      "requiredFields": [
+        "platform",
+        "request",
+        "result",
+        "effects"
+      ],
+      "platform": "Row platform is the request platform enum, independently required to match the frozen row ID/profile.",
+      "request": "Strictly decode retained R from verified envelope and parse once; this is the sole request object in the projection.",
+      "result": "Inline parsed envelope.result with exactly protocol.resultFields; no implicit renaming or synthesized observation fields.",
+      "effects": "Resolve result.effects descriptor using bundled relative path, verify its bytes/SHA256, then parse and inline with exactly protocol.effectsFields. It is not a descriptor at mutation-pointer time.",
+      "binding": "result/effects rowId and requestSha256 must match projected request and exact retained R. Request/result/effects are materialized only after verifying external object descriptors.",
+      "mutation": "Pointers address this projection. For referenceRows/platform mutation, alter the backing retained request platform and rebuild R/envelope. Other mutations alter their identified backing object. Recompute affected R/envelope/object/aggregate hashes and descriptors without changing the frozen fixture/expected assertion. Mutations must resolve to an existing member in valid base, and must be rejected by their named semantic predicate, not merely by a stale hash."
+    }
   },
   "producerReaderPredicates": "fixtures.json#/negativeFamilies",
   "unresolved": [

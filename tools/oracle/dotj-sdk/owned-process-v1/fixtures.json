@@ -2371,12 +2371,12 @@
       "a&b|c;d$(echo NO)",
       "\u6771\u4eac",
       "caf\u00e9",
-      "U0001f642"
+      "\ud83d\ude42"
     ],
-    "cwd": "case space/\u6771\u4eac/U0001f642",
+    "cwd": "case space/\u6771\u4eac/\ud83d\ude42",
     "environment": {
       "set": {
-        "DOTJ_FIXTURE_SET": "set \u6771\u4eac U0001f642",
+        "DOTJ_FIXTURE_SET": "set \u6771\u4eac \ud83d\ude42",
         "Dotj_Case": "upper",
         "dotj_case": "lower"
       },
@@ -2406,7 +2406,18 @@
       "257-tokens",
       "32769-utf16",
       "windows-30001-encoded-utf16"
-    ]
+    ],
+    "supplementaryIdentity": {
+      "scalar": 128578,
+      "utf16Units": [
+        55357,
+        56898
+      ],
+      "argvIndex": 9,
+      "cwdSuffix": "\ud83d\ude42",
+      "environmentKey": "DOTJ_FIXTURE_SET",
+      "rule": "Decoded values contain actual U+1F642, never an ASCII escape spelling. Each occurrence occupies one Unicode scalar and two UTF16 units."
+    }
   },
   "raceSchedules": {
     "count": 10,
@@ -2994,7 +3005,7 @@
       "mutation": "omitted",
       "expected": "REJECT",
       "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
-      "target": "/productRows/windows-P21-01/effects/source",
+      "target": "/productRows/windows-P21-01/effects/after/source",
       "operation": "Remove the selected mandatory member."
     },
     {
@@ -3004,7 +3015,7 @@
       "mutation": "content-substituted",
       "expected": "REJECT",
       "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
-      "target": "/productRows/windows-P21-01/effects/source",
+      "target": "/productRows/windows-P21-01/effects/after/source",
       "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
     },
     {
@@ -3014,7 +3025,7 @@
       "mutation": "wrong-bound",
       "expected": "REJECT",
       "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
-      "target": "/productRows/windows-P21-01/effects/source",
+      "target": "/productRows/windows-P21-01/effects/after/source",
       "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
     },
     {
@@ -3024,7 +3035,7 @@
       "mutation": "omitted",
       "expected": "REJECT",
       "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
-      "target": "/productRows/windows-P20-01/effects/priorSDK",
+      "target": "/productRows/windows-P20-01/effects/after/priorSDK",
       "operation": "Remove the selected mandatory member."
     },
     {
@@ -3034,7 +3045,7 @@
       "mutation": "content-substituted",
       "expected": "REJECT",
       "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
-      "target": "/productRows/windows-P20-01/effects/priorSDK",
+      "target": "/productRows/windows-P20-01/effects/after/priorSDK",
       "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
     },
     {
@@ -3044,7 +3055,7 @@
       "mutation": "wrong-bound",
       "expected": "REJECT",
       "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
-      "target": "/productRows/windows-P20-01/effects/priorSDK",
+      "target": "/productRows/windows-P20-01/effects/after/priorSDK",
       "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
     },
     {
@@ -3054,7 +3065,7 @@
       "mutation": "omitted",
       "expected": "REJECT",
       "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
-      "target": "/productRows/linux-P21-01/effects/siblings",
+      "target": "/productRows/linux-P21-01/effects/after/siblings",
       "operation": "Remove the selected mandatory member."
     },
     {
@@ -3064,7 +3075,7 @@
       "mutation": "content-substituted",
       "expected": "REJECT",
       "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
-      "target": "/productRows/linux-P21-01/effects/siblings",
+      "target": "/productRows/linux-P21-01/effects/after/siblings",
       "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
     },
     {
@@ -3074,7 +3085,7 @@
       "mutation": "wrong-bound",
       "expected": "REJECT",
       "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
-      "target": "/productRows/linux-P21-01/effects/siblings",
+      "target": "/productRows/linux-P21-01/effects/after/siblings",
       "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
     },
     {

@@ -80,3 +80,19 @@ hashes and archive entries, clause coverage and exact four-file diff. Future
 native behavior, final artifact closure and current reader controls remain open.
 The full implementation report and reproducible validation script live in the
 assigned D task scratch directory, outside the tracked four-file contract.
+
+## OP01 review corrections
+
+The corpus contains actual U+1F642 in argv, cwd and environment, with scalar and
+UTF16 identities frozen. Native SDK argv probes append the payload after a second
+literal `--`; the fixture parses only its five control tokens and reports its
+actual received suffix independently of the request file.
+
+Reference `request.json` retains base64 of the exact prelaunch request bytes after
+capture. The request digest hashes those decoded bytes; the final envelope digest
+lives only in its external descriptor, avoiding a cycle. Proof mutation pointers
+operate on the explicit materialized row projection: verified retained request,
+inline result and descriptor-verified inline effects. Preservation targets are
+the existing `effects.after.source`, `priorSDK` and `siblings` inventories.
+Pure synthetic checks exercise all60 pointer mutations and their intended binding
+assertions. These checks establish contract coherence, not native behavior.
