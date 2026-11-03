@@ -1439,3 +1439,7 @@ tools/oracle/dotj-build/items-evaluation-v1/*.sh text eol=lf
 # Preserve executed Python successor bytes while recognizing their CRLF line endings.
 tools/oracle/dotj-build/items-evaluation-v1/freeze_proof_fix1.py whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 tools/oracle/dotj-build/items-evaluation-v1/proof_controls_fix1.py whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve executed cycle-trace producer/consumer/reader bytes across checkout.
+tools/oracle/dotj-build/cycle-trace-v1/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/oracle/dotj-build/cycle-trace-v1/*.sh text eol=lf

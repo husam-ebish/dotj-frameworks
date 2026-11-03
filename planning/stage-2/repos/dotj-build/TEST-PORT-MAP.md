@@ -84,6 +84,20 @@ or public compatibility case is accepted by this bounded private evidence.
 
 ## Differential runner design
 
+The bounded private cycle-trace successor adds 19 byte-frozen import graphs across
+three individual profiles, Windows and measured case-enabled Linux 9p/NTFS.
+Its native projection evidence has two independent observations for every field
+in all 114 graph/profile/platform rows (228 required row-passes, 190 new).
+Full root-prefix traces are independently authored source adaptations, not a
+native public Chain field. Fourteen private groups include deterministic
+two-thread isolation, original compiled ABI consumers, 15 actual proof-negative
+controls and physical relocation. The same immutable final JAR reruns all
+inherited 303 Build obligations. See
+[the private qualification](evidence/private-cycle-trace-v1.json) and
+[the contract](../../../../dotj-build/evaluation-candidate/cycle-trace-v1/README.md).
+This advances F01-02 only as a partial adaptation; public/task/framework acceptance
+and the existing deferred families remain open.
+
 Use a versioned, language-neutral fixture envelope: fixture ID; input bytes/value schema; options; seed; clock/culture/timezone; platform requirements; expected output/errors/events/resource counters; allowed normalization; source pin; oracle/toolchain identity. Encode decimal and 64-bit integers as strings when transport would lose precision. Keep binary payloads exact with checksums. Run C# oracle and future Java implementation as separate processes, compare only approved normalized observables, preserve raw outputs, and classify mismatch as regression, documented adaptation or unresolved investigation. Do not normalize away ordering, precision, security failures or resource leaks.
 
 ## Required test dimensions
