@@ -1,0 +1,1137 @@
+{
+  "schema": "dotj.owned-process.source-map",
+  "version": 1,
+  "status": "SOURCE_VERIFIED_NO_NATIVE_OBSERVATIONS",
+  "base": "73c6bcad1d41be1b324aaa744e5fd5999b0bf4bb",
+  "plan": {
+    "path": "D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/task139-next-sdk-owned-process-plan-v1.json",
+    "bytes": 522741,
+    "sha256": "929995badb67d163170f4ad958c4912d5df3dcdf06a97b4021b3a3b61f49c67e"
+  },
+  "adoption": {
+    "path": "D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/task139-root-adoption-v2.json",
+    "bytes": 45999,
+    "sha256": "1b4d3e8777dd51f14bc9ea2d9d6444da7677c2fdb43331d18c7c80d2fb869b6c"
+  },
+  "graph": {
+    "project": "dotj-Frameworks",
+    "root": "C:/source/repos/dotj Frameworks",
+    "status": "ready",
+    "indexedAt": "2026-10-23T23:09:01Z",
+    "head": "73c6bcad1d41be1b324aaa744e5fd5999b0bf4bb",
+    "watched": false,
+    "symbolQuery": "OwnedProcess",
+    "symbolMatches": 0,
+    "gap": "No index for assigned D worktree or matching SDK VMR subtree; direct named source/archive reads and current hashes authoritative. No reindex performed."
+  },
+  "pins": {
+    "sdkVmr": "e34a38d2ae1fc26406a317517196e55c68ff83ab",
+    "sdkTree": "8f76da16cb6aa4b0a711621ee5a5496c02ef6863",
+    "sdkComponent": "32593ca81f8aae7b0d41c1a7198529c3365106b8",
+    "sdkSourceFiles": 9515,
+    "sdkBytes": 95544556,
+    "sdkManifest": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\task135-sdk-baseline-preparation-v1\\sdk-source-manifest-v1.json",
+      "bytes": 3157668,
+      "sha256": "de8e658c33a5cab49ea0738a4dea364a86d8286e5c6f4e4212e1dd51d3018273"
+    },
+    "msbuild": "b44cdcec4c79c50c67560876707d57d4f635fa3b",
+    "runtimeVersion": "10.0.12",
+    "runtimeCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "runtimeArchive": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\downloads\\runtime-source-v10.0.12.zip",
+      "bytes": 136239366,
+      "sha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
+    },
+    "jdk": "Microsoft21.0.12.1+1-LTS",
+    "jdkArchives": [
+      {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-qualified\\jdk-21.0.12.1+1\\lib\\src.zip",
+        "bytes": 53010760,
+        "sha256": "16e63665c5473c03fd4c5e22ea5183e5501d0a8698666e99cb6451d6c794b044",
+        "archive": true
+      },
+      {
+        "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\jdk-linux21\\jdk-21.0.12.1+1\\lib\\src.zip",
+        "bytes": 53599397,
+        "sha256": "985ef252fe0cf4c8bf0117108483244fbdff3e27317423c3d3479e05f2aef170",
+        "archive": true
+      }
+    ],
+    "policy": "SDK source is matching VMR subtree, not presumed dotnet/sdk checkout. Existing runtime ZIP located via recorded descriptor, hashed and read. No download; older analysis pins retained."
+  },
+  "sources": [
+    {
+      "id": "S01",
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/src/Cli/Microsoft.DotNet.Cli.Utils/Command.cs",
+      "bytes": 7050,
+      "sha256": "715d13620a17472e60a9f8b2072325f81c8aff210ceec43ef2bef55154402e22",
+      "lineCount": 238
+    },
+    {
+      "id": "S02",
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/src/Cli/Microsoft.DotNet.Cli.Utils/ProcessReaper.cs",
+      "bytes": 8073,
+      "sha256": "d56a0685399da7c0c8082e7a52d3ed70895b5e915fe287d8ef8673f40453706f",
+      "lineCount": 224
+    },
+    {
+      "id": "S03",
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/src/Cli/Microsoft.DotNet.Cli.Utils/ArgumentEscaper.cs",
+      "bytes": 6506,
+      "sha256": "f560fee43b70e61ae750f39731c112bbb0043a57b5cd5540e56a018480988a8e",
+      "lineCount": 191
+    },
+    {
+      "id": "S04",
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/src/Cli/dotnet/Commands/Run/RunCommand.cs",
+      "bytes": 53506,
+      "sha256": "4833f9b0f07422cf24922df46ea309c631512183bd35a5f43fee6abd71d52164",
+      "lineCount": 1219
+    },
+    {
+      "id": "S05",
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/test/dotnet.Tests/CommandTests/Run/GivenDotnetRunIsInterrupted.cs",
+      "bytes": 11043,
+      "sha256": "80b2530fb937c6495a8cdfac0475890feb72c5ce47d379b3c2830e4b70ab34d9",
+      "lineCount": 295
+    },
+    {
+      "id": "S06",
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/test/Microsoft.DotNet.Cli.Utils.Tests/ArgumentEscaperTests.cs",
+      "bytes": 1177,
+      "sha256": "240930653e92a6ace66a72e57e09bae109b8e891d0f574b177c98f99a8ff3c05",
+      "lineCount": 23
+    },
+    {
+      "id": "S07",
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/test/dotnet.Tests/CommandTests/Run/GivenDotnetRunBuildsCsProj.cs",
+      "bytes": 44331,
+      "sha256": "d1c843ad737b589a80125e3c5672db565c41093e355235bd845d550a6ca62a1d",
+      "lineCount": 1145
+    },
+    {
+      "id": "S08",
+      "path": "dotj-sdk/seed/Bootstrap.java",
+      "bytes": 12596,
+      "sha256": "533ae793159818fed1391f4080d8d1a610f71222f0d5b543d841090dfb5e84df",
+      "lineCount": 169
+    },
+    {
+      "id": "S09",
+      "path": "dotj-sdk/seed/sources.properties",
+      "bytes": 2056,
+      "sha256": "414e04c987d4c6a928a71d8bb78e61448ef0f453146fa4ade3ef67f9aaa4ab0e",
+      "lineCount": 12
+    },
+    {
+      "id": "S10",
+      "path": "dotj-sdk/src/org/dotj/internal/build/evaluation/SdkMain.java",
+      "bytes": 13170,
+      "sha256": "357b7c56be487b7323c96fdfb27cd06ac34886d00cbf2a3c8406bf32fc3d179a",
+      "lineCount": 183
+    },
+    {
+      "id": "S11",
+      "path": "dotj-sdk/launcher/dotj.ps1",
+      "bytes": 2300,
+      "sha256": "4b96acf5bf142e2b5dee64fe710690d13fe5c87e5139660938c9018f5301e88e",
+      "lineCount": 23
+    },
+    {
+      "id": "S12",
+      "path": "dotj-sdk/launcher/dotj",
+      "bytes": 930,
+      "sha256": "15414d815a6c3ae4bd5e0510549a422cf2d29f4f3d446af4a507d015ccf2d1f1",
+      "lineCount": 9
+    },
+    {
+      "id": "S13",
+      "path": "tools/oracle/dotj-sdk/seed-v1/proof_reader.py",
+      "bytes": 36887,
+      "sha256": "117c2c055a5e7efbc690bafb61859a678ca6f8ae658b94a58e3b9bebf6f88f71",
+      "lineCount": 360
+    },
+    {
+      "id": "S14",
+      "path": "tools/oracle/dotj-sdk/seed-v1/implementation-profile-v3.json",
+      "bytes": 3073,
+      "sha256": "b56d38e2b7688449d1fbd89346906ac6ca8f879ab0071781866d7bd812620f97",
+      "lineCount": 44
+    },
+    {
+      "id": "S15",
+      "path": "tools/oracle/dotj-sdk/seed-v1/consumed-contract-v2.json",
+      "bytes": 7026,
+      "sha256": "ba8716bb5265acd356a6d36c3eb5702cd60531466f7835a732432f05a95355c6",
+      "lineCount": 99
+    },
+    {
+      "id": "S16",
+      "path": "tools/oracle/dotj-sdk/seed-v1/baseline-lock.json",
+      "bytes": 53515,
+      "sha256": "45a313f6d804e8360465c969279d93d0c531153dd0b40839577a82ec985f5c19",
+      "lineCount": 1248
+    },
+    {
+      "id": "S17",
+      "path": "planning/stage-2/sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md",
+      "bytes": 30833,
+      "sha256": "34383fb5001826d77155e672b57dd9af183783835a2a1aab979d947fafda2f99",
+      "lineCount": 329
+    },
+    {
+      "id": "S18",
+      "path": "planning/stage-2/sdk/01-CLI-PARITY.md",
+      "bytes": 8422,
+      "sha256": "2e013ae5203bcf1a16448f0c1792faf359bcfd4cb090713d1b0c1e718281e224",
+      "lineCount": 81
+    },
+    {
+      "id": "S19",
+      "path": "planning/stage-2/sdk/02-PROJECT-AND-BUILD-CONTRACT.md",
+      "bytes": 7996,
+      "sha256": "e3aa854ef87ec047694c86a10330453750c32fe1d2fcc7b40c19c255962a9f9d",
+      "lineCount": 74
+    },
+    {
+      "id": "S20",
+      "path": "planning/stage-2/sdk/03-INSTALLATION-AND-RESOLUTION.md",
+      "bytes": 7447,
+      "sha256": "8a4f3a87d68615f08a63f9f8a57d4a0e9509a1806a8fe45468f310d384d70b1f",
+      "lineCount": 70
+    },
+    {
+      "id": "S21",
+      "path": "planning/stage-2/IMPLEMENTATION-STATE.md",
+      "bytes": 726637,
+      "sha256": "30004d83d8605d827eaa702d99189c72d2a47784794f1028418a8bec5b955a2d",
+      "lineCount": 2660
+    },
+    {
+      "id": "S22",
+      "path": "planning/stage-2/IMPLEMENTATION-PROGRESS.json",
+      "bytes": 375318,
+      "sha256": "a578bfc3e1ee139187235e1a4a44bd41c2ab9bb8998c44687680df53456e8b76",
+      "lineCount": 12989
+    },
+    {
+      "id": "S23",
+      "path": "planning/stage-2/implementation/acceptance/Batch-2523-accepted-tasks.json",
+      "bytes": 4770,
+      "sha256": "dbad4109a839c33823f58b3d2128b59509a1b9cbf0ecb9b1a3ac16e7f2272296",
+      "lineCount": 63
+    },
+    {
+      "id": "S24",
+      "path": "planning/stage-2/implementation/batches/Batch-2523.md",
+      "bytes": 7029,
+      "sha256": "8ccc1e6ed2b3f0e8d1cef387ee2a7708ba6f855b57583321ae54275b112ad940",
+      "lineCount": 87
+    },
+    {
+      "id": "S25",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/src.zip",
+      "bytes": 53010760,
+      "sha256": "16e63665c5473c03fd4c5e22ea5183e5501d0a8698666e99cb6451d6c794b044"
+    },
+    {
+      "id": "S26",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/src.zip!/java.base/java/lang/Process.java",
+      "bytes": 37664,
+      "sha256": "a11aeac21e10ada8b344ad0fdc5486358a008f89390882bcc1822b1799b2f3ac",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/src.zip",
+      "entry": "java.base/java/lang/Process.java",
+      "lineCount": 866
+    },
+    {
+      "id": "S27",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/src.zip!/java.base/java/lang/ProcessBuilder.java",
+      "bytes": 54997,
+      "sha256": "84c50304cc5ee736def545448b1c31dd5ba4552e04310b40810676f081d21f2c",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/src.zip",
+      "entry": "java.base/java/lang/ProcessBuilder.java",
+      "lineCount": 1353
+    },
+    {
+      "id": "S28",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/src.zip!/java.base/java/lang/ProcessHandle.java",
+      "bytes": 19774,
+      "sha256": "0a54016f3f6ab2735a5c06eec975a6f791e2ab51909ee2f2c2b90e1c0e4e9e95",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/src.zip",
+      "entry": "java.base/java/lang/ProcessHandle.java",
+      "lineCount": 439
+    },
+    {
+      "id": "S29",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/src.zip!/java.base/java/lang/ProcessImpl.java",
+      "bytes": 29576,
+      "sha256": "062d18bfe35182eb0e4c195e97c98da085efade2e7b71b43cae9e9d88e768172",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/src.zip",
+      "entry": "java.base/java/lang/ProcessImpl.java",
+      "lineCount": 723
+    },
+    {
+      "id": "S30",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/src.zip",
+      "bytes": 53599397,
+      "sha256": "985ef252fe0cf4c8bf0117108483244fbdff3e27317423c3d3479e05f2aef170"
+    },
+    {
+      "id": "S31",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/src.zip!/java.base/java/lang/Process.java",
+      "bytes": 37664,
+      "sha256": "a11aeac21e10ada8b344ad0fdc5486358a008f89390882bcc1822b1799b2f3ac",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/src.zip",
+      "entry": "java.base/java/lang/Process.java",
+      "lineCount": 866
+    },
+    {
+      "id": "S32",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/src.zip!/java.base/java/lang/ProcessBuilder.java",
+      "bytes": 54997,
+      "sha256": "84c50304cc5ee736def545448b1c31dd5ba4552e04310b40810676f081d21f2c",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/src.zip",
+      "entry": "java.base/java/lang/ProcessBuilder.java",
+      "lineCount": 1353
+    },
+    {
+      "id": "S33",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/src.zip!/java.base/java/lang/ProcessHandle.java",
+      "bytes": 19774,
+      "sha256": "0a54016f3f6ab2735a5c06eec975a6f791e2ab51909ee2f2c2b90e1c0e4e9e95",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/src.zip",
+      "entry": "java.base/java/lang/ProcessHandle.java",
+      "lineCount": 439
+    },
+    {
+      "id": "S34",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/src.zip!/java.base/java/lang/ProcessImpl.java",
+      "bytes": 29123,
+      "sha256": "3c501366c6ebfe3699da9a4bc4c68bbe8dd0df48b49d5984efb3c0954549a71f",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/src.zip",
+      "entry": "java.base/java/lang/ProcessImpl.java",
+      "lineCount": 795
+    },
+    {
+      "id": "S35",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip",
+      "bytes": 136239366,
+      "sha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115"
+    },
+    {
+      "id": "S36",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip!/runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Diagnostics.Process/src/System/Diagnostics/Process.cs",
+      "bytes": 62289,
+      "sha256": "458239074e7a2167a2d01b44459552e2f13db5da9bcf7c581933028bc8a093ae",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip",
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Diagnostics.Process/src/System/Diagnostics/Process.cs",
+      "lineCount": 1772
+    },
+    {
+      "id": "S37",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip!/runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Diagnostics.Process/src/System/Diagnostics/Process.Unix.cs",
+      "bytes": 44910,
+      "sha256": "09b659cfe250f0a6a5c77831bad0314f15d4dc8430dc31c4b966e0411ff187e8",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip",
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Diagnostics.Process/src/System/Diagnostics/Process.Unix.cs",
+      "lineCount": 1135
+    },
+    {
+      "id": "S38",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip!/runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Diagnostics.Process/src/System/Diagnostics/Process.Windows.cs",
+      "bytes": 41903,
+      "sha256": "49620fb20feffb84e36d587a381c0cf161e3ec8c114f6ff1e7fa2d7672b518cf",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip",
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Diagnostics.Process/src/System/Diagnostics/Process.Windows.cs",
+      "lineCount": 924
+    },
+    {
+      "id": "S39",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip!/runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Diagnostics.Process/tests/ProcessWaitingTests.cs",
+      "bytes": 25741,
+      "sha256": "21bdcb83c3bf333663e7ad16e0c256ba152ab6c12a09a664a10af77056c9dbbe",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip",
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Diagnostics.Process/tests/ProcessWaitingTests.cs",
+      "lineCount": 675
+    },
+    {
+      "id": "S40",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip!/runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Diagnostics.Process/tests/ProcessStartInfoTests.cs",
+      "bytes": 63945,
+      "sha256": "272e1ce663817144002b7ecb5781f6207b7f6745a00061f63a37b033ea67ff4e",
+      "archive": "D:/AI/Implementation/dotj Frameworks/toolchains/downloads/runtime-source-v10.0.12.zip",
+      "entry": "runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Diagnostics.Process/tests/ProcessStartInfoTests.cs",
+      "lineCount": 1509
+    },
+    {
+      "id": "S41",
+      "path": "D:/AI/Implementation/dotj Frameworks/agents/task135-sdk-baseline-preparation-v1/sdk-source-manifest-v1.json",
+      "bytes": 3157668,
+      "sha256": "de8e658c33a5cab49ea0738a4dea364a86d8286e5c6f4e4212e1dd51d3018273"
+    },
+    {
+      "id": "S42",
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/source-manifest.json",
+      "bytes": 4952,
+      "sha256": "a19f83e7f90be15e27e7e7ff48a2965ce7300d9fc5a7ba70aacaa418e26fd619"
+    },
+    {
+      "id": "S43",
+      "path": "planning/stage-2/repos/dotj-sdk/WORK-PACKAGES.md",
+      "bytes": 15745,
+      "sha256": "9b708e57d8d0d257f7c239436199019ffe38ca617f0c5e1ca1d118a9fd71d12a",
+      "lineCount": 143
+    },
+    {
+      "id": "S44",
+      "path": "tools/oracle/dotj-sdk/seed-v1/refresh_manifest.py",
+      "bytes": 1268,
+      "sha256": "8607049c856da9624dca5368cae66ccbd7c91185f6bd38c8f275d8c058b6f1b2",
+      "lineCount": 19
+    },
+    {
+      "id": "S45",
+      "path": "tools/oracle/dotj-sdk/seed-v1/test_paths_linux.py",
+      "bytes": 3818,
+      "sha256": "013f13942afc69fc1218f2dda926607c9a559380d7b107db91e36a5eeb1a777e",
+      "lineCount": 44
+    },
+    {
+      "id": "S46",
+      "path": "dotj-sdk/seed/build.ps1",
+      "bytes": 2305,
+      "sha256": "ccf591401fa87afce96ccb13e584eec2dd781df827b0f9a310c0a35f501a35f0",
+      "lineCount": 25
+    },
+    {
+      "id": "S47",
+      "path": "dotj-sdk/seed/build.sh",
+      "bytes": 898,
+      "sha256": "4c724e359107ac50abeaf8c90abcdbdf1f80429b54a481706d319d914fa471dd",
+      "lineCount": 9
+    }
+  ],
+  "semanticMappings": [
+    {
+      "id": "T4-EXEC",
+      "clause": "SDK-I02-T4",
+      "phrase": "Implement internal process execution",
+      "sources": [
+        {
+          "source": "S01",
+          "lines": [
+            26,
+            94
+          ]
+        },
+        {
+          "source": "S10",
+          "lines": [
+            1,
+            183
+          ]
+        }
+      ],
+      "predicate": "Shipped org.dotj.internal.sdk.process implementation in the existing nonexporting SDK module executes real children through a private packaged consumer; same evaluator and provider seed remain. Concurrent bounded stdout/stderr handling is part of execution.",
+      "cases": [
+        "P01",
+        "P02",
+        "P06",
+        "P14"
+      ],
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "id": "T4-ARGV",
+      "clause": "SDK-I02-T4",
+      "phrase": "with argument arrays",
+      "sources": [
+        {
+          "source": "S03",
+          "lines": [
+            17,
+            35
+          ]
+        },
+        {
+          "source": "S27",
+          "lines": [
+            204,
+            280
+          ]
+        }
+      ],
+      "predicate": "Immutable copied argument array; selected absolute executable; no shell concatenation or PATH fallback; actual child codepoints equal requested codepoints.",
+      "cases": [
+        "P03",
+        "P24"
+      ],
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "id": "T4-CANCEL",
+      "clause": "SDK-I02-T4",
+      "phrase": "cancellation",
+      "sources": [
+        {
+          "source": "S02",
+          "lines": [
+            28,
+            176
+          ]
+        },
+        {
+          "source": "S26",
+          "lines": [
+            515,
+            538
+          ]
+        },
+        {
+          "source": "S26",
+          "lines": [
+            613,
+            674
+          ]
+        },
+        {
+          "source": "S36",
+          "lines": [
+            1468,
+            1577
+          ]
+        }
+      ],
+      "predicate": "Admission slot precedes start. Every direct Process returned, including late or in-flight starts, is retained, terminated and joined with stdin/stdout/stderr workers. Cancellation of a wait/future is not termination.",
+      "cases": [
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12",
+        "P13",
+        "P16",
+        "P17",
+        "P18",
+        "P19"
+      ],
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "id": "T4-ENV",
+      "clause": "SDK-I02-T4",
+      "phrase": "environment scoping",
+      "sources": [
+        {
+          "source": "S01",
+          "lines": [
+            96,
+            106
+          ]
+        },
+        {
+          "source": "S27",
+          "lines": [
+            288,
+            359
+          ]
+        }
+      ],
+      "predicate": "Defensive child-only environment copy; explicit set/remove and native case semantics; parent environment/cwd/console encoding unchanged; record system-added variables.",
+      "cases": [
+        "P04",
+        "P05"
+      ],
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "id": "T4-REDACT",
+      "clause": "SDK-I02-T4",
+      "phrase": "diagnostic redaction",
+      "sources": [
+        {
+          "source": "S01",
+          "lines": [
+            32,
+            48
+          ]
+        },
+        {
+          "source": "S27",
+          "lines": [
+            1074,
+            1084
+          ]
+        },
+        {
+          "source": "S27",
+          "lines": [
+            1126,
+            1151
+          ]
+        }
+      ],
+      "predicate": "SDK-owned diagnostics contain no tagged synthetic argv/env/stdin/cause/chunk secret; bounded categorical errors never dump raw request, child streams or Throwable text. Raw protocol, TRACE/JFR and OS observation are separate surfaces.",
+      "cases": [
+        "P06",
+        "P15",
+        "P18",
+        "P19",
+        "P22",
+        "P23",
+        "P24"
+      ],
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "id": "T4-INTERNAL",
+      "clause": "SDK-I02-T4",
+      "phrase": "keep helper APIs internal.",
+      "sources": [
+        {
+          "source": "S17",
+          "lines": [
+            68,
+            68
+          ]
+        },
+        {
+          "source": "S08",
+          "lines": [
+            67,
+            69
+          ]
+        }
+      ],
+      "predicate": "No exported/opened process package, public facade, new debug CLI or second evaluator. Inspect compiled module and packaged consumer bindings.",
+      "cases": [
+        "P01",
+        "P24"
+      ],
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "id": "F02-PATH",
+      "clause": "SDK-I02-F02",
+      "phrase": "Paths containing spaces and Unicode reach javac and child applications unchanged on each advertised OS.",
+      "sources": [
+        {
+          "source": "S18",
+          "lines": [
+            73,
+            81
+          ]
+        },
+        {
+          "source": "S14",
+          "lines": [
+            14,
+            40
+          ]
+        }
+      ],
+      "predicate": "Space, BMP and supplementary Unicode paths reach native javac and child applications unchanged on Windows/Linux. Existing printable-ASCII Windows JDK installation limit is separate; Unicode user paths may not be restricted away.",
+      "cases": [
+        "P03",
+        "P04"
+      ],
+      "status": "UNRESOLVED_TRANSPORT_REQUIRES_OP02C"
+    },
+    {
+      "id": "F04-CHILD",
+      "clause": "SDK-I02-F04",
+      "phrase": "Cancellation terminates owned children",
+      "sources": [
+        {
+          "source": "S26",
+          "lines": [
+            761,
+            808
+          ]
+        },
+        {
+          "source": "S28",
+          "lines": [
+            152,
+            183
+          ]
+        },
+        {
+          "source": "S28",
+          "lines": [
+            290,
+            372
+          ]
+        }
+      ],
+      "predicate": "All direct handles and in-flight launches owned/joined under D1; observed exit plus worker joins required. Descendant snapshots and PID absence alone are insufficient. Forced parent death and escaped descendants unqualified.",
+      "cases": [
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12",
+        "P13",
+        "P17",
+        "P23"
+      ],
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    },
+    {
+      "id": "F04-PRESERVE",
+      "clause": "SDK-I02-F04",
+      "phrase": "and leaves reusable previous outputs intact.",
+      "sources": [
+        {
+          "source": "S08",
+          "lines": [
+            117,
+            166
+          ]
+        },
+        {
+          "source": "S20",
+          "lines": [
+            43,
+            50
+          ]
+        }
+      ],
+      "predicate": "Canceled/failed writes remain in fresh owned staging; no publish. Hash and execute prior reusable SDK output; source and unrelated sibling inventories unchanged independently.",
+      "cases": [
+        "P20",
+        "P21"
+      ],
+      "status": "PLANNED_NOT_IMPLEMENTED"
+    }
+  ],
+  "findings": [
+    {
+      "source": "SDK Command.cs26-94/96-106",
+      "finding": "Uses Process.Start then processStarted/reaper notification; starts stdout/stderr readers, waits process then readers; env mutation is per ProcessStartInfo. Verbose paths32-35/44-48 print raw args, so owned diagnostic redaction is a deliberate binding safety requirement, not upstream verbose equivalence."
+    },
+    {
+      "source": "SDK ProcessReaper.cs13-20,28-73,75-105,126-176",
+      "finding": "Windows Job kill-on-close assigned after start; failure can return null. Dispose clears kill flag on normal completion. POSIX forwards SIGTERM to target only and waits; SIGINT parent handler suppresses signal so child handles it. No universal race-free descendant guarantee follows."
+    },
+    {
+      "source": "JDK Process.java515-538,613-674,761-808; ProcessHandle.java152-183,290-311,352-372",
+      "finding": "Force termination is not synchronous completion; wait/onExit needed. Future cancellation alone does not kill. Children/descendants are asynchronous snapshots, unsuitable as complete ownership registry."
+    },
+    {
+      "source": "JDK ProcessBuilder.java204-280,288-359,996-1008,1074-1084,1126-1151",
+      "finding": "Defensive copy required; builder list is mutable. Environment starts as copied parent map and OS may add required settings. TRACE logs args; JFR ProcessStartEvent records joined command. Wrapper cannot truthfully redact OS/JDK telemetry by sanitizing its own logs."
+    },
+    {
+      "source": "Runtime Process.cs1468-1577; Process.Unix.cs59-140,577-605; Process.Windows.cs92-107",
+      "finding": "WaitForExitAsync token cancels wait, not implicit kill. Unix tree kill stops target, enumerates children, kills and recurses. Windows calls native termination. These APIs are reference semantics, not product dependencies."
+    },
+    {
+      "source": "Bootstrap.java67-69,102,117-145,151-166; SdkMain.java startup/main; seed proof_reader.py119/240/247/252",
+      "finding": "Current seed uses in-process javac/jar; no generic product child runner. Exact7 staged/14 declared/45 class assumptions and digest chain must change when adding source. Python guards and old controlled bootstrap interruption do not prove T4."
+    }
+  ],
+  "upstreamTestIdentities": [
+    "Microsoft.DotNet.Cli.Utils.Tests.ArgumentEscaperTests.EscapesArgumentsForProcessStart (ArgumentEscaperTests.cs18)",
+    "Microsoft.DotNet.Cli.Run.Tests.GivenDotnetRunIsInterrupted.ItIgnoresSIGINT (102)",
+    "Microsoft.DotNet.Cli.Run.Tests.GivenDotnetRunIsInterrupted.ItPassesSIGTERMToChild (163)",
+    "Microsoft.DotNet.Cli.Run.Tests.GivenDotnetRunIsInterrupted.ItTerminatesTheChildWhenKilled (224)",
+    "Microsoft.DotNet.Cli.Run.Tests.GivenDotnetRunIsInterrupted.ItTerminatesWinExeAppWithCloseMainWindow (22; GUI profile not initial claim)",
+    "GivenDotnetRunBuildsCsProj.ItIncludesEnvironmentVariablesSpecifiedInLaunchSettings (886; namespace must be checked before calling fully qualified ID)",
+    "Runtime ProcessWaitingTests.cs cancellation cases121-132/166-188/294-321 and WaitForExitAsync_AfterProcessExit_ShouldConsumeOutputDataReceived at521; source identities only, not upstream runner passes"
+  ],
+  "consumedPrerequisites": {
+    "E01": "Reuse accepted SDK-I01-T1 technical baseline, exact new Process/JDK source notices and selected local eligibility. No source copying or public redistribution claim.",
+    "E02": "Selected process/env/output/ownership semantic closure plus native boundaries; exact new source/class/dependency inventory. No prerequisite full Core public JAR is invented.",
+    "E03": "True source test identities plus raw reference capture before code; source tests are not claimed executed. All representation differences reviewed.",
+    "N01": "Internal org.dotj implementation, no exports/opens/public renamed Process facade; existing CLI/XML/config names unchanged.",
+    "Q01": "Selected final-artifact lifecycle and affected predecessor regression only; full framework qualification remains open.",
+    "predecessors": "Accepted SDK-I02-T2/T3 and consumed SDK-I01 baseline. Full I01/I02/I03, T5/F05, release rights and other66framework scope remain open."
+  },
+  "rights": {
+    "status": "LOCAL_INTERNAL_ELIGIBILITY_ONLY",
+    "baseline": "tools/oracle/dotj-sdk/seed-v1/baseline-lock.json",
+    "eligibility": {
+      "localTechnical": "Root adoption130e7a65 permits new owned Java and same qualified private Build evaluator plus existing JDK APIs for local internal qualification. No wholesale upstream implementation copied. Reference SDK and Python are development only.",
+      "redistribution": "No JDK/.NET binaries in product. Public release and rights clearance remain OPEN. Core public release decisions are not consumed.",
+      "N01": "CLI/XML/configuration names retained; no exported Java facade. Ledger is consumed slice only."
+    },
+    "notices": [
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/LICENSE.TXT",
+        "bytes": 1116,
+        "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/THIRD-PARTY-NOTICES.TXT",
+        "bytes": 392,
+        "sha256": "8accab41d2456519d132b871d33ff2095e297b09f64d9a46893dc6a7e09bf614"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/LICENSE",
+        "bytes": 1141,
+        "sha256": "83ea4f166c89f86406b4f57f29b54e4430340615afc0acfe57915e1ce00a16e5"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/THIRDPARTYNOTICES.txt",
+        "bytes": 1988,
+        "sha256": "99eaeac937f29d42307e11376f9a3d2a1713ccf7df1b9003d7b225484b58a474"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/ADDITIONAL_LICENSE_INFO",
+        "bytes": 2114,
+        "sha256": "a69bce275ba7a3570af6579cb0f55682cd75fedfcd49e0e8e9022270c447c916"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/aes.md",
+        "bytes": 1444,
+        "sha256": "45c6d4da48325edfbff3dcf71c704e504c057904435ed23c6d57046d551eb69d"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/asm.md",
+        "bytes": 1582,
+        "sha256": "683be15695bd248272d60f5b7fbe5e126a935ea6bf231a624a9aa164733e1d1d"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/ASSEMBLY_EXCEPTION",
+        "bytes": 1514,
+        "sha256": "75292f03bf23d3db7c985aecc191029b93883200721ed23ed34a2e601463df33"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/c-libutl.md",
+        "bytes": 1556,
+        "sha256": "bef40679922d6fdfb7e4ddb223ad6722300f6054ba737bbf6188d60fcec517f9"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/cldr.md",
+        "bytes": 9601,
+        "sha256": "19515e14a240e022640e95b61b5095127fa9690755950b4a2b0a02e783e08163"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/icu.md",
+        "bytes": 30197,
+        "sha256": "1bf28459c6e0af9f3429f4f8becd1668d6544055f8df240277456bc4b3d8a752"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/LICENSE",
+        "bytes": 19274,
+        "sha256": "4b9abebc4338048a7c2dc184e9f800deb349366bdf28eb23c2677a77b4c87726"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/public_suffix.md",
+        "bytes": 17783,
+        "sha256": "861de1e4992a7d28f1de25c73cd50d26a94779ebd749c0643fecfa56442c3429"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/siphash.md",
+        "bytes": 8256,
+        "sha256": "5a792b5a74ad2a5f3d6a7ad8b7a841116e58a772c18bc6e392320a365b222c76"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/unicode.md",
+        "bytes": 9078,
+        "sha256": "6f72f10d166b2c2e8a395e03e734c5afc852b59aeca73ced124f6b9c96268d53"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/wepoll.md",
+        "bytes": 1454,
+        "sha256": "3ac2992770080453b98c42afa807ba4b2c1738ef756b92a55c645f55e7df48f0"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/legal/java.base/zlib.md",
+        "bytes": 1010,
+        "sha256": "c9c70c36a1f0325e8788771906202d42ba6ab4205caca44ec0f665707e83226b"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/ADDITIONAL_LICENSE_INFO",
+        "bytes": 2114,
+        "sha256": "a69bce275ba7a3570af6579cb0f55682cd75fedfcd49e0e8e9022270c447c916"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/aes.md",
+        "bytes": 1444,
+        "sha256": "45c6d4da48325edfbff3dcf71c704e504c057904435ed23c6d57046d551eb69d"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/asm.md",
+        "bytes": 1582,
+        "sha256": "683be15695bd248272d60f5b7fbe5e126a935ea6bf231a624a9aa164733e1d1d"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/ASSEMBLY_EXCEPTION",
+        "bytes": 1514,
+        "sha256": "75292f03bf23d3db7c985aecc191029b93883200721ed23ed34a2e601463df33"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/c-libutl.md",
+        "bytes": 1556,
+        "sha256": "bef40679922d6fdfb7e4ddb223ad6722300f6054ba737bbf6188d60fcec517f9"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/cldr.md",
+        "bytes": 9601,
+        "sha256": "19515e14a240e022640e95b61b5095127fa9690755950b4a2b0a02e783e08163"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/gcc.md",
+        "bytes": 128099,
+        "sha256": "589e34f142cdf7d1430daa573e61c2e3dd0330c9eb5a2c00d4a98b3a4450810b"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/icu.md",
+        "bytes": 30197,
+        "sha256": "1bf28459c6e0af9f3429f4f8becd1668d6544055f8df240277456bc4b3d8a752"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/LICENSE",
+        "bytes": 19274,
+        "sha256": "4b9abebc4338048a7c2dc184e9f800deb349366bdf28eb23c2677a77b4c87726"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/public_suffix.md",
+        "bytes": 17783,
+        "sha256": "861de1e4992a7d28f1de25c73cd50d26a94779ebd749c0643fecfa56442c3429"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/siphash.md",
+        "bytes": 8256,
+        "sha256": "5a792b5a74ad2a5f3d6a7ad8b7a841116e58a772c18bc6e392320a365b222c76"
+      },
+      {
+        "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/legal/java.base/unicode.md",
+        "bytes": 9078,
+        "sha256": "6f72f10d166b2c2e8a395e03e734c5afc852b59aeca73ced124f6b9c96268d53"
+      }
+    ],
+    "rule": "No upstream implementation copied, no .NET/JDK binaries shipped, no public redistribution credit. Process/JDK source headers retained in pinned sources; any copying or release requires separate rights review."
+  },
+  "tools": [
+    {
+      "id": "windows-files-release",
+      "platform": "windows",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/release",
+      "bytes": 1295,
+      "sha256": "25d8eccb6c159180584389bdc8f0c821dccf5f60dd6efd599f764f8216a1260b"
+    },
+    {
+      "id": "windows-files-bin/java.exe",
+      "platform": "windows",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/bin/java.exe",
+      "bytes": 50016,
+      "sha256": "1f41cc782de7ddd8824376568f9011413d710cf225047906106d2a01a0e3f7a9"
+    },
+    {
+      "id": "windows-files-bin/javac.exe",
+      "platform": "windows",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/bin/javac.exe",
+      "bytes": 24376,
+      "sha256": "00ff52b49ba8cb2de4718fade93f411549d704eb869641eaa69986608a452a26"
+    },
+    {
+      "id": "windows-files-bin/jar.exe",
+      "platform": "windows",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/bin/jar.exe",
+      "bytes": 23864,
+      "sha256": "cb2ac2389d5689d9930e997be4a33c564906d5d8afa9cf2b115c1be5654a7584"
+    },
+    {
+      "id": "windows-files-lib/modules",
+      "platform": "windows",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/modules",
+      "bytes": 140944326,
+      "sha256": "fdf9a1bbdbd24fabad4c5f53815ad13a2e6f9de48c982c2ce7b8c272b2d7552d"
+    },
+    {
+      "id": "windows-files-lib/src.zip",
+      "platform": "windows",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-qualified/jdk-21.0.12.1+1/lib/src.zip",
+      "bytes": 53010760,
+      "sha256": "16e63665c5473c03fd4c5e22ea5183e5501d0a8698666e99cb6451d6c794b044"
+    },
+    {
+      "id": "windows-nativeSdk-dotnet.exe",
+      "platform": "windows",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet/dotnet.exe",
+      "bytes": 167208,
+      "sha256": "21a46f1e5235cf4e844b9de5429f0e198b9c97a41f0503a66442f1d639ca3ee6"
+    },
+    {
+      "id": "windows-nativeSdk-sdk/10.0.401/.version",
+      "platform": "windows",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet/sdk/10.0.401/.version",
+      "bytes": 101,
+      "sha256": "2fb67d624fe41f09794f1ba366d396639b6fc65bd8b5c7d2581a0aecef96517d"
+    },
+    {
+      "id": "windows-nativeSdk-sdk/10.0.401/dotnet.dll",
+      "platform": "windows",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet/sdk/10.0.401/dotnet.dll",
+      "bytes": 3520296,
+      "sha256": "616dbda77bc20692d615e2a679f31ffff04f693e8d6b3e24779cf8838adb6a85"
+    },
+    {
+      "id": "windows-nativeSdk-sdk/10.0.401/MSBuild.dll",
+      "platform": "windows",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet/sdk/10.0.401/MSBuild.dll",
+      "bytes": 681768,
+      "sha256": "22f7b95c5cc1e7287a9d561a0e88719c4d545c5f3892e3e6501051f5abcbe147"
+    },
+    {
+      "id": "windows-nativeSdk-sdk/10.0.401/dotnet.deps.json",
+      "platform": "windows",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet/sdk/10.0.401/dotnet.deps.json",
+      "bytes": 64837,
+      "sha256": "7cf8fff4144ef3484f052c4a4734a53f4d65023798f11da62f3c45ae4353d8e8"
+    },
+    {
+      "id": "windows-nativeSdk-sdk/10.0.401/MSBuild.deps.json",
+      "platform": "windows",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet/sdk/10.0.401/MSBuild.deps.json",
+      "bytes": 123495,
+      "sha256": "621084fd13a3a6bfab914b94f34f7d5a0833ccc9746f5b2c60b99e79cc9b1a08"
+    },
+    {
+      "id": "linux-files-release",
+      "platform": "linux",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/release",
+      "bytes": 1261,
+      "sha256": "e5a4248b028f6ecd6d43fb1a57fff0f900ef62e026501e95875a60b0cf904338"
+    },
+    {
+      "id": "linux-files-bin/java",
+      "platform": "linux",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/bin/java",
+      "bytes": 12328,
+      "sha256": "3282b9858bee1ffd212a1a640236699494235d106e3b8bccbf726f9ac02cb0aa"
+    },
+    {
+      "id": "linux-files-bin/javac",
+      "platform": "linux",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/bin/javac",
+      "bytes": 12416,
+      "sha256": "167e2252877477bb0e0a103bffe117899e058e1a3c27cf2ac2ef58e6118f43ea"
+    },
+    {
+      "id": "linux-files-bin/jar",
+      "platform": "linux",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/bin/jar",
+      "bytes": 12384,
+      "sha256": "71f3a67544b2925b19a3059fc0a118bfae118ac6e61081de3b9ba99963cc5a58"
+    },
+    {
+      "id": "linux-files-lib/modules",
+      "platform": "linux",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/modules",
+      "bytes": 142256047,
+      "sha256": "4f7ec310ff4b25fe0574a84fa97d8ae2e28fd37289d9dedbe1a474e4e86e2b70"
+    },
+    {
+      "id": "linux-files-lib/src.zip",
+      "platform": "linux",
+      "role": "files",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/jdk-linux21/jdk-21.0.12.1+1/lib/src.zip",
+      "bytes": 53599397,
+      "sha256": "985ef252fe0cf4c8bf0117108483244fbdff3e27317423c3d3479e05f2aef170"
+    },
+    {
+      "id": "linux-nativeSdk-dotnet",
+      "platform": "linux",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet-linux-10.0.401/dotnet",
+      "bytes": 71808,
+      "sha256": "01d89e0a0191052bfea616cd4ce624c8faf13b05bbddf7f64499c23e2a9d9269"
+    },
+    {
+      "id": "linux-nativeSdk-sdk/10.0.401/.version",
+      "platform": "linux",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet-linux-10.0.401/sdk/10.0.401/.version",
+      "bytes": 98,
+      "sha256": "496179aced13abd185f027a1ce8519cc57aa194a5538c51226c0c12e63a4a5ba"
+    },
+    {
+      "id": "linux-nativeSdk-sdk/10.0.401/dotnet.dll",
+      "platform": "linux",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet-linux-10.0.401/sdk/10.0.401/dotnet.dll",
+      "bytes": 3525416,
+      "sha256": "bf8844d3d50869c1c05ff4aaf1908a81ca657106bed52be1388a8323690f5049"
+    },
+    {
+      "id": "linux-nativeSdk-sdk/10.0.401/MSBuild.dll",
+      "platform": "linux",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet-linux-10.0.401/sdk/10.0.401/MSBuild.dll",
+      "bytes": 679208,
+      "sha256": "c00b1a9d5e458b2775ee1ea353cd8735ee5e5bf137e7c8c7a468ffa6c90c4ab4"
+    },
+    {
+      "id": "linux-nativeSdk-sdk/10.0.401/dotnet.deps.json",
+      "platform": "linux",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet-linux-10.0.401/sdk/10.0.401/dotnet.deps.json",
+      "bytes": 63241,
+      "sha256": "1bf6d45ddff84566853119bc8bcf98178331f2c12c0cee9944dd3747daed1176"
+    },
+    {
+      "id": "linux-nativeSdk-sdk/10.0.401/MSBuild.deps.json",
+      "platform": "linux",
+      "role": "nativeSdk",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/dotnet-linux-10.0.401/sdk/10.0.401/MSBuild.deps.json",
+      "bytes": 120330,
+      "sha256": "3bbb6fbdb34e37bde72dd165f2015cf03044a227f1041158472a143a7b58e004"
+    },
+    {
+      "id": "python-3.13.9",
+      "platform": "windows",
+      "role": "pure-checker",
+      "path": "D:/AI/Implementation/dotj Frameworks/toolchains/python-3.13.9/python.exe",
+      "bytes": 105816,
+      "sha256": "08a64dc73ac3e3776b49f0097c6306bdb9c8f7990a037065213324d328467bf5"
+    }
+  ],
+  "toolArchives": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\downloads\\jdk-21.0.12.1.zip",
+      "bytes": 201096952,
+      "sha256": "192441a9d27da813bada974bb88b4cf64d37a9589ed37f204374d411ca5ce07f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\downloads\\microsoft-jdk-21.0.12.1-linux-x64.tar.gz",
+      "bytes": 206564406,
+      "sha256": "4c0c7f5cd0b6bb81109d01f13a1678ee0f73f36c1020080d97c4de3ce3cac207"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\downloads\\dotnet-sdk-10.0.401.zip",
+      "bytes": 300608304,
+      "sha256": "c1b96dea223e1ab2af8a51187e0cc96338d14c68834be1656136be18953cea09"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\toolchains\\downloads\\dotnet-sdk-10.0.401-linux-x64.tar.gz",
+      "bytes": 240059572,
+      "sha256": "137268c8ad939c064ff1ee2a6fdf0899d8725377114ea012fbd1ad5fa2550418"
+    }
+  ],
+  "toolDependencyRule": "Pinned full JDK/.NET archive identities bind the tool distribution closure, not just entry executables. Before capture verify selected runtime10.0.12 and local net10.0 reference pack/offline restore assets against the selected SDK archive; record OS native-loader dependencies and image identity. Missing dependency is failed preflight, never an unpinned download.",
+  "sourceObservationDistinction": "Source identities and hashes verified in OP01; no upstream test runner, native SDK/JDK probe, product process or proof qualification was executed."
+}
