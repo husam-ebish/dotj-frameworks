@@ -1,0 +1,4055 @@
+{
+  "schemaVersion": 1,
+  "status": "FROZEN_BEFORE_PRODUCT",
+  "feature": "bounded-private-import-cycle-traces-v1",
+  "contract": {
+    "sourceAnchors": [
+      {
+        "path": "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java",
+        "lines": "24-80",
+        "meaning": "Original diagnostic/failure/Result ABI and defensive copies"
+      },
+      {
+        "path": "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java",
+        "lines": "115-150",
+        "meaning": "Single evaluation-local state and Result publication"
+      },
+      {
+        "path": "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java",
+        "lines": "170-190",
+        "meaning": "Existing real-path admission and16-file/65536-byte bounds"
+      },
+      {
+        "path": "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java",
+        "lines": "337-397",
+        "meaning": "False condition, owner expansion, root-first diagnostics, profile ancestry and first-import map"
+      }
+    ],
+    "scope": "Only admitted local SDK-less import workflow for the three individual profiles; traces are private diagnostic adaptation alongside unchanged native-mapped observations.",
+    "schema": {
+      "traceEvaluation": "Internal immutable outcome wrapper containing exactly one of unchanged Result or original IOException/ProfileRejected failure object, plus immutable ordered List<CycleTrace>. Legacy evaluate delegates through the same single execution and returns Result or rethrows the same original object; no successful Result on failure.",
+      "cycleTrace": [
+        "ordered path nodes from root through current owner then closing target",
+        "ordered ImportEdge values for every hop, actual defining owner and XML line/column",
+        "zero-based cycleStartIndex of closing target within pre-closing ancestry",
+        "closing import occurrence/current site",
+        "profile and existing diagnostic index linkage"
+      ],
+      "closedCycle": "nodes[cycleStartIndex:] is a closed cycle; ancestry prefix remains available. Self-cycle has two equal endpoints and one edge. Closing target must equal start node. No invented source site at root.",
+      "failures": "Existing EvaluationFailure constructors/fields, diagnostic values and thrown object type/identity remain unchanged. The trace-aware outcome captures the original IOException/ProfileRejected plus an immutable snapshot of all completed witnesses. REJECT includes current closure once before the original failure; later missing/invalid/XML/admission/item failures retain prior closures without a Result. A failure before State creation has an empty trace. No reevaluation, filesystem reread, wrapper exception or swallowed failure on the legacy route. Fatal VM errors are outside this recoverable diagnostic contract.",
+      "occurrence": "Exactly one trace per admitted cyclic closing import, in traversal order; flagged warning/error pair shares it. No trace for skipped false edge, nonancestor duplicate, completed diamond or rejected path before cycle classification.",
+      "algorithm": "Walk actual first-import ancestry from owner; reverse it into root-to-owner edges, locate canonical closing target, append actual closing edge. Compute once per admitted closure; no seen-set-only detection, no global mutable stack/cache, no extra filesystem traversal. Assert linked path/edge invariants.",
+      "nativeProjection": "No Chain added to Microsoft.Build public types. Native message, code, positions, warning/error order, Import edges, ImportsIncludingDuplicates availability/order, properties and continuation remain unchanged; chain equality is source-adaptation proof only."
+    },
+    "profileRules": [
+      {
+        "profile": "ALL",
+        "rule": "Root target equality checked first: MSB4210 WARNING ROOT, rootContext=root, previous=null; ignore/continue even REJECT. Trace root-to-owner->root."
+      },
+      {
+        "profile": "DEFAULT",
+        "rule": "Nonroot ancestor closure still MSB4011 WARNING PREVIOUS using exact first-import site; ignore/continue; sidecar reports real cycle without relabeling native context."
+      },
+      {
+        "profile": "RECORD_DUPLICATES",
+        "rule": "Nonroot cycle emits null-code WARNING CIRCULAR, no prior/root context, excludes closing edge from ImportsIncludingDuplicates; continue."
+      },
+      {
+        "profile": "REJECT_CIRCULAR",
+        "rule": "Nonroot cycle emits null-code WARNING then ERROR CIRCULAR and EvaluationFailure before later work; complete trace retained once. Ordinary duplicates stay nonfatal."
+      },
+      {
+        "profile": "ALL",
+        "rule": "Missing import MSB4019, empty expansion MSB4020, false conditions and all existing refusal order retain their prior semantics."
+      }
+    ],
+    "immutability": "No Result record component or DuplicateImport change. Preserve six/seven-argument constructors, equals/hashCode/toString, importsIncludingDuplicates null vs empty and immutable item state. Copy nested lists and failure snapshots before publication; no mutable State/DOM/backing builders escape.",
+    "bounds": {
+      "uniqueFilesIncludingRoot": 16,
+      "bytesPerFile": 65536,
+      "maxPathEntriesIncludingClosingTarget": 17,
+      "maxEdgesPerTrace": 16,
+      "traceCount": "No new arbitrary numeric cap: bounded by admitted import elements within existing16x64KiB input envelope; one trace per reached closing import. Do not claim native limit parity.",
+      "conditionGroups": 64,
+      "conditionNodes": 256,
+      "syntaxCacheThreshold": 3000,
+      "aliases": "Keep existing inside/relative real-path rules: normalize, sandbox containment, resolved existing ancestor containment, existing file toRealPath; no blanket ban on in-sandbox aliases. Item-glob alias refusals remain separate. Existing filesystem/provider/case limits retained.",
+      "execution": "Reuse actual pinned owned-process guard:128MiB JVM heap,2 CPUs,SerialGC,32MiB code cache,120s operation ceiling; Linux180s aggregate with40s reserve, actual resource floor and owned cleanup unchanged. Exact guard hash/argv from inherited driver are authoritative; no arbitrary cap increase."
+    }
+  },
+  "cases": [
+    {
+      "id": "BI01-repeat",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> one; root -> one",
+      "expectedTrace": "none: repeated completed child is not an ancestor",
+      "origin": "retained independently designed BI fixture",
+      "nativeProjectionEvidence": "Reuse exact default import/location/cycle locks and flagged profile-observations-v1.json after hash/field coverage validation",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 301,
+          "sha256": "e8fe3c51a65117c312c3ea61ada043edbd7bf3f3709bc69d23cb5c54a6ac9c76",
+          "base64": "PFByb2plY3QgRGVmYXVsdFRhcmdldHM9Ik5ldmVyIj48UHJvcGVydHlHcm91cD48UD5yb290PC9QPjwvUHJvcGVydHlHcm91cD48SW1wb3J0IFByb2plY3Q9Im9uZS5wcm9wcyIvPjxQcm9wZXJ0eUdyb3VwPjxQPiQoUCk7YmV0d2VlbjwvUD48L1Byb3BlcnR5R3JvdXA+PEltcG9ydCBQcm9qZWN0PSJvbmUucHJvcHMiLz48VGFyZ2V0IE5hbWU9Ik5ldmVyIj48V3JpdGVMaW5lc1RvRmlsZSBGaWxlPSJtdXN0LW5vdC1leGlzdC50eHQiIExpbmVzPSJleGVjdXRlZCIgT3ZlcndyaXRlPSJ0cnVlIi8+PC9UYXJnZXQ+PC9Qcm9qZWN0Pg=="
+        },
+        "one.props": {
+          "bytes": 65,
+          "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c",
+          "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFA+JChQKTtvbmU8L1A+PC9Qcm9wZXJ0eUdyb3VwPjwvUHJvamVjdD4="
+        }
+      },
+      "traces": {
+        "DEFAULT": [],
+        "RECORD_DUPLICATES": [],
+        "REJECT_CIRCULAR": []
+      }
+    },
+    {
+      "id": "BI02-diamond",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> left -> shared; root -> right -> shared",
+      "expectedTrace": "none: completed diamond is not an ancestor",
+      "origin": "retained independently designed BI fixture",
+      "nativeProjectionEvidence": "Reuse exact default import/location/cycle locks and flagged profile-observations-v1.json after hash/field coverage validation",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "left.props": {
+          "bytes": 98,
+          "sha256": "51d473fd808cb097982a719bb42ff22664da25f3b2c0e6ec98251ee254ac0dd2",
+          "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFA+JChQKTtsZWZ0PC9QPjwvUHJvcGVydHlHcm91cD48SW1wb3J0IFByb2plY3Q9InNoYXJlZC5wcm9wcyIvPjwvUHJvamVjdD4="
+        },
+        "main.proj": {
+          "bytes": 254,
+          "sha256": "02e61c3f9f295638614671a85ba31009302cdddf512784919880207d2ded91a2",
+          "base64": "PFByb2plY3QgRGVmYXVsdFRhcmdldHM9Ik5ldmVyIj48UHJvcGVydHlHcm91cD48UD5yb290PC9QPjwvUHJvcGVydHlHcm91cD48SW1wb3J0IFByb2plY3Q9ImxlZnQucHJvcHMiLz48SW1wb3J0IFByb2plY3Q9InJpZ2h0LnByb3BzIi8+PFRhcmdldCBOYW1lPSJOZXZlciI+PFdyaXRlTGluZXNUb0ZpbGUgRmlsZT0ibXVzdC1ub3QtZXhpc3QudHh0IiBMaW5lcz0iZXhlY3V0ZWQiIE92ZXJ3cml0ZT0idHJ1ZSIvPjwvVGFyZ2V0PjwvUHJvamVjdD4="
+        },
+        "right.props": {
+          "bytes": 99,
+          "sha256": "a7f659a6290781cec2ce1e020af289bc477dae847201c5f626876dd42a0632ab",
+          "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFA+JChQKTtyaWdodDwvUD48L1Byb3BlcnR5R3JvdXA+PEltcG9ydCBQcm9qZWN0PSJzaGFyZWQucHJvcHMiLz48L1Byb2plY3Q+"
+        },
+        "shared.props": {
+          "bytes": 68,
+          "sha256": "c2033b30d598e9072dc20a62cb57ef81bf555db7fe72ec330ad693477c88f74d",
+          "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFA+JChQKTtzaGFyZWQ8L1A+PC9Qcm9wZXJ0eUdyb3VwPjwvUHJvamVjdD4="
+        }
+      },
+      "traces": {
+        "DEFAULT": [],
+        "RECORD_DUPLICATES": [],
+        "REJECT_CIRCULAR": []
+      }
+    },
+    {
+      "id": "BI03-two-file-cycle",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> one -> root",
+      "expectedTrace": "root,one,root; cycleStartIndex=0; ROOT warning all profiles",
+      "origin": "retained independently designed BI fixture",
+      "nativeProjectionEvidence": "Reuse exact default import/location/cycle locks and flagged profile-observations-v1.json after hash/field coverage validation",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 222,
+          "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27",
+          "base64": "PFByb2plY3QgRGVmYXVsdFRhcmdldHM9Ik5ldmVyIj48UHJvcGVydHlHcm91cD48UD5yb290PC9QPjwvUHJvcGVydHlHcm91cD48SW1wb3J0IFByb2plY3Q9Im9uZS5wcm9wcyIvPjxUYXJnZXQgTmFtZT0iTmV2ZXIiPjxXcml0ZUxpbmVzVG9GaWxlIEZpbGU9Im11c3Qtbm90LWV4aXN0LnR4dCIgTGluZXM9ImV4ZWN1dGVkIiBPdmVyd3JpdGU9InRydWUiLz48L1RhcmdldD48L1Byb2plY3Q+"
+        },
+        "one.props": {
+          "bytes": 94,
+          "sha256": "6afacb3743fcd0a3cdc69b348551cc6bf9f93e1e23dda0cfb4a035246e4cf007",
+          "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFA+JChQKTtvbmU8L1A+PC9Qcm9wZXJ0eUdyb3VwPjxJbXBvcnQgUHJvamVjdD0ibWFpbi5wcm9qIi8+PC9Qcm9qZWN0Pg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "one.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "one.props",
+                "target": "main.proj",
+                "line": 1,
+                "column": 56
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "one.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "one.props",
+                "target": "main.proj",
+                "line": 1,
+                "column": 56
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "one.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "one.props",
+                "target": "main.proj",
+                "line": 1,
+                "column": 56
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BI04-relative-alias",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root imports lexical aliases for one",
+      "expectedTrace": "none: canonical same child duplicate",
+      "origin": "retained independently designed BI fixture",
+      "nativeProjectionEvidence": "Reuse exact default import/location/cycle locks and flagged profile-observations-v1.json after hash/field coverage validation",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 292,
+          "sha256": "3000ce63c9c97941971bd15f259549fe90876726756f0c5f8a7197a30345e3bc",
+          "base64": "PFByb2plY3QgRGVmYXVsdFRhcmdldHM9Ik5ldmVyIj48UHJvcGVydHlHcm91cD48UD5yb290PC9QPjwvUHJvcGVydHlHcm91cD48SW1wb3J0IFByb2plY3Q9Im9uZS5wcm9wcyIvPjxJbXBvcnQgUHJvamVjdD0iLi9vbmUucHJvcHMiLz48SW1wb3J0IFByb2plY3Q9Im5lc3RlZC8uLi9vbmUucHJvcHMiLz48VGFyZ2V0IE5hbWU9Ik5ldmVyIj48V3JpdGVMaW5lc1RvRmlsZSBGaWxlPSJtdXN0LW5vdC1leGlzdC50eHQiIExpbmVzPSJleGVjdXRlZCIgT3ZlcndyaXRlPSJ0cnVlIi8+PC9UYXJnZXQ+PC9Qcm9qZWN0Pg=="
+        },
+        "nested/.keep": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "base64": ""
+        },
+        "one.props": {
+          "bytes": 65,
+          "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c",
+          "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFA+JChQKTtvbmU8L1A+PC9Qcm9wZXJ0eUdyb3VwPjwvUHJvamVjdD4="
+        }
+      },
+      "traces": {
+        "DEFAULT": [],
+        "RECORD_DUPLICATES": [],
+        "REJECT_CIRCULAR": []
+      }
+    },
+    {
+      "id": "BI05-false-then-true",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "false import one followed by true import one",
+      "expectedTrace": "none: false edge absent; first actual import remains first owner",
+      "origin": "retained independently designed BI fixture",
+      "nativeProjectionEvidence": "Reuse exact default import/location/cycle locks and flagged profile-observations-v1.json after hash/field coverage validation",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 286,
+          "sha256": "d374ce7b9013bd6534455d7144437e338e4738c27dc6b98f3dc6251197dc139c",
+          "base64": "PFByb2plY3QgRGVmYXVsdFRhcmdldHM9Ik5ldmVyIj48UHJvcGVydHlHcm91cD48UD5yb290PC9QPjwvUHJvcGVydHlHcm91cD48SW1wb3J0IFByb2plY3Q9Im9uZS5wcm9wcyIgQ29uZGl0aW9uPSJmYWxzZSIvPjxJbXBvcnQgUHJvamVjdD0ib25lLnByb3BzIiBDb25kaXRpb249InRydWUiLz48VGFyZ2V0IE5hbWU9Ik5ldmVyIj48V3JpdGVMaW5lc1RvRmlsZSBGaWxlPSJtdXN0LW5vdC1leGlzdC50eHQiIExpbmVzPSJleGVjdXRlZCIgT3ZlcndyaXRlPSJ0cnVlIi8+PC9UYXJnZXQ+PC9Qcm9qZWN0Pg=="
+        },
+        "one.props": {
+          "bytes": 65,
+          "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c",
+          "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFA+JChQKTtvbmU8L1A+PC9Qcm9wZXJ0eUdyb3VwPjwvUHJvamVjdD4="
+        }
+      },
+      "traces": {
+        "DEFAULT": [],
+        "RECORD_DUPLICATES": [],
+        "REJECT_CIRCULAR": []
+      }
+    },
+    {
+      "id": "BI06-prior-duplicate",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "existing locked previous-duplicate fixture",
+      "expectedTrace": "none; previous import site remains exact",
+      "origin": "retained independently designed BI fixture",
+      "nativeProjectionEvidence": "Reuse exact default import/location/cycle locks and flagged profile-observations-v1.json after hash/field coverage validation",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 77,
+          "sha256": "0df55474fc2b6718b58a46d1051c1d24856af41514528af2e905bfef461e4aae",
+          "base64": "PFByb2plY3Q+PEltcG9ydCBQcm9qZWN0PSJvbmUucHJvcHMiLz48SW1wb3J0IFByb2plY3Q9Im9uZS5wcm9wcyIvPjwvUHJvamVjdD4="
+        },
+        "one.props": {
+          "bytes": 10,
+          "sha256": "4fd24be83f7dd636f6e2e8f456dfa559f1ca9c7346e1d10a5358db346b1300b9",
+          "base64": "PFByb2plY3QvPg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [],
+        "RECORD_DUPLICATES": [],
+        "REJECT_CIRCULAR": []
+      }
+    },
+    {
+      "id": "BI07-prior-cycle",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> one -> root",
+      "expectedTrace": "root,one,root; cycleStartIndex=0; no invented previous site",
+      "origin": "retained independently designed BI fixture",
+      "nativeProjectionEvidence": "Reuse exact default import/location/cycle locks and flagged profile-observations-v1.json after hash/field coverage validation",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 48,
+          "sha256": "6513c38151f8a3b55c78b8fa2a52699b15b523e47a1f390323e0bc0c2d9b1d76",
+          "base64": "PFByb2plY3Q+PEltcG9ydCBQcm9qZWN0PSJvbmUucHJvcHMiLz48L1Byb2plY3Q+"
+        },
+        "one.props": {
+          "bytes": 48,
+          "sha256": "2d36d87cf0b8da5df89e41461e993d2aba79369ec06782e7253a19ed4bdb9a75",
+          "base64": "PFByb2plY3Q+PEltcG9ydCBQcm9qZWN0PSJtYWluLnByb2oiLz48L1Byb2plY3Q+"
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "one.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "one.props",
+                "line": 1,
+                "column": 10
+              },
+              {
+                "owner": "one.props",
+                "target": "main.proj",
+                "line": 1,
+                "column": 10
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "one.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "one.props",
+                "line": 1,
+                "column": 10
+              },
+              {
+                "owner": "one.props",
+                "target": "main.proj",
+                "line": 1,
+                "column": 10
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "one.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "one.props",
+                "line": 1,
+                "column": 10
+              },
+              {
+                "owner": "one.props",
+                "target": "main.proj",
+                "line": 1,
+                "column": 10
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BI08-nonroot-cycle",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> one -> two -> one",
+      "expectedTrace": "root,one,two,one; cycleStartIndex=1; default PREVIOUS vs flagged CIRCULAR retained",
+      "origin": "retained independently designed BI fixture",
+      "nativeProjectionEvidence": "Reuse exact default import/location/cycle locks and flagged profile-observations-v1.json after hash/field coverage validation",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 222,
+          "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27",
+          "base64": "PFByb2plY3QgRGVmYXVsdFRhcmdldHM9Ik5ldmVyIj48UHJvcGVydHlHcm91cD48UD5yb290PC9QPjwvUHJvcGVydHlHcm91cD48SW1wb3J0IFByb2plY3Q9Im9uZS5wcm9wcyIvPjxUYXJnZXQgTmFtZT0iTmV2ZXIiPjxXcml0ZUxpbmVzVG9GaWxlIEZpbGU9Im11c3Qtbm90LWV4aXN0LnR4dCIgTGluZXM9ImV4ZWN1dGVkIiBPdmVyd3JpdGU9InRydWUiLz48L1RhcmdldD48L1Byb2plY3Q+"
+        },
+        "one.props": {
+          "bytes": 94,
+          "sha256": "f64f5b46ad69ae9b22c84512975fac3784220cc552f723646c6061f25982e752",
+          "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFA+JChQKTtvbmU8L1A+PC9Qcm9wZXJ0eUdyb3VwPjxJbXBvcnQgUHJvamVjdD0idHdvLnByb3BzIi8+PC9Qcm9qZWN0Pg=="
+        },
+        "two.props": {
+          "bytes": 94,
+          "sha256": "160d13a321d0618cd3626a8f5d963cf5d8cb7abc78351fccabba05e623e77f4f",
+          "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFA+JChQKTt0d288L1A+PC9Qcm9wZXJ0eUdyb3VwPjxJbXBvcnQgUHJvamVjdD0ib25lLnByb3BzIi8+PC9Qcm9qZWN0Pg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "one.props",
+              "two.props",
+              "one.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "one.props",
+                "target": "two.props",
+                "line": 1,
+                "column": 56
+              },
+              {
+                "owner": "two.props",
+                "target": "one.props",
+                "line": 1,
+                "column": 56
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "one.props",
+              "two.props",
+              "one.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "one.props",
+                "target": "two.props",
+                "line": 1,
+                "column": 56
+              },
+              {
+                "owner": "two.props",
+                "target": "one.props",
+                "line": 1,
+                "column": 56
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "one.props",
+              "two.props",
+              "one.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "one.props",
+                "line": 1,
+                "column": 75
+              },
+              {
+                "owner": "one.props",
+                "target": "two.props",
+                "line": 1,
+                "column": 56
+              },
+              {
+                "owner": "two.props",
+                "target": "one.props",
+                "line": 1,
+                "column": 56
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BI09-missing",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> missing",
+      "expectedTrace": "none; existing missing-import failure and diagnostics retained",
+      "origin": "retained independently designed BI fixture",
+      "nativeProjectionEvidence": "Reuse exact default import/location/cycle locks and flagged profile-observations-v1.json after hash/field coverage validation",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 52,
+          "sha256": "afa41ca13e9dd5e2d864acf265e9336d0ba0a8347f2590a8ef4a27e204c2ed6f",
+          "base64": "PFByb2plY3Q+PEltcG9ydCBQcm9qZWN0PSJtaXNzaW5nLnByb3BzIi8+PC9Qcm9qZWN0Pg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [],
+        "RECORD_DUPLICATES": [],
+        "REJECT_CIRCULAR": []
+      }
+    },
+    {
+      "id": "CT01-root-self",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> root",
+      "expectedTrace": "root,root; cycleStartIndex=0; ROOT/MSB4210 all profiles",
+      "origin": "independent-designed",
+      "nativeProjectionEvidence": "NEW_SAME_INPUT_OBSERVATION_REQUIRED",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 153,
+          "sha256": "183d381320f5391fea61f4383f9e21293d676ab6916415588129295de2fafc5b",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKXJvb3Q7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9Im1haW4ucHJvaiIvPgogIDxQcm9wZXJ0eUdyb3VwPjxRPiQoUSlyb290OzwvUT48L1Byb3BlcnR5R3JvdXA+CjwvUHJvamVjdD4K"
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "main.proj",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "main.proj",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "main.proj",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CT02-nonroot-self",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> a -> a",
+      "expectedTrace": "root,a,a; cycleStartIndex=1; default MSB4011 vs flagged CIRCULAR",
+      "origin": "independent-designed",
+      "nativeProjectionEvidence": "NEW_SAME_INPUT_OBSERVATION_REQUIRED",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 151,
+          "sha256": "36e9e511e057658ef49fe6365355dbf7482fd38c3c2dbcc8e36500689cb6cd49",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKXJvb3Q7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpcm9vdDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "a.props": {
+          "bytes": 145,
+          "sha256": "d46209f150a183a63683d2060a7acc05dd95f443e5170d08a15c519afd98c807",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWE7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CT03-long-root",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> a -> b -> c -> root",
+      "expectedTrace": "root,a,b,c,root; cycleStartIndex=0; root-warning precedence all profiles",
+      "origin": "independent-designed",
+      "nativeProjectionEvidence": "NEW_SAME_INPUT_OBSERVATION_REQUIRED",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 151,
+          "sha256": "36e9e511e057658ef49fe6365355dbf7482fd38c3c2dbcc8e36500689cb6cd49",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKXJvb3Q7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpcm9vdDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "a.props": {
+          "bytes": 145,
+          "sha256": "8fffdb54b975e5bd64741ed00016daa364ea151b3c92c6c06447c028129dc50e",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWE7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImIucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "b.props": {
+          "bytes": 145,
+          "sha256": "644c839d40cfdcbc5790cac78d39501a37f217ced0b70f7a3c5ce3c9a302139e",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWI7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImMucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "c.props": {
+          "bytes": 147,
+          "sha256": "0a4dfd72950d7f65a5417eadcbfc1d59e14eea91769d87b9af2afcd8debe1912",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWM7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9Im1haW4ucHJvaiIvPgogIDxQcm9wZXJ0eUdyb3VwPjxRPiQoUSljOzwvUT48L1Byb3BlcnR5R3JvdXA+CjwvUHJvamVjdD4K"
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "c.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "c.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "c.props",
+                "target": "main.proj",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "c.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "c.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "c.props",
+                "target": "main.proj",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "c.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "c.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "c.props",
+                "target": "main.proj",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CT04-long-nonroot",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> a -> b -> c -> a",
+      "expectedTrace": "root,a,b,c,a; cycleStartIndex=1; every hop and site in order",
+      "origin": "independent-designed",
+      "nativeProjectionEvidence": "NEW_SAME_INPUT_OBSERVATION_REQUIRED",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 151,
+          "sha256": "36e9e511e057658ef49fe6365355dbf7482fd38c3c2dbcc8e36500689cb6cd49",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKXJvb3Q7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpcm9vdDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "a.props": {
+          "bytes": 145,
+          "sha256": "8fffdb54b975e5bd64741ed00016daa364ea151b3c92c6c06447c028129dc50e",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWE7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImIucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "b.props": {
+          "bytes": 145,
+          "sha256": "644c839d40cfdcbc5790cac78d39501a37f217ced0b70f7a3c5ce3c9a302139e",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWI7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImMucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "c.props": {
+          "bytes": 145,
+          "sha256": "cd7bdfa95c653748efc0c4290104e3a50b764b8d7a9b0a1be4d18abf74ca9192",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWM7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYzs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "c.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "c.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "c.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "c.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "c.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "c.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "c.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "c.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "c.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CT05-two-closures",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> a; a -> b; b -> a; a -> a; root -> a again",
+      "expectedTrace": "DEFAULT/RECORD traces [root,a,b,a] then [root,a,a]; final root->a is duplicate only. REJECT returns failure with first trace only; later marker/edge absent",
+      "origin": "independent-designed",
+      "nativeProjectionEvidence": "NEW_SAME_INPUT_OBSERVATION_REQUIRED",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 181,
+          "sha256": "2b004a32da4462c467fe346f44224a8a6957c27c737be04f9a06f549fa94abc1",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKXJvb3Q7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpcm9vdDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "a.props": {
+          "bytes": 175,
+          "sha256": "091257d337c33c7329c386eb00adca36fabf34812928910a4609afa71de74487",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWE7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImIucHJvcHMiLz4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "b.props": {
+          "bytes": 145,
+          "sha256": "f944b0f9e32a0a79781f5189382e4355c84bd23dd8120accb428fa265c60cc1d",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWI7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          },
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "a.props",
+                "line": 4,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              1
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          },
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "a.props",
+                "line": 4,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              1
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CT06-false-closing-edge",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> a; a has false import root then true import b; b -> a",
+      "expectedTrace": "only root,a,b,a; false closing edge absent from traces and imports",
+      "origin": "independent-designed",
+      "nativeProjectionEvidence": "NEW_SAME_INPUT_OBSERVATION_REQUIRED",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 151,
+          "sha256": "36e9e511e057658ef49fe6365355dbf7482fd38c3c2dbcc8e36500689cb6cd49",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKXJvb3Q7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpcm9vdDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "a.props": {
+          "bytes": 195,
+          "sha256": "0ecf9225c30d07ca1c35559a1600f9c966db17d309beec438973de340ac20d09",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWE7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9Im1haW4ucHJvaiIgQ29uZGl0aW9uPSJmYWxzZSIvPgogIDxJbXBvcnQgUHJvamVjdD0iYi5wcm9wcyIvPgogIDxQcm9wZXJ0eUdyb3VwPjxRPiQoUSlhOzwvUT48L1Byb3BlcnR5R3JvdXA+CjwvUHJvamVjdD4K"
+        },
+        "b.props": {
+          "bytes": 145,
+          "sha256": "f944b0f9e32a0a79781f5189382e4355c84bd23dd8120accb428fa265c60cc1d",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWI7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 4,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 4,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "a.props",
+              "b.props",
+              "a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "a.props",
+                "target": "b.props",
+                "line": 4,
+                "column": 3
+              },
+              {
+                "owner": "b.props",
+                "target": "a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CT07-property-expanded-owner",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> sub/a; sub/a property Back=b.props; sub/a -> $(Back); sub/b -> a.props",
+      "expectedTrace": "root,sub/a,sub/b,sub/a; cycleStartIndex=1; expansion evaluated once at actual import site/owner",
+      "origin": "independent-designed",
+      "nativeProjectionEvidence": "NEW_SAME_INPUT_OBSERVATION_REQUIRED",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 155,
+          "sha256": "52798302987e46863428bfc22babf86e60edfef5026ceb372951501b28af8a82",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKXJvb3Q7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9InN1Yi9hLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKXJvb3Q7PC9RPjwvUHJvcGVydHlHcm91cD4KPC9Qcm9qZWN0Pgo="
+        },
+        "sub/a.props": {
+          "bytes": 199,
+          "sha256": "1115652f4b7158ef02f2b90fb5f4b1985c401728d8698bf539b985c5e38e9f58",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWE7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8UHJvcGVydHlHcm91cD48QmFjaz5iLnByb3BzPC9CYWNrPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9IiQoQmFjaykiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "sub/b.props": {
+          "bytes": 145,
+          "sha256": "f944b0f9e32a0a79781f5189382e4355c84bd23dd8120accb428fa265c60cc1d",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWI7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9ImEucHJvcHMiLz4KICA8UHJvcGVydHlHcm91cD48UT4kKFEpYjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "sub/a.props",
+              "sub/b.props",
+              "sub/a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "sub/a.props",
+                "target": "sub/b.props",
+                "line": 4,
+                "column": 3
+              },
+              {
+                "owner": "sub/b.props",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "sub/a.props",
+              "sub/b.props",
+              "sub/a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "sub/a.props",
+                "target": "sub/b.props",
+                "line": 4,
+                "column": 3
+              },
+              {
+                "owner": "sub/b.props",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "sub/a.props",
+              "sub/b.props",
+              "sub/a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "sub/a.props",
+                "target": "sub/b.props",
+                "line": 4,
+                "column": 3
+              },
+              {
+                "owner": "sub/b.props",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CT08-normalized-path",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root -> sub/a; sub/a -> ../sub/b; sub/b -> ./a",
+      "expectedTrace": "root,sub/a,sub/b,sub/a after existing real-path canonicalization; actual XML coordinates retained",
+      "origin": "independent-designed",
+      "nativeProjectionEvidence": "NEW_SAME_INPUT_OBSERVATION_REQUIRED",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 155,
+          "sha256": "52798302987e46863428bfc22babf86e60edfef5026ceb372951501b28af8a82",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKXJvb3Q7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9InN1Yi9hLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKXJvb3Q7PC9RPjwvUHJvcGVydHlHcm91cD4KPC9Qcm9qZWN0Pgo="
+        },
+        "sub/a.props": {
+          "bytes": 152,
+          "sha256": "695f597dc41f04a2a2f0aeb67f77222bb38507e76e7aab2d249cfac53eafc433",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWE7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9Ii4uL3N1Yi9iLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKWE7PC9RPjwvUHJvcGVydHlHcm91cD4KPC9Qcm9qZWN0Pgo="
+        },
+        "sub/b.props": {
+          "bytes": 147,
+          "sha256": "17ca6389cac7b580ad7c34dfb5fca2e8e73dd4d233cd52d804548f069f50cb4b",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKWI7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9Ii4vYS5wcm9wcyIvPgogIDxQcm9wZXJ0eUdyb3VwPjxRPiQoUSliOzwvUT48L1Byb3BlcnR5R3JvdXA+CjwvUHJvamVjdD4K"
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "sub/a.props",
+              "sub/b.props",
+              "sub/a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "sub/a.props",
+                "target": "sub/b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "sub/b.props",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "sub/a.props",
+              "sub/b.props",
+              "sub/a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "sub/a.props",
+                "target": "sub/b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "sub/b.props",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "sub/a.props",
+              "sub/b.props",
+              "sub/a.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "sub/a.props",
+                "target": "sub/b.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "sub/b.props",
+                "target": "sub/a.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CT09-max-root",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root plus n01..n15 unique files; n15 -> root",
+      "expectedTrace": "17 path entries,16 edges,cycleStartIndex=0; succeeds with warning in all profiles",
+      "origin": "independent-designed",
+      "nativeProjectionEvidence": "NEW_SAME_INPUT_OBSERVATION_REQUIRED",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 153,
+          "sha256": "0d969e2f234185bf4fc4f1cf783201ed1d887476cd40b8f3c4240767bf30e72a",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKXJvb3Q7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9Im4wMS5wcm9wcyIvPgogIDxQcm9wZXJ0eUdyb3VwPjxRPiQoUSlyb290OzwvUT48L1Byb3BlcnR5R3JvdXA+CjwvUHJvamVjdD4K"
+        },
+        "n01.props": {
+          "bytes": 151,
+          "sha256": "262a712cfe226ac72d45675076a67890fe6c5851cd822d9116c002c9bc5ece34",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wMTs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjAyLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wMTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n02.props": {
+          "bytes": 151,
+          "sha256": "f7b88387c22bc5ab8ba8a0bbf3241887b4aeb36f4358dd79bde03fac4c2a4d96",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wMjs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjAzLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wMjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n03.props": {
+          "bytes": 151,
+          "sha256": "6ddbe44892a7b3150c729a1295a522441d20462fb093e729a5140fa0e713afc8",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wMzs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA0LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wMzs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n04.props": {
+          "bytes": 151,
+          "sha256": "3d19090458d487ca67f5b6527d9dba68980e4f2e9d253b749717d3a81b045745",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wNDs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA1LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wNDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n05.props": {
+          "bytes": 151,
+          "sha256": "ca2b7ecadce40b50e7b8f4ff9801288ef2eac6464a49a0273962c2fc5f978242",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wNTs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA2LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wNTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n06.props": {
+          "bytes": 151,
+          "sha256": "09894e1a3941191f591a933dda56fda3c8533fb8d9dd4d62eec119e68248638b",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wNjs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA3LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wNjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n07.props": {
+          "bytes": 151,
+          "sha256": "bf7b55fdabcc33abd476e5a36aca76012f15d1bc6d2e2e06044124a58b666c97",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wNzs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA4LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wNzs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n08.props": {
+          "bytes": 151,
+          "sha256": "1674123dee6f4efd1a5696a465dfd66465fda44b3c382f8a3c0a05a381cf6744",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wODs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA5LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wODs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n09.props": {
+          "bytes": 151,
+          "sha256": "f322d4daeade8a9078237870059299c6cd6043fa8a78792d1ab1a216e26559d7",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wOTs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjEwLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wOTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n10.props": {
+          "bytes": 151,
+          "sha256": "9c4011b1c596d3699eba2ca87c7471f2b3d5521500bba146eac62519935acede",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xMDs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjExLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xMDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n11.props": {
+          "bytes": 151,
+          "sha256": "ede245546f87d080b0ab47fb8232081149b604aa90be044fd61d40c33d6359a0",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xMTs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjEyLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xMTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n12.props": {
+          "bytes": 151,
+          "sha256": "fbc5ff8778195ab383ad40ceef7473f65e7bc44a9b6583b0eb8b5bf3a2ca5529",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xMjs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjEzLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xMjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n13.props": {
+          "bytes": 151,
+          "sha256": "7f9c1bca88c2621d99c9c95575730082cb12e84bbcdc9f2bba24c68ce4a91e4f",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xMzs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjE0LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xMzs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n14.props": {
+          "bytes": 151,
+          "sha256": "357efb5d9c2419c08d186e37f287093186a1a3794f368175ba285f66ce3db2e8",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xNDs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjE1LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xNDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n15.props": {
+          "bytes": 151,
+          "sha256": "8ddf681d31db495302387dbac4a55867ed0a858c6ef9a525f55b6fa3c5a0ea8a",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xNTs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibWFpbi5wcm9qIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xNTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "n01.props",
+              "n02.props",
+              "n03.props",
+              "n04.props",
+              "n05.props",
+              "n06.props",
+              "n07.props",
+              "n08.props",
+              "n09.props",
+              "n10.props",
+              "n11.props",
+              "n12.props",
+              "n13.props",
+              "n14.props",
+              "n15.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "n01.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n01.props",
+                "target": "n02.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n02.props",
+                "target": "n03.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n03.props",
+                "target": "n04.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n04.props",
+                "target": "n05.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n05.props",
+                "target": "n06.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n06.props",
+                "target": "n07.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n07.props",
+                "target": "n08.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n08.props",
+                "target": "n09.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n09.props",
+                "target": "n10.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n10.props",
+                "target": "n11.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n11.props",
+                "target": "n12.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n12.props",
+                "target": "n13.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n13.props",
+                "target": "n14.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n14.props",
+                "target": "n15.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n15.props",
+                "target": "main.proj",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "n01.props",
+              "n02.props",
+              "n03.props",
+              "n04.props",
+              "n05.props",
+              "n06.props",
+              "n07.props",
+              "n08.props",
+              "n09.props",
+              "n10.props",
+              "n11.props",
+              "n12.props",
+              "n13.props",
+              "n14.props",
+              "n15.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "n01.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n01.props",
+                "target": "n02.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n02.props",
+                "target": "n03.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n03.props",
+                "target": "n04.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n04.props",
+                "target": "n05.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n05.props",
+                "target": "n06.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n06.props",
+                "target": "n07.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n07.props",
+                "target": "n08.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n08.props",
+                "target": "n09.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n09.props",
+                "target": "n10.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n10.props",
+                "target": "n11.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n11.props",
+                "target": "n12.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n12.props",
+                "target": "n13.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n13.props",
+                "target": "n14.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n14.props",
+                "target": "n15.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n15.props",
+                "target": "main.proj",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "n01.props",
+              "n02.props",
+              "n03.props",
+              "n04.props",
+              "n05.props",
+              "n06.props",
+              "n07.props",
+              "n08.props",
+              "n09.props",
+              "n10.props",
+              "n11.props",
+              "n12.props",
+              "n13.props",
+              "n14.props",
+              "n15.props",
+              "main.proj"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "n01.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n01.props",
+                "target": "n02.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n02.props",
+                "target": "n03.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n03.props",
+                "target": "n04.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n04.props",
+                "target": "n05.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n05.props",
+                "target": "n06.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n06.props",
+                "target": "n07.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n07.props",
+                "target": "n08.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n08.props",
+                "target": "n09.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n09.props",
+                "target": "n10.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n10.props",
+                "target": "n11.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n11.props",
+                "target": "n12.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n12.props",
+                "target": "n13.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n13.props",
+                "target": "n14.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n14.props",
+                "target": "n15.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n15.props",
+                "target": "main.proj",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 0,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CT10-max-nonroot",
+      "kind": "semantic",
+      "profiles": [
+        "DEFAULT",
+        "RECORD_DUPLICATES",
+        "REJECT_CIRCULAR"
+      ],
+      "graph": "root plus n01..n15 unique files; n15 -> n01",
+      "expectedTrace": "17 path entries,16 edges,cycleStartIndex=1; default/record succeed; reject failure retains complete trace",
+      "origin": "independent-designed",
+      "nativeProjectionEvidence": "NEW_SAME_INPUT_OBSERVATION_REQUIRED",
+      "chainExpectedSource": "Independent authored adaptation derived from pinned ancestry algorithm and exact fixture edges; NOT a native public chain field",
+      "files": {
+        "main.proj": {
+          "bytes": 153,
+          "sha256": "0d969e2f234185bf4fc4f1cf783201ed1d887476cd40b8f3c4240767bf30e72a",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKXJvb3Q7PC9QPjwvUHJvcGVydHlHcm91cD4KICA8SW1wb3J0IFByb2plY3Q9Im4wMS5wcm9wcyIvPgogIDxQcm9wZXJ0eUdyb3VwPjxRPiQoUSlyb290OzwvUT48L1Byb3BlcnR5R3JvdXA+CjwvUHJvamVjdD4K"
+        },
+        "n01.props": {
+          "bytes": 151,
+          "sha256": "262a712cfe226ac72d45675076a67890fe6c5851cd822d9116c002c9bc5ece34",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wMTs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjAyLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wMTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n02.props": {
+          "bytes": 151,
+          "sha256": "f7b88387c22bc5ab8ba8a0bbf3241887b4aeb36f4358dd79bde03fac4c2a4d96",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wMjs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjAzLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wMjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n03.props": {
+          "bytes": 151,
+          "sha256": "6ddbe44892a7b3150c729a1295a522441d20462fb093e729a5140fa0e713afc8",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wMzs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA0LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wMzs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n04.props": {
+          "bytes": 151,
+          "sha256": "3d19090458d487ca67f5b6527d9dba68980e4f2e9d253b749717d3a81b045745",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wNDs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA1LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wNDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n05.props": {
+          "bytes": 151,
+          "sha256": "ca2b7ecadce40b50e7b8f4ff9801288ef2eac6464a49a0273962c2fc5f978242",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wNTs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA2LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wNTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n06.props": {
+          "bytes": 151,
+          "sha256": "09894e1a3941191f591a933dda56fda3c8533fb8d9dd4d62eec119e68248638b",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wNjs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA3LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wNjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n07.props": {
+          "bytes": 151,
+          "sha256": "bf7b55fdabcc33abd476e5a36aca76012f15d1bc6d2e2e06044124a58b666c97",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wNzs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA4LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wNzs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n08.props": {
+          "bytes": 151,
+          "sha256": "1674123dee6f4efd1a5696a465dfd66465fda44b3c382f8a3c0a05a381cf6744",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wODs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjA5LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wODs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n09.props": {
+          "bytes": 151,
+          "sha256": "f322d4daeade8a9078237870059299c6cd6043fa8a78792d1ab1a216e26559d7",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4wOTs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjEwLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4wOTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n10.props": {
+          "bytes": 151,
+          "sha256": "9c4011b1c596d3699eba2ca87c7471f2b3d5521500bba146eac62519935acede",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xMDs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjExLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xMDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n11.props": {
+          "bytes": 151,
+          "sha256": "ede245546f87d080b0ab47fb8232081149b604aa90be044fd61d40c33d6359a0",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xMTs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjEyLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xMTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n12.props": {
+          "bytes": 151,
+          "sha256": "fbc5ff8778195ab383ad40ceef7473f65e7bc44a9b6583b0eb8b5bf3a2ca5529",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xMjs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjEzLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xMjs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n13.props": {
+          "bytes": 151,
+          "sha256": "7f9c1bca88c2621d99c9c95575730082cb12e84bbcdc9f2bba24c68ce4a91e4f",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xMzs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjE0LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xMzs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n14.props": {
+          "bytes": 151,
+          "sha256": "357efb5d9c2419c08d186e37f287093186a1a3794f368175ba285f66ce3db2e8",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xNDs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjE1LnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xNDs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        },
+        "n15.props": {
+          "bytes": 151,
+          "sha256": "055d1e7ddbcbb1984f9b2adf91e92d023665638a1a905d168b10cb404da3c3f0",
+          "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFA+JChQKW4xNTs8L1A+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0ibjAxLnByb3BzIi8+CiAgPFByb3BlcnR5R3JvdXA+PFE+JChRKW4xNTs8L1E+PC9Qcm9wZXJ0eUdyb3VwPgo8L1Byb2plY3Q+Cg=="
+        }
+      },
+      "traces": {
+        "DEFAULT": [
+          {
+            "nodes": [
+              "main.proj",
+              "n01.props",
+              "n02.props",
+              "n03.props",
+              "n04.props",
+              "n05.props",
+              "n06.props",
+              "n07.props",
+              "n08.props",
+              "n09.props",
+              "n10.props",
+              "n11.props",
+              "n12.props",
+              "n13.props",
+              "n14.props",
+              "n15.props",
+              "n01.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "n01.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n01.props",
+                "target": "n02.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n02.props",
+                "target": "n03.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n03.props",
+                "target": "n04.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n04.props",
+                "target": "n05.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n05.props",
+                "target": "n06.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n06.props",
+                "target": "n07.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n07.props",
+                "target": "n08.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n08.props",
+                "target": "n09.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n09.props",
+                "target": "n10.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n10.props",
+                "target": "n11.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n11.props",
+                "target": "n12.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n12.props",
+                "target": "n13.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n13.props",
+                "target": "n14.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n14.props",
+                "target": "n15.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n15.props",
+                "target": "n01.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "RECORD_DUPLICATES": [
+          {
+            "nodes": [
+              "main.proj",
+              "n01.props",
+              "n02.props",
+              "n03.props",
+              "n04.props",
+              "n05.props",
+              "n06.props",
+              "n07.props",
+              "n08.props",
+              "n09.props",
+              "n10.props",
+              "n11.props",
+              "n12.props",
+              "n13.props",
+              "n14.props",
+              "n15.props",
+              "n01.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "n01.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n01.props",
+                "target": "n02.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n02.props",
+                "target": "n03.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n03.props",
+                "target": "n04.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n04.props",
+                "target": "n05.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n05.props",
+                "target": "n06.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n06.props",
+                "target": "n07.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n07.props",
+                "target": "n08.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n08.props",
+                "target": "n09.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n09.props",
+                "target": "n10.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n10.props",
+                "target": "n11.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n11.props",
+                "target": "n12.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n12.props",
+                "target": "n13.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n13.props",
+                "target": "n14.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n14.props",
+                "target": "n15.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n15.props",
+                "target": "n01.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0
+            ]
+          }
+        ],
+        "REJECT_CIRCULAR": [
+          {
+            "nodes": [
+              "main.proj",
+              "n01.props",
+              "n02.props",
+              "n03.props",
+              "n04.props",
+              "n05.props",
+              "n06.props",
+              "n07.props",
+              "n08.props",
+              "n09.props",
+              "n10.props",
+              "n11.props",
+              "n12.props",
+              "n13.props",
+              "n14.props",
+              "n15.props",
+              "n01.props"
+            ],
+            "edges": [
+              {
+                "owner": "main.proj",
+                "target": "n01.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n01.props",
+                "target": "n02.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n02.props",
+                "target": "n03.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n03.props",
+                "target": "n04.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n04.props",
+                "target": "n05.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n05.props",
+                "target": "n06.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n06.props",
+                "target": "n07.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n07.props",
+                "target": "n08.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n08.props",
+                "target": "n09.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n09.props",
+                "target": "n10.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n10.props",
+                "target": "n11.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n11.props",
+                "target": "n12.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n12.props",
+                "target": "n13.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n13.props",
+                "target": "n14.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n14.props",
+                "target": "n15.props",
+                "line": 3,
+                "column": 3
+              },
+              {
+                "owner": "n15.props",
+                "target": "n01.props",
+                "line": 3,
+                "column": 3
+              }
+            ],
+            "cycleStartIndex": 1,
+            "diagnosticIndices": [
+              0,
+              1
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "controls": [
+    {
+      "id": "CC01-no-cycle-16",
+      "expected": "16-file acyclic chain => empty traces, normal result",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC02-file17",
+      "expected": "17th unique file => unchanged INPUT_BOUND; no fabricated completed trace",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC03-size",
+      "expected": "65536-byte admitted fixture vs 65537-byte file => existing INPUT_BOUND; no cap increase",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC04-immutable",
+      "expected": "Mutating caller list/edge-builder after publication or consumer add/remove fails or leaves trace unchanged; prior success/failure snapshots stay stable across later evaluations",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC05-recovery",
+      "expected": "REJECT cycle then valid evaluation in same JVM; no inherited traces/warnings/imports/cache-site ownership; invalid/missing and later ProfileRejected/IOException failures expose every completed earlier trace snapshot",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC06-abi",
+      "expected": "Run original compiled consumers without recompilation; Result six- and seven-argument constructors, record components/equality/toString and DuplicateImport canonical descriptor unchanged",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC07-boundaries",
+      "expected": "Outside-sandbox lexical path and escaping symlink/junction refused by existing IMPORT_BOUNDARY; import in-sandbox real-path aliases retain existing semantics; do not apply stricter item-glob alias policy to imports",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC08-invalid-profile-and-path",
+      "expected": "Null profile IMPORT_PROFILE; missing file MSB4019, empty expanded path MSB4020; lists/globs/absolute/backslash/residual-dollar paths remain existing refusals; false valid-condition import has no trace",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC09-inert-target",
+      "expected": "Every success/failure graph includes inert Target marker; no marker exists after evaluate or cleanup",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC10-order-and-owner",
+      "expected": "Repeated cycles at distinct source sites keep occurrence order/current site; one trace per closing import, not one per warning/error; REJECT warning+error link same trace index",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC11-cache-isolation",
+      "expected": "Same raw condition across graphs/profiles and consecutive evaluations retains existing syntax-cache behavior without storing ancestry or trace in cache",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC12-proof-binding",
+      "expected": "Wrong/missing JAR, stale source, consumer containing product classes, wrong argv/class origin, changed raw or colluding parsed output, reordered/omitted trace edge, bad cycleStartIndex and forged cleanup each rejected by actual consumed reader",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC13-relocation",
+      "expected": "Copy reader and its actual dependencies, source closure, product JAR and proof to a fresh D subtree; reader passes from unrelated cwd; original artifact absence cannot silently select fallback",
+      "classification": "independent private control, not native semantic case"
+    },
+    {
+      "id": "CC14-case-and-alias-profile",
+      "expected": "Windows/Linux case-equivalent names and controlled in-sandbox links must retain measured existing behavior or explicit refusal; no claim of native OrdinalIgnoreCase parity for every Java Path/provider",
+      "classification": "independent private control, not native semantic case"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Evaluation\\Evaluator.cs",
+      "bytes": 143811,
+      "sha256": "be9173e280c73e654129d396364f4373fdcafabbf21235b058aa399084a3d9a3"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Resources\\Strings.resx",
+      "bytes": 158851,
+      "sha256": "55ef4b030fb607d043c6c124c0906ea2e646a8753bc6fd4c9dc887c11eaf6500"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Definition\\ResolvedImport.cs",
+      "bytes": 2782,
+      "sha256": "bf5d364b1931bcc6ef38de2b0dcf3a0116b689804140b907620f28176789840f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build\\Definition\\ProjectLoadSettings.cs",
+      "bytes": 2614,
+      "sha256": "4512ddd387e0cde7d4b2284c52da368924ace5f042682f92474b3f5d4e801975"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\references\\msbuild\\b44cdcec4c79c50c67560876707d57d4f635fa3b\\source\\src\\Build.UnitTests\\Evaluation\\Evaluator_Tests.cs",
+      "bytes": 255074,
+      "sha256": "40ad8ba13d74bb2d9f17555cf433f388afb987dbc03c95e930d5013255d16beb"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task131-next-build-scope-plan-v1.json",
+      "bytes": 92753,
+      "sha256": "f7cc58a055d9ffbca3275c2e97336eb5265d8655085b92e24cc7dfa844db8864"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\verification.json",
+      "bytes": 105896,
+      "sha256": "85be5d4a32df7312a61c7b48a8102cd08f6b3d5f328d57d895acf44244677c86"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\CaptureImports.dll",
+      "bytes": 24064,
+      "sha256": "dd5ea1ba4364244efd4e6144bd1770058e15b80015187afd3f3a0646dbeba713"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\CaptureImports.runtimeconfig.json",
+      "bytes": 183,
+      "sha256": "c1eea9511e6cc9c87b8b5f73475b250b0123536364f8c13f9ee597734fc0657b"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\logs\\Default.stdout",
+      "bytes": 17523,
+      "sha256": "12c6532f90ab8ba894dc18b86d34168cec550945071a9b5e0026dc114a9f642f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\logs\\Default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\logs\\Default.host-trace.txt",
+      "bytes": 899887,
+      "sha256": "b489624df2eb11c53dc463a707ea12ec29e7265b4b4a10286646ef30728b2488"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\logs\\RecordDuplicateButNotCircularImports.stdout",
+      "bytes": 22253,
+      "sha256": "763433e75d3108d574ec2c5daa85ba18dee98d01a3609d6b80eb9f03d2232825"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\logs\\RecordDuplicateButNotCircularImports.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\logs\\RecordDuplicateButNotCircularImports.host-trace.txt",
+      "bytes": 899974,
+      "sha256": "3c7ecf45f09996214dc6c320e66b772afa61ca1c2e98e5705aae0099868a0df4"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\logs\\RejectCircularImports.stdout",
+      "bytes": 17877,
+      "sha256": "8427565cc2a110413fc42af49b2527381fef8bc9fb240787d09b0467477b313a"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\logs\\RejectCircularImports.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\logs\\RejectCircularImports.host-trace.txt",
+      "bytes": 899929,
+      "sha256": "93ab3131c69b1081c385d9287e6ae1ca5b4f3ef170f21d69a073b43f1036e13d"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI01-repeat\\main.proj",
+      "bytes": 301,
+      "sha256": "e8fe3c51a65117c312c3ea61ada043edbd7bf3f3709bc69d23cb5c54a6ac9c76"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI01-repeat\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI02-diamond\\left.props",
+      "bytes": 98,
+      "sha256": "51d473fd808cb097982a719bb42ff22664da25f3b2c0e6ec98251ee254ac0dd2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI02-diamond\\main.proj",
+      "bytes": 254,
+      "sha256": "02e61c3f9f295638614671a85ba31009302cdddf512784919880207d2ded91a2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI02-diamond\\right.props",
+      "bytes": 99,
+      "sha256": "a7f659a6290781cec2ce1e020af289bc477dae847201c5f626876dd42a0632ab"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI02-diamond\\shared.props",
+      "bytes": 68,
+      "sha256": "c2033b30d598e9072dc20a62cb57ef81bf555db7fe72ec330ad693477c88f74d"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI03-two-file-cycle\\main.proj",
+      "bytes": 222,
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI03-two-file-cycle\\one.props",
+      "bytes": 94,
+      "sha256": "6afacb3743fcd0a3cdc69b348551cc6bf9f93e1e23dda0cfb4a035246e4cf007"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI04-relative-alias\\main.proj",
+      "bytes": 292,
+      "sha256": "3000ce63c9c97941971bd15f259549fe90876726756f0c5f8a7197a30345e3bc"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI04-relative-alias\\nested\\.keep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI04-relative-alias\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI05-false-then-true\\main.proj",
+      "bytes": 286,
+      "sha256": "d374ce7b9013bd6534455d7144437e338e4738c27dc6b98f3dc6251197dc139c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI05-false-then-true\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI06-prior-duplicate\\main.proj",
+      "bytes": 77,
+      "sha256": "0df55474fc2b6718b58a46d1051c1d24856af41514528af2e905bfef461e4aae"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI06-prior-duplicate\\one.props",
+      "bytes": 10,
+      "sha256": "4fd24be83f7dd636f6e2e8f456dfa559f1ca9c7346e1d10a5358db346b1300b9"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI07-prior-cycle\\main.proj",
+      "bytes": 48,
+      "sha256": "6513c38151f8a3b55c78b8fa2a52699b15b523e47a1f390323e0bc0c2d9b1d76"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI07-prior-cycle\\one.props",
+      "bytes": 48,
+      "sha256": "2d36d87cf0b8da5df89e41461e993d2aba79369ec06782e7253a19ed4bdb9a75"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI08-nonroot-cycle\\main.proj",
+      "bytes": 222,
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI08-nonroot-cycle\\one.props",
+      "bytes": 94,
+      "sha256": "f64f5b46ad69ae9b22c84512975fac3784220cc552f723646c6061f25982e752"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI08-nonroot-cycle\\two.props",
+      "bytes": 94,
+      "sha256": "160d13a321d0618cd3626a8f5d963cf5d8cb7abc78351fccabba05e623e77f4f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v3\\fixtures\\BI09-missing\\main.proj",
+      "bytes": 52,
+      "sha256": "afa41ca13e9dd5e2d864acf265e9336d0ba0a8347f2590a8ef4a27e204c2ed6f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\verification.json",
+      "bytes": 105896,
+      "sha256": "dc915f168a8fa955ad68e4be95217bfcfa33b9a94f3a739b87b135c645f6c929"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\CaptureImports.dll",
+      "bytes": 24064,
+      "sha256": "dd5ea1ba4364244efd4e6144bd1770058e15b80015187afd3f3a0646dbeba713"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\CaptureImports.runtimeconfig.json",
+      "bytes": 183,
+      "sha256": "c1eea9511e6cc9c87b8b5f73475b250b0123536364f8c13f9ee597734fc0657b"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\logs\\Default.stdout",
+      "bytes": 17523,
+      "sha256": "008c7a912a2607f4d6b2e4d50b15189fc45a22d9ac2d99a06c3fb5cf72584ebc"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\logs\\Default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\logs\\Default.host-trace.txt",
+      "bytes": 899887,
+      "sha256": "9555ec516b217f7f0a99bd6e629a4796a4dc881f1038eb897edf8a86b760a4a7"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\logs\\RecordDuplicateButNotCircularImports.stdout",
+      "bytes": 22253,
+      "sha256": "479bb5af25f7af8f34309d04ac535f4e6a34b73f2e06eae3534319d45410fece"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\logs\\RecordDuplicateButNotCircularImports.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\logs\\RecordDuplicateButNotCircularImports.host-trace.txt",
+      "bytes": 899974,
+      "sha256": "e056a5e845aad5a603f7631d9b09b51036fe768994e40b2e9447911c7d705748"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\logs\\RejectCircularImports.stdout",
+      "bytes": 17877,
+      "sha256": "8e23251af6a3b9f5f4f38639c0fd6db4cb59a0ba90b84e5797c8643488589f6c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\logs\\RejectCircularImports.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\logs\\RejectCircularImports.host-trace.txt",
+      "bytes": 899929,
+      "sha256": "7bfcace71866c37d3d79a07caf9a779ccb2f1a388deccbaa18edc2612dbd3e88"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI01-repeat\\main.proj",
+      "bytes": 301,
+      "sha256": "e8fe3c51a65117c312c3ea61ada043edbd7bf3f3709bc69d23cb5c54a6ac9c76"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI01-repeat\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI02-diamond\\left.props",
+      "bytes": 98,
+      "sha256": "51d473fd808cb097982a719bb42ff22664da25f3b2c0e6ec98251ee254ac0dd2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI02-diamond\\main.proj",
+      "bytes": 254,
+      "sha256": "02e61c3f9f295638614671a85ba31009302cdddf512784919880207d2ded91a2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI02-diamond\\right.props",
+      "bytes": 99,
+      "sha256": "a7f659a6290781cec2ce1e020af289bc477dae847201c5f626876dd42a0632ab"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI02-diamond\\shared.props",
+      "bytes": 68,
+      "sha256": "c2033b30d598e9072dc20a62cb57ef81bf555db7fe72ec330ad693477c88f74d"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI03-two-file-cycle\\main.proj",
+      "bytes": 222,
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI03-two-file-cycle\\one.props",
+      "bytes": 94,
+      "sha256": "6afacb3743fcd0a3cdc69b348551cc6bf9f93e1e23dda0cfb4a035246e4cf007"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI04-relative-alias\\main.proj",
+      "bytes": 292,
+      "sha256": "3000ce63c9c97941971bd15f259549fe90876726756f0c5f8a7197a30345e3bc"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI04-relative-alias\\nested\\.keep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI04-relative-alias\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI05-false-then-true\\main.proj",
+      "bytes": 286,
+      "sha256": "d374ce7b9013bd6534455d7144437e338e4738c27dc6b98f3dc6251197dc139c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI05-false-then-true\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI06-prior-duplicate\\main.proj",
+      "bytes": 77,
+      "sha256": "0df55474fc2b6718b58a46d1051c1d24856af41514528af2e905bfef461e4aae"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI06-prior-duplicate\\one.props",
+      "bytes": 10,
+      "sha256": "4fd24be83f7dd636f6e2e8f456dfa559f1ca9c7346e1d10a5358db346b1300b9"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI07-prior-cycle\\main.proj",
+      "bytes": 48,
+      "sha256": "6513c38151f8a3b55c78b8fa2a52699b15b523e47a1f390323e0bc0c2d9b1d76"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI07-prior-cycle\\one.props",
+      "bytes": 48,
+      "sha256": "2d36d87cf0b8da5df89e41461e993d2aba79369ec06782e7253a19ed4bdb9a75"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI08-nonroot-cycle\\main.proj",
+      "bytes": 222,
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI08-nonroot-cycle\\one.props",
+      "bytes": 94,
+      "sha256": "f64f5b46ad69ae9b22c84512975fac3784220cc552f723646c6061f25982e752"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI08-nonroot-cycle\\two.props",
+      "bytes": 94,
+      "sha256": "160d13a321d0618cd3626a8f5d963cf5d8cb7abc78351fccabba05e623e77f4f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v4\\fixtures\\BI09-missing\\main.proj",
+      "bytes": 52,
+      "sha256": "afa41ca13e9dd5e2d864acf265e9336d0ba0a8347f2590a8ef4a27e204c2ed6f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\verification.json",
+      "bytes": 67632,
+      "sha256": "ecc41f78681b38fde5493b73794bb7c6671ee67c1231a15a32377f7c79d3dcb3"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\CaptureImports.dll",
+      "bytes": 25088,
+      "sha256": "a0a03ecc221aa19224df86e3e46e67ef7aa234cc76a1f47d9c54e0fcb47597ee"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\CaptureImports.runtimeconfig.json",
+      "bytes": 183,
+      "sha256": "c1eea9511e6cc9c87b8b5f73475b250b0123536364f8c13f9ee597734fc0657b"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\logs\\Default.stdout",
+      "bytes": 28422,
+      "sha256": "455d819070ac72a01838c32c149345c458a369735fdcb4e97f25ef1d5ca58c5f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\logs\\Default.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\logs\\Default.host-trace.txt",
+      "bytes": 899935,
+      "sha256": "4bc436090ebac0fef8186779bd7821457aaa271fb881b7a99c106104233e231d"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI01-repeat\\main.proj",
+      "bytes": 301,
+      "sha256": "e8fe3c51a65117c312c3ea61ada043edbd7bf3f3709bc69d23cb5c54a6ac9c76"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI01-repeat\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI02-diamond\\left.props",
+      "bytes": 98,
+      "sha256": "51d473fd808cb097982a719bb42ff22664da25f3b2c0e6ec98251ee254ac0dd2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI02-diamond\\main.proj",
+      "bytes": 254,
+      "sha256": "02e61c3f9f295638614671a85ba31009302cdddf512784919880207d2ded91a2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI02-diamond\\right.props",
+      "bytes": 99,
+      "sha256": "a7f659a6290781cec2ce1e020af289bc477dae847201c5f626876dd42a0632ab"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI02-diamond\\shared.props",
+      "bytes": 68,
+      "sha256": "c2033b30d598e9072dc20a62cb57ef81bf555db7fe72ec330ad693477c88f74d"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI03-two-file-cycle\\main.proj",
+      "bytes": 222,
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI03-two-file-cycle\\one.props",
+      "bytes": 94,
+      "sha256": "6afacb3743fcd0a3cdc69b348551cc6bf9f93e1e23dda0cfb4a035246e4cf007"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI04-relative-alias\\main.proj",
+      "bytes": 292,
+      "sha256": "3000ce63c9c97941971bd15f259549fe90876726756f0c5f8a7197a30345e3bc"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI04-relative-alias\\nested\\.keep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI04-relative-alias\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI05-false-then-true\\main.proj",
+      "bytes": 286,
+      "sha256": "d374ce7b9013bd6534455d7144437e338e4738c27dc6b98f3dc6251197dc139c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI05-false-then-true\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI06-prior-duplicate\\main.proj",
+      "bytes": 77,
+      "sha256": "0df55474fc2b6718b58a46d1051c1d24856af41514528af2e905bfef461e4aae"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI06-prior-duplicate\\one.props",
+      "bytes": 10,
+      "sha256": "4fd24be83f7dd636f6e2e8f456dfa559f1ca9c7346e1d10a5358db346b1300b9"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI07-prior-cycle\\main.proj",
+      "bytes": 48,
+      "sha256": "6513c38151f8a3b55c78b8fa2a52699b15b523e47a1f390323e0bc0c2d9b1d76"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI07-prior-cycle\\one.props",
+      "bytes": 48,
+      "sha256": "2d36d87cf0b8da5df89e41461e993d2aba79369ec06782e7253a19ed4bdb9a75"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI08-nonroot-cycle\\main.proj",
+      "bytes": 222,
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI08-nonroot-cycle\\one.props",
+      "bytes": 94,
+      "sha256": "f64f5b46ad69ae9b22c84512975fac3784220cc552f723646c6061f25982e752"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI08-nonroot-cycle\\two.props",
+      "bytes": 94,
+      "sha256": "160d13a321d0618cd3626a8f5d963cf5d8cb7abc78351fccabba05e623e77f4f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\fixtures\\BI09-missing\\main.proj",
+      "bytes": 52,
+      "sha256": "afa41ca13e9dd5e2d864acf265e9336d0ba0a8347f2590a8ef4a27e204c2ed6f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\CaptureImportLocationsV1.cs",
+      "bytes": 4444,
+      "sha256": "c06e8b7d1c1b57ada1e0f391c3ddf66d5a560f7d28738a31076036a750eda879"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v2\\capture-import-locations-v1.py",
+      "bytes": 9883,
+      "sha256": "56adec6dc5d07a92847748456884069aa531bb5afffbd401495d61c0ec6b06c2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\verification.json",
+      "bytes": 61477,
+      "sha256": "cfdc1b8e3a41e5ac0b77887499007da46e120b645af72f5c89e3b3cabe13dd3b"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\CaptureImports.dll",
+      "bytes": 25088,
+      "sha256": "a0a03ecc221aa19224df86e3e46e67ef7aa234cc76a1f47d9c54e0fcb47597ee"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\CaptureImports.runtimeconfig.json",
+      "bytes": 183,
+      "sha256": "c1eea9511e6cc9c87b8b5f73475b250b0123536364f8c13f9ee597734fc0657b"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\logs\\RecordDuplicateButNotCircularImports.stdout",
+      "bytes": 22605,
+      "sha256": "63a0c3b82a0fef5799ee06735e1fe3dafc6ed0cae772d8aff2f74987549e1975"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\logs\\RecordDuplicateButNotCircularImports.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\logs\\RecordDuplicateButNotCircularImports.host-trace.txt",
+      "bytes": 899942,
+      "sha256": "d343c81cfae86ca6b1fe3bad4b38dbb7ef00bac572a7ac3668d3008f913b82b2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI01-repeat\\main.proj",
+      "bytes": 301,
+      "sha256": "e8fe3c51a65117c312c3ea61ada043edbd7bf3f3709bc69d23cb5c54a6ac9c76"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI01-repeat\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI02-diamond\\left.props",
+      "bytes": 98,
+      "sha256": "51d473fd808cb097982a719bb42ff22664da25f3b2c0e6ec98251ee254ac0dd2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI02-diamond\\main.proj",
+      "bytes": 254,
+      "sha256": "02e61c3f9f295638614671a85ba31009302cdddf512784919880207d2ded91a2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI02-diamond\\right.props",
+      "bytes": 99,
+      "sha256": "a7f659a6290781cec2ce1e020af289bc477dae847201c5f626876dd42a0632ab"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI02-diamond\\shared.props",
+      "bytes": 68,
+      "sha256": "c2033b30d598e9072dc20a62cb57ef81bf555db7fe72ec330ad693477c88f74d"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI03-two-file-cycle\\main.proj",
+      "bytes": 222,
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI03-two-file-cycle\\one.props",
+      "bytes": 94,
+      "sha256": "6afacb3743fcd0a3cdc69b348551cc6bf9f93e1e23dda0cfb4a035246e4cf007"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI04-relative-alias\\main.proj",
+      "bytes": 292,
+      "sha256": "3000ce63c9c97941971bd15f259549fe90876726756f0c5f8a7197a30345e3bc"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI04-relative-alias\\nested\\.keep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI04-relative-alias\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI05-false-then-true\\main.proj",
+      "bytes": 286,
+      "sha256": "d374ce7b9013bd6534455d7144437e338e4738c27dc6b98f3dc6251197dc139c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI05-false-then-true\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI06-prior-duplicate\\main.proj",
+      "bytes": 77,
+      "sha256": "0df55474fc2b6718b58a46d1051c1d24856af41514528af2e905bfef461e4aae"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI06-prior-duplicate\\one.props",
+      "bytes": 10,
+      "sha256": "4fd24be83f7dd636f6e2e8f456dfa559f1ca9c7346e1d10a5358db346b1300b9"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI07-prior-cycle\\main.proj",
+      "bytes": 48,
+      "sha256": "6513c38151f8a3b55c78b8fa2a52699b15b523e47a1f390323e0bc0c2d9b1d76"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI07-prior-cycle\\one.props",
+      "bytes": 48,
+      "sha256": "2d36d87cf0b8da5df89e41461e993d2aba79369ec06782e7253a19ed4bdb9a75"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI08-nonroot-cycle\\main.proj",
+      "bytes": 222,
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI08-nonroot-cycle\\one.props",
+      "bytes": 94,
+      "sha256": "f64f5b46ad69ae9b22c84512975fac3784220cc552f723646c6061f25982e752"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI08-nonroot-cycle\\two.props",
+      "bytes": 94,
+      "sha256": "160d13a321d0618cd3626a8f5d963cf5d8cb7abc78351fccabba05e623e77f4f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\fixtures\\BI09-missing\\main.proj",
+      "bytes": 52,
+      "sha256": "afa41ca13e9dd5e2d864acf265e9336d0ba0a8347f2590a8ef4a27e204c2ed6f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\CaptureImportLocationsV1.cs",
+      "bytes": 4444,
+      "sha256": "c06e8b7d1c1b57ada1e0f391c3ddf66d5a560f7d28738a31076036a750eda879"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v1\\capture-import-profiles-v1.py",
+      "bytes": 9409,
+      "sha256": "fb8a2975a579dff1a3dadc0fa5bc5aef8929d1de635b930b6ef6ba6cfc6ca519"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\verification.json",
+      "bytes": 84606,
+      "sha256": "66276627ca48bb1601cee3bde942d8978e3e5d8ac8c4e579ba96b9e1d792320e"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\CaptureImports.dll",
+      "bytes": 25088,
+      "sha256": "a0a03ecc221aa19224df86e3e46e67ef7aa234cc76a1f47d9c54e0fcb47597ee"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\CaptureImports.runtimeconfig.json",
+      "bytes": 183,
+      "sha256": "c1eea9511e6cc9c87b8b5f73475b250b0123536364f8c13f9ee597734fc0657b"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\logs\\RecordDuplicateButNotCircularImports.stdout",
+      "bytes": 22605,
+      "sha256": "bbddbd18b56587d2158cb0362646a4d96f30c1a1bd696c84b573a829b73af163"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\logs\\RecordDuplicateButNotCircularImports.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\logs\\RecordDuplicateButNotCircularImports.host-trace.txt",
+      "bytes": 899942,
+      "sha256": "817c919f1e72e0b68ddb424a8283b94f2a1a29a7b94902cff95a21f496a17a88"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\logs\\RejectCircularImports.stdout",
+      "bytes": 18387,
+      "sha256": "bd4a15b873abe904384d81be49c66d8160501fa11369a8a127a094e9a063bc3f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\logs\\RejectCircularImports.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\logs\\RejectCircularImports.host-trace.txt",
+      "bytes": 899897,
+      "sha256": "689f69a7a896d207b8a9f280ed5a37cb01c0043ff4ea103e2f12248c1260194e"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI01-repeat\\main.proj",
+      "bytes": 301,
+      "sha256": "e8fe3c51a65117c312c3ea61ada043edbd7bf3f3709bc69d23cb5c54a6ac9c76"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI01-repeat\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI02-diamond\\left.props",
+      "bytes": 98,
+      "sha256": "51d473fd808cb097982a719bb42ff22664da25f3b2c0e6ec98251ee254ac0dd2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI02-diamond\\main.proj",
+      "bytes": 254,
+      "sha256": "02e61c3f9f295638614671a85ba31009302cdddf512784919880207d2ded91a2"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI02-diamond\\right.props",
+      "bytes": 99,
+      "sha256": "a7f659a6290781cec2ce1e020af289bc477dae847201c5f626876dd42a0632ab"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI02-diamond\\shared.props",
+      "bytes": 68,
+      "sha256": "c2033b30d598e9072dc20a62cb57ef81bf555db7fe72ec330ad693477c88f74d"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI03-two-file-cycle\\main.proj",
+      "bytes": 222,
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI03-two-file-cycle\\one.props",
+      "bytes": 94,
+      "sha256": "6afacb3743fcd0a3cdc69b348551cc6bf9f93e1e23dda0cfb4a035246e4cf007"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI04-relative-alias\\main.proj",
+      "bytes": 292,
+      "sha256": "3000ce63c9c97941971bd15f259549fe90876726756f0c5f8a7197a30345e3bc"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI04-relative-alias\\nested\\.keep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI04-relative-alias\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI05-false-then-true\\main.proj",
+      "bytes": 286,
+      "sha256": "d374ce7b9013bd6534455d7144437e338e4738c27dc6b98f3dc6251197dc139c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI05-false-then-true\\one.props",
+      "bytes": 65,
+      "sha256": "8325ea51a8d9dc6777438ee7d5e65d5c14ecabb0b107cb9c4775a2efe6ba097c"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI06-prior-duplicate\\main.proj",
+      "bytes": 77,
+      "sha256": "0df55474fc2b6718b58a46d1051c1d24856af41514528af2e905bfef461e4aae"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI06-prior-duplicate\\one.props",
+      "bytes": 10,
+      "sha256": "4fd24be83f7dd636f6e2e8f456dfa559f1ca9c7346e1d10a5358db346b1300b9"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI07-prior-cycle\\main.proj",
+      "bytes": 48,
+      "sha256": "6513c38151f8a3b55c78b8fa2a52699b15b523e47a1f390323e0bc0c2d9b1d76"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI07-prior-cycle\\one.props",
+      "bytes": 48,
+      "sha256": "2d36d87cf0b8da5df89e41461e993d2aba79369ec06782e7253a19ed4bdb9a75"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI08-nonroot-cycle\\main.proj",
+      "bytes": 222,
+      "sha256": "d5f3fa37dbd98459ca3bf86c8b741d1bacda21309b7afa1b0fd90ca5b5669e27"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI08-nonroot-cycle\\one.props",
+      "bytes": 94,
+      "sha256": "f64f5b46ad69ae9b22c84512975fac3784220cc552f723646c6061f25982e752"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI08-nonroot-cycle\\two.props",
+      "bytes": 94,
+      "sha256": "160d13a321d0618cd3626a8f5d963cf5d8cb7abc78351fccabba05e623e77f4f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\fixtures\\BI09-missing\\main.proj",
+      "bytes": 52,
+      "sha256": "afa41ca13e9dd5e2d864acf265e9336d0ba0a8347f2590a8ef4a27e204c2ed6f"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\CaptureImportLocationsV1.cs",
+      "bytes": 4444,
+      "sha256": "c06e8b7d1c1b57ada1e0f391c3ddf66d5a560f7d28738a31076036a750eda879"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-profiles-native-v2\\capture-import-profiles-v1.py",
+      "bytes": 9409,
+      "sha256": "fb8a2975a579dff1a3dadc0fa5bc5aef8929d1de635b930b6ef6ba6cfc6ca519"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v1\\verification.json",
+      "bytes": 36450,
+      "sha256": "3f0c00a78c4482084dd630ef7c3a5dd5aa9331bf8087c0f25a0e4ed99c762432"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-import-native-v2\\verification.json",
+      "bytes": 36690,
+      "sha256": "06f830ad3afa043dfdeafc8a3ce789a43ce0b4472d1c0d5d0a9b4dbd96fe6432"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\dotj-build-locations-native-v1\\verification.json",
+      "bytes": 836,
+      "sha256": "3d5e21563e14d6254b53f2c18f75056dc63a7eb519628b648d3e4f55e8740511"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-paths-native-v1\\verification.json",
+      "bytes": 67315,
+      "sha256": "d6e2ae7be867529378e49fe7fbf5b2009e8929dc3def19eddbd3b9ab38384d74"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-path-whitespace-native-v1\\verification.json",
+      "bytes": 44201,
+      "sha256": "9365bd84e4e1e2e05f3e2088fe413d82e71222443d61c5677e62a3252dc90d05"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\validation\\import-path-whitespace-native-v2\\verification.json",
+      "bytes": 54584,
+      "sha256": "b303586f6246e3de7819eaf941c8696e88087d49bd5c139c53391bccf92cd080"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task132-cycle-trace-adoption-v1.json",
+      "bytes": 4114,
+      "sha256": "8bdd1a308355341cfb2d72f50153089b07d48e3466542b9f6060900cd4fe07d5"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task131-native-projection-coverage-v1.json",
+      "bytes": 822460,
+      "sha256": "ec9ea7e1a783480dc40681ba46b4937865d384871449cac1cb365207821a4d1e"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task132-branch-preparation-v1.json",
+      "bytes": 8954,
+      "sha256": "c0c41afdf67adf4b02efabd43f717da535a346d80ba1b563768f7d536cacd9e3"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task131-input-audit-v1.json",
+      "bytes": 17006,
+      "sha256": "0e301d988aee341d69509b53dce04ecc52515ca2cb86d68f47ff52161b5a9f6b"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task131-coverage-input-audit-v1.json",
+      "bytes": 265,
+      "sha256": "1fdb3cd162ae9c17a96314d3743d28076c6ea1995e517d4d28e883f3be6b3d41"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2521-build-items-evaluation-v1\\product-build-v5\\dotj-build-evaluation-candidate.jar",
+      "bytes": 79712,
+      "sha256": "303dc40dbb1a5db310a06e82b73038e2649d18d72ca19b79fa7df5eaaa879fea"
+    }
+  ],
+  "baselineSources": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-import-cycle-traces-v1\\dotj-build\\evaluation-candidate\\src\\module-info.java",
+      "bytes": 155,
+      "sha256": "4aff79a07ae0f450a31172d78d4a519e405a7372ee4a693b867c4b49a24ed321",
+      "relative": "dotj-build/evaluation-candidate/src/module-info.java"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-import-cycle-traces-v1\\dotj-build\\evaluation-candidate\\src\\org\\dotj\\internal\\build\\evaluation\\ItemEvaluator.java",
+      "bytes": 13861,
+      "sha256": "4d0e05e638c6afb11035d8706e0b05b065b1ceb16c5ba3a3d40f34d3f726ec99",
+      "relative": "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemEvaluator.java"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-import-cycle-traces-v1\\dotj-build\\evaluation-candidate\\src\\org\\dotj\\internal\\build\\evaluation\\ItemExpressions.java",
+      "bytes": 5912,
+      "sha256": "c81ef44033f8fe7b032d61bc4ec21687a0284cfba1bdcb167dd4c72b34111df8",
+      "relative": "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemExpressions.java"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-import-cycle-traces-v1\\dotj-build\\evaluation-candidate\\src\\org\\dotj\\internal\\build\\evaluation\\ItemGlobs.java",
+      "bytes": 7198,
+      "sha256": "be69487b0aba62e1b127e6f021e962e5952a30fa982b0f5793954bf512c154d2",
+      "relative": "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemGlobs.java"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-import-cycle-traces-v1\\dotj-build\\evaluation-candidate\\src\\org\\dotj\\internal\\build\\evaluation\\ItemSnapshot.java",
+      "bytes": 6682,
+      "sha256": "337dd4e73d20072bdff31ac09955c144a64c9948f3c2f4ba9e5e38edb914d99b",
+      "relative": "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemSnapshot.java"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-import-cycle-traces-v1\\dotj-build\\evaluation-candidate\\src\\org\\dotj\\internal\\build\\evaluation\\ProjectEvaluationComponent.java",
+      "bytes": 56736,
+      "sha256": "ed8baa127f344379ae640240b7341e6a1d4f048b518da413475abe05d63d22a5",
+      "relative": "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java"
+    }
+  ],
+  "nativeSchedule": {
+    "requiredRowPasses": 228,
+    "newRowPasses": 190,
+    "reusedFieldEvidence": 38,
+    "runs": [
+      {
+        "platform": "windows",
+        "profile": "DEFAULT",
+        "passNumber": 1,
+        "ids": [
+          "BI01-repeat",
+          "BI02-diamond",
+          "BI03-two-file-cycle",
+          "BI04-relative-alias",
+          "BI06-prior-duplicate",
+          "BI07-prior-cycle",
+          "BI08-nonroot-cycle",
+          "BI09-missing",
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-windows-default-1-v1"
+      },
+      {
+        "platform": "windows",
+        "profile": "DEFAULT",
+        "passNumber": 2,
+        "ids": [
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-windows-default-2-v1"
+      },
+      {
+        "platform": "windows",
+        "profile": "RECORD_DUPLICATES",
+        "passNumber": 1,
+        "ids": [
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-windows-record_duplicates-1-v1"
+      },
+      {
+        "platform": "windows",
+        "profile": "RECORD_DUPLICATES",
+        "passNumber": 2,
+        "ids": [
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-windows-record_duplicates-2-v1"
+      },
+      {
+        "platform": "windows",
+        "profile": "REJECT_CIRCULAR",
+        "passNumber": 1,
+        "ids": [
+          "BI01-repeat",
+          "BI02-diamond",
+          "BI03-two-file-cycle",
+          "BI04-relative-alias",
+          "BI06-prior-duplicate",
+          "BI07-prior-cycle",
+          "BI08-nonroot-cycle",
+          "BI09-missing",
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-windows-reject_circular-1-v1"
+      },
+      {
+        "platform": "windows",
+        "profile": "REJECT_CIRCULAR",
+        "passNumber": 2,
+        "ids": [
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-windows-reject_circular-2-v1"
+      },
+      {
+        "platform": "linux",
+        "profile": "DEFAULT",
+        "passNumber": 1,
+        "ids": [
+          "BI01-repeat",
+          "BI02-diamond",
+          "BI03-two-file-cycle",
+          "BI04-relative-alias",
+          "BI05-false-then-true",
+          "BI06-prior-duplicate",
+          "BI07-prior-cycle",
+          "BI08-nonroot-cycle",
+          "BI09-missing",
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-linux-default-1-v1"
+      },
+      {
+        "platform": "linux",
+        "profile": "DEFAULT",
+        "passNumber": 2,
+        "ids": [
+          "BI01-repeat",
+          "BI02-diamond",
+          "BI03-two-file-cycle",
+          "BI04-relative-alias",
+          "BI05-false-then-true",
+          "BI06-prior-duplicate",
+          "BI07-prior-cycle",
+          "BI08-nonroot-cycle",
+          "BI09-missing",
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-linux-default-2-v1"
+      },
+      {
+        "platform": "linux",
+        "profile": "RECORD_DUPLICATES",
+        "passNumber": 1,
+        "ids": [
+          "BI01-repeat",
+          "BI02-diamond",
+          "BI03-two-file-cycle",
+          "BI04-relative-alias",
+          "BI05-false-then-true",
+          "BI06-prior-duplicate",
+          "BI07-prior-cycle",
+          "BI08-nonroot-cycle",
+          "BI09-missing",
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-linux-record_duplicates-1-v1"
+      },
+      {
+        "platform": "linux",
+        "profile": "RECORD_DUPLICATES",
+        "passNumber": 2,
+        "ids": [
+          "BI01-repeat",
+          "BI02-diamond",
+          "BI03-two-file-cycle",
+          "BI04-relative-alias",
+          "BI05-false-then-true",
+          "BI06-prior-duplicate",
+          "BI07-prior-cycle",
+          "BI08-nonroot-cycle",
+          "BI09-missing",
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-linux-record_duplicates-2-v1"
+      },
+      {
+        "platform": "linux",
+        "profile": "REJECT_CIRCULAR",
+        "passNumber": 1,
+        "ids": [
+          "BI01-repeat",
+          "BI02-diamond",
+          "BI03-two-file-cycle",
+          "BI04-relative-alias",
+          "BI05-false-then-true",
+          "BI06-prior-duplicate",
+          "BI07-prior-cycle",
+          "BI08-nonroot-cycle",
+          "BI09-missing",
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-linux-reject_circular-1-v1"
+      },
+      {
+        "platform": "linux",
+        "profile": "REJECT_CIRCULAR",
+        "passNumber": 2,
+        "ids": [
+          "BI01-repeat",
+          "BI02-diamond",
+          "BI03-two-file-cycle",
+          "BI04-relative-alias",
+          "BI05-false-then-true",
+          "BI06-prior-duplicate",
+          "BI07-prior-cycle",
+          "BI08-nonroot-cycle",
+          "BI09-missing",
+          "CT01-root-self",
+          "CT02-nonroot-self",
+          "CT03-long-root",
+          "CT04-long-nonroot",
+          "CT05-two-closures",
+          "CT06-false-closing-edge",
+          "CT07-property-expanded-owner",
+          "CT08-normalized-path",
+          "CT09-max-root",
+          "CT10-max-nonroot"
+        ],
+        "attempt": "native-linux-reject_circular-2-v1"
+      }
+    ],
+    "reuse": "Explicit completed child-unit provenance from coverage; FAILED aggregate remains FAILED"
+  },
+  "rights": {
+    "product": [
+      "Existing private evaluator six-source baseline and qualified JDK java.base/java.xml only"
+    ],
+    "development": [
+      "Installed pinned Python3.13.9, JDK21.0.12.1+1 and .NET SDK10.0.401/MSBuild18.9.11 available; no new download dependency"
+    ],
+    "E01": "Existing bounded source/reference eligibility evidence reusable only within its actual terms. Source/notice applicability, reference/dependency rights and release review remain OPEN; no rights inferred from installed artifacts.",
+    "E02": "Selected source closure known; recursive conditional/generated public dependencies unresolved.",
+    "E03": "Existing BI native mapping reusable; new frozen projection observations and independent trace oracle required.",
+    "N01": {
+      "T1": "47 callables,2 properties,24 direct identities retained; full recursive selected public surface not closed",
+      "T2": "All retained exact representations BLOCKED. IDisposable source exists and selected nongeneric collections exist, but are not generic IDictionary`2/IEnumerable`1 qualification. Int32 source presence alone is not consumed CLR representation.",
+      "T3": "No compiled Build public API comparison for this private sidecar; source-derived get_/set_ accessor syntax remains permitted.",
+      "T4": "Paired executable C#/.j Build workflow not established. Standard Java is permitted; restricted abstract AritySourceCompiler does not prove general executable Build examples and does not impose a universal custom-transpiler prerequisite."
+    },
+    "consumedRoles": [
+      "System.Object base/member closure",
+      "System.String path/property identities",
+      "System.Collections.Generic.IDictionary`2 and IEnumerable`1 variance/mutation/identity",
+      "System.IDisposable and System.Void disposal/return lowering",
+      "System.Xml.XmlReader ownership and error ABI",
+      "Build Project/ProjectCollection/ProjectRootElement/ResolvedImport/logging/exception contracts and recursive dependencies"
+    ],
+    "representationDecision": "These block public promotion, not the next private trace feature. Do not declare missing Java runtime dependency from rights/representation gaps, and do not require all66 frameworks first."
+  },
+  "acceptance": {
+    "advanced": [
+      "DJ-005-F01-02",
+      "DJ-005-WP-01-T1"
+    ],
+    "preserved": [
+      "DJ-005-F01-01",
+      "DJ-005-F01-03",
+      "DJ-005-F01-04",
+      "DJ-005-WP-01-T2"
+    ],
+    "remaining": [
+      "Public promotion of source-derived chain diagnostic/adaptation must be explicitly reconciled with exact public native concepts; native public chain parity is not claimed.",
+      "WP01 T1 full imports/conditions/items/globs contract and remaining declared families, T2 full execution separation and T3 native Java format/optional importer remain open.",
+      "E01/E02/E03 closure, four N01 tasks/NF01-03, compiled public API and paired C#/.j workflows, shared Core and SDK integration remain unaccepted."
+    ],
+    "requiredStatus": "PASS_BOUNDED_PRIVATE_CYCLE_TRACE only after actual implementation/review/integration. SOURCE_PLAN_ONLY now; F01-02 PARTIAL_ADAPTATION, all task/framework acceptance OPEN.",
+    "counters": {
+      "acceptedTasks": 0,
+      "totalTasks": 1092,
+      "openAcceptanceItems": 1686,
+      "qualifiedFrameworks": 0,
+      "totalFrameworks": 66,
+      "buildImplementationTasks": 25,
+      "buildFeatureTasks": 15,
+      "buildSdkTasks": 10,
+      "buildN01PrerequisitesOutsideDenominator": 4,
+      "numberedBatchCredit": 0,
+      "taskCredit": 0,
+      "frameworkCredit": 0,
+      "projectBatchTotal": null,
+      "projectBatchesRemaining": null
+    }
+  },
+  "deferrals": {
+    "retainedDeclinedBoundaries": {
+      "path": "D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/task130-declined-dispositions-v1.json",
+      "bytes": 7897,
+      "sha256": "5148a19d8bb012d4ff558dcc74b2c92a48128ebd1411d0f945046d92a41b6a88"
+    },
+    "rule": "All15 dispositions retained as full-goal obligations; family3 cycle trace partially advanced, not closed. Historical publication/boundary fix entries14/15 use actual2521 reconciliation and remain future workflow requirements, not falsely pending old work.",
+    "owners": {
+      "publicApiN01": "Build API/compatibility maintainer with shared Core owner",
+      "rights": "repository maintainer/licensing review",
+      "recursiveDependencies": "Build/API maintainer",
+      "SDKandBootstrap": "SDK/toolchain owner",
+      "platformMatrix": "compatibility/test maintainer",
+      "integration": "root controller"
+    },
+    "otherScope": [
+      "No public facade or invented Chain member",
+      "No arbitrary complete MSBuild import/configuration expansion",
+      "No combined load flags, in-memory/XML-reader importer workflow, targets/tasks/restore",
+      "No public mutable graph identity/reevaluation behavior",
+      "No general filesystem hostile-race or alias guarantees",
+      "No global native-message/exception ABI parity",
+      "No source build/release/feed/installer qualification"
+    ]
+  },
+  "mutationRules": [
+    "BI byte exact including existing presence/absence of Target; CC09 separate variants",
+    "All fixture and edge coordinates independently frozen before capture; no candidate-derived expectations",
+    "Source LF normalization only for final source binding; this input freeze retains raw bytes"
+  ]
+}

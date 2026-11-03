@@ -52,6 +52,36 @@ final class ProjectEvaluationComponent {
     private record WarningPosition(int line, int column, int endLine, int endColumn) { }
     private record ImportSite(Path owner, int line, int column) { }
     record ImportEdge(Path owner, Path target, int line, int column) { }
+    /** Root prefix followed by the actual closing edge; diagnostic indices refer to this evaluation. */
+    record CycleTrace(List<Path> nodes, List<ImportEdge> edges, int cycleStartIndex,
+                      ImportProfile profile, List<Integer> diagnosticIndices) {
+        CycleTrace {
+            nodes = List.copyOf(nodes); edges = List.copyOf(edges);
+            diagnosticIndices = List.copyOf(diagnosticIndices); Objects.requireNonNull(profile);
+            if (nodes.size() < 2 || nodes.size() != edges.size() + 1 || cycleStartIndex < 0
+                || cycleStartIndex >= edges.size() || !nodes.get(cycleStartIndex).equals(nodes.getLast()))
+                throw new IllegalArgumentException("Invalid cycle trace path");
+            for (int i = 0; i < edges.size(); i++) {
+                ImportEdge edge = edges.get(i);
+                if (!edge.owner().equals(nodes.get(i)) || !edge.target().equals(nodes.get(i + 1)))
+                    throw new IllegalArgumentException("Disconnected cycle trace edge");
+            }
+        }
+    }
+    /** Witness lists are immutable snapshots; the original Throwable deliberately retains its identity. */
+    record TraceEvaluation(Result result, Throwable failure, List<CycleTrace> cycleTraces) {
+        TraceEvaluation {
+            cycleTraces = List.copyOf(cycleTraces);
+            if ((result == null) == (failure == null)
+                || (failure != null && !(failure instanceof IOException) && !(failure instanceof ProfileRejected)))
+                throw new IllegalArgumentException("Expected exactly one result or recoverable original failure");
+        }
+        Result resultOrThrow() throws IOException {
+            if (failure instanceof IOException exception) throw exception;
+            if (failure instanceof ProfileRejected exception) throw exception;
+            return result;
+        }
+    }
     // Historical private notice name. Circular contexts carry only owner/target/current;
     // rootContext is a root path, and neither context invents previous sites or chains.
     public record DuplicateImport(String referenceCode, Path owner, Path importedProject,
@@ -116,12 +146,21 @@ final class ProjectEvaluationComponent {
         return evaluate(project, sandbox, globals, ImportProfile.DEFAULT);
     }
     static Result evaluate(Path project, Path sandbox, Map<String,String> globals, ImportProfile profile) throws IOException {
-        if (profile == null) throw reject("IMPORT_PROFILE", "An explicit supported import profile is required");
-        State state = new State(sandbox, globals, profile);
-        state.read(project.toAbsolutePath().normalize(), true);
-        ItemEvaluator.Output items=state.itemEvaluator.evaluate();
-        return new Result(state.properties, state.files, state.duplicates, state.imports,
-                          profile == ImportProfile.RECORD_DUPLICATES ? state.recordedImports : null, state.conditionWarnings,items);
+        return evaluateWithTraces(project, sandbox, globals, profile).resultOrThrow();
+    }
+    static TraceEvaluation evaluateWithTraces(Path project, Path sandbox, Map<String,String> globals, ImportProfile profile) {
+        State state = null;
+        try {
+            if (profile == null) throw reject("IMPORT_PROFILE", "An explicit supported import profile is required");
+            state = new State(sandbox, globals, profile);
+            state.read(project.toAbsolutePath().normalize(), true);
+            ItemEvaluator.Output items = state.itemEvaluator.evaluate();
+            Result result = new Result(state.properties, state.files, state.duplicates, state.imports,
+                profile == ImportProfile.RECORD_DUPLICATES ? state.recordedImports : null, state.conditionWarnings, items);
+            return new TraceEvaluation(result, null, state.cycleTraces);
+        } catch (IOException | ProfileRejected failure) {
+            return new TraceEvaluation(null, failure, state == null ? List.of() : state.cycleTraces);
+        }
     }
     static final class State {
         final Path sandbox;
@@ -135,6 +174,7 @@ final class ProjectEvaluationComponent {
         final LinkedHashSet<Path> seen = new LinkedHashSet<>();
         final List<Path> files = new ArrayList<>();
         final List<DuplicateImport> duplicates = new ArrayList<>();
+        final List<CycleTrace> cycleTraces = new ArrayList<>();
         final List<ConditionWarning> conditionWarnings = new ArrayList<>();
         final Map<Element,ImportSite> conditionSites = new IdentityHashMap<>();
         final Map<Element,ImportSite> sourceSites = new IdentityHashMap<>();
@@ -355,13 +395,16 @@ final class ProjectEvaluationComponent {
                     DiagnosticKind.ERROR,ContextKind.MISSING));
                 throw new EvaluationFailure(FailureReason.MISSING_IMPORT,"MSB4019",owner,path,position,duplicates);
             }
+            ImportEdge edge = new ImportEdge(owner,path,current.line(),current.column());
+            CycleTrace cycle = cycleTrace(edge);
+            if (cycle != null) cycleTraces.add(cycle);
             // Root self-import precedes both flagged policies in the pinned evaluator.
             if (path.equals(files.getFirst())) {
                 duplicates.add(new DuplicateImport("MSB4210",owner,path,position,null,path,
                     DiagnosticKind.WARNING,ContextKind.ROOT));
                 return;
             }
-            if (profile != ImportProfile.DEFAULT && introducesCircularity(path,owner)) {
+            if (profile != ImportProfile.DEFAULT && cycle != null) {
                 duplicates.add(new DuplicateImport(null,owner,path,position,null,null,
                     DiagnosticKind.WARNING,ContextKind.CIRCULAR));
                 if (profile == ImportProfile.REJECT_CIRCULAR) {
@@ -371,7 +414,6 @@ final class ProjectEvaluationComponent {
                 }
                 return;
             }
-            ImportEdge edge = new ImportEdge(owner,path,current.line(),current.column());
             if (seen.contains(path)) {
                 ImportSite previous = firstImports.get(path);
                 if (previous == null) throw reject("XML_SOURCE_INDEX", "Missing previous import source identity");
@@ -385,15 +427,25 @@ final class ProjectEvaluationComponent {
             if (profile == ImportProfile.RECORD_DUPLICATES) recordedImports.add(edge);
             read(path,false);
         }
-        boolean introducesCircularity(Path target, Path owner) {
-            // Walk first-import containing-project ancestry, as the pinned evaluator does.
-            // A completed shared import is not an ancestor merely because it was seen.
-            for (Path ancestor = owner; ancestor != null;) {
-                if (target.equals(ancestor)) return true;
+        CycleTrace cycleTrace(ImportEdge closing) {
+            // First-import sites form the admitted ancestry tree. No filesystem read is needed.
+            List<Path> nodes = new ArrayList<>();
+            List<ImportEdge> edges = new ArrayList<>();
+            for (Path ancestor = closing.owner(); ancestor != null;) {
+                nodes.add(ancestor);
                 ImportSite first = firstImports.get(ancestor);
-                ancestor = first == null ? null : first.owner();
+                if (first == null) break;
+                edges.add(new ImportEdge(first.owner(), ancestor, first.line(), first.column()));
+                ancestor = first.owner();
             }
-            return false;
+            Collections.reverse(nodes); Collections.reverse(edges);
+            int start = nodes.indexOf(closing.target());
+            if (start < 0) return null;
+            nodes.add(closing.target()); edges.add(closing);
+            int diagnostic = duplicates.size();
+            List<Integer> links = profile == ImportProfile.REJECT_CIRCULAR && start != 0
+                ? List.of(diagnostic, diagnostic + 1) : List.of(diagnostic);
+            return new CycleTrace(nodes, edges, start, profile, links);
         }
         String expand(String value) {
             verifyScalar(value);return expandProperties(value);
