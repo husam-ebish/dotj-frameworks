@@ -16,6 +16,87 @@ from inherited_models import normalized,selected_native,selected_product,sort_re
 def require(value,message):
     if not value:raise ValueError(message)
 def digest(raw):return hashlib.sha256(raw).hexdigest()
+PLATFORMS={'windows','linux'}
+ABI_TYPES={'Result','DuplicateImport','EvaluationFailure','ProfileRejected'}
+STABLE_OPERATIONS={'case-results.tsv':'packaged-current-base','location-results.tsv':'packaged-current-locations',
+    'cycle-results.tsv':'packaged-current-cycles','profile-results.tsv':'packaged-current-profiles',
+    'import-path-results.tsv':'packaged-current-paths','whitespace-results.tsv':'packaged-current-whitespace'}
+UNCHANGED_OPERATIONS={'and-results.tsv':'packaged-and','cache-controls.tsv':'packaged-cache-controls',
+    'cache-results.tsv':'packaged-cache','condition-results.tsv':'packaged-condition',
+    'predicate-controls.tsv':'packaged-predicate-controls','predicate-results.tsv':'packaged-predicate',
+    'ordering-results.tsv':'runtime-ordering','boolean-results.tsv':'runtime-boolean'}
+HISTORY_OPERATIONS=set(STABLE_OPERATIONS.values()) | set(UNCHANGED_OPERATIONS.values())
+
+def inventory(entries,key,expected,label):
+    require(len(entries)==len(expected) and {e[key] for e in entries}==set(expected),label+' inventory')
+
+def operation(receipt,label):
+    matches=[o for o in receipt['operations'] if o['label']==label]
+    require(len(matches)==1,'Unique matching operation '+label)
+    return matches[0]
+
+def bind_stream(descriptor,receipt,label,stream='stdout'):
+    require(descriptor==operation(receipt,label)[stream],'Semantic operation/output binding '+label)
+
+def bind_output(descriptor,receipt,relative,label,directory_arg=False):
+    # Paths are provenance strings only; no evidence is read from an original path.
+    op=operation(receipt,label)
+    root=receipt.get('work',str(Path(op['stdout']['path']).parent))
+    path=str(Path(root)/relative)
+    matches=[d for d in receipt['outputs'] if d['path']==path]
+    require(len(matches)==1 and descriptor==matches[0],'Semantic operation/output binding '+relative)
+    if label=='container-create':
+        argv=op['process']['argv']
+        require(argv.count('/run.sh')==1 and argv[argv.index('/run.sh')+1]==Path(root).name,'Semantic Linux work slot binding')
+    else:
+        argument=str(Path(path).parent) if directory_arg else path
+        require(argument in op['process']['argv'],'Semantic output argv binding '+relative)
+
+def check_semantic_bindings(bundle):
+    p=bundle.proof;inherited=p['inherited']
+    byname={e['name']:bundle.json(e['receipt']) for e in p['executions']}
+    for family,label,filename in [('items','capture','capture.stdout'),('sort','raw-sort','raw-sort.stdout'),('boundary','boundaries','boundaries.stdout')]:
+        inventory(inherited[family],'platform',PLATFORMS,'Inherited '+family+' platform')
+        for entry in inherited[family]:
+            receipt=byname['inherited-'+family+'-'+entry['platform']+'-v1']
+            if entry['platform']=='windows':bind_stream(entry['raw'],receipt,label)
+            else:bind_output(entry['raw'],receipt,filename,'container-create')
+    require(len(inherited['privateRows'])==3,'Inherited private output inventory')
+    bind_output(inherited['privateRows'][0],byname['inherited-private-windows-v1'],'controls/results.tsv','private',True)
+    bind_output(inherited['privateRows'][1],byname['inherited-private-linux-v1'],'results.tsv','container-create')
+    bind_stream(inherited['privateRows'][2],byname['inherited-junction-windows-v1'],'junction')
+    bind_stream(inherited['supplement'],byname['inherited-supplement-windows-v1'],'supplement')
+    for field,family,filename in [('itemsCase','items','materialized-case-profile.tsv'),('sortCase','sort','case-profile.tsv'),('boundaryCase','boundary','case-profile.tsv')]:
+        bind_output(inherited[field],byname['inherited-'+family+'-linux-v1'],filename,'container-create')
+    history=byname['inherited-history-windows-v1']
+    require(len(p['historyGroups'])==len(HISTORY_OPERATIONS) and set(p['historyGroups'])==HISTORY_OPERATIONS,'History group inventory')
+    inventory(history['operations'],'label',HISTORY_OPERATIONS,'History operation')
+    prior=bundle.json(p['legacyProof'])
+    for family,mapping,prior_key in [('stable',STABLE_OPERATIONS,'stableRows'),('unchanged',UNCHANGED_OPERATIONS,'historicalUnchanged')]:
+        inventory(inherited[family],'name',mapping,'Inherited '+family)
+        for entry in inherited[family]:
+            name=entry['name'];relative='outputs/'+name if family=='stable' else name
+            bind_output(entry['actual'],history,relative,mapping[name],name=='case-results.tsv')
+            prior_entries=[e for e in prior[prior_key] if (e.get('name') or Path(e['actual']['path']).name)==name]
+            require(len(prior_entries)==1 and entry['prior']==prior_entries[0]['prior'],'History prior binding '+name)
+    require(inherited['stableGolden']==prior['stableGolden'],'History golden binding')
+    bind_stream(inherited['ordering'],history,'runtime-ordering')
+    bind_stream(inherited['boolean'],history,'runtime-boolean')
+    abi=byname['abi-v1'];inventory(p['abi']['pairs'],'type',ABI_TYPES,'ABI pair')
+    inventory(abi['operations'],'label',{'compile-legacy','baseline-legacy','successor-legacy'} |
+        {prefix+'-'+t for prefix in ('baseline','successor') for t in ABI_TYPES},'ABI operation')
+    for pair in p['abi']['pairs']:
+        for prefix in ('baseline','successor'):bind_stream(pair[prefix],abi,prefix+'-'+pair['type'])
+    bind_stream(p['abi']['consumer'],abi,'successor-legacy')
+    for mode in ('selected','private'):
+        inventory(p[mode],'platform',PLATFORMS,mode+' platform')
+        for entry in p[mode]:
+            name=mode+'-'+entry['platform']+'-final-v1'
+            require(entry['receiptName']==name,'Semantic execution name binding')
+            for field,stream in [('raw','stdout'),('origin','stderr')]:
+                if entry['platform']=='windows':bind_stream(entry[field],byname[name],'consumer',stream)
+                else:bind_output(entry[field],byname[name],'consumer.'+stream,'container-create')
+
 def descriptors(value):
     if isinstance(value,dict):
         if {'path','sha256','bytes'}<=value.keys():yield value
@@ -127,6 +208,7 @@ def check_selected(bundle,contract,lock,entry):
 
 def check_inherited(bundle):
     p=bundle.proof;inherited=p['inherited'];jarsha=p['jar']['sha256'];native=bundle.json(inherited['nativeContract'])
+    check_semantic_bindings(bundle)
     for entry in inherited['items']:
         raw=bundle.json(entry['raw']);platform=entry['platform'];require(raw['scenarioCount']==len(raw['rows'])==42,'Inherited item count')
         actual=normalized(raw['rows'],raw['root']);expected=native['models'][platform]
@@ -171,12 +253,8 @@ def check(proof_path,proof_sha,jar,source_root):
     expected_names.update('inherited-'+g+'-windows-v1' for g in ('items','private','junction','supplement','sort','boundary','history'))
     expected_names.update('inherited-'+g+'-linux-v1' for g in ('items','private','sort','boundary'))
     require({e['name'] for e in p['executions']}==expected_names and len(p['executions'])==len(expected_names),'Complete executed obligation inventory')
-    actual_outputs=set();byname={}
     for entry in p['executions']:
         r=bundle.json(entry['receipt']);require(r['status']=='PASS','Execution not PASS')
-        byname[entry['name']]=r
-        actual_outputs.update(d['sha256'] for d in r.get('outputs',[]))
-        actual_outputs.update(o[s]['sha256'] for o in r['operations'] for s in ('stdout','stderr'))
         require(len(r['operations'])==len(entry['expectedOperations']),'Operation inventory')
         for op,pin in zip(r['operations'],entry['expectedOperations']):process(op,pin)
         if 'container' in r:owned_container(r['container'])
@@ -186,8 +264,7 @@ def check(proof_path,proof_sha,jar,source_root):
             if Path(argv[0]).name.lower()=='java.exe':
                 expected_jar=p['abi']['baselineJar']['path'] if entry['name']=='abi-v1' and op['label']=='baseline-legacy' else p['jar']['path']
                 require('--module-path' in argv and argv[argv.index('--module-path')+1]==expected_jar,'Runtime uses qualified JAR')
-    history=next(e for e in p['executions'] if e['name']=='inherited-history-windows-v1')
-    require([o['label'] for o in history['expectedOperations']]==p['historyGroups'] and len(p['historyGroups'])==14,'All 14 retained runtime groups')
+    check_inherited(bundle)
     old=bundle.json(p['contractOriginal']);contract=bundle.json(p['contract']);expected=copy.deepcopy(old)
     count=0
     for case in expected['cases']:
@@ -198,28 +275,18 @@ def check(proof_path,proof_sha,jar,source_root):
     for case in contract['cases']:
         for name,pin in case['files'].items():require(digest(base64.b64decode(pin['base64']))==pin['sha256'],'Frozen fixture bytes')
     lock=check_native(bundle,contract)
-    require({e['platform'] for e in p['selected']}=={'windows','linux'},'Both selected platforms')
     for entry in p['selected']:
-        require(entry['raw']['sha256'] in actual_outputs and entry['origin']['sha256'] in actual_outputs,'Selected execution binding')
         check_selected(bundle,contract,lock,entry)
     wanted={c['id'] for c in contract['controls']} - {'CC12-proof-binding','CC13-relocation'}
-    require({e['platform'] for e in p['private']}=={'windows','linux'} and len(p['private'])==2,'Both private platforms')
     for entry in p['private']:
-        require(entry['raw']['sha256'] in actual_outputs and entry['origin']['sha256'] in actual_outputs,'Private execution binding')
         require(set(bundle.json(entry['raw'])['groups'])==wanted,'Private control groups')
         expected_origin=p['jar']['path'] if entry['platform']=='windows' else '/product.jar'
         require(bundle.text(entry['origin']).strip()=='PRODUCT_ORIGIN\t'+expected_origin+'\t'+p['jar']['sha256'],'Private loaded origin')
     for pair in p['abi']['pairs']:require(bundle.raw(pair['baseline'])==bundle.raw(pair['successor']),'Legacy javap ABI')
     require('PASS\tCC06-abi' in bundle.text(p['abi']['consumer']),'Old compiled legacy consumer')
-    inherited=p['inherited']
-    output_descriptors=[e['raw'] for family in ('items','sort','boundary') for e in inherited[family]]
-    output_descriptors+=inherited['privateRows']+[inherited['supplement'],inherited['ordering'],inherited['boolean']]
-    output_descriptors += [e['actual'] for family in ('stable','unchanged') for e in inherited[family]]
-    require(all(d['sha256'] in actual_outputs for d in output_descriptors),'Inherited actual output binding')
     red=bundle.json(p['baselineRed']);require(red['status']=='PASS' and red['expectedFeatureRed'],'Actual packaged baseline RED')
     redop=next(o for o in red['operations'] if o['label']=='consumer')
     require(redop['process']['exitCode']!=0 and 'FEATURE_RED: required trace-aware sidecar absent' in bundle.text(redop['stderr']),'Baseline RED reason')
-    check_inherited(bundle)
     require(bundle.json(p['legacyResult'])['evidenceFiles']==1760 and p['legacyProof']['sha256']=='1165c51b1c2d6f2fcc952d26dc6a7e8ee242696d483238a4bfe1ee8cb8738aa5','1760 historical lineage')
     return dict(status='PASS_BOUNDED_PRIVATE_CYCLE_TRACE',graphs=19,profiles=3,platforms=2,nativeRowPasses=228,
         selectedRows=114,privateGroups=14,inheritedItemsPerPlatform=42,inheritedPrivateRows=61,historyGroups=14,stableRows=94,

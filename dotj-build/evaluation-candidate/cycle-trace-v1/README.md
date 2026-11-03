@@ -35,8 +35,8 @@ and the native lock remain unchanged.
 
 The final JAR is `87603c578e40f70f62289abbb35ed370abbf176204b5c3b1d763acacb8edfe27`.
 The qualification bundle is under the Batch2522 artifact directory at
-`qualification-v4/proof.json`, SHA256
-`be144770781b6cd10590e013e286037531215963e86809488ab9d5d41fb2a3b5`.
+`qualification-v5/proof.json`, SHA256
+`66c4c05e743c1a76141584682726ddf231e04da506d1dbc558e3a2a9f21d5c53`.
 Its pure reader accepts explicit `--proof`, `--sha256`, `--jar` and
 `--source-root` arguments; source-root is the repository root. The reader checks
 the current six-source closure, class inventory, actual execution arguments,
@@ -44,7 +44,15 @@ all native projection fields and inherited Build obligations. Content-addressed
 evidence resolves only within the bundle, so relocation needs no original path
 fallback. The old 1760-file proof remains historical lineage.
 
-`proof-controls-v1` records 15 actual rejection controls and physical relocation
+The historical v4 proof and its original controls remain unchanged. Task133 found
+that its reader could skip inherited semantic entries while retaining their
+execution receipts. The v5 reader requires exact platform inventories for items,
+sort and boundary, all four ABI types, six stable and eight unchanged history
+files, and all fourteen history operations. Each semantic output is bound to its
+specific execution and operation/output, rather than any output in the bundle.
+This proof-only correction reuses the same final JAR and runtime/native evidence.
+
+`proof-controls-fix1-v1` records 57 actual rejection controls and physical relocation
 of the complete five-file reader dependency closure, 1369 evidence objects,
 product sources and JAR. CC01–CC11/CC14 run in the packaged JVM consumer on both
 operating systems; CC06 additionally runs a consumer compiled against the original

@@ -30,24 +30,24 @@
     "sha256": "e24e35783f69410896e1e655d8352e41c06bd6d10243e53b7e5ca434dec399f4"
   },
   "proof": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2522-build-import-cycle-traces-v1\\qualification-v4\\proof.json",
-    "bytes": 2966654,
-    "sha256": "be144770781b6cd10590e013e286037531215963e86809488ab9d5d41fb2a3b5"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2522-build-import-cycle-traces-v1\\qualification-v5\\proof.json",
+    "bytes": 2967112,
+    "sha256": "66c4c05e743c1a76141584682726ddf231e04da506d1dbc558e3a2a9f21d5c53"
   },
   "reader": {
     "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-import-cycle-traces-v1\\tools\\oracle\\dotj-build\\cycle-trace-v1\\read_proof.py",
-    "bytes": 19071,
-    "sha256": "2fe21b60bd50f4b547376de81ea4aa8de5ad15789ad53f90b1af8516f3b9eed4"
+    "bytes": 23590,
+    "sha256": "b92df1fdcbf0475a5bfe6341712b66a8cabe819c0fbc0063c37e9a1c475b525d"
   },
   "proofControls": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2522-build-import-cycle-traces-v1\\proof-controls-v1\\receipt.json",
-    "bytes": 51158,
-    "sha256": "f81809d724cfefaa3a640f78f90a627c6c775b7e453895c71081050594558bbf"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2522-build-import-cycle-traces-v1\\proof-controls-fix1-v1\\receipt.json",
+    "bytes": 172175,
+    "sha256": "8f56ec11e065173713e7d4635e39330d430e942c49487653dfe08ed11a381043"
   },
   "proofControlDetails": {
-    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2522-build-import-cycle-traces-v1\\proof-controls-v1\\controls.json",
-    "bytes": 27675,
-    "sha256": "569bc3a6490842ea9459181a0492e2a160ba8a499f871522e24e7417307a0f7c"
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2522-build-import-cycle-traces-v1\\proof-controls-fix1-v1\\controls.json",
+    "bytes": 98441,
+    "sha256": "1458f607c41116c71b6fb156aea7399a2b5a44647190f9e82d274d44f1a2cefd"
   },
   "coverage": {
     "graphs": 19,
@@ -62,7 +62,7 @@
     "privateGroups": 14,
     "privateJvmGroupsPerPlatform": 12,
     "proofGroups": 2,
-    "actualNegativeProofControls": 15,
+    "actualNegativeProofControls": 57,
     "inheritedItemsPerPlatform": 42,
     "inheritedPrivateGroups": 14,
     "inheritedPrivateRows": 61,
@@ -179,6 +179,43 @@
     "No Core520 replay",
     "Original contract/source/native checkpoint preceded Java edits; audited additive coordinate correction preserved fixture bytes and native lock",
     "Completed Record child remains a successful child of FAILED aggregate, not aggregate qualification",
-    "Root owns independent reviews, canonical pure read, merge/push and publication counters"
-  ]
+    "Root owns independent reviews, canonical pure read, merge/push and publication counters",
+    "Historical v4 reader accepted missing inherited semantic entries; additive v5 enforces exact inventory and matching operation/output binding, including ABI/history. No Java/native replay for this proof-only correction."
+  ],
+  "historicalProofWithReaderDefect": {
+    "finding": "T133-IMPORTANT-01",
+    "status": "HISTORICAL_WITH_KNOWN_OMISSION_DEFECT",
+    "proof": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2522-build-import-cycle-traces-v1\\qualification-v4\\proof.json",
+      "bytes": 2966654,
+      "sha256": "be144770781b6cd10590e013e286037531215963e86809488ab9d5d41fb2a3b5"
+    },
+    "reader": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-build-import-cycle-traces-v1\\tools\\oracle\\dotj-build\\cycle-trace-v1\\read_proof.py",
+      "bytes": 19071,
+      "sha256": "2fe21b60bd50f4b547376de81ea4aa8de5ad15789ad53f90b1af8516f3b9eed4"
+    },
+    "proofControls": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2522-build-import-cycle-traces-v1\\proof-controls-v1\\receipt.json",
+      "bytes": 51158,
+      "sha256": "f81809d724cfefaa3a640f78f90a627c6c775b7e453895c71081050594558bbf"
+    },
+    "proofControlDetails": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2522-build-import-cycle-traces-v1\\proof-controls-v1\\controls.json",
+      "bytes": 27675,
+      "sha256": "569bc3a6490842ea9459181a0492e2a160ba8a499f871522e24e7417307a0f7c"
+    }
+  },
+  "proofFixRound1": {
+    "finding": "T133-IMPORTANT-01",
+    "status": "IMPLEMENTED_QUALIFIED_PENDING_SCOPED_REREVIEW",
+    "qualification": {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2522-build-import-cycle-traces-v1\\fix1-qualification-v1\\receipt.json",
+      "bytes": 11912,
+      "sha256": "830a695c847c4e6047d9a36067deb9ce8526c615c50e90850560552204bde8e0"
+    },
+    "runtimeEvidenceReused": true,
+    "productChanged": false,
+    "fullExecutionInventoryUnchangedControls": 42
+  }
 }

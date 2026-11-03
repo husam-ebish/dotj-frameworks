@@ -71,7 +71,7 @@ def main():
             entry=dict(platform=platform,receiptName=name,raw=descriptor(work/'consumer.stdout'),origin=descriptor(work/'consumer.stderr'))
             if mode=='selected':entry['fixtureRoot']=str(work/'fixtures') if platform=='windows' else '/work/'+name+'/fixtures'
             proof[mode].append(entry)
-    proof['abi']=dict(pairs=[dict(baseline=descriptor(A/'abi-v1'/('baseline-'+t+'.stdout')),successor=descriptor(A/'abi-v1'/('successor-'+t+'.stdout'))) for t in ('Result','DuplicateImport','EvaluationFailure','ProfileRejected')],consumer=descriptor(A/'abi-v1/successor-legacy.stdout'))
+    proof['abi']=dict(pairs=[dict(type=t,baseline=descriptor(A/'abi-v1'/('baseline-'+t+'.stdout')),successor=descriptor(A/'abi-v1'/('successor-'+t+'.stdout'))) for t in ('Result','DuplicateImport','EvaluationFailure','ProfileRejected')],consumer=descriptor(A/'abi-v1/successor-legacy.stdout'))
     proof['abi']['baselineJar']=descriptor(prior/'product-build-v5/dotj-build-evaluation-candidate.jar')
     linux=A/'linux-case-root-v1';history=A/'inherited-history-windows-v1'
     oldproof=json.loads((prior/'qualification-proof-final-wave-v1.json').read_text())
@@ -87,7 +87,9 @@ def main():
         inherited['sort'].append(dict(platform=platform,raw=descriptor(sort/'raw-sort.stdout')))
         inherited['boundary'].append(dict(platform=platform,raw=descriptor(boundary/'boundaries.stdout')))
     for entry in oldproof['stableRows']:inherited['stable'].append(dict(name=entry['name'],actual=descriptor(history/'outputs'/entry['name']),prior=entry['prior']))
-    for entry in oldproof['historicalUnchanged']:inherited['unchanged'].append(dict(actual=descriptor(history/Path(entry['actual']['path']).name),prior=entry['prior']))
+    for entry in oldproof['historicalUnchanged']:
+        name=Path(entry['actual']['path']).name
+        inherited['unchanged'].append(dict(name=name,actual=descriptor(history/name),prior=entry['prior']))
     proof['inherited']=inherited
     # Exact reader closure, copied physically for CC13; no import of an original-path reader.
     for name in READERS:

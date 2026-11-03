@@ -28,7 +28,11 @@ The original native timeout, successful-but-wrong-case capture, selected Linux
 timeout, test-fixture failures and superseded proof attempts remain retained.
 An independently audited amendment corrected 190 authored trace columns by one;
 all fixture bytes, graph topology and native evidence remained unchanged.
-Fifteen actual proof-negative controls and physical relocation passed. The old
+Task133 identified an inherited semantic-manifest omission defect in the historical
+v4 reader. The additive v5 proof requires exact per-platform and ABI/history
+inventories and binds each semantic output to its matching operation. The same
+JAR and existing runtime/native evidence are retained. Fifty-seven actual
+proof-negative controls and physical relocation passed. The old
 1760-file proof is preserved as historical lineage; it does not qualify the new
 source. No unrelated Core520 replay occurred.
 

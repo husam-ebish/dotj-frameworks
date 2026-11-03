@@ -72,7 +72,7 @@ def main():
         for name,change in mutations.items():
             root,proof=variant(name);mutate_selected(root,proof,change);execute(name,root,proof,a.jar,a.source_root,'Selected native projection' if name=='colluding-native-projection' else 'Selected trace')
         root,proof=variant('changed-raw');entry=proof['selected'][0];value=read(entry['raw']);value['rows']=[];entry['raw']=obj(root,proof,entry['raw'],value)
-        execute('changed-raw',root,proof,a.jar,a.source_root,'Selected execution binding')
+        execute('changed-raw',root,proof,a.jar,a.source_root,'Semantic operation/output binding')
         root,proof=variant('forged-cleanup');mutate_execution(root,proof,'selected-linux-final-v1',lambda r:r['container'].__setitem__('absenceVerified',False))
         execute('forged-cleanup',root,proof,a.jar,a.source_root,'Container absence')
         root,proof=variant('omitted-obligation');proof['executions']=[e for e in proof['executions'] if e['name']!='inherited-items-linux-v1']
@@ -80,6 +80,41 @@ def main():
         root,proof=variant('forged-child-status');lock=read(proof['nativeLock']);unit=next(u for u in lock['units'] if u['aggregateStatus']=='FAILED')
         receipt=read(unit['receipt']);receipt['status']='PASS';unit['receipt']=obj(root,proof,unit['receipt'],receipt);proof['nativeLock']=obj(root,proof,proof['nativeLock'],lock)
         execute('forged-child-status',root,proof,a.jar,a.source_root,'Completed native child raw/parsed/status')
+        # Semantic-manifest mutations deliberately retain every execution and its exact receipt.
+        def semantic(name,change,reason):
+            root,proof=variant(name);change(proof)
+            assert proof['executions']==original['executions'],name+' changed execution inventory'
+            execute(name,root,proof,a.jar,a.source_root,reason)
+            results[-1]['fullExecutionInventoryUnchanged']=True
+        for family in ('items','sort','boundary'):
+            for platform in ('windows','linux'):
+                semantic('omit-'+family+'-'+platform,
+                    lambda p,f=family,s=platform:p['inherited'].__setitem__(f,[e for e in p['inherited'][f] if e['platform']!=s]),
+                    'Inherited '+family+' platform inventory')
+                semantic('duplicate-'+family+'-'+platform,
+                    lambda p,f=family,s=platform:p['inherited'][f].append(copy.deepcopy(next(e for e in p['inherited'][f] if e['platform']==s))),
+                    'Inherited '+family+' platform inventory')
+                semantic('wrong-output-'+family+'-'+platform,
+                    lambda p,f=family,s=platform:next(e for e in p['inherited'][f] if e['platform']==s).__setitem__('raw',next(e for e in p['inherited'][f] if e['platform']!=s)['raw']),
+                    'Semantic operation/output binding')
+            semantic('empty-'+family,lambda p,f=family:p['inherited'].__setitem__(f,[]),'Inherited '+family+' platform inventory')
+        for family in ('stable','unchanged'):
+            semantic('omit-history-'+family,lambda p,f=family:p['inherited'][f].pop(),'Inherited '+family+' inventory')
+            semantic('duplicate-history-'+family,lambda p,f=family:p['inherited'][f].append(copy.deepcopy(p['inherited'][f][0])),'Inherited '+family+' inventory')
+            semantic('wrong-history-'+family,lambda p,f=family:p['inherited'][f][0].__setitem__('actual',p['inherited'][f][1]['actual']),'Semantic operation/output binding')
+        for type_name in ('Result','DuplicateImport','EvaluationFailure','ProfileRejected'):
+            semantic('omit-abi-'+type_name,lambda p,t=type_name:p['abi'].__setitem__('pairs',[e for e in p['abi']['pairs'] if e['type']!=t]),'ABI pair inventory')
+        semantic('duplicate-abi',lambda p:p['abi']['pairs'].append(copy.deepcopy(p['abi']['pairs'][0])),'ABI pair inventory')
+        semantic('wrong-abi-operation',lambda p:p['abi']['pairs'][0].__setitem__('baseline',p['abi']['pairs'][1]['baseline']),'Semantic operation/output binding')
+        semantic('omit-history-group',lambda p:p['historyGroups'].pop(),'History group inventory')
+        semantic('duplicate-history-group',lambda p:p['historyGroups'].__setitem__(0,p['historyGroups'][1]),'History group inventory')
+        semantic('omit-private-output',lambda p:p['inherited']['privateRows'].pop(),'Inherited private output inventory')
+        semantic('duplicate-private-output',lambda p:p['inherited']['privateRows'].append(p['inherited']['privateRows'][0]),'Inherited private output inventory')
+        semantic('wrong-private-output',lambda p:p['inherited']['privateRows'].__setitem__(0,p['inherited']['privateRows'][1]),'Semantic operation/output binding')
+        semantic('wrong-abi-consumer',lambda p:p['abi'].__setitem__('consumer',p['inherited']['supplement']),'Semantic operation/output binding')
+        semantic('wrong-history-ordering',lambda p:p['inherited'].__setitem__('ordering',p['inherited']['boolean']),'Semantic operation/output binding')
+        semantic('wrong-case-output',lambda p:p['inherited'].__setitem__('sortCase',p['inherited']['boundaryCase']),'Semantic operation/output binding')
+        semantic('duplicate-selected',lambda p:p['selected'].append(copy.deepcopy(p['selected'][0])),'selected platform inventory')
         # Physical copies, not links: complete executed reader closure, evidence objects, source and JAR.
         relocated=out/'physical-relocation';shutil.copytree(a.proof.parent,relocated)
         shutil.copytree(a.source_root/'dotj-build/evaluation-candidate/src',relocated/'source/dotj-build/evaluation-candidate/src')

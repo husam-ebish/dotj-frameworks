@@ -90,7 +90,7 @@ Its native projection evidence has two independent observations for every field
 in all 114 graph/profile/platform rows (228 required row-passes, 190 new).
 Full root-prefix traces are independently authored source adaptations, not a
 native public Chain field. Fourteen private groups include deterministic
-two-thread isolation, original compiled ABI consumers, 15 actual proof-negative
+two-thread isolation, original compiled ABI consumers, 57 actual proof-negative
 controls and physical relocation. The same immutable final JAR reruns all
 inherited 303 Build obligations. See
 [the private qualification](evidence/private-cycle-trace-v1.json) and
