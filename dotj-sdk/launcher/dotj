@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+if [ -z "${JAVA_HOME:-}" ]; then echo 'dotj: JAVA_HOME_REQUIRED' >&2; exit 1; fi
+case "$0" in /*) script=$0 ;; *) script=$PWD/$0 ;; esac
+root=${script%/*}
+{ IFS= read -r payload; IFS= read -r digest; } < "$root/current"
+case "$payload" in ''|*[!a-f0-9-]*) echo 'dotj: INVALID_SELECTION' >&2; exit 1;; esac
+case "$digest" in ''|*[!a-f0-9]*) echo 'dotj: INVALID_SELECTION' >&2; exit 1;; esac
+exec "$JAVA_HOME/bin/java" -Xms16m -Xmx128m -XX:ActiveProcessorCount=2 -XX:+UseSerialGC -XX:ReservedCodeCacheSize=32m -XX:-UsePerfData "-Djava.io.tmpdir=$root" "-Duser.home=$root" "-XX:ErrorFile=$root/hs_err_pid%p.log" "-XX:HeapDumpPath=$root" "-Ddotj.root=$root" "-Ddotj.launcher=$script" "-Ddotj.jar.sha256=$digest" --class-path "$root/current" --add-modules jdk.compiler,jdk.jartool --module-path "$root/versions/$payload/dotj.jar" -m org.dotj.build.evaluation.candidate/org.dotj.internal.build.evaluation.SdkMain "$@"

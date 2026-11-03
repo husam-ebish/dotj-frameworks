@@ -68,3 +68,20 @@ These additional cases enforce the owner naming decision across public signature
 - `SDK-I12`: All-product SDK qualification and agent handoff; five named tasks and five designed cases in the integration plan.
 
 These are integration packages, not a replacement for source-derived E01-E03/N01 mapping. The detailed specifications take precedence over earlier generic SDK/distribution proposals; blocked platform/language/rights features remain blocked.
+
+## Candidate Batch 2523 actual test mapping
+
+The frozen `tools/oracle/dotj-sdk/seed-v1/contract.json` defines16 Q cohorts and
+34 actual aliases/subcases per OS. `capture_native.py` captures actual native
+Windows/Linux SDK10.0.401; `freeze_native.py` binds the raw observations.
+`test_seed.py`/`test_seed_linux.py` exercise clean source-only builds;
+`test_paths_windows.py`/`test_paths_linux.py` exercise independent Unicode/space
+relocation builds and real query transport. `qualify_commands.py` and its Linux
+counterpart compare selected raw stdout and explicit diagnostic/capability
+differences. `test_recovery_windows.py`/`test_recovery_linux.py` cover missing or
+changed prerequisites, source/manifest mutation, provider/compiler failure,
+controlled interruption, preserved prior SDK, root/global.json and alias policy.
+`proof_reader.py` binds all64 mandatory S8/Q16/C8 definitions across both OS,
+without calling them64 unconditional passes; `mutate_proof.py` executes the
+separately counted reader-control variants and physical proof/source/SDK relocation.
+See Batch2523 and its evidence record for final hashes/counts and explicit gaps.

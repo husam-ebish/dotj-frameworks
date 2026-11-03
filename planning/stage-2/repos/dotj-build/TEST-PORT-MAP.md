@@ -128,3 +128,15 @@ These additional cases enforce the owner naming decision across public signature
 - `SDK-I03`: SDK-style project evaluation and solutions; five named tasks and five designed cases in the integration plan.
 
 These are integration packages, not a replacement for source-derived E01-E03/N01 mapping. The detailed specifications take precedence over earlier generic SDK/distribution proposals; blocked platform/language/rights features remain blocked.
+
+## SDK artifact replay, candidate Batch 2523
+
+The six evaluator/module sources are unchanged, but the new45-class SDK JAR
+was actually exercised through the retained cycle-trace selected/private, ABI,
+and history harnesses. `tools/oracle/dotj-sdk/seed-v1/freeze_inherited.py` binds
+114 trace rows, items42 per OS, private14/61, supplement4, raw sort and three
+boundary families per OS, ordering308/M1, Boolean297/private16/control14, all14
+history operations and stable94 sole NEG-items transition to that exact JAR.
+The SDK pure reader requires matching operation/output inventories before those
+semantic comparisons. Historical JAR qualification is preserved as lineage and
+native-reference evidence; old class-byte equality is additional provenance.

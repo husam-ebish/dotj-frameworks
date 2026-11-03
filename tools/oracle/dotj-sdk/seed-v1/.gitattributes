@@ -1,0 +1,4 @@
+# Qualification producers and evidence are consumed as exact executed bytes.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve the exact executed producer ending; this one retained blank is intentional.
+test_paths_windows.py whitespace=-blank-at-eof,blank-at-eol,space-before-tab,cr-at-eol

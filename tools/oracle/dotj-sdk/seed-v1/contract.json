@@ -1,0 +1,606 @@
+{
+  "schema": 1,
+  "files": {
+    "harmless.proj": {
+      "base64": "PFByb2plY3QgRGVmYXVsdFRhcmdldHM9IkJ1aWxkIj4KICA8UHJvcGVydHlHcm91cD48UHJvYmU+c2VlZC1iYXNlbGluZTwvUHJvYmU+PC9Qcm9wZXJ0eUdyb3VwPgogIDxUYXJnZXQgTmFtZT0iQnVpbGQiIC8+CjwvUHJvamVjdD4K",
+      "bytes": 132,
+      "sha256": "cac688d3341e4c468bb43d261aaa5b0b2840b38570467304e6987d657a67a826"
+    },
+    "values.proj": {
+      "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFByb2JlPnNlZWQtYmFzZWxpbmU8L1Byb2JlPjxFc2NhcGVkPnF1b3RlICZxdW90OyBzbGFzaCBcIHRhYiYjOTsgbGluZSYjMTA7ICZsdDsmZ3Q7JmFtcDsgY2Fmw6kg5p2x5LqsPC9Fc2NhcGVkPjwvUHJvcGVydHlHcm91cD4KPC9Qcm9qZWN0Pgo=",
+      "bytes": 167,
+      "sha256": "497cedd423ea4c80caa5eee4c479ae82d1944a079b4fc4d6ded47643448c4264"
+    },
+    "conditional.proj": {
+      "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PENvbmZpZ3VyYXRpb24+RGVidWc8L0NvbmZpZ3VyYXRpb24+PC9Qcm9wZXJ0eUdyb3VwPgogIDxJbXBvcnQgUHJvamVjdD0iaW1wb3J0LnByb3BzIiBDb25kaXRpb249IickKENvbmZpZ3VyYXRpb24pJyA9PSAnRGVidWcnIiAvPgo8L1Byb2plY3Q+Cg==",
+      "bytes": 169,
+      "sha256": "83bd5c9625a8ec8aff02e380f1e7338eb097516948d98823da5e1c1d14b155ac"
+    },
+    "import.props": {
+      "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFByb2JlPmltcG9ydGVkPC9Qcm9iZT48L1Byb3BlcnR5R3JvdXA+PC9Qcm9qZWN0Pgo=",
+      "bytes": 74,
+      "sha256": "b24a452fc07fe2b35d0ec41d38578ac6414d6d433cf4e4e7a3d24870a13f6fcb"
+    },
+    "cycle.proj": {
+      "base64": "PFByb2plY3Q+CiAgPEltcG9ydCBQcm9qZWN0PSJjeWNsZS5wcm9wcyIgLz4KICA8SW1wb3J0IFByb2plY3Q9ImN5Y2xlLnByb3BzIiAvPgo8L1Byb2plY3Q+Cg==",
+      "bytes": 91,
+      "sha256": "9fe62ca388071da41a8b471564038ef4171a3306ec61fe93e4963ada019b7669"
+    },
+    "cycle.props": {
+      "base64": "PFByb2plY3Q+CiAgPFByb3BlcnR5R3JvdXA+PFByb2JlPmN5Y2xlLXZhbHVlPC9Qcm9iZT48L1Byb3BlcnR5R3JvdXA+CiAgPEltcG9ydCBQcm9qZWN0PSJjeWNsZS5wcm9qIiAvPgo8L1Byb2plY3Q+Cg==",
+      "bytes": 115,
+      "sha256": "3e6916eaa09005cc36ff1a4b18ec720d142975d46e4e93dad2876b44f609c038"
+    },
+    "malformed.proj": {
+      "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFByb2JlPmJhZDwvUHJvcGVydHlHcm91cD48L1Byb2plY3Q+Cg==",
+      "bytes": 61,
+      "sha256": "3beadaac30ab8639683fee14cafca9a5fd8002bf8044f8ee7a4932838f921613"
+    },
+    "missing.proj": {
+      "base64": "PFByb2plY3Q+PEltcG9ydCBQcm9qZWN0PSJhYnNlbnQucHJvcHMiIC8+PC9Qcm9qZWN0Pgo=",
+      "bytes": 53,
+      "sha256": "cce41557d0e80a3bfd9c992f5539a5a5795db1d0d41070c2a2ce050286fba711"
+    },
+    "inert.proj": {
+      "base64": "PFByb2plY3Q+PFByb3BlcnR5R3JvdXA+PFByb2JlPmluZXJ0PC9Qcm9iZT48L1Byb3BlcnR5R3JvdXA+PFRhcmdldCBOYW1lPSJCdWlsZCI+PE5ldmVyRXhlY3V0ZVVucXVhbGlmaWVkVGFzayAvPjwvVGFyZ2V0PjwvUHJvamVjdD4K",
+      "bytes": 132,
+      "sha256": "e1b5dbe08b1fafdcb888aa969ab4ba78fc4a222f5fe6da478ada420f9324d623"
+    }
+  },
+  "cases": [
+    {
+      "id": "Q01",
+      "variant": "--help",
+      "argv": [
+        "--help"
+      ],
+      "expectation": "success-help"
+    },
+    {
+      "id": "Q01",
+      "variant": "-h",
+      "argv": [
+        "-h"
+      ],
+      "expectation": "success-help"
+    },
+    {
+      "id": "Q02",
+      "variant": "version",
+      "argv": [
+        "--version"
+      ],
+      "expectation": "success-version"
+    },
+    {
+      "id": "Q03",
+      "variant": "info",
+      "argv": [
+        "--info"
+      ],
+      "expectation": "success-info"
+    },
+    {
+      "id": "Q04",
+      "variant": "--help",
+      "argv": [
+        "msbuild",
+        "--help"
+      ],
+      "expectation": "success-help"
+    },
+    {
+      "id": "Q04",
+      "variant": "-h",
+      "argv": [
+        "msbuild",
+        "-h"
+      ],
+      "expectation": "success-help"
+    },
+    {
+      "id": "Q05",
+      "variant": "present",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe"
+      ],
+      "expectation": "scalar:seed-baseline"
+    },
+    {
+      "id": "Q06",
+      "variant": "absent",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Absent"
+      ],
+      "expectation": "scalar:"
+    },
+    {
+      "id": "Q07",
+      "variant": "-getProperty;",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Escaped;Probe"
+      ],
+      "expectation": "json-sensitive"
+    },
+    {
+      "id": "Q07",
+      "variant": "-getProperty,",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Escaped,Probe"
+      ],
+      "expectation": "json-sensitive"
+    },
+    {
+      "id": "Q07",
+      "variant": "--getProperty;",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "--getProperty:Escaped;Probe"
+      ],
+      "expectation": "json-sensitive"
+    },
+    {
+      "id": "Q07",
+      "variant": "--getProperty,",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "--getProperty:Escaped,Probe"
+      ],
+      "expectation": "json-sensitive"
+    },
+    {
+      "id": "Q07",
+      "variant": "/getProperty;",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "/getProperty:Escaped;Probe"
+      ],
+      "expectation": "json-sensitive"
+    },
+    {
+      "id": "Q07",
+      "variant": "/getProperty,",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "/getProperty:Escaped,Probe"
+      ],
+      "expectation": "json-sensitive"
+    },
+    {
+      "id": "Q07",
+      "variant": "repeated-case",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe;Probe;probe",
+        "-getProperty:Escaped"
+      ],
+      "expectation": "json-repeated-observe"
+    },
+    {
+      "id": "Q08",
+      "variant": "--property",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe",
+        "--property:Probe=first",
+        "--property:pRoBe=last"
+      ],
+      "expectation": "scalar:last"
+    },
+    {
+      "id": "Q08",
+      "variant": "-property",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe",
+        "-property:Probe=first",
+        "-property:pRoBe=last"
+      ],
+      "expectation": "scalar:last"
+    },
+    {
+      "id": "Q08",
+      "variant": "/property",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe",
+        "/property:Probe=first",
+        "/property:pRoBe=last"
+      ],
+      "expectation": "scalar:last"
+    },
+    {
+      "id": "Q08",
+      "variant": "/p",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe",
+        "/p:Probe=first",
+        "/p:pRoBe=last"
+      ],
+      "expectation": "scalar:last"
+    },
+    {
+      "id": "Q08",
+      "variant": "-p",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe",
+        "-p:Probe=first",
+        "-p:pRoBe=last"
+      ],
+      "expectation": "scalar:last"
+    },
+    {
+      "id": "Q08",
+      "variant": "--p",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe",
+        "--p:Probe=first",
+        "--p:pRoBe=last"
+      ],
+      "expectation": "scalar:last"
+    },
+    {
+      "id": "Q08",
+      "variant": "empty-value",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe",
+        "-p:Probe="
+      ],
+      "expectation": "scalar:"
+    },
+    {
+      "id": "Q08",
+      "variant": "transport",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe",
+        "-p:Probe=café 東京 & | ^ < > ! space \\"
+      ],
+      "expectation": "scalar:café 東京 & | ^ < > ! space \\"
+    },
+    {
+      "id": "Q09",
+      "variant": "import",
+      "argv": [
+        "msbuild",
+        "{fixtures}/conditional.proj",
+        "-getProperty:Probe"
+      ],
+      "expectation": "scalar:imported"
+    },
+    {
+      "id": "Q10",
+      "variant": "cycle-duplicate",
+      "argv": [
+        "msbuild",
+        "{fixtures}/cycle.proj",
+        "-getProperty:Probe"
+      ],
+      "expectation": "scalar:cycle-value"
+    },
+    {
+      "id": "Q11",
+      "variant": "malformed",
+      "argv": [
+        "msbuild",
+        "{fixtures}/malformed.proj",
+        "-getProperty:Probe"
+      ],
+      "expectation": "failure-xml"
+    },
+    {
+      "id": "Q12",
+      "variant": "missing-import",
+      "argv": [
+        "msbuild",
+        "{fixtures}/missing.proj",
+        "-getProperty:Probe"
+      ],
+      "expectation": "failure-import"
+    },
+    {
+      "id": "Q13",
+      "variant": "unknown",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "-getProperty:Probe",
+        "--not-a-dotj-option"
+      ],
+      "expectation": "failure-option"
+    },
+    {
+      "id": "Q14",
+      "variant": "-target",
+      "argv": [
+        "msbuild",
+        "{fixtures}/harmless.proj",
+        "-getProperty:Probe",
+        "-target:Build"
+      ],
+      "expectation": "native-empty-target-success-candidate-refusal"
+    },
+    {
+      "id": "Q14",
+      "variant": "-t",
+      "argv": [
+        "msbuild",
+        "{fixtures}/harmless.proj",
+        "-getProperty:Probe",
+        "-t:Build"
+      ],
+      "expectation": "native-empty-target-success-candidate-refusal"
+    },
+    {
+      "id": "Q14",
+      "variant": "unexecuted-task",
+      "argv": [
+        "msbuild",
+        "{fixtures}/inert.proj",
+        "-getProperty:Probe"
+      ],
+      "expectation": "native-evaluation-success-candidate-declaration-refusal"
+    },
+    {
+      "id": "Q15",
+      "variant": "build",
+      "argv": [
+        "build",
+        "{fixtures}/harmless.proj",
+        "--no-restore"
+      ],
+      "expectation": "native-noop-build-success-candidate-refusal"
+    },
+    {
+      "id": "Q16",
+      "variant": "zero",
+      "argv": [
+        "msbuild",
+        "-getProperty:Probe"
+      ],
+      "expectation": "failure-project"
+    },
+    {
+      "id": "Q16",
+      "variant": "multiple",
+      "argv": [
+        "msbuild",
+        "{fixtures}/values.proj",
+        "{fixtures}/harmless.proj",
+        "-getProperty:Probe"
+      ],
+      "expectation": "failure-project"
+    }
+  ],
+  "cohorts": 16,
+  "invocationsPerOs": 34,
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "nativeHarness": {
+    "append": "-noAutoResponse to each msbuild/build invocation; not a product flag and not normalized input equivalence",
+    "linux": "native /sdk/dotnet from actual Linux SDK, never Windows DLL/R2R fallback"
+  },
+  "channels": {
+    "query": "stdout scalar plus newline or Properties JSON; clean success channel; raw diagnostics retained without normalization",
+    "helpVersionInfo": "Owned product identity/profile/help; native vocabulary comparison, no full text parity",
+    "errors": "Exact native code/channel captured; candidate owned unsupported errors separately labelled, no native-code invention"
+  },
+  "supportedAliases": {
+    "help": [
+      "--help",
+      "-h"
+    ],
+    "query": [
+      "-getProperty:",
+      "--getProperty:",
+      "/getProperty:"
+    ],
+    "properties": [
+      "--property:",
+      "-property:",
+      "/property:",
+      "/p:",
+      "-p:",
+      "--p:"
+    ]
+  },
+  "unsupported": [
+    "build",
+    "restore",
+    "run",
+    "test",
+    "pack",
+    "publish",
+    "target execution",
+    "no query",
+    "getItem",
+    "getTargetResult",
+    "getResultOutputFile",
+    "response files",
+    "loggers",
+    "automatic project discovery",
+    "solutions",
+    "Sdk attribute/prelude",
+    "Directory.Build automatic discovery",
+    "global.json selection"
+  ],
+  "naming": [
+    "Project",
+    "PropertyGroup",
+    "ItemGroup",
+    "Import",
+    "Target",
+    "Condition",
+    "TreatAsLocalProperty",
+    "Configuration",
+    "global.json",
+    "DOTJ_ROOT"
+  ],
+  "normalization": [
+    "OS line endings when declared",
+    "temporary root substitution for path comparison only",
+    "owned product name/version only for informational comparison"
+  ],
+  "sourceAnchors": [
+    {
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/src/Cli/Microsoft.DotNet.Cli.Definitions/Commands/DotNetCommandDefinition.cs",
+      "lines": [
+        "41-69",
+        "119-137"
+      ],
+      "fact": "Root --version/--info/--list-sdks/--list-runtimes and msbuild source registration.",
+      "bytes": 6726,
+      "sha256": "7002f910e3949df07312420570a8e7649a2851ad847a495046a41ce41763e83f",
+      "sourceManifestVerification": {
+        "status": "MATCH_VERIFIED_SDK_GIT_BLOB_MANIFEST",
+        "expectedGitBlobSha1": "a7357a9f75bc4fa110dc91d62494a5d91ea46922",
+        "sha256": "7002f910e3949df07312420570a8e7649a2851ad847a495046a41ce41763e83f"
+      },
+      "verified": true
+    },
+    {
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/src/Cli/Microsoft.DotNet.Cli.Definitions/Commands/MSBuild/MSBuildCommandDefinition.cs",
+      "lines": [
+        "9-25"
+      ],
+      "fact": "msbuild positional arguments, targets and disable-build-servers definition.",
+      "bytes": 934,
+      "sha256": "338bea9ee215229b15a06e7679436c41f2f6ffa3fbf5ae7fbd4aba60db796715",
+      "sourceManifestVerification": {
+        "status": "MATCH_VERIFIED_SDK_GIT_BLOB_MANIFEST",
+        "expectedGitBlobSha1": "1a0bbc3c12e358216528beb5127a82c26964319a",
+        "sha256": "338bea9ee215229b15a06e7679436c41f2f6ffa3fbf5ae7fbd4aba60db796715"
+      },
+      "verified": true
+    },
+    {
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/src/Cli/dotnet/Commands/MSBuild/MSBuildCommand.cs",
+      "lines": [
+        "10-47"
+      ],
+      "fact": "Forwarded argument analysis; default logo; actual Execute path.",
+      "bytes": 1946,
+      "sha256": "3488e323d2d755229e62f1fc0367626fe5b05b45c0aa8ba2ad35f81ddf7b8ab0",
+      "sourceManifestVerification": {
+        "status": "MATCH_VERIFIED_SDK_GIT_BLOB_MANIFEST",
+        "expectedGitBlobSha1": "57a922005fc244c706692d3f9ac1b2334eac9b13",
+        "sha256": "3488e323d2d755229e62f1fc0367626fe5b05b45c0aa8ba2ad35f81ddf7b8ab0"
+      },
+      "verified": true
+    },
+    {
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/src/Cli/dotnet/Parser.cs",
+      "lines": [
+        "320-325"
+      ],
+      "fact": "msbuild help is forwarded; no generic full parity inference from root parser.",
+      "bytes": 17405,
+      "sha256": "98609c1d4a9824c8a4265f0288d89b469f9647af3e8dbb776e15823943fe58f6",
+      "sourceManifestVerification": {
+        "status": "MATCH_VERIFIED_SDK_GIT_BLOB_MANIFEST",
+        "expectedGitBlobSha1": "40c7123b4bf8e82336b80db16e9d81d17b32a724",
+        "sha256": "98609c1d4a9824c8a4265f0288d89b469f9647af3e8dbb776e15823943fe58f6"
+      },
+      "verified": true
+    },
+    {
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/src/Cli/Microsoft.DotNet.Cli.Definitions/Common/CommonOptions.cs",
+      "lines": [
+        "23-31",
+        "109-139",
+        "352-361"
+      ],
+      "fact": "Exact property aliases and query aliases/list splitting; nologo aliases.",
+      "bytes": 17906,
+      "sha256": "c2962da060b95261db1113e0a48ee9bd0cd936a0ad418eb94b423b0754d2a631",
+      "sourceManifestVerification": {
+        "status": "MATCH_VERIFIED_SDK_GIT_BLOB_MANIFEST",
+        "expectedGitBlobSha1": "be5739b8991d06bf5b7a76605b947e6de6e6d14d",
+        "sha256": "c2962da060b95261db1113e0a48ee9bd0cd936a0ad418eb94b423b0754d2a631"
+      },
+      "verified": true
+    },
+    {
+      "path": "D:/AI/Implementation/dotj Frameworks/reference/upstream/dotnet-vmr-e34a38d2ae1fc26406a317517196e55c68ff83ab/src/sdk/test/dotnet.Tests/GivenThatTheUserRequestsHelp.cs",
+      "lines": [
+        "12-48"
+      ],
+      "fact": "Actual upstream TheResponseIsNotAnError and TheResponseIsAnError test identities.",
+      "bytes": 1582,
+      "sha256": "2c8b5c1b4ef947710be30128fca9b408d72785e5b420ac1632b4fbcc6a7b76a5",
+      "sourceManifestVerification": {
+        "status": "MATCH_VERIFIED_SDK_GIT_BLOB_MANIFEST",
+        "expectedGitBlobSha1": "d03e35ba6dcc75e0e099950692aace72f6041d05",
+        "sha256": "2c8b5c1b4ef947710be30128fca9b408d72785e5b420ac1632b4fbcc6a7b76a5"
+      },
+      "verified": true
+    },
+    {
+      "path": "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/MSBuild/CommandLine/CommandLineSwitches.cs",
+      "lines": [
+        "219-219",
+        "293-300"
+      ],
+      "fact": "noautoresponse/noautorsp guard and query grammar.",
+      "bytes": 61571,
+      "sha256": "922fa4642e2d08c2fc5e28a24245e1cbc232c5695523450ad20385453dd480bc",
+      "verified": true
+    },
+    {
+      "path": "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/MSBuild/XMake.cs",
+      "lines": [
+        "964-1007",
+        "1279-1296",
+        "2381-2404"
+      ],
+      "fact": "Direct managed query branch/target distinction and output schema; not native muxer selection.",
+      "bytes": 224025,
+      "sha256": "17975a2c5c4b4e69bf96525980e7f9306ec37d0bedc0b18988ede07ed457566f",
+      "verified": true
+    },
+    {
+      "path": "D:/AI/Implementation/dotj Frameworks/references/msbuild/b44cdcec4c79c50c67560876707d57d4f635fa3b/source/src/MSBuild/JsonOutputFormatter.cs",
+      "lines": [
+        "20-43",
+        "82-120"
+      ],
+      "fact": "Properties schema and item metadata completeness obligation; getItem intentionally deferred.",
+      "bytes": 8561,
+      "sha256": "7da346af25102479c3f6cdd55e902b71f9a4107a5ff8e9e54066311c4ca7ec3c",
+      "sourceManifestVerification": {
+        "status": "MATCH_RETAINED_WORKTREE_SHA256",
+        "expectedGitBlobSha1": "c5e4b396e22111437e8529947229d98ba0c8ddd1",
+        "canonicalGitBlobSha256": "a5eec7bfa40e5825e86bbf958f5f4c93ec34a6ce41b49a2f872cb8f9cfec78fc",
+        "onlyCheckoutCrlfNormalization": true
+      },
+      "verified": true
+    }
+  ]
+}

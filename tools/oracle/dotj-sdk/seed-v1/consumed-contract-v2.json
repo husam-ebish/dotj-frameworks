@@ -1,0 +1,99 @@
+{
+  "status": "FROZEN_CONSUMED_CONTRACT_BEFORE_PRODUCT",
+  "originalContract": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-sdk-evaluation-seed-v1\\tools\\oracle\\dotj-sdk\\seed-v1\\contract.json",
+    "bytes": 18154,
+    "sha256": "3b96294df8d941a7e67c1ecbaa999e5afc4d3f7e142706aec528dcc13784c1c0"
+  },
+  "baseline": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-sdk-evaluation-seed-v1\\tools\\oracle\\dotj-sdk\\seed-v1\\baseline-lock.json",
+    "bytes": 53515,
+    "sha256": "45a313f6d804e8360465c969279d93d0c531153dd0b40839577a82ec985f5c19"
+  },
+  "nativeObservations": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\native-observations-v2\\observations.json",
+    "bytes": 110500,
+    "sha256": "9fa49749f83a3e933d1f7a06c5b0d100530c498299c449a3e4e01f29d7b43f60"
+  },
+  "nativeChecker": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\worktrees\\dotj-sdk-evaluation-seed-v1\\tools\\oracle\\dotj-sdk\\seed-v1\\freeze_native.py",
+    "bytes": 7522,
+    "sha256": "5b54141c79c2e6f7571a66ce9e4e86080a4e10edd4a32f830878b11b3de5ae2c"
+  },
+  "rootRulings": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\orchestration\\two-frameworks\\task136-preflight-rulings-v1.json",
+    "bytes": 4538,
+    "sha256": "ab861cf0e85e4e7a71e3a5d2b85a5e7740fc385586eec03659ed1286840396d8"
+  },
+  "jsonSource": [
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\json-encoder-source-v1\\AllowedBmpCodePointsBitmap.cs",
+      "bytes": 5260,
+      "sha256": "069301a3889e4e9ece307feadec1e9768e2637915bba52691df60278156a2750"
+    },
+    {
+      "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\json-encoder-source-v1\\DefaultJavaScriptEncoder.cs",
+      "bytes": 11178,
+      "sha256": "2ef9976b49b3ca7a43b622140e4509af14650331dcc83ac3bbb5e5446c39ac96"
+    }
+  ],
+  "runtimeSourceArchive": {
+    "path": "D:\\AI\\Implementation\\dotj Frameworks\\agents\\batch2523-sdk-seed-launcher-v1\\native-linux-tmp-diagnosis-v1\\source-archive-v2.json",
+    "bytes": 622,
+    "sha256": "59f0d039a503463c25cd984f857cb89e8b1d453512732c27ef1904d86e069ff4"
+  },
+  "grammar": {
+    "root": [
+      "--help",
+      "-h",
+      "--version",
+      "--info"
+    ],
+    "msbuildHelp": [
+      "msbuild --help",
+      "msbuild -h"
+    ],
+    "query": "Exactly one explicit .proj/.props/.targets XML path and at least one colon-form -getProperty/--getProperty//getProperty token. Exact documented switch spelling. Query lists use semicolon or comma separators, nonempty ASCII property identifiers only. Repeat tokens and exact/case-varied names retained in request order.",
+    "globalOverrides": "Colon-form --property/-property//property//p/-p/--p, one Name=Value assignment per token. ASCII names, last case-insensitive override wins; empty value supported. Raw comma/semicolon assignment lists explicitly outside admitted CLI profile; percent-escaped data follows existing evaluator limits.",
+    "bounds": "At most256 tokens, total32768 UTF16 chars, max64 query names/64 global property tokens; same evaluator input/import bounds unchanged."
+  },
+  "outputs": {
+    "scalar": "Exactly one requested name -> property value plus OS newline; absent value -> empty line",
+    "multiple": "Two or more requested names -> indented Properties JSON, exact-spelling keys overwritten in original insertion position; case-varied keys distinct. Native basic-Latin JSON encoding including HTML-sensitive, backtick, nonASCII and control escapes, uppercase hex; selected Q07 raw bytes observed.",
+    "informational": "Owned help/version/info format differs from native; real0.1.100-dev.1, actual canonical source-set fingerprint, declared base7f7, actual JDK vendor/runtime/arch; no invented source Gitcommit or Microsoft version identity.",
+    "warnings": "Existing evaluator duplicate/cycle/condition codes and available origin paths on stderr; no claimed byte-identical native diagnostic prose or invented location/cycle chain. Scalar/JSON stdout remains clean.",
+    "errors": "Unknown options and zero/multiple explicit-project syntax errors exit1 on stdout, matching observed command-error channel with owned diagnostic prose. Evaluation failures/capability refusals stderr nonzero; native MSB4019 only where same evaluator provides it. XML_PROFILE remains owned profile diagnostic, not falsely relabelled allDTD/entity refusals MSB4025.",
+    "refusal": "Targets/noquery/build/restore/run/test/pack/publish/getItem/getTargetResult/resultfile/responsefiles/loggers/solutions/SDKstyle/prelude/Directory.Build selection explicitly unsupported; arbitrary unexecuted task declaration is OUTSIDE_ADMITTED_PROFILE, no task executed."
+  },
+  "launch": {
+    "shells": [
+      "Windows built-in PowerShell5.1",
+      "POSIX sh"
+    ],
+    "jdk": "Explicit JAVA_HOME full locked MicrosoftJDK21, source launcher memory compilation before driver identity checks; all product staging after release/java/javac/jar/libmodules/providers/source hashes validated. Startup follows same selected JDK contract.",
+    "root": "Own script/JAR root independent cwd, no symlink/reparse entry/root/JDK/source/output path alias support; DOTJ_ROOT absent or canonical matching only.",
+    "selection": "Conservative explicit unsupported global.json if encountered in cwd ancestors or explicit project parent ancestors to filesystem root. No SDK selection/parser.",
+    "transport": "Actual OS shell quoting preserves user arg array including empty argument, Unicode, spaces/metacharacters. Empty stray argument is syntax error rather than dropped. No product debug/test-only commands."
+  },
+  "build": {
+    "dependencies": "Only locked JDK+source+declared OSshell; no preinstalleddotj/Git/Python/.NET/Maven/Gradle dependency",
+    "sourceClosure": "Six inherited evaluator/module sources unchanged plus owned internal entry. Canonical LF Java; explicit ordered UTF8 release21 proc:none emptyclasspath/sourcepath.",
+    "publication": "Fresh owned staging, deterministic JAR metadata, complete immutable versioned payloads and atomic current selection; previous usable payload retained on failure/controlled interruption. No source/sibling deletion.",
+    "identity": "Product0.1.100-dev.1; actual SHA256 canonical source-set fingerprint and base7f7; no clock/absolute paths in artifact"
+  },
+  "qualification": {
+    "native": "32cohorts68invocations actual, not product passes",
+    "windowsOffline": "NOT_QUALIFIED_NETWORK_NOT_ISOLATED",
+    "inherited": "All affected semantic harnesses against final new SDKJAR mandatory; source/class equality only additional provenance",
+    "open": [
+      "T4/F04",
+      "T5/F05",
+      "full SDK-I01",
+      "full SDK-I03",
+      "Java25",
+      "public redistribution/release",
+      "unrelated criteria"
+    ]
+  },
+  "productCodeAuthored": false
+}
