@@ -139,3 +139,33 @@ structured receipt and frozen inventory. Adapters own pinned native launches,
 guards, controlled caller setup and actual effects. Missing adapters retain a
 failed receipt. `protocol.platformAdapter` freezes directory ownership and return
 shape. Complete two-OS capture remains OP02C work.
+
+## Qualified source portability
+
+Preflight loads the helpers and sources from the current toolkit checkout.
+Only five declared source roles permit CRLF-to-LF normalization: the reference
+`Program.cs`, `Reference.csproj`, `NuGet.Config`, and Java `ProcessProbe.java`
+and `ProbeChild.java`. Their qualified SHA256 values remain the reviewed LF
+values. Bare CR, content changes and undeclared roles fail closed. Provenance
+records the actual checkout path, physical byte length/SHA256 and qualified
+LF byte length/SHA256 separately. Historical receipts and source pins remain
+unchanged; retained fixture sources staged on D keep their exact qualified LF
+bytes. All binary, generated configuration and other artifact checks remain
+exact physical byte checks.
+
+The fixed qualified Java compile receipt is checked before class staging. Its
+two source roles bind by unique complete repository-relative suffix, independent
+of the original checkout prefix. Missing, extra, ambiguous or changed bindings
+are rejected. Source checks, exact class inventory and class digests pass before
+copying; copied classes are checked again. Linux build reuse applies the same
+finite source identity rule while retaining the pinned build and native proofs.
+
+Pure regression checks (all scratch retained under the assigned D task directory):
+
+```powershell
+& 'D:/AI/Implementation/dotj Frameworks/toolchains/python-3.13.9/python.exe' -B ./test_portability.py -v
+```
+
+These checks and preflight provide no additional product acceptance or native
+capture credit. SDK-I02-T4 remains OPEN; OP01/02A/02B/02C remains 4 of 12 and the
+eight runtime steps remain pending.

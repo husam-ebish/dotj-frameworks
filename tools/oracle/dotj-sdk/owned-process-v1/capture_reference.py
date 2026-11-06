@@ -771,6 +771,49 @@ _REVIEWED_SOURCE_MAP_SHA = "d0b0535442c9de18f86c87df80677ef6da1db17bb22f70709ec7
 _ARCHIVE_CLOSURES = {'windows-sdk': {'path': 'D:\\AI\\Implementation\\dotj Frameworks\\agents\\task149-op02c-native-captures-v1\\fix-wave-r153-v1\\windows-sdk-archive-closure.json', 'bytes': 1168887, 'sha256': 'c7e3e4639375ccd3a7fe1bb23d0702987309e6a4e9d8548d09abab78e232ac0e'}, 'windows-jdk': {'path': 'D:\\AI\\Implementation\\dotj Frameworks\\agents\\task149-op02c-native-captures-v1\\fix-wave-r153-v1\\windows-jdk-archive-closure.json', 'bytes': 73801, 'sha256': 'c155385a8acbb529a7f6e67b136851083b2b2bd3d70c1554e4af5325e6229a9f'}, 'linux-sdk': {'path': 'D:\\AI\\Implementation\\dotj Frameworks\\agents\\task149-op02c-native-captures-v1\\fix-wave-r153-v1\\linux-sdk-archive-closure.json', 'bytes': 1028880, 'sha256': '4a8c7f6d03dc841fa7af57fc509dd1a5ac5fb2c4c6c133d13369a39dd6dac7a5'}, 'linux-jdk': {'path': 'D:\\AI\\Implementation\\dotj Frameworks\\agents\\task149-op02c-native-captures-v1\\fix-wave-r153-v1\\linux-jdk-archive-closure.json', 'bytes': 68187, 'sha256': '806f7477dbdd9eca9742d21f421d3a1f15ca6b1ddeb07aa0faf38d69a71a1224'}}
 _FIXTURE_GIT_SOURCES = [{'name': 'Program.cs', 'gitBlob': 'fb36d66cd9dd146585751218a57bc09b0c6143f5', 'reviewedGitBytes': 23791, 'normalizedSha256': '24613fb89cf3fe8a984eac24e81e0ac48e07c60b9a7adf8f487f07923a733483', 'physicalSha256': '24613fb89cf3fe8a984eac24e81e0ac48e07c60b9a7adf8f487f07923a733483'}, {'name': 'Reference.csproj', 'gitBlob': '6a314ff21a5333f0241db46bd6583dee311fe553', 'reviewedGitBytes': 792, 'normalizedSha256': '2883516c5295845c118cb9f6cf19fc6c37e07552e6301fe3102a5667b2e1f2f6', 'physicalSha256': '2883516c5295845c118cb9f6cf19fc6c37e07552e6301fe3102a5667b2e1f2f6'}, {'name': 'NuGet.Config', 'gitBlob': 'a3f3aea61c8f0a0b796eb417dc4ed9a056934afb', 'reviewedGitBytes': 125, 'normalizedSha256': '5256a7e3e07d2c5c94f7a1e6c45f39aab011c659c5e2d53e452dea525ce04575', 'physicalSha256': '5256a7e3e07d2c5c94f7a1e6c45f39aab011c659c5e2d53e452dea525ce04575'}]
 _FIXTURE_ROOT = _CLOSURE_BASE/"agents/task142-op02a-reference-fixture-v1/green-v4"
+_SOURCE_ROLE_PREFIX = "tools/oracle/dotj-sdk/owned-process-v1/"
+_QUALIFIED_SOURCE_HASHES = {
+    **{_SOURCE_ROLE_PREFIX+"reference/"+entry["name"]:entry["normalizedSha256"] for entry in _FIXTURE_GIT_SOURCES},
+    _SOURCE_ROLE_PREFIX+"java/ProcessProbe.java":"f2d38106d57a58b6b73a3e88c1c1671c6376ad594047f6589097c122be5bf311",
+    _SOURCE_ROLE_PREFIX+"java/ProbeChild.java":"95873b80ccec01ec4b93919ec50130e24e277190bc37b2729f8f02cb3d2cd5e0",
+}
+
+
+def qualified_source(relative, path=None):
+    """Only these five reviewed source roles permit CRLF-to-LF conversion.
+
+    No decoding, whitespace cleanup, bare-CR conversion or live hash adoption.
+    Binary/config outputs continue through fixed_file with exact byte checks.
+    """
+    role = _SOURCE_ROLE_PREFIX+relative
+    require(role in _QUALIFIED_SOURCE_HASHES, "UNQUALIFIED_SOURCE_ROLE")
+    path = Path(path) if path is not None else Path(__file__).parent/relative
+    require(path.is_file() and not path.is_symlink() and not path.is_junction(), "TRUSTED_SOURCE_MISSING_OR_REPARSE")
+    physical = path.read_bytes()
+    qualified = physical.replace(b"\r\n", b"\n")
+    require(b"\r" not in qualified, "TRUSTED_SOURCE_BARE_CR")
+    require(sha256(qualified) == _QUALIFIED_SOURCE_HASHES[role], "TRUSTED_SOURCE_DIGEST")
+    return qualified, {"role":role, "path":str(path), "physicalBytes":len(physical),
+                       "physicalSha256":sha256(physical), "qualifiedBytes":len(qualified),
+                       "qualifiedSha256":_QUALIFIED_SOURCE_HASHES[role], "normalization":"CRLF-to-LF only"}
+
+
+def qualified_probe_source_roles(bound):
+    """Bind unique explicit repository suffixes, independent of checkout root."""
+    expected = {role:value for role,value in _QUALIFIED_SOURCE_HASHES.items() if role.startswith(_SOURCE_ROLE_PREFIX+"java/")}
+    require(type(bound) is dict and len(bound) == len(expected), "PROBE_SOURCE_ROLE_SET")
+    resolved = {}
+    for path, digest in bound.items():
+        require(type(path) is str, "PROBE_SOURCE_ROLE_PATH")
+        parts = PurePosixPath(path.replace("\\", "/")).parts
+        matches = [role for role in expected if tuple(parts[-len(PurePosixPath(role).parts):]) == PurePosixPath(role).parts]
+        require(len(matches) == 1 and ".." not in parts, "PROBE_SOURCE_ROLE_UNKNOWN")
+        role = matches[0]
+        require(role not in resolved, "PROBE_SOURCE_ROLE_AMBIGUOUS")
+        require(digest == expected[role], "PROBE_SOURCE_RECEIPT_DIGEST")
+        resolved[role] = digest
+    require(resolved == expected, "PROBE_SOURCE_ROLE_SET")
+    return resolved
 
 
 def fixed_file(expected):
@@ -856,19 +899,20 @@ def trusted_fixture_closure(root, staged=False):
                 ("error", "cleanupError", "timedOut", "outputLimitExceeded")), "FIXTURE_BUILD_FAILED")
         require(Path(operation["argv"][0]).resolve() == Path(dotnet["path"]).resolve() and
                 str(_FIXTURE_ROOT/"source/Reference.csproj") in operation["argv"], "FIXTURE_COMPILE_TOOL_OR_SOURCE")
+    checkout_sources = []
     for source in _FIXTURE_GIT_SOURCES:
         name = source["name"]
         pin = next(x for x in round["actualBuildSourceManifest"] if Path(x["path"]).name == name)
         require(pin["sha256"] == source["physicalSha256"] and files["source/"+name]["sha256"] == source["physicalSha256"], "FIXTURE_SOURCE_BINDING")
         fixed_file(pin)
-        actual = Path(__file__).with_name("reference")/name
-        fixed_file({"path":str(actual), "bytes":pin["bytes"], "sha256":source["physicalSha256"]})
-        require(sha256(actual.read_bytes().replace(b"\r\n", b"\n")) == source["normalizedSha256"], "FIXTURE_REVIEWED_GIT_SOURCE")
+        qualified, provenance = qualified_source("reference/"+name)
+        require(len(qualified) == pin["bytes"] and provenance["qualifiedSha256"] == source["physicalSha256"], "FIXTURE_REVIEWED_GIT_SOURCE")
+        checkout_sources.append(provenance)
     verified = verify_closure_tree(root, files, prefixes=("source", "bin", "obj"))
     runtime = strict_json((root/"bin/Reference.runtimeconfig.json").read_bytes())["runtimeOptions"]
     require(runtime["framework"]["version"] == "10.0.12" and runtime["rollForward"] == "Disable", "FIXTURE_RUNTIME_PIN")
     return {"schema":"dotj.owned-process.fixture-closure/1", **verified, "files":files,
-            "sourceGitPins":_FIXTURE_GIT_SOURCES, "origins":{"firstCheckpointCopyManifest":history,
+            "sourceGitPins":_FIXTURE_GIT_SOURCES, "checkoutSources":checkout_sources, "origins":{"firstCheckpointCopyManifest":history,
              "qualifiedCompileReceipt":compile_receipt,"sourceBoundReport":report,"compileSdkClosure":offline},
             "trustAdoption":"ROOT R153 fix-wave adoption of retained first-checkpoint copy-output manifest linked to original controlled A142 build/source/SDK pins; no compile-time full-output hash manifest was recorded."}
 

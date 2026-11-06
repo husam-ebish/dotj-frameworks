@@ -201,7 +201,8 @@ def run_capture(contract,fixtures,output):
     shared.wire.require((output/'CaseProbe').exists() and (output/'caseprobe').exists())
     shared.wire.require((output/'filesystem.txt').read_text().strip() in ('9p','v9fs'),'UNMEASURED_FILESYSTEM_PROFILE')
     for name in ('Program.cs','Reference.csproj','NuGet.Config'):
-        shared.wire.require((output/'fixture/source'/name).read_bytes()==(HERE/'reference'/name).read_bytes(),'REFERENCE_SOURCE_CHANGED')
+        qualified,_=shared.wire.qualified_source('reference/'+name)
+        shared.wire.require((output/'fixture/source'/name).read_bytes()==qualified,'REFERENCE_SOURCE_CHANGED')
     classes,probe_inputs=shared.copy_probe_classes(output)
     closure_inputs=shared.wire.retain_verified_closure(output,verified_tools)
     inputs=closure_inputs+[shared.file_descriptor(p) for p in sorted((output/'fixture').rglob('*')) if p.is_file()]
@@ -391,15 +392,19 @@ def prepare_reference_fixture(output,props):
     for relative,entry in manifest['files'].items():
         actual=shared.file_descriptor(source/relative)
         shared.wire.require(all(actual[k]==entry[k] for k in ('bytes','sha256')),'LINUX_BUILD_ARTIFACT_CHANGED')
+    shared.wire.require(set(manifest['sourceFiles'])=={'Program.cs','Reference.csproj','NuGet.Config'},'LINUX_SOURCE_ROLE_SET')
+    checkout_sources=[]
     for name,entry in manifest['sourceFiles'].items():
-        shared.wire.require(shared.file_descriptor(HERE/'reference'/name)==entry,'LINUX_BUILD_SOURCE_CHANGED')
+        qualified,provenance=shared.wire.qualified_source('reference/'+name)
+        shared.wire.require(len(qualified)==entry['bytes'] and provenance['qualifiedSha256']==entry['sha256'],'LINUX_BUILD_SOURCE_CHANGED')
+        checkout_sources.append(provenance)
     for entry in manifest['nativeProofs']:
         shared.wire.require(shared.file_descriptor(entry['path'])==entry,'LINUX_BUILD_PROOF_CHANGED')
     shared.shutil.copytree(source,output/'fixture')
     for relative,entry in manifest['files'].items():
         actual=shared.file_descriptor(output/'fixture'/relative)
         shared.wire.require(all(actual[k]==entry[k] for k in ('bytes','sha256')),'LINUX_STAGED_FIXTURE_CHANGED')
-    shared.save(output/'reused-build-provenance.json',{'manifest':shared.file_descriptor(manifest_path),'files':manifest['files'],'sourceFiles':manifest['sourceFiles'],'nativeProofs':manifest['nativeProofs']})
+    shared.save(output/'reused-build-provenance.json',{'manifest':shared.file_descriptor(manifest_path),'files':manifest['files'],'sourceFiles':manifest['sourceFiles'],'checkoutSources':checkout_sources,'nativeProofs':manifest['nativeProofs']})
     slot=output/'preparation/filesystem';slot.mkdir()
     for part in ('home','tmp','cache'):(slot/part).mkdir()
     script=slot/'filesystem.sh';script.write_text('set -eu\ncd /work\ntouch CaseProbe caseprobe\ntest "$(find /work -maxdepth 1 -name "*robe" | wc -l)" -eq 2\nstat -f -c "%T" /work > /work/filesystem.txt\n',encoding='utf-8',newline='\n')
