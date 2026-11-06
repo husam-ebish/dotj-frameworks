@@ -1,0 +1,3386 @@
+{
+  "schema": "dotj.owned-process.fixtures",
+  "version": 1,
+  "status": "FROZEN_EXPECTATIONS_NOT_OBSERVATIONS",
+  "counts": {
+    "scenarioDefinitions": 48,
+    "productRows": 102,
+    "nativeCohorts": 16,
+    "boundaryGroups": 4,
+    "newNegativeVariants": 60,
+    "oldNegativeVariants": 154,
+    "referenceMinimumFiles": 68,
+    "productMinimumFiles": 412
+  },
+  "cohortDefinitions": [
+    {
+      "id": "R01",
+      "name": "exit-zero",
+      "engine": "sdk-command",
+      "productCases": [
+        "P01"
+      ],
+      "modes": [
+        "exit0"
+      ],
+      "expected": "Raw source-linked observation; differences reviewed, never normalized into a pass"
+    },
+    {
+      "id": "R02",
+      "name": "exit-nonzero",
+      "engine": "sdk-command",
+      "productCases": [
+        "P02"
+      ],
+      "modes": [
+        "exit17"
+      ],
+      "expected": "Raw source-linked observation; differences reviewed, never normalized into a pass"
+    },
+    {
+      "id": "R03",
+      "name": "argv",
+      "engine": "sdk-command",
+      "productCases": [
+        "P03"
+      ],
+      "modes": [
+        "echo"
+      ],
+      "expected": "Raw source-linked observation; differences reviewed, never normalized into a pass"
+    },
+    {
+      "id": "R04",
+      "name": "cwd-path",
+      "engine": "sdk-command",
+      "productCases": [
+        "P04"
+      ],
+      "modes": [
+        "echo"
+      ],
+      "expected": "Raw source-linked observation; differences reviewed, never normalized into a pass"
+    },
+    {
+      "id": "R05",
+      "name": "environment",
+      "engine": "sdk-command",
+      "productCases": [
+        "P05"
+      ],
+      "modes": [
+        "echo"
+      ],
+      "expected": "Raw source-linked observation; differences reviewed, never normalized into a pass"
+    },
+    {
+      "id": "R06",
+      "name": "invalid-start",
+      "engine": "dotnet-process-api",
+      "productCases": [
+        "P06"
+      ],
+      "modes": [
+        "invalid-start"
+      ],
+      "expected": "Raw source-linked observation; differences reviewed, never normalized into a pass"
+    },
+    {
+      "id": "R07",
+      "name": "cooperative-cancel",
+      "engine": "dotnet-process-api",
+      "productCases": [
+        "P08"
+      ],
+      "modes": [
+        "cooperative-cancel"
+      ],
+      "expected": "Raw source-linked observation; differences reviewed, never normalized into a pass"
+    },
+    {
+      "id": "R08",
+      "name": "wait-cancel-force",
+      "engine": "dotnet-process-api",
+      "productCases": [
+        "P09"
+      ],
+      "modes": [
+        "wait-cancel-force"
+      ],
+      "expected": "Raw source-linked observation; differences reviewed, never normalized into a pass"
+    }
+  ],
+  "referenceRows": [
+    {
+      "id": "windows-R01",
+      "platform": "windows",
+      "cohort": "R01",
+      "engine": "sdk-command",
+      "files": [
+        "reference/windows-R01/request.json",
+        "reference/windows-R01/stdout.bin",
+        "reference/windows-R01/stderr.bin",
+        "reference/windows-R01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-R02",
+      "platform": "windows",
+      "cohort": "R02",
+      "engine": "sdk-command",
+      "files": [
+        "reference/windows-R02/request.json",
+        "reference/windows-R02/stdout.bin",
+        "reference/windows-R02/stderr.bin",
+        "reference/windows-R02/effects.json"
+      ]
+    },
+    {
+      "id": "windows-R03",
+      "platform": "windows",
+      "cohort": "R03",
+      "engine": "sdk-command",
+      "files": [
+        "reference/windows-R03/request.json",
+        "reference/windows-R03/stdout.bin",
+        "reference/windows-R03/stderr.bin",
+        "reference/windows-R03/effects.json"
+      ]
+    },
+    {
+      "id": "windows-R04",
+      "platform": "windows",
+      "cohort": "R04",
+      "engine": "sdk-command",
+      "files": [
+        "reference/windows-R04/request.json",
+        "reference/windows-R04/stdout.bin",
+        "reference/windows-R04/stderr.bin",
+        "reference/windows-R04/effects.json"
+      ]
+    },
+    {
+      "id": "windows-R05",
+      "platform": "windows",
+      "cohort": "R05",
+      "engine": "sdk-command",
+      "files": [
+        "reference/windows-R05/request.json",
+        "reference/windows-R05/stdout.bin",
+        "reference/windows-R05/stderr.bin",
+        "reference/windows-R05/effects.json"
+      ]
+    },
+    {
+      "id": "windows-R06",
+      "platform": "windows",
+      "cohort": "R06",
+      "engine": "dotnet-process-api",
+      "files": [
+        "reference/windows-R06/request.json",
+        "reference/windows-R06/stdout.bin",
+        "reference/windows-R06/stderr.bin",
+        "reference/windows-R06/effects.json"
+      ]
+    },
+    {
+      "id": "windows-R07",
+      "platform": "windows",
+      "cohort": "R07",
+      "engine": "dotnet-process-api",
+      "files": [
+        "reference/windows-R07/request.json",
+        "reference/windows-R07/stdout.bin",
+        "reference/windows-R07/stderr.bin",
+        "reference/windows-R07/effects.json"
+      ]
+    },
+    {
+      "id": "windows-R08",
+      "platform": "windows",
+      "cohort": "R08",
+      "engine": "dotnet-process-api",
+      "files": [
+        "reference/windows-R08/request.json",
+        "reference/windows-R08/stdout.bin",
+        "reference/windows-R08/stderr.bin",
+        "reference/windows-R08/effects.json"
+      ]
+    },
+    {
+      "id": "linux-R01",
+      "platform": "linux",
+      "cohort": "R01",
+      "engine": "sdk-command",
+      "files": [
+        "reference/linux-R01/request.json",
+        "reference/linux-R01/stdout.bin",
+        "reference/linux-R01/stderr.bin",
+        "reference/linux-R01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-R02",
+      "platform": "linux",
+      "cohort": "R02",
+      "engine": "sdk-command",
+      "files": [
+        "reference/linux-R02/request.json",
+        "reference/linux-R02/stdout.bin",
+        "reference/linux-R02/stderr.bin",
+        "reference/linux-R02/effects.json"
+      ]
+    },
+    {
+      "id": "linux-R03",
+      "platform": "linux",
+      "cohort": "R03",
+      "engine": "sdk-command",
+      "files": [
+        "reference/linux-R03/request.json",
+        "reference/linux-R03/stdout.bin",
+        "reference/linux-R03/stderr.bin",
+        "reference/linux-R03/effects.json"
+      ]
+    },
+    {
+      "id": "linux-R04",
+      "platform": "linux",
+      "cohort": "R04",
+      "engine": "sdk-command",
+      "files": [
+        "reference/linux-R04/request.json",
+        "reference/linux-R04/stdout.bin",
+        "reference/linux-R04/stderr.bin",
+        "reference/linux-R04/effects.json"
+      ]
+    },
+    {
+      "id": "linux-R05",
+      "platform": "linux",
+      "cohort": "R05",
+      "engine": "sdk-command",
+      "files": [
+        "reference/linux-R05/request.json",
+        "reference/linux-R05/stdout.bin",
+        "reference/linux-R05/stderr.bin",
+        "reference/linux-R05/effects.json"
+      ]
+    },
+    {
+      "id": "linux-R06",
+      "platform": "linux",
+      "cohort": "R06",
+      "engine": "dotnet-process-api",
+      "files": [
+        "reference/linux-R06/request.json",
+        "reference/linux-R06/stdout.bin",
+        "reference/linux-R06/stderr.bin",
+        "reference/linux-R06/effects.json"
+      ]
+    },
+    {
+      "id": "linux-R07",
+      "platform": "linux",
+      "cohort": "R07",
+      "engine": "dotnet-process-api",
+      "files": [
+        "reference/linux-R07/request.json",
+        "reference/linux-R07/stdout.bin",
+        "reference/linux-R07/stderr.bin",
+        "reference/linux-R07/effects.json"
+      ]
+    },
+    {
+      "id": "linux-R08",
+      "platform": "linux",
+      "cohort": "R08",
+      "engine": "dotnet-process-api",
+      "files": [
+        "reference/linux-R08/request.json",
+        "reference/linux-R08/stdout.bin",
+        "reference/linux-R08/stderr.bin",
+        "reference/linux-R08/effects.json"
+      ]
+    }
+  ],
+  "scenarioDefinitions": [
+    {
+      "id": "windows-P01",
+      "name": "exit0",
+      "expected": "Exact zero, separate channels, no unexpected effects",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P01",
+      "platform": "windows",
+      "mode": "p01",
+      "referenceCohort": "windows-R01",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-EXEC",
+        "T4-INTERNAL"
+      ]
+    },
+    {
+      "id": "windows-P02",
+      "name": "exit17",
+      "expected": "Exact nonzero propagated; no success marker",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P02",
+      "platform": "windows",
+      "mode": "p02",
+      "referenceCohort": "windows-R02",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-EXEC"
+      ]
+    },
+    {
+      "id": "windows-P03",
+      "name": "argv corpus",
+      "expected": "Empty/space/quote/backslash/metacharacter/BMP/supplementary Unicode retained; shell inert",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P03",
+      "platform": "windows",
+      "mode": "p03",
+      "referenceCohort": "windows-R03",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-ARGV",
+        "F02-PATH"
+      ]
+    },
+    {
+      "id": "windows-P04",
+      "name": "cwd and path",
+      "expected": "Exact Unicode/space child paths; parent cwd unchanged; existing JDK-root profile retained",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P04",
+      "platform": "windows",
+      "mode": "p04",
+      "referenceCohort": "windows-R04",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-ENV",
+        "F02-PATH"
+      ]
+    },
+    {
+      "id": "windows-P05",
+      "name": "environment",
+      "expected": "Set/remove/case behavior and parent nonmutation",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P05",
+      "platform": "windows",
+      "mode": "p05",
+      "referenceCohort": "windows-R05",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-ENV"
+      ]
+    },
+    {
+      "id": "windows-P06",
+      "name": "invalid executable",
+      "expected": "No child; sanitized bounded error; no publication",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P06",
+      "platform": "windows",
+      "mode": "p06",
+      "referenceCohort": "windows-R06",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-EXEC",
+        "T4-REDACT"
+      ]
+    },
+    {
+      "id": "windows-P07",
+      "name": "pre-cancel",
+      "expected": "No start",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P07",
+      "platform": "windows",
+      "mode": "p07",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "windows-P08",
+      "name": "active cooperative cancel",
+      "expected": "Observed child exit and drainer joins",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P08",
+      "platform": "windows",
+      "mode": "p08",
+      "referenceCohort": "windows-R07",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "windows-P09",
+      "name": "active noncooperative cancel",
+      "expected": "Force escalation and observed exit; no guard-owned cleanup credit",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P09",
+      "platform": "windows",
+      "mode": "p09",
+      "referenceCohort": "windows-R08",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "windows-P10",
+      "name": "cancel versus start",
+      "expected": "Ten fixed schedules; no unjoined returned Process",
+      "repetitionsPerOs": 10,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P10",
+      "platform": "windows",
+      "mode": "p10",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "windows-P11",
+      "name": "cancel versus exit",
+      "expected": "Ten fixed schedules; one consistent terminal disposition",
+      "repetitionsPerOs": 10,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P11",
+      "platform": "windows",
+      "mode": "p11",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "windows-P12",
+      "name": "close versus late start",
+      "expected": "Ten fixed schedules; admission closes and in-flight slot drains",
+      "repetitionsPerOs": 10,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P12",
+      "platform": "windows",
+      "mode": "p12",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "windows-P13",
+      "name": "multiple direct children",
+      "expected": "Both joined; unrelated sentinel process untouched",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P13",
+      "platform": "windows",
+      "mode": "p13",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "windows-P14",
+      "name": "both pipes full",
+      "expected": "Bounded concurrent drain, no deadlock",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P14",
+      "platform": "windows",
+      "mode": "p14",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-EXEC"
+      ]
+    },
+    {
+      "id": "windows-P15",
+      "name": "output overflow",
+      "expected": "Bounded failure/truncation contract and cleanup",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P15",
+      "platform": "windows",
+      "mode": "p15",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-REDACT"
+      ]
+    },
+    {
+      "id": "windows-P16",
+      "name": "stdin broken pipe",
+      "expected": "Resource closure and terminal disposition",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P16",
+      "platform": "windows",
+      "mode": "p16",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL"
+      ]
+    },
+    {
+      "id": "windows-P17",
+      "name": "waiter interrupted",
+      "expected": "Cleanup first, interrupt restored",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P17",
+      "platform": "windows",
+      "mode": "p17",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "windows-P18",
+      "name": "drainer failure",
+      "expected": "Timing seam with real child; cleanup failure explicit",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P18",
+      "platform": "windows",
+      "mode": "p18",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "T4-REDACT"
+      ]
+    },
+    {
+      "id": "windows-P19",
+      "name": "start failure after slot registration",
+      "expected": "Owner closure not stuck; sanitized error",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P19",
+      "platform": "windows",
+      "mode": "p19",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "T4-REDACT"
+      ]
+    },
+    {
+      "id": "windows-P20",
+      "name": "owned consumer canceled write",
+      "expected": "Real child writes only new owned staging; prior reusable output remains byte-identical and runnable",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P20",
+      "platform": "windows",
+      "mode": "p20",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "F04-PRESERVE"
+      ]
+    },
+    {
+      "id": "windows-P21",
+      "name": "owned consumer failed write",
+      "expected": "Nonzero real child; source/all siblings/prior output preserved; no publish",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P21",
+      "platform": "windows",
+      "mode": "p21",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "F04-PRESERVE"
+      ]
+    },
+    {
+      "id": "windows-P22",
+      "name": "diagnostic secret corpus",
+      "expected": "Tagged argv/env/stdin/cause/chunk sentinels absent owned diagnostics; raw protocol distinct",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P22",
+      "platform": "windows",
+      "mode": "p22",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-REDACT"
+      ]
+    },
+    {
+      "id": "windows-P23",
+      "name": "telemetry and descendant boundary",
+      "expected": "Observe native/JDK boundary under outer guard; unsupported behavior explicitly fails stronger predicate",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P23",
+      "platform": "windows",
+      "mode": "p23",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-REDACT",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "windows-P24",
+      "name": "identity and limits",
+      "expected": "Reject invalid executable identity, injection options, NUL/malformed values and bounded counts before spawn",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P24",
+      "platform": "windows",
+      "mode": "p24",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-ARGV",
+        "T4-REDACT",
+        "T4-INTERNAL"
+      ]
+    },
+    {
+      "id": "linux-P01",
+      "name": "exit0",
+      "expected": "Exact zero, separate channels, no unexpected effects",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P01",
+      "platform": "linux",
+      "mode": "p01",
+      "referenceCohort": "linux-R01",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-EXEC",
+        "T4-INTERNAL"
+      ]
+    },
+    {
+      "id": "linux-P02",
+      "name": "exit17",
+      "expected": "Exact nonzero propagated; no success marker",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P02",
+      "platform": "linux",
+      "mode": "p02",
+      "referenceCohort": "linux-R02",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-EXEC"
+      ]
+    },
+    {
+      "id": "linux-P03",
+      "name": "argv corpus",
+      "expected": "Empty/space/quote/backslash/metacharacter/BMP/supplementary Unicode retained; shell inert",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P03",
+      "platform": "linux",
+      "mode": "p03",
+      "referenceCohort": "linux-R03",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-ARGV",
+        "F02-PATH"
+      ]
+    },
+    {
+      "id": "linux-P04",
+      "name": "cwd and path",
+      "expected": "Exact Unicode/space child paths; parent cwd unchanged; existing JDK-root profile retained",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P04",
+      "platform": "linux",
+      "mode": "p04",
+      "referenceCohort": "linux-R04",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-ENV",
+        "F02-PATH"
+      ]
+    },
+    {
+      "id": "linux-P05",
+      "name": "environment",
+      "expected": "Set/remove/case behavior and parent nonmutation",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P05",
+      "platform": "linux",
+      "mode": "p05",
+      "referenceCohort": "linux-R05",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-ENV"
+      ]
+    },
+    {
+      "id": "linux-P06",
+      "name": "invalid executable",
+      "expected": "No child; sanitized bounded error; no publication",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P06",
+      "platform": "linux",
+      "mode": "p06",
+      "referenceCohort": "linux-R06",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-EXEC",
+        "T4-REDACT"
+      ]
+    },
+    {
+      "id": "linux-P07",
+      "name": "pre-cancel",
+      "expected": "No start",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P07",
+      "platform": "linux",
+      "mode": "p07",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "linux-P08",
+      "name": "active cooperative cancel",
+      "expected": "Observed child exit and drainer joins",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P08",
+      "platform": "linux",
+      "mode": "p08",
+      "referenceCohort": "linux-R07",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "linux-P09",
+      "name": "active noncooperative cancel",
+      "expected": "Force escalation and observed exit; no guard-owned cleanup credit",
+      "repetitionsPerOs": 1,
+      "reference": "Conceptual paired native cohort",
+      "caseId": "P09",
+      "platform": "linux",
+      "mode": "p09",
+      "referenceCohort": "linux-R08",
+      "referenceDisposition": "PAIRED_CONCEPTUAL_INPUT",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "linux-P10",
+      "name": "cancel versus start",
+      "expected": "Ten fixed schedules; no unjoined returned Process",
+      "repetitionsPerOs": 10,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P10",
+      "platform": "linux",
+      "mode": "p10",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "linux-P11",
+      "name": "cancel versus exit",
+      "expected": "Ten fixed schedules; one consistent terminal disposition",
+      "repetitionsPerOs": 10,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P11",
+      "platform": "linux",
+      "mode": "p11",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "linux-P12",
+      "name": "close versus late start",
+      "expected": "Ten fixed schedules; admission closes and in-flight slot drains",
+      "repetitionsPerOs": 10,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P12",
+      "platform": "linux",
+      "mode": "p12",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "linux-P13",
+      "name": "multiple direct children",
+      "expected": "Both joined; unrelated sentinel process untouched",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P13",
+      "platform": "linux",
+      "mode": "p13",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "linux-P14",
+      "name": "both pipes full",
+      "expected": "Bounded concurrent drain, no deadlock",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P14",
+      "platform": "linux",
+      "mode": "p14",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-EXEC"
+      ]
+    },
+    {
+      "id": "linux-P15",
+      "name": "output overflow",
+      "expected": "Bounded failure/truncation contract and cleanup",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P15",
+      "platform": "linux",
+      "mode": "p15",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-REDACT"
+      ]
+    },
+    {
+      "id": "linux-P16",
+      "name": "stdin broken pipe",
+      "expected": "Resource closure and terminal disposition",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P16",
+      "platform": "linux",
+      "mode": "p16",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL"
+      ]
+    },
+    {
+      "id": "linux-P17",
+      "name": "waiter interrupted",
+      "expected": "Cleanup first, interrupt restored",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P17",
+      "platform": "linux",
+      "mode": "p17",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "linux-P18",
+      "name": "drainer failure",
+      "expected": "Timing seam with real child; cleanup failure explicit",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P18",
+      "platform": "linux",
+      "mode": "p18",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "T4-REDACT"
+      ]
+    },
+    {
+      "id": "linux-P19",
+      "name": "start failure after slot registration",
+      "expected": "Owner closure not stuck; sanitized error",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P19",
+      "platform": "linux",
+      "mode": "p19",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-CANCEL",
+        "T4-REDACT"
+      ]
+    },
+    {
+      "id": "linux-P20",
+      "name": "owned consumer canceled write",
+      "expected": "Real child writes only new owned staging; prior reusable output remains byte-identical and runnable",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P20",
+      "platform": "linux",
+      "mode": "p20",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "F04-PRESERVE"
+      ]
+    },
+    {
+      "id": "linux-P21",
+      "name": "owned consumer failed write",
+      "expected": "Nonzero real child; source/all siblings/prior output preserved; no publish",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P21",
+      "platform": "linux",
+      "mode": "p21",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "F04-PRESERVE"
+      ]
+    },
+    {
+      "id": "linux-P22",
+      "name": "diagnostic secret corpus",
+      "expected": "Tagged argv/env/stdin/cause/chunk sentinels absent owned diagnostics; raw protocol distinct",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P22",
+      "platform": "linux",
+      "mode": "p22",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-REDACT"
+      ]
+    },
+    {
+      "id": "linux-P23",
+      "name": "telemetry and descendant boundary",
+      "expected": "Observe native/JDK boundary under outer guard; unsupported behavior explicitly fails stronger predicate",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P23",
+      "platform": "linux",
+      "mode": "p23",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-REDACT",
+        "F04-CHILD"
+      ]
+    },
+    {
+      "id": "linux-P24",
+      "name": "identity and limits",
+      "expected": "Reject invalid executable identity, injection options, NUL/malformed values and bounded counts before spawn",
+      "repetitionsPerOs": 1,
+      "reference": "Owned invariant/boundary; no invented upstream CLI parity",
+      "caseId": "P24",
+      "platform": "linux",
+      "mode": "p24",
+      "referenceCohort": null,
+      "referenceDisposition": "OWNED_INVARIANT_OR_BOUNDARY_NO_INVENTED_CLI_PARITY",
+      "predicateIds": [
+        "T4-ARGV",
+        "T4-REDACT",
+        "T4-INTERNAL"
+      ]
+    }
+  ],
+  "productRows": [
+    {
+      "id": "windows-P01-01",
+      "scenario": "windows-P01",
+      "repetition": 1,
+      "referenceCohort": "windows-R01",
+      "files": [
+        "product/windows-P01-01/observation.json",
+        "product/windows-P01-01/stdout.bin",
+        "product/windows-P01-01/stderr.bin",
+        "product/windows-P01-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P02-01",
+      "scenario": "windows-P02",
+      "repetition": 1,
+      "referenceCohort": "windows-R02",
+      "files": [
+        "product/windows-P02-01/observation.json",
+        "product/windows-P02-01/stdout.bin",
+        "product/windows-P02-01/stderr.bin",
+        "product/windows-P02-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P03-01",
+      "scenario": "windows-P03",
+      "repetition": 1,
+      "referenceCohort": "windows-R03",
+      "files": [
+        "product/windows-P03-01/observation.json",
+        "product/windows-P03-01/stdout.bin",
+        "product/windows-P03-01/stderr.bin",
+        "product/windows-P03-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P04-01",
+      "scenario": "windows-P04",
+      "repetition": 1,
+      "referenceCohort": "windows-R04",
+      "files": [
+        "product/windows-P04-01/observation.json",
+        "product/windows-P04-01/stdout.bin",
+        "product/windows-P04-01/stderr.bin",
+        "product/windows-P04-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P05-01",
+      "scenario": "windows-P05",
+      "repetition": 1,
+      "referenceCohort": "windows-R05",
+      "files": [
+        "product/windows-P05-01/observation.json",
+        "product/windows-P05-01/stdout.bin",
+        "product/windows-P05-01/stderr.bin",
+        "product/windows-P05-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P06-01",
+      "scenario": "windows-P06",
+      "repetition": 1,
+      "referenceCohort": "windows-R06",
+      "files": [
+        "product/windows-P06-01/observation.json",
+        "product/windows-P06-01/stdout.bin",
+        "product/windows-P06-01/stderr.bin",
+        "product/windows-P06-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P07-01",
+      "scenario": "windows-P07",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P07-01/observation.json",
+        "product/windows-P07-01/stdout.bin",
+        "product/windows-P07-01/stderr.bin",
+        "product/windows-P07-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P08-01",
+      "scenario": "windows-P08",
+      "repetition": 1,
+      "referenceCohort": "windows-R07",
+      "files": [
+        "product/windows-P08-01/observation.json",
+        "product/windows-P08-01/stdout.bin",
+        "product/windows-P08-01/stderr.bin",
+        "product/windows-P08-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P09-01",
+      "scenario": "windows-P09",
+      "repetition": 1,
+      "referenceCohort": "windows-R08",
+      "files": [
+        "product/windows-P09-01/observation.json",
+        "product/windows-P09-01/stdout.bin",
+        "product/windows-P09-01/stderr.bin",
+        "product/windows-P09-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P10-01",
+      "scenario": "windows-P10",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P10-01/observation.json",
+        "product/windows-P10-01/stdout.bin",
+        "product/windows-P10-01/stderr.bin",
+        "product/windows-P10-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P10-02",
+      "scenario": "windows-P10",
+      "repetition": 2,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P10-02/observation.json",
+        "product/windows-P10-02/stdout.bin",
+        "product/windows-P10-02/stderr.bin",
+        "product/windows-P10-02/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P10-03",
+      "scenario": "windows-P10",
+      "repetition": 3,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P10-03/observation.json",
+        "product/windows-P10-03/stdout.bin",
+        "product/windows-P10-03/stderr.bin",
+        "product/windows-P10-03/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P10-04",
+      "scenario": "windows-P10",
+      "repetition": 4,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P10-04/observation.json",
+        "product/windows-P10-04/stdout.bin",
+        "product/windows-P10-04/stderr.bin",
+        "product/windows-P10-04/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P10-05",
+      "scenario": "windows-P10",
+      "repetition": 5,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P10-05/observation.json",
+        "product/windows-P10-05/stdout.bin",
+        "product/windows-P10-05/stderr.bin",
+        "product/windows-P10-05/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P10-06",
+      "scenario": "windows-P10",
+      "repetition": 6,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P10-06/observation.json",
+        "product/windows-P10-06/stdout.bin",
+        "product/windows-P10-06/stderr.bin",
+        "product/windows-P10-06/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P10-07",
+      "scenario": "windows-P10",
+      "repetition": 7,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P10-07/observation.json",
+        "product/windows-P10-07/stdout.bin",
+        "product/windows-P10-07/stderr.bin",
+        "product/windows-P10-07/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P10-08",
+      "scenario": "windows-P10",
+      "repetition": 8,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P10-08/observation.json",
+        "product/windows-P10-08/stdout.bin",
+        "product/windows-P10-08/stderr.bin",
+        "product/windows-P10-08/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P10-09",
+      "scenario": "windows-P10",
+      "repetition": 9,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P10-09/observation.json",
+        "product/windows-P10-09/stdout.bin",
+        "product/windows-P10-09/stderr.bin",
+        "product/windows-P10-09/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P10-10",
+      "scenario": "windows-P10",
+      "repetition": 10,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P10-10/observation.json",
+        "product/windows-P10-10/stdout.bin",
+        "product/windows-P10-10/stderr.bin",
+        "product/windows-P10-10/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P11-01",
+      "scenario": "windows-P11",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P11-01/observation.json",
+        "product/windows-P11-01/stdout.bin",
+        "product/windows-P11-01/stderr.bin",
+        "product/windows-P11-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P11-02",
+      "scenario": "windows-P11",
+      "repetition": 2,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P11-02/observation.json",
+        "product/windows-P11-02/stdout.bin",
+        "product/windows-P11-02/stderr.bin",
+        "product/windows-P11-02/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P11-03",
+      "scenario": "windows-P11",
+      "repetition": 3,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P11-03/observation.json",
+        "product/windows-P11-03/stdout.bin",
+        "product/windows-P11-03/stderr.bin",
+        "product/windows-P11-03/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P11-04",
+      "scenario": "windows-P11",
+      "repetition": 4,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P11-04/observation.json",
+        "product/windows-P11-04/stdout.bin",
+        "product/windows-P11-04/stderr.bin",
+        "product/windows-P11-04/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P11-05",
+      "scenario": "windows-P11",
+      "repetition": 5,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P11-05/observation.json",
+        "product/windows-P11-05/stdout.bin",
+        "product/windows-P11-05/stderr.bin",
+        "product/windows-P11-05/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P11-06",
+      "scenario": "windows-P11",
+      "repetition": 6,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P11-06/observation.json",
+        "product/windows-P11-06/stdout.bin",
+        "product/windows-P11-06/stderr.bin",
+        "product/windows-P11-06/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P11-07",
+      "scenario": "windows-P11",
+      "repetition": 7,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P11-07/observation.json",
+        "product/windows-P11-07/stdout.bin",
+        "product/windows-P11-07/stderr.bin",
+        "product/windows-P11-07/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P11-08",
+      "scenario": "windows-P11",
+      "repetition": 8,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P11-08/observation.json",
+        "product/windows-P11-08/stdout.bin",
+        "product/windows-P11-08/stderr.bin",
+        "product/windows-P11-08/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P11-09",
+      "scenario": "windows-P11",
+      "repetition": 9,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P11-09/observation.json",
+        "product/windows-P11-09/stdout.bin",
+        "product/windows-P11-09/stderr.bin",
+        "product/windows-P11-09/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P11-10",
+      "scenario": "windows-P11",
+      "repetition": 10,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P11-10/observation.json",
+        "product/windows-P11-10/stdout.bin",
+        "product/windows-P11-10/stderr.bin",
+        "product/windows-P11-10/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P12-01",
+      "scenario": "windows-P12",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P12-01/observation.json",
+        "product/windows-P12-01/stdout.bin",
+        "product/windows-P12-01/stderr.bin",
+        "product/windows-P12-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P12-02",
+      "scenario": "windows-P12",
+      "repetition": 2,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P12-02/observation.json",
+        "product/windows-P12-02/stdout.bin",
+        "product/windows-P12-02/stderr.bin",
+        "product/windows-P12-02/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P12-03",
+      "scenario": "windows-P12",
+      "repetition": 3,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P12-03/observation.json",
+        "product/windows-P12-03/stdout.bin",
+        "product/windows-P12-03/stderr.bin",
+        "product/windows-P12-03/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P12-04",
+      "scenario": "windows-P12",
+      "repetition": 4,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P12-04/observation.json",
+        "product/windows-P12-04/stdout.bin",
+        "product/windows-P12-04/stderr.bin",
+        "product/windows-P12-04/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P12-05",
+      "scenario": "windows-P12",
+      "repetition": 5,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P12-05/observation.json",
+        "product/windows-P12-05/stdout.bin",
+        "product/windows-P12-05/stderr.bin",
+        "product/windows-P12-05/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P12-06",
+      "scenario": "windows-P12",
+      "repetition": 6,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P12-06/observation.json",
+        "product/windows-P12-06/stdout.bin",
+        "product/windows-P12-06/stderr.bin",
+        "product/windows-P12-06/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P12-07",
+      "scenario": "windows-P12",
+      "repetition": 7,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P12-07/observation.json",
+        "product/windows-P12-07/stdout.bin",
+        "product/windows-P12-07/stderr.bin",
+        "product/windows-P12-07/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P12-08",
+      "scenario": "windows-P12",
+      "repetition": 8,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P12-08/observation.json",
+        "product/windows-P12-08/stdout.bin",
+        "product/windows-P12-08/stderr.bin",
+        "product/windows-P12-08/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P12-09",
+      "scenario": "windows-P12",
+      "repetition": 9,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P12-09/observation.json",
+        "product/windows-P12-09/stdout.bin",
+        "product/windows-P12-09/stderr.bin",
+        "product/windows-P12-09/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P12-10",
+      "scenario": "windows-P12",
+      "repetition": 10,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P12-10/observation.json",
+        "product/windows-P12-10/stdout.bin",
+        "product/windows-P12-10/stderr.bin",
+        "product/windows-P12-10/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P13-01",
+      "scenario": "windows-P13",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P13-01/observation.json",
+        "product/windows-P13-01/stdout.bin",
+        "product/windows-P13-01/stderr.bin",
+        "product/windows-P13-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P14-01",
+      "scenario": "windows-P14",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P14-01/observation.json",
+        "product/windows-P14-01/stdout.bin",
+        "product/windows-P14-01/stderr.bin",
+        "product/windows-P14-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P15-01",
+      "scenario": "windows-P15",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P15-01/observation.json",
+        "product/windows-P15-01/stdout.bin",
+        "product/windows-P15-01/stderr.bin",
+        "product/windows-P15-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P16-01",
+      "scenario": "windows-P16",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P16-01/observation.json",
+        "product/windows-P16-01/stdout.bin",
+        "product/windows-P16-01/stderr.bin",
+        "product/windows-P16-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P17-01",
+      "scenario": "windows-P17",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P17-01/observation.json",
+        "product/windows-P17-01/stdout.bin",
+        "product/windows-P17-01/stderr.bin",
+        "product/windows-P17-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P18-01",
+      "scenario": "windows-P18",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P18-01/observation.json",
+        "product/windows-P18-01/stdout.bin",
+        "product/windows-P18-01/stderr.bin",
+        "product/windows-P18-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P19-01",
+      "scenario": "windows-P19",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P19-01/observation.json",
+        "product/windows-P19-01/stdout.bin",
+        "product/windows-P19-01/stderr.bin",
+        "product/windows-P19-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P20-01",
+      "scenario": "windows-P20",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P20-01/observation.json",
+        "product/windows-P20-01/stdout.bin",
+        "product/windows-P20-01/stderr.bin",
+        "product/windows-P20-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P21-01",
+      "scenario": "windows-P21",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P21-01/observation.json",
+        "product/windows-P21-01/stdout.bin",
+        "product/windows-P21-01/stderr.bin",
+        "product/windows-P21-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P22-01",
+      "scenario": "windows-P22",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P22-01/observation.json",
+        "product/windows-P22-01/stdout.bin",
+        "product/windows-P22-01/stderr.bin",
+        "product/windows-P22-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P23-01",
+      "scenario": "windows-P23",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P23-01/observation.json",
+        "product/windows-P23-01/stdout.bin",
+        "product/windows-P23-01/stderr.bin",
+        "product/windows-P23-01/effects.json"
+      ]
+    },
+    {
+      "id": "windows-P24-01",
+      "scenario": "windows-P24",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/windows-P24-01/observation.json",
+        "product/windows-P24-01/stdout.bin",
+        "product/windows-P24-01/stderr.bin",
+        "product/windows-P24-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P01-01",
+      "scenario": "linux-P01",
+      "repetition": 1,
+      "referenceCohort": "linux-R01",
+      "files": [
+        "product/linux-P01-01/observation.json",
+        "product/linux-P01-01/stdout.bin",
+        "product/linux-P01-01/stderr.bin",
+        "product/linux-P01-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P02-01",
+      "scenario": "linux-P02",
+      "repetition": 1,
+      "referenceCohort": "linux-R02",
+      "files": [
+        "product/linux-P02-01/observation.json",
+        "product/linux-P02-01/stdout.bin",
+        "product/linux-P02-01/stderr.bin",
+        "product/linux-P02-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P03-01",
+      "scenario": "linux-P03",
+      "repetition": 1,
+      "referenceCohort": "linux-R03",
+      "files": [
+        "product/linux-P03-01/observation.json",
+        "product/linux-P03-01/stdout.bin",
+        "product/linux-P03-01/stderr.bin",
+        "product/linux-P03-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P04-01",
+      "scenario": "linux-P04",
+      "repetition": 1,
+      "referenceCohort": "linux-R04",
+      "files": [
+        "product/linux-P04-01/observation.json",
+        "product/linux-P04-01/stdout.bin",
+        "product/linux-P04-01/stderr.bin",
+        "product/linux-P04-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P05-01",
+      "scenario": "linux-P05",
+      "repetition": 1,
+      "referenceCohort": "linux-R05",
+      "files": [
+        "product/linux-P05-01/observation.json",
+        "product/linux-P05-01/stdout.bin",
+        "product/linux-P05-01/stderr.bin",
+        "product/linux-P05-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P06-01",
+      "scenario": "linux-P06",
+      "repetition": 1,
+      "referenceCohort": "linux-R06",
+      "files": [
+        "product/linux-P06-01/observation.json",
+        "product/linux-P06-01/stdout.bin",
+        "product/linux-P06-01/stderr.bin",
+        "product/linux-P06-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P07-01",
+      "scenario": "linux-P07",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P07-01/observation.json",
+        "product/linux-P07-01/stdout.bin",
+        "product/linux-P07-01/stderr.bin",
+        "product/linux-P07-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P08-01",
+      "scenario": "linux-P08",
+      "repetition": 1,
+      "referenceCohort": "linux-R07",
+      "files": [
+        "product/linux-P08-01/observation.json",
+        "product/linux-P08-01/stdout.bin",
+        "product/linux-P08-01/stderr.bin",
+        "product/linux-P08-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P09-01",
+      "scenario": "linux-P09",
+      "repetition": 1,
+      "referenceCohort": "linux-R08",
+      "files": [
+        "product/linux-P09-01/observation.json",
+        "product/linux-P09-01/stdout.bin",
+        "product/linux-P09-01/stderr.bin",
+        "product/linux-P09-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P10-01",
+      "scenario": "linux-P10",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P10-01/observation.json",
+        "product/linux-P10-01/stdout.bin",
+        "product/linux-P10-01/stderr.bin",
+        "product/linux-P10-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P10-02",
+      "scenario": "linux-P10",
+      "repetition": 2,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P10-02/observation.json",
+        "product/linux-P10-02/stdout.bin",
+        "product/linux-P10-02/stderr.bin",
+        "product/linux-P10-02/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P10-03",
+      "scenario": "linux-P10",
+      "repetition": 3,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P10-03/observation.json",
+        "product/linux-P10-03/stdout.bin",
+        "product/linux-P10-03/stderr.bin",
+        "product/linux-P10-03/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P10-04",
+      "scenario": "linux-P10",
+      "repetition": 4,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P10-04/observation.json",
+        "product/linux-P10-04/stdout.bin",
+        "product/linux-P10-04/stderr.bin",
+        "product/linux-P10-04/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P10-05",
+      "scenario": "linux-P10",
+      "repetition": 5,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P10-05/observation.json",
+        "product/linux-P10-05/stdout.bin",
+        "product/linux-P10-05/stderr.bin",
+        "product/linux-P10-05/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P10-06",
+      "scenario": "linux-P10",
+      "repetition": 6,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P10-06/observation.json",
+        "product/linux-P10-06/stdout.bin",
+        "product/linux-P10-06/stderr.bin",
+        "product/linux-P10-06/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P10-07",
+      "scenario": "linux-P10",
+      "repetition": 7,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P10-07/observation.json",
+        "product/linux-P10-07/stdout.bin",
+        "product/linux-P10-07/stderr.bin",
+        "product/linux-P10-07/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P10-08",
+      "scenario": "linux-P10",
+      "repetition": 8,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P10-08/observation.json",
+        "product/linux-P10-08/stdout.bin",
+        "product/linux-P10-08/stderr.bin",
+        "product/linux-P10-08/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P10-09",
+      "scenario": "linux-P10",
+      "repetition": 9,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P10-09/observation.json",
+        "product/linux-P10-09/stdout.bin",
+        "product/linux-P10-09/stderr.bin",
+        "product/linux-P10-09/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P10-10",
+      "scenario": "linux-P10",
+      "repetition": 10,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P10-10/observation.json",
+        "product/linux-P10-10/stdout.bin",
+        "product/linux-P10-10/stderr.bin",
+        "product/linux-P10-10/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P11-01",
+      "scenario": "linux-P11",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P11-01/observation.json",
+        "product/linux-P11-01/stdout.bin",
+        "product/linux-P11-01/stderr.bin",
+        "product/linux-P11-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P11-02",
+      "scenario": "linux-P11",
+      "repetition": 2,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P11-02/observation.json",
+        "product/linux-P11-02/stdout.bin",
+        "product/linux-P11-02/stderr.bin",
+        "product/linux-P11-02/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P11-03",
+      "scenario": "linux-P11",
+      "repetition": 3,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P11-03/observation.json",
+        "product/linux-P11-03/stdout.bin",
+        "product/linux-P11-03/stderr.bin",
+        "product/linux-P11-03/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P11-04",
+      "scenario": "linux-P11",
+      "repetition": 4,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P11-04/observation.json",
+        "product/linux-P11-04/stdout.bin",
+        "product/linux-P11-04/stderr.bin",
+        "product/linux-P11-04/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P11-05",
+      "scenario": "linux-P11",
+      "repetition": 5,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P11-05/observation.json",
+        "product/linux-P11-05/stdout.bin",
+        "product/linux-P11-05/stderr.bin",
+        "product/linux-P11-05/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P11-06",
+      "scenario": "linux-P11",
+      "repetition": 6,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P11-06/observation.json",
+        "product/linux-P11-06/stdout.bin",
+        "product/linux-P11-06/stderr.bin",
+        "product/linux-P11-06/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P11-07",
+      "scenario": "linux-P11",
+      "repetition": 7,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P11-07/observation.json",
+        "product/linux-P11-07/stdout.bin",
+        "product/linux-P11-07/stderr.bin",
+        "product/linux-P11-07/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P11-08",
+      "scenario": "linux-P11",
+      "repetition": 8,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P11-08/observation.json",
+        "product/linux-P11-08/stdout.bin",
+        "product/linux-P11-08/stderr.bin",
+        "product/linux-P11-08/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P11-09",
+      "scenario": "linux-P11",
+      "repetition": 9,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P11-09/observation.json",
+        "product/linux-P11-09/stdout.bin",
+        "product/linux-P11-09/stderr.bin",
+        "product/linux-P11-09/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P11-10",
+      "scenario": "linux-P11",
+      "repetition": 10,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P11-10/observation.json",
+        "product/linux-P11-10/stdout.bin",
+        "product/linux-P11-10/stderr.bin",
+        "product/linux-P11-10/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P12-01",
+      "scenario": "linux-P12",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P12-01/observation.json",
+        "product/linux-P12-01/stdout.bin",
+        "product/linux-P12-01/stderr.bin",
+        "product/linux-P12-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P12-02",
+      "scenario": "linux-P12",
+      "repetition": 2,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P12-02/observation.json",
+        "product/linux-P12-02/stdout.bin",
+        "product/linux-P12-02/stderr.bin",
+        "product/linux-P12-02/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P12-03",
+      "scenario": "linux-P12",
+      "repetition": 3,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P12-03/observation.json",
+        "product/linux-P12-03/stdout.bin",
+        "product/linux-P12-03/stderr.bin",
+        "product/linux-P12-03/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P12-04",
+      "scenario": "linux-P12",
+      "repetition": 4,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P12-04/observation.json",
+        "product/linux-P12-04/stdout.bin",
+        "product/linux-P12-04/stderr.bin",
+        "product/linux-P12-04/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P12-05",
+      "scenario": "linux-P12",
+      "repetition": 5,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P12-05/observation.json",
+        "product/linux-P12-05/stdout.bin",
+        "product/linux-P12-05/stderr.bin",
+        "product/linux-P12-05/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P12-06",
+      "scenario": "linux-P12",
+      "repetition": 6,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P12-06/observation.json",
+        "product/linux-P12-06/stdout.bin",
+        "product/linux-P12-06/stderr.bin",
+        "product/linux-P12-06/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P12-07",
+      "scenario": "linux-P12",
+      "repetition": 7,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P12-07/observation.json",
+        "product/linux-P12-07/stdout.bin",
+        "product/linux-P12-07/stderr.bin",
+        "product/linux-P12-07/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P12-08",
+      "scenario": "linux-P12",
+      "repetition": 8,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P12-08/observation.json",
+        "product/linux-P12-08/stdout.bin",
+        "product/linux-P12-08/stderr.bin",
+        "product/linux-P12-08/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P12-09",
+      "scenario": "linux-P12",
+      "repetition": 9,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P12-09/observation.json",
+        "product/linux-P12-09/stdout.bin",
+        "product/linux-P12-09/stderr.bin",
+        "product/linux-P12-09/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P12-10",
+      "scenario": "linux-P12",
+      "repetition": 10,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P12-10/observation.json",
+        "product/linux-P12-10/stdout.bin",
+        "product/linux-P12-10/stderr.bin",
+        "product/linux-P12-10/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P13-01",
+      "scenario": "linux-P13",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P13-01/observation.json",
+        "product/linux-P13-01/stdout.bin",
+        "product/linux-P13-01/stderr.bin",
+        "product/linux-P13-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P14-01",
+      "scenario": "linux-P14",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P14-01/observation.json",
+        "product/linux-P14-01/stdout.bin",
+        "product/linux-P14-01/stderr.bin",
+        "product/linux-P14-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P15-01",
+      "scenario": "linux-P15",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P15-01/observation.json",
+        "product/linux-P15-01/stdout.bin",
+        "product/linux-P15-01/stderr.bin",
+        "product/linux-P15-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P16-01",
+      "scenario": "linux-P16",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P16-01/observation.json",
+        "product/linux-P16-01/stdout.bin",
+        "product/linux-P16-01/stderr.bin",
+        "product/linux-P16-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P17-01",
+      "scenario": "linux-P17",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P17-01/observation.json",
+        "product/linux-P17-01/stdout.bin",
+        "product/linux-P17-01/stderr.bin",
+        "product/linux-P17-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P18-01",
+      "scenario": "linux-P18",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P18-01/observation.json",
+        "product/linux-P18-01/stdout.bin",
+        "product/linux-P18-01/stderr.bin",
+        "product/linux-P18-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P19-01",
+      "scenario": "linux-P19",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P19-01/observation.json",
+        "product/linux-P19-01/stdout.bin",
+        "product/linux-P19-01/stderr.bin",
+        "product/linux-P19-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P20-01",
+      "scenario": "linux-P20",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P20-01/observation.json",
+        "product/linux-P20-01/stdout.bin",
+        "product/linux-P20-01/stderr.bin",
+        "product/linux-P20-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P21-01",
+      "scenario": "linux-P21",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P21-01/observation.json",
+        "product/linux-P21-01/stdout.bin",
+        "product/linux-P21-01/stderr.bin",
+        "product/linux-P21-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P22-01",
+      "scenario": "linux-P22",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P22-01/observation.json",
+        "product/linux-P22-01/stdout.bin",
+        "product/linux-P22-01/stderr.bin",
+        "product/linux-P22-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P23-01",
+      "scenario": "linux-P23",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P23-01/observation.json",
+        "product/linux-P23-01/stdout.bin",
+        "product/linux-P23-01/stderr.bin",
+        "product/linux-P23-01/effects.json"
+      ]
+    },
+    {
+      "id": "linux-P24-01",
+      "scenario": "linux-P24",
+      "repetition": 1,
+      "referenceCohort": null,
+      "files": [
+        "product/linux-P24-01/observation.json",
+        "product/linux-P24-01/stdout.bin",
+        "product/linux-P24-01/stderr.bin",
+        "product/linux-P24-01/effects.json"
+      ]
+    }
+  ],
+  "boundaryGroups": [
+    {
+      "id": "windows-transport",
+      "platform": "windows",
+      "modes": [
+        "java-argv",
+        "javac-unicode"
+      ],
+      "files": [
+        "boundary/windows-transport/request.json",
+        "boundary/windows-transport/observation.json",
+        "boundary/windows-transport/stdout.bin",
+        "boundary/windows-transport/stderr.bin",
+        "boundary/windows-transport/effects.json"
+      ],
+      "scope": "Feasibility/boundary observations only; no stronger guarantee credited."
+    },
+    {
+      "id": "windows-telemetry-ownership",
+      "platform": "windows",
+      "modes": [
+        "jdk-trace",
+        "jdk-jfr",
+        "sdk-parent-death",
+        "sdk-signal"
+      ],
+      "files": [
+        "boundary/windows-telemetry-ownership/request.json",
+        "boundary/windows-telemetry-ownership/observation.json",
+        "boundary/windows-telemetry-ownership/stdout.bin",
+        "boundary/windows-telemetry-ownership/stderr.bin",
+        "boundary/windows-telemetry-ownership/effects.json",
+        "boundary/windows-telemetry-ownership/trace.log",
+        "boundary/windows-telemetry-ownership/recording.jfr"
+      ],
+      "scope": "Feasibility/boundary observations only; no stronger guarantee credited."
+    },
+    {
+      "id": "linux-transport",
+      "platform": "linux",
+      "modes": [
+        "java-argv",
+        "javac-unicode"
+      ],
+      "files": [
+        "boundary/linux-transport/request.json",
+        "boundary/linux-transport/observation.json",
+        "boundary/linux-transport/stdout.bin",
+        "boundary/linux-transport/stderr.bin",
+        "boundary/linux-transport/effects.json"
+      ],
+      "scope": "Feasibility/boundary observations only; no stronger guarantee credited."
+    },
+    {
+      "id": "linux-telemetry-ownership",
+      "platform": "linux",
+      "modes": [
+        "jdk-trace",
+        "jdk-jfr",
+        "sdk-parent-death",
+        "sdk-signal"
+      ],
+      "files": [
+        "boundary/linux-telemetry-ownership/request.json",
+        "boundary/linux-telemetry-ownership/observation.json",
+        "boundary/linux-telemetry-ownership/stdout.bin",
+        "boundary/linux-telemetry-ownership/stderr.bin",
+        "boundary/linux-telemetry-ownership/effects.json",
+        "boundary/linux-telemetry-ownership/trace.log",
+        "boundary/linux-telemetry-ownership/recording.jfr"
+      ],
+      "scope": "Feasibility/boundary observations only; no stronger guarantee credited."
+    }
+  ],
+  "corpus": {
+    "argv": [
+      "",
+      "plain",
+      "two words",
+      "\"quoted\"",
+      "trail\\",
+      "\\\"",
+      "a&b|c;d$(echo NO)",
+      "\u6771\u4eac",
+      "caf\u00e9",
+      "\ud83d\ude42"
+    ],
+    "cwd": "case space/\u6771\u4eac/\ud83d\ude42",
+    "environment": {
+      "set": {
+        "DOTJ_FIXTURE_SET": "set \u6771\u4eac \ud83d\ude42",
+        "Dotj_Case": "upper",
+        "dotj_case": "lower"
+      },
+      "remove": [
+        "DOTJ_FIXTURE_REMOVE"
+      ]
+    },
+    "syntheticSecrets": {
+      "argv": "SYNTHETIC_ARGV_140_Alpha9",
+      "env": "SYNTHETIC_ENV_140_Beta8",
+      "stdin": "SYNTHETIC_STDIN_140_Gamma7",
+      "cause": "SYNTHETIC_CAUSE_140_Delta6",
+      "chunk": "SYNTHETIC_CHUNK_140_Epsilon5"
+    },
+    "secretChunkCuts": [
+      1,
+      7,
+      15
+    ],
+    "invalidInputs": [
+      "NUL",
+      "unpaired-high-surrogate",
+      "unpaired-low-surrogate",
+      "relative-executable",
+      "wrong-executable-digest",
+      "java-option-injection",
+      "257-tokens",
+      "32769-utf16",
+      "windows-30001-encoded-utf16"
+    ],
+    "supplementaryIdentity": {
+      "scalar": 128578,
+      "utf16Units": [
+        55357,
+        56898
+      ],
+      "argvIndex": 9,
+      "cwdSuffix": "\ud83d\ude42",
+      "environmentKey": "DOTJ_FIXTURE_SET",
+      "rule": "Decoded values contain actual U+1F642, never an ASCII escape spelling. Each occurrence occupies one Unicode scalar and two UTF16 units."
+    }
+  },
+  "raceSchedules": {
+    "count": 10,
+    "rule": "Each P10/P11/P12 repetition selects this numbered deterministic barrier schedule, not a probabilistic rerun.",
+    "events": [
+      "before-admission",
+      "after-slot-before-start",
+      "start-entered-before-return",
+      "after-return-before-handle-publication",
+      "after-publication-before-cancel-check",
+      "after-cancel-check-before-drainers",
+      "after-drainers-before-wait",
+      "at-exit-before-observe",
+      "after-exit-before-join",
+      "after-join-before-close"
+    ]
+  },
+  "negativeFamilies": [
+    {
+      "id": "N01",
+      "name": "reference artifact/source/OS",
+      "predicate": "REF_BINDING",
+      "producerRequirement": "Reference row engine/platform, executable/archive/source digests and native OS identity equal selected pins; exactly all16 reference IDs present.",
+      "readerAssertion": "Reference row engine/platform, executable/archive/source digests and native OS identity equal selected pins; exactly all16 reference IDs present."
+    },
+    {
+      "id": "N02",
+      "name": "product artifact/class/module",
+      "predicate": "PRODUCT_BINDING",
+      "producerRequirement": "Every product row binds same final JAR and independently frozen complete class/entry/module inventory; internal package not exported/opened.",
+      "readerAssertion": "Every product row binds same final JAR and independently frozen complete class/entry/module inventory; internal package not exported/opened."
+    },
+    {
+      "id": "N03",
+      "name": "source/staged/output inventory",
+      "predicate": "SOURCE_CLOSURE",
+      "producerRequirement": "Exact expected source and staged names; canonical LF source hashes equal staged/compiler input hashes; output classes bind those sources and selected tools.",
+      "readerAssertion": "Exact expected source and staged names; canonical LF source hashes equal staged/compiler input hashes; output classes bind those sources and selected tools."
+    },
+    {
+      "id": "N04",
+      "name": "reader dependency closure",
+      "predicate": "READER_CLOSURE",
+      "producerRequirement": "All fixed reader dependency paths/digests present and executing closure equals bound closure, including inherited reader dependencies.",
+      "readerAssertion": "All fixed reader dependency paths/digests present and executing closure equals bound closure, including inherited reader dependencies."
+    },
+    {
+      "id": "N05",
+      "name": "base proof/current controls scope",
+      "predicate": "CONTROL_SCOPE",
+      "producerRequirement": "Old154 controls bind old artifact/base proof/reader only; new60 controls bind current reader and exact noncyclic scope digest of current final-artifact base.",
+      "readerAssertion": "Old154 controls bind old artifact/base proof/reader only; new60 controls bind current reader and exact noncyclic scope digest of current final-artifact base."
+    },
+    {
+      "id": "N06",
+      "name": "case/repetition inventory",
+      "predicate": "CASE_SET",
+      "producerRequirement": "Exactly48 scenario definitions and102 rows with exact IDs/repetition numbers/reference mapping; no duplicates, omissions or extra success rows.",
+      "readerAssertion": "Exactly48 scenario definitions and102 rows with exact IDs/repetition numbers/reference mapping; no duplicates, omissions or extra success rows."
+    },
+    {
+      "id": "N07",
+      "name": "argv/codepoint identity",
+      "predicate": "ARGV_IDENTITY",
+      "producerRequirement": "Actual child token sequence including empty tokens equals fixture Unicode scalar sequence and UTF16 counts; shell metacharacters cause no effect; javac path result matches.",
+      "readerAssertion": "Actual child token sequence including empty tokens equals fixture Unicode scalar sequence and UTF16 counts; shell metacharacters cause no effect; javac path result matches."
+    },
+    {
+      "id": "N08",
+      "name": "cwd/environment",
+      "predicate": "ENV_SCOPE",
+      "producerRequirement": "Actual cwd and child set/remove/case probes match request and OS; independent before/after parent env/cwd/console snapshots equal.",
+      "readerAssertion": "Actual cwd and child set/remove/case probes match request and OS; independent before/after parent env/cwd/console snapshots equal."
+    },
+    {
+      "id": "N09",
+      "name": "launch slot/direct handle binding",
+      "predicate": "HANDLE_OWNERSHIP",
+      "producerRequirement": "Every admitted launch slot resolves exactly once to failed start or retained direct handle; no Process lost across cancel/start/close; terminal owner has no in-flight slot.",
+      "readerAssertion": "Every admitted launch slot resolves exactly once to failed start or retained direct handle; no Process lost across cancel/start/close; terminal owner has no in-flight slot."
+    },
+    {
+      "id": "N10",
+      "name": "cancel/force/observed exit",
+      "predicate": "TERMINAL_EXIT",
+      "producerRequirement": "Every launched owned handle has actual exit observation after graceful/force action as required; canceled wait and PID absence are not exit proof.",
+      "readerAssertion": "Every launched owned handle has actual exit observation after graceful/force action as required; canceled wait and PID absence are not exit proof."
+    },
+    {
+      "id": "N11",
+      "name": "drainer/stdin terminal",
+      "predicate": "WORKER_JOIN",
+      "producerRequirement": "Stdin and both drain workers have terminal/join observations and resources closed; injected failures remain non-success.",
+      "readerAssertion": "Stdin and both drain workers have terminal/join observations and resources closed; injected failures remain non-success."
+    },
+    {
+      "id": "N12",
+      "name": "deadline/resource caps",
+      "predicate": "CAPS",
+      "producerRequirement": "Monotonic execution+cleanup <= operation cap; grace <=1s cleanup <=5s within deadline; declared JVM/container/floor caps observed unchanged.",
+      "readerAssertion": "Monotonic execution+cleanup <= operation cap; grace <=1s cleanup <=5s within deadline; declared JVM/container/floor caps observed unchanged."
+    },
+    {
+      "id": "N13",
+      "name": "streams/exit routing",
+      "predicate": "STREAM_EXIT",
+      "producerRequirement": "Raw stdout/stderr separate hash-bound bytes; actual child exit0/17 retained; no timeout, failed capture, cleanup failure or nonzero child represented as successful execution.",
+      "readerAssertion": "Raw stdout/stderr separate hash-bound bytes; actual child exit0/17 retained; no timeout, failed capture, cleanup failure or nonzero child represented as successful execution."
+    },
+    {
+      "id": "N14",
+      "name": "diagnostic secret redaction",
+      "predicate": "REDACTION",
+      "producerRequirement": "Tagged synthetic argv/env/stdin/cause/split-chunk sentinels absent every SDK-owned diagnostic byte sequence; raw child/JDK/OS observations classified separately.",
+      "readerAssertion": "Tagged synthetic argv/env/stdin/cause/split-chunk sentinels absent every SDK-owned diagnostic byte sequence; raw child/JDK/OS observations classified separately."
+    },
+    {
+      "id": "N15",
+      "name": "source preservation",
+      "predicate": "PRESERVE_SOURCE",
+      "producerRequirement": "Complete before/after source inventories equal, independently of prior SDK and sibling observations.",
+      "readerAssertion": "Complete before/after source inventories equal, independently of prior SDK and sibling observations."
+    },
+    {
+      "id": "N16",
+      "name": "prior SDK preservation",
+      "predicate": "PRESERVE_SDK",
+      "producerRequirement": "Prior reusable SDK inventory unchanged and prior SDK executable smoke result retained after canceled/failed staging.",
+      "readerAssertion": "Prior reusable SDK inventory unchanged and prior SDK executable smoke result retained after canceled/failed staging."
+    },
+    {
+      "id": "N17",
+      "name": "sibling preservation",
+      "predicate": "PRESERVE_SIBLINGS",
+      "producerRequirement": "Every fixed unrelated sibling sentinel path/hash unchanged and unrelated sentinel process unaffected.",
+      "readerAssertion": "Every fixed unrelated sibling sentinel path/hash unchanged and unrelated sentinel process unaffected."
+    },
+    {
+      "id": "N18",
+      "name": "filesystem effects/output bindings",
+      "predicate": "EFFECTS",
+      "producerRequirement": "Exact before/after effects and output hashes bind row request and operation; failed/canceled operation never publishes success marker or replaces prior output.",
+      "readerAssertion": "Exact before/after effects and output hashes bind row request and operation; failed/canceled operation never publishes success marker or replaces prior output."
+    },
+    {
+      "id": "N19",
+      "name": "network/container terminal observations",
+      "predicate": "ISOLATION",
+      "producerRequirement": "Linux network none/caps/resources and terminal container absence bound to operation; Windows network isolation remains explicitly unqualified, never inferred from no packets.",
+      "readerAssertion": "Linux network none/caps/resources and terminal container absence bound to operation; Windows network isolation remains explicitly unqualified, never inferred from no packets."
+    },
+    {
+      "id": "N20",
+      "name": "relocation/no fallback",
+      "predicate": "RELOCATION",
+      "producerRequirement": "Pure reader passes relocated complete proof/source/JAR/reader closure without original paths and rejects missing relocated mandatory input even when original exists.",
+      "readerAssertion": "Pure reader passes relocated complete proof/source/JAR/reader closure without original paths and rejects missing relocated mandatory input even when original exists."
+    }
+  ],
+  "negativeVariants": [
+    {
+      "id": "N01-omitted",
+      "family": "N01",
+      "predicate": "REF_BINDING",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/referenceRows/windows-R01/platform",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N01-content-substituted",
+      "family": "N01",
+      "predicate": "REF_BINDING",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/referenceRows/windows-R01/platform",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N01-wrong-bound",
+      "family": "N01",
+      "predicate": "REF_BINDING",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/referenceRows/windows-R01/platform",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N02-omitted",
+      "family": "N02",
+      "predicate": "PRODUCT_BINDING",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/artifact/classes/org~1dotj~1internal~1sdk~1process~1OwnedProcess.class",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N02-content-substituted",
+      "family": "N02",
+      "predicate": "PRODUCT_BINDING",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/artifact/classes/org~1dotj~1internal~1sdk~1process~1OwnedProcess.class",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N02-wrong-bound",
+      "family": "N02",
+      "predicate": "PRODUCT_BINDING",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/artifact/classes/org~1dotj~1internal~1sdk~1process~1OwnedProcess.class",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N03-omitted",
+      "family": "N03",
+      "predicate": "SOURCE_CLOSURE",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/sources/dotj-sdk~1src~1org~1dotj~1internal~1sdk~1process~1OwnedProcess.java",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N03-content-substituted",
+      "family": "N03",
+      "predicate": "SOURCE_CLOSURE",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/sources/dotj-sdk~1src~1org~1dotj~1internal~1sdk~1process~1OwnedProcess.java",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N03-wrong-bound",
+      "family": "N03",
+      "predicate": "SOURCE_CLOSURE",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/sources/dotj-sdk~1src~1org~1dotj~1internal~1sdk~1process~1OwnedProcess.java",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N04-omitted",
+      "family": "N04",
+      "predicate": "READER_CLOSURE",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/readers/evidence_schema.py",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N04-content-substituted",
+      "family": "N04",
+      "predicate": "READER_CLOSURE",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/readers/evidence_schema.py",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N04-wrong-bound",
+      "family": "N04",
+      "predicate": "READER_CLOSURE",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/readers/evidence_schema.py",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N05-omitted",
+      "family": "N05",
+      "predicate": "CONTROL_SCOPE",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/controls/baseProof",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N05-content-substituted",
+      "family": "N05",
+      "predicate": "CONTROL_SCOPE",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/controls/baseProof",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N05-wrong-bound",
+      "family": "N05",
+      "predicate": "CONTROL_SCOPE",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/controls/baseProof",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N06-omitted",
+      "family": "N06",
+      "predicate": "CASE_SET",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P10-10",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N06-content-substituted",
+      "family": "N06",
+      "predicate": "CASE_SET",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P10-10",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N06-wrong-bound",
+      "family": "N06",
+      "predicate": "CASE_SET",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P10-10",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N07-omitted",
+      "family": "N07",
+      "predicate": "ARGV_IDENTITY",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P03-01/result/argvCodepoints",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N07-content-substituted",
+      "family": "N07",
+      "predicate": "ARGV_IDENTITY",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P03-01/result/argvCodepoints",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N07-wrong-bound",
+      "family": "N07",
+      "predicate": "ARGV_IDENTITY",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P03-01/result/argvCodepoints",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N08-omitted",
+      "family": "N08",
+      "predicate": "ENV_SCOPE",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P05-01/result/parentEnvironmentAfter",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N08-content-substituted",
+      "family": "N08",
+      "predicate": "ENV_SCOPE",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P05-01/result/parentEnvironmentAfter",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N08-wrong-bound",
+      "family": "N08",
+      "predicate": "ENV_SCOPE",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P05-01/result/parentEnvironmentAfter",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N09-omitted",
+      "family": "N09",
+      "predicate": "HANDLE_OWNERSHIP",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P10-01/result/handles",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N09-content-substituted",
+      "family": "N09",
+      "predicate": "HANDLE_OWNERSHIP",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P10-01/result/handles",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N09-wrong-bound",
+      "family": "N09",
+      "predicate": "HANDLE_OWNERSHIP",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P10-01/result/handles",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N10-omitted",
+      "family": "N10",
+      "predicate": "TERMINAL_EXIT",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P09-01/result/handles",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N10-content-substituted",
+      "family": "N10",
+      "predicate": "TERMINAL_EXIT",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P09-01/result/handles",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N10-wrong-bound",
+      "family": "N10",
+      "predicate": "TERMINAL_EXIT",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P09-01/result/handles",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N11-omitted",
+      "family": "N11",
+      "predicate": "WORKER_JOIN",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P14-01/result/workers",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N11-content-substituted",
+      "family": "N11",
+      "predicate": "WORKER_JOIN",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P14-01/result/workers",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N11-wrong-bound",
+      "family": "N11",
+      "predicate": "WORKER_JOIN",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P14-01/result/workers",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N12-omitted",
+      "family": "N12",
+      "predicate": "CAPS",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P01-01/result/timing",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N12-content-substituted",
+      "family": "N12",
+      "predicate": "CAPS",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P01-01/result/timing",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N12-wrong-bound",
+      "family": "N12",
+      "predicate": "CAPS",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P01-01/result/timing",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N13-omitted",
+      "family": "N13",
+      "predicate": "STREAM_EXIT",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P02-01/result/exitCode",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N13-content-substituted",
+      "family": "N13",
+      "predicate": "STREAM_EXIT",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P02-01/result/exitCode",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N13-wrong-bound",
+      "family": "N13",
+      "predicate": "STREAM_EXIT",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P02-01/result/exitCode",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N14-omitted",
+      "family": "N14",
+      "predicate": "REDACTION",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P22-01/result/diagnostics",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N14-content-substituted",
+      "family": "N14",
+      "predicate": "REDACTION",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P22-01/result/diagnostics",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N14-wrong-bound",
+      "family": "N14",
+      "predicate": "REDACTION",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P22-01/result/diagnostics",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N15-omitted",
+      "family": "N15",
+      "predicate": "PRESERVE_SOURCE",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P21-01/effects/after/source",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N15-content-substituted",
+      "family": "N15",
+      "predicate": "PRESERVE_SOURCE",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P21-01/effects/after/source",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N15-wrong-bound",
+      "family": "N15",
+      "predicate": "PRESERVE_SOURCE",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P21-01/effects/after/source",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N16-omitted",
+      "family": "N16",
+      "predicate": "PRESERVE_SDK",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P20-01/effects/after/priorSDK",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N16-content-substituted",
+      "family": "N16",
+      "predicate": "PRESERVE_SDK",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P20-01/effects/after/priorSDK",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N16-wrong-bound",
+      "family": "N16",
+      "predicate": "PRESERVE_SDK",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/windows-P20-01/effects/after/priorSDK",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N17-omitted",
+      "family": "N17",
+      "predicate": "PRESERVE_SIBLINGS",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P21-01/effects/after/siblings",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N17-content-substituted",
+      "family": "N17",
+      "predicate": "PRESERVE_SIBLINGS",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P21-01/effects/after/siblings",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N17-wrong-bound",
+      "family": "N17",
+      "predicate": "PRESERVE_SIBLINGS",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P21-01/effects/after/siblings",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N18-omitted",
+      "family": "N18",
+      "predicate": "EFFECTS",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P21-01/effects/publication",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N18-content-substituted",
+      "family": "N18",
+      "predicate": "EFFECTS",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P21-01/effects/publication",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N18-wrong-bound",
+      "family": "N18",
+      "predicate": "EFFECTS",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P21-01/effects/publication",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N19-omitted",
+      "family": "N19",
+      "predicate": "ISOLATION",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P01-01/result/container",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N19-content-substituted",
+      "family": "N19",
+      "predicate": "ISOLATION",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P01-01/result/container",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N19-wrong-bound",
+      "family": "N19",
+      "predicate": "ISOLATION",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/productRows/linux-P01-01/result/container",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    },
+    {
+      "id": "N20-omitted",
+      "family": "N20",
+      "predicate": "RELOCATION",
+      "mutation": "omitted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/relocation/noFallback",
+      "operation": "Remove the selected mandatory member."
+    },
+    {
+      "id": "N20-content-substituted",
+      "family": "N20",
+      "predicate": "RELOCATION",
+      "mutation": "content-substituted",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/relocation/noFallback",
+      "operation": "Keep member and binding but replace with an invalid value of the same structural type that violates the named reader assertion."
+    },
+    {
+      "id": "N20-wrong-bound",
+      "family": "N20",
+      "predicate": "RELOCATION",
+      "mutation": "wrong-bound",
+      "expected": "REJECT",
+      "rehash": "Recompute object/envelope hashes and manifests after semantic mutation; retain trusted expected contract/inventory unchanged.",
+      "target": "/relocation/noFallback",
+      "operation": "Replace with structurally valid witness from the other OS, row or old artifact, including its matching object digest; it must fail semantic identity binding."
+    }
+  ],
+  "expectedInventories": {
+    "referenceAggregates": [
+      "reference/observations-windows.json",
+      "reference/observations-linux.json",
+      "reference/manifest.json",
+      "reference/summary.json"
+    ],
+    "productAggregates": [
+      "product/qualification-windows.json",
+      "product/qualification-linux.json",
+      "product/manifest.json",
+      "product/summary.json"
+    ],
+    "negativeProofs": [
+      "controls/N01-omitted/proof.json",
+      "controls/N01-content-substituted/proof.json",
+      "controls/N01-wrong-bound/proof.json",
+      "controls/N02-omitted/proof.json",
+      "controls/N02-content-substituted/proof.json",
+      "controls/N02-wrong-bound/proof.json",
+      "controls/N03-omitted/proof.json",
+      "controls/N03-content-substituted/proof.json",
+      "controls/N03-wrong-bound/proof.json",
+      "controls/N04-omitted/proof.json",
+      "controls/N04-content-substituted/proof.json",
+      "controls/N04-wrong-bound/proof.json",
+      "controls/N05-omitted/proof.json",
+      "controls/N05-content-substituted/proof.json",
+      "controls/N05-wrong-bound/proof.json",
+      "controls/N06-omitted/proof.json",
+      "controls/N06-content-substituted/proof.json",
+      "controls/N06-wrong-bound/proof.json",
+      "controls/N07-omitted/proof.json",
+      "controls/N07-content-substituted/proof.json",
+      "controls/N07-wrong-bound/proof.json",
+      "controls/N08-omitted/proof.json",
+      "controls/N08-content-substituted/proof.json",
+      "controls/N08-wrong-bound/proof.json",
+      "controls/N09-omitted/proof.json",
+      "controls/N09-content-substituted/proof.json",
+      "controls/N09-wrong-bound/proof.json",
+      "controls/N10-omitted/proof.json",
+      "controls/N10-content-substituted/proof.json",
+      "controls/N10-wrong-bound/proof.json",
+      "controls/N11-omitted/proof.json",
+      "controls/N11-content-substituted/proof.json",
+      "controls/N11-wrong-bound/proof.json",
+      "controls/N12-omitted/proof.json",
+      "controls/N12-content-substituted/proof.json",
+      "controls/N12-wrong-bound/proof.json",
+      "controls/N13-omitted/proof.json",
+      "controls/N13-content-substituted/proof.json",
+      "controls/N13-wrong-bound/proof.json",
+      "controls/N14-omitted/proof.json",
+      "controls/N14-content-substituted/proof.json",
+      "controls/N14-wrong-bound/proof.json",
+      "controls/N15-omitted/proof.json",
+      "controls/N15-content-substituted/proof.json",
+      "controls/N15-wrong-bound/proof.json",
+      "controls/N16-omitted/proof.json",
+      "controls/N16-content-substituted/proof.json",
+      "controls/N16-wrong-bound/proof.json",
+      "controls/N17-omitted/proof.json",
+      "controls/N17-content-substituted/proof.json",
+      "controls/N17-wrong-bound/proof.json",
+      "controls/N18-omitted/proof.json",
+      "controls/N18-content-substituted/proof.json",
+      "controls/N18-wrong-bound/proof.json",
+      "controls/N19-omitted/proof.json",
+      "controls/N19-content-substituted/proof.json",
+      "controls/N19-wrong-bound/proof.json",
+      "controls/N20-omitted/proof.json",
+      "controls/N20-content-substituted/proof.json",
+      "controls/N20-wrong-bound/proof.json"
+    ],
+    "negativeSummary": [
+      "controls/summary.json"
+    ],
+    "referenceFixtureSources": [
+      "tools/oracle/dotj-sdk/owned-process-v1/reference/Program.cs",
+      "tools/oracle/dotj-sdk/owned-process-v1/reference/Reference.csproj",
+      "tools/oracle/dotj-sdk/owned-process-v1/reference/NuGet.Config"
+    ],
+    "jdkProbeSources": [
+      "tools/oracle/dotj-sdk/owned-process-v1/java/ProcessProbe.java",
+      "tools/oracle/dotj-sdk/owned-process-v1/java/ProbeChild.java"
+    ],
+    "productCompileSources": [
+      "dotj-build/evaluation-candidate/src/module-info.java",
+      "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemEvaluator.java",
+      "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemExpressions.java",
+      "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemGlobs.java",
+      "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemSnapshot.java",
+      "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java",
+      "dotj-sdk/src/org/dotj/internal/build/evaluation/SdkMain.java",
+      "dotj-sdk/src/org/dotj/internal/sdk/process/OwnedProcess.java"
+    ],
+    "productDeclaredSources": [
+      "dotj-build/evaluation-candidate/src/module-info.java",
+      "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemEvaluator.java",
+      "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemExpressions.java",
+      "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemGlobs.java",
+      "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ItemSnapshot.java",
+      "dotj-build/evaluation-candidate/src/org/dotj/internal/build/evaluation/ProjectEvaluationComponent.java",
+      "dotj-sdk/src/org/dotj/internal/build/evaluation/SdkMain.java",
+      "dotj-sdk/seed/Bootstrap.java",
+      "dotj-sdk/seed/sources.properties",
+      "dotj-sdk/seed/jdk.properties",
+      "dotj-sdk/seed/build.ps1",
+      "dotj-sdk/seed/build.sh",
+      "dotj-sdk/launcher/dotj",
+      "dotj-sdk/launcher/dotj.ps1",
+      "dotj-sdk/src/org/dotj/internal/sdk/process/OwnedProcess.java"
+    ],
+    "privateConsumerSources": [
+      "tools/oracle/dotj-sdk/owned-process-v1/java/OwnedProcessTest.java",
+      "tools/oracle/dotj-sdk/owned-process-v1/java/ChildFixture.java"
+    ],
+    "readerClosure": [
+      "tools/oracle/dotj-sdk/owned-process-v1/read_proof.py",
+      "tools/oracle/dotj-sdk/owned-process-v1/evidence_schema.py",
+      "tools/oracle/dotj-sdk/seed-v1/proof_reader.py",
+      "tools/oracle/dotj-build/cycle-trace-v1/read_proof.py",
+      "tools/oracle/dotj-build/cycle-trace-v1/compare.py",
+      "tools/oracle/dotj-build/cycle-trace-v1/corpus.py",
+      "tools/oracle/dotj-build/cycle-trace-v1/native_lock.py",
+      "tools/oracle/dotj-build/cycle-trace-v1/inherited_models.py"
+    ],
+    "readerBundleMapping": [
+      {
+        "source": "tools/oracle/dotj-sdk/owned-process-v1/read_proof.py",
+        "bundle": "reader/read_proof.py"
+      },
+      {
+        "source": "tools/oracle/dotj-sdk/owned-process-v1/evidence_schema.py",
+        "bundle": "reader/evidence_schema.py"
+      },
+      {
+        "source": "tools/oracle/dotj-sdk/seed-v1/proof_reader.py",
+        "bundle": "reader/seed/proof_reader.py"
+      },
+      {
+        "source": "tools/oracle/dotj-build/cycle-trace-v1/read_proof.py",
+        "bundle": "reader/seed/inherited/read_proof.py"
+      },
+      {
+        "source": "tools/oracle/dotj-build/cycle-trace-v1/compare.py",
+        "bundle": "reader/seed/inherited/compare.py"
+      },
+      {
+        "source": "tools/oracle/dotj-build/cycle-trace-v1/corpus.py",
+        "bundle": "reader/seed/inherited/corpus.py"
+      },
+      {
+        "source": "tools/oracle/dotj-build/cycle-trace-v1/native_lock.py",
+        "bundle": "reader/seed/inherited/native_lock.py"
+      },
+      {
+        "source": "tools/oracle/dotj-build/cycle-trace-v1/inherited_models.py",
+        "bundle": "reader/seed/inherited/inherited_models.py"
+      }
+    ],
+    "captureProducerClosure": [
+      "tools/oracle/dotj-sdk/owned-process-v1/capture_reference.py",
+      "tools/oracle/dotj-sdk/owned-process-v1/capture_windows.py",
+      "tools/oracle/dotj-sdk/owned-process-v1/capture_linux.py"
+    ],
+    "productProducerClosure": [
+      "tools/oracle/dotj-sdk/owned-process-v1/run_product.py"
+    ],
+    "proofProducerClosure": [
+      "tools/oracle/dotj-sdk/owned-process-v1/freeze_proof.py",
+      "tools/oracle/dotj-sdk/owned-process-v1/mutate_proof.py"
+    ],
+    "contractClosure": [
+      "tools/oracle/dotj-sdk/owned-process-v1/contract.json",
+      "tools/oracle/dotj-sdk/owned-process-v1/source-map.json",
+      "tools/oracle/dotj-sdk/owned-process-v1/fixtures.json"
+    ],
+    "fixedFixtureOutputs": [
+      "reference/Reference.dll",
+      "reference/Reference.deps.json",
+      "reference/Reference.runtimeconfig.json",
+      "java/ProcessProbe.class",
+      "java/ProbeChild.class",
+      "java/OwnedProcessTest.class",
+      "java/ChildFixture.class"
+    ],
+    "futureDigestRule": "PLANNED: exact paths required now; actual bytes/digests only after authored source and offline build. Reject absent/empty/invented hashes in capture. Hash full compiler output inventory, including nested classes, under independent reviewed freeze before product qualification.",
+    "finalClassInventory": {
+      "status": "UNRESOLVED_UNTIL_OP06_OP07",
+      "rule": "Independently enumerate every final JAR entry and class after final build; root-reviewed immutable inventory required before OP08/OP09. Never use old45+N or product self-selected expected classes.",
+      "requiredPrimary": "org/dotj/internal/sdk/process/OwnedProcess.class",
+      "module": "org.dotj.build.evaluation.candidate"
+    }
+  },
+  "oldControls": {
+    "count": 154,
+    "scope": "Accepted archived seed schema1:14 sources,7 staged Java,45 classes; old reader/base/artifact only.",
+    "evidence": "tools/oracle/dotj-sdk/seed-v1/README.md",
+    "rule": "Affected new seed predicates require fresh corresponding current-reader controls; old154 never count as new capability tests."
+  },
+  "expansionPolicy": "Any additional mandatory output/dependency/control (including javac nested classes or inherited qualification bundles) requires prospective versioned reviewed inventory amendment; never silently expand a count or accept observed self-selection.",
+  "executionStatus": "No captures, product executions, new negative controls or old154 re-executions in OP01."
+}

@@ -1,0 +1,709 @@
+{
+  "schema": "dotj.owned-process.contract",
+  "version": 1,
+  "status": "FROZEN_INTERNAL_CONTRACT_NOT_IMPLEMENTED",
+  "base": "73c6bcad1d41be1b324aaa744e5fd5999b0bf4bb",
+  "target": "SDK-I02-T4",
+  "specClauses": [
+    {
+      "id": "SDK-I02-T4",
+      "source": "S17",
+      "line": 68,
+      "wording": "Implement internal process execution with argument arrays, cancellation, environment scoping and diagnostic redaction; keep helper APIs internal."
+    },
+    {
+      "id": "SDK-I02-F02",
+      "source": "S17",
+      "line": 74,
+      "wording": "Paths containing spaces and Unicode reach javac and child applications unchanged on each advertised OS."
+    },
+    {
+      "id": "SDK-I02-F04",
+      "source": "S17",
+      "line": 76,
+      "wording": "Cancellation terminates owned children and leaves reusable previous outputs intact."
+    }
+  ],
+  "rootRulings": [
+    {
+      "id": "D1",
+      "decision": "Own all Process instances launched by this component, including in-flight launches; cancellation terminates and joins each plus drainers. Descendant enumeration is not a containment proof; forced parent death and escaped descendants remain unqualified.",
+      "reason": "Exact internal task/F04 and JDK/native source distinguish direct lifecycle from stronger OS containment",
+      "costIfWrong": "Native adapter and lifecycle/oracle rework; no premature full credit"
+    },
+    {
+      "id": "D2",
+      "decision": "SDK-owned diagnostics redact synthetic secrets from argv/env/stdin and failures; raw child protocol and JDK TRACE/JFR/OS observation are explicitly separate. Do not exclude secret argv tests.",
+      "reason": "Diagnostic redaction requirement does not promise OS secrecy",
+      "costIfWrong": "Transport and telemetry rework"
+    },
+    {
+      "id": "D3",
+      "decision": "A shipped nonexported module implementation exercised by SDK-owned private packaged consumer can meet the internal capability task. Keep current provider seed default; no forced bootstrap rewrite.",
+      "reason": "Task explicitly internal APIs; no public CLI required",
+      "costIfWrong": "Additional operational integration and requalification"
+    },
+    {
+      "id": "D4",
+      "decision": "Defer transport selection until OP02 actual native Java/javac Unicode observations",
+      "reason": "Existing launcher transport evidence does not prove new process route",
+      "costIfWrong": "Bridge/transport changes"
+    }
+  ],
+  "semanticMapping": "source-map.json#/semanticMappings",
+  "expectedInventory": "fixtures.json#/expectedInventories",
+  "authority": {
+    "plan": {
+      "path": "D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/task139-next-sdk-owned-process-plan-v1.json",
+      "bytes": 522741,
+      "sha256": "929995badb67d163170f4ad958c4912d5df3dcdf06a97b4021b3a3b61f49c67e"
+    },
+    "adoption": {
+      "path": "D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/task139-root-adoption-v2.json",
+      "bytes": 45999,
+      "sha256": "1b4d3e8777dd51f14bc9ea2d9d6444da7677c2fdb43331d18c7c80d2fb869b6c"
+    },
+    "rule": "Binding specification wins. Final12-task plan supersedes historical OP02 eight-file allowance; OP02A/B/C each3files, checkpoint after OP02C."
+  },
+  "inventoryBindings": {
+    "source-map.json": {
+      "path": "source-map.json",
+      "bytes": 48716,
+      "sha256": "d0b0535442c9de18f86c87df80677ef6da1db17bb22f70709ec78d3849f68050"
+    },
+    "fixtures.json": {
+      "path": "fixtures.json",
+      "bytes": 123764,
+      "sha256": "c194090621504ae9daf850617457f2183005ce06f1d8677f52a1807942c3687c"
+    }
+  },
+  "trustRule": "Capture checks the two exact sibling manifest digests against this contract before any launch. Proof readers must anchor the reviewed contract digest outside producer-selected proof data; rehashing a reduced fixture/expected inventory does not change trusted requirements. Final source/class digest freeze is a separately reviewed OP07 extension, not an observation selected as its own expectation.",
+  "architecture": {
+    "current": "Same private evaluator remains. Provider-only seed and own-root launcher are accepted predecessors, not generic process capability.",
+    "proposed": "Single owned internal Java process component in existing nonexporting SDK module; nested internal request/result/state types; no public Process facade, execute/debug CLI or duplicate evaluator.",
+    "ownership": "Direct Process objects created by owner. Reserve launch slot before start; publish direct handle before use; cancellation closes admission and waits in-flight slots. Child may run before ProcessBuilder.start returns: this is not suspended creation or OS containment.",
+    "cancellation": "Close stdin, concurrently drain bounded outputs, destroy then bounded grace/force, observe actual exit and join drainers. Preserve interrupt after cleanup; timeout/cleanup failure stays non-success. Never claim kill from future cancellation.",
+    "environment": "Immutable per-operation copy, ProcessBuilder-local env, explicit cwd, platform case handling, no caller environment/cwd/Console encoding mutation. Reject malformed values and Java option injection.",
+    "argv": "Arrays with exact selected executable identity, no shell concatenation. Actual Windows/Linux java/javac/app Unicode must be captured; inherited launcher proof is not proof of new process route.",
+    "redaction": "SDK diagnostics use error categories/operation labels rather than raw request/Throwable messages. Test synthetic tagged secrets even if production discourages secret argv. Bound child data separately; do not automatically dump stdout/stderr into errors. Known-secret rendering must handle split chunks. Unknown transformations are not universally redactable.",
+    "telemetry": "TRACE/JFR/OS argument observation is a separate explicit boundary. Base64 is not secrecy. Stronger secrecy requires a reviewed transport/telemetry contract; cannot be solved merely by excluding secret tests.",
+    "descendants": "Snapshot observation may diagnose, not define or prove complete ownership. Dynamic descendants, escaped daemons, forced parent death and VM crash guarantees require separate native qualification if demanded by accepted predicate."
+  },
+  "limits": {
+    "jvm": "Heap128MiB/CPU2/SerialGC/codecache32MiB/perfdataoff/tmp+homeD",
+    "floors": "Free physical512MiB and available commit16GiB",
+    "timeouts": "Query20s/owned operation120s existing maximum; proposed grace1s then force/join using remaining <=5s cleanup reserve. Bounds include cleanup; failure if not observed terminal.",
+    "linux": "Networknone/read-onlyroot/capdropALL/noNewPrivileges/CPU2/memory512MiB+swap512MiB/pids64/core0/inner25s/aggregate180s/reserve40s. Split finite groups, never raise caps silently.",
+    "profiles": "JDK21x64Windows/Linux; Windows printableASCII JDKhome, semantic256tokens/32768UTF16 and complete encoded native30000UTF16 guard. Linux C.UTF-8 and measured case-enabled9p/NTFS, not ext4. Windows isolated offline/Java25/macOS/ARM64/public distribution/global selector remain OPEN."
+  },
+  "typedBounds": {
+    "argvTokens": 256,
+    "semanticUtf16": 32768,
+    "windowsNativeUtf16": 30000,
+    "stdinBytes": 65536,
+    "stdoutBytes": 1048576,
+    "stderrBytes": 1048576,
+    "diagnosticBytes": 8192,
+    "operationMillis": 120000,
+    "graceMillis": 1000,
+    "cleanupReserveMillis": 5000,
+    "queryMillis": 20000,
+    "linuxInnerMillis": 25000,
+    "linuxAggregateMillis": 180000,
+    "linuxReserveMillis": 40000,
+    "freePhysicalMiB": 512,
+    "availableCommitGiB": 16
+  },
+  "lifecycle": {
+    "states": [
+      "OPEN",
+      "CLOSING",
+      "CLOSED"
+    ],
+    "launchStates": [
+      "RESERVED",
+      "STARTING",
+      "RETAINED",
+      "START_FAILED",
+      "EXIT_OBSERVED",
+      "JOINED"
+    ],
+    "rules": [
+      "Reserve before OS start; close admission on cancellation/close; wait all in-flight slots.",
+      "Publish/retain Process immediately after start before caller access; recheck cancellation even when start returned late.",
+      "Close stdin; drain both pipes concurrently within fixed byte bounds; overflow is non-success and triggers cleanup.",
+      "Destroy, wait up to1s then force if alive; observe exit and join all workers within remaining deadline and <=5s reserve.",
+      "Idempotent cancel/close; cleanup errors remain explicit; restore interrupted status after cleanup.",
+      "No success on outer-guard intervention; all owned handles and workers must have independently observed terminal state."
+    ]
+  },
+  "protocol": {
+    "status": "PLANNED_EXECUTABLE_INTERFACE_NOT_RUN",
+    "entry": "tools/oracle/dotj-sdk/owned-process-v1/capture_reference.py",
+    "cli": {
+      "required": [
+        "--contract",
+        "--platform",
+        "--output"
+      ],
+      "optional": [],
+      "platform": [
+        "windows",
+        "linux"
+      ],
+      "contract": "Absolute path to this versioned contract; sibling source-map.json and fixtures.json digest-bound before launch.",
+      "output": "Fresh absolute D-owned host directory; reject existing/nonempty root, reparse alias or path outside assigned task scratch.",
+      "exitCodes": {
+        "0": "Complete capture with all mandatory rows and observations; does not mean product parity passed.",
+        "1": "Validation/capture/cleanup failure with retained failure receipt; never publish complete capture.",
+        "2": "CLI usage failure before any launch."
+      }
+    },
+    "fixture": {
+      "project": "tools/oracle/dotj-sdk/owned-process-v1/reference/Reference.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.401",
+      "runtime": "10.0.12",
+      "config": "tools/oracle/dotj-sdk/owned-process-v1/reference/NuGet.Config",
+      "packageReferences": [],
+      "offline": "Clear package sources; all restore/build inputs local and explicitly recorded. Separate offline build before --no-build run. No implicit build/restore/network during capture.",
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "Reference.csproj",
+        "--no-build",
+        "--",
+        "--mode",
+        "mode",
+        "--request",
+        "request.json",
+        "--"
+      ],
+      "modeEnum": [
+        "exit0",
+        "exit17",
+        "echo",
+        "invalid-start",
+        "cooperative-cancel",
+        "wait-cancel-force"
+      ],
+      "resolution": "Resolve dotnet/project/mode/request tokens to pinned executable, staged absolute project, fixed cohort mode and prelaunch request path; retain the literal final --. Append request.argv according to payloadRule. No unexpanded placeholder token is passed.",
+      "apiHarness": "For R06/R07/R08 the run command only hosts the fixture. Record child ProcessStartInfo/ArgumentList invocation separately; do not attribute API wait or kill behavior to SDK Command/ProcessReaper.",
+      "payloadRule": {
+        "assembly": "Resolve the fixed command prefix tokens first, then append every request.argv token unchanged as a distinct argument after the final --. In R03 request.argv is exactly fixtures.corpus.argv. All SDK-command cohorts use this vector rule; other cases may have an empty payload array.",
+        "controlGrammar": "After dotnet consumes its first --, fixture Main receives exactly --mode, mode, --request, absoluteRequestPath, --, then payload. Validate the first five tokens positionally; the fifth token is the fixture delimiter. Every token after it is payload, even empty strings, --mode, --request or --. Never scan payload for controls.",
+        "observation": "Fixture derives received payload from its actual Main(string[] args) suffix after index4, and emits independently computed tokens, Unicode scalar arrays and UTF16 lengths. It reads request.json only for requested comparison/configuration, never as the received observation.",
+        "transport": "Use the selected native SDK process argument array, no shell joining. Record the entire resolved actual SDK argv vector separately from the requested payload and the child-observed payload. An API-harness child does not replace this sdk-command observation."
+      }
+    },
+    "jdk": {
+      "probe": "tools/oracle/dotj-sdk/owned-process-v1/java/ProcessProbe.java",
+      "child": "tools/oracle/dotj-sdk/owned-process-v1/java/ProbeChild.java",
+      "compileFlags": [
+        "--release",
+        "21",
+        "-encoding",
+        "UTF-8",
+        "-proc:none"
+      ],
+      "modeEnum": [
+        "java-argv",
+        "javac-unicode",
+        "jdk-trace",
+        "jdk-jfr"
+      ],
+      "transport": "UNRESOLVED pending OP02C: record exact native argv and codepoints for actual java/javac, child cwd and result. No inherited launcher equivalence assertion.",
+      "cli": [
+        "--mode",
+        "MODE",
+        "--request",
+        "ABSOLUTE_REQUEST_PATH",
+        "--",
+        "PAYLOAD..."
+      ],
+      "wire": {
+        "schema": "dotj.owned-process.jdk-probe-observation/1",
+        "framing": "One strict UTF8 JSON object plus LF. Exact same positional control grammar as native fixture. Request engine jdk-probe, mode from frozen enum, rowId from corresponding boundary group. No capture status or outer guard/network/container assertions.",
+        "requiredFields": [
+          "schema",
+          "rowId",
+          "requestSha256",
+          "mode",
+          "actor",
+          "receivedPayload",
+          "cwd",
+          "environment",
+          "parentEnvironmentBefore",
+          "parentEnvironmentAfter",
+          "operations",
+          "telemetry",
+          "errors",
+          "expectedOuterExitCode",
+          "transportComparison"
+        ],
+        "actors": "actor is {kind:jdk-probe,pid:actual probe PID}; receivedPayload independently observes actual main suffix; environment and parentEnvironment maps belong to probe. Each operations element owns one actual Process and its independently observed child streams/payload. Never infer driver or JDK internal thread joins. Final result.observationActors is exactly {outerProcess:driver-owned-outer,parentEnvironment:driver,payload:jdk-probe,apiOperations:jdk-probe-child-operations} for these rows.",
+        "operationFields": [
+          "id",
+          "parentActorPid",
+          "childPid",
+          "invocation",
+          "disposition",
+          "exitCode",
+          "handles",
+          "workers",
+          "timing",
+          "streams",
+          "childObservation"
+        ],
+        "operationWire": "Use fixtureStdout.apiOperation field semantics with probe as parentActorPid. Streams use unchanged embeddedBytes. handles additionally records onExitFutureCanceled and aliveAfterFutureCancel for the separate hold-child lifecycle operation. Child protocol schema dotj.owned-process.probe-child/1 contains pid, receivedPayload, cwd, environment and stdin embeddedBytes; independently parsed and bound to Process PID.",
+        "paths": "Probe artifacts only under request.cwd. java-argv uses selected pinned java and compiled ProbeChild. javac-unicode selects pinned javac, writes fixed UnicodeApp.java in Unicode cwd, compiles with --release21/UTF8/proc:none to cwd/classes, then launches pinned sibling java with cwd/classes plus probe classpath. Tool descriptors for java/javac must be in request.inputs, all verified before launch.",
+        "bounds": "Each child <=20s including cleanup; entire probe uses request deadline <=120s. Both pipes drained concurrently <=1MiB each, stdin<=65536, categorical errors only, actual observed exit and worker joins. Every launch uses bounded JVM options, explicit child environment and cwd; no global configuration mutation.",
+        "telemetry": "jdk-trace configures java.util.logging programmatically in the probe before ProcessBuilder creation and retains trace.log under cwd; jdk-jfr programmatically records enabled jdk.ProcessStart events and retains recording.jfr under cwd. telemetry is array of relative path/bytes/sha256 plus observed synthetic argv exposure boolean and event commands where applicable. These are raw telemetry separate from SDK diagnostics.",
+        "failure": "errors nonempty/expectedOuterExitCode nonzero means failed probe. Missing evidence is null or explicit failure, never manufactured terminal facts. Actual transport codepoint differences are observations, not normalized success/parity claims.",
+        "rootRuling": "task147-op02b-wire-native-ruling-v1.json; prospective five-file OP02B inventory, no product credit",
+        "transportComparison": "Mandatory {roundTrip:boolean,differences:[{index,requested,observed}]} compares requested argv with independently received Main suffix; missing tokens use null. Each child operation with childObservation has analogous comparison against actual selected command payload. Measured loss is a valid boundary observation; roundTrip=false is never semantic parity. U01 remains pending OP02C root checkpoint; no C# or product rule weakened."
+      },
+      "terminalTransportNegative": "Narrow inventory-only allowance: only javac-unicode operations exactly native-javac EXITED/exit0 followed by compiled-application IO_FAILED/actual observed nonzero exit may retain absent child protocol. Require exact retained nonzero PID/startIdentity, terminal+observedExit and matching exitCode, all three started/closed/terminal/joined/error-null workers, both available/hash-bound bounded raw streams, monotonic end<=deadline, actual outer expectedExit matching observed probe exit, and exact sole errors [{category:IO_FAILED,actorPid:probe PID}]. Every other operation/error/mode/failure still fails. Raw disposition/errors/bytes never rewritten; this is measured transport failure, never product parity, lifecycle success or T4 eligibility. Ordinary row sealer and aggregate boundary validator use identical predicate."
+    },
+    "requestFields": {
+      "schema": "constant dotj.owned-process.request/1",
+      "rowId": "exact frozen reference/product/boundary ID",
+      "platform": "windows|linux",
+      "engine": "sdk-command|dotnet-process-api|jdk-probe|packaged-product",
+      "mode": "cohort/boundary fixed enum",
+      "executable": "absolute selected path plus sha256",
+      "argv": "ordered string array, exact UTF16 and Unicode scalar arrays retained",
+      "cwd": "absolute child working directory",
+      "environment": "Exactly {baseline:{values: complete case-preserving string-to-string map}, set: string-to-string map, remove: string array}; environmentWire defines validation/application. Whole exact requestSha256 binds all values; no secondary baseline descriptor/hash.",
+      "stdin": "base64 bytes plus sha256/length",
+      "secrets": "synthetic sentinel labels and values from fixtures only",
+      "deadlineMillis": "integer <= typedBounds.operationMillis including cleanup",
+      "limits": "exact typed bounds and platform caps",
+      "inputs": "exact mandatory source/tool/fixture digest descriptors",
+      "effectsRoots": "explicit owned staging, prior SDK, source and sibling sentinel paths",
+      "argvCodepoints": "Mandatory scalar arrays computed from requested payload argv before launch; compared to independently observed result.argvCodepoints.",
+      "argvUtf16Lengths": "Mandatory UTF16 code-unit lengths computed from requested payload argv before launch."
+    },
+    "resultFields": {
+      "schema": "constant dotj.owned-process.observation/1",
+      "rowId": "exact request ID",
+      "requestSha256": "sha256 of exact request bytes",
+      "engine": "same request engine",
+      "platform": "actual native OS/arch/locale and tool version evidence",
+      "invocation": "resolved actual executable argv cwd environment and input digest",
+      "disposition": "EXITED|START_FAILED|CANCELED|TIMED_OUT|IO_FAILED|CLEANUP_FAILED|CAPTURE_FAILED",
+      "exitCode": "actual integer only when exit observed; otherwise null",
+      "launched": "boolean",
+      "handles": "launchSlot, pid, startIdentity, retained, cancel/destroy/force events, observedExit, exitCode, terminal",
+      "workers": "stdin/stdout/stderr started, closed, terminal, joined, errorCategory",
+      "timing": "monotonic start/end/deadline/cleanup timestamps",
+      "streams": "Raw tested-process stdout/stderr byte length sha256 path and truncation boolean. For native reference fixture rows these are driver-observed outer streams: fixture stdout JSON remains stdout.bin and API-child streams stay embedded. Product/helper rows retain tested-process stream semantics.",
+      "diagnostics": "SDK-owned categorical diagnostic bytes and redaction checks, separate from raw streams",
+      "effects": "effects.json descriptor",
+      "outerGuard": "used boolean, actions, observed terminal; intervention forces failed capture",
+      "network": "actual isolation/observation and unqualified scope",
+      "container": "identity, caps, exit, removal/absence observation; null on Windows",
+      "status": "CAPTURE_COMPLETE|CAPTURE_FAILED; no invented product PASS",
+      "argvCodepoints": "Mandatory ordered arrays of integer Unicode scalars derived independently from received payload argv, excluding fixture controls; never copied from request argv. Empty token is an empty scalar array.",
+      "argvUtf16Lengths": "Mandatory per-received-payload-token UTF16 code-unit lengths, including zero for an empty token.",
+      "parentEnvironmentBefore": "Complete actual process-owning caller environment map before launch. For native reference fixture rows this is the driver; nested fixtureObservation parent snapshots separately belong to fixture. Product rows retain the actual tested helper caller as actor, not an unrelated outer Python driver.",
+      "parentEnvironmentAfter": "Complete actual same-caller environment map after cleanup; equals its before snapshot. For native fixture rows driver snapshots never substitute fixture/API-child maps. Product helper nonmutation still requires its actual caller snapshots.",
+      "fixtureObservation": "Verified subordinate fixtureStdout object for native reference fixture rows; null for engines without this fixture. Embedded API-child facts remain nested and actor-scoped.",
+      "observationActors": "Explicit actor map defined by fixtureToDriver.actorMap; prevents driver parent snapshots or outer streams from being mistaken for fixture/API-child facts.",
+      "jdkProbeObservation": "Conditional: required verified complete subordinate JDK wire object on jdk-probe rows, null otherwise. fixtureObservation stays null for JDK rows. Raw outer streams remain driver-observed."
+    },
+    "effectsFields": {
+      "schema": "constant dotj.owned-process.effects/1",
+      "rowId": "request identity",
+      "requestSha256": "exact request binding",
+      "before": "Mandatory object with exactly source, priorSDK, siblings, staging keys; each is a complete relative-path map to type,bytes,sha256 descriptors, captured before operation.",
+      "after": "Mandatory object with exactly source, priorSDK, siblings, staging keys; each has same inventory shape as before. source/priorSDK/siblings equal their respective before maps for preservation cases.",
+      "delta": "added/removed/changed relative paths and hashes",
+      "publication": "boolean plus success marker inventory",
+      "priorSdkSmoke": "actual invocation streams exit after failure/cancel when required; not just hashes",
+      "sentinelProcess": "identity and before/after unaffected status",
+      "network": "observation descriptor",
+      "cleanup": "product and outer-guard actions separately"
+    },
+    "aggregateRule": "After completion, reference request.json becomes the row envelope defined by requestRetention, retaining exact prelaunch request bytes as base64. Product observation.json uses the same envelope. Four per-row files remain unchanged. Boundary observation.json contains ordered per-mode envelopes with raw stream offsets and actual invocations; all modes mandatory.",
+    "framing": "UTF8 JSON, duplicate keys forbidden, finite numbers only; raw outer stdout/stderr unmodified. Native fixture stdout follows fixtureStdout subordinate schema, then fixtureToDriver constructs the final observation. Request byte retention remains requestRetention unchanged. Fixture READY events are subordinate actor-scoped event records. File descriptors carry relative path, byte length and lowercase SHA256.",
+    "channels": "Raw child protocol and TRACE/JFR/OS data retained in explicitly separate objects, never replayed as SDK-owned diagnostics. Only synthetic secret fixtures allowed.",
+    "guard": "Outer owned-process guard must record direct processes/container and terminal cleanup. It protects the capture host only. Any guard cleanup needed for a product case makes that case/capture non-success; retain evidence and do not publish a complete proof.",
+    "normalization": "Only explicit product names, fixture roots, timestamps and platform artifact representations may be compared with reviewed mappings. Never normalize exit status, codepoint loss, effects, missing warning, cancellation or telemetry exposure.",
+    "requestRetention": {
+      "wireFile": "Before launch request.json contains only the exact UTF8 request bytes R, with duplicate keys forbidden. The fixture reads R before completing; capture must retain R in memory until it writes the final envelope after fixture termination.",
+      "envelopeFields": [
+        "schema",
+        "requestBytesBase64",
+        "requestBytesLength",
+        "requestSha256",
+        "result"
+      ],
+      "schema": "dotj.owned-process.row-envelope/1",
+      "hashDomain": "requestSha256 = lowercase SHA256(base64-decode(requestBytesBase64)), over the exact prelaunch bytes R, including whitespace and optional final newline. requestBytesLength = len(R). Result and effects requestSha256 must equal this digest. No parse/reserialize normalization is permitted.",
+      "roundTrip": "Reader strictly base64-decodes R, validates its length/hash and UTF8 JSON, then uses that parsed object as the request. There is no separately authoritative nested request object.",
+      "finalEnvelopeDigest": "The descriptor in the aggregate/proof hashes final envelope file bytes E independently, after result insertion. No digest of E is stored inside E. The graph is aggregate -> E -> R and result/effects -> SHA256(R), never E -> SHA256(E)."
+    },
+    "environmentWire": {
+      "shape": {
+        "baseline": {
+          "values": "complete string-to-string map"
+        },
+        "set": "string-to-string map",
+        "remove": "string array"
+      },
+      "validation": "All three environment members and baseline.values are mandatory, even when empty. baseline has exactly values, never path/sha256/bytes. JSON duplicate keys forbidden; case-distinct keys remain distinct in JSON. Names are nonempty strings without NUL or =; values are strings without NUL; remove entries obey name rules. Reject malformed Unicode. No implicit ambient-map merge.",
+      "application": "Create a child-local environment from baseline.values, apply remove entries in array order, then apply set entries in ordinal Unicode-scalar key order (JSON member order never controls precedence). Use the same ordinal order to apply baseline keys. Values are not shell expanded. On Linux names compare case-sensitively; on Windows the native environment compares names case-insensitively using ordinal-ignore-case semantics. Later applied equivalent names replace the value; retain the spelling of the later entry in the requested map, but record actual OS-returned spelling independently.",
+      "caseCorpus": "Dotj_Case and dotj_case both remain in the request. Linux expects two distinct names; Windows application collapses their equivalence class in the specified order. Do not claim both survive Windows or normalize away the observed key spelling/value. Native API/OS-added entries are retained as actual observations and explicitly compared, not rewritten to the requested map.",
+      "actors": "Driver applies request.environment to the launched fixture/SDK process using its child-only start configuration. Fixture observes its own actual environment independently. For an API child, fixture applies that same explicit environment to the child-only ProcessStartInfo and separately observes any child-reported environment; its own environment is the parent of that API child. Driver parent snapshots describe the driver, not the fixture.",
+      "nonmutation": "Neither driver nor fixture may mutate process-global environment, current directory or console encoding to configure a child. Child cwd and UTF8 I/O encoding are configured per child/stream; snapshot/report actors separately.",
+      "captureSetup": "New capture driver and native fixtures run under a complete controlled minimal environment: only required OS/toolchain paths/settings and synthetic sentinels from a reviewed per-profile allowlist. Never copy unrelated host environment/credentials into baseline or snapshots. Full before/after maps are independently observed from the actual controlled caller, not substituted from request. SDK-command route final parent snapshots belong to capture driver; API-harness route additionally records fixture-as-API-parent snapshots independently. Preserve historical failed private receipts without dumping/publishing host environment. This harness setup rule does not prohibit secret argv fixtures or weaken product diagnostic redaction."
+    },
+    "fixtureStdout": {
+      "schema": "dotj.owned-process.fixture-observation/1",
+      "framing": "Exactly one UTF8 JSON object followed by one LF on fixture stdout on normal fixture completion, including exit17; no BOM, leading text or multiple JSON values. Strict duplicate-key/nonfinite-number rejection. Fixture stderr remains separate raw bytes. A missing/malformed observation is a driver capture failure, never a fabricated observation.",
+      "requiredFields": {
+        "schema": "constant dotj.owned-process.fixture-observation/1",
+        "rowId": "exact request rowId",
+        "requestSha256": "lowercase SHA256 of exact prelaunch request file bytes R, before parsing; same retained R as final driver envelope",
+        "mode": "exact fixed fixture mode",
+        "actor": "{kind:reference-fixture,pid:positive integer}; PID belongs to fixture itself, not driver or API child",
+        "receivedPayload": "{argv:string array,argvCodepoints:integer scalar arrays,argvUtf16Lengths:integer array}; independently derived from actual Main payload suffix",
+        "cwd": "actual fixture current directory string",
+        "environment": "{values:complete actual fixture environment string-map}; not copied from requested baseline",
+        "parentEnvironmentBefore": "complete actual fixture environment map before API-child operations; actor is fixture, not driver",
+        "parentEnvironmentAfter": "complete actual fixture environment map after API-child cleanup; equals fixture before snapshot",
+        "apiOperations": "array of apiOperation objects below; empty for SDK-command-only modes",
+        "events": "array of {kind:READY|EXIT_OBSERVED|CLEANUP,rowId:string,actorPid:integer}; observations of fixture/API lifecycle only, never outer capture claims",
+        "expectedOuterExitCode": "17 for exit17;0 for successfully completed other fixture modes; nonzero for fixture failure. This is declared intent, not proof of actual outer exit; driver independently records actual process exit.",
+        "errors": "array of {category:string,actorPid:integer}; fixture-owned bounded error categories only; no raw request/secrets or fabricated driver diagnostics"
+      },
+      "apiOperation": {
+        "requiredFields": [
+          "id",
+          "parentActorPid",
+          "childPid",
+          "invocation",
+          "disposition",
+          "exitCode",
+          "handles",
+          "workers",
+          "timing",
+          "streams",
+          "childObservation"
+        ],
+        "identity": "id unique within fixture; parentActorPid equals fixture actor.pid; childPid is actual child PID or null on failed start. All handle/worker facts refer only to this API operation.",
+        "invocation": "{executable:absolute string,argv:string array,cwd:absolute string,environment:environmentWire}; actual child-only ProcessStartInfo values, not outer SDK invocation",
+        "outcome": "disposition uses final process-disposition enum but describes only API child; exitCode is actual observed child exit or null; handles/workers/timing use existing field definitions scoped to API child. Cancellation of wait is recorded separately from destroy/force/actual exit.",
+        "streams": "Exactly {stdout:embeddedBytes,stderr:embeddedBytes}; bytes are raw API-child bytes, not fixture outer stdout JSON. No invented empty bytes when unavailable: {base64:null,bytes:null,sha256:null,available:false}; otherwise available:true and embeddedBytes checks mandatory.",
+        "childObservation": "null when no child protocol observation exists, otherwise {pid,receivedPayload,cwd,environment:{values}} independently reported by child and bound to API child identity; never filled from request."
+      },
+      "embeddedBytes": {
+        "requiredFields": [
+          "available",
+          "base64",
+          "bytes",
+          "sha256"
+        ],
+        "rule": "If available=true, strict base64 decodes exact bytes B, bytes=len(B), sha256=lowercase SHA256(B). Apply existing stream byte caps. Parsed content does not replace B. Driver/reader materializes B in memory from these fields; no extra per-row files are required. Retain outer stdout.bin/stderr.bin unchanged."
+      },
+      "ownership": "Fixture emits no CAPTURE_COMPLETE/status, effects snapshot, outer streams descriptor, outerGuard, network or container assertions. It does not emit the final dotj.owned-process.observation/1 object."
+    },
+    "fixtureToDriver": {
+      "scope": "This merge applies only to native reference fixture rows. It does not redefine product/helper observation ownership: product rows still report the tested owned process and its actual caller, with explicit actor attribution.",
+      "verify": "Driver retains all outer stdout/stderr bytes first, parses the single fixture observation from raw stdout only after observing process termination, verifies schema/rowId/mode/requestSha256/actor identities, embedded byte hashes and independent received-payload consistency. A valid exit17 observation plus observed actual exit17 is complete reference capture, not a successful child exit.",
+      "preserve": "Final result.fixtureObservation contains the exact parsed subordinate object from outer stdout; descriptor binding to outer stdout bytes preserves its raw representation. Never flatten API-child streams/lifecycle into outer fields, never replace stdout.bin JSON with embedded API-child stdout.",
+      "driverOwnedFields": [
+        "schema",
+        "rowId",
+        "requestSha256",
+        "engine",
+        "platform",
+        "invocation",
+        "disposition",
+        "exitCode",
+        "launched",
+        "handles",
+        "workers",
+        "timing",
+        "streams",
+        "diagnostics",
+        "effects",
+        "outerGuard",
+        "network",
+        "container",
+        "status",
+        "parentEnvironmentBefore",
+        "parentEnvironmentAfter",
+        "observationActors"
+      ],
+      "fixtureDerivedFields": {
+        "argvCodepoints": "verified fixture.receivedPayload.argvCodepoints",
+        "argvUtf16Lengths": "verified fixture.receivedPayload.argvUtf16Lengths",
+        "fixtureObservation": "verified entire subordinate fixture object"
+      },
+      "driverFacts": "Final invocation/exit/handles/workers/timing/streams refer to driver-owned outer SDK/fixture process. Final parentEnvironmentBefore/After describe the driver process. Driver alone records complete effects snapshots, raw outer streams descriptors, actual exit, guard actions, network/container evidence, and creates retained request/final envelope. Fields must come from real driver observations, never defaults supplied by fixture.",
+      "actorMap": "observationActors is exactly {outerProcess:driver-owned-outer,parentEnvironment:driver,payload:reference-fixture,apiOperations:reference-fixture-child-operations} for reference fixture rows. Nested fixture.parentEnvironmentBefore/After belong to fixture; nested childObservation.environment belongs to API child. Other engines set payload to product-child or jdk-probe and fixtureObservation:null.",
+      "failure": "Driver sets CAPTURE_FAILED for malformed/missing subordinate object, mismatched binding, unavailable mandatory evidence, guard intervention or cleanup failure. Fixture cannot declare capture completion. expectedOuterExitCode must match independently observed actual exit; a nonzero intentional fixture code does not alone make the capture fail."
+    },
+    "platformAdapter": {
+      "entry": "capture_windows.py or capture_linux.py: run_capture(contract, fixtures, output)",
+      "arguments": "Validated parsed contract and fixtures dictionaries, absolute fresh D-owned output pathlib.Path. Common driver creates output immediately before module import. Adapter must not create/reuse another output root.",
+      "responsibility": "Adapter selects pinned tools, validates source-map/tool/fixture digests and platform identity, enforces controlled caller environment, owns guard/native launch/effects facts, calls common capture_row to seal rows; never reads unrelated host secrets. Common driver does not launch native processes.",
+      "return": "{status:CAPTURE_COMPLETE|CAPTURE_FAILED, referenceRows:{frozen rowId: descriptor of final request.json}, boundaryGroups:{frozen groupId: descriptor of observation.json}, inputs:{contract:descriptor,fixtures:descriptor,sourceMap:descriptor}, platform:windows|linux}. Descriptors use path/bytes/sha256, paths relative to output; inputs are retained exact byte copies under output/inputs. Common driver verifies complete row/group inventories, file descriptors and envelopes, all required fields. Four frozen reference aggregates remain mandatory; capture-receipt.json is additional coordinator receipt.",
+      "failure": "Missing module or any unavailable required evidence produces retained capture-failure.json and exit1. No empty complete receipt; failed artifacts remain. CLI exit2 reserved argparse usage failures.",
+      "boundaryWire": "Boundary observation.json is {rowId:groupId,status:CAPTURE_COMPLETE|CAPTURE_FAILED,modes:[ordered row-envelope/1]}. Per-mode result.streams descriptors include offset into shared stdout.bin/stderr.bin, plus bytes/sha256/truncated. effects.json is {modes:{mode:effects/1}}; each per-mode result.effects descriptor binds the whole file and selects its mode by request.mode. Request.json retains the ordered exact prelaunch request byte envelopes. No invented terminal fields for unsupported SDK signal/parent-death boundaries.",
+      "aggregates": "Each platform capture supplies reference/observations-<platform>.json, reference/manifest.json and reference/summary.json. Opposite-platform observations join at OP02C; the full frozen four-aggregate set remains required at checkpoint. Common driver retains exact inputs/contract.json, inputs/fixtures.json, inputs/source-map.json before adapter import.",
+      "preparation": "After common validates exact contract/fixtures/source-map hashes and creates fresh strict D output, optional Linux prepare_output(output) enables that still-empty directory using separately retained assigned task scratch guard receipts, verifies actual case-sensitive state, then common retains inputs and calls run_capture. Productive captures independently verify two case-distinct names inside selected native mount. fsutil exit alone is insufficient."
+    },
+    "sdkBoundary": {
+      "authorization": {
+        "path": "D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/task149-sdk-boundary-native-ruling-v1.json",
+        "sha256": "0153bfdc678dbff9cf4a416d8e971b625e52b3be4f0976e3a2584d8811db70e8"
+      },
+      "schema": "dotj.owned-process.sdk-boundary/1",
+      "selection": "Only engine sdk-command, rowId windows-telemetry-ownership or linux-telemetry-ownership matching platform, mode sdk-parent-death or sdk-signal. Ordinary SDK fixture rows unchanged.",
+      "subordinate": "Conditional sdkBoundaryObservation in final result; fixtureObservation and jdkProbeObservation null for these exact boundary modes. For MEASURED modes raw outer stdout is the exact subordinate JSON plus LF; raw SDK target stdout/stderr remain separately embedded observation evidence.",
+      "fields": {
+        "schema": "constant schema above",
+        "rowId": "exact request rowId",
+        "mode": "exact frozen request mode",
+        "requestSha256": "exact retained prelaunch request bytes",
+        "availability": "{state:MEASURED|NOT_APPLICABLE,reason:nonempty measured explanation}",
+        "platform": "{os:windows|linux,arch:x64,profile:CREATE_NO_WINDOW|owned-container-POSIX}; Windows N/A additionally nativeVersion and creationFlags integer 0x08000004 bound to actual host/profile",
+        "source": "Exact ProcessReaper.cs path/8073 bytes/SHA256 d56a0685399da7c0c8082e7a52d3ed70895b5e915fe287d8ef8673f40453706f",
+        "sdkParent": "{identity:{pid,startIdentity},invocation:{executable,argv,cwd,environment,inputSha256},terminal:terminalState}",
+        "targetChild": "{identity:{pid,startIdentity},ready:actual bounded reference-child JSON {pid,receivedPayload,cwd,environment},beforeObserverCleanup:terminalState,afterObserverCleanup:terminalState}",
+        "action": "{kind:TerminateProcess|SIGKILL|SIGTERM,identity:exact retained SDK parent,requestedNanos,completedNanos,succeeded:true}; Windows death uses TerminateProcess, Linux death SIGKILL, Linux signal SIGTERM",
+        "observerCleanup": "{actions:[{kind,identity:exact observed target,requestedNanos,completedNanos,succeeded:true}],terminalObserved:true,workersJoined:true}; observer cleanup is separately attributed and never SDK propagation",
+        "qualification": "constant UNQUALIFIED_STRONGER_LIFECYCLE_GUARANTEES"
+      },
+      "terminalState": "{observedTerminal:boolean,exitCode:integer|null,method:actual native observation method,observedNanos:monotonic integer}; exitCode null if unobserved. Parent final and target after cleanup require observedTerminal; target before cleanup may remain alive.",
+      "availabilityException": "Only Windows sdk-signal under actual CREATE_NO_WINDOW profile with source-mapped POSIX-only signal behavior may be NOT_APPLICABLE. sdkParent,targetChild,action,observerCleanup and final result handles/workers/timing/exitCode/invocation/argvCodepoints/argvUtf16Lengths are null; launched false, disposition NOT_APPLICABLE, outerGuard {used:false,actions:[],observedTerminal:null}; empty raw streams. This is inventory completeness, never fabricated lifecycle success. All other unavailable/missing/failed modes fail.",
+      "measurement": "Actual pinned dotnet run --no-build --reference-child ROW wait-cancel-force -- PAYLOAD supplies SDK parent and independently observed READY target. Intentional exact-owned parent action differs from outer guard intervention. Before-observer-cleanup facts precede all observer cleanup actions. All launched actors and workers require actual terminal/join observations; unknown/timeout/overflow/outer-guard intervention fails capture.",
+      "scope": "Stronger parent-death/descendant/telemetry guarantees remain unqualified under D1/D2. No product or batch credit from boundary records.",
+      "linuxNativeReceipt": {
+        "schema": "dotj.owned-process.sdk-boundary-native/1",
+        "raw": "Linux observer stdout is exact raw nativeReceipt JSON plus LF, retained byte-for-byte in mode slice; sdkBoundaryObservation.nativeReceipt is strict parsed identical JSON. Windows raw observer stdout remains exact sdkBoundaryObservation. Host-derived facts never replace raw native stdout.",
+        "fields": "schema,rowId,mode,requestSha256,invocation,sdkPid,sdkStart,childPid,childStart,sdkExit,parentEndNanos,actionStartNanos,actionEndNanos,cleanupPerformed,cleanupStartNanos,cleanupEndNanos,ready,before,after,clockDomain,drainers",
+        "derivation": "Field-for-field validator binds parent/target identity to actual proc-startticks, parent shell wait status/time, exact action times, target READY and before/after native states, and separate observer cleanup facts. Native clock is Linux /proc/uptime monotonic nanoseconds; outer driver timing has its own native observer clock, Windows ownership timestamps remain host monotonic. Actual SDK child stdout/stderr separately embedded/hash-bound as targetStreams and READY parses from actual target stdout."
+      }
+    }
+  },
+  "proofEnvelope": {
+    "status": "PLANNED_SCHEMA_NOT_PRODUCED",
+    "requiredFields": [
+      "schema",
+      "phase",
+      "contract",
+      "fixtures",
+      "sourceMap",
+      "artifact",
+      "sources",
+      "stagedSources",
+      "readers",
+      "referenceRows",
+      "productRows",
+      "boundaryGroups",
+      "controls",
+      "relocation",
+      "inheritedQualification"
+    ],
+    "keying": "referenceRows/productRows/boundaryGroups maps keyed by frozen IDs; sources by repo-relative path; artifact.classes by full JAR entry. readers uses exactly read_proof.py,evidence_schema.py,seed/proof_reader.py and seed/inherited/{read_proof.py,compare.py,corpus.py,native_lock.py,inherited_models.py}, corresponding to readerBundleMapping after removing leading reader/. JSON Pointer applies to the materialized projection described below.",
+    "controls": "baseProof,currentReader,scopeSha256,60 exact negative IDs and execution receipts; final proof references nonfinal base to avoid cyclic hash. Old154 scope remains separate.",
+    "completeness": "Exact fixed key sets from fixtures, immutable reviewed final class set from OP07, actual byte hashes. Missing keys, unexpected members, duplicate JSON keys, unresolved observed digests, failed receipts or wrong-row objects reject.",
+    "rowProjection": {
+      "requiredFields": [
+        "platform",
+        "request",
+        "result",
+        "effects"
+      ],
+      "platform": "Row platform is the request platform enum, independently required to match the frozen row ID/profile.",
+      "request": "Strictly decode retained R from verified envelope and parse once; this is the sole request object in the projection.",
+      "result": "Inline parsed envelope.result with exactly protocol.resultFields; no implicit renaming or synthesized observation fields.",
+      "effects": "Resolve result.effects descriptor using bundled relative path, verify its bytes/SHA256, then parse and inline with exactly protocol.effectsFields. It is not a descriptor at mutation-pointer time.",
+      "binding": "result/effects rowId and requestSha256 must match projected request and exact retained R. Request/result/effects are materialized only after verifying external object descriptors.",
+      "mutation": "Pointers address this projection. For referenceRows/platform mutation, alter the backing retained request platform and rebuild R/envelope. Other mutations alter their identified backing object. Recompute affected R/envelope/object/aggregate hashes and descriptors without changing the frozen fixture/expected assertion. Mutations must resolve to an existing member in valid base, and must be rejected by their named semantic predicate, not merely by a stale hash."
+    }
+  },
+  "producerReaderPredicates": "fixtures.json#/negativeFamilies",
+  "unresolved": [
+    {
+      "id": "U01",
+      "subject": "Native Unicode transport",
+      "resolve": "OP02B/OP02C actual java/javac/app probes; root checkpoint before product"
+    },
+    {
+      "id": "U02",
+      "subject": "Complete final class/output inventory and future source digests",
+      "resolve": "OP06 final build then OP07 independent reviewed inventory freeze before OP08/OP09"
+    },
+    {
+      "id": "U03",
+      "subject": "Stronger descendant/parent-death/telemetry secrecy guarantees",
+      "resolve": "Unqualified under D1/D2; separate native adapter and qualification if later demanded"
+    }
+  ],
+  "referenceSliceOwnership": {
+    "OP02A": "Only native C# fixture/offline config plus focused Windows build/smoke; no capture_reference.py dependency or two-OS capture claim.",
+    "OP02B": "Java probes and capture protocol implementation; ROOT task147 prospective wire ruling expands this slice to five tracked files including contract.json and README.md, with no new distinct task-group sources or credit.",
+    "OP02C": "Platform capture adapters and actual two-OS reference observations; aggregate three reference acceptance bullets adjudicated here.",
+    "authority": "Root clarification during OP01: duplicated final-plan OP02A/B/C acceptance bullets apply to group checkpoint after OP02C."
+  },
+  "taskDag": [
+    {
+      "id": "OP01",
+      "dependsOn": [],
+      "files": [
+        "tools/oracle/dotj-sdk/owned-process-v1/contract.json",
+        "tools/oracle/dotj-sdk/owned-process-v1/source-map.json",
+        "tools/oracle/dotj-sdk/owned-process-v1/fixtures.json",
+        "tools/oracle/dotj-sdk/owned-process-v1/README.md"
+      ]
+    },
+    {
+      "id": "OP02A",
+      "dependsOn": [
+        "OP01"
+      ],
+      "files": [
+        "tools/oracle/dotj-sdk/owned-process-v1/reference/Program.cs",
+        "tools/oracle/dotj-sdk/owned-process-v1/reference/Reference.csproj",
+        "tools/oracle/dotj-sdk/owned-process-v1/reference/NuGet.Config"
+      ]
+    },
+    {
+      "id": "OP02B",
+      "dependsOn": [
+        "OP02A"
+      ],
+      "files": [
+        "tools/oracle/dotj-sdk/owned-process-v1/java/ProcessProbe.java",
+        "tools/oracle/dotj-sdk/owned-process-v1/java/ProbeChild.java",
+        "tools/oracle/dotj-sdk/owned-process-v1/capture_reference.py",
+        "tools/oracle/dotj-sdk/owned-process-v1/contract.json",
+        "tools/oracle/dotj-sdk/owned-process-v1/README.md"
+      ]
+    },
+    {
+      "id": "OP02C",
+      "dependsOn": [
+        "OP02B"
+      ],
+      "files": [
+        "tools/oracle/dotj-sdk/owned-process-v1/capture_windows.py",
+        "tools/oracle/dotj-sdk/owned-process-v1/capture_linux.py",
+        "tools/oracle/dotj-sdk/owned-process-v1/reference-observations.json"
+      ]
+    },
+    {
+      "id": "OP03",
+      "dependsOn": [
+        "OP02C"
+      ],
+      "files": [
+        "dotj-sdk/src/org/dotj/internal/sdk/process/OwnedProcess.java",
+        "tools/oracle/dotj-sdk/owned-process-v1/java/OwnedProcessTest.java",
+        "tools/oracle/dotj-sdk/owned-process-v1/java/ChildFixture.java",
+        "tools/oracle/dotj-sdk/owned-process-v1/run_product.py"
+      ]
+    },
+    {
+      "id": "OP04",
+      "dependsOn": [
+        "OP03"
+      ],
+      "files": [
+        "dotj-sdk/src/org/dotj/internal/sdk/process/OwnedProcess.java",
+        "tools/oracle/dotj-sdk/owned-process-v1/java/OwnedProcessTest.java",
+        "tools/oracle/dotj-sdk/owned-process-v1/java/ChildFixture.java"
+      ]
+    },
+    {
+      "id": "OP05",
+      "dependsOn": [
+        "OP04"
+      ],
+      "files": [
+        "dotj-sdk/src/org/dotj/internal/sdk/process/OwnedProcess.java",
+        "tools/oracle/dotj-sdk/owned-process-v1/java/OwnedProcessTest.java",
+        "tools/oracle/dotj-sdk/owned-process-v1/java/ChildFixture.java",
+        "tools/oracle/dotj-sdk/owned-process-v1/contract.json"
+      ]
+    },
+    {
+      "id": "OP06",
+      "dependsOn": [
+        "OP05"
+      ],
+      "files": [
+        "dotj-sdk/seed/Bootstrap.java",
+        "dotj-sdk/seed/sources.properties",
+        "dotj-sdk/seed/build.ps1",
+        "dotj-sdk/seed/build.sh",
+        "tools/oracle/dotj-sdk/seed-v1/refresh_manifest.py"
+      ]
+    },
+    {
+      "id": "OP07",
+      "dependsOn": [
+        "OP06"
+      ],
+      "files": [
+        "tools/oracle/dotj-sdk/seed-v1/implementation-profile-v4.json",
+        "tools/oracle/dotj-sdk/seed-v1/proof_reader.py",
+        "tools/oracle/dotj-sdk/seed-v1/freeze_proof.py",
+        "tools/oracle/dotj-sdk/seed-v1/test_paths_linux.py",
+        "tools/oracle/dotj-sdk/owned-process-v1/evidence_schema.py"
+      ]
+    },
+    {
+      "id": "OP08",
+      "dependsOn": [
+        "OP07"
+      ],
+      "files": [
+        "tools/oracle/dotj-sdk/owned-process-v1/freeze_proof.py",
+        "tools/oracle/dotj-sdk/owned-process-v1/read_proof.py",
+        "tools/oracle/dotj-sdk/owned-process-v1/mutate_proof.py",
+        "tools/oracle/dotj-sdk/owned-process-v1/evidence_schema.py"
+      ]
+    },
+    {
+      "id": "OP09",
+      "dependsOn": [
+        "OP08"
+      ],
+      "files": [
+        "tools/oracle/dotj-sdk/owned-process-v1/qualification-windows.json",
+        "tools/oracle/dotj-sdk/owned-process-v1/qualification-linux.json",
+        "tools/oracle/dotj-sdk/owned-process-v1/inherited-qualification.json",
+        "tools/oracle/dotj-sdk/owned-process-v1/final-proof.json"
+      ]
+    },
+    {
+      "id": "OP10",
+      "dependsOn": [
+        "OP09"
+      ],
+      "files": [
+        "dotj-sdk/README.md",
+        "tools/oracle/dotj-sdk/owned-process-v1/README.md",
+        "planning/stage-2/repos/dotj-sdk/evidence/sdk-owned-process-v1.json",
+        "tools/oracle/dotj-sdk/owned-process-v1/acceptance-predicates.json"
+      ]
+    }
+  ],
+  "credit": {
+    "nativeCaptures": 0,
+    "productImplemented": false,
+    "acceptancePassed": 0,
+    "completedBatchCredit": 0,
+    "acceptedTaskCredit": 0,
+    "T4": "OPEN",
+    "F02": "OPEN_FOR_NEW_PROCESS_ROUTE",
+    "F04": "OPEN"
+  }
+}
