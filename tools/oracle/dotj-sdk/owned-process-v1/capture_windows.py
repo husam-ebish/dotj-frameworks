@@ -235,7 +235,8 @@ def run_capture(contract, fixtures, output):
     for part in ('source','bin','obj'):
         shutil.copytree(source/part, staged/part)
     for name in ('Program.cs','Reference.csproj','NuGet.Config'):
-        wire.require((staged/'source'/name).read_bytes() == (HERE/'reference'/name).read_bytes(), 'REFERENCE_SOURCE_CHANGED')
+        qualified, _ = wire.qualified_source('reference/'+name)
+        wire.require((staged/'source'/name).read_bytes() == qualified, 'REFERENCE_SOURCE_CHANGED')
         provenance.append(file_descriptor(staged/'source'/name))
     (output/'global.json').write_bytes(wire.json_bytes({'sdk':{'version':'10.0.401','rollForward':'disable'}}))
     fixture_closure=wire.trusted_fixture_closure(staged,staged=True)
@@ -304,14 +305,22 @@ def copy_probe_classes(output):
     expected={Path(v['path']).name:v for v in qualified if Path(v['path']).parent==source/'classes'}
     actual={p.name:file_descriptor(p) for p in (source/'classes').iterdir() if p.is_file()}
     wire.require(actual==expected,'QUALIFIED_PROBE_CLASSES_CHANGED')
-    classes=output/'probe-classes';shutil.copytree(source/'classes',classes)
-    records=wire.strict_json((source/'raw-receipts.json').read_bytes())
+    class_pins={name:{k:entry[k] for k in ('bytes','sha256')} for name,entry in expected.items()}
+    wire.verify_closure_tree(source/'classes',class_pins)
+    receipt=wire.fixed_file({'path':str(source/'raw-receipts.json'),'bytes':31970,
+                           'sha256':'4fe73226423d700667f0f574ad6d8ee959e3c1326fc9605c963d234c3bad61c4'})
+    wire.require(receipt in qualified,'QUALIFIED_PROBE_RECEIPT_NOT_COVERED')
+    records=wire.strict_json(Path(receipt['path']).read_bytes())
     bound=records[0]['sourceHashes']
+    wire.qualified_probe_source_roles(bound)
+    checkout_sources=[]
     for name in ('ProcessProbe.java','ProbeChild.java'):
-        path=HERE/'java'/name
-        wire.require(bound[str(path)] == wire.sha256(path.read_bytes()), 'PROBE_SOURCE_CHANGED')
+        _,provenance=wire.qualified_source('java/'+name)
+        checkout_sources.append(provenance)
+    classes=output/'probe-classes';shutil.copytree(source/'classes',classes)
+    wire.verify_closure_tree(classes,class_pins)
     save(output/'probe-reuse-provenance.json',{'qualifiedManifest':file_descriptor(manifest_path),'classes':actual,
-                                            'compileReceipt':file_descriptor(source/'raw-receipts.json')})
+                                            'compileReceipt':receipt,'checkoutSources':checkout_sources})
     return classes, [file_descriptor(p) for p in sorted(classes.rglob('*.class'))]
 
 
