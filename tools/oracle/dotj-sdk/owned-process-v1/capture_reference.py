@@ -251,6 +251,165 @@ def inventory(root):
     return result
 
 
+def fields(value, required):
+    require(isinstance(value, dict) and value.keys() >= set(required), "MANDATORY_EVIDENCE_MISSING")
+    return value
+
+
+def nonempty(value):
+    require(bool(text(value)), "EMPTY_EVIDENCE")
+
+
+def digest_shape(value):
+    require(isinstance(value, str) and len(value) == 64 and all(c in "0123456789abcdef" for c in value))
+
+
+def network_shape(value):
+    fields(value, ("isolation", "observation", "unqualifiedScope"))
+    for item in value.values():
+        nonempty(item)
+
+
+def invocation_shape(value, platform):
+    fields(value, ("executable", "argv", "cwd", "environment", "inputSha256"))
+    require(Path(text(value["executable"])).is_absolute() and Path(text(value["cwd"])).is_absolute())
+    require(isinstance(value["argv"], list))
+    for arg in value["argv"]:
+        text(arg)
+    child_environment(value["environment"], platform)
+    digest_shape(value["inputSha256"])
+
+
+def inventory_shape(value):
+    require(isinstance(value, dict))
+    for relative, entry in value.items():
+        require(bool(text(relative)) and not Path(relative).is_absolute() and ".." not in Path(relative).parts)
+        fields(entry, ("type", "bytes", "sha256"))
+        require(entry["type"] in ("file", "directory") and type(entry["bytes"]) is int and entry["bytes"] >= 0)
+        if entry["type"] == "file":
+            digest_shape(entry["sha256"])
+        else:
+            require(entry["bytes"] == 0 and entry["sha256"] is None)
+
+
+def optional_observation(value, required_fields):
+    """Inapplicable evidence needs an explicit reason, never an absent/null fact."""
+    require(isinstance(value, dict))
+    if value.get("required") is False:
+        nonempty(value.get("reason"))
+        return False
+    fields(value, required_fields)
+    return True
+
+
+def validate_effects(effects, request, request_raw, complete):
+    fields(effects, ("schema", "rowId", "requestSha256", "before", "after", "delta", "publication",
+                     "priorSdkSmoke", "sentinelProcess", "network", "cleanup"))
+    require(effects["schema"] == "dotj.owned-process.effects/1" and effects["rowId"] == request["rowId"])
+    require(effects["requestSha256"] == sha256(request_raw))
+    for phase in ("before", "after"):
+        require(isinstance(effects[phase], dict) and set(effects[phase]) == {"source", "priorSDK", "siblings", "staging"})
+        for value in effects[phase].values():
+            inventory_shape(value)
+    fields(effects["delta"], ("added", "removed", "changed"))
+    for value in effects["delta"].values():
+        inventory_shape(value)
+    publication = fields(effects["publication"], ("published", "successMarkers"))
+    require(type(publication["published"]) is bool)
+    inventory_shape(publication["successMarkers"])
+    smoke = effects["priorSdkSmoke"]
+    if optional_observation(smoke, ("invocation", "streams", "exitCode")):
+        invocation_shape(smoke["invocation"], request["platform"])
+        require(type(smoke["exitCode"]) is int and set(smoke["streams"]) == {"stdout", "stderr"})
+        for stream in smoke["streams"].values():
+            require(embedded(stream) is not None)
+    sentinel = effects["sentinelProcess"]
+    if optional_observation(sentinel, ("identity", "before", "after", "unaffected")):
+        fields(sentinel["identity"], ("pid", "startIdentity"))
+        require(type(sentinel["identity"]["pid"]) is int and sentinel["identity"]["pid"] > 0)
+        nonempty(sentinel["identity"]["startIdentity"])
+        require(type(sentinel["before"]) is bool and type(sentinel["after"]) is bool and type(sentinel["unaffected"]) is bool)
+        if complete:
+            require(sentinel["before"] and sentinel["after"] and sentinel["unaffected"])
+    network_shape(effects["network"])
+    cleanup = fields(effects["cleanup"], ("productActions", "outerGuardActions", "observedTerminal"))
+    require(isinstance(cleanup["productActions"], list) and isinstance(cleanup["outerGuardActions"], list) and type(cleanup["observedTerminal"]) is bool)
+    if complete:
+        require(cleanup["observedTerminal"] and not cleanup["outerGuardActions"])
+
+
+def validate_result(facts, request, request_raw, contract):
+    """Shared typed availability gate for ordinary rows and boundary modes."""
+    fields(facts, contract["protocol"]["resultFields"])
+    require(facts["schema"] == "dotj.owned-process.observation/1" and facts["rowId"] == request["rowId"] and facts["engine"] == request["engine"])
+    require(facts["requestSha256"] == sha256(request_raw))
+    platform = fields(facts["platform"], ("os", "arch", "locale", "toolVersion"))
+    require(platform["os"] == request["platform"])
+    for key in ("arch", "locale", "toolVersion"):
+        nonempty(platform[key])
+    invocation_shape(facts["invocation"], request["platform"])
+    require(type(facts["launched"]) is bool)
+    require(facts["status"] in ("CAPTURE_COMPLETE", "CAPTURE_FAILED"))
+    complete = facts["status"] == "CAPTURE_COMPLETE"
+    require(facts["disposition"] in ("EXITED", "START_FAILED", "CANCELED", "TIMED_OUT", "IO_FAILED", "CLEANUP_FAILED", "CAPTURE_FAILED"))
+    handles = fields(facts["handles"], ("launchSlot", "pid", "startIdentity", "retained", "events", "observedExit", "exitCode", "terminal"))
+    nonempty(handles["launchSlot"])
+    require(all(type(handles[key]) is bool for key in ("retained", "observedExit", "terminal")))
+    require(isinstance(handles["events"], list))
+    for event in handles["events"]:
+        fields(event, ("kind",))
+        nonempty(event["kind"])
+    if facts["launched"]:
+        require(type(handles["pid"]) is int and handles["pid"] > 0 and handles["retained"])
+        nonempty(handles["startIdentity"])
+    else:
+        require(handles["pid"] is None and handles["startIdentity"] is None and not handles["retained"] and not handles["observedExit"])
+    if handles["observedExit"]:
+        require(type(facts["exitCode"]) is int and type(handles["exitCode"]) is int and facts["exitCode"] == handles["exitCode"])
+    else:
+        require(facts["exitCode"] is None and handles["exitCode"] is None)
+    require(isinstance(facts["workers"], dict) and set(facts["workers"]) == {"stdin", "stdout", "stderr"})
+    for worker in facts["workers"].values():
+        fields(worker, ("started", "closed", "terminal", "joined", "errorCategory"))
+        require(all(type(worker[key]) is bool for key in ("started", "closed", "terminal", "joined")))
+        require(worker["errorCategory"] is None or isinstance(worker["errorCategory"], str))
+        if complete:
+            require(worker["closed"] and worker["terminal"] and (worker["joined"] or not worker["started"]) and worker["errorCategory"] is None)
+    timing = fields(facts["timing"], ("startNanos", "endNanos", "deadlineNanos", "cleanupStartNanos"))
+    require(all(type(timing[key]) is int and timing[key] >= 0 for key in timing))
+    require(timing["startNanos"] <= timing["cleanupStartNanos"] <= timing["endNanos"])
+    diagnostics = fields(facts["diagnostics"], ("available", "base64", "bytes", "sha256", "redactionChecks"))
+    diagnostic_bytes = embedded({key: diagnostics[key] for key in ("available", "base64", "bytes", "sha256")})
+    require(diagnostic_bytes is not None and len(diagnostic_bytes) <= contract["typedBounds"]["diagnosticBytes"])
+    require(isinstance(diagnostics["redactionChecks"], dict) and diagnostics["redactionChecks"] and all(type(v) is bool for v in diagnostics["redactionChecks"].values()))
+    network_shape(facts["network"])
+    if request["platform"] == "windows":
+        require(facts["container"] is None)
+    else:
+        container = fields(facts["container"], ("identity", "caps", "exitCode", "removed"))
+        nonempty(container["identity"])
+        require(isinstance(container["caps"], dict) and container["caps"] and type(container["exitCode"]) is int and type(container["removed"]) is bool)
+        if complete:
+            require(container["removed"])
+    require(facts["fixtureObservation"] is None if request["engine"] not in ("sdk-command", "dotnet-process-api") else isinstance(facts["fixtureObservation"], dict))
+    require(isinstance(facts["jdkProbeObservation"], dict) if request["engine"] == "jdk-probe" else facts["jdkProbeObservation"] is None)
+    string_map(facts["parentEnvironmentBefore"])
+    require(facts["parentEnvironmentBefore"] == facts["parentEnvironmentAfter"])
+    fields(facts["observationActors"], ("outerProcess", "parentEnvironment", "payload", "apiOperations"))
+    for actor in facts["observationActors"].values():
+        nonempty(actor)
+    fields(facts["streams"], ("stdout", "stderr"))
+    fields(facts["effects"], ("path", "bytes", "sha256"))
+    guard = fields(facts["outerGuard"], ("used", "actions", "observedTerminal"))
+    require(type(guard["used"]) is bool and isinstance(guard["actions"], list) and type(guard["observedTerminal"]) is bool)
+    if complete:
+        require(not guard["actions"] and guard["observedTerminal"] and handles["terminal"])
+        require(facts["disposition"] in ("EXITED", "CANCELED", "START_FAILED"))
+        require(handles["observedExit"] if facts["launched"] else facts["disposition"] == "START_FAILED")
+        require(timing["endNanos"] <= timing["deadlineNanos"] and all(diagnostics["redactionChecks"].values()))
+    return complete
+
+
 def validate_row_files(output, request_raw, facts, effects, contract):
     """Seal observations supplied by a platform adapter after real cleanup.
 
@@ -260,6 +419,8 @@ def validate_row_files(output, request_raw, facts, effects, contract):
     output = Path(output)
     request = strict_json(request_raw)
     validate_request(request, contract)
+    complete = validate_result(facts, request, request_raw, contract)
+    validate_effects(effects, request, request_raw, complete)
     require(facts.keys() >= contract["protocol"]["resultFields"].keys())
     require(facts["schema"] == "dotj.owned-process.observation/1")
     require(facts["rowId"] == request["rowId"] and facts["engine"] == request["engine"])
@@ -310,14 +471,18 @@ def capture_row(output, request_raw, facts, effects, contract):
 
 def checked_output(path):
     require(path.is_absolute() and path.drive.upper() == "D:", "OUTPUT_NOT_ASSIGNED_D_PATH")
+    require(".." not in path.parts, "OUTPUT_PARENT_TRAVERSAL")
     scratch = Path("D:/AI/Implementation/dotj Frameworks/agents")
     require(path.is_relative_to(scratch), "OUTPUT_NOT_TASK_SCRATCH")
     relative = path.relative_to(scratch)
     require(len(relative.parts) >= 2 and relative.parts[0].startswith("task"), "OUTPUT_NOT_ASSIGNED_CHILD")
+    task_root = scratch / relative.parts[0]
+    normalized = path.resolve()
+    require(normalized.is_relative_to(task_root.resolve()) and task_root.resolve().is_relative_to(scratch.resolve()), "OUTPUT_RESOLVED_ESCAPE")
     require(not path.exists(), "OUTPUT_EXISTS")
     for parent in path.parents:
         require(not parent.is_symlink() and not parent.is_junction(), "OUTPUT_REPARSE")
-    return path
+    return normalized
 
 
 def controlled_snapshot():
@@ -366,6 +531,7 @@ def validate_receipt(receipt, output, platform, contract, fixtures, parent_befor
             result = envelope["result"]
             request = strict_json(raw)
             validate_request(request, contract)
+            complete = validate_result(result, request, raw, contract)
             require(request["secrets"] == fixtures["corpus"]["syntheticSecrets"])
             require(result.keys() >= contract["protocol"]["resultFields"].keys())
             require(result["status"] == "CAPTURE_COMPLETE" and result["rowId"] == request["rowId"] == group_id)
@@ -394,6 +560,7 @@ def validate_receipt(receipt, output, platform, contract, fixtures, parent_befor
                     verify_descriptor(artifact, path.parent)
             effects_path = verify_descriptor(result["effects"], path.parent)
             effect = strict_json(effects_path.read_bytes())["modes"][request["mode"]]
+            validate_effects(effect, request, raw, complete)
             require(effect["rowId"] == group_id and effect["requestSha256"] == sha256(raw))
             require(set(effect["before"]) == set(effect["after"]) == {"source", "priorSDK", "siblings", "staging"})
         for relative in groups[group_id]["files"]:
