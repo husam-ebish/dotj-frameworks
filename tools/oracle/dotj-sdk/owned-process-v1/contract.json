@@ -263,7 +263,8 @@
         "failure": "errors nonempty/expectedOuterExitCode nonzero means failed probe. Missing evidence is null or explicit failure, never manufactured terminal facts. Actual transport codepoint differences are observations, not normalized success/parity claims.",
         "rootRuling": "task147-op02b-wire-native-ruling-v1.json; prospective five-file OP02B inventory, no product credit",
         "transportComparison": "Mandatory {roundTrip:boolean,differences:[{index,requested,observed}]} compares requested argv with independently received Main suffix; missing tokens use null. Each child operation with childObservation has analogous comparison against actual selected command payload. Measured loss is a valid boundary observation; roundTrip=false is never semantic parity. U01 remains pending OP02C root checkpoint; no C# or product rule weakened."
-      }
+      },
+      "terminalTransportNegative": "Narrow inventory-only allowance: only javac-unicode operations exactly native-javac EXITED/exit0 followed by compiled-application IO_FAILED/actual observed nonzero exit may retain absent child protocol. Require exact retained nonzero PID/startIdentity, terminal+observedExit and matching exitCode, all three started/closed/terminal/joined/error-null workers, both available/hash-bound bounded raw streams, monotonic end<=deadline, actual outer expectedExit matching observed probe exit, and exact sole errors [{category:IO_FAILED,actorPid:probe PID}]. Every other operation/error/mode/failure still fails. Raw disposition/errors/bytes never rewritten; this is measured transport failure, never product parity, lifecycle success or T4 eligibility. Ordinary row sealer and aggregate boundary validator use identical predicate."
     },
     "requestFields": {
       "schema": "constant dotj.owned-process.request/1",
@@ -453,7 +454,41 @@
       "return": "{status:CAPTURE_COMPLETE|CAPTURE_FAILED, referenceRows:{frozen rowId: descriptor of final request.json}, boundaryGroups:{frozen groupId: descriptor of observation.json}, inputs:{contract:descriptor,fixtures:descriptor,sourceMap:descriptor}, platform:windows|linux}. Descriptors use path/bytes/sha256, paths relative to output; inputs are retained exact byte copies under output/inputs. Common driver verifies complete row/group inventories, file descriptors and envelopes, all required fields. Four frozen reference aggregates remain mandatory; capture-receipt.json is additional coordinator receipt.",
       "failure": "Missing module or any unavailable required evidence produces retained capture-failure.json and exit1. No empty complete receipt; failed artifacts remain. CLI exit2 reserved argparse usage failures.",
       "boundaryWire": "Boundary observation.json is {rowId:groupId,status:CAPTURE_COMPLETE|CAPTURE_FAILED,modes:[ordered row-envelope/1]}. Per-mode result.streams descriptors include offset into shared stdout.bin/stderr.bin, plus bytes/sha256/truncated. effects.json is {modes:{mode:effects/1}}; each per-mode result.effects descriptor binds the whole file and selects its mode by request.mode. Request.json retains the ordered exact prelaunch request byte envelopes. No invented terminal fields for unsupported SDK signal/parent-death boundaries.",
-      "aggregates": "Each platform capture supplies reference/observations-<platform>.json, reference/manifest.json and reference/summary.json. Opposite-platform observations join at OP02C; the full frozen four-aggregate set remains required at checkpoint. Common driver retains exact inputs/contract.json, inputs/fixtures.json, inputs/source-map.json before adapter import."
+      "aggregates": "Each platform capture supplies reference/observations-<platform>.json, reference/manifest.json and reference/summary.json. Opposite-platform observations join at OP02C; the full frozen four-aggregate set remains required at checkpoint. Common driver retains exact inputs/contract.json, inputs/fixtures.json, inputs/source-map.json before adapter import.",
+      "preparation": "After common validates exact contract/fixtures/source-map hashes and creates fresh strict D output, optional Linux prepare_output(output) enables that still-empty directory using separately retained assigned task scratch guard receipts, verifies actual case-sensitive state, then common retains inputs and calls run_capture. Productive captures independently verify two case-distinct names inside selected native mount. fsutil exit alone is insufficient."
+    },
+    "sdkBoundary": {
+      "authorization": {
+        "path": "D:/AI/Implementation/dotj Frameworks/orchestration/two-frameworks/task149-sdk-boundary-native-ruling-v1.json",
+        "sha256": "0153bfdc678dbff9cf4a416d8e971b625e52b3be4f0976e3a2584d8811db70e8"
+      },
+      "schema": "dotj.owned-process.sdk-boundary/1",
+      "selection": "Only engine sdk-command, rowId windows-telemetry-ownership or linux-telemetry-ownership matching platform, mode sdk-parent-death or sdk-signal. Ordinary SDK fixture rows unchanged.",
+      "subordinate": "Conditional sdkBoundaryObservation in final result; fixtureObservation and jdkProbeObservation null for these exact boundary modes. For MEASURED modes raw outer stdout is the exact subordinate JSON plus LF; raw SDK target stdout/stderr remain separately embedded observation evidence.",
+      "fields": {
+        "schema": "constant schema above",
+        "rowId": "exact request rowId",
+        "mode": "exact frozen request mode",
+        "requestSha256": "exact retained prelaunch request bytes",
+        "availability": "{state:MEASURED|NOT_APPLICABLE,reason:nonempty measured explanation}",
+        "platform": "{os:windows|linux,arch:x64,profile:CREATE_NO_WINDOW|owned-container-POSIX}; Windows N/A additionally nativeVersion and creationFlags integer 0x08000004 bound to actual host/profile",
+        "source": "Exact ProcessReaper.cs path/8073 bytes/SHA256 d56a0685399da7c0c8082e7a52d3ed70895b5e915fe287d8ef8673f40453706f",
+        "sdkParent": "{identity:{pid,startIdentity},invocation:{executable,argv,cwd,environment,inputSha256},terminal:terminalState}",
+        "targetChild": "{identity:{pid,startIdentity},ready:actual bounded reference-child JSON {pid,receivedPayload,cwd,environment},beforeObserverCleanup:terminalState,afterObserverCleanup:terminalState}",
+        "action": "{kind:TerminateProcess|SIGKILL|SIGTERM,identity:exact retained SDK parent,requestedNanos,completedNanos,succeeded:true}; Windows death uses TerminateProcess, Linux death SIGKILL, Linux signal SIGTERM",
+        "observerCleanup": "{actions:[{kind,identity:exact observed target,requestedNanos,completedNanos,succeeded:true}],terminalObserved:true,workersJoined:true}; observer cleanup is separately attributed and never SDK propagation",
+        "qualification": "constant UNQUALIFIED_STRONGER_LIFECYCLE_GUARANTEES"
+      },
+      "terminalState": "{observedTerminal:boolean,exitCode:integer|null,method:actual native observation method,observedNanos:monotonic integer}; exitCode null if unobserved. Parent final and target after cleanup require observedTerminal; target before cleanup may remain alive.",
+      "availabilityException": "Only Windows sdk-signal under actual CREATE_NO_WINDOW profile with source-mapped POSIX-only signal behavior may be NOT_APPLICABLE. sdkParent,targetChild,action,observerCleanup and final result handles/workers/timing/exitCode/invocation/argvCodepoints/argvUtf16Lengths are null; launched false, disposition NOT_APPLICABLE, outerGuard {used:false,actions:[],observedTerminal:null}; empty raw streams. This is inventory completeness, never fabricated lifecycle success. All other unavailable/missing/failed modes fail.",
+      "measurement": "Actual pinned dotnet run --no-build --reference-child ROW wait-cancel-force -- PAYLOAD supplies SDK parent and independently observed READY target. Intentional exact-owned parent action differs from outer guard intervention. Before-observer-cleanup facts precede all observer cleanup actions. All launched actors and workers require actual terminal/join observations; unknown/timeout/overflow/outer-guard intervention fails capture.",
+      "scope": "Stronger parent-death/descendant/telemetry guarantees remain unqualified under D1/D2. No product or batch credit from boundary records.",
+      "linuxNativeReceipt": {
+        "schema": "dotj.owned-process.sdk-boundary-native/1",
+        "raw": "Linux observer stdout is exact raw nativeReceipt JSON plus LF, retained byte-for-byte in mode slice; sdkBoundaryObservation.nativeReceipt is strict parsed identical JSON. Windows raw observer stdout remains exact sdkBoundaryObservation. Host-derived facts never replace raw native stdout.",
+        "fields": "schema,rowId,mode,requestSha256,invocation,sdkPid,sdkStart,childPid,childStart,sdkExit,parentEndNanos,actionStartNanos,actionEndNanos,cleanupPerformed,cleanupStartNanos,cleanupEndNanos,ready,before,after,clockDomain,drainers",
+        "derivation": "Field-for-field validator binds parent/target identity to actual proc-startticks, parent shell wait status/time, exact action times, target READY and before/after native states, and separate observer cleanup facts. Native clock is Linux /proc/uptime monotonic nanoseconds; outer driver timing has its own native observer clock, Windows ownership timestamps remain host monotonic. Actual SDK child stdout/stderr separately embedded/hash-bound as targetStreams and READY parses from actual target stdout."
+      }
     }
   },
   "proofEnvelope": {

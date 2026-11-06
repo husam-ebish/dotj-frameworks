@@ -11,7 +11,7 @@ import importlib.util
 import json
 import math
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 import sys
 
 
@@ -152,6 +152,34 @@ def verify_fixture(stdout, request, request_raw, exit_code):
     return fixture
 
 
+def observed_unicode_application_failure(probe):
+    """Inventory may retain this exact terminal transport failure, unchanged."""
+    operations = probe.get("operations")
+    if (probe.get("mode") != "javac-unicode" or not isinstance(operations, list) or len(operations) != 2 or
+            [op.get("id") for op in operations] != ["native-javac", "compiled-application"]):
+        return False
+    compile_op, app = operations
+    if (compile_op.get("disposition") != "EXITED" or compile_op.get("exitCode") != 0 or
+            app.get("disposition") != "IO_FAILED" or type(app.get("exitCode")) is not int or app["exitCode"] == 0 or
+            app.get("childObservation") is not None):
+        return False
+    handles = fields(app.get("handles"), ("pid", "startIdentity", "retained", "terminal", "observedExit", "exitCode"))
+    require(type(app.get("childPid")) is int and app["childPid"] > 0 and handles["pid"] == app["childPid"])
+    nonempty(handles["startIdentity"])
+    require(handles["retained"] is True and handles["terminal"] is True and handles["observedExit"] is True and
+            handles["exitCode"] == app["exitCode"])
+    require(set(app["workers"]) == {"stdin", "stdout", "stderr"})
+    for worker in app["workers"].values():
+        require(all(worker.get(k) is True for k in ("started", "closed", "terminal", "joined")) and
+                worker.get("errorCategory") is None)
+    timing = fields(app["timing"], ("startNanos", "endNanos", "deadlineNanos", "cleanupStartNanos"))
+    require(all(type(timing[k]) is int for k in ("startNanos", "endNanos", "deadlineNanos", "cleanupStartNanos")))
+    require(0 <= timing["startNanos"] <= timing["cleanupStartNanos"] <= timing["endNanos"] <= timing["deadlineNanos"])
+    require(set(app["streams"]) == {"stdout", "stderr"})
+    require(all(embedded(stream) is not None for stream in app["streams"].values()))
+    return probe.get("errors") == [{"category":"IO_FAILED", "actorPid":probe["actor"]["pid"]}]
+
+
 def verify_jdk(stdout, request, request_raw, exit_code):
     require(stdout.endswith(b"\n") and not stdout.startswith(b"\xef\xbb\xbf"))
     probe = strict_json(stdout)
@@ -162,7 +190,8 @@ def verify_jdk(stdout, request, request_raw, exit_code):
     payload(probe["receivedPayload"])
     string_map(probe["environment"]["values"])
     require(string_map(probe["parentEnvironmentBefore"]) == string_map(probe["parentEnvironmentAfter"]))
-    require(probe["expectedOuterExitCode"] == exit_code and not probe["errors"])
+    transport_failure = observed_unicode_application_failure(probe)
+    require(probe["expectedOuterExitCode"] == exit_code and (not probe["errors"] or transport_failure))
     observed = probe["receivedPayload"]["argv"]
     differences = [{"index": i, "requested": request["argv"][i] if i < len(request["argv"]) else None,
                     "observed": observed[i] if i < len(observed) else None}
@@ -177,7 +206,8 @@ def verify_jdk(stdout, request, request_raw, exit_code):
         require(operation["childPid"] != probe["actor"]["pid"])
         require(operation["handles"]["terminal"] is True and operation["handles"]["observedExit"] is True)
         require(type(operation["exitCode"]) is int)
-        require(operation["disposition"] in ("EXITED", "CANCELED"))
+        require(operation["disposition"] in ("EXITED", "CANCELED") or
+                (transport_failure and operation["id"] == "compiled-application" and operation["disposition"] == "IO_FAILED"))
         for worker in operation["workers"].values():
             require(worker["terminal"] is True and worker["joined"] is True and worker["errorCategory"] is None)
         for stream in operation["streams"].values():
@@ -198,6 +228,25 @@ def row_envelope(request_raw, result):
             "requestBytesLength": len(request_raw), "requestSha256": digest, "result": result}
 
 
+def native_path(value, platform):
+    """Validate child paths with the declared native OS, never the host OS.
+
+    This is lexical validation only. Artifact containment still uses host Path
+    resolution and checked_output; raw native observations are never rewritten.
+    """
+    value = text(value)
+    require(platform in ("windows", "linux"), "NATIVE_PLATFORM_INVALID")
+    if platform == "windows":
+        path = PureWindowsPath(value)
+        require(path.is_absolute() and bool(path.drive), "NATIVE_PATH_NOT_ABSOLUTE")
+    else:
+        path = PurePosixPath(value)
+        require(path.is_absolute() and not value.startswith("//") and "\\" not in value,
+                "NATIVE_PATH_NOT_ABSOLUTE")
+    require(".." not in path.parts, "NATIVE_PATH_PARENT_TRAVERSAL")
+    return path
+
+
 def validate_request(request, contract):
     require(request.keys() >= contract["protocol"]["requestFields"].keys(), "REQUEST_FIELDS_MISSING")
     require(request["schema"] == "dotj.owned-process.request/1" and request["platform"] in ("windows", "linux"))
@@ -206,9 +255,9 @@ def validate_request(request, contract):
     child_environment(request["environment"], request["platform"])
     require(request["limits"] == contract["typedBounds"])
     require(type(request["deadlineMillis"]) is int and 0 < request["deadlineMillis"] <= contract["typedBounds"]["operationMillis"])
-    require(Path(text(request["cwd"])).is_absolute())
+    native_path(request["cwd"], request["platform"])
     executable = request["executable"]
-    require(Path(text(executable["path"])).is_absolute())
+    native_path(executable["path"], request["platform"])
     require(isinstance(executable["sha256"], str) and len(executable["sha256"]) == 64 and all(c in "0123456789abcdef" for c in executable["sha256"]))
     stdin = request["stdin"]
     data = base64.b64decode(stdin["base64"], validate=True)
@@ -216,7 +265,8 @@ def validate_request(request, contract):
     require(stdin["sha256"] == sha256(data))
     require(isinstance(request["inputs"], list) and request["inputs"])
     require(set(request["effectsRoots"]) == {"source", "priorSDK", "siblings", "staging"})
-    require(all(Path(text(value)).is_absolute() for value in request["effectsRoots"].values()))
+    for value in request["effectsRoots"].values():
+        native_path(value, request["platform"])
     string_map(request["secrets"])
 
 
@@ -272,7 +322,8 @@ def network_shape(value):
 
 def invocation_shape(value, platform):
     fields(value, ("executable", "argv", "cwd", "environment", "inputSha256"))
-    require(Path(text(value["executable"])).is_absolute() and Path(text(value["cwd"])).is_absolute())
+    native_path(value["executable"], platform)
+    native_path(value["cwd"], platform)
     require(isinstance(value["argv"], list))
     for arg in value["argv"]:
         text(arg)
@@ -338,11 +389,140 @@ def validate_effects(effects, request, request_raw, complete):
         require(cleanup["observedTerminal"] and not cleanup["outerGuardActions"])
 
 
+def sdk_boundary_request(request):
+    return (request.get("engine") == "sdk-command" and
+            request.get("mode") in ("sdk-parent-death", "sdk-signal") and
+            request.get("platform") in ("windows", "linux") and
+            request.get("rowId") == request["platform"] + "-telemetry-ownership")
+
+
+def validate_sdk_boundary(value, request, request_raw):
+    """Separately observed SDK boundary, with observer cleanup never credited.
+
+    Only the explicitly mapped Windows/no-console signal case can be unavailable.
+    This gate does not turn inventory completeness into a lifecycle guarantee.
+    """
+    fields(value, ("schema", "rowId", "mode", "requestSha256", "availability", "platform", "source",
+                   "sdkParent", "targetChild", "action", "observerCleanup", "qualification"))
+    require(value["schema"] == "dotj.owned-process.sdk-boundary/1")
+    require(value["rowId"] == request["rowId"] and value["mode"] == request["mode"] and
+            value["requestSha256"] == sha256(request_raw), "SDK_BOUNDARY_BINDING")
+    require(request["rowId"] == request["platform"] + "-telemetry-ownership" and
+            request["mode"] in ("sdk-parent-death", "sdk-signal"))
+    require(value["qualification"] == "UNQUALIFIED_STRONGER_LIFECYCLE_GUARANTEES")
+    platform = fields(value["platform"], ("os", "arch", "profile"))
+    require(platform["os"] == request["platform"] and platform["arch"] == "x64")
+    source = fields(value["source"], ("path", "bytes", "sha256"))
+    require(source["bytes"] == 8073 and source["sha256"] == "d56a0685399da7c0c8082e7a52d3ed70895b5e915fe287d8ef8673f40453706f")
+    nonempty(source["path"])
+    availability = fields(value["availability"], ("state", "reason"))
+    nonempty(availability["reason"])
+    if availability["state"] == "NOT_APPLICABLE":
+        require(request["platform"] == "windows" and request["mode"] == "sdk-signal" and
+                platform["profile"] == "CREATE_NO_WINDOW", "SDK_BOUNDARY_UNAVAILABLE_NOT_ALLOWED")
+        fields(platform, ("nativeVersion", "creationFlags"))
+        nonempty(platform["nativeVersion"])
+        require(platform["creationFlags"] == 0x08000004)
+        require(all(value[k] is None for k in ("sdkParent", "targetChild", "action", "observerCleanup")),
+                "SDK_BOUNDARY_UNOBSERVED_LIFECYCLE")
+        return False
+    require(availability["state"] == "MEASURED")
+    def identity(item):
+        fields(item, ("pid", "startIdentity"))
+        require(type(item["pid"]) is int and item["pid"] > 0)
+        nonempty(item["startIdentity"])
+    def terminal(item, final=False):
+        fields(item, ("observedTerminal", "exitCode", "method", "observedNanos"))
+        require(type(item["observedTerminal"]) is bool and type(item["observedNanos"]) is int and item["observedNanos"] >= 0)
+        require(item["exitCode"] is None or type(item["exitCode"]) is int)
+        require(item["observedTerminal"] or item["exitCode"] is None)
+        require(not final or item["observedTerminal"])
+        nonempty(item["method"])
+    parent = fields(value["sdkParent"], ("identity", "invocation", "terminal"))
+    child = fields(value["targetChild"], ("identity", "ready", "beforeObserverCleanup", "afterObserverCleanup"))
+    identity(parent["identity"]); identity(child["identity"])
+    require(parent["identity"]["pid"] != child["identity"]["pid"])
+    invocation_shape(parent["invocation"], request["platform"])
+    require(parent["invocation"]["inputSha256"] == sha256(request_raw))
+    terminal(parent["terminal"], True)
+    fields(child["ready"], ("pid", "receivedPayload"))
+    require(child["ready"]["pid"] == child["identity"]["pid"])
+    payload(child["ready"]["receivedPayload"])
+    terminal(child["beforeObserverCleanup"])
+    terminal(child["afterObserverCleanup"], True)
+    action = fields(value["action"], ("kind", "identity", "requestedNanos", "completedNanos", "succeeded"))
+    require(action["identity"] == parent["identity"] and action["succeeded"] is True)
+    require(action["kind"] == ("TerminateProcess" if request["platform"] == "windows" else
+                               "SIGTERM" if request["mode"] == "sdk-signal" else "SIGKILL"))
+    require(type(action["requestedNanos"]) is int and type(action["completedNanos"]) is int and
+            0 <= action["requestedNanos"] <= action["completedNanos"] <= child["beforeObserverCleanup"]["observedNanos"])
+    cleanup = fields(value["observerCleanup"], ("actions", "terminalObserved", "workersJoined"))
+    require(isinstance(cleanup["actions"], list) and cleanup["terminalObserved"] is True and cleanup["workersJoined"] is True)
+    for item in cleanup["actions"]:
+        fields(item, ("kind", "identity", "requestedNanos", "completedNanos", "succeeded"))
+        require(item["identity"] == child["identity"] and item["succeeded"] is True)
+        require(item["kind"] in ("TerminateProcess", "SIGTERM", "SIGKILL"))
+        require(child["beforeObserverCleanup"]["observedNanos"] <= item["requestedNanos"] <= item["completedNanos"] <=
+                child["afterObserverCleanup"]["observedNanos"])
+    require(bool(cleanup["actions"]) or child["beforeObserverCleanup"]["observedTerminal"])
+    target_streams = fields(value.get("targetStreams"), ("stdout", "stderr"))
+    raw_ready = embedded(target_streams["stdout"])
+    require(raw_ready is not None and embedded(target_streams["stderr"]) is not None)
+    require(strict_json(raw_ready.split(b"\n", 1)[0]) == child["ready"], "SDK_TARGET_READY_RAW_MISMATCH")
+    if request["platform"] == "linux":
+        native = fields(value.get("nativeReceipt"), ("schema", "rowId", "mode", "requestSha256", "sdkPid", "sdkStart",
+                        "childPid", "childStart", "sdkExit", "parentEndNanos", "actionStartNanos", "actionEndNanos",
+                        "cleanupPerformed", "cleanupStartNanos", "cleanupEndNanos", "ready", "before", "after",
+                        "invocation", "clockDomain", "drainers"))
+        require(native["schema"] == "dotj.owned-process.sdk-boundary-native/1" and
+                all(native[k] == value[k] for k in ("rowId", "mode", "requestSha256")))
+        require(parent["identity"] == {"pid":native["sdkPid"],"startIdentity":"linux-proc-startticks:"+text(native["sdkStart"])})
+        require(child["identity"] == {"pid":native["childPid"],"startIdentity":"linux-proc-startticks:"+text(native["childStart"])})
+        require(parent["invocation"] == native["invocation"] and parent["terminal"]["exitCode"] == native["sdkExit"] and
+                parent["terminal"]["observedNanos"] == native["parentEndNanos"])
+        require(child["ready"] == native["ready"] and child["beforeObserverCleanup"] == native["before"] and
+                child["afterObserverCleanup"] == native["after"])
+        require(action["requestedNanos"] == native["actionStartNanos"] and action["completedNanos"] == native["actionEndNanos"])
+        require(type(native["cleanupPerformed"]) is bool and bool(cleanup["actions"]) == native["cleanupPerformed"])
+        if cleanup["actions"]:
+            require(len(cleanup["actions"]) == 1 and cleanup["actions"][0]["kind"] == "SIGTERM" and
+                    cleanup["actions"][0]["requestedNanos"] == native["cleanupStartNanos"] and
+                    cleanup["actions"][0]["completedNanos"] == native["cleanupEndNanos"])
+        else:
+            require(native["cleanupStartNanos"] is None and native["cleanupEndNanos"] is None)
+        require(native["clockDomain"] == "Linux /proc/uptime monotonic nanoseconds")
+        nonempty(native["drainers"])
+    return True
+
+
 def validate_result(facts, request, request_raw, contract):
     """Shared typed availability gate for ordinary rows and boundary modes."""
     fields(facts, contract["protocol"]["resultFields"])
     require(facts["schema"] == "dotj.owned-process.observation/1" and facts["rowId"] == request["rowId"] and facts["engine"] == request["engine"])
     require(facts["requestSha256"] == sha256(request_raw))
+    boundary = sdk_boundary_request(request)
+    measured_boundary = validate_sdk_boundary(facts.get("sdkBoundaryObservation"), request, request_raw) if boundary else None
+    if boundary and not measured_boundary:
+        require(facts["status"] == "CAPTURE_COMPLETE" and facts["disposition"] == "NOT_APPLICABLE" and facts["launched"] is False)
+        require(all(facts[k] is None for k in ("handles", "workers", "timing", "exitCode", "fixtureObservation", "jdkProbeObservation", "invocation")))
+        require(facts["parentEnvironmentBefore"] == facts["parentEnvironmentAfter"])
+        string_map(facts["parentEnvironmentBefore"])
+        require(facts["argvCodepoints"] is None and facts["argvUtf16Lengths"] is None)
+        require(facts["outerGuard"] == {"used":False,"actions":[],"observedTerminal":None})
+        require(facts["container"] is None and facts["platform"]["os"] == "windows")
+        fields(facts["platform"], ("arch", "locale", "toolVersion"))
+        for key in ("arch", "locale", "toolVersion"):
+            nonempty(facts["platform"][key])
+        diagnostics = fields(facts["diagnostics"], ("available", "base64", "bytes", "sha256", "redactionChecks"))
+        raw_diagnostics = embedded({key:diagnostics[key] for key in ("available", "base64", "bytes", "sha256")})
+        require(raw_diagnostics is not None and len(raw_diagnostics) <= contract["typedBounds"]["diagnosticBytes"])
+        require(isinstance(diagnostics["redactionChecks"], dict) and diagnostics["redactionChecks"] and
+                all(item is True for item in diagnostics["redactionChecks"].values()))
+        fields(facts["observationActors"], ("outerProcess", "parentEnvironment", "payload", "apiOperations"))
+        for actor in facts["observationActors"].values():
+            nonempty(actor)
+        network_shape(facts["network"])
+        return True
     platform = fields(facts["platform"], ("os", "arch", "locale", "toolVersion"))
     require(platform["os"] == request["platform"])
     for key in ("arch", "locale", "toolVersion"):
@@ -391,7 +571,7 @@ def validate_result(facts, request, request_raw, contract):
         require(isinstance(container["caps"], dict) and container["caps"] and type(container["exitCode"]) is int and type(container["removed"]) is bool)
         if complete:
             require(container["removed"])
-    require(facts["fixtureObservation"] is None if request["engine"] not in ("sdk-command", "dotnet-process-api") else isinstance(facts["fixtureObservation"], dict))
+    require(facts["fixtureObservation"] is None if boundary or request["engine"] not in ("sdk-command", "dotnet-process-api") else isinstance(facts["fixtureObservation"], dict))
     require(isinstance(facts["jdkProbeObservation"], dict) if request["engine"] == "jdk-probe" else facts["jdkProbeObservation"] is None)
     string_map(facts["parentEnvironmentBefore"])
     require(facts["parentEnvironmentBefore"] == facts["parentEnvironmentAfter"])
@@ -536,9 +716,12 @@ def validate_receipt(receipt, output, platform, contract, fixtures, parent_befor
             require(result.keys() >= contract["protocol"]["resultFields"].keys())
             require(result["status"] == "CAPTURE_COMPLETE" and result["rowId"] == request["rowId"] == group_id)
             require(result["parentEnvironmentBefore"] == result["parentEnvironmentAfter"] == parent_before)
-            require(result["outerGuard"]["actions"] == [] and result["outerGuard"]["observedTerminal"] is True)
-            require(result["handles"]["terminal"] is True)
-            require(all(w["terminal"] is True and w["joined"] is True for w in result["workers"].values()))
+            unavailable_boundary = (sdk_boundary_request(request) and
+                                    result["sdkBoundaryObservation"]["availability"]["state"] == "NOT_APPLICABLE")
+            if not unavailable_boundary:
+                require(result["outerGuard"]["actions"] == [] and result["outerGuard"]["observedTerminal"] is True)
+                require(result["handles"]["terminal"] is True)
+                require(all(w["terminal"] is True and w["joined"] is True for w in result["workers"].values()))
             require(result["disposition"] not in ("TIMED_OUT", "IO_FAILED", "CLEANUP_FAILED", "CAPTURE_FAILED"))
             streams = {}
             for name in ("stdout", "stderr"):
@@ -558,6 +741,15 @@ def validate_receipt(receipt, output, platform, contract, fixtures, parent_befor
                                                         "payload": "jdk-probe", "apiOperations": "jdk-probe-child-operations"})
                 for artifact in probe["telemetry"]:
                     verify_descriptor(artifact, path.parent)
+            elif sdk_boundary_request(request):
+                boundary = result["sdkBoundaryObservation"]
+                if unavailable_boundary:
+                    require(streams == {"stdout":b"", "stderr":b""})
+                else:
+                    expected_raw = boundary["nativeReceipt"] if request["platform"] == "linux" else boundary
+                    require(strict_json(streams["stdout"]) == expected_raw, "SDK_BOUNDARY_RAW_MISMATCH")
+                    require(result["argvCodepoints"] == boundary["targetChild"]["ready"]["receivedPayload"]["argvCodepoints"])
+                    require(result["argvUtf16Lengths"] == boundary["targetChild"]["ready"]["receivedPayload"]["argvUtf16Lengths"])
             effects_path = verify_descriptor(result["effects"], path.parent)
             effect = strict_json(effects_path.read_bytes())["modes"][request["mode"]]
             validate_effects(effect, request, raw, complete)
@@ -592,15 +784,17 @@ def main(argv=None):
             raw = source.read_bytes()
             require(binding["bytes"] == len(raw) and binding["sha256"] == sha256(raw), "CONTRACT_INPUT_BINDING")
         output.mkdir(parents=True)
-        (output / "inputs").mkdir()
-        for name, source in (("contract.json", args.contract), ("fixtures.json", fixtures_path), ("source-map.json", sources_path)):
-            (output / "inputs" / name).write_bytes(source.read_bytes())
         parent_before = controlled_snapshot()
         adapter_path = Path(__file__).with_name("capture_" + args.platform + ".py")
         require(adapter_path.is_file(), "PLATFORM_ADAPTER_UNAVAILABLE")
         spec = importlib.util.spec_from_file_location("owned_process_capture_adapter", adapter_path)
         adapter = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(adapter)
+        if hasattr(adapter, "prepare_output"):
+            adapter.prepare_output(output)
+        (output / "inputs").mkdir()
+        for name, source in (("contract.json", args.contract), ("fixtures.json", fixtures_path), ("source-map.json", sources_path)):
+            (output / "inputs" / name).write_bytes(source.read_bytes())
         receipt = adapter.run_capture(contract, fixtures, output)
         require(controlled_snapshot() == parent_before, "CALLER_ENVIRONMENT_CHANGED")
         validate_receipt(receipt, output, args.platform, contract, fixtures, parent_before)
