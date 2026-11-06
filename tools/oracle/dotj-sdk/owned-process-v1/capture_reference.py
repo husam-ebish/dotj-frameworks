@@ -763,6 +763,164 @@ def validate_receipt(receipt, output, platform, contract, fixtures, parent_befor
         require((output / relative).is_file(), "REFERENCE_AGGREGATE_MISSING")
 
 
+
+# Fixed expectations, adopted from reviewed source/archive and historical build
+# evidence. Installed-file hashes are observations, never their own expectations.
+_CLOSURE_BASE = Path("D:/AI/Implementation/dotj Frameworks")
+_REVIEWED_SOURCE_MAP_SHA = "d0b0535442c9de18f86c87df80677ef6da1db17bb22f70709ec78d3849f68050"
+_ARCHIVE_CLOSURES = {'windows-sdk': {'path': 'D:\\AI\\Implementation\\dotj Frameworks\\agents\\task149-op02c-native-captures-v1\\fix-wave-r153-v1\\windows-sdk-archive-closure.json', 'bytes': 1168887, 'sha256': 'c7e3e4639375ccd3a7fe1bb23d0702987309e6a4e9d8548d09abab78e232ac0e'}, 'windows-jdk': {'path': 'D:\\AI\\Implementation\\dotj Frameworks\\agents\\task149-op02c-native-captures-v1\\fix-wave-r153-v1\\windows-jdk-archive-closure.json', 'bytes': 73801, 'sha256': 'c155385a8acbb529a7f6e67b136851083b2b2bd3d70c1554e4af5325e6229a9f'}, 'linux-sdk': {'path': 'D:\\AI\\Implementation\\dotj Frameworks\\agents\\task149-op02c-native-captures-v1\\fix-wave-r153-v1\\linux-sdk-archive-closure.json', 'bytes': 1028880, 'sha256': '4a8c7f6d03dc841fa7af57fc509dd1a5ac5fb2c4c6c133d13369a39dd6dac7a5'}, 'linux-jdk': {'path': 'D:\\AI\\Implementation\\dotj Frameworks\\agents\\task149-op02c-native-captures-v1\\fix-wave-r153-v1\\linux-jdk-archive-closure.json', 'bytes': 68187, 'sha256': '806f7477dbdd9eca9742d21f421d3a1f15ca6b1ddeb07aa0faf38d69a71a1224'}}
+_FIXTURE_GIT_SOURCES = [{'name': 'Program.cs', 'gitBlob': 'fb36d66cd9dd146585751218a57bc09b0c6143f5', 'reviewedGitBytes': 23791, 'normalizedSha256': '24613fb89cf3fe8a984eac24e81e0ac48e07c60b9a7adf8f487f07923a733483', 'physicalSha256': '24613fb89cf3fe8a984eac24e81e0ac48e07c60b9a7adf8f487f07923a733483'}, {'name': 'Reference.csproj', 'gitBlob': '6a314ff21a5333f0241db46bd6583dee311fe553', 'reviewedGitBytes': 792, 'normalizedSha256': '2883516c5295845c118cb9f6cf19fc6c37e07552e6301fe3102a5667b2e1f2f6', 'physicalSha256': '2883516c5295845c118cb9f6cf19fc6c37e07552e6301fe3102a5667b2e1f2f6'}, {'name': 'NuGet.Config', 'gitBlob': 'a3f3aea61c8f0a0b796eb417dc4ed9a056934afb', 'reviewedGitBytes': 125, 'normalizedSha256': '5256a7e3e07d2c5c94f7a1e6c45f39aab011c659c5e2d53e452dea525ce04575', 'physicalSha256': '5256a7e3e07d2c5c94f7a1e6c45f39aab011c659c5e2d53e452dea525ce04575'}]
+_FIXTURE_ROOT = _CLOSURE_BASE/"agents/task142-op02a-reference-fixture-v1/green-v4"
+
+
+def fixed_file(expected):
+    path = Path(expected["path"])
+    require(path.is_file() and not path.is_symlink() and not path.is_junction(), "TRUSTED_FILE_MISSING_OR_REPARSE")
+    require(path.stat().st_size == expected["bytes"], "TRUSTED_FILE_SIZE")
+    with path.open("rb") as stream:
+        require(hashlib.file_digest(stream, "sha256").hexdigest() == expected["sha256"], "TRUSTED_FILE_DIGEST")
+    return dict(expected)
+
+
+def verify_closure_tree(root, expected, prefixes=None):
+    root = Path(root)
+    require(root.is_dir() and not root.is_symlink() and not root.is_junction(), "CLOSURE_ROOT_INVALID")
+    require(bool(expected), "CLOSURE_EMPTY")
+    for relative, entry in expected.items():
+        rel = PurePosixPath(relative)
+        require(not rel.is_absolute() and ".." not in rel.parts and not PureWindowsPath(relative).drive, "CLOSURE_PATH_ESCAPE")
+        path = root/relative
+        require(path.resolve().is_relative_to(root.resolve()), "CLOSURE_RESOLVED_ESCAPE")
+        for parent in [path, *path.parents]:
+            if parent == root.parent:
+                break
+            require(not parent.is_symlink() and not parent.is_junction(), "CLOSURE_REPARSE")
+        fixed_file(dict(entry, path=str(path)))
+    actual = set()
+    for base in ([root/prefix for prefix in prefixes] if prefixes else [root]):
+        require(base.is_dir(), "CLOSURE_PREFIX_MISSING")
+        for path in base.rglob("*"):
+            require(not path.is_symlink() and not path.is_junction(), "CLOSURE_REPARSE")
+            if path.is_file():
+                actual.add(path.relative_to(root).as_posix())
+    require(actual == set(expected), "CLOSURE_INVENTORY_MISMATCH")
+    return {"root":str(root), "verifiedFiles":len(expected)}
+
+
+def reviewed_source_map(path=None):
+    path = Path(path) if path else Path(__file__).with_name("source-map.json")
+    fixed_file({"path":str(path), "bytes":48716, "sha256":_REVIEWED_SOURCE_MAP_SHA})
+    return strict_json(path.read_bytes())
+
+
+def trusted_fixture_closure(root, staged=False):
+    root = Path(root)
+    require(staged or root.resolve() == _FIXTURE_ROOT.resolve(), "FIXTURE_ORIGIN_PATH")
+    history = {"path":str(_CLOSURE_BASE/"agents/task149-op02c-native-captures-v1/artifact-manifest-v1.json"),
+               "bytes":54537, "sha256":"0a08b3b265eb09fa39a662040d1a77de5726ae656584f43613fe00d04ad27eb2"}
+    compile_receipt = {"path":str(_FIXTURE_ROOT/"receipt.json"), "bytes":166707,
+                       "sha256":"d623a2fbd28c736e720aa0db640b73af79be6b005be4df6a745d14c56b6f067a"}
+    report = {"path":str(_FIXTURE_ROOT.parent/"task142-implementation-report-v1.json"), "bytes":611431,
+              "sha256":"ed6e0cd1abe40eb54398981c82e1ef019777423f8f1675e3e311a3a0a86fda30"}
+    for pin in (history, compile_receipt, report):
+        fixed_file(pin)
+    adopted = strict_json(Path(history["path"]).read_bytes())
+    original_copy = _CLOSURE_BASE/"agents/task149-op02c-native-captures-v1/windows-v4/fixture"
+    files = {Path(v["path"]).relative_to(original_copy).as_posix():{k:v[k] for k in ("bytes", "sha256")}
+             for v in adopted["artifacts"] if Path(v["path"]).is_relative_to(original_copy)}
+    required = {"bin/Reference.dll", "bin/Reference.deps.json", "bin/Reference.runtimeconfig.json", "bin/Reference.pdb",
+                "obj/project.assets.json", "obj/project.nuget.cache", "obj/Reference.csproj.nuget.g.props",
+                "obj/Reference.csproj.nuget.g.targets", "obj/Debug/net10.0/Reference.dll"}
+    require(len(files) == 25 and required <= files.keys(), "FIXTURE_OUTPUT_NOT_COVERED")
+    build = strict_json(Path(compile_receipt["path"]).read_bytes())
+    source_report = strict_json(Path(report["path"]).read_bytes())
+    require(build["status"] == "PASS" and build["phase"] == "green-v4", "FIXTURE_BUILD_UNQUALIFIED")
+    round = source_report["completionRounds"][-1]
+    require(round["status"] == "PASS" and round["receipt"] == compile_receipt, "FIXTURE_COMPILE_BINDING")
+    reviewed = reviewed_source_map()
+    dotnet = next(x for x in reviewed["tools"] if x["id"] == "windows-nativeSdk-dotnet.exe")
+    compile_tools = source_report["toolchain"]
+    require(all(compile_tools["dotnet"][key] == dotnet[key] for key in ("bytes", "sha256")) and
+            Path(compile_tools["dotnet"]["path"]).resolve() == Path(dotnet["path"]).resolve() and
+            compile_tools["sdk"] == "10.0.401" and compile_tools["runtime"] == "10.0.12", "FIXTURE_COMPILE_SDK_PIN")
+    offline = compile_tools["offlineClosure"]
+    require(offline["sha256"] == "78a90a661ee4292dc275a1797c5a897b47f83d3879fce1ec2c7825e666cc3686", "FIXTURE_COMPILE_ARCHIVE_MANIFEST")
+    fixed_file(offline)
+    offline_archive = strict_json(Path(offline["path"]).read_bytes())
+    sdk_archive = next(x for x in reviewed["toolArchives"] if Path(x["path"]).name == "dotnet-sdk-10.0.401.zip")
+    require(offline_archive["archiveSha256"] == sdk_archive["sha256"] and
+            Path(offline_archive["archive"]).resolve() == Path(sdk_archive["path"]).resolve(), "FIXTURE_COMPILE_ARCHIVE_PIN")
+    for label in ("restore", "compile-build"):
+        operation = next(x for x in build["operations"] if x["label"] == label)["process"]
+        require(operation["exitCode"] == 0 and not any(operation.get(k) for k in
+                ("error", "cleanupError", "timedOut", "outputLimitExceeded")), "FIXTURE_BUILD_FAILED")
+        require(Path(operation["argv"][0]).resolve() == Path(dotnet["path"]).resolve() and
+                str(_FIXTURE_ROOT/"source/Reference.csproj") in operation["argv"], "FIXTURE_COMPILE_TOOL_OR_SOURCE")
+    for source in _FIXTURE_GIT_SOURCES:
+        name = source["name"]
+        pin = next(x for x in round["actualBuildSourceManifest"] if Path(x["path"]).name == name)
+        require(pin["sha256"] == source["physicalSha256"] and files["source/"+name]["sha256"] == source["physicalSha256"], "FIXTURE_SOURCE_BINDING")
+        fixed_file(pin)
+        actual = Path(__file__).with_name("reference")/name
+        fixed_file({"path":str(actual), "bytes":pin["bytes"], "sha256":source["physicalSha256"]})
+        require(sha256(actual.read_bytes().replace(b"\r\n", b"\n")) == source["normalizedSha256"], "FIXTURE_REVIEWED_GIT_SOURCE")
+    verified = verify_closure_tree(root, files, prefixes=("source", "bin", "obj"))
+    runtime = strict_json((root/"bin/Reference.runtimeconfig.json").read_bytes())["runtimeOptions"]
+    require(runtime["framework"]["version"] == "10.0.12" and runtime["rollForward"] == "Disable", "FIXTURE_RUNTIME_PIN")
+    return {"schema":"dotj.owned-process.fixture-closure/1", **verified, "files":files,
+            "sourceGitPins":_FIXTURE_GIT_SOURCES, "origins":{"firstCheckpointCopyManifest":history,
+             "qualifiedCompileReceipt":compile_receipt,"sourceBoundReport":report,"compileSdkClosure":offline},
+            "trustAdoption":"ROOT R153 fix-wave adoption of retained first-checkpoint copy-output manifest linked to original controlled A142 build/source/SDK pins; no compile-time full-output hash manifest was recorded."}
+
+
+def trusted_tool_closure(platform, selected=None, sources_path=None):
+    require(platform in ("windows", "linux"))
+    sources = reviewed_source_map(sources_path)
+    ids = {"dotnet":platform+"-nativeSdk-"+("dotnet.exe" if platform=="windows" else "dotnet"),
+           "java":platform+"-files-bin/java"+(".exe" if platform=="windows" else ""),
+           "javac":platform+"-files-bin/javac"+(".exe" if platform=="windows" else "")}
+    tools = {name:next(v for v in sources["tools"] if v["id"]==key) for name,key in ids.items()}
+    if selected is not None:
+        require(set(selected)==set(tools), "SELECTED_TOOL_SET")
+        for name,path in selected.items():
+            require(Path(path).resolve()==Path(tools[name]["path"]).resolve(), "SELECTED_TOOL_NOT_PINNED")
+    distributions = {}
+    for kind in ("sdk", "jdk"):
+        pin = _ARCHIVE_CLOSURES[platform+"-"+kind]
+        fixed_file(pin)
+        manifest = strict_json(Path(pin["path"]).read_bytes())
+        require(manifest["platform"]==platform and manifest["distribution"]==kind, "ARCHIVE_MANIFEST_PLATFORM")
+        archive = next(x for x in sources["toolArchives"] if Path(x["path"]).resolve()==Path(manifest["archive"]["path"]).resolve())
+        require(archive==manifest["archive"], "ARCHIVE_SOURCE_PIN")
+        fixed_file(archive)
+        root = Path(tools["dotnet"]["path"]).parent if kind=="sdk" else Path(tools["java"]["path"]).parent.parent
+        require(root.resolve()==Path(manifest["root"]).resolve(), "DISTRIBUTION_ROOT_BINDING")
+        for name in (["dotnet"] if kind=="sdk" else ["java", "javac"]):
+            relative=Path(tools[name]["path"]).relative_to(root).as_posix()
+            require(all(manifest["files"][relative][k]==tools[name][k] for k in ("bytes","sha256")), "ARCHIVE_ENTRY_TOOL_PIN")
+        verified=verify_closure_tree(root, manifest["files"])
+        distributions[kind]={**verified,"manifest":pin,"archive":archive}
+    return {"schema":"dotj.owned-process.tool-closure/1", "platform":platform,
+            "reviewedSourceMap":{"path":str(sources_path or Path(__file__).with_name("source-map.json")), "bytes":48716,"sha256":_REVIEWED_SOURCE_MAP_SHA},
+            "distributions":distributions, "selectedTools":{k:{f:v[f] for f in ("path","bytes","sha256")} for k,v in tools.items()}}
+
+
+def retain_verified_closure(output, tool_closure, fixture=None):
+    output=Path(output);folder=output/"inputs/closures";folder.mkdir(parents=True,exist_ok=True)
+    receipt={"toolClosure":tool_closure,"fixtureClosure":fixture}
+    retained=[]
+    for kind,value in tool_closure["distributions"].items():
+        pin=value["manifest"];fixed_file(pin)
+        path=folder/(tool_closure["platform"]+"-"+kind+".json");path.write_bytes(Path(pin["path"]).read_bytes())
+        retained.append({"path":str(path),"bytes":pin["bytes"],"sha256":pin["sha256"]})
+    if fixture is not None:
+        path=folder/"windows-fixture.json";raw=json_bytes(fixture);path.write_bytes(raw)
+        retained.append({"path":str(path),"bytes":len(raw),"sha256":sha256(raw)})
+    path=folder/(tool_closure["platform"]+("-fixture-preflight.json" if fixture else "-tool-preflight.json"));raw=json_bytes(receipt);path.write_bytes(raw)
+    retained.append({"path":str(path),"bytes":len(raw),"sha256":sha256(raw)})
+    return retained
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(allow_abbrev=False)
     parser.add_argument("--contract", required=True, type=Path)
@@ -787,6 +945,9 @@ def main(argv=None):
         parent_before = controlled_snapshot()
         adapter_path = Path(__file__).with_name("capture_" + args.platform + ".py")
         require(adapter_path.is_file(), "PLATFORM_ADAPTER_UNAVAILABLE")
+        trusted_tool_closure(args.platform, sources_path=sources_path)
+        if args.platform == "windows":
+            trusted_fixture_closure(_FIXTURE_ROOT)
         spec = importlib.util.spec_from_file_location("owned_process_capture_adapter", adapter_path)
         adapter = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(adapter)

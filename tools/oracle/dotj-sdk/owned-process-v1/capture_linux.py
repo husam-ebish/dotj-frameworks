@@ -94,8 +94,15 @@ class ContainerRun:
         return self.record
 
 
+def selected_linux_tools():
+    return {"dotnet":B/"toolchains/dotnet-linux-10.0.401/dotnet",
+            "java":B/"toolchains/jdk-linux21/jdk-21.0.12.1+1/bin/java",
+            "javac":B/"toolchains/jdk-linux21/jdk-21.0.12.1+1/bin/javac"}
+
+
 def prepare_output(output):
     """Case-enable the empty assigned root before retained inputs populate it."""
+    shared.wire.trusted_tool_closure("linux",selected_linux_tools())
     shared.wire.require(not any(output.iterdir()),'LINUX_OUTPUT_NOT_EMPTY_FOR_CASE_SETUP')
     logs=output.parent/(output.name+'-case-preparation')
     shared.wire.require(not logs.exists(),'CASE_PREPARATION_EXISTS');logs.mkdir()
@@ -132,6 +139,7 @@ def validate_container(value):
 def native_operation(output,work,label,argv,cwd,environment):
     """Shell owns waitpid for one child; metadata comes from live /proc identity."""
     import shlex
+    shared.wire.trusted_tool_closure("linux",selected_linux_tools())
     local=work/label;local.mkdir()
     for part in ('home','tmp','cache'):(local/part).mkdir()
     # The whole capture is mounted at /work, preserving exact native request paths.
@@ -182,6 +190,7 @@ def native_operation(output,work,label,argv,cwd,environment):
 
 def run_capture(contract,fixtures,output):
     import shlex
+    verified_tools=shared.wire.trusted_tool_closure("linux",selected_linux_tools())
     caller=shared.wire.controlled_snapshot()
     for part in ('home','tmp','cache','reference','boundary','preparation'):(output/part).mkdir()
     shared.wire.require((output/'case-preparation.json').is_file(),'LINUX_CASE_PREPARATION_MISSING')
@@ -194,9 +203,10 @@ def run_capture(contract,fixtures,output):
     for name in ('Program.cs','Reference.csproj','NuGet.Config'):
         shared.wire.require((output/'fixture/source'/name).read_bytes()==(HERE/'reference'/name).read_bytes(),'REFERENCE_SOURCE_CHANGED')
     classes,probe_inputs=shared.copy_probe_classes(output)
-    inputs=[shared.file_descriptor(p) for p in sorted((output/'fixture').rglob('*')) if p.is_file()]
+    closure_inputs=shared.wire.retain_verified_closure(output,verified_tools)
+    inputs=closure_inputs+[shared.file_descriptor(p) for p in sorted((output/'fixture').rglob('*')) if p.is_file()]
     tool=B/'toolchains/dotnet-linux-10.0.401/dotnet'
-    native_inputs=[dict(shared.file_descriptor(tool),path='/sdk/dotnet')]
+    native_inputs=[dict(verified_tools['selectedTools']['dotnet'],path='/sdk/dotnet')]
     network={'isolation':'Docker NetworkMode none, read-only root, cap-drop ALL, no-new-privileges.',
              'observation':'Exact owned container creation and terminal inspect retained; writable filesystem measured as case-enabled 9p.',
              'unqualifiedScope':'Selected Windows-backed 9p/NTFS profile only; no generic ext4 claim.'}
@@ -208,7 +218,8 @@ def run_capture(contract,fixtures,output):
         roots={k:row/('effects-'+k) for k in ('source','priorSDK','siblings','staging')}
         for root in roots.values():root.mkdir();(root/'sentinel.txt').write_bytes(b'OP02C preservation sentinel\n')
         mode=next(v['modes'][0] for v in fixtures['cohortDefinitions'] if v['id']==definition['cohort'])
-        selected={'path':'/sdk/dotnet','sha256':shared.wire.sha256(tool.read_bytes())}
+        verified_tools=shared.wire.trusted_tool_closure('linux',selected_linux_tools())
+        selected={'path':'/sdk/dotnet','sha256':verified_tools['selectedTools']['dotnet']['sha256']}
         if mode=='invalid-start':selected={'path':'/work/'+row.relative_to(output).as_posix()+'/missing','sha256':'0'*64}
         native_cwd='/work/'+cwd.relative_to(output).as_posix()
         native_roots={k:'/work/'+v.relative_to(output).as_posix() for k,v in roots.items()}
@@ -248,13 +259,15 @@ def linux_jdk_mode(contract,fixtures,output,definition,mode,inputs,network,calle
     cwd=work/fixtures['corpus']['cwd'];cwd.mkdir(parents=True)
     roots={k:work/('effects-'+k) for k in ('source','priorSDK','siblings','staging')}
     for root in roots.values():root.mkdir();(root/'sentinel.txt').write_bytes(b'OP02C preservation sentinel\n')
+    verified_tools=shared.wire.trusted_tool_closure('linux',selected_linux_tools())
+    closure_inputs=shared.wire.retain_verified_closure(output,verified_tools)
     selected=B/'toolchains/jdk-linux21/jdk-21.0.12.1+1/bin'/('javac' if mode=='javac-unicode' else 'java')
     native_cwd='/work/'+cwd.relative_to(output).as_posix()
     native_roots={k:'/work/'+v.relative_to(output).as_posix() for k,v in roots.items()}
-    tools=[dict(shared.file_descriptor(B/'toolchains/jdk-linux21/jdk-21.0.12.1+1/bin'/n),path='/jdk/bin/'+n) for n in ('java','javac')]
+    tools=[dict(verified_tools['selectedTools'][n],path='/jdk/bin/'+n) for n in ('java','javac')]
     request=shared.prepare_request(contract,fixtures,definition['id'],'linux','jdk-probe',mode,
-                                   {'path':'/jdk/bin/'+selected.name,'sha256':shared.wire.sha256(selected.read_bytes())},
-                                   native_cwd,linux_environment(),native_roots,inputs+tools)
+                                   {'path':'/jdk/bin/'+selected.name,'sha256':verified_tools['selectedTools']['javac' if mode=='javac-unicode' else 'java']['sha256']},
+                                   native_cwd,linux_environment(),native_roots,inputs+closure_inputs+tools)
     raw=shared.wire.json_bytes(request);request_path=work/'prelaunch.json';request_path.write_bytes(raw)
     before=shared.snapshot_roots(roots)
     shared.save(work/'effects-before.json',before)
@@ -281,10 +294,12 @@ def linux_sdk_mode(contract,fixtures,output,definition,mode,network,caller):
     native_cwd='/work/'+cwd.relative_to(output).as_posix();base='/work/'+work.relative_to(output).as_posix()
     roots={k:work/('effects-'+k) for k in ('source','priorSDK','siblings','staging')}
     for root in roots.values():root.mkdir();(root/'sentinel.txt').write_bytes(b'OP02C preservation sentinel\n')
+    verified_tools=shared.wire.trusted_tool_closure('linux',selected_linux_tools())
+    closure_inputs=shared.wire.retain_verified_closure(output,verified_tools)
     tool=B/'toolchains/dotnet-linux-10.0.401/dotnet'
     request=shared.prepare_request(contract,fixtures,definition['id'],'linux','sdk-command',mode,
-      {'path':'/sdk/dotnet','sha256':shared.wire.sha256(tool.read_bytes())},native_cwd,linux_environment(),
-      {k:'/work/'+v.relative_to(output).as_posix() for k,v in roots.items()},[dict(shared.file_descriptor(tool),path='/sdk/dotnet'),shared.source_reaper()])
+      {'path':'/sdk/dotnet','sha256':verified_tools['selectedTools']['dotnet']['sha256']},native_cwd,linux_environment(),
+      {k:'/work/'+v.relative_to(output).as_posix() for k,v in roots.items()},closure_inputs+[dict(verified_tools['selectedTools']['dotnet'],path='/sdk/dotnet'),shared.source_reaper()])
     raw=shared.wire.json_bytes(request);(work/'prelaunch.json').write_bytes(raw)
     before=shared.snapshot_roots(roots);shared.save(work/'effects-before.json',before)
     env=shared.wire.child_environment(request['environment'],'linux')
@@ -381,6 +396,9 @@ def prepare_reference_fixture(output,props):
     for entry in manifest['nativeProofs']:
         shared.wire.require(shared.file_descriptor(entry['path'])==entry,'LINUX_BUILD_PROOF_CHANGED')
     shared.shutil.copytree(source,output/'fixture')
+    for relative,entry in manifest['files'].items():
+        actual=shared.file_descriptor(output/'fixture'/relative)
+        shared.wire.require(all(actual[k]==entry[k] for k in ('bytes','sha256')),'LINUX_STAGED_FIXTURE_CHANGED')
     shared.save(output/'reused-build-provenance.json',{'manifest':shared.file_descriptor(manifest_path),'files':manifest['files'],'sourceFiles':manifest['sourceFiles'],'nativeProofs':manifest['nativeProofs']})
     slot=output/'preparation/filesystem';slot.mkdir()
     for part in ('home','tmp','cache'):(slot/part).mkdir()

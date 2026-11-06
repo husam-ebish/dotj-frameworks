@@ -217,8 +217,15 @@ def result(request, raw, row, record, observation, effect, caller, network, cont
     return facts
 
 
+def selected_windows_tools():
+    return {"dotnet":DOTNET,"java":JDK/"bin/java.exe","javac":JDK/"bin/javac.exe"}
+
+
 def run_capture(contract, fixtures, output):
     """Execute all reference cohorts; never qualify unavailable boundary modes."""
+    source = B/"agents/task142-op02a-reference-fixture-v1/green-v4"
+    tools = wire.trusted_tool_closure("windows", selected_windows_tools())
+    wire.trusted_fixture_closure(source)
     runner = NativeRun(output)
     for part in ('home','tmp','cache','reference','boundary'):(output/part).mkdir()
     source = B/'agents/task142-op02a-reference-fixture-v1/green-v4'
@@ -231,6 +238,9 @@ def run_capture(contract, fixtures, output):
         wire.require((staged/'source'/name).read_bytes() == (HERE/'reference'/name).read_bytes(), 'REFERENCE_SOURCE_CHANGED')
         provenance.append(file_descriptor(staged/'source'/name))
     (output/'global.json').write_bytes(wire.json_bytes({'sdk':{'version':'10.0.401','rollForward':'disable'}}))
+    fixture_closure=wire.trusted_fixture_closure(staged,staged=True)
+    closure_inputs=wire.retain_verified_closure(output,tools,fixture_closure)
+    provenance=[dict(entry,path=str(staged/relative)) for relative,entry in fixture_closure['files'].items()]
     env = dict(runner.caller)
     props = ['-p:BaseIntermediateOutputPath='+str(staged/'obj')+'/',
              '-p:MSBuildProjectExtensionsPath='+str(staged/'obj')+'/', '-p:OutputPath='+str(staged/'bin')+'/',
@@ -246,9 +256,11 @@ def run_capture(contract, fixtures, output):
         roots={k:row/('effects-'+k) for k in ('source','priorSDK','siblings','staging')}
         for value in roots.values():value.mkdir();(value/'sentinel.txt').write_bytes(b'OP02C preservation sentinel\n')
         mode=next(v['modes'][0] for v in fixtures['cohortDefinitions'] if v['id']==definition['cohort'])
-        selected={'path':str(DOTNET),'sha256':wire.sha256(DOTNET.read_bytes())}
+        tools=wire.trusted_tool_closure('windows',selected_windows_tools())
+        wire.trusted_fixture_closure(staged,staged=True)
+        selected={'path':str(DOTNET),'sha256':tools['selectedTools']['dotnet']['sha256']}
         if mode=='invalid-start':selected={'path':str(row/'missing.exe'),'sha256':'0'*64}
-        request=prepare_request(contract,fixtures,definition['id'],'windows',definition['engine'],mode,selected,cwd,env,roots,provenance+[file_descriptor(DOTNET)])
+        request=prepare_request(contract,fixtures,definition['id'],'windows',definition['engine'],mode,selected,cwd,env,roots,provenance+closure_inputs+[tools['selectedTools']['dotnet']])
         raw=wire.json_bytes(request);request_path=row/'request.json';request_path.write_bytes(raw)
         before=snapshot_roots(roots);save(row/'effects-before.json',before)
         argv=[str(DOTNET),'run','--project',str(staged/'source/Reference.csproj'),'--no-build',*props,'--','--mode',mode,'--request',str(request_path),'--',*request['argv']]
@@ -331,10 +343,12 @@ def windows_jdk_mode(contract,fixtures,output,runner,definition,mode,classes,inp
     cwd=work/fixtures['corpus']['cwd'];cwd.mkdir(parents=True)
     roots={k:work/('effects-'+k) for k in ('source','priorSDK','siblings','staging')}
     for root in roots.values():root.mkdir();(root/'sentinel.txt').write_bytes(b'OP02C preservation sentinel\n')
+    tools=wire.trusted_tool_closure('windows',selected_windows_tools())
+    closure_inputs=wire.retain_verified_closure(output,tools)
     selected=JDK/'bin'/('javac.exe' if mode=='javac-unicode' else 'java.exe')
     request=prepare_request(contract,fixtures,definition['id'],'windows','jdk-probe',mode,
-                            {'path':str(selected),'sha256':wire.sha256(selected.read_bytes())},cwd,
-                            dict(runner.caller),roots,inputs+[file_descriptor(JDK/'bin/java.exe'),file_descriptor(JDK/'bin/javac.exe')])
+                            {'path':str(selected),'sha256':tools['selectedTools']['javac' if mode=='javac-unicode' else 'java']['sha256']},cwd,
+                            dict(runner.caller),roots,inputs+closure_inputs+[tools['selectedTools']['java'],tools['selectedTools']['javac']])
     raw=wire.json_bytes(request);request_path=work/'prelaunch.json';request_path.write_bytes(raw)
     before=snapshot_roots(roots);save(work/'effects-before.json',before)
     argv=[str(JDK/'bin/java.exe'),*java_flags(output/'tmp',output/'home'),'-cp',str(classes),'ProcessProbe',
@@ -378,6 +392,10 @@ def boundary_worker(config_path):
     config=wire.strict_json(Path(config_path).read_bytes());request=config['request']
     raw=base64.b64decode(config['requestBytesBase64'],validate=True)
     wire.require(wire.sha256(raw)==wire.sha256(wire.json_bytes(request)))
+    tools=wire.trusted_tool_closure('windows',selected_windows_tools())
+    fixture=Path(config['argv'][config['argv'].index('--project')+1]).parent.parent
+    wire.trusted_fixture_closure(fixture,staged=True)
+    wire.require(Path(config['argv'][0]).resolve()==Path(tools['selectedTools']['dotnet']['path']).resolve(),'BOUNDARY_SDK_NOT_PINNED')
     work=Path(config['work']);kernel=ctypes.WinDLL('kernel32',use_last_error=True)
     kernel.GetProcessTimes.argtypes=[ctypes.c_void_p]*5;kernel.GetProcessTimes.restype=ctypes.c_int
     kernel.WaitForSingleObject.argtypes=[ctypes.c_void_p,ctypes.c_uint];kernel.WaitForSingleObject.restype=ctypes.c_uint
@@ -454,9 +472,12 @@ def windows_sdk_mode(contract,fixtures,output,runner,definition,mode,network):
     cwd=work/fixtures['corpus']['cwd'];cwd.mkdir(parents=True)
     roots={k:work/('effects-'+k) for k in ('source','priorSDK','siblings','staging')}
     for root in roots.values():root.mkdir();(root/'sentinel.txt').write_bytes(b'OP02C preservation sentinel\n')
+    tools=wire.trusted_tool_closure('windows',selected_windows_tools())
+    fixture_closure=wire.trusted_fixture_closure(output/'fixture',staged=True)
+    closure_inputs=wire.retain_verified_closure(output,tools,fixture_closure)
     request=prepare_request(contract,fixtures,definition['id'],'windows','sdk-command',mode,
-                            {'path':str(DOTNET),'sha256':wire.sha256(DOTNET.read_bytes())},cwd,
-                            dict(runner.caller),roots,[file_descriptor(DOTNET),source_reaper()])
+                            {'path':str(DOTNET),'sha256':tools['selectedTools']['dotnet']['sha256']},cwd,
+                            dict(runner.caller),roots,closure_inputs+[tools['selectedTools']['dotnet'],source_reaper()]+[dict(v,path=str(output/'fixture'/k)) for k,v in fixture_closure['files'].items()])
     raw=wire.json_bytes(request);before=snapshot_roots(roots);save(work/'effects-before.json',before)
     if mode=='sdk-signal':
         import platform
