@@ -1,3 +1,7 @@
+# Historical planning-package handoff
+
+This file describes a 19 October 2026 planning package and its original copy/commit instructions. That package is already present in this repository. For the current implementation and review status, start with [README.md](README.md) and [REVIEW.md](REVIEW.md). Do not run the historical copy or commit steps below as a setup procedure for this checkout.
+
 # Full Stage-2 plan for .j Frameworks
 
 **Updated owner requirement:** all 66 plans now require exact upstream .NET public names, casing and concepts. See [the mandatory policy](planning/stage-2/08-DOTNET-API-COMPATIBILITY-POLICY.md). This version supersedes the earlier Java-style naming proposals. Merge/replace the included Stage-2 files in your repository; do not modify immutable source evidence.
